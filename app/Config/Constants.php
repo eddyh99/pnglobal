@@ -99,7 +99,7 @@ if ($_SERVER['HTTP_HOST'] == 'localhost') {
     $addurl = '/'; 
 }
 
-$protocol = isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] != 'off' ? 'https://'.$_SERVER['HTTP_HOST'] : 'http://'.$_SERVER['HTTP_HOST'];
+$protocol = isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] != 'off' ? 'https://'.$_SERVER['HTTP_HOST'] : 'http://'.$_SERVER['HTTP_HOST'].$addurl;
 defined('BASE_URL') || define('BASE_URL',$protocol);
 
 

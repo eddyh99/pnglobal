@@ -7,8 +7,8 @@
     <title><?= $title?></title>
 
     <!-- Favicons -->
-    <link href="<?= base_url()?>assets/img/logo-only.png" rel="icon">
-    <link href="<?= base_url()?>assets/img/logo-only.png" rel="apple-touch-icon">
+    <link href="<?= BASE_URL ?>assets/img/logo.png" rel="icon">
+    <link href="<?= BASE_URL ?>assets/img/logo.png" rel="apple-touch-icon">
 
     <!-- Google Font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -37,8 +37,8 @@
       <!-- Start of Navbar -->
       <nav id="navbar" class="navbar fixed-top navbar-expand-lg w-100">
         <div class="container">
-            <a class="navbar-brand d-flex align-items-center" href="#">
-                <img class="img-fluid" width="70" height="70" src="./assets/img/logo.png " alt="">
+            <a class="navbar-brand d-flex align-items-center" href="<?= BASE_URL ?>">
+                <img class="img-fluid" width="70" height="70" src="<?= BASE_URL ?>assets/img/logo.png " alt="">
                 <span class="d-none d-md-block ps-3 text-uppercase fs-6 text-white fw-bold" style="letter-spacing: 3px;">
                     Transforming visions <br>
                     <span style="color: #BFA573;">
@@ -57,7 +57,7 @@
                 <div class="offcanvas-header">
 
                     <a class="navbar-brand d-flex align-items-center" href="#">
-                        <img class="img-fluid" width="70" height="70" src="./assets/img/logo.png " alt="">
+                        <img class="img-fluid" width="70" height="70" src="<?= BASE_URL ?>assets/img/logo.png " alt="">
                         <span class="d-block d-lg-none ps-3 text-uppercase text-white fw-bold" style="letter-spacing: 3px; font-size: 10px;">
                             Transforming visions <br>
                             <span style="color: #BFA573;">
@@ -85,7 +85,7 @@
                             <div class="dropdown-menu p-0 start-0 end-0 top-100 mx-auto w-100 shadow-lg overflow-hidden" style="max-width:var(--bs-breakpoint-xxl); transform: none!important;">
                                 <div class="row row-cols-1 row-cols-lg-2 bg-black nav-seeservice">
                                     <div class="col position-relative">
-                                        <img class="w-100 object-fit-cover" src="./assets/img/img-1.webp" alt="">
+                                        <img class="w-100 object-fit-cover" src="<?= BASE_URL ?>assets/img/img-1.webp" alt="">
                                     </div>
                                     <div class="col position-relative">
                                         <a href="#" class="position-absolute top-5 end-10">
@@ -96,19 +96,29 @@
                                         </a>
                                         <ul class="position-relative top-10 pe-8">
                                             <li>
-                                                <a class="link-navbar-text text-decoration-none fs-2" href="#">Finance advice, assets and investment</a>
+                                                <a class="link-navbar-text text-decoration-none fs-2" href="<?php echo BASE_URL . "homepage/service?service=" . base64_encode("finance_advice_investment")?>">
+                                                    Finance advice, assets and investment
+                                                </a>
                                             </li>
                                             <li class="my-5">
-                                                <a class="link-navbar-text text-decoration-none fs-2" href="#">Strategic and tax optimization</a>
+                                                <a class="link-navbar-text text-decoration-none fs-2" href="<?php echo BASE_URL . "homepage/service?service=" . base64_encode("strategic_optimization")?>">
+                                                    Strategic and tax optimization
+                                                </a>
                                             </li>
                                             <li class="my-5">
-                                                <a class="link-navbar-text text-decoration-none fs-2" href="#">International expansion and management</a>
+                                                <a class="link-navbar-text text-decoration-none fs-2" href="<?php echo BASE_URL . "homepage/service?service=" . base64_encode("international_expansion_management")?>">
+                                                    International expansion and management
+                                                </a>
                                             </li>
                                             <li class="my-5">
-                                                <a class="link-navbar-text text-decoration-none fs-2" href="#">Legal, tax, and accounting consulting</a>
+                                                <a class="link-navbar-text text-decoration-none fs-2" href="<?php echo BASE_URL . "homepage/service?service=" . base64_encode("legal_tax_accounting")?>">
+                                                    Legal, tax, and accounting consulting
+                                                </a>
                                             </li>
                                             <li class="my-5">
-                                                <a class="link-navbar-text text-decoration-none fs-2" href="#">Professional entrepreneurial training</a>
+                                                <a class="link-navbar-text text-decoration-none fs-2" href="<?php echo BASE_URL . "homepage/service?service=" . base64_encode("professional_enterpreneurial_training")?>">
+                                                    Professional entrepreneurial training
+                                                </a>
                                             </li>
                                         </ul>
                                     </div>
