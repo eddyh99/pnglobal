@@ -65,7 +65,7 @@
             </div>
         </div>
 
-        <div class="position-relative w-100">
+        <div id="g-legal-advice" class="position-relative w-100">
             <img class="img-fluid img-plane-dollar position-absolute" style="top: -40px; left: 30px;" src="<?= BASE_URL ?>assets/img/img-17.webp" alt="img">
             <img class="img-fluid img-plane-dollar position-relative" style="opacity: 0;" src="<?= BASE_URL ?>assets/img/img-17.webp" alt="img">
         </div>
@@ -98,7 +98,7 @@
             </div>
         </div>
 
-        <div class="position-relative w-100">
+        <div id="g-legal-tax" class="position-relative w-100">
             <img class="img-fluid img-plane-dollar position-absolute" style="top: -40px; right: 30px;" src="<?= BASE_URL ?>assets/img/img-14.webp" alt="img">
             <img class="img-fluid img-plane-dollar position-relative" style="opacity: 0;" src="<?= BASE_URL ?>assets/img/img-14.webp" alt="img">
         </div>
@@ -127,7 +127,7 @@
                 </div>
             </div>
         </div>
-        <div class="position-relative w-100">
+        <div id="g-legal-accounting" class="position-relative w-100">
             <img class="img-fluid img-plane-dollar position-absolute" style="top: -40px; left: 30px;" src="<?= BASE_URL ?>assets/img/img-19.webp" alt="img">
             <img class="img-fluid img-plane-dollar position-relative" style="opacity: 0;" src="<?= BASE_URL ?>assets/img/img-19.webp" alt="img">
         </div>

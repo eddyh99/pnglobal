@@ -27,6 +27,36 @@
     --bg-contactform-pnglobal: #504F4D;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
+input {
+    border: none;
+    padding: 0px 24px;
+}
+
+input:active, input:focus, textarea:active, textarea:focus {
+    outline: none;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+    appearance: textfield;
+  -moz-appearance: textfield;
+}
+
+textarea {
+    border: none;
+}
+
+
 .f-notoserif {
     font-family: "Noto Serif", serif;
 }
@@ -46,6 +76,20 @@
 .f-lato {
   font-family: "Lato", sans-serif;
 }
+
+.line {
+    transform: translateY(115px);
+    -webkit-transform: translateY(115px);
+    -moz-transform: translateY(115px);
+    -ms-transform: translateY(115px);
+    -o-transform: translateY(115px);
+    transition: transform .5s;
+    -webkit-transition: transform .5s;
+    -moz-transition: transform .5s;
+    -ms-transition: transform .5s;
+    -o-transition: transform .5s;
+}
+
 /*----------------------------------------------------------
 1. General End
 ------------------------------------------------------------*/ 
@@ -444,7 +488,7 @@
 }
 
 .bg-contact {
-    background-color: #D3D3D3;
+    background-color: #000000;
     height: 100%;
 }
 
@@ -461,7 +505,7 @@ input:-moz-placeholder {
     width: 400px;
     border-radius: 8px;
     box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.08);
-    background-color: rgba(104, 133, 92, 0.50);
+    background-color: #957D4C;
     color: #FFFFFF;
 }
 
@@ -476,7 +520,7 @@ input:-moz-placeholder {
     width: 500px;
     border-radius: 8px;
     box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.08);
-    background-color: rgba(104, 133, 92, 0.50);
+    background-color: #957D4C;
     color: #FFFFFF;
 }
 .inp-email2 {
@@ -484,11 +528,11 @@ input:-moz-placeholder {
     width: 500px;
     border-radius: 8px;
     box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.08);
-    background-color: rgba(104, 133, 92, 0.50);
+    background-color: #957D4C;
     color: #FFFFFF;
 }
 .add-more{
-    color: rgba(45, 148, 9, 1);
+    color: #957D4C;
     cursor: pointer;
 }
 
@@ -501,7 +545,7 @@ input:-moz-placeholder {
     width: 460px;
     border-radius: 8px;
     box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.08);
-    background-color: rgba(104, 133, 92, 0.50);
+    background-color: #957D4C;
     color: #FFFFFF;
 }
 .inp-phone2 {
@@ -509,7 +553,7 @@ input:-moz-placeholder {
     width: 460px;
     border-radius: 8px;
     box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.08);
-    background-color: rgba(104, 133, 92, 0.50);
+    background-color: #957D4C;
     color: #FFFFFF;
 }
 
@@ -518,7 +562,7 @@ input:-moz-placeholder {
     width: 500px;
     border-radius: 8px;
     box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.08);
-    background-color: rgba(104, 133, 92, 0.50);
+    background-color: #957D4C;
     color: #FFFFFF;
 }
 
@@ -529,7 +573,7 @@ input:-moz-placeholder {
     padding: 20px 20px;
     border-radius: 8px;
     box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.08);
-    background-color: rgba(104, 133, 92, 0.50);
+    background-color: #957D4C;
     color: #FFFFFF;
 }
 
@@ -547,12 +591,12 @@ textarea:-moz-placeholder {
     width: 100%;
     padding: 20px 20px;
     border-radius: 8px;
-    background-color: rgba(104, 133, 92, 0.50);
+    background-color: #957D4C;
 }
 
 .select2-results__option--highlighted {
     color: white !important;
-    background-color: darkgreen !important;
+    background-color: rgb(100, 90, 0) !important;
 }
 
 .select2-container--default .select2-results__option[aria-selected=true] {
@@ -569,7 +613,7 @@ textarea:-moz-placeholder {
 }
 
 .select2-container--default .select2-selection--single {
-    background-color: rgba(104, 133, 92, 0.50) !important;
+    background-color: #957D4C !important;
     border: 1px solid #aaa !important;
     border-radius: 4px !important;
     height: 70px !important;
@@ -586,7 +630,7 @@ textarea:-moz-placeholder {
 }
 
 .select2-container--open .select2-dropdown--above {
-    background-color: #B3C2AD !important;
+    background-color: #afa67c  !important;
 }
 
 .select2-container--default .select2-results__option .select2-results__option {
@@ -594,7 +638,7 @@ textarea:-moz-placeholder {
 }
 
 .select2-container--default .select2-results__group {
-    color: green;
+    color: rgb(128, 94, 0);
 }
 
 .select2-container--default .select2-selection--single .select2-selection__arrow {

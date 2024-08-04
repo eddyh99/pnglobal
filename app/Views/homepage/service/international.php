@@ -43,7 +43,7 @@
             </div>
         </div>
 
-        <div class="position-relative w-100">
+        <div id="g-international-expansionimg" class="position-relative w-100">
             <img class="img-fluid img-plane-dollar position-absolute" style="top: -40px; right: 30px;" src="<?= BASE_URL ?>assets/img/img-14.webp" alt="img">
             <img class="img-fluid img-plane-dollar position-relative" style="opacity: 0;" src="<?= BASE_URL ?>assets/img/img-14.webp" alt="img">
         </div>
@@ -69,7 +69,7 @@
             </div>
         </div>
 
-        <div class="position-relative w-100">
+        <div id="g-international-visaimg" class="position-relative w-100">
             <img class="img-fluid img-plane-dollar position-absolute" style="top: -40px; left: 30px;" src="<?= BASE_URL ?>assets/img/img-15.webp" alt="img">
             <img class="img-fluid img-plane-dollar position-relative" style="opacity: 0;" src="<?= BASE_URL ?>assets/img/img-15.webp" alt="img">
         </div>
@@ -95,7 +95,7 @@
             </div>
         </div>
 
-        <div class="position-relative w-100">
+        <div id="g-international-offshoreimg" class="position-relative w-100">
             <img class="img-fluid img-plane-dollar position-absolute" style="top: -40px; right: 30px;" src="<?= BASE_URL ?>assets/img/img-16.webp" alt="img">
             <img class="img-fluid img-plane-dollar position-relative" style="opacity: 0;" src="<?= BASE_URL ?>assets/img/img-16.webp" alt="img">
         </div>

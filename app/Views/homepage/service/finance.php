@@ -7,12 +7,11 @@
         </video>
         <div style="z-index:2" class="d-flex justify-content-start align-items-end mb-10 text-center text-light w-100">
             <div class="bg-banner-finance">
-                <h3 class="f-lato">
+                <h3 class="f-lato" >
                     Financial advice, assets <br>
                     and investment
                 </h3>
             </div>
-
         </div>
     </div>
 </div>
@@ -24,7 +23,7 @@
         <div class="container">
             <div class="row row-cols-1">
                 <div class="col">
-                    <h1 class="f-notoserif fw-bold text-center">Our consulting excellence will ensure <br> your success</h1>
+                    <h1 id="finance-ourconsulting" style="clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);" class="f-notoserif fw-bold text-center">Our consulting excellence will ensure <br> your success</h1>
                 </div>
             </div>
         </div>
@@ -36,14 +35,14 @@
         <div class="finance-win">
             <div class="container">
                 <div class="row row-cols-1 row-cols-md-2 ">
-                    <div class="col order-2 order-md-1 d-flex align-items-center">
+                    <div id="g-financeconsultingtext" style="clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);" class="col order-2 order-md-1 d-flex align-items-center">
                         <p class="f-notoserif">
                             At PN Global, we pride ourselves on offering an unparalleled level of expertise in our financial consulting and investment strategies. Our team of experts, highly qualified, is dedicated to recommend customized and innovative investment strategies to better meet the specific needs of each customer. 
                             We can create winning strategies by advising you on the best investments to realize independently, with our in-depth knowledge of global financial markets and ability to analyze and predict economic trends.
                         </p>
                     </div>
-                    <div class="col order-1 order-md-2 d-flex justify-content-end align-items-end">
-                        <img class="img-fluid" src="<?= BASE_URL ?>assets/img/img-7.webp" alt="img">
+                    <div id="g-financeconsultingimg" class="col order-1 order-md-2 d-flex justify-content-end align-items-end">
+                        <img  class="img-fluid" src="<?= BASE_URL ?>assets/img/img-7.webp" alt="img">
                     </div>
                 </div>
             </div>
@@ -76,7 +75,7 @@
             <div class="container">
                 <div class="row p-4">
                     <div class="d-none d-lg-block col-3"></div>
-                    <div class="order-2 order-lg-1 col-12 col-lg-5 box-content">
+                    <div id="finance-advice-text" class="order-2 order-lg-1 col-12 col-lg-5 box-content">
                         <h3 class="box-content-title f-odor">
                             customized Financial advice 
                         </h3>
@@ -87,7 +86,7 @@
                             PN Global, using its team of experts, will implement innovative strategies to provide efficient and customized solutions to its customers. The ability to adapt quickly to market changes and full knowledge of international markets and the world of cryptocurrencies allows you to always recommend the best winning investment opportunities.
                         </p>
                     </div>
-                    <div class="col-12 order-1 order-lg-2 col-lg-4 d-flex justify-content-end pb-3 pb-lg-0">
+                    <div id="finance-advice-img" class="col-12 order-1 order-lg-2 col-lg-4 d-flex justify-content-end pb-3 pb-lg-0">
                         <img class="w-100 object-fit-cover" src="<?= BASE_URL ?>assets/img/img-9.webp" alt="img">
                     </div>
                 </div>
@@ -98,7 +97,7 @@
             <div class="box-service me-3 me-md-10 mb-7">
             <div class="container">
                 <div class="row p-4">
-                    <div class="order-2 order-lg-1 col-12 col-lg-5 box-content gray-trans">
+                    <div id="finance-winning-text" class="order-2 order-lg-1 col-12 col-lg-5 box-content gray-trans">
                         <h3 class="box-content-title f-odor" style="color: #756147;">
                             Strategies of Winning Investment
                         </h3>
@@ -110,7 +109,7 @@
                             Trust us to create a balanced and profitable portfolio.
                         </p>
                     </div>
-                    <div class="order-1 order-lg-2 col-12 col-lg-4 d-flex justify-content-end pb-3 pb-lg-0">
+                    <div id="finance-winning-img" class="order-1 order-lg-2 col-12 col-lg-4 d-flex justify-content-end pb-3 pb-lg-0">
                         <img class="img-fluid w-100 object-fit-cover" src="<?= BASE_URL ?>assets/img/img-10.webp" alt="img">
                     </div>
                     <div class="d-none d-lg-block order-3 col-lg-3"></div>

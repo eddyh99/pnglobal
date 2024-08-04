@@ -7,10 +7,10 @@
         </video>
         <div style="z-index:2" class="d-flex flex-column justify-content-center align-items-center text-center text-light w-100">
             <div>
-                <img src="<?= BASE_URL ?>assets/img/logo.png" alt="">
+                <img id="g-img-banner-homepage" style="clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);" src="<?= BASE_URL ?>assets/img/logo.png" alt="">
             </div>
             <div>
-                <p class="logo-text-banner text-uppercase"  style="letter-spacing: 8px;">
+                <p id="g-text-banner-homepage" class="logo-text-banner text-uppercase"  style="letter-spacing: 8px; clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);">
                     Transforming visions <br>
                     <span  style="color: #BFA573;">
                         into success

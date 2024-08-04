@@ -104,3 +104,16 @@ defined('BASE_URL') || define('BASE_URL',$protocol);
 
 
 define("NAMETITLE", 'PN Global');
+define("FEEMEETING", '$50');
+
+// For Email
+define("HOST_MAIL", 'mail.tracklessbank.com');
+define("USERNAME_MAIL", 'no-reply@tracklessbank.com');
+define("PASS_MAIL", 'DLgV4o?L1B]m');
+define("EMAIL_ONE", 'aripramana574@gmail.com');
+define("EMAIL_TWO", 'ari.pramana@undiksha.ac.id');
+
+// For Payment Gateway
+define("PUBLIC_KEY", 'pk_test_51Ph1A4RpjQaOZ7NCQcbJtlXTgcbQm5ulhsm1YgkkfS5LHvHKVZ79p1qP0lOJaxz1XsDMpALi1aUeoxocxD6Can5900DCqNrIHS');
+define("SECRET_KEY", 'sk_test_51Ph1A4RpjQaOZ7NCuVCzdyyy342tNGnlrfnDyox5YirDorblTYDPP7dXK9K4fGqJazDRwyReh9HnLf5MWS7hOUsA00GtKiFgQQ');
+

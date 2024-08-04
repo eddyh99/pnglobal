@@ -20,7 +20,7 @@
 <!-- Start of Service -->
 <div class="finance-service my-10">
     <!-- Service 1 -->
-    <div class="box-service tan pb-7 me-3 me-md-10" style="border-radius: 4px;">
+    <div id="g-strategicaid" class="box-service tan pb-7 me-3 me-md-10" style="border-radius: 4px;">
         <div class="container">
             <div class="row row-cols-1 row-cols-lg-2 ">
                 <div class="col d-flex flex-column align-items-center justify-content-center">
@@ -40,7 +40,7 @@
         </div>
     </div>
 
-    <div class="position-relative w-100">
+    <div id="g-strategicaidimg" class="position-relative w-100">
         <img class="img-fluid img-plane-dollar position-absolute" style="top: -40px; right: 30px;" src="<?= BASE_URL ?>assets/img/img-11.webp" alt="img">
         <img class="img-fluid img-plane-dollar position-relative" style="opacity: 0;" src="<?= BASE_URL ?>assets/img/img-11.webp" alt="img">
     </div>
@@ -54,13 +54,13 @@
                         <img class="img-fluid w-100" src="<?= BASE_URL ?>assets/img/img-12.webp" alt="img">
                     </div>
                     <div class="col d-flex flex-column align-items-start">
-                        <h3 class="box-content-title ps-4 pt-4 f-odor text-uppercase" style="color: #BFA573;">
+                        <h3 id="g-strategic-corporate-title" style="clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);" class="box-content-title ps-4 pt-4 f-odor text-uppercase" style="color: #BFA573;">
                             Strategies for Corporate Tax Exemption
                         </h3>
-                        <h5 class="box-content-subtitle ps-4 pt-4 f-notoserif" style="color: #000000;">
+                        <h5 id="g-strategic-corporate-sub" style="clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);" class="box-content-subtitle ps-4 pt-4 f-notoserif" style="color: #000000;">
                             Reduce the tax burden and boost profits
                         </h5>
-                        <p class="box-content-text f-inter p-4 text-black">
+                        <p id="g-strategic-corporate-text" style="clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);" class="box-content-text f-inter p-4 text-black">
                             Our tax exemption strategies, which are in full compliance with the laws and taxation of your company's residence country, can help you reduce your tax burden, optimize your resources, and therefore increase profitability.
                         </p>
                     </div>
@@ -75,13 +75,13 @@
                 <div class="row row-cols-1 row-cols-lg-2 ">
                     
                     <div class="col d-flex flex-column align-items-start">
-                        <h3 class="box-content-title ps-4 pt-0 f-odor text-uppercase" style="color: #E8D9BD;">
+                        <h3 id="g-strategic-planing-title" style="clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);" class="box-content-title ps-4 pt-0 f-odor text-uppercase" style="color: #E8D9BD;">
                             international tax planning
                         </h3>
-                        <h5 class="box-content-subtitle ps-4 pt-4 f-notoserif text-white">
+                        <h5 id="g-strategic-planing-sub" style="clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);" class="box-content-subtitle ps-4 pt-4 f-notoserif text-white">
                             Tailored fiscal strategies for global expansion.
                         </h5>
-                        <p class="box-content-text f-inter p-4 text-white">
+                        <p id="g-strategic-planing-text" style="clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);" class="box-content-text f-inter p-4 text-white">
                             Our in-depth advice on international tax planning assists companies in optimizing their global tax structure. We explore the opportunities offered by international tax treaties and various jurisdictions to maximize tax benefits by providing full support for the transfer of tax residence of natural persons and/or legal persons.
                         </p>
                     </div>

@@ -3,13 +3,13 @@
         <div class="container">
             <div class="row">
                 <div class="col-12 col-md-9 left">
-                    <h1 class="f-notoserif">
+                    <h1 id="g-getintouch" style="clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);" class="f-notoserif">
                         Get in touch with <span translate='no'> PN Global </span>
                     </h1>
-                    <h3 class="f-notoserif">
+                    <h3 id="g-subgetintouch" style="clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);" class="f-notoserif">
                         We are Here to Assist You in Every Step of Your Growth and Development Journey
                     </h3>
-                    <p class="f-notoserif">
+                    <p id="g-textgetintouch" style="clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);" class="f-notoserif">
                         If you would like more information about our services or would like to discuss your specific needs with one of our experts, please contact us. Our team of financial consultants, lawyers and accountants is at your disposal to offer you personalized support and timely responses. We are ready to assist you with the utmost professionalism and competence.
                     </p>
                     <a href="<?= BASE_URL ?>homepage/contactus" class="btn btn-contactform my-4">Contact Form</a>
@@ -54,7 +54,8 @@
     <!-- GSAP -->
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/CustomEase.min.js"></script>
+    <script src="https://unpkg.com/split-type"></script>
+    <!-- <script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/16327/SplitText3.min.js"></script> -->
     
     <!-- Telephone Code -->
     <script src="<?= base_url()?>assets/libs/intl-tel-input-master/build/js/intlTelInput.js"></script>
@@ -75,6 +76,12 @@
     <?php
         if (@isset($extra)) {
             echo view(@$extra);
+        }
+    ?>
+
+    <?php
+        if (@isset($extragsap)) {
+            echo view(@$extragsap);
         }
     ?>
 

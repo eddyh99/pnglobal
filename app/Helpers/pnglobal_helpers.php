@@ -24,7 +24,8 @@ function sendmail($subject, $mdata){
         );
 
         $mail->setFrom(USERNAME_MAIL, NAMETITLE . ' Notification');
-        $mail->addReplyTo('aripramana574@gmail.com');
+        $mail->addReplyTo(EMAIL_ONE);
+        // $mail->addReplyTo('aripramana574@gmail.com');
         $mail->isHTML(true);
 
         $mail->ClearAllRecipients();
@@ -67,8 +68,10 @@ function sendmail($subject, $mdata){
             $mail->ClearAllRecipients();
         
             $mail->Subject = $subject;
-            $mail->AddAddress('ari.pramana@undiksha.ac.id');
-            $mail->AddAddress('aripramana574@gmail.com');
+            $mail->AddAddress(EMAIL_ONE);
+            $mail->AddAddress(EMAIL_TWO);
+            // $mail->AddAddress('ari.pramana@undiksha.ac.id');
+            // $mail->AddAddress('aripramana574@gmail.com');
             
             $template = ownertemplate_client($mdata);
 

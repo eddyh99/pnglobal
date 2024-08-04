@@ -21,13 +21,13 @@
 <main  style="overflow-x: hidden;">
     <!-- Start of Short Desc -->
     <section id="desc-training" class="bg-black content py-5">
-        <img class="img-fluid d-none d-lg-block position-absolute" style="right: 3rem;" src="<?= BASE_URL ?>assets/img/img-22.webp" alt="img">
+        <img id="g-training-formal-img" class="img-fluid d-none d-lg-block position-absolute" style="right: 3rem;" src="<?= BASE_URL ?>assets/img/img-22.webp" alt="img">
         <div class="container">
             <div class="row row-cols-1">
                 <div class="col-12 col-lg-9">
-                    <h1 class="f-notoserif fw-bold content-title">Formazione Avanzata per Imprenditori Globali</h1>
-                    <h2 class="f-notoserif fw-semibold text-white">Il Vostro Partner per la Crescita e l'Eccellenza Imprenditoriale</h2>
-                    <p class="mt-4 content-text f-notoserif text-white">
+                    <h1 id="g-training-formal-title" style="clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);"  class="f-notoserif fw-bold content-title">Formazione Avanzata per Imprenditori Globali</h1>
+                    <h2 id="g-training-formal-sub" style="clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);"  class="f-notoserif fw-semibold text-white">Il Vostro Partner per la Crescita e l'Eccellenza Imprenditoriale</h2>
+                    <p id="g-training-formal-text" style="clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);"  class="mt-4 content-text f-notoserif text-white">
                         <span translate='no'> PN Global </span> si impegna a garantire una formazione avanzata e continua del proprio team, sviluppando competenze specializzate e aggiornate in tutti i suoi servizi. Se siete interessati a un futuro da imprenditori, i nostri programmi di formazione vi offrono l'opportunità di diventare imprenditori di successo e partner di P.N. Global. Sviluppate le competenze necessarie per navigare con successo nei mercati globali e massimizzare i vostri rendimenti con strategie innovative.
                     </p>
                 </div>
@@ -42,11 +42,11 @@
             <div class="container">
                 <div class="row row-cols-1 row-cols-md-2 ">
                     <div class="col order-2 order-md-1 position-relative d-flex align-items-center">
-                        <h2 class="box-content-title f-notoserif text-uppercase pb-2 pb-lg-4" style="color: #5A5753;border-bottom: 2px solid #6A625B;">
+                        <h2 class="box-content-title f-notoserif text-uppercase pb-10 pb-lg-4" style="color: #5A5753;border-bottom: 2px solid #6A625B;">
                             Formazione del <br>
                             Team P.N. Global
                         </h2>
-                        <video style="z-index:1;object-fit: cover; width: 100%; bottom: -200px; left: -200px;" class="position-absolute" autoplay="" preload="" muted="" loop="" playsinline="">
+                        <video style="z-index:1;object-fit: cover; width: 100%; bottom: -100px; left: -50px;" class="position-absolute" autoplay="" preload="" muted="" loop="" playsinline="">
                             <!-- adjust object-position to tweak cropping on mobile -->
                             <source src="<?= BASE_URL ?>assets/vid/vid-training-opportunity.webm" type="video/webm">
                         </video>
@@ -80,9 +80,9 @@
         <section>
         <div class="container my-5">
             <div class="row">
-                <div class="col-7"></div>
-                <div class="col-5">
-                    <h2 class="box-content-title f-notoserif text-uppercase pb-2 pb-lg-4" style="color: #5A5753;border-bottom: 2px solid #6A625B;">
+                <div class="d-none d-lg-block col-7"></div>
+                <div class="col-12 col-lg-5">
+                    <h2 class="box-content-title f-notoserif text-uppercase pt-5 pb-2 pb-lg-4" style="color: #5A5753;border-bottom: 2px solid #6A625B;">
                         Formazione per Clienti e Aspiranti Imprenditori
                     </h2>
                 </div>
@@ -94,7 +94,7 @@
     <!-- Start of Oppurtunity -->
         <section class="training-oportunity">
         <div class="container">
-            <div class="row">
+            <div class="row row-cols-1 row-cols-lg-2">
                 <div class="col">
                     <h1 class="f-notoserif">
                         Opportunità di Crescita

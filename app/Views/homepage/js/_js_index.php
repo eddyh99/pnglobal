@@ -13,27 +13,60 @@
     });
 
 
-    gsap.registerPlugin(ScrollTrigger);
+    const getintouch = new SplitType("#g-getintouch");
+    const subgetintouch = new SplitType("#g-subgetintouch");
+    const textgetintouch = new SplitType("#g-textgetintouch")
+    gsap.to("#g-getintouch .line", {
+        y: 0,
+        stagger: 0.05,
+        scrollTrigger: {
+            trigger: "#g-getintouch",
+            start: "top 90%",
+            end: "top 60%",
+            scrub: true
+        }
+    })
 
-    gsap.utils.toArray('.box-service').forEach((element, i) => {
-        console.log(i);
-        const tltrigger = gsap.timeline({
-            scrollTrigger: {
-                trigger: element,
-                // markers: true,
-                start: "top 80%",
-                end: "top 30%",
-                scrub: true,
-            }
-        })
-        
-        tltrigger.fromTo(element, {
-            x: `${(i % 2 === 0) ? "-100%" : "100%"}`
-        }, {
-            x: 0
-        })
-    });;
+    gsap.to("#g-textgetintouch .line", {
+        y: 0,
+        stagger: 0.05,
+        scrollTrigger: {
+            trigger: "#g-textgetintouch",
+            start: "top 90%",
+            end: "top 60%",
+            scrub: true
+        }
+    })
+    
+    gsap.to("#g-subgetintouch .line", {
+        y: 0,
+        stagger: 0.05,
+        scrollTrigger: {
+            trigger: "#g-subgetintouch",
+            start: "top 90%",
+            end: "top 60%",
+            scrub: true
+        }
+    })
+    
+    // const textgetintouch = new SplitText("#g-textgetintouch", {
+    //     type: "lines",
+    // });
 
+    // gsap.from(textgetintouch.lines, {
+    //     duration: 0.5,
+    //     opacity: 0,
+    //     rotationX: -120, 
+    //     force3D:true, 
+    //     transformOrigin:"top center -50", 
+    //     stagger: 1,
+    //     scrollTrigger: {
+    //         trigger: "#g-textgetintouch",
+    //         start: "top 80%",
+    //         end: "top 50%",
+    //         scrub: true,
+    //     }
+    // });
 
 
 
