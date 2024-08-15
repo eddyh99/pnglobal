@@ -1,0 +1,177 @@
+/*----------------------------------------------------------
+    File Name  : _mixin.scss
+    Desc       : File ini merupakan file untuk membuat mixin / gabungan bebebrapa property
+                 nanti akan digunakan secara berulang di file lain
+                 Mixin sama seperti function di bahasa pemrogranan
+
+    Cara Pakai : Panggil directory ini dengan @use '../abstracts/mixins' as mix
+                 di file yang akan menggunakan mixins
+                 @include mix.sm {...property}
+                 
+
+------------------------------------------------------------*/ 
+
+@use './variables' as var;
+
+/**
+ * TABLE OF CONTENTS
+ *
+ * 1. Layouting
+ * 2. Breakpoints
+ * 3. Animation
+ *
+ */
+ 
+
+/*----------------------------------------------------------
+1. Layouting Start
+------------------------------------------------------------*/ 
+
+@mixin flex-tengah {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+@mixin flex-tengah-vertical {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+@mixin video-banner-center {
+    width: 100%;
+    min-height: 100vh !important;
+    position: absolute;
+    z-index: 1;
+    object-fit: cover;
+    object-position: 50% 50%;
+}
+
+/*----------------------------------------------------------
+1. Layouting End
+------------------------------------------------------------*/ 
+
+/*----------------------------------------------------------
+2. Breakpoints Start
+------------------------------------------------------------*/ 
+
+
+/*----------------------------------------------------------
+//  Untuk Media Query Min Width untuk mengubah suatu
+// ukuran tertentu dan seterusnya sampai ukuran terbesar
+------------------------------------------------------------*/ 
+
+// 375
+@mixin xs {
+    @media (min-width: #{var.$screen-375}) {
+        @content;
+    }
+}
+
+// 425
+@mixin xss {
+    @media (min-width: #{var.$screen-425}) {
+        @content;
+    }
+}
+
+// 576
+@mixin sm {
+    @media (min-width: #{var.$screen-567}) {
+        @content;
+    }
+}
+
+// 768
+@mixin md {
+    @media (min-width: #{var.$screen-768}) {
+        @content;
+    }
+}
+
+// 992
+@mixin lg {
+    @media (min-width: #{var.$screen-992}) {
+        @content;
+    }
+}
+
+
+// 1024
+@mixin xl {
+    @media (min-width: #{var.$screen-1024}) {
+        @content;
+    }
+}
+
+// 1200
+@mixin xl2 {
+    @media (min-width: #{var.$screen-1200}) {
+        @content;
+    }
+}
+
+// 1280
+@mixin xl3 {
+    @media (min-width: #{var.$screen-1280}) {
+        @content;
+    }
+}
+
+// 1400
+@mixin xl4 {
+    @media (min-width: #{var.$screen-1400}) {
+        @content;
+    }
+}
+
+// 1500
+@mixin xl5 {
+    @media (min-width: #{var.$screen-1500}) {
+        @content;
+    }
+}
+
+/*----------------------------------------------------------
+2. Breakpoints End
+------------------------------------------------------------*/ 
+
+
+/*----------------------------------------------------------
+3. Animation Start
+------------------------------------------------------------*/ 
+@mixin animation-reveal {
+    display: inline-block;
+    transform: translateY(115px);
+    -webkit-transform: translateY(115px);
+    -moz-transform: translateY(115px);
+    -ms-transform: translateY(115px);
+    -o-transform: translateY(115px);
+    transition: transform .5s;
+    -webkit-transition: transform .5s;
+    -moz-transition: transform .5s;
+    -ms-transition: transform .5s;
+    -o-transition: transform .5s;
+}
+
+
+@mixin animation-reveal-to-right {
+    display: inline-block;
+    transform: translateX(-115px);
+    -webkit-transform: translateX(-115px);
+    -moz-transform: translateX(-115px);
+    -ms-transform: translateX(-115px);
+    -o-transform: translateX(-115px);
+    transition: transform .5s;
+    -webkit-transition: transform .5s;
+    -moz-transition: transform .5s;
+    -ms-transition: transform .5s;
+    -o-transition: transform .5s;
+    opacity: 0;
+}
+/*----------------------------------------------------------
+3. Animation End
+------------------------------------------------------------*/ 

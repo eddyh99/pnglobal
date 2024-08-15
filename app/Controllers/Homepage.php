@@ -17,9 +17,6 @@ class Homepage extends BaseController
 
     public function index()
     {
-        
-        // echo '<pre>'.print_r(base64_encode("HELLO WORLD"),true).'</pre>';
-        // die;
 
         $mdata = [
             'title'     => 'Homepage - ' . NAMETITLE,

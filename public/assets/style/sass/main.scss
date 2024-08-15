@@ -1,0 +1,42 @@
+/*----------------------------------------------------------
+    File Name  : main.scss
+    Desc       : File ini merupakan file utama yang akan dicompile
+                 berisikan beberapa @use/@import secara modularisasi   
+
+------------------------------------------------------------*/ 
+
+@charset "UTF-8";
+
+/**
+ * TABLE OF CONTENTS
+ *
+ * 1. Configuration And Helpers
+ * 2. Vendors
+ * 3. Base Configuration
+ * 4. Layout
+ * 5. Components
+ *
+ */
+
+// 1. Configuration And Helpers
+@forward 'abstracts';
+
+// 2. Vendors
+@forward 'vendors'; 
+
+
+// 3. Base
+@forward 'base';
+
+
+// 4. Layout
+@forward 'layout';
+
+
+// 5. Components
+@forward 'components';
+
+
+// 6. Pages
+// @forward 'pages';
+

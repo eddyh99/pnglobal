@@ -1,0 +1,75 @@
+/*----------------------------------------------------------
+    File Name  : _variables.scss
+    Desc       : File ini merupakan file untuk membuat variable CSS 
+                 yang nanti akan digunakan secara berulang-ulang
+
+------------------------------------------------------------*/ 
+
+/**
+ * TABLE OF CONTENTS
+ *
+ * 1. Font Family
+ * 2. Color Text
+ * 3. Color Background
+ * 4. Media Query
+ *
+ */
+
+
+/*----------------------------------------------------------
+1. Font Family Start
+------------------------------------------------------------*/ 
+$f-inter: 'Inter', sans-serif !default;
+$f-odor: 'Odor Mean Chey', serif !default;
+$f-lato: 'Lato', sans-serif !default;
+/*----------------------------------------------------------
+1. Font Family End
+------------------------------------------------------------*/ 
+
+
+
+
+/*----------------------------------------------------------
+2. Color text Start
+------------------------------------------------------------*/ 
+$text-white-pnglobal: #FFFFFF !default;
+$text-primary-pnglobal: #BFA573 !default;
+$text-black-pnglobal: #1E1E1E !default;
+/*----------------------------------------------------------
+2. Color Text End
+------------------------------------------------------------*/ 
+
+
+/*----------------------------------------------------------
+3. Color background Start
+------------------------------------------------------------*/ 
+$bg-contactform-pnglobal: #504F4D;
+$bg-black-pnglobal: #1E1E1E;
+$bg-white-pnglobal: #FFFFFF;
+$bg-primary-pnglobal: #BFA573;
+$bg-primary-100-pnglobal: #CCB78F;
+
+/*----------------------------------------------------------
+3. Color background End
+------------------------------------------------------------*/ 
+
+
+
+/*----------------------------------------------------------
+4. Breakpoints Start
+------------------------------------------------------------*/ 
+$screen-375: 375px;
+$screen-425: 425px;
+$screen-567: 567px;
+$screen-768: 768px;
+$screen-992: 992px;
+$screen-1024: 1024px;
+$screen-1200: 1200px;
+$screen-1280: 1280px;
+$screen-1400: 1400px;
+$screen-1500: 1500px;
+
+/*----------------------------------------------------------
+4. Breakpoints End
+------------------------------------------------------------*/ 
+

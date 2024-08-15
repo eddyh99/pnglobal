@@ -99,12 +99,13 @@ if ($_SERVER['HTTP_HOST'] == 'localhost') {
     $addurl = '/'; 
 }
 
-$protocol = isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] != 'off' ? 'https://'.$_SERVER['HTTP_HOST'] : 'http://'.$_SERVER['HTTP_HOST'].$addurl;
+$protocol = isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] != 'off' ? 'https://'.$_SERVER['HTTP_HOST'].$addurl : 'http://'.$_SERVER['HTTP_HOST'].$addurl;
 defined('BASE_URL') || define('BASE_URL',$protocol);
 
 
 define("NAMETITLE", 'PN Global');
 define("FEEMEETING", '$50');
+define("IDGTAG", 'G-Y7SBM0618C');
 
 // For Email
 define("HOST_MAIL", 'mail.tracklessbank.com');

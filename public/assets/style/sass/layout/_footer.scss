@@ -1,0 +1,107 @@
+/*----------------------------------------------------------
+    File Name  : _footer.scss
+    Desc       : File ini merupakan styling untuk Footer Homepage
+
+------------------------------------------------------------*/ 
+
+/**
+ * TABLE OF CONTENTS
+ *
+ * 1. Contactform
+ * 2. Footer
+ *
+ */
+
+
+ 
+@use '../abstracts/variables' as var;
+@use '../abstracts/mixins' as mix;
+
+
+/*----------------------------------------------------------
+1. ContactForm Start
+------------------------------------------------------------*/ 
+.bg-contactform {
+    background-color: var.$bg-contactform-pnglobal;
+    padding: 3rem 0px;
+    color: var.$text-white-pnglobal;
+
+
+    #g-getintouch {
+        color: var.$text-primary-pnglobal;
+    }
+
+    #g-subgetintouch {
+        font-weight: 300;
+        margin-top: 0.5rem;
+    }
+
+    #g-textgetintouch {
+        margin: 3rem 0;
+        line-height: 30px;
+    }
+
+    .logo-contactform {
+        @include mix.flex-tengah-vertical;
+
+        .logo-text-contactform  {
+            margin-top: 1rem;
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            font-weight: 700;
+        }
+    }
+
+}   
+
+/*----------------------------------------------------------
+1. ContactForm End
+------------------------------------------------------------*/ 
+
+
+.bg-footer {
+    background-image: url('../../img/bg-footer.webp');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding: 3rem 0rem 10rem 0rem ;
+
+    .logo-footer {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+
+        .logo-text-footer {
+            margin-top: 1rem;
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            font-weight: 700;
+            color: #FFFFFF
+        }
+    }
+    
+    .border-footer {
+        height: 50%;
+        width: 2px;
+        background-color: #FFFFFF;
+    }
+
+    .text-link {
+        .list {
+            a {
+                display: block;
+                color: var.$text-white-pnglobal;
+                margin: 2rem 0;
+                text-decoration: underline;
+
+                &:hover {
+                    font-weight: 700;
+                }
+            }
+        }
+    }
+}

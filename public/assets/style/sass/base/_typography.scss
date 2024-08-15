@@ -1,0 +1,100 @@
+/*----------------------------------------------------------
+    File Name  : typography.scss
+    Desc       : File ini digunakan untuk mengatur Typography
+                 suatu text
+
+------------------------------------------------------------*/ 
+
+/**
+ * TABLE OF CONTENTS
+ *
+ * 1. Tags Typography
+ * 2. Class Font
+ *
+ */
+
+@use '../abstracts/variables' as var;
+@use '../abstracts/mixins' as mix;
+
+
+/*----------------------------------------------------------
+1. Tags Typography Start 
+------------------------------------------------------------*/ 
+h1, h2, h3, h4, h5, h6 {
+    padding: 0px;
+    margin: 0px;
+}
+
+h1 {
+    font-size: 30px ;
+    @include mix.md{
+        font-size: 40px;
+    }
+}
+
+h2 {
+    font-size: 24px;
+    @include mix.md{
+        font-size: 30px;
+    }
+}
+
+h3 {
+    font-size: 18px;
+    @include mix.md{
+        font-size: 22px;
+    }
+}
+
+h4 {
+    font-size: 16px;
+    @include mix.md{
+        font-size: 20px;
+    }
+}
+
+h5 {
+    font-size: 16px;
+    line-height: 160%;
+    @include mix.md{
+        font-size: 18px;
+    }
+}
+
+h6 {
+    font-size: 14px;
+    @include mix.md{
+        font-size: 16px;
+    }
+}
+
+p {
+    font-size: 15px;
+    @include mix.md{
+        font-size: 16px;
+    }
+}
+
+/*----------------------------------------------------------
+1. Tags Typography End
+------------------------------------------------------------*/ 
+
+/*----------------------------------------------------------
+2. Class Font Start
+------------------------------------------------------------*/ 
+
+.f-inter {
+    font-family: var.$f-inter;
+}
+  
+.f-odor {
+    font-family: var.$f-odor;
+}
+
+.f-lato {
+    font-family: var.$f-lato;
+}
+
+/*----------------------------------------------------------
+2. Class Font End
+------------------------------------------------------------*/ 

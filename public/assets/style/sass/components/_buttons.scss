@@ -1,0 +1,97 @@
+/*----------------------------------------------------------
+    File Name  : _navbar.scss
+    Desc       : File ini merupakan styling untuk 
+                 Component Button yang akan dipakai berulang
+
+------------------------------------------------------------*/ 
+
+/**
+ * TABLE OF CONTENTS
+ *
+ * 1. Buttons Landing Page
+ *
+ */
+
+ @use '../abstracts/variables' as var;
+
+
+ /*----------------------------------------------------------
+1. Buttons Landing page Start 
+------------------------------------------------------------*/ 
+.btn-navbar-contactform {
+    display: block;
+    background-color: var.$bg-primary-pnglobal;
+    color: var.$text-black-pnglobal;
+    padding: 0.3rem 0.5rem !important;
+    border-radius: 5px;
+    font-size: 13px;
+    font-weight: 500;
+    
+    &:hover {
+        background-color: var.$bg-primary-pnglobal;
+        color: var.$text-black-pnglobal;
+        box-shadow: 0px 4px 4px 0px #E8D9BD;
+        font-weight: 700;
+    }
+}
+
+.btn-navbar-about {
+    display: block;
+    background-color: var.$bg-black-pnglobal;
+    color: var.$text-primary-pnglobal;
+    padding: 0.3rem 0.5rem !important;
+    border-radius: 5px;
+    font-size: 13px;
+    font-weight: 500;
+    
+    &:hover {
+        background-color: var.$bg-black-pnglobal;
+        color: var.$text-primary-pnglobal;
+        box-shadow: 0px 4px 4px 0px #E8D9BD;
+        font-weight: 700;
+    }
+}
+
+.btn-flip {
+    background-color: var.$bg-primary-pnglobal;
+    padding: 0.5rem;
+    border-radius: 999999px;
+    text-transform: uppercase;
+    color: #000000;
+    font-weight: 600;
+}
+
+.btn-zoom {
+    background-color: var.$bg-primary-pnglobal;
+    padding: 0.5rem;
+    border-radius: 999999px;
+    text-transform: uppercase;
+    color: var.$text-white-pnglobal;
+    font-weight: 400;
+    text-align: center;
+}
+
+.btn-footer-contactform {
+    background-color: var.$bg-primary-pnglobal;
+    color: var.$text-black-pnglobal;
+    padding: 0.8rem 1rem !important;
+    border-radius: 10px;
+    font-size: 13px;
+    font-weight: 500;
+    
+    &:hover {
+        background-color: var.$bg-primary-pnglobal;
+        color: var.$text-black-pnglobal;
+        box-shadow: 0px 4px 4px 0px #E8D9BD;
+        font-weight: 700;
+    }
+}
+
+
+ /*----------------------------------------------------------
+1. Buttons Landing page End 
+------------------------------------------------------------*/ 
+
+
+
+

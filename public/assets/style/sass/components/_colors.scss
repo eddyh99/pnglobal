@@ -1,0 +1,69 @@
+/*----------------------------------------------------------
+    File Name  : _colors.scss
+    Desc       : File ini merupakan styling untuk 
+                 Color yang dapat dipanggil secara berulang
+
+------------------------------------------------------------*/ 
+
+/**
+ * TABLE OF CONTENTS
+ *
+ * 1. Text Color
+ * 2. Background Color
+ *
+ */
+
+ @use '../abstracts/variables' as var;
+
+
+ /*----------------------------------------------------------
+1. Text Color Start 
+------------------------------------------------------------*/ 
+.text-primary-pnglobal {
+    color: var.$text-primary-pnglobal;
+}
+
+// .text-primary-cayman {
+//     color: var.$text-primary-cayman;
+// }
+
+// .text-primary-light-cayman {
+//     color: var.$text-primary-light-cayman;
+// }
+
+// .text-secondary-cayman {
+//     color: var.$text-secondary-cayman;
+// }
+
+// .text-color-link {
+//     color: var.$text-color-link;
+// }
+
+// .text-navbar-cayman {
+//     color: var.$text-navbar-cayman;
+// }
+
+// .text-color-link-grad {
+//     background: -webkit-linear-gradient(rgba(54, 170, 44, 1), rgba(18, 97, 35, 1));
+//     background-clip: text;
+//     -webkit-background-clip: text;
+//     -webkit-text-fill-color: transparent;
+// }
+
+/*----------------------------------------------------------
+1. Text Color End
+------------------------------------------------------------*/ 
+
+ /*----------------------------------------------------------
+2. Background Color Start
+------------------------------------------------------------*/ 
+// .bg-primary-cayman {
+//     background-color: var.$bg-primary-cayman;
+// }
+
+// .bg-secondary-cayman {
+//     background-color: var.$bg-secondary-cayman;
+// }
+/*----------------------------------------------------------
+2. Background Color End
+------------------------------------------------------------*/ 

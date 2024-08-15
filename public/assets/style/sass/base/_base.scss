@@ -1,0 +1,72 @@
+/*----------------------------------------------------------
+    File Name  : _base.scss
+    Desc       : File ini digunakan untuk konfigurasi CSS secara
+                 Global
+
+------------------------------------------------------------*/ 
+
+@use '../abstracts/variables' as var;
+
+
+html {
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var.$f-inter;
+}
+
+
+a {
+  color: #000;
+  text-decoration: none;
+}
+
+input {
+  &:focus, &:active{
+    outline: none;
+  }
+
+  &::-webkit-outer-spin-button, &::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+}
+
+input[type=number] {
+  appearance: textfield;
+  -moz-appearance: textfield;
+}
+
+
+ul {
+  display: block;
+  list-style-type: disc;
+  margin-block-start: 0em;
+  margin-block-end: 0em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  padding-inline-start: 0px;
+} 
+
+ul li {
+  list-style: none;
+}
+
+.content {
+  padding: 2rem 0; 
+}
+
+
+
+
+
+
