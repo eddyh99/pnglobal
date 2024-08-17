@@ -34,9 +34,9 @@
                 <h2 class="f-odor text-primary-pnglobal">Efficiency and Professionalism at the Highest Levels</h2>
                 <h5 class="f-odor text-primary-pnglobal mt-4">A Team of Experts at Your Service</h5>
                 <p class="f-inter">
-                    PN Global stands out for its efficiency and professionalism in providing top-level consultations. <br>
+                    <span translate="no"> PN Global </span> stands out for its efficiency and professionalism in providing top-level consultations. <br>
                     Thanks to a team of highly qualified experts, we offer personalized and innovative solutions to meet the specific needs of each client: business consulting, fund reallocation consulting, business expansion or relocation abroad consulting, consulting for opening business and personal bank accounts, and transferring tax residence. Our proactive and results-oriented approach ensures that our clients achieve their goals quickly and safely. 
-                    Rely on PN Global for impeccable management and sustainable growth.
+                    Rely on <span translate='no'> PN Global </span> for impeccable management and sustainable growth.
                 </p>
             </div>
             <div class="col-12 col-lg-5 order-0 order-lg-1 bg-team-expert">
@@ -60,7 +60,10 @@
             <div class="wrapper-consulting">
                 <img src="<?= BASE_URL ?>assets/img/img-5.webp" alt="img-2">
                 <div class="d-flex justify-content-center w-100">
-                    <a href="" class="link-consulting f-odor">
+                    <a 
+                        href="<?php echo BASE_URL . "homepage/service?service=" . base64_encode("finance_advice_investment")?>" 
+                        class="link-consulting f-odor"
+                    >
                         Financial advice, assets <br>
                         and investment
                     </a>
@@ -75,7 +78,10 @@
         <div class="col-10 col-lg-8 gold">
             <div class="wrapper-consulting">
                 <div class="d-flex justify-content-center w-100 order-1 order-lg-0">
-                    <a href="" class="link-consulting textblack f-odor">
+                    <a 
+                        href="<?php echo BASE_URL . "homepage/service?service=" . base64_encode("strategic_optimization")?>" 
+                        class="link-consulting textblack f-odor"
+                    >
                         Strategic and Tax <br>
                         Optimization
                     </a>
@@ -91,7 +97,10 @@
             <div class="wrapper-consulting">
                 <img src="<?= BASE_URL ?>assets/img/img-2.webp" alt="img-2">
                 <div class="d-flex justify-content-center w-100">
-                    <a href="" class="link-consulting f-odor">
+                    <a 
+                        href="<?php echo BASE_URL . "homepage/service?service=" . base64_encode("international_expansion_management")?>" 
+                        class="link-consulting f-odor"
+                    >
                         International Expansion <br>
                         and Management
                     </a>
@@ -105,7 +114,10 @@
         <div class="col-10 col-lg-8 gold">
             <div class="wrapper-consulting">
                 <div class="d-flex justify-content-center w-100 order-1 order-lg-0">
-                    <a href="" class="link-consulting textblack f-odor">
+                    <a 
+                        href="<?php echo BASE_URL . "homepage/service?service=" . base64_encode("legal_tax_accounting")?>" 
+                        class="link-consulting textblack f-odor"
+                    >
                         Legal and Tax <br>
                         Advise
                     </a>
@@ -152,7 +164,7 @@
                     </h3>
                     <p id="g-why-content-reliability" class="f-inter content-why">
                         <span class="line-animation">
-                            <span translate="no"> PN Global </span> is committed to maintaining the highest standards of integrity and transparency in all its activities to repay the trust placed by its clients. You can count on PN Global for precise financial consulting and constant support.
+                            <span translate="no"> PN Global </span> is committed to maintaining the highest standards of integrity and transparency in all its activities to repay the trust placed by its clients. You can count on <span translate='no'> PN Global </span> for precise financial consulting and constant support.
                         </span>
                     </p>
                 </div>
@@ -309,21 +321,36 @@
                 <div class="col my-4">
                     <div class="zoom-box zoom-1">
                         <div class="with-blur-backdrop">
-                            <a href="#" class="btn-zoom f-odor">Comprehensive Entrepreneurial Training Programs for Success</a>
+                            <a 
+                                href="<?php echo BASE_URL . "homepage/service?service=" . base64_encode("professional_enterpreneurial_training")?>" 
+                                class="btn-zoom f-odor"
+                            >
+                                Comprehensive Entrepreneurial Training Programs for Success
+                            </a>
                         </div>
                     </div>
                 </div>
                 <div class="col my-4">
                     <div class="zoom-box zoom-2">
                         <div class="with-blur-backdrop">
-                            <a href="#" class="btn-zoom f-odor">Advanced Training on Blockchain, Mining and Bitcoin</a>
+                            <a 
+                                href="#" 
+                                class="btn-zoom f-odor"
+                            >
+                                Advanced Training on Blockchain, Mining and Bitcoin
+                            </a>
                         </div>
                     </div>
                 </div>
                 <div class="col my-4">
                     <div class="zoom-box zoom-3">
                         <div class="with-blur-backdrop">
-                            <a href="#" class="btn-zoom f-odor">Bitcoin Trading Guidance for Buy/Sell Decisions ‘’SATOSHI SIGNALS’’</a>
+                            <a 
+                                href="#" 
+                                class="btn-zoom f-odor"
+                            >
+                                Bitcoin Trading Guidance for Buy/Sell Decisions ‘’SATOSHI SIGNALS’’
+                            </a>
                         </div>
                     </div>
                 </div>

@@ -37,7 +37,7 @@
     <!-- Start of Navbar -->
     <nav class="navbar navbar-expand-lg">
         <div class="container">
-            <a class="navbar-logo" href="#">
+            <a class="navbar-logo" href="<?= BASE_URL?>">
                 <img class="logo" src="<?= BASE_URL?>assets/img/logo.png" alt="logo pnglobal">
                 <span class="logo-text">
                     TRANSFORMING VISIONS <br>

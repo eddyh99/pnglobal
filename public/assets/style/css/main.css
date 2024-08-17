@@ -12630,7 +12630,7 @@ h3 {
 }
 @media (min-width: 768px) {
   h3 {
-    font-size: 22px;
+    font-size: 25px;
   }
 }
 
@@ -12659,6 +12659,15 @@ h6 {
 @media (min-width: 768px) {
   h6 {
     font-size: 16px;
+  }
+}
+
+title {
+  font-size: 23px;
+}
+@media (min-width: 768px) {
+  title {
+    font-size: 25px;
   }
 }
 
@@ -12707,7 +12716,7 @@ p {
 1. Navbar Homepage Start
 ------------------------------------------------------------*/
 .navbar {
-  background-color: rgba(30, 30, 30, 0.19);
+  background-color: rgba(30, 30, 30, 0.4);
   position: absolute;
   top: 0;
   z-index: 999;
@@ -13230,9 +13239,34 @@ p {
 .service-homepage .bg-complementary-service .flip-box {
   background-color: transparent;
   width: 100%;
-  height: 280px;
+  height: 310px;
   perspective: 1000px;
   border-radius: 20px;
+}
+@media (min-width: 425px) {
+  .service-homepage .bg-complementary-service .flip-box {
+    height: 300px;
+  }
+}
+@media (min-width: 768px) {
+  .service-homepage .bg-complementary-service .flip-box {
+    height: 410px;
+  }
+}
+@media (min-width: 992px) {
+  .service-homepage .bg-complementary-service .flip-box {
+    height: 400px;
+  }
+}
+@media (min-width: 1200px) {
+  .service-homepage .bg-complementary-service .flip-box {
+    height: 340px;
+  }
+}
+@media (min-width: 1280px) {
+  .service-homepage .bg-complementary-service .flip-box {
+    height: 320px;
+  }
 }
 .service-homepage .bg-complementary-service .flip-box .flip-box-inner {
   position: relative;
@@ -13265,6 +13299,7 @@ p {
   background-repeat: no-repeat;
   padding-bottom: 2rem;
   background-size: cover;
+  background-position: center center;
 }
 .service-homepage .bg-complementary-service .flip-box .flip-box-inner .flip-box-front.flip-1 {
   background-image: url("../../img/flip-1.webp");
@@ -13288,7 +13323,22 @@ p {
   background-color: #BFA573;
   color: #1E1E1E;
   transform: rotateY(180deg);
-  padding: 2rem;
+  padding: 1rem;
+}
+@media (min-width: 375px) {
+  .service-homepage .bg-complementary-service .flip-box .flip-box-inner .flip-box-back {
+    padding: 2rem;
+  }
+}
+@media (min-width: 992px) {
+  .service-homepage .bg-complementary-service .flip-box .flip-box-inner .flip-box-back {
+    padding: 1.5rem;
+  }
+}
+@media (min-width: 1200px) {
+  .service-homepage .bg-complementary-service .flip-box .flip-box-inner .flip-box-back {
+    padding: 2rem;
+  }
 }
 .service-homepage .bg-complementary-service .flip-box .flip-box-inner .flip-box-back h4 {
   text-align: start;
@@ -13324,9 +13374,24 @@ p {
   border-radius: 20px;
   height: 100%;
   transition: ease 0.5s;
-  padding: 0rem 2rem 2rem 2rem;
+  padding: 0rem 0.2rem 2rem 0.2rem;
+}
+@media (min-width: 567px) {
+  .service-homepage .bg-hot-deal .zoom-box .with-blur-backdrop {
+    padding: 0rem 4.2rem 2rem 4.2rem;
+  }
 }
 @media (min-width: 768px) {
+  .service-homepage .bg-hot-deal .zoom-box .with-blur-backdrop {
+    padding: 0rem 8rem 2rem 8rem;
+  }
+}
+@media (min-width: 992px) {
+  .service-homepage .bg-hot-deal .zoom-box .with-blur-backdrop {
+    padding: 0rem 2rem 2rem 2rem;
+  }
+}
+@media (min-width: 1200px) {
   .service-homepage .bg-hot-deal .zoom-box .with-blur-backdrop {
     padding: 0rem 6rem 2rem 6rem;
   }
@@ -13343,6 +13408,529 @@ p {
 
 /*----------------------------------------------------------
 5. Service End
+------------------------------------------------------------*/
+/*----------------------------------------------------------
+    File Name  : _service.scss
+    Desc       : File ini merupakan styling untuk seluruh service
+
+------------------------------------------------------------*/
+/**
+ * TABLE OF CONTENTS
+ *
+ * 1. Banner All Service
+ * 2. General Service
+ * 3. Finance Advice
+ * 4. Strategic Tax
+ *
+ */
+/*----------------------------------------------------------
+1. Banner All Service Start
+------------------------------------------------------------*/
+.banner-service {
+  position: relative;
+  overflow: hidden;
+}
+.banner-service .wrapper-service {
+  display: flex;
+  min-height: 100vh;
+}
+.banner-service .wrapper-service video {
+  width: 100%;
+  min-height: 100vh !important;
+  position: absolute;
+  z-index: 1;
+  object-fit: cover;
+  object-position: 50% 50%;
+}
+.banner-service .wrapper-service .banner-text-video {
+  width: 100%;
+  z-index: 2;
+  display: flex;
+  justify-content: start;
+  align-items: end;
+  margin-bottom: 4rem;
+}
+.banner-service .wrapper-service .banner-text-video .bg-text-video {
+  border-radius: 0px 5px 5px 0px;
+  -webkit-border-radius: 0px 5px 5px 0px;
+  -moz-border-radius: 0px 5px 5px 0px;
+  -ms-border-radius: 0px 5px 5px 0px;
+  -o-border-radius: 0px 5px 5px 0px;
+  padding: 1rem 3rem;
+  font-weight: 700;
+}
+.banner-service .wrapper-service .banner-text-video .bg-text-video.finance {
+  background: rgba(56, 55, 52, 0.82);
+  color: #BFA573;
+}
+.banner-service .wrapper-service .banner-text-video .bg-text-video.strategic {
+  background: rgba(106, 98, 91, 0.86);
+  color: #E8D9BD;
+}
+
+/*----------------------------------------------------------
+1. Banner All Service End
+------------------------------------------------------------*/
+/*----------------------------------------------------------
+2. General Service Start
+------------------------------------------------------------*/
+.service {
+  overflow-x: hidden;
+  margin-bottom: 4rem;
+}
+.service .box-service {
+  border-radius: 10px;
+  padding: 2rem;
+}
+@media (min-width: 768px) {
+  .service .box-service {
+    padding: 4rem;
+  }
+}
+.service .box-service.right {
+  margin-left: 5rem;
+}
+@media (min-width: 1200px) {
+  .service .box-service.right {
+    margin-left: 6rem;
+  }
+}
+@media (min-width: 1400px) {
+  .service .box-service.right {
+    margin-left: 15rem;
+  }
+}
+.service .box-service.left {
+  margin-right: 5rem;
+}
+@media (min-width: 1200px) {
+  .service .box-service.left {
+    margin-right: 6rem;
+  }
+}
+@media (min-width: 1400px) {
+  .service .box-service.left {
+    margin-right: 15rem;
+  }
+}
+.service .box-service.black {
+  background-color: #1E1E1E;
+}
+.service .box-service.black .box-content {
+  background-color: #585858;
+  border-radius: 10px;
+  padding: 1.5rem;
+}
+@media (min-width: 1200px) {
+  .service .box-service.black .box-content {
+    padding: 3rem;
+  }
+}
+.service .box-service.black .box-content .box-content-title {
+  color: #BFA573;
+  text-transform: uppercase;
+}
+.service .box-service.black .box-content .box-content-subtitle {
+  color: #FFFFFF;
+  font-weight: 300;
+  margin-top: 1rem;
+}
+.service .box-service.black .box-content .box-content-text {
+  color: #FFFFFF;
+  margin-top: 1rem;
+  line-height: 30px;
+  text-align: justify;
+  padding-right: 0;
+}
+@media (min-width: 768px) {
+  .service .box-service.black .box-content .box-content-text {
+    padding-right: 4rem;
+  }
+}
+.service .box-service.gold {
+  background-color: #BFA573;
+  margin-top: 5rem;
+}
+.service .box-service.gold .box-content {
+  background-color: rgba(217, 217, 217, 0.31);
+  border-radius: 10px;
+  padding: 1.5rem;
+}
+@media (min-width: 1200px) {
+  .service .box-service.gold .box-content {
+    padding: 3rem;
+  }
+}
+.service .box-service.gold .box-content .box-content-title {
+  color: #756147;
+}
+.service .box-service.gold .box-content .box-content-subtitle {
+  margin-top: 1rem;
+  color: #6A625B;
+}
+.service .box-service.gold .box-content .box-content-text {
+  color: #6A625B;
+  margin-top: 1rem;
+  line-height: 30px;
+  text-align: justify;
+  padding-right: 0;
+}
+@media (min-width: 768px) {
+  .service .box-service.gold .box-content .box-content-text {
+    padding-right: 4rem;
+  }
+}
+.service .box-service.brownis {
+  background-color: #B2A291;
+  margin-top: 5rem;
+  border-radius: 0px 10px 10px 0px;
+}
+.service .box-service.brownis .wrapping-title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  align-items: start;
+}
+@media (min-width: 992px) {
+  .service .box-service.brownis .wrapping-title {
+    align-items: center;
+  }
+}
+.service .box-service.brownis .wrapping-title .box-content-title {
+  color: #FFFFFF;
+  text-transform: uppercase;
+}
+.service .box-service.brownis .wrapping-title .box-content-title hr {
+  margin-top: 2rem;
+  width: 70% !important;
+  height: 3px;
+  color: #6A625B;
+  background-color: #6A625B;
+  opacity: 1;
+}
+.service .box-service.brownis .box-content .box-content-subtitle {
+  padding: 0rem 0rem;
+}
+@media (min-width: 1200px) {
+  .service .box-service.brownis .box-content .box-content-subtitle {
+    padding: 0rem 3rem;
+  }
+}
+.service .box-service.brownis .box-content .box-content-text {
+  line-height: 25px;
+  padding: 1rem 0rem 0rem 0rem;
+}
+@media (min-width: 1200px) {
+  .service .box-service.brownis .box-content .box-content-text {
+    padding: 2rem 3rem 0rem 3rem;
+  }
+}
+.service .box-service.brown-strategic {
+  background-color: #AB8D6D;
+  margin-top: 5rem;
+  border-radius: 0px 10px 10px 0px;
+}
+.service .box-service.brown-strategic .wrapping-title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  align-items: start;
+}
+@media (min-width: 992px) {
+  .service .box-service.brown-strategic .wrapping-title {
+    align-items: center;
+  }
+}
+.service .box-service.brown-strategic .wrapping-title .box-content-title {
+  color: #FFFFFF;
+  text-transform: uppercase;
+}
+.service .box-service.brown-strategic .wrapping-title .box-content-title hr {
+  margin-top: 2rem;
+  width: 80% !important;
+  height: 3px;
+  color: #BFA573;
+  background-color: #BFA573;
+  opacity: 1;
+}
+.service .box-service.brown-strategic .box-content .box-content-subtitle {
+  padding: 0rem 0rem;
+}
+@media (min-width: 1200px) {
+  .service .box-service.brown-strategic .box-content .box-content-subtitle {
+    padding: 0rem 3rem;
+  }
+}
+.service .box-service.brown-strategic .box-content .box-content-text {
+  line-height: 25px;
+  padding: 1rem 0rem 0rem 0rem;
+}
+@media (min-width: 1200px) {
+  .service .box-service.brown-strategic .box-content .box-content-text {
+    padding: 2rem 3rem 0rem 3rem;
+  }
+}
+.service .box-service .wrapping-img {
+  display: flex;
+  justify-content: end;
+  padding-left: 2rem;
+}
+.service .box-service .wrapping-img img {
+  width: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.wrapper-box-service .wrapper-img-absolute {
+  position: relative;
+  width: 100%;
+}
+.wrapper-box-service .wrapper-img-absolute .img-plane-dollar:nth-child(1) {
+  max-width: 100%;
+  height: auto;
+  position: absolute;
+  top: -2rem;
+  right: 2rem;
+}
+@media (min-width: 992px) {
+  .wrapper-box-service .wrapper-img-absolute .img-plane-dollar:nth-child(1) {
+    top: -4rem;
+  }
+}
+.wrapper-box-service .wrapper-img-absolute .img-plane-dollar:nth-child(2) {
+  max-width: 100%;
+  height: auto;
+  position: relative;
+  opacity: 0;
+}
+
+/*----------------------------------------------------------
+2. General Service End
+------------------------------------------------------------*/
+/*----------------------------------------------------------
+3. Finance Advice Start
+------------------------------------------------------------*/
+#finance-ourconsulting {
+  overflow: hidden;
+}
+#finance-ourconsulting .line-animation {
+  display: inline-block;
+  transform: translateY(115px);
+  -webkit-transform: translateY(115px);
+  -moz-transform: translateY(115px);
+  -ms-transform: translateY(115px);
+  -o-transform: translateY(115px);
+  transition: transform 0.5s;
+  -webkit-transition: transform 0.5s;
+  -moz-transition: transform 0.5s;
+  -ms-transition: transform 0.5s;
+  -o-transition: transform 0.5s;
+}
+
+.win-finance {
+  overflow: hidden !important;
+  background-color: #D3C19E;
+}
+.win-finance #g-financeconsultingtext {
+  display: flex;
+  justify-content: start;
+  align-items: start;
+  margin-top: 3rem;
+}
+.win-finance #g-financeconsultingtext p {
+  line-height: 35px;
+}
+.win-finance #g-financeconsultingimg {
+  display: flex;
+  justify-content: end;
+  align-items: end;
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+}
+.win-finance #g-financeconsultingimg.line-animation {
+  display: inline-block;
+  transform: translateY(300px);
+  -webkit-transform: translateY(300px);
+  -moz-transform: translateY(300px);
+  -ms-transform: translateY(300px);
+  -o-transform: translateY(300px);
+  transition: transform 0.5s;
+  -webkit-transition: transform 0.5s;
+  -moz-transition: transform 0.5s;
+  -ms-transition: transform 0.5s;
+  -o-transition: transform 0.5s;
+}
+
+.finance-service-one {
+  position: relative;
+  background-color: transparent;
+  margin: 0;
+  padding: 2rem 0rem 0rem 0rem;
+}
+.finance-service-one .row {
+  padding: 0;
+  margin: 0;
+}
+.finance-service-one .row .wraping-img {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+@media (min-width: 992px) {
+  .finance-service-one .row .wraping-img {
+    justify-content: end;
+  }
+}
+.finance-service-one .row .wraping-img .img-finance-service-one {
+  height: auto;
+  overflow-x: hidden;
+  position: relative;
+  border-radius: 20px;
+  max-width: 100%;
+  top: 0rem;
+}
+@media (min-width: 992px) {
+  .finance-service-one .row .wraping-img .img-finance-service-one {
+    top: -3rem;
+  }
+}
+@media (min-width: 1200px) {
+  .finance-service-one .row .wraping-img .img-finance-service-one {
+    top: -6rem;
+  }
+}
+@media (min-width: 1280px) {
+  .finance-service-one .row .wraping-img .img-finance-service-one {
+    top: -8rem;
+  }
+}
+.finance-service-one .row .wrap-text-service-one {
+  margin: 2rem 0;
+}
+@media (min-width: 992px) {
+  .finance-service-one .row .wrap-text-service-one {
+    margin: 0 1rem;
+  }
+}
+.finance-service-one .row .wrap-text-service-one .text-service-one {
+  line-height: 35px;
+}
+
+/*----------------------------------------------------------
+3. Finance Advice End
+------------------------------------------------------------*/
+/*----------------------------------------------------------
+4. Strategic Tax Start
+------------------------------------------------------------*/
+.strategic-for-corproat {
+  background-color: #E6E0D4;
+}
+.strategic-for-corproat .wrapper-img {
+  display: flex;
+  justify-content: start;
+  align-items: start;
+}
+.strategic-for-corproat .wrapper-box-content .box-content-title {
+  text-transform: uppercase;
+  color: #BFA573;
+  padding: 2rem 0rem 0rem 0rem;
+  text-align: center;
+}
+@media (min-width: 768px) {
+  .strategic-for-corproat .wrapper-box-content .box-content-title {
+    text-align: start;
+    padding: 2rem 3rem 0rem 3rem;
+  }
+}
+@media (min-width: 992px) {
+  .strategic-for-corproat .wrapper-box-content .box-content-title {
+    text-align: start;
+    padding: 0rem 3rem 0rem 3rem;
+  }
+}
+.strategic-for-corproat .wrapper-box-content .box-content-subtitle {
+  padding: 1rem 0rem 0rem 0rem;
+  text-align: center;
+}
+@media (min-width: 768px) {
+  .strategic-for-corproat .wrapper-box-content .box-content-subtitle {
+    text-align: start;
+    padding: 1rem 3rem 0rem 3rem;
+  }
+}
+.strategic-for-corproat .wrapper-box-content .box-content-text {
+  line-height: 30px;
+  text-align: center;
+  padding: 2rem 0rem 0rem 0rem;
+}
+@media (min-width: 768px) {
+  .strategic-for-corproat .wrapper-box-content .box-content-text {
+    text-align: start;
+    padding: 3rem 3rem 0rem 3rem;
+  }
+}
+
+.international-tax-planning {
+  background-color: #8F8379;
+  margin: 3rem 0rem;
+}
+.international-tax-planning .wrapper-box-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+@media (min-width: 768px) {
+  .international-tax-planning .wrapper-box-content {
+    align-items: start;
+  }
+}
+.international-tax-planning .wrapper-box-content .box-content-title {
+  color: #E8D9BD;
+  text-transform: uppercase;
+  padding: 2rem 0rem 0rem 0rem;
+  text-align: center;
+}
+@media (min-width: 768px) {
+  .international-tax-planning .wrapper-box-content .box-content-title {
+    text-align: start;
+    padding: 2rem 3rem 0rem 3rem;
+  }
+}
+@media (min-width: 992px) {
+  .international-tax-planning .wrapper-box-content .box-content-title {
+    text-align: start;
+    padding: 0rem 3rem 0rem 3rem;
+  }
+}
+.international-tax-planning .wrapper-box-content .box-content-subtitle {
+  color: #FFFFFF;
+  padding: 1rem 0rem 0rem 0rem;
+  text-align: center;
+}
+@media (min-width: 768px) {
+  .international-tax-planning .wrapper-box-content .box-content-subtitle {
+    text-align: start;
+    padding: 1rem 3rem 0rem 3rem;
+  }
+}
+.international-tax-planning .wrapper-box-content .box-content-text {
+  line-height: 30px;
+  color: #FFFFFF;
+  text-align: center;
+  padding: 2rem 0rem 0rem 0rem;
+}
+@media (min-width: 768px) {
+  .international-tax-planning .wrapper-box-content .box-content-text {
+    text-align: start;
+    padding: 3rem 3rem 0rem 3rem;
+  }
+}
+
+/*----------------------------------------------------------
+4. Strategic Tax End
 ------------------------------------------------------------*/
 /*----------------------------------------------------------
     File Name  : _navbar.scss

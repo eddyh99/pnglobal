@@ -347,10 +347,32 @@
         .flip-box {
             background-color: transparent;
             width: 100%;
-            height: 280px;
+            height: 310px;
             perspective: 1000px; 
             border-radius: 20px;
+            
+            @include mix.xss {
+                height: 300px;
 
+            }
+
+            @include mix.md{
+                height: 410px;
+            }
+
+            @include mix.lg{
+                height: 400px;
+            }
+
+            @include mix.xl2{
+                height: 340px;
+            }
+
+            @include mix.xl3{
+                height: 320px;
+            }
+
+            
             .flip-box-inner {
                 position: relative;
                 width: 100%;
@@ -383,8 +405,9 @@
                     background-repeat: no-repeat;  
                     padding-bottom: 2rem;                  
                     background-size: cover;
+                    background-position: center center;
 
-                    
+
                     &.flip-1 {
                         background-image: url('../../img/flip-1.webp');
                     }
@@ -415,7 +438,19 @@
                     background-color: var.$bg-primary-pnglobal;
                     color: var.$text-black-pnglobal;
                     transform: rotateY(180deg);
-                    padding: 2rem;
+                    padding: 1rem;
+
+                    @include mix.xs {
+                        padding: 2rem;
+                    }
+                    
+                    @include mix.lg {
+                        padding: 1.5rem;
+                    }
+
+                    @include mix.xl2 {
+                        padding: 2rem;
+                    }
 
                     h4 {
                         text-align: start;
@@ -460,9 +495,21 @@
                 border-radius: 20px;    
                 height: 100%;
                 transition: ease 0.5s;
-                padding: 0rem 2rem 2rem 2rem;
+                padding: 0rem 0.2rem 2rem 0.2rem;
                 
+                @include mix.sm {
+                    padding: 0rem 4.2rem 2rem 4.2rem;
+                }
+
                 @include mix.md {
+                    padding: 0rem 8rem 2rem 8rem;
+                }
+
+                @include mix.lg {
+                    padding: 0rem 2rem 2rem 2rem;
+                }
+
+                @include mix.xl2 {
                     padding: 0rem 6rem 2rem 6rem;
                 }
 

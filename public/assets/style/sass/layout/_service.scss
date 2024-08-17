@@ -1,0 +1,545 @@
+/*----------------------------------------------------------
+    File Name  : _service.scss
+    Desc       : File ini merupakan styling untuk seluruh service
+
+------------------------------------------------------------*/ 
+
+/**
+ * TABLE OF CONTENTS
+ *
+ * 1. Banner All Service
+ * 2. General Service
+ * 3. Finance Advice
+ * 4. Strategic Tax
+ *
+ */
+
+ @use '../abstracts/variables' as var;
+ @use '../abstracts/mixins' as mix;
+ 
+/*----------------------------------------------------------
+1. Banner All Service Start
+------------------------------------------------------------*/ 
+.banner-service {
+    position: relative;
+    overflow: hidden;
+
+    .wrapper-service {
+        display: flex;
+        min-height: 100vh;
+
+        video {
+            @include mix.video-banner-center;
+        }
+
+        .banner-text-video {
+            width: 100%;
+            z-index: 2;
+            display: flex;
+            justify-content: start;
+            align-items: end;
+            margin-bottom: 4rem;
+
+            .bg-text-video {
+                border-radius: 0px 5px 5px 0px ;
+                -webkit-border-radius: 0px 5px 5px 0px ;
+                -moz-border-radius: 0px 5px 5px 0px ;
+                -ms-border-radius: 0px 5px 5px 0px ;
+                -o-border-radius: 0px 5px 5px 0px ;
+                padding: 1rem 3rem;
+                font-weight: 700;
+                
+                &.finance {
+                    background: rgba(56, 55, 52, 0.82);
+                    color: var.$text-primary-pnglobal;
+                }
+
+                &.strategic {
+                    background: rgba(106, 98, 91, 0.86);
+                    color: var.$text-secondary-100-pnglobal;
+                }
+            }   
+        }
+    }
+}
+
+/*----------------------------------------------------------
+1. Banner All Service End
+------------------------------------------------------------*/ 
+
+
+/*----------------------------------------------------------
+2. General Service Start
+------------------------------------------------------------*/ 
+.service {
+    overflow-x: hidden;
+    margin-bottom: 4rem;
+
+    .box-service {
+        border-radius: 10px;
+        padding: 2rem;
+        
+        @include mix.md {
+            padding: 4rem;
+        }
+
+
+        &.right {
+            margin-left: 5rem;
+            
+            @include mix.xl2 {
+                margin-left: 6rem;
+            }
+
+            @include mix.xl4 {
+                margin-left: 15rem;
+            }
+        }
+
+        &.left {
+
+            margin-right: 5rem;
+            
+            @include mix.xl2 {
+                margin-right: 6rem;
+            }
+
+            @include mix.xl4 {
+                margin-right: 15rem;
+            }
+        }
+
+        &.black {
+            background-color: var.$bg-black-pnglobal;
+            
+            .box-content {
+                background-color: var.$bg-box-100-pnglobal;
+                border-radius: 10px;
+                padding: 1.5rem;
+
+                @include mix.xl2 {
+                    padding: 3rem;
+                }
+                
+                .box-content-title {
+                    color: var.$text-primary-pnglobal;
+                    text-transform: uppercase;
+                }
+                
+                .box-content-subtitle {
+                    color: var.$text-white-pnglobal;
+                    font-weight: 300;
+                    margin-top: 1rem;
+                }
+
+                .box-content-text {
+                    color: var.$text-white-pnglobal;
+                    margin-top: 1rem;
+                    line-height: 30px;
+                    text-align: justify;
+                    padding-right: 0;
+                    
+                    @include mix.md {
+                        padding-right: 4rem;
+                    }
+                }
+
+            }
+        }
+
+        &.gold {
+            background-color: var.$bg-primary-pnglobal;
+            margin-top: 5rem;
+
+            .box-content {
+                background-color: rgba(217, 217, 217, 0.31);
+                border-radius: 10px;
+                padding: 1.5rem;
+
+                
+                @include mix.xl2 {
+                    padding: 3rem;
+                }
+
+                .box-content-title {
+                    color: #756147;
+                }
+
+                .box-content-subtitle {
+                    margin-top: 1rem;
+                    color: var.$text-secondary-pnglobal
+                }
+
+                .box-content-text {
+                    color: var.$text-secondary-pnglobal;
+                    margin-top: 1rem;
+                    line-height: 30px;
+                    text-align: justify;
+                    padding-right: 0;
+                    
+                    @include mix.md {
+                        padding-right: 4rem;
+                    }
+                }
+            }
+        }
+
+        &.brownis {
+            background-color: var.$bg-box-200-pnglobal;
+            margin-top: 5rem;
+            border-radius: 0px 10px 10px 0px;
+
+            .wrapping-title {
+                @include mix.flex-tengah-vertical;
+                align-items: start;
+                
+                @include mix.lg {
+                    align-items: center;
+                }
+
+                .box-content-title {
+                    color: var.$text-white-pnglobal;
+                    text-transform: uppercase;
+
+                    hr {
+                        margin-top: 2rem;
+                        width: 70% !important;
+                        height: 3px;
+                        color: var.$text-secondary-pnglobal;
+                        background-color: var.$text-secondary-pnglobal;
+                        opacity: 1;
+                    }
+                }
+            }
+
+            .box-content {
+                .box-content-subtitle {
+                    padding: 0rem 0rem;
+                    
+                    @include mix.xl2 {
+                        padding: 0rem 3rem;
+                    }
+                }
+
+                .box-content-text {
+                    line-height: 25px;
+                    padding: 1rem 0rem 0rem 0rem;
+                    
+                    @include mix.xl2 {
+                        padding: 2rem 3rem 0rem 3rem;
+                    }
+                }
+            }
+        }
+
+
+        &.brown-strategic {
+            background-color: var.$bg-box-brown-pnglobal;
+            margin-top: 5rem;
+            border-radius: 0px 10px 10px 0px;
+
+            .wrapping-title {
+                @include mix.flex-tengah-vertical;
+                align-items: start;
+                
+                @include mix.lg {
+                    align-items: center;
+                }
+
+                .box-content-title {
+                    color: var.$text-white-pnglobal;
+                    text-transform: uppercase;
+
+                    hr {
+                        margin-top: 2rem;
+                        width: 80% !important;
+                        height: 3px;
+                        color: var.$text-primary-pnglobal;
+                        background-color: var.$text-primary-pnglobal;
+                        opacity: 1;
+                    }
+                }
+            }
+
+            .box-content {
+                .box-content-subtitle {
+                    padding: 0rem 0rem;
+
+                    @include mix.xl2 {
+                        padding: 0rem 3rem;
+                    }
+                }
+
+                .box-content-text {
+                    line-height: 25px;
+                    padding: 1rem 0rem 0rem 0rem;
+
+                    @include mix.xl2 {
+                        padding: 2rem 3rem 0rem 3rem;
+                    }
+                }
+            }
+        }
+
+        .wrapping-img {
+            display: flex;
+            justify-content: end;
+            padding-left: 2rem;
+            
+            img {
+                width: 100%;
+                object-fit: cover;
+                border-radius: 10px;
+            }
+        }
+    }
+}
+
+.wrapper-box-service {
+    .wrapper-img-absolute {
+        position: relative;
+        width: 100%;
+
+        .img-plane-dollar {
+
+            &:nth-child(1){
+                max-width: 100%;
+                height: auto;
+                position: absolute;
+                top: -2rem;
+                right: 2rem;
+                @include mix.lg {
+                    top: -4rem;
+                }
+            }
+
+            &:nth-child(2){
+                max-width: 100%;
+                height: auto;
+                position: relative;
+                opacity: 0;
+            }
+        }
+    }
+}
+/*----------------------------------------------------------
+2. General Service End
+------------------------------------------------------------*/ 
+
+
+/*----------------------------------------------------------
+3. Finance Advice Start
+------------------------------------------------------------*/ 
+#finance-ourconsulting {
+    overflow: hidden;
+    .line-animation {
+        @include mix.animation-reveal;
+    }
+}
+
+.win-finance {
+    overflow: hidden !important;
+    background-color: var.$bg-primary-200-pnglobal;
+
+    #g-financeconsultingtext {
+        @include mix.flex-kiri;
+        margin-top: 3rem;
+
+        p {
+            line-height: 35px;
+
+        }
+    }
+
+    #g-financeconsultingimg {
+        @include mix.flex-bawah;
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+        &.line-animation {
+            display: inline-block;
+            transform: translateY(300px);
+            -webkit-transform: translateY(300px);
+            -moz-transform: translateY(300px);
+            -ms-transform: translateY(300px);
+            -o-transform: translateY(300px);
+            transition: transform .5s;
+            -webkit-transition: transform .5s;
+            -moz-transition: transform .5s;
+            -ms-transition: transform .5s;
+            -o-transition: transform .5s;
+        }
+    }
+}
+
+.finance-service-one {
+    position: relative;
+    background-color: transparent;
+    margin: 0;
+    padding: 2rem 0rem 0rem 0rem;
+
+    .row {
+        padding: 0;
+        margin: 0;
+
+        .wraping-img {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            @include mix.lg {
+                justify-content: end;
+            }
+
+            .img-finance-service-one {
+                height: auto;
+                overflow-x: hidden;
+                position: relative;
+                border-radius: 20px;
+                max-width: 100%;
+                top: 0rem;
+
+                @include mix.lg {
+                    top: -3rem;
+                }
+            
+                @include mix.xl2 {
+                    top: -6rem;
+                }
+            
+                @include mix.xl3 {
+                    top: -8rem;
+                }
+            }
+
+        }
+
+        .wrap-text-service-one {
+            margin: 2rem 0;  
+
+            @include mix.lg {
+                margin: 0 1rem;
+            }
+            
+            .text-service-one {
+                line-height: 35px;
+            }
+        }
+    }
+    
+}
+/*----------------------------------------------------------
+3. Finance Advice End
+------------------------------------------------------------*/ 
+
+
+/*----------------------------------------------------------
+4. Strategic Tax Start
+------------------------------------------------------------*/ 
+.strategic-for-corproat {
+    background-color: var.$bg-box-300-pnglobal;
+
+    .wrapper-img {
+        @include mix.flex-kiri;
+    }
+
+    .wrapper-box-content {
+        .box-content-title {
+            text-transform: uppercase;
+            color: var.$text-primary-pnglobal;
+            padding: 2rem 0rem 0rem 0rem;
+            text-align: center;
+            
+            @include mix.md {
+                text-align: start;
+                padding: 2rem 3rem 0rem 3rem;
+            }
+
+            @include mix.lg {
+                text-align: start;
+                padding: 0rem 3rem 0rem 3rem;
+            }
+        }
+
+        .box-content-subtitle {
+            padding: 1rem 0rem 0rem 0rem;
+            text-align: center;
+            
+            @include mix.md {
+                text-align: start;
+                padding: 1rem 3rem 0rem 3rem;
+            }
+        }
+
+        .box-content-text {
+            line-height: 30px;
+            text-align: center;
+            padding: 2rem 0rem 0rem 0rem;
+            
+            @include mix.md {
+                text-align: start;
+                padding: 3rem 3rem 0rem 3rem;
+
+            }
+        }
+    }
+}
+
+.international-tax-planning {
+    background-color: var.$bg-box-400-pnglobal;
+    margin: 3rem 0rem;
+
+    .wrapper-box-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        @include mix.md {
+            align-items: start;
+        }
+
+        .box-content-title {
+            color: var.$text-secondary-100-pnglobal;
+            text-transform: uppercase;
+            padding: 2rem 0rem 0rem 0rem;
+            text-align: center;
+            
+            @include mix.md {
+                text-align: start;
+                padding: 2rem 3rem 0rem 3rem;
+            }
+
+            @include mix.lg {
+                text-align: start;
+                padding: 0rem 3rem 0rem 3rem;
+            }
+        }
+
+        .box-content-subtitle {
+            color: var.$text-white-pnglobal;
+            padding: 1rem 0rem 0rem 0rem;
+            text-align: center;
+            
+            @include mix.md {
+                text-align: start;
+                padding: 1rem 3rem 0rem 3rem;
+            }
+        }
+
+        .box-content-text {
+            line-height: 30px;
+            color: var.$text-white-pnglobal;
+            text-align: center;
+            padding: 2rem 0rem 0rem 0rem;
+            
+            @include mix.md {
+                text-align: start;
+                padding: 3rem 3rem 0rem 3rem;
+
+            }
+        }
+    }
+}
+/*----------------------------------------------------------
+4. Strategic Tax End
+------------------------------------------------------------*/ 
