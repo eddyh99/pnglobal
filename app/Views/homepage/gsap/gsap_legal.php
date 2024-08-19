@@ -1,55 +1,90 @@
 <script>
     gsap.registerPlugin(ScrollTrigger);
+    
+    gsap.from(".banner-text-video", {
+        x: "-100%",
+        duration: 1,
+        scrollTrigger: {
+            trigger: "banner-text-video",
+            start: "top 90%",
+            end: "top 50%",
+        }
+    })
 
-    gsap.utils.toArray('.box-service').forEach((element, i) => {
-        const tltrigger = gsap.timeline({
-            scrollTrigger: {
-                trigger: element,
-                // markers: true,
-                start: "top 80%",
-                end: "top 30%",
-                scrub: true,
-            }
-        })
-        
-        tltrigger.fromTo(element, {
-            x: `${(i % 2 === 0) ? "100%" : "-100%"}`
-        }, {
-            x: 0
-        })
-    });
+    
+    gsap.to("#g-legalshortdesc-title .line-animation", {
+        y: 0,
+        stagger: 0.5,
+        duration: 0.5,
+        ease: "none",
+        scrollTrigger: {
+            trigger: "#g-legalshortdesc-title",
+            start: "top 90%",
+            end: "top 50%",
+        }
+    })
+    
+    gsap.to("#g-legalshortdesc-subtitle .line-animation", {
+        y: 0,
+        stagger: 0.5,
+        duration: 0.5,
+        ease: "none",
+        scrollTrigger: {
+            trigger: "#g-legalshortdesc-subtitle",
+            start: "top 90%",
+            end: "top 50%",
+        }
+    })
+    
+    gsap.to("#g-legalshortdesc-text .line-animation", {
+        y: 0,
+        stagger: 0.5,
+        duration: 0.5,
+        ease: "none",
+        scrollTrigger: {
+            trigger: "#g-legalshortdesc-text",
+            start: "top 90%",
+            end: "top 50%",
+        }
+    })
 
     gsap.from("#g-legal-advice", {
-        ease: "power2.out",
-        x: "-100%",
+        x: "100%",
+        duration: 1,
         scrollTrigger: {
             trigger: "#g-legal-advice",
-            start: "center 80%",
-            end: "center 50%",
-            scrub: true
-        }
-    });
-
-
-    gsap.from("#g-legal-tax", {
-        ease: "power2.out",
-        x: "100%",
-        scrollTrigger: {
-            trigger: "#g-legal-tax",
-            start: "center 80%",
-            end: "center 50%",
-            scrub: true
+            start: "top 60%",
+            end: "top 50%",
         }
     });
     
-    gsap.from("#g-legal-accounting", {
-        ease: "power2.out",
+    gsap.from("#g-tax-advice", {
         x: "-100%",
+        duration: 1,
         scrollTrigger: {
-            trigger: "#g-legal-accounting",
-            start: "center 80%",
-            end: "center 50%",
-            scrub: true
+            trigger: "#g-tax-advice",
+            start: "top 60%",
+            end: "top 50%",
+        }
+    });
+    
+    gsap.from("#g-legal-vid-left", {
+        x: "100%",
+        duration: 1,
+        scrollTrigger: {
+            trigger: "#g-legal-vid-left",
+            start: "top 60%",
+            end: "top 50%",
+        }
+    });
+
+    gsap.from("#g-legal-vid-right", {
+        x: "-100%",
+        duration: 1,
+        scrollTrigger: {
+            trigger: "#g-legal-vid-left",
+            start: "top 60%",
+            end: "top 50%",
         }
     });
     

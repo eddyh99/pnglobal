@@ -1,56 +1,46 @@
 <script>
     gsap.registerPlugin(ScrollTrigger);
 
-    gsap.utils.toArray('.box-service').forEach((element, i) => {
-        const tltrigger = gsap.timeline({
-            scrollTrigger: {
-                trigger: element,
-                // markers: true,
-                start: "top 80%",
-                end: "top 30%",
-                scrub: true,
-            }
-        })
-        
-        tltrigger.fromTo(element, {
-            x: `${(i % 2 === 0) ? "-100%" : "100%"}`
-        }, {
-            x: 0
-        })
+
+    gsap.from(".banner-text-video", {
+        x: "-100%",
+        duration: 1,
+        scrollTrigger: {
+            trigger: "banner-text-video",
+            start: "top 90%",
+            end: "top 50%",
+        }
     });
 
-    
-    gsap.from("#g-international-expansionimg", {
-        ease: "power2.out",
-        x: "100%",
-        scrollTrigger: {
-            trigger: "#g-international-expansionimg",
-            start: "center 80%",
-            end: "center 50%",
-            scrub: true
-        }
-    });
-    
-    gsap.from("#g-international-visaimg", {
-        ease: "power2.out",
+    gsap.from("#g-expansion-more", {
         x: "-100%",
+        duration: 1,
         scrollTrigger: {
-            trigger: "#g-international-visaimg",
-            start: "center 80%",
-            end: "center 50%",
-            scrub: true
+            trigger: "#g-expansion-more",
+            start: "top 70%",
+            end: "top 50%",
         }
     });
-    
-    gsap.from("#g-international-offshoreimg", {
-        ease: "power2.out",
+
+    gsap.from("#g-consulting-offshore", {
+        x: "-100%",
+        duration: 1,
+        scrollTrigger: {
+            trigger: "#g-consulting-offshore",
+            start: "top 70%",
+            end: "top 50%",
+        }
+    });
+
+    gsap.from("#g-visa-international", {
         x: "100%",
+        duration: 1,
         scrollTrigger: {
-            trigger: "#g-international-offshoreimg",
-            start: "center 80%",
-            end: "center 50%",
-            scrub: true
+            trigger: "#g-visa-international",
+            start: "top 70%",
+            end: "top 50%",
         }
     });
+
 
 </script>

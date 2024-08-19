@@ -2,7 +2,6 @@
 <div class="banner-homepage">
     <div class="wrapper-banner-homepage" >
         <video autoplay="" preload="" muted="" loop="" playsinline="">
-            <!-- adjust object-position to tweak cropping on mobile -->
             <source src="<?= BASE_URL ?>assets/vid/banner.webm" type="video/webm">
         </video>
         <div class="logo-banner">
@@ -334,7 +333,7 @@
                     <div class="zoom-box zoom-2">
                         <div class="with-blur-backdrop">
                             <a 
-                                href="#" 
+                                 href="#" 
                                 class="btn-zoom f-odor"
                             >
                                 Advanced Training on Blockchain, Mining and Bitcoin

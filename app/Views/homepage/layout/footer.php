@@ -1,36 +1,63 @@
-    <!-- Start of Contact Form -->
-    <section class="bg-contactform">
-        <div class="container">
-            <div class="row">
-                <div class="col-12 col-md-8">
-                    <h2 id="g-getintouch" class="f-odor">
-                        Get in touch with <span translate='no'> PN Global </span>
-                    </h2>
-                    <h4 id="g-subgetintouch" class="f-odor">
-                        We are Here to Assist You in Every Step of Your Growth and Development Journey
-                    </h3>
-                    <p id="g-textgetintouch" class="f-inter">
-                        If you would like more information about our services or would like to discuss your specific needs with one of our experts, please contact us. Our team of financial consultants, lawyers and accountants is at your disposal to offer you personalized support and timely responses. We are ready to assist you with the utmost professionalism and competence.
-                    </p>
-                    <a href="<?= BASE_URL ?>homepage/contactus" class="btn-footer-contactform">Book a Consultation</a>
-                    
-                </div>
-                <div class="d-none d-md-flex col-4 logo-contactform">
-                    <img class="img-fluid" src="<?= BASE_URL ?>assets/img/logo.png" alt="img">
-                    <p class="logo-text-contactform">
-                        <span class="line-animation">
-                            Transforming visions
-                        </span> 
-                        <br>
-                        <span class="line-animation" style="color: #BFA573;">
-                            into success
-                        </span>
-                    </p>    
+    
+    
+    <?php if(@$flag == 'training'){?>
+        <!-- Start of Contact Form -->
+        <section class="bg-trainingform">
+            <div class="wrapper-trainingform">
+                <div class="row">
+                    <div class="col-12 col-lg-6">
+                        <h2 class="f-odor">
+                            Join our Professional Training Programs
+                        </h2>
+                        <p class="f-inter">
+                            <span translate='no'> PN Global </span> invites you to join our training programs to become experienced and competent entrepreneurs. Contact us today to find out how we can help you build a successful future in the global landscape.
+                        </p>
+                        <a href="<?= BASE_URL ?>homepage/contactus" class="btn-footer-contactform">Contact Form</a>
+                    </div>
+                    <div class="d-none d-lg-flex col-6 video-trainingform">
+                        <video autoplay="" preload="" muted="" loop="" playsinline="">
+                            <source src="<?= BASE_URL ?>assets/vid/training-footer.webm" type="video/webm">
+                        </video>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
-    <!-- End of Contact Form -->
+        </section>
+        <!-- End of Contact Form -->
+    <?php } else {?>
+        <!-- Start of Contact Form -->
+        <section class="bg-contactform">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 col-md-8">
+                        <h2 id="g-getintouch" class="f-odor">
+                            Get in touch with <span translate='no'> PN Global </span>
+                        </h2>
+                        <h4 id="g-subgetintouch" class="f-odor">
+                            We are Here to Assist You in Every Step of Your Growth and Development Journey
+                        </h3>
+                        <p id="g-textgetintouch" class="f-inter">
+                            If you would like more information about our services or would like to discuss your specific needs with one of our experts, please contact us. Our team of financial consultants, lawyers and accountants is at your disposal to offer you personalized support and timely responses. We are ready to assist you with the utmost professionalism and competence.
+                        </p>
+                        <a href="<?= BASE_URL ?>homepage/contactus" class="btn-footer-contactform">Book a Consultation</a>
+                        
+                    </div>
+                    <div class="d-none d-md-flex col-4 logo-contactform">
+                        <img class="img-fluid" src="<?= BASE_URL ?>assets/img/logo.png" alt="img">
+                        <p class="logo-text-contactform">
+                            <span class="line-animation">
+                                Transforming visions
+                            </span> 
+                            <br>
+                            <span class="line-animation" style="color: #BFA573;">
+                                into success
+                            </span>
+                        </p>    
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- End of Contact Form -->
+    <?php } ?>
 
     <!-- Start of Contact Form -->
     <section class="bg-footer">

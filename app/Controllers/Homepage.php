@@ -28,6 +28,19 @@ class Homepage extends BaseController
         return view('homepage/layout/wrapper', $mdata);
     }
 
+    public function about()
+    {
+        $mdata = [
+            'title'     => 'About Team - ' . NAMETITLE,
+            'content'   => 'homepage/about',
+            'extra'     => 'homepage/js/_js_about',
+            'extragsap' => 'homepage/gsap/gsap_about'
+        ];
+
+        return view('homepage/layout/wrapper', $mdata);
+    }
+
+
     public function service()
     {
         $service = base64_decode($_GET['service']);
@@ -65,7 +78,16 @@ class Homepage extends BaseController
                 'title'     => 'Service Professional Enterpreneurial Training - ' . NAMETITLE,
                 'content'   => 'homepage/service/training',
                 'extra'     => 'homepage/js/_js_index',
-                'extragsap' => 'homepage/gsap/gsap_training'
+                'extragsap' => 'homepage/gsap/gsap_training',
+                'flag'      => 'training'
+            ];
+        }else if($service == "blockchain_mining_bitcoin_training"){
+            $mdata = [
+                'title'     => 'Advanced Training on Blockchain, Mining and Bitcoin - ' . NAMETITLE,
+                'content'   => 'homepage/service/blockchain',
+                'extra'     => 'homepage/js/_js_index',
+                'extragsap' => 'homepage/gsap/gsap_blockchain',
+                'flag'      => 'blockchain'
             ];
         }else{
             $mdata = [

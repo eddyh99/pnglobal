@@ -12860,6 +12860,33 @@ p {
   font-weight: 700;
 }
 
+.bg-trainingform {
+  background-color: #000000;
+  padding: 3rem 0;
+}
+.bg-trainingform .wrapper-trainingform {
+  padding-top: 3rem;
+  padding-left: 3rem;
+}
+.bg-trainingform .wrapper-trainingform h2 {
+  color: #BFA573;
+}
+.bg-trainingform .wrapper-trainingform p {
+  color: #FFFFFF;
+  line-height: 30px;
+  padding: 2rem 2rem 2rem 0rem;
+}
+@media (min-width: 1200px) {
+  .bg-trainingform .wrapper-trainingform p {
+    padding: 2rem 15rem 2rem 0rem;
+  }
+}
+.bg-trainingform .wrapper-trainingform .video-trainingform video {
+  position: relative;
+  width: 100%;
+  height: auto;
+}
+
 /*----------------------------------------------------------
 1. ContactForm End
 ------------------------------------------------------------*/
@@ -12912,6 +12939,7 @@ p {
  * 3. Consulting
  * 4. Why
  * 5. Service
+ * 6. About Us
  *
  */
 /*----------------------------------------------------------
@@ -13410,6 +13438,149 @@ p {
 5. Service End
 ------------------------------------------------------------*/
 /*----------------------------------------------------------
+6. About Us Start
+------------------------------------------------------------*/
+.banner-about {
+  position: relative;
+  overflow: hidden;
+}
+.banner-about .wrapper-about {
+  display: flex;
+  min-height: 100vh;
+}
+.banner-about .wrapper-about video {
+  width: 100%;
+  min-height: 100vh !important;
+  position: absolute;
+  z-index: 1;
+  object-fit: cover;
+  object-position: 50% 50%;
+}
+.banner-about .wrapper-about .banner-text-video {
+  width: 100%;
+  z-index: 2;
+  display: flex;
+  justify-content: start;
+  align-items: end;
+  margin-bottom: 4rem;
+}
+.banner-about .wrapper-about .banner-text-video .bg-text-video {
+  border-radius: 0px 5px 5px 0px;
+  -webkit-border-radius: 0px 5px 5px 0px;
+  -moz-border-radius: 0px 5px 5px 0px;
+  -ms-border-radius: 0px 5px 5px 0px;
+  -o-border-radius: 0px 5px 5px 0px;
+  padding: 1rem 3rem;
+  font-weight: 700;
+}
+.banner-about .wrapper-about .banner-text-video .bg-text-video.about {
+  background: rgba(232, 217, 189, 0.75);
+  color: #383734;
+}
+
+.about-formation {
+  background-color: #F3EBDC;
+}
+.about-formation .row .wrapper-about-formation-left {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: center;
+}
+.about-formation .row .wrapper-about-formation-left h2 hr {
+  margin-top: 2rem;
+  width: 70% !important;
+  height: 3px;
+  color: #BFA573;
+  background-color: #BFA573;
+  opacity: 1;
+}
+.about-formation .row .wrapper-about-formation-right .skill-training h3 {
+  text-transform: uppercase;
+  color: #BFA573;
+  margin-bottom: 1rem;
+}
+.about-formation .row .wrapper-about-formation-right .skill-training p span {
+  font-weight: 700;
+}
+
+.about-climb {
+  background: url("../../img/bg-climb.png"), #000000;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 200vh;
+}
+.about-climb .container {
+  height: 180vh;
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+  justify-content: end;
+}
+.about-climb .container .row .wrapper-about-climb-left {
+  height: 100%;
+  display: flex;
+  align-items: end;
+}
+.about-climb .container .row .wrapper-about-climb-left .wrapper-content p {
+  color: #FFFFFF;
+  line-height: 35px;
+}
+.about-climb .container .row .wrapper-about-climb-left .wrapper-content p span {
+  color: #BFA573;
+}
+.about-climb .container .row .wrapper-about-climb-right {
+  height: 100%;
+}
+.about-climb .container .row .wrapper-about-climb-right .wrapper-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.about-climb .container .row .wrapper-about-climb-right .wrapper-content p {
+  color: #FFFFFF;
+  line-height: 35px;
+}
+.about-climb .container .row .wrapper-about-climb-right .wrapper-content p span {
+  color: #BFA573;
+}
+
+.bg-about-collab {
+  background-color: #BFA573;
+}
+.bg-about-collab .about-plan img {
+  width: 90%;
+}
+.bg-about-collab .about-plan p {
+  padding: 2rem 5rem 2rem 2rem;
+  text-align: justify;
+  line-height: 35px;
+}
+.bg-about-collab .about-plan p span {
+  color: #FFFFFF;
+}
+.bg-about-collab .about-vision .wrapping-video {
+  display: flex;
+  justify-content: end;
+}
+.bg-about-collab .about-vision .wrapping-video video {
+  width: 100%;
+  height: auto;
+}
+.bg-about-collab .about-vision p {
+  padding: 2rem;
+  text-align: justify;
+  line-height: 35px;
+}
+.bg-about-collab .about-vision p span {
+  color: #FFFFFF;
+}
+
+/*----------------------------------------------------------
+6. About Us End
+------------------------------------------------------------*/
+/*----------------------------------------------------------
     File Name  : _service.scss
     Desc       : File ini merupakan styling untuk seluruh service
 
@@ -13421,6 +13592,9 @@ p {
  * 2. General Service
  * 3. Finance Advice
  * 4. Strategic Tax
+ * 5. Legal
+ * 6. Training 
+ * 7. Blockchain
  *
  */
 /*----------------------------------------------------------
@@ -13466,6 +13640,22 @@ p {
 .banner-service .wrapper-service .banner-text-video .bg-text-video.strategic {
   background: rgba(106, 98, 91, 0.86);
   color: #E8D9BD;
+}
+.banner-service .wrapper-service .banner-text-video .bg-text-video.international {
+  background: rgba(149, 125, 76, 0.81);
+  color: #FFFFFF;
+}
+.banner-service .wrapper-service .banner-text-video .bg-text-video.legal {
+  background: rgba(47, 26, 7, 0.82);
+  color: #BFA573;
+}
+.banner-service .wrapper-service .banner-text-video .bg-text-video.training {
+  background: rgba(191, 165, 115, 0.8);
+  color: #1E1E1E;
+}
+.banner-service .wrapper-service .banner-text-video .bg-text-video.blockchain {
+  background: #1E1E1E;
+  color: #FFFFFF;
 }
 
 /*----------------------------------------------------------
@@ -13672,6 +13862,401 @@ p {
     padding: 2rem 3rem 0rem 3rem;
   }
 }
+.service .box-service.gold-international {
+  background-color: #BFA573;
+  margin-top: 5rem;
+  border-radius: 0px 10px 10px 0px;
+}
+.service .box-service.gold-international .wrapping-title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  align-items: start;
+}
+@media (min-width: 992px) {
+  .service .box-service.gold-international .wrapping-title {
+    align-items: center;
+  }
+}
+.service .box-service.gold-international .wrapping-title .box-content-title {
+  color: #FFFFFF;
+  text-transform: uppercase;
+}
+.service .box-service.gold-international .wrapping-title .box-content-title hr {
+  margin-top: 1rem;
+  width: 80% !important;
+  height: 3px;
+  color: #1E1E1E;
+  background-color: #1E1E1E;
+  opacity: 1;
+}
+.service .box-service.gold-international .box-content .box-content-subtitle {
+  padding: 0rem 0rem;
+  color: #FFFFFF;
+}
+@media (min-width: 1200px) {
+  .service .box-service.gold-international .box-content .box-content-subtitle {
+    padding: 0rem 3rem;
+  }
+}
+.service .box-service.gold-international .box-content .box-content-text {
+  line-height: 25px;
+  padding: 1rem 0rem 0rem 0rem;
+  color: #FFFFFF;
+}
+@media (min-width: 1200px) {
+  .service .box-service.gold-international .box-content .box-content-text {
+    padding: 2rem 3rem 0rem 3rem;
+  }
+}
+.service .box-service.black-international {
+  background-color: #1E1E1E;
+  margin-top: 5rem;
+  border-radius: 10px 0px 0px 10px;
+}
+.service .box-service.black-international .wrapping-title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  align-items: start;
+}
+@media (min-width: 992px) {
+  .service .box-service.black-international .wrapping-title {
+    align-items: center;
+  }
+}
+.service .box-service.black-international .wrapping-title .box-content-title {
+  color: #FFFFFF;
+  text-transform: uppercase;
+  text-align: start;
+}
+@media (min-width: 992px) {
+  .service .box-service.black-international .wrapping-title .box-content-title {
+    text-align: end;
+  }
+}
+.service .box-service.black-international .wrapping-title .box-content-title hr {
+  margin-top: 1rem;
+  width: 80% !important;
+  height: 3px;
+  color: #BFA573;
+  background-color: #BFA573;
+  opacity: 1;
+  margin-left: 0;
+}
+@media (min-width: 992px) {
+  .service .box-service.black-international .wrapping-title .box-content-title hr {
+    margin-left: auto;
+  }
+}
+.service .box-service.black-international .box-content .box-content-subtitle {
+  padding: 0rem 0rem;
+  color: #FFFFFF;
+}
+@media (min-width: 1200px) {
+  .service .box-service.black-international .box-content .box-content-subtitle {
+    padding: 0rem 3rem;
+  }
+}
+.service .box-service.black-international .box-content .box-content-text {
+  line-height: 25px;
+  padding: 1rem 0rem 0rem 0rem;
+  color: #FFFFFF;
+}
+@media (min-width: 1200px) {
+  .service .box-service.black-international .box-content .box-content-text {
+    padding: 2rem 3rem 0rem 3rem;
+  }
+}
+.service .box-service.brownis-international {
+  background-color: #B2A291;
+  margin-top: 5rem;
+  border-radius: 0px 10px 10px 0px;
+}
+.service .box-service.brownis-international .wrapping-title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  align-items: start;
+}
+@media (min-width: 992px) {
+  .service .box-service.brownis-international .wrapping-title {
+    align-items: center;
+  }
+}
+.service .box-service.brownis-international .wrapping-title .box-content-title {
+  color: #FFFFFF;
+  text-transform: uppercase;
+}
+.service .box-service.brownis-international .wrapping-title .box-content-title hr {
+  margin-top: 1rem;
+  width: 80% !important;
+  height: 3px;
+  color: #1E1E1E;
+  background-color: #1E1E1E;
+  opacity: 1;
+}
+.service .box-service.brownis-international .box-content .box-content-subtitle {
+  padding: 0rem 0rem;
+  color: #FFFFFF;
+}
+@media (min-width: 1200px) {
+  .service .box-service.brownis-international .box-content .box-content-subtitle {
+    padding: 0rem 3rem;
+  }
+}
+.service .box-service.brownis-international .box-content .box-content-text {
+  line-height: 25px;
+  padding: 1rem 0rem 0rem 0rem;
+  color: #FFFFFF;
+}
+@media (min-width: 1200px) {
+  .service .box-service.brownis-international .box-content .box-content-text {
+    padding: 2rem 3rem 0rem 3rem;
+  }
+}
+.service .box-service.brown-legal {
+  background-color: #7C6553;
+  margin-top: 5rem;
+  border-radius: 10px 0px 0px 10px;
+  padding: 2rem !important;
+}
+.service .box-service.brown-legal .wrapping-title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  justify-content: start;
+  align-items: start;
+  margin-top: 1rem;
+}
+@media (min-width: 992px) {
+  .service .box-service.brown-legal .wrapping-title {
+    align-items: center;
+    margin-top: 5rem;
+  }
+}
+.service .box-service.brown-legal .wrapping-title .box-content-title {
+  color: #FFFFFF;
+  text-transform: uppercase;
+  text-align: start;
+}
+.service .box-service.brown-legal .wrapping-title .box-content-title hr {
+  margin-top: 1rem;
+  width: 140% !important;
+  height: 3px;
+  color: #BFA573;
+  background-color: #BFA573;
+  opacity: 1;
+  margin-left: 0;
+}
+.service .box-service.brown-legal .box-content .box-content-text {
+  line-height: 25px;
+  padding: 1rem 0rem 0rem 0rem;
+  color: #FFFFFF;
+  text-align: start;
+}
+@media (min-width: 1200px) {
+  .service .box-service.brown-legal .box-content .box-content-text {
+    padding: 2rem 3rem 0rem 3rem;
+  }
+}
+.service .box-service.brown-legal .box-content .box-content-text span {
+  font-weight: bold;
+  color: #BFA573;
+}
+.service .box-service.gold-legal {
+  background-color: #AB8D6D;
+  margin-top: 5rem;
+  border-radius: 0px 10px 10px 0px;
+  padding: 2rem !important;
+}
+.service .box-service.gold-legal .wrapping-title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  align-items: start;
+}
+@media (min-width: 992px) {
+  .service .box-service.gold-legal .wrapping-title {
+    align-items: center;
+  }
+}
+.service .box-service.gold-legal .wrapping-title .box-content-title {
+  color: #FFFFFF;
+  text-transform: uppercase;
+  text-align: start;
+}
+@media (min-width: 992px) {
+  .service .box-service.gold-legal .wrapping-title .box-content-title {
+    text-align: end;
+  }
+}
+.service .box-service.gold-legal .wrapping-title .box-content-title hr {
+  margin-top: 1rem;
+  width: 120% !important;
+  height: 3px;
+  color: #A0714A;
+  background-color: #A0714A;
+  opacity: 1;
+  margin-left: 0;
+}
+.service .box-service.gold-legal .box-content .box-content-text {
+  line-height: 25px;
+  padding: 1rem 0rem 0rem 0rem;
+  color: #FFFFFF;
+}
+@media (min-width: 1200px) {
+  .service .box-service.gold-legal .box-content .box-content-text {
+    padding: 1rem 3rem 0rem 3rem;
+  }
+}
+.service .box-service.gold-legal .box-content .box-content-text span {
+  font-weight: bold;
+  color: #A0714A;
+}
+.service .box-service.black-training {
+  background-color: #42413F;
+  margin-top: 5rem;
+  border-radius: 0px;
+  padding: 2rem;
+}
+.service .box-service.black-training .wrapping-title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  align-items: start;
+}
+@media (min-width: 992px) {
+  .service .box-service.black-training .wrapping-title {
+    align-items: center;
+  }
+}
+.service .box-service.black-training .wrapping-title .box-content-title {
+  color: #FFFFFF;
+  text-transform: uppercase;
+}
+.service .box-service.black-training .wrapping-title .box-content-title hr {
+  margin-top: 1rem;
+  width: 120% !important;
+  height: 3px;
+  color: #BFA573;
+  background-color: #BFA573;
+  opacity: 1;
+}
+.service .box-service.black-training .box-content .box-content-text {
+  line-height: 25px;
+  padding: 1rem 0rem 0rem 0rem;
+  color: #FFFFFF;
+}
+@media (min-width: 1200px) {
+  .service .box-service.black-training .box-content .box-content-text {
+    padding: 2rem 3rem 0rem 3rem;
+  }
+}
+.service .box-service.black-training .box-content .box-content-text span {
+  color: #BFA573;
+  font-weight: 700;
+}
+.service .box-service.gold-training {
+  background-color: #BFA573;
+  margin-top: 5rem;
+  border-radius: 0px;
+  padding: 2rem;
+}
+.service .box-service.gold-training .wrapping-title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  align-items: start;
+}
+@media (min-width: 992px) {
+  .service .box-service.gold-training .wrapping-title {
+    align-items: center;
+  }
+}
+.service .box-service.gold-training .wrapping-title .box-content-title {
+  color: #FFFFFF;
+  text-transform: uppercase;
+}
+.service .box-service.gold-training .wrapping-title .box-content-title hr {
+  margin-top: 1rem;
+  width: 100% !important;
+  height: 3px;
+  color: #7C6553;
+  background-color: #7C6553;
+  opacity: 1;
+}
+.service .box-service.gold-training .box-content .box-content-text {
+  line-height: 25px;
+  padding: 1rem 0rem 0rem 0rem;
+  color: #FFFFFF;
+}
+@media (min-width: 1200px) {
+  .service .box-service.gold-training .box-content .box-content-text {
+    padding: 2rem 3rem 0rem 3rem;
+  }
+}
+.service .box-service.gold-training .box-content .box-content-text span {
+  color: #7C6553;
+  font-weight: 700;
+}
+.service .box-service.black-blockchain {
+  background-color: #1E1E1E;
+  border-radius: 0px;
+}
+.service .box-service.black-blockchain .wrapping-title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  justify-content: start;
+  margin-top: 5rem;
+}
+.service .box-service.black-blockchain .wrapping-title .box-content-title {
+  color: #FFFFFF;
+  text-transform: uppercase;
+  text-align: start;
+}
+.service .box-service.black-blockchain .wrapping-title .box-content-title hr {
+  margin-top: 1rem;
+  width: 140% !important;
+  height: 3px;
+  color: #BFA573;
+  background-color: #BFA573;
+  opacity: 1;
+  margin-left: 0;
+}
+.service .box-service.black-blockchain .box-content .box-content-subtitle {
+  padding: 0rem 0rem;
+  color: #BFA573;
+}
+@media (min-width: 1200px) {
+  .service .box-service.black-blockchain .box-content .box-content-subtitle {
+    padding: 0rem 3rem;
+  }
+}
+.service .box-service.black-blockchain .box-content .box-content-text {
+  line-height: 25px;
+  padding: 1rem 0rem 0rem 0rem;
+  color: #FFFFFF;
+  text-align: start;
+}
+@media (min-width: 1200px) {
+  .service .box-service.black-blockchain .box-content .box-content-text {
+    padding: 2rem 3rem 0rem 3rem;
+  }
+}
+.service .box-service.black-blockchain .box-content .box-content-text span {
+  font-weight: bold;
+  color: #BFA573;
+}
 .service .box-service .wrapping-img {
   display: flex;
   justify-content: end;
@@ -13700,6 +14285,96 @@ p {
   }
 }
 .wrapper-box-service .wrapper-img-absolute .img-plane-dollar:nth-child(2) {
+  max-width: 100%;
+  height: auto;
+  position: relative;
+  opacity: 0;
+}
+.wrapper-box-service .wrapper-img-absolute .img-expansion-international:nth-child(1) {
+  max-width: 100%;
+  height: auto;
+  position: absolute;
+  top: -2rem;
+  right: 0;
+}
+@media (min-width: 992px) {
+  .wrapper-box-service .wrapper-img-absolute .img-expansion-international:nth-child(1) {
+    top: -4rem;
+  }
+}
+.wrapper-box-service .wrapper-img-absolute .img-expansion-international:nth-child(2) {
+  max-width: 100%;
+  height: auto;
+  position: relative;
+  opacity: 0;
+}
+.wrapper-box-service .wrapper-img-absolute .img-visa-international:nth-child(1) {
+  max-width: 100%;
+  height: auto;
+  position: absolute;
+  top: -2rem;
+  left: 0;
+}
+@media (min-width: 992px) {
+  .wrapper-box-service .wrapper-img-absolute .img-visa-international:nth-child(1) {
+    top: -4rem;
+  }
+}
+.wrapper-box-service .wrapper-img-absolute .img-visa-international:nth-child(2) {
+  max-width: 100%;
+  height: auto;
+  position: relative;
+  opacity: 0;
+}
+.wrapper-box-service .wrapper-img-absolute .img-legal-advice:nth-child(1) {
+  max-width: 100%;
+  height: auto;
+  position: absolute;
+  top: -2rem;
+  left: 0;
+}
+@media (min-width: 992px) {
+  .wrapper-box-service .wrapper-img-absolute .img-legal-advice:nth-child(1) {
+    top: -10rem;
+  }
+}
+.wrapper-box-service .wrapper-img-absolute .img-legal-advice:nth-child(2) {
+  max-width: 100%;
+  height: auto;
+  position: relative;
+  opacity: 0;
+}
+.wrapper-box-service .wrapper-img-absolute .img-tax-advice:nth-child(1) {
+  max-width: 100%;
+  height: auto;
+  position: absolute;
+  top: -2rem;
+  right: 0;
+}
+@media (min-width: 992px) {
+  .wrapper-box-service .wrapper-img-absolute .img-tax-advice:nth-child(1) {
+    top: -3rem;
+  }
+}
+.wrapper-box-service .wrapper-img-absolute .img-tax-advice:nth-child(2) {
+  max-width: 100%;
+  height: auto;
+  position: relative;
+  opacity: 0;
+}
+.wrapper-box-service .wrapper-img-absolute .img-blockchain-design:nth-child(1) {
+  max-width: 100%;
+  height: auto;
+  position: absolute;
+  top: -2rem;
+  left: 0;
+}
+@media (min-width: 992px) {
+  .wrapper-box-service .wrapper-img-absolute .img-blockchain-design:nth-child(1) {
+    top: -6rem;
+  }
+}
+.wrapper-box-service .wrapper-img-absolute .img-blockchain-design:nth-child(2) {
   max-width: 100%;
   height: auto;
   position: relative;
@@ -13931,6 +14606,274 @@ p {
 
 /*----------------------------------------------------------
 4. Strategic Tax End
+------------------------------------------------------------*/
+/*----------------------------------------------------------
+5. Legal Start
+------------------------------------------------------------*/
+.legal-short-desc {
+  overflow: hidden;
+}
+.legal-short-desc h1 {
+  color: #BFA573;
+  text-align: center;
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+}
+.legal-short-desc h1 .line-animation {
+  display: inline-block;
+  transform: translateY(115px);
+  -webkit-transform: translateY(115px);
+  -moz-transform: translateY(115px);
+  -ms-transform: translateY(115px);
+  -o-transform: translateY(115px);
+  transition: transform 0.5s;
+  -webkit-transition: transform 0.5s;
+  -moz-transition: transform 0.5s;
+  -ms-transition: transform 0.5s;
+  -o-transition: transform 0.5s;
+}
+.legal-short-desc h3 {
+  margin-top: 1rem;
+  text-align: center;
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+}
+.legal-short-desc h3 .line-animation {
+  display: inline-block;
+  transform: translateY(115px);
+  -webkit-transform: translateY(115px);
+  -moz-transform: translateY(115px);
+  -ms-transform: translateY(115px);
+  -o-transform: translateY(115px);
+  transition: transform 0.5s;
+  -webkit-transition: transform 0.5s;
+  -moz-transition: transform 0.5s;
+  -ms-transition: transform 0.5s;
+  -o-transition: transform 0.5s;
+}
+.legal-short-desc p {
+  text-align: center;
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+}
+.legal-short-desc p .line-animation {
+  display: inline-block;
+  transform: translateY(115px);
+  -webkit-transform: translateY(115px);
+  -moz-transform: translateY(115px);
+  -ms-transform: translateY(115px);
+  -o-transform: translateY(115px);
+  transition: transform 0.5s;
+  -webkit-transition: transform 0.5s;
+  -moz-transition: transform 0.5s;
+  -ms-transition: transform 0.5s;
+  -o-transition: transform 0.5s;
+}
+
+.legal-hand {
+  background: url("../../img/bg-hand.jpg"), #DED1C0;
+  background-position: center top;
+  background-repeat: no-repeat;
+  background-size: cover;
+  overflow: hidden;
+}
+.legal-hand .wrapper-hand h1 {
+  padding-top: 7rem;
+  text-align: center;
+  color: #2F1A07;
+}
+.legal-hand .wrapper-hand h2 {
+  padding-top: 1rem;
+  text-align: center;
+  color: #2F1A07;
+}
+.legal-hand .wrapper-hand p {
+  text-align: center;
+  color: #2F1A07;
+  padding-top: 3rem;
+  padding-bottom: 10rem;
+  font-size: 18px !important;
+  line-height: 35px;
+}
+
+.legal-video {
+  margin-top: 5rem;
+  overflow: hidden;
+}
+.legal-video .wrapper-left {
+  display: flex;
+  justify-content: end;
+}
+.legal-video .wrapper-left video {
+  position: relative;
+  width: 100%;
+  height: auto;
+  border-radius: 50px 0px 0px 50px;
+  border: 3px solid #BFA573;
+  right: -0.5rem;
+}
+.legal-video .wrapper-right video {
+  position: relative;
+  width: 100%;
+  height: auto;
+  border-radius: 0px 50px 50px 0px;
+  border: 3px solid #BFA573;
+  top: -5rem;
+  left: -0.5rem;
+}
+
+/*----------------------------------------------------------
+5. Legal End
+------------------------------------------------------------*/
+/*----------------------------------------------------------
+6. Training Start
+------------------------------------------------------------*/
+.advance-training {
+  background-color: #1E1E1E;
+  margin: 0;
+}
+.advance-training h2 {
+  color: #BFA573;
+  margin-top: 3rem;
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+}
+.advance-training h2 .line-animation {
+  display: inline-block;
+  transform: translateY(115px);
+  -webkit-transform: translateY(115px);
+  -moz-transform: translateY(115px);
+  -ms-transform: translateY(115px);
+  -o-transform: translateY(115px);
+  transition: transform 0.5s;
+  -webkit-transition: transform 0.5s;
+  -moz-transition: transform 0.5s;
+  -ms-transition: transform 0.5s;
+  -o-transition: transform 0.5s;
+}
+.advance-training h4 {
+  margin-top: 1rem;
+  color: #FFFFFF;
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+}
+.advance-training h4 .line-animation {
+  display: inline-block;
+  transform: translateY(115px);
+  -webkit-transform: translateY(115px);
+  -moz-transform: translateY(115px);
+  -ms-transform: translateY(115px);
+  -o-transform: translateY(115px);
+  transition: transform 0.5s;
+  -webkit-transition: transform 0.5s;
+  -moz-transition: transform 0.5s;
+  -ms-transition: transform 0.5s;
+  -o-transition: transform 0.5s;
+}
+.advance-training p {
+  color: #FFFFFF;
+  margin-top: 4rem;
+  line-height: 35px;
+  padding-bottom: 3rem;
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+}
+.advance-training p .line-animation {
+  display: inline-block;
+  transform: translateY(115px);
+  -webkit-transform: translateY(115px);
+  -moz-transform: translateY(115px);
+  -ms-transform: translateY(115px);
+  -o-transform: translateY(115px);
+  transition: transform 0.5s;
+  -webkit-transition: transform 0.5s;
+  -moz-transition: transform 0.5s;
+  -ms-transition: transform 0.5s;
+  -o-transition: transform 0.5s;
+}
+.advance-training #g-advancetrainingimg {
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+}
+.advance-training #g-advancetrainingimg .line-animation {
+  display: inline-block;
+  transform: translateY(300px);
+  -webkit-transform: translateY(300px);
+  -moz-transform: translateY(300px);
+  -ms-transform: translateY(300px);
+  -o-transform: translateY(300px);
+  transition: transform 0.5s;
+  -webkit-transition: transform 0.5s;
+  -moz-transition: transform 0.5s;
+  -ms-transition: transform 0.5s;
+  -o-transition: transform 0.5s;
+}
+
+.training-aspire {
+  margin: 2rem 0;
+}
+.training-aspire h2 hr {
+  margin: auto;
+  margin-top: 1rem;
+  width: 50% !important;
+  height: 3px;
+  color: #BFA573;
+  background-color: #BFA573;
+  opacity: 1;
+}
+
+.training-grow {
+  position: relative;
+  background-color: transparent;
+  margin: 0;
+  padding: 2rem 0rem 0rem 0rem;
+}
+.training-grow .row {
+  padding: 0;
+  margin: 0;
+}
+.training-grow .row .bg-training-grow {
+  background-image: url("../../img/img-28.webp");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: auto;
+}
+.training-grow .row .wrap-text-grow-one {
+  margin: 4rem 0;
+  padding: 1rem;
+}
+@media (min-width: 992px) {
+  .training-grow .row .wrap-text-grow-one {
+    margin: 0 1rem;
+  }
+}
+.training-grow .row .wrap-text-grow-one .text-grow-one {
+  line-height: 35px;
+  margin-top: 2rem;
+}
+
+/*----------------------------------------------------------
+6. Training End
+------------------------------------------------------------*/
+/*----------------------------------------------------------
+7. Blockchain Start
+------------------------------------------------------------*/
+.blockchain-short-desc {
+  overflow: hidden;
+  padding-top: 3rem;
+  position: relative;
+}
+.blockchain-short-desc h1 {
+  color: #BFA573;
+  text-align: center;
+}
+.blockchain-short-desc p {
+  text-align: center;
+  padding-bottom: 3rem;
+}
+.blockchain-short-desc .el-blockchain-1 {
+  position: absolute;
+}
+.blockchain-short-desc .el-blockchain-2 {
+  position: absolute;
+}
+
+/*----------------------------------------------------------
+7. Blockchain End
 ------------------------------------------------------------*/
 /*----------------------------------------------------------
     File Name  : _navbar.scss

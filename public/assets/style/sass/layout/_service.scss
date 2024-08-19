@@ -11,6 +11,9 @@
  * 2. General Service
  * 3. Finance Advice
  * 4. Strategic Tax
+ * 5. Legal
+ * 6. Training 
+ * 7. Blockchain
  *
  */
 
@@ -57,6 +60,26 @@
                 &.strategic {
                     background: rgba(106, 98, 91, 0.86);
                     color: var.$text-secondary-100-pnglobal;
+                }
+
+                &.international {
+                    background: rgba(149, 125, 76, 0.81);
+                    color: var.$text-white-pnglobal;
+                }
+
+                &.legal {
+                    background: rgba(47, 26, 7, 0.82);
+                    color: var.$text-primary-pnglobal;
+                }
+
+                &.training {
+                    background: rgba(191, 165, 115, 0.80);
+                    color: var.$text-black-pnglobal;
+                }
+
+                &.blockchain {
+                    background: var.$bg-black-pnglobal;
+                    color: var.$text-white-pnglobal;
                 }
             }   
         }
@@ -281,6 +304,431 @@
             }
         }
 
+        &.gold-international {
+            background-color: var.$bg-primary-pnglobal;
+            margin-top: 5rem;
+            border-radius: 0px 10px 10px 0px;
+
+            .wrapping-title {
+                @include mix.flex-tengah-vertical;
+                align-items: start;
+                
+                @include mix.lg {
+                    align-items: center;
+                }
+
+                .box-content-title {
+                    color: var.$text-white-pnglobal;
+                    text-transform: uppercase;
+
+                    hr {
+                        margin-top: 1rem;
+                        width: 80% !important;
+                        height: 3px;
+                        color: var.$text-black-pnglobal;
+                        background-color: var.$text-black-pnglobal;
+                        opacity: 1;
+                    }
+                }
+            }
+
+            .box-content {
+                .box-content-subtitle {
+                    padding: 0rem 0rem;
+                    color: var.$text-white-pnglobal;
+
+                    @include mix.xl2 {
+                        padding: 0rem 3rem;
+                    }
+                }
+
+                .box-content-text {
+                    line-height: 25px;
+                    padding: 1rem 0rem 0rem 0rem;
+                    color: var.$text-white-pnglobal;
+
+                    @include mix.xl2 {
+                        padding: 2rem 3rem 0rem 3rem;
+                    }
+                }
+            }
+        }
+     
+        &.black-international {
+            background-color: var.$bg-black-pnglobal;
+            margin-top: 5rem;
+            border-radius: 10px 0px 0px 10px;
+
+            .wrapping-title {
+                @include mix.flex-tengah-vertical;
+                align-items: start;
+                
+                @include mix.lg {
+                    align-items: center;
+                }
+
+                .box-content-title {
+                    color: var.$text-white-pnglobal;
+                    text-transform: uppercase;
+                    text-align: start;
+                    
+                    @include mix.lg {
+                        text-align: end;
+                    }
+
+                    hr {
+                        margin-top: 1rem;
+                        width: 80% !important;
+                        height: 3px;
+                        color: var.$text-primary-pnglobal;
+                        background-color: var.$text-primary-pnglobal;
+                        opacity: 1;
+                        margin-left: 0;
+
+                        @include mix.lg {
+                            margin-left: auto;
+                        }
+                    }
+                }
+            }
+
+            .box-content {
+                .box-content-subtitle {
+                    padding: 0rem 0rem;
+                    color: var.$text-white-pnglobal;
+
+                    @include mix.xl2 {
+                        padding: 0rem 3rem;
+                    }
+                }
+
+                .box-content-text {
+                    line-height: 25px;
+                    padding: 1rem 0rem 0rem 0rem;
+                    color: var.$text-white-pnglobal;
+
+                    @include mix.xl2 {
+                        padding: 2rem 3rem 0rem 3rem;
+                    }
+                }
+            }
+        }
+
+        &.brownis-international {
+            background-color: var.$bg-box-200-pnglobal;
+            margin-top: 5rem;
+            border-radius: 0px 10px 10px 0px;
+
+            .wrapping-title {
+                @include mix.flex-tengah-vertical;
+                align-items: start;
+                
+                @include mix.lg {
+                    align-items: center;
+                }
+
+                .box-content-title {
+                    color: var.$text-white-pnglobal;
+                    text-transform: uppercase;
+
+                    hr {
+                        margin-top: 1rem;
+                        width: 80% !important;
+                        height: 3px;
+                        color: var.$text-black-pnglobal;
+                        background-color: var.$text-black-pnglobal;
+                        opacity: 1;
+                    }
+                }
+            }
+
+            .box-content {
+                .box-content-subtitle {
+                    padding: 0rem 0rem;
+                    color: var.$text-white-pnglobal;
+
+                    @include mix.xl2 {
+                        padding: 0rem 3rem;
+                    }
+                }
+
+                .box-content-text {
+                    line-height: 25px;
+                    padding: 1rem 0rem 0rem 0rem;
+                    color: var.$text-white-pnglobal;
+
+                    @include mix.xl2 {
+                        padding: 2rem 3rem 0rem 3rem;
+                    }
+                }
+            }
+        }
+
+        
+        &.brown-legal {
+            background-color: var.$bg-box-500-pnglobal;
+            margin-top: 5rem;
+            border-radius: 10px 0px 0px 10px;
+            padding: 2rem !important;
+
+            .wrapping-title {
+                @include mix.flex-tengah-vertical;
+                justify-content: start;
+                align-items: start;
+                margin-top: 1rem;    
+                
+                @include mix.lg {
+                    align-items: center;
+                    margin-top: 5rem;    
+                }
+                
+
+                .box-content-title {
+                    color: var.$text-white-pnglobal;
+                    text-transform: uppercase;
+                    text-align: start;
+
+                    hr {
+                        margin-top: 1rem;
+                        width: 140% !important;
+                        height: 3px;
+                        color: var.$text-primary-pnglobal;
+                        background-color: var.$text-primary-pnglobal;
+                        opacity: 1;
+                        margin-left: 0;
+                    }
+                }
+            }
+
+            .box-content {
+                .box-content-text {
+                    line-height: 25px;
+                    padding: 1rem 0rem 0rem 0rem;
+                    color: var.$text-white-pnglobal;
+                    text-align: start;
+
+
+                    @include mix.xl2 {
+                        padding: 2rem 3rem 0rem 3rem;
+                    }
+
+                    span {
+                        font-weight: bold;
+                        color: var.$text-primary-pnglobal;
+                    }
+                }
+            }
+        }
+
+             
+        &.gold-legal {
+            background-color: var.$bg-box-brown-pnglobal;
+            margin-top: 5rem;
+            border-radius: 0px 10px 10px 0px;
+            padding: 2rem !important;
+
+
+            .wrapping-title {
+                @include mix.flex-tengah-vertical;
+                align-items: start;
+
+                @include mix.lg{
+                    align-items: center;
+                }
+
+                .box-content-title {
+                    color: var.$text-white-pnglobal;
+                    text-transform: uppercase;
+                    text-align: start;
+                    
+                    @include mix.lg {
+                        text-align: end;
+                    }
+
+                    hr {
+                        margin-top: 1rem;
+                        width: 120% !important;
+                        height: 3px;
+                        color: var.$text-secondary-200-pnglobal;
+                        background-color: var.$text-secondary-200-pnglobal;
+                        opacity: 1;
+                        margin-left: 0;
+                    }
+                }
+            }
+
+            .box-content {
+                .box-content-text {
+                    line-height: 25px;
+                    padding: 1rem 0rem 0rem 0rem;
+                    color: var.$text-white-pnglobal;
+
+                    @include mix.xl2 {
+                        padding: 1rem 3rem 0rem 3rem;
+                    }
+
+                    span {
+                        font-weight: bold;
+                        color: var.$text-secondary-200-pnglobal;
+                    }
+                }
+            }
+        }
+
+        &.black-training {
+            background-color: var.$bg-box-brown-100-pnglobal;
+            margin-top: 5rem;
+            border-radius: 0px;
+            padding: 2rem;
+
+            .wrapping-title {
+                @include mix.flex-tengah-vertical;
+                align-items: start;
+                
+                @include mix.lg {
+                    align-items: center;
+                }
+
+                .box-content-title {
+                    color: var.$text-white-pnglobal;
+                    text-transform: uppercase;
+
+                    hr {
+                        margin-top: 1rem;
+                        width: 120% !important;
+                        height: 3px;
+                        color: var.$text-primary-pnglobal;
+                        background-color: var.$text-primary-pnglobal;
+                        opacity: 1;
+                    }
+                }
+            }
+
+            .box-content {
+
+                .box-content-text {
+                    line-height: 25px;
+                    padding: 1rem 0rem 0rem 0rem;
+                    color: var.$text-white-pnglobal;
+
+                    @include mix.xl2 {
+                        padding: 2rem 3rem 0rem 3rem;
+                    }
+
+                    span {
+                        color: var.$text-primary-pnglobal;
+                        font-weight: 700;
+                    }
+                }
+            }
+        }
+
+        &.gold-training {
+            background-color: var.$bg-primary-pnglobal;
+            margin-top: 5rem;
+            border-radius: 0px;
+            padding: 2rem;
+
+            .wrapping-title {
+                @include mix.flex-tengah-vertical;
+                align-items: start;
+                
+                @include mix.lg {
+                    align-items: center;
+                }
+
+                .box-content-title {
+                    color: var.$text-white-pnglobal;
+                    text-transform: uppercase;
+
+                    hr {
+                        margin-top: 1rem;
+                        width: 100% !important;
+                        height: 3px;
+                        color: var.$bg-box-500-pnglobal;
+                        background-color: var.$bg-box-500-pnglobal;
+                        opacity: 1;
+                    }
+                }
+            }
+
+            .box-content {
+
+                .box-content-text {
+                    line-height: 25px;
+                    padding: 1rem 0rem 0rem 0rem;
+                    color: var.$text-white-pnglobal;
+
+                    @include mix.xl2 {
+                        padding: 2rem 3rem 0rem 3rem;
+                    }
+
+                    span {
+                        color: var.$bg-box-500-pnglobal;
+                        font-weight: 700;
+                    }
+                }
+            }
+        }
+
+        &.black-blockchain {
+            background-color: var.$bg-black-pnglobal;
+            // margin-top: 5rem;
+            border-radius: 0px;
+            // padding: rem !important;
+
+            .wrapping-title {
+                @include mix.flex-tengah-vertical;
+                justify-content: start;
+                margin-top: 5rem;                
+
+                .box-content-title {
+                    color: var.$text-white-pnglobal;
+                    text-transform: uppercase;
+                    text-align: start;
+
+                    hr {
+                        margin-top: 1rem;
+                        width: 140% !important;
+                        height: 3px;
+                        color: var.$text-primary-pnglobal;
+                        background-color: var.$text-primary-pnglobal;
+                        opacity: 1;
+                        margin-left: 0;
+                    }
+                }
+            }
+
+            .box-content {
+                .box-content-subtitle {
+                    padding: 0rem 0rem;
+                    color: var.$text-primary-pnglobal;
+                    
+                    @include mix.xl2 {
+                        padding: 0rem 3rem;
+                    }
+                }
+
+                .box-content-text {
+                    line-height: 25px;
+                    padding: 1rem 0rem 0rem 0rem;
+                    color: var.$text-white-pnglobal;
+                    text-align: start;
+
+
+                    @include mix.xl2 {
+                        padding: 2rem 3rem 0rem 3rem;
+                    }
+
+                    span {
+                        font-weight: bold;
+                        color: var.$text-primary-pnglobal;
+                    }
+                }
+            }
+        }
+
+
         .wrapping-img {
             display: flex;
             justify-content: end;
@@ -301,7 +749,6 @@
         width: 100%;
 
         .img-plane-dollar {
-
             &:nth-child(1){
                 max-width: 100%;
                 height: auto;
@@ -310,6 +757,106 @@
                 right: 2rem;
                 @include mix.lg {
                     top: -4rem;
+                }
+            }
+
+            &:nth-child(2){
+                max-width: 100%;
+                height: auto;
+                position: relative;
+                opacity: 0;
+            }
+        }
+
+        .img-expansion-international {
+            &:nth-child(1){
+                max-width: 100%;
+                height: auto;
+                position: absolute;
+                top: -2rem;
+                right: 0;
+                @include mix.lg {
+                    top: -4rem;
+                }
+            }
+
+            &:nth-child(2){
+                max-width: 100%;
+                height: auto;
+                position: relative;
+                opacity: 0;
+            }
+        }
+
+        .img-visa-international {
+            &:nth-child(1){
+                max-width: 100%;
+                height: auto;
+                position: absolute;
+                top: -2rem;
+                left: 0;
+                @include mix.lg {
+                    top: -4rem;
+                }
+            }
+
+            &:nth-child(2){
+                max-width: 100%;
+                height: auto;
+                position: relative;
+                opacity: 0;
+            }
+        }
+
+        .img-legal-advice{
+            &:nth-child(1){
+                max-width: 100%;
+                height: auto;
+                position: absolute;
+                top: -2rem;
+                left: 0;
+                @include mix.lg {
+                    top: -10rem;
+                }
+            }
+
+            &:nth-child(2){
+                max-width: 100%;
+                height: auto;
+                position: relative;
+                opacity: 0;
+            }
+        }
+
+        .img-tax-advice{
+            &:nth-child(1){
+                max-width: 100%;
+                height: auto;
+                position: absolute;
+                top: -2rem;
+                right: 0;
+                @include mix.lg {
+                    top: -3rem;
+                }
+            }
+
+            &:nth-child(2){
+                max-width: 100%;
+                height: auto;
+                position: relative;
+                opacity: 0;
+            }
+        }
+
+        .img-blockchain-design {
+            &:nth-child(1){
+                max-width: 100%;
+                height: auto;
+                position: absolute;
+                top: -2rem;
+                left: 0;
+                @include mix.lg {
+                    top: -6rem;
                 }
             }
 
@@ -542,4 +1089,253 @@
 }
 /*----------------------------------------------------------
 4. Strategic Tax End
+------------------------------------------------------------*/ 
+
+
+/*----------------------------------------------------------
+5. Legal Start
+------------------------------------------------------------*/ 
+.legal-short-desc {
+    overflow: hidden;
+    h1 {
+        color: var.$text-primary-pnglobal;
+        text-align: center;
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+        
+        .line-animation {
+            @include mix.animation-reveal;
+        }
+    }
+    
+    h3 {
+        margin-top: 1rem;
+        text-align: center;
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+        
+        .line-animation {
+            @include mix.animation-reveal;
+        }
+    }
+    
+    p {
+        text-align: center;
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+    
+        .line-animation {
+            @include mix.animation-reveal;
+        }
+    }
+}
+
+.legal-hand {
+    background: url('../../img/bg-hand.jpg'), #DED1C0;
+    background-position: center top;
+    background-repeat: no-repeat;
+    background-size: cover;
+    overflow: hidden;
+    // padding: 10rem 0rem;
+
+    .wrapper-hand {
+        h1 {
+            padding-top: 7rem;
+            text-align: center;
+            color: var.$text-hand-pnglobal;
+        }
+
+        h2 {
+            padding-top: 1rem;
+            text-align: center;
+            color: var.$text-hand-pnglobal;
+        }
+
+        p {
+            text-align: center;
+            color: var.$text-hand-pnglobal;
+            padding-top: 3rem;
+            padding-bottom: 10rem;
+            font-size: 18px !important;
+            line-height: 35px;
+        }
+    }
+}
+
+.legal-video {
+    margin-top: 5rem;
+    overflow: hidden;
+
+    .wrapper-left{
+        display: flex;
+        justify-content: end;
+
+        video {
+            position: relative;
+            width: 100%;
+            height: auto;
+            border-radius: 50px 0px 0px 50px;
+            border: 3px solid var.$text-primary-pnglobal;
+            right: -0.5rem;
+        }
+    }
+    
+    .wrapper-right {
+        video {
+            position: relative;
+            width: 100%;
+            height: auto;
+            border-radius: 0px 50px 50px 0px;
+            border: 3px solid var.$text-primary-pnglobal;
+            top: -5rem;
+            left: -0.5rem;
+        }
+    }
+}
+/*----------------------------------------------------------
+5. Legal End
+------------------------------------------------------------*/ 
+
+
+/*----------------------------------------------------------
+6. Training Start
+------------------------------------------------------------*/ 
+.advance-training {
+    background-color: var.$bg-black-pnglobal;
+    margin: 0;
+
+    h2 {
+        color: var.$text-primary-pnglobal;
+        margin-top: 3rem;
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+        
+        .line-animation {
+            @include mix.animation-reveal;
+        }
+    }
+
+    h4 {
+        margin-top: 1rem;
+        color: var.$text-white-pnglobal;
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+        
+        .line-animation {
+            @include mix.animation-reveal;
+        }
+    }
+
+    p {
+        color: var.$text-white-pnglobal;
+        margin-top: 4rem;
+        line-height: 35px;
+        padding-bottom: 3rem;
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+        
+        .line-animation {
+            @include mix.animation-reveal;
+        }
+    }
+
+    #g-advancetrainingimg {
+        // @include mix.flex-bawah;
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+        .line-animation {
+            display: inline-block;
+            transform: translateY(300px);
+            -webkit-transform: translateY(300px);
+            -moz-transform: translateY(300px);
+            -ms-transform: translateY(300px);
+            -o-transform: translateY(300px);
+            transition: transform .5s;
+            -webkit-transition: transform .5s;
+            -moz-transition: transform .5s;
+            -ms-transition: transform .5s;
+            -o-transition: transform .5s;
+        }
+    }
+}
+
+.training-aspire {
+    margin: 2rem 0;
+    h2 {
+        hr {
+            margin: auto;
+            margin-top: 1rem;
+            width: 50% !important;
+            height: 3px;
+            color: var.$text-primary-pnglobal;
+            background-color: var.$text-primary-pnglobal;
+            opacity: 1;
+        }
+        
+    }
+}
+
+
+.training-grow {
+    position: relative;
+    background-color: transparent;
+    margin: 0;
+    padding: 2rem 0rem 0rem 0rem;
+
+    .row {
+        padding: 0;
+        margin: 0;
+
+        .bg-training-grow {
+            background-image: url('../../img/img-28.webp');
+            background-position: center center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            height: auto;
+        }
+
+        .wrap-text-grow-one {
+            margin: 4rem 0;  
+            padding: 1rem;  
+
+            @include mix.lg {
+                margin: 0 1rem;
+            }
+            
+            .text-grow-one {
+                line-height: 35px;
+                margin-top: 2rem;
+            }
+        }
+    }
+    
+}
+/*----------------------------------------------------------
+6. Training End
+------------------------------------------------------------*/ 
+
+
+/*----------------------------------------------------------
+7. Blockchain Start
+------------------------------------------------------------*/ 
+.blockchain-short-desc {
+    overflow: hidden;
+    padding-top: 3rem;
+    position: relative;
+
+    h1 {
+        color: var.$text-primary-pnglobal;
+        text-align: center;
+    }
+    
+    p {
+        text-align: center;
+        padding-bottom: 3rem;
+    }
+
+    .el-blockchain-1 {
+        position: absolute;
+    }
+
+    .el-blockchain-2 {
+        position: absolute;
+    }
+    
+}
+
+/*----------------------------------------------------------
+7. Blockchain End
 ------------------------------------------------------------*/ 

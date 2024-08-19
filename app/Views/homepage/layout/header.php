@@ -65,7 +65,7 @@
                         <a class="nav-link" aria-current="page" href="#hotdeal">Hot Deal</a>
                     </li>
                     <li class="nav-item me-0 me-lg-3 d-flex align-items-center justify-content-center">
-                        <a class="btn-navbar-about" href="#">About PN Global</a>
+                        <a class="btn-navbar-about" href="<?= BASE_URL ?>homepage/about">About PN Global</a>
                     </li>
                     <li class="nav-item mt-2 mt-lg-0 d-flex align-items-center justify-content-center">
                         <a class="btn-navbar-contactform" href="#">Contact Form</a>

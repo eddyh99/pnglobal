@@ -12,6 +12,7 @@
  * 3. Consulting
  * 4. Why
  * 5. Service
+ * 6. About Us
  *
  */
 
@@ -530,4 +531,184 @@
   
 /*----------------------------------------------------------
 5. Service End
+------------------------------------------------------------*/ 
+
+
+/*----------------------------------------------------------
+6. About Us Start
+------------------------------------------------------------*/ 
+.banner-about {
+    position: relative;
+    overflow: hidden;
+
+    .wrapper-about {
+        display: flex;
+        min-height: 100vh;
+
+        video {
+            @include mix.video-banner-center;
+        }
+
+        .banner-text-video {
+            width: 100%;
+            z-index: 2;
+            display: flex;
+            justify-content: start;
+            align-items: end;
+            margin-bottom: 4rem;
+
+            .bg-text-video {
+                border-radius: 0px 5px 5px 0px ;
+                -webkit-border-radius: 0px 5px 5px 0px ;
+                -moz-border-radius: 0px 5px 5px 0px ;
+                -ms-border-radius: 0px 5px 5px 0px ;
+                -o-border-radius: 0px 5px 5px 0px ;
+                padding: 1rem 3rem;
+                font-weight: 700;
+                
+                &.about {
+                    background: rgba(232, 217, 189, 0.75);
+                    color: #383734;
+                }
+            }   
+        }
+    }
+}
+
+.about-formation {
+    background-color: var.$bg-about-pnglobal;
+
+    .row {
+        .wrapper-about-formation-left {
+            display: flex;
+            flex-direction: column;
+            align-items: start;
+            justify-content: center;
+
+            h2 {
+                hr {
+                    margin-top: 2rem;
+                    width: 70% !important;
+                    height: 3px;
+                    color: var.$text-primary-pnglobal;
+                    background-color: var.$text-primary-pnglobal;
+                    opacity: 1;
+                }
+            }
+
+        }
+        .wrapper-about-formation-right {
+            .skill-training {
+                h3 {
+                    text-transform: uppercase;
+                    color: var.$text-primary-pnglobal;
+                    margin-bottom: 1rem;
+                }
+
+                p {
+                    span {
+                        font-weight: 700;
+                    }
+                }
+            }
+        } 
+    }
+}
+
+.about-climb {
+    background: url('../../img/bg-climb.png'), #000000;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 200vh;
+
+    .container {
+        height: 180vh;
+        display: flex;
+        flex-direction: column;
+        align-items: end;
+        justify-content: end;
+        .row {
+            .wrapper-about-climb-left {
+                height: 100%;
+                display: flex;
+                align-items: end;
+
+                .wrapper-content {
+                    p {
+                        color: var.$text-white-pnglobal;
+                        line-height: 35px;
+    
+                        span {
+                            color: var.$text-primary-pnglobal;
+                        }
+                    }
+                }
+            }
+            .wrapper-about-climb-right {
+                height: 100%;
+
+                .wrapper-content {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    p {
+                        color: var.$text-white-pnglobal;
+                        line-height: 35px;
+    
+                        span {
+                            color: var.$text-primary-pnglobal;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.bg-about-collab {
+    background-color: var.$bg-primary-pnglobal;
+
+    .about-plan {
+        img {
+            width: 90%;
+        }
+
+        p {
+            padding: 2rem 5rem 2rem 2rem;
+            text-align: justify;
+            line-height: 35px;
+
+            span {
+                color: var.$text-white-pnglobal;
+            }
+        }
+    }
+    
+    .about-vision {
+        .wrapping-video {
+            display: flex;
+            justify-content: end;
+
+            video {
+                    width: 100%;
+                    height: auto;
+                    // right: -0.5rem;
+            }
+        
+        }
+        p {
+            padding: 2rem;
+            text-align: justify;
+            line-height: 35px;
+
+            span {
+                color: var.$text-white-pnglobal;
+            }
+        }
+    }
+}
+
+/*----------------------------------------------------------
+6. About Us End
 ------------------------------------------------------------*/ 
