@@ -26,20 +26,28 @@
     padding: 3rem 0px;
     color: var.$text-white-pnglobal;
 
+    .left-side {
+        padding-left: 0rem;
+        
+        @include mix.lg {
+            padding-left: 3rem;
+        }
 
-    #g-getintouch {
-        color: var.$text-primary-pnglobal;
+        #g-getintouch {
+            color: var.$text-primary-pnglobal;
+        }
+    
+        #g-subgetintouch {
+            font-weight: 300;
+            margin-top: 0.5rem;
+        }
+    
+        #g-textgetintouch {
+            margin: 3rem 0;
+            line-height: 30px;
+        }
     }
 
-    #g-subgetintouch {
-        font-weight: 300;
-        margin-top: 0.5rem;
-    }
-
-    #g-textgetintouch {
-        margin: 3rem 0;
-        line-height: 30px;
-    }
 
     .logo-contactform {
         @include mix.flex-tengah-vertical;
@@ -58,7 +66,6 @@
 .bg-trainingform {
     background-color: #000000;
     padding: 3rem 0;
-    
 
     .wrapper-trainingform {
         padding-top: 3rem;
@@ -74,7 +81,7 @@
             padding: 2rem 2rem 2rem 0rem;
 
             @include mix.xl2 {
-                padding: 2rem 15rem 2rem 0rem;
+                padding: 2rem 10rem 2rem 0rem;
 
             }
         }
@@ -86,8 +93,55 @@
                 height: auto;
             }
         }
+
+        .img-gear-footer {
+            height: auto;
+            position: absolute;
+            top: 48%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            display: none;
+            
+            @include mix.lg {
+                display: block;
+                width: 8rem;
+                left: 52%;
+            }
+            
+            @include mix.xl2 {
+                width: 11rem;
+                left: 50%;
+            }
+        }
     }
+
+    &.blockchain {
+        background-color: var.$bg-primary-100-pnglobal !important;
+
+        .wrapper-trainingform {
+            padding-top: 0;
+
+            h2,h5,p {
+                color: var.$text-black-pnglobal;
+            }
+
+            h5 {
+                margin-top: 1rem;
+            }
+
+            video {
+                border-radius: 10px 0px 0px 10px;
+            }
+
+
+        }
+
+    }
+    
+
+   
 }
+
 
 /*----------------------------------------------------------
 1. ContactForm End
@@ -107,6 +161,10 @@
         justify-content: center;
         align-items: center;
 
+        img {
+            opacity: 0.8;
+        }
+
 
         .logo-text-footer {
             margin-top: 1rem;
@@ -114,7 +172,8 @@
             text-transform: uppercase;
             letter-spacing: 4px;
             font-weight: 700;
-            color: #FFFFFF
+            color: #FFFFFF;
+            font-size: 12px;
         }
     }
     
@@ -123,13 +182,16 @@
         width: 2px;
         background-color: #FFFFFF;
     }
-
+    
     .text-link {
-        .list {
+        .list { 
+            border-left: 2px solid var.$text-white-pnglobal;
+            padding: 0rem 2rem;
+
             a {
                 display: block;
                 color: var.$text-white-pnglobal;
-                margin: 2rem 0;
+                // margin: 2rem 0;
                 text-decoration: underline;
 
                 &:hover {
@@ -137,5 +199,10 @@
                 }
             }
         }
+    }
+
+    .address {
+        border-left: 2px solid var.$text-white-pnglobal;
+        padding-left: 2rem;
     }
 }

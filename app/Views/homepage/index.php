@@ -11,12 +11,18 @@
             <div>
                 <p id="g-text-banner-homepage" class="logo-text-banner" >
                     <span class="line-animation">
+                        TRANSFORMING VISIONS <br>
+                        <span style="color: #BFA573;">
+                            INTO SUCCESS
+                        </span>
+                    </span>
+                    <!-- <span>
                         Transforming visions
                     </span> 
                     <br>
-                    <span class="line-animation"  style="color: #BFA573;">
+                    <span  style="color: #BFA573;">
                         into success
-                    </span>
+                    </span> -->
                 </p>    
             </div>
 
@@ -29,7 +35,7 @@
 <section class="content team-expert-homepage">
     <div class="container">
         <div class="row">
-            <div class="col-12 col-lg-7 order-1 order-lg-0">
+            <div class="col-12 col-lg-7 col-xl-8 order-1 order-lg-0 left-side">
                 <h2 class="f-odor text-primary-pnglobal">Efficiency and Professionalism at the Highest Levels</h2>
                 <h5 class="f-odor text-primary-pnglobal mt-4">A Team of Experts at Your Service</h5>
                 <p class="f-inter">
@@ -38,7 +44,7 @@
                     Rely on <span translate='no'> PN Global </span> for impeccable management and sustainable growth.
                 </p>
             </div>
-            <div class="col-12 col-lg-5 order-0 order-lg-1 bg-team-expert">
+            <div class="col-12 col-lg-5 col-xl-4 order-0 order-lg-1 bg-team-expert">
             </div>
         </div>
     </div>
@@ -137,7 +143,7 @@
                 <div class="wrapper-why-logo">
                     <img id="g-logo-why-homepage" class="line-animation" src="<?= BASE_URL ?>assets/img/logo.png" alt="logo PNGLOBAL">
                     <h2 id="g-title-why-homepage" class="f-odor line-animation">
-                        Why Choose <span translate="no"> PN <br> Global </span>
+                        Why Choose <br><span translate="no"> PN Global </span>
                     </h2>
                 </div>
                 <img class="img-competen" src="<?= BASE_URL ?>assets/img/img-25.webp" alt="img-25">
@@ -333,7 +339,7 @@
                     <div class="zoom-box zoom-2">
                         <div class="with-blur-backdrop">
                             <a 
-                                 href="#" 
+                                href="<?php echo BASE_URL . "homepage/service?service=" . base64_encode("blockchain_mining_bitcoin_training")?>" 
                                 class="btn-zoom f-odor"
                             >
                                 Advanced Training on Blockchain, Mining and Bitcoin
@@ -345,10 +351,11 @@
                     <div class="zoom-box zoom-3">
                         <div class="with-blur-backdrop">
                             <a 
-                                href="#" 
+                                href="<?php echo BASE_URL . "homepage/service?service=" . base64_encode("satoshi_signal")?>" 
                                 class="btn-zoom f-odor"
                             >
-                                Bitcoin Trading Guidance for Buy/Sell Decisions ‘’SATOSHI SIGNALS’’
+                                Bitcoin BROKERAGE Guidance for 
+                                Buy/Sell Decisions ‘’SATOSHI SIGNALS’’
                             </a>
                         </div>
                     </div>

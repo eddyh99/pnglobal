@@ -16,7 +16,7 @@
 </div>
 <!-- End of Banner -->
 
-<section class="service">
+<section class="service mb-0">
     <!-- Service 1 -->
     <section id="g-aid-reallocating-funds" class="wrapper-box-service">
         <div class="box-service brownis left">
@@ -47,10 +47,10 @@
 
     <!-- Service 2 -->
     <section id="g-strategic-for-corproat" class="content strategic-for-corproat">
-        <div class="container py-5">
+        <div class="container py-2">
             <div class="row row-cols-1 row-cols-lg-2">
                 <div class="col wrapper-img">
-                    <img class="img-fluid w-100" src="<?= BASE_URL ?>assets/img/img-12.webp" alt="Strategies for Corporate Tax Exemption">
+                    <!-- <img class="img-fluid w-100" src="<?= BASE_URL ?>assets/img/img-33.webp" alt="Strategies for Corporate Tax Exemption"> -->
                 </div>
                 <div class="col wrapper-box-content">
                     <h3 class="box-content-title f-odor">
@@ -69,7 +69,7 @@
 
     <!-- Service 3 -->
     <section id="g-international-tax-planning" class="content international-tax-planning" >
-        <div class="container py-5">
+        <div class="container py-2">
             <div class="row row-cols-1 row-cols-lg-2">
                 <div class="col order-1 order-lg-0 wrapper-box-content">
                     <h3 class="box-content-title f-odor">
@@ -82,8 +82,8 @@
                         Our in-depth advice on international tax planning assists companies in optimizing their global tax structure. We explore the opportunities offered by international tax treaties and various jurisdictions to maximize tax benefits by providing full support for the transfer of tax residence of natural persons and/or legal persons.
                     </p>
                 </div>
-                <div class="col order-0 order-lg-1 wrapper-img d-flex justify-content-start align-items-start">
-                    <img class="img-fluid w-100" src="<?= BASE_URL ?>assets/img/img-13.webp" alt="international tax planning">
+                <div class="col wrapper-img order-0 order-lg-1 wrapper-img d-flex justify-content-start align-items-start">
+                    <!-- <img class="img-fluid w-100" src="<?= BASE_URL ?>assets/img/img-13.webp" alt="international tax planning"> -->
                 </div>
             </div>
         </div>

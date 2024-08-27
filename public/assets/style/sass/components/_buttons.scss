@@ -73,7 +73,7 @@
 
 .btn-footer-contactform {
     background-color: var.$bg-primary-pnglobal;
-    color: var.$text-black-pnglobal;
+    color: var.$text-white-pnglobal;
     padding: 0.8rem 1rem !important;
     border-radius: 10px;
     font-size: 13px;
@@ -81,7 +81,23 @@
     
     &:hover {
         background-color: var.$bg-primary-pnglobal;
-        color: var.$text-black-pnglobal;
+        color: var.$text-white-pnglobal;
+        box-shadow: 0px 4px 4px 0px #E8D9BD;
+        font-weight: 700;
+    }
+}
+
+.btn-footer-enrollnow {
+    background-color: var.$bg-black-pnglobal;
+    color: var.$text-white-pnglobal;
+    padding: 0.8rem 1rem !important;
+    border-radius: 10px;
+    font-size: 13px;
+    font-weight: 500;
+    
+    &:hover {
+        background-color: var.$bg-black-pnglobal;
+        color: var.$text-white-pnglobal;
         box-shadow: 0px 4px 4px 0px #E8D9BD;
         font-weight: 700;
     }

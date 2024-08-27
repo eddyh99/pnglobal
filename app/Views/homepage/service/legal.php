@@ -7,8 +7,8 @@
         <div class="banner-text-video">
             <div class="bg-text-video legal">
                 <h2 class="f-lato">
-                    Legal, tax, <br>
-                    and accounting advice
+                    Legal And Tax Advice 
+                    <br>
                 </h2>
             </div>
 
@@ -47,7 +47,7 @@
 <!-- End of Short Desc -->
 
 <!-- Start of Service -->
-<section class="service">
+<section class="service my-0">
     <!-- Service 1 -->
     <section id="g-legal-advice" class="wrapper-box-service">
         <div class="box-service brown-legal right">
@@ -114,9 +114,9 @@
 <section class="legal-hand">
     <div class="container">
         <div class="row row-cols-1">
-            <div class="col-12 col-lg-9 mx-auto wrapper-hand">
-                <h1 class="f-odor ">Legal, Tax and Specialized Accounting Consulting</h1>
-                <h2 class="f-odor">Legal and accounting solutions for your company</h2>
+            <div class="col-12 col-lg-8 mx-auto wrapper-hand">
+                <h1 class="f-odor ">International Consulting Specialists</h1>
+                <h2 class="f-odor">Navigating the Global Markets with Expertise</h2>
                 <p class="f-inter">  
                      At <span translate='no'> P.N. Global</span>, we stand out for our ability to assist companies in their global expansion and in managing complex international challenges. Our international consulting is a strength that helps you navigate the global legal and tax landscape with confidence and expertise. We have a thorough understanding of the laws and regulations in each country where our clients wish to expand their business. Whether it is the establishment of foreign subsidiaries, management of legal and tax risks, or regulatory compliance, Our team of experts is always ready to provide personalized and strategic support. Trust us at <span translate='no'> P.N. Global </span> to make your international ambitions a reality, by taking full advantage of the opportunities offered by global markets.
                 </p>

@@ -6,7 +6,7 @@
         </video>
         <div class="banner-text-video">
             <div class="bg-text-video training">
-                <h2 class="f-lato">
+                <h2 class="f-lato fw-bold">
                     Professional <br>
                     Entrepreneurial Training
                 </h2>

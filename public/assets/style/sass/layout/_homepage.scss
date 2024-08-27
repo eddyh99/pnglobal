@@ -73,6 +73,15 @@
 ------------------------------------------------------------*/ 
 
 .team-expert-homepage {
+
+    .left-side {
+        padding: 2rem 0rem;
+        
+        @include mix.lg {
+            padding: 0rem 3rem;
+        }
+    }
+
     .bg-team-expert {
         background-image: url('../../img/img-24.webp');
         background-position: center center;
@@ -620,19 +629,33 @@
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
-    height: 200vh;
+    height: 185vh;
+ 
+    @include mix.xl2 {
+        height: 170vh;
+    }
 
     .container {
-        height: 180vh;
+        height: 170vh;
         display: flex;
         flex-direction: column;
         align-items: end;
         justify-content: end;
+        
+        @include mix.xl2 {
+            height: 150vh;
+        }
+
+
         .row {
             .wrapper-about-climb-left {
-                height: 100%;
+                height: auto;
                 display: flex;
                 align-items: end;
+
+                @include mix.lg {
+                    height: 100%;
+                }
 
                 .wrapper-content {
                     p {
@@ -667,11 +690,16 @@
 }
 
 .bg-about-collab {
-    background-color: var.$bg-primary-pnglobal;
+    background-color: var.$bg-primary-100-pnglobal;
 
     .about-plan {
         img {
-            width: 90%;
+            display: block;
+            width: 100%;
+            height: 95%;
+            object-fit: cover;
+            object-position: right;
+            padding-right: 3rem ;
         }
 
         p {

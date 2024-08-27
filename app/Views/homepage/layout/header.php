@@ -13,7 +13,7 @@
     <!-- Google Font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Odor+Mean+Chey&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Noto+Serif:ital,wght@0,100..900;1,100..900&family=Odor+Mean+Chey&display=swap" rel="stylesheet">
 
     <!-- Icon Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -56,13 +56,13 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item me-0 me-lg-4">
-                        <a class="nav-link" aria-current="page" href="#consulting">Specialized Consulting</a>
+                        <a class="nav-link" aria-current="page" href="<?=BASE_URL?>#consulting">Specialized Consulting</a>
                     </li>
                     <li class="nav-item me-0 me-lg-4">
-                        <a class="nav-link" aria-current="page" href="#service">Service</a>
+                        <a class="nav-link" href="<?=BASE_URL?>#service">Service</a>
                     </li>
                     <li class="nav-item me-0 me-lg-4">
-                        <a class="nav-link" aria-current="page" href="#hotdeal">Hot Deal</a>
+                        <a class="nav-link" aria-current="page" href="<?=BASE_URL?>#hotdeal">Hot Deal</a>
                     </li>
                     <li class="nav-item me-0 me-lg-3 d-flex align-items-center justify-content-center">
                         <a class="btn-navbar-about" href="<?= BASE_URL ?>homepage/about">About PN Global</a>

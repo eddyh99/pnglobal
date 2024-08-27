@@ -12698,6 +12698,10 @@ p {
   font-family: "Lato", sans-serif;
 }
 
+.f-noto {
+  font-family: "Noto Serif", serif;
+}
+
 /*----------------------------------------------------------
 2. Class Font End
 ------------------------------------------------------------*/
@@ -12831,18 +12835,26 @@ p {
 1. ContactForm Start
 ------------------------------------------------------------*/
 .bg-contactform {
-  background-color: #504F4D;
+  background-color: #3F3F3F;
   padding: 3rem 0px;
   color: #FFFFFF;
 }
-.bg-contactform #g-getintouch {
+.bg-contactform .left-side {
+  padding-left: 0rem;
+}
+@media (min-width: 992px) {
+  .bg-contactform .left-side {
+    padding-left: 3rem;
+  }
+}
+.bg-contactform .left-side #g-getintouch {
   color: #BFA573;
 }
-.bg-contactform #g-subgetintouch {
+.bg-contactform .left-side #g-subgetintouch {
   font-weight: 300;
   margin-top: 0.5rem;
 }
-.bg-contactform #g-textgetintouch {
+.bg-contactform .left-side #g-textgetintouch {
   margin: 3rem 0;
   line-height: 30px;
 }
@@ -12878,13 +12890,49 @@ p {
 }
 @media (min-width: 1200px) {
   .bg-trainingform .wrapper-trainingform p {
-    padding: 2rem 15rem 2rem 0rem;
+    padding: 2rem 10rem 2rem 0rem;
   }
 }
 .bg-trainingform .wrapper-trainingform .video-trainingform video {
   position: relative;
   width: 100%;
   height: auto;
+}
+.bg-trainingform .wrapper-trainingform .img-gear-footer {
+  height: auto;
+  position: absolute;
+  top: 48%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: none;
+}
+@media (min-width: 992px) {
+  .bg-trainingform .wrapper-trainingform .img-gear-footer {
+    display: block;
+    width: 8rem;
+    left: 52%;
+  }
+}
+@media (min-width: 1200px) {
+  .bg-trainingform .wrapper-trainingform .img-gear-footer {
+    width: 11rem;
+    left: 50%;
+  }
+}
+.bg-trainingform.blockchain {
+  background-color: #CCB78F !important;
+}
+.bg-trainingform.blockchain .wrapper-trainingform {
+  padding-top: 0;
+}
+.bg-trainingform.blockchain .wrapper-trainingform h2, .bg-trainingform.blockchain .wrapper-trainingform h5, .bg-trainingform.blockchain .wrapper-trainingform p {
+  color: #1E1E1E;
+}
+.bg-trainingform.blockchain .wrapper-trainingform h5 {
+  margin-top: 1rem;
+}
+.bg-trainingform.blockchain .wrapper-trainingform video {
+  border-radius: 10px 0px 0px 10px;
 }
 
 /*----------------------------------------------------------
@@ -12903,6 +12951,9 @@ p {
   justify-content: center;
   align-items: center;
 }
+.bg-footer .logo-footer img {
+  opacity: 0.8;
+}
 .bg-footer .logo-footer .logo-text-footer {
   margin-top: 1rem;
   text-align: center;
@@ -12910,20 +12961,28 @@ p {
   letter-spacing: 4px;
   font-weight: 700;
   color: #FFFFFF;
+  font-size: 12px;
 }
 .bg-footer .border-footer {
   height: 50%;
   width: 2px;
   background-color: #FFFFFF;
 }
+.bg-footer .text-link .list {
+  border-left: 2px solid #FFFFFF;
+  padding: 0rem 2rem;
+}
 .bg-footer .text-link .list a {
   display: block;
   color: #FFFFFF;
-  margin: 2rem 0;
   text-decoration: underline;
 }
 .bg-footer .text-link .list a:hover {
   font-weight: 700;
+}
+.bg-footer .address {
+  border-left: 2px solid #FFFFFF;
+  padding-left: 2rem;
 }
 
 /*----------------------------------------------------------
@@ -13003,6 +13062,14 @@ p {
 /*----------------------------------------------------------
 2. Team Expert Start
 ------------------------------------------------------------*/
+.team-expert-homepage .left-side {
+  padding: 2rem 0rem;
+}
+@media (min-width: 992px) {
+  .team-expert-homepage .left-side {
+    padding: 0rem 3rem;
+  }
+}
 .team-expert-homepage .bg-team-expert {
   background-image: url("../../img/img-24.webp");
   background-position: center center;
@@ -13509,19 +13576,34 @@ p {
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
-  height: 200vh;
+  height: 185vh;
+}
+@media (min-width: 1200px) {
+  .about-climb {
+    height: 170vh;
+  }
 }
 .about-climb .container {
-  height: 180vh;
+  height: 170vh;
   display: flex;
   flex-direction: column;
   align-items: end;
   justify-content: end;
 }
+@media (min-width: 1200px) {
+  .about-climb .container {
+    height: 150vh;
+  }
+}
 .about-climb .container .row .wrapper-about-climb-left {
-  height: 100%;
+  height: auto;
   display: flex;
   align-items: end;
+}
+@media (min-width: 992px) {
+  .about-climb .container .row .wrapper-about-climb-left {
+    height: 100%;
+  }
 }
 .about-climb .container .row .wrapper-about-climb-left .wrapper-content p {
   color: #FFFFFF;
@@ -13547,10 +13629,15 @@ p {
 }
 
 .bg-about-collab {
-  background-color: #BFA573;
+  background-color: #CCB78F;
 }
 .bg-about-collab .about-plan img {
-  width: 90%;
+  display: block;
+  width: 100%;
+  height: 95%;
+  object-fit: cover;
+  object-position: right;
+  padding-right: 3rem;
 }
 .bg-about-collab .about-plan p {
   padding: 2rem 5rem 2rem 2rem;
@@ -13595,6 +13682,7 @@ p {
  * 5. Legal
  * 6. Training 
  * 7. Blockchain
+ * 8. Satoshi
  *
  */
 /*----------------------------------------------------------
@@ -13607,6 +13695,7 @@ p {
 .banner-service .wrapper-service {
   display: flex;
   min-height: 100vh;
+  position: relative;
 }
 .banner-service .wrapper-service video {
   width: 100%;
@@ -13615,6 +13704,29 @@ p {
   z-index: 1;
   object-fit: cover;
   object-position: 50% 50%;
+}
+.banner-service .wrapper-service .download-video {
+  z-index: 2;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.banner-service .wrapper-service .download-video h1 {
+  color: #FFFFFF;
+  text-align: center;
+}
+.banner-service .wrapper-service .download-video .button-download {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.banner-service .wrapper-service .download-video .button-download .top {
+  margin-top: 0.5rem;
+}
+.banner-service .wrapper-service .download-video .button-download .btn-download {
+  padding: 0.5rem;
 }
 .banner-service .wrapper-service .banner-text-video {
   width: 100%;
@@ -13648,6 +13760,7 @@ p {
 .banner-service .wrapper-service .banner-text-video .bg-text-video.legal {
   background: rgba(47, 26, 7, 0.82);
   color: #BFA573;
+  padding: 2rem 3rem;
 }
 .banner-service .wrapper-service .banner-text-video .bg-text-video.training {
   background: rgba(191, 165, 115, 0.8);
@@ -13656,6 +13769,13 @@ p {
 .banner-service .wrapper-service .banner-text-video .bg-text-video.blockchain {
   background: #1E1E1E;
   color: #FFFFFF;
+}
+.banner-service .wrapper-service .banner-text-video .bg-text-video.satoshi {
+  background: #CCB78F;
+  color: #383734;
+}
+.banner-service .wrapper-service .banner-text-video .bg-text-video.satoshi h2 {
+  font-weight: 700;
 }
 
 /*----------------------------------------------------------
@@ -13705,6 +13825,12 @@ p {
 }
 .service .box-service.black {
   background-color: #1E1E1E;
+  margin-top: 0rem;
+}
+@media (min-width: 992px) {
+  .service .box-service.black {
+    margin-top: 8rem;
+  }
 }
 .service .box-service.black .box-content {
   background-color: #585858;
@@ -13739,7 +13865,7 @@ p {
 }
 .service .box-service.gold {
   background-color: #BFA573;
-  margin-top: 5rem;
+  margin-top: 2rem;
 }
 .service .box-service.gold .box-content {
   background-color: rgba(217, 217, 217, 0.31);
@@ -13772,8 +13898,9 @@ p {
 }
 .service .box-service.brownis {
   background-color: #B2A291;
-  margin-top: 5rem;
   border-radius: 0px 10px 10px 0px;
+  margin-top: 2.5rem;
+  padding: 2rem;
 }
 .service .box-service.brownis .wrapping-title {
   display: flex;
@@ -13818,8 +13945,9 @@ p {
 }
 .service .box-service.brown-strategic {
   background-color: #AB8D6D;
-  margin-top: 5rem;
+  margin-top: 1rem;
   border-radius: 0px 10px 10px 0px;
+  padding: 2rem 2rem 4rem 2rem;
 }
 .service .box-service.brown-strategic .wrapping-title {
   display: flex;
@@ -13864,8 +13992,9 @@ p {
 }
 .service .box-service.gold-international {
   background-color: #BFA573;
-  margin-top: 5rem;
+  margin-top: 2rem;
   border-radius: 0px 10px 10px 0px;
+  padding: 2rem 2rem 4rem 2rem;
 }
 .service .box-service.gold-international .wrapping-title {
   display: flex;
@@ -13912,8 +14041,9 @@ p {
 }
 .service .box-service.black-international {
   background-color: #1E1E1E;
-  margin-top: 5rem;
+  margin-top: 0rem;
   border-radius: 10px 0px 0px 10px;
+  padding: 3rem 2rem 4rem 0rem;
 }
 .service .box-service.black-international .wrapping-title {
   display: flex;
@@ -13972,8 +14102,9 @@ p {
 }
 .service .box-service.brownis-international {
   background-color: #B2A291;
-  margin-top: 5rem;
+  margin-top: 0rem;
   border-radius: 0px 10px 10px 0px;
+  padding: 2rem 2rem 4rem 2rem;
 }
 .service .box-service.brownis-international .wrapping-title {
   display: flex;
@@ -14020,9 +14151,9 @@ p {
 }
 .service .box-service.brown-legal {
   background-color: #7C6553;
-  margin-top: 5rem;
+  margin-top: 0rem;
   border-radius: 10px 0px 0px 10px;
-  padding: 2rem !important;
+  padding: 1rem !important;
 }
 .service .box-service.brown-legal .wrapping-title {
   display: flex;
@@ -14061,7 +14192,7 @@ p {
 }
 @media (min-width: 1200px) {
   .service .box-service.brown-legal .box-content .box-content-text {
-    padding: 2rem 3rem 0rem 3rem;
+    padding: 1rem 2rem 0rem 5rem;
   }
 }
 .service .box-service.brown-legal .box-content .box-content-text span {
@@ -14069,8 +14200,8 @@ p {
   color: #BFA573;
 }
 .service .box-service.gold-legal {
-  background-color: #AB8D6D;
-  margin-top: 5rem;
+  background-color: #AE9A72;
+  margin-top: 0rem;
   border-radius: 0px 10px 10px 0px;
   padding: 2rem !important;
 }
@@ -14121,9 +14252,9 @@ p {
 }
 .service .box-service.black-training {
   background-color: #42413F;
-  margin-top: 5rem;
+  margin-top: 2rem;
   border-radius: 0px;
-  padding: 2rem;
+  padding: 1rem;
 }
 .service .box-service.black-training .wrapping-title {
   display: flex;
@@ -14165,7 +14296,7 @@ p {
 }
 .service .box-service.gold-training {
   background-color: #BFA573;
-  margin-top: 5rem;
+  margin-top: 2rem;
   border-radius: 0px;
   padding: 2rem;
 }
@@ -14257,6 +14388,68 @@ p {
   font-weight: bold;
   color: #BFA573;
 }
+.service .box-service.gold-blockchain {
+  background-color: #BFA573;
+  border-radius: 0px;
+  padding: 2rem !important;
+  margin-top: 17rem;
+}
+@media (min-width: 768px) {
+  .service .box-service.gold-blockchain {
+    margin-top: 21rem;
+  }
+}
+@media (min-width: 992px) {
+  .service .box-service.gold-blockchain {
+    margin-top: 17rem;
+  }
+}
+.service .box-service.gold-blockchain .wrapping-title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  justify-content: start;
+  margin-top: 5rem;
+}
+.service .box-service.gold-blockchain .wrapping-title .box-content-title {
+  color: #1E1E1E;
+  text-transform: uppercase;
+  text-align: center;
+}
+.service .box-service.gold-blockchain .wrapping-title .box-content-title hr {
+  margin-top: 1rem;
+  width: 100% !important;
+  height: 3px;
+  color: #FFFFFF;
+  background-color: #FFFFFF;
+  opacity: 1;
+  margin-left: 0;
+}
+.service .box-service.gold-blockchain .box-content .box-content-subtitle {
+  padding: 0rem 0rem;
+  color: #FFFFFF;
+}
+@media (min-width: 1200px) {
+  .service .box-service.gold-blockchain .box-content .box-content-subtitle {
+    padding: 0rem 3rem;
+  }
+}
+.service .box-service.gold-blockchain .box-content .box-content-text {
+  line-height: 25px;
+  padding: 1rem 0rem 0rem 0rem;
+  color: #1E1E1E;
+  text-align: start;
+}
+@media (min-width: 1200px) {
+  .service .box-service.gold-blockchain .box-content .box-content-text {
+    padding: 2rem 3rem 0rem 3rem;
+  }
+}
+.service .box-service.gold-blockchain .box-content .box-content-text span {
+  font-weight: bold;
+  color: #BFA573;
+}
 .service .box-service .wrapping-img {
   display: flex;
   justify-content: end;
@@ -14340,9 +14533,14 @@ p {
 }
 .wrapper-box-service .wrapper-img-absolute .img-legal-advice:nth-child(2) {
   max-width: 100%;
-  height: auto;
+  height: 17rem;
   position: relative;
   opacity: 0;
+}
+@media (min-width: 992px) {
+  .wrapper-box-service .wrapper-img-absolute .img-legal-advice:nth-child(2) {
+    height: 8rem;
+  }
 }
 .wrapper-box-service .wrapper-img-absolute .img-tax-advice:nth-child(1) {
   max-width: 100%;
@@ -14375,6 +14573,24 @@ p {
   }
 }
 .wrapper-box-service .wrapper-img-absolute .img-blockchain-design:nth-child(2) {
+  max-width: 100%;
+  height: auto;
+  position: relative;
+  opacity: 0;
+}
+.wrapper-box-service .wrapper-img-absolute .img-blockchain-mining:nth-child(1) {
+  max-width: 100%;
+  height: auto;
+  position: absolute;
+  top: -2rem;
+  right: 0;
+}
+@media (min-width: 992px) {
+  .wrapper-box-service .wrapper-img-absolute .img-blockchain-mining:nth-child(1) {
+    top: -6rem;
+  }
+}
+.wrapper-box-service .wrapper-img-absolute .img-blockchain-mining:nth-child(2) {
   max-width: 100%;
   height: auto;
   position: relative;
@@ -14462,10 +14678,10 @@ p {
 .finance-service-one .row .wraping-img .img-finance-service-one {
   height: auto;
   overflow-x: hidden;
-  position: relative;
   border-radius: 20px;
   max-width: 100%;
   top: 0rem;
+  position: absolute;
 }
 @media (min-width: 992px) {
   .finance-service-one .row .wraping-img .img-finance-service-one {
@@ -14504,9 +14720,16 @@ p {
   background-color: #E6E0D4;
 }
 .strategic-for-corproat .wrapper-img {
-  display: flex;
-  justify-content: start;
-  align-items: start;
+  background-image: url("../../img/img-33.webp");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 20rem;
+}
+@media (min-width: 992px) {
+  .strategic-for-corproat .wrapper-img {
+    height: auto;
+  }
 }
 .strategic-for-corproat .wrapper-box-content .box-content-title {
   text-transform: uppercase;
@@ -14551,6 +14774,18 @@ p {
 .international-tax-planning {
   background-color: #8F8379;
   margin: 3rem 0rem;
+}
+.international-tax-planning .wrapper-img {
+  background-image: url("../../img/img-13.webp");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 20rem;
+}
+@media (min-width: 992px) {
+  .international-tax-planning .wrapper-img {
+    height: auto;
+  }
 }
 .international-tax-planning .wrapper-box-content {
   display: flex;
@@ -14600,7 +14835,7 @@ p {
 @media (min-width: 768px) {
   .international-tax-planning .wrapper-box-content .box-content-text {
     text-align: start;
-    padding: 3rem 3rem 0rem 3rem;
+    padding: 2rem 3rem 0rem 3rem;
   }
 }
 
@@ -14675,7 +14910,7 @@ p {
   overflow: hidden;
 }
 .legal-hand .wrapper-hand h1 {
-  padding-top: 7rem;
+  padding-top: 4rem;
   text-align: center;
   color: #2F1A07;
 }
@@ -14686,7 +14921,7 @@ p {
 }
 .legal-hand .wrapper-hand p {
   text-align: center;
-  color: #2F1A07;
+  color: #000000;
   padding-top: 3rem;
   padding-bottom: 10rem;
   font-size: 18px !important;
@@ -14853,27 +15088,279 @@ p {
 7. Blockchain Start
 ------------------------------------------------------------*/
 .blockchain-short-desc {
-  overflow: hidden;
   padding-top: 3rem;
   position: relative;
 }
-.blockchain-short-desc h1 {
+.blockchain-short-desc .container {
+  position: relative;
+}
+.blockchain-short-desc .container h1 {
   color: #BFA573;
   text-align: center;
 }
-.blockchain-short-desc p {
+.blockchain-short-desc .container p {
   text-align: center;
   padding-bottom: 3rem;
 }
-.blockchain-short-desc .el-blockchain-1 {
+.blockchain-short-desc .container .el-blockchain-1 {
   position: absolute;
+  bottom: -5rem;
+  z-index: 2;
 }
-.blockchain-short-desc .el-blockchain-2 {
+.blockchain-short-desc .container .el-blockchain-2 {
   position: absolute;
+  bottom: 0;
+  right: 0;
+}
+
+.blockchain-from-basic {
+  background-color: #3E3E3D;
+  margin-top: 18rem;
+}
+@media (min-width: 768px) {
+  .blockchain-from-basic {
+    margin-top: 22rem;
+  }
+}
+@media (min-width: 1024px) {
+  .blockchain-from-basic {
+    margin-top: 18rem;
+  }
+}
+.blockchain-from-basic .wrapper-img {
+  background-image: url("../../img/img-31.webp");
+  background-position: center top;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 25rem;
+  border-radius: 10px;
+}
+@media (min-width: 992px) {
+  .blockchain-from-basic .wrapper-img {
+    height: auto;
+  }
+}
+.blockchain-from-basic .wrapper-box-content .box-content-title {
+  text-transform: uppercase;
+  color: #BFA573;
+  padding: 2rem 0rem 0rem 0rem;
+  text-align: center;
+}
+@media (min-width: 768px) {
+  .blockchain-from-basic .wrapper-box-content .box-content-title {
+    text-align: start;
+    padding: 2rem 3rem 0rem 3rem;
+  }
+}
+@media (min-width: 992px) {
+  .blockchain-from-basic .wrapper-box-content .box-content-title {
+    text-align: start;
+    padding: 0rem 3rem 0rem 3rem;
+  }
+}
+.blockchain-from-basic .wrapper-box-content .box-content-subtitle {
+  padding: 1rem 0rem 0rem 0rem;
+  text-align: center;
+  color: #BFA573;
+}
+@media (min-width: 768px) {
+  .blockchain-from-basic .wrapper-box-content .box-content-subtitle {
+    text-align: start;
+    padding: 3rem 3rem 0rem 3rem;
+  }
+}
+.blockchain-from-basic .wrapper-box-content .box-content-text {
+  line-height: 30px;
+  text-align: center;
+  padding: 2rem 0rem 0rem 0rem;
+  color: #FFFFFF;
+}
+@media (min-width: 768px) {
+  .blockchain-from-basic .wrapper-box-content .box-content-text {
+    text-align: start;
+    padding: 1rem 3rem 0rem 3rem;
+  }
+}
+
+.blockchain-why .wrapper-why {
+  padding: 2rem;
+}
+.blockchain-why .wrapper-why .box-why {
+  background-color: #1E1E1E;
+  padding: 4rem;
+  height: 100%;
+  border-radius: 10px;
+}
+.blockchain-why .wrapper-why .box-why h3, .blockchain-why .wrapper-why .box-why h5 {
+  color: #BFA573;
+}
+.blockchain-why .wrapper-why .box-why p {
+  margin-top: 3rem;
+  color: #FFFFFF;
+  line-height: 25px;
+}
+.blockchain-why .wrapper-cat {
+  padding: 2rem;
+}
+.blockchain-why .wrapper-cat .bg-cat {
+  background-image: url("../../img/img-32.webp");
+  background-position: center top;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 600px;
+  border-radius: 10px;
 }
 
 /*----------------------------------------------------------
 7. Blockchain End
+------------------------------------------------------------*/
+/*----------------------------------------------------------
+8. Satoshi Start
+------------------------------------------------------------*/
+.satoshi-short-desc {
+  background-color: #B2A291;
+  padding-top: 3rem;
+  position: relative;
+}
+.satoshi-short-desc .container {
+  position: relative;
+}
+.satoshi-short-desc .container h2 {
+  color: #1E1E1E;
+  text-align: center;
+  font-weight: 600;
+}
+.satoshi-short-desc .container p {
+  text-align: center;
+  padding-bottom: 3rem;
+  line-height: 30px;
+}
+.satoshi-short-desc .container .el-satoshi-3 {
+  position: absolute;
+  bottom: 0rem;
+  left: 0rem;
+  z-index: 2;
+}
+.satoshi-short-desc .container .el-satoshi-4 {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+.satoshi-short-desc.method {
+  background-color: #FFFFFF;
+  padding-top: 1rem;
+}
+.satoshi-short-desc.method .container {
+  position: relative;
+}
+.satoshi-short-desc.method .container h4 {
+  padding-top: 0.5rem;
+  text-align: center;
+  color: #BFA573;
+}
+.satoshi-short-desc.method .container p {
+  line-height: 25px;
+  padding-bottom: 0rem;
+  margin: 0px;
+}
+
+.satoshi-buy-sell.buy {
+  background-color: #1E1E1E;
+  padding: 4rem 0rem;
+}
+.satoshi-buy-sell.buy .satoshi-title-box {
+  padding-right: 1rem;
+}
+.satoshi-buy-sell.buy .satoshi-title-box .title {
+  width: auto;
+  background-color: #C5A571;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  border-radius: 3rem;
+}
+.satoshi-buy-sell.buy .satoshi-title-box .title h4 {
+  text-align: center;
+}
+.satoshi-buy-sell.buy .satoshi-title-box .title img {
+  width: auto;
+  height: 4rem;
+  padding-top: 0.5rem;
+}
+.satoshi-buy-sell.buy .satoshi-title-box .subtitle {
+  margin-top: 1rem;
+  padding: 0.5rem 1rem;
+  background-color: #E8D9BD;
+  border-radius: 999999px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.satoshi-buy-sell.buy .line-connected {
+  padding: 1rem;
+}
+.satoshi-buy-sell.buy .satoshi-sub-box {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: start;
+}
+.satoshi-buy-sell.buy .satoshi-sub-box .subtitle {
+  display: flex;
+  align-items: center;
+}
+.satoshi-buy-sell.buy .satoshi-sub-box .subtitle .box-subtitle {
+  color: #1E1E1E;
+  background-color: #C5A571;
+  padding: 0.7rem 3.5rem;
+  border-radius: 9999999px;
+  width: 11rem;
+  text-align: center;
+}
+.satoshi-buy-sell.buy .satoshi-sub-box .subtitle .wrapping-box-desc {
+  padding-left: 1rem;
+  position: relative;
+}
+.satoshi-buy-sell.buy .satoshi-sub-box .subtitle .wrapping-box-desc .box-desc {
+  width: 18rem;
+  color: #1E1E1E;
+  background-color: #FFFFFF;
+  border-radius: 99999999px;
+  border: 3px solid #CCB78F;
+  text-align: center;
+  padding: 0.3rem 3rem;
+  font-size: 14px;
+}
+.satoshi-buy-sell.buy .satoshi-sub-box .subtitle .wrapping-box-desc .star {
+  position: absolute;
+  top: 50%;
+  right: -2.8rem;
+  transform: translate(-50%, -50%);
+}
+.satoshi-buy-sell.buy .satoshi-main-content {
+  background: url("../../img/bg-satoshi-box.png");
+  background-position: center top;
+  background-repeat: no-repeat;
+  background-size: contain;
+  position: relative;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.satoshi-buy-sell.buy .satoshi-main-content .satoshi-main-text {
+  color: white;
+  position: relative;
+  padding: 0rem 8rem;
+  text-align: center;
+  line-height: 30px;
+}
+
+/*----------------------------------------------------------
+8. Satoshi End
 ------------------------------------------------------------*/
 /*----------------------------------------------------------
     File Name  : _navbar.scss
@@ -14943,7 +15430,7 @@ p {
 
 .btn-footer-contactform {
   background-color: #BFA573;
-  color: #1E1E1E;
+  color: #FFFFFF;
   padding: 0.8rem 1rem !important;
   border-radius: 10px;
   font-size: 13px;
@@ -14951,7 +15438,22 @@ p {
 }
 .btn-footer-contactform:hover {
   background-color: #BFA573;
-  color: #1E1E1E;
+  color: #FFFFFF;
+  box-shadow: 0px 4px 4px 0px #E8D9BD;
+  font-weight: 700;
+}
+
+.btn-footer-enrollnow {
+  background-color: #1E1E1E;
+  color: #FFFFFF;
+  padding: 0.8rem 1rem !important;
+  border-radius: 10px;
+  font-size: 13px;
+  font-weight: 500;
+}
+.btn-footer-enrollnow:hover {
+  background-color: #1E1E1E;
+  color: #FFFFFF;
   box-shadow: 0px 4px 4px 0px #E8D9BD;
   font-weight: 700;
 }

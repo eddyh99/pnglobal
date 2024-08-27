@@ -54,7 +54,8 @@
 <div class="finance-service-one">
     <div class="row">
         <div class="col-12 col-lg-6 wraping-img">
-            <img class="img-finance-service-one" src="<?= BASE_URL ?>assets/img/img-8.webp" alt="img finance">
+            <img class="d-none d-lg-block img-finance-service-one" src="<?= BASE_URL ?>assets/img/img-8.webp" alt="img finance">
+            <img class="d-block d-lg-none img-finance-service-one position-relative" src="<?= BASE_URL ?>assets/img/img-8.webp" alt="img finance">
         </div>
         <div class="col-12 col-lg-5 wrap-text-service-one">
             <p class="text-service-one f-inter">

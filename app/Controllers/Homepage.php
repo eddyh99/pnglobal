@@ -89,6 +89,14 @@ class Homepage extends BaseController
                 'extragsap' => 'homepage/gsap/gsap_blockchain',
                 'flag'      => 'blockchain'
             ];
+        }else if($service == "satoshi_signal"){
+            $mdata = [
+                'title'     => 'Bitcoin Trading Guidance for Buy/Sell Decisions - ' . NAMETITLE,
+                'content'   => 'homepage/service/satoshi',
+                'extra'     => 'homepage/js/_js_index',
+                'extragsap' => 'homepage/gsap/gsap_satoshi',
+                'flag'      => 'blockchain'
+            ];
         }else{
             $mdata = [
                 'title'     => 'Service Finance Advice Assets And Investment - ' . NAMETITLE,

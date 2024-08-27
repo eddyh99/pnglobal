@@ -19,7 +19,7 @@
 
 
 <!-- Start of Service -->
-<section class="service">
+<section class="service mb-0">
     <!-- Service 1 -->
     <section id="g-expansion-more" class="wrapper-box-service">
         <div class="box-service gold-international left">
