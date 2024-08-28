@@ -1,0 +1,19 @@
+.logo-signin {
+    width: 200px;
+    height: auto;
+}
+
+.logo-text-login {
+    margin-top: 1rem;
+    letter-spacing: 3px;
+    font-weight: 700;
+}
+
+.logo-sidebar-admin {
+    width: auto !important;
+    height: 45px !important;
+}
+
+.dash-signal-preview {
+    background-color: red;
+}
