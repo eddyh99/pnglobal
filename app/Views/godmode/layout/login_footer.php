@@ -33,5 +33,10 @@
         <script src="<?= BASE_URL?>assets/js/admin/mandatory/chart-custom.js"></script>
         <!-- Custom JavaScript -->
         <script src="<?= BASE_URL?>assets/js/admin/mandatory/custom.js"></script>
+        <?php
+        if (isset($extra)) {
+            echo view(@$extra);
+        }
+	?>
    </body>
 </html>

@@ -6,7 +6,8 @@
       <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
       <title><?= $title?></title>
       <!-- Favicon -->
-      <link rel="shortcut icon" href="images/favicon.ico" />
+      <link href="<?= BASE_URL ?>assets/img/logo.png" rel="icon">
+      <link href="<?= BASE_URL ?>assets/img/logo.png" rel="apple-touch-icon">
       <!-- Bootstrap CSS -->
       <link rel="stylesheet" href="<?= BASE_URL?>assets/style/css/admin/mandatory/bootstrap.min.css">
       <!-- Typography CSS -->

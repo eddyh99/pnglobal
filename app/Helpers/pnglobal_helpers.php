@@ -2,6 +2,31 @@
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
+
+function satoshiAdmin($url, $postData = NULL){
+    $token = "ecd1889dfa6fbedfc3ea12f7cf09ee920a95bea5";
+    
+    $ch     = curl_init($url);
+    $headers    = array(
+        'Authorization: Bearer ' . $token,
+        'Content-Type: application/json'
+    );
+
+    curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
+    curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);
+    curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+    curl_setopt($ch, CURLOPT_POSTFIELDS, $postData);
+    
+    $result = (object) array(
+        'result'        => json_decode(curl_exec($ch)),
+        'status'        => curl_getinfo($ch)['http_code']
+    );
+    curl_close($ch);
+    return $result;
+}
+
+
 function sendmail($subject, $mdata){
     $mail = new PHPMailer();
 

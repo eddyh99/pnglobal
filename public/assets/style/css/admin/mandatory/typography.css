@@ -76,7 +76,7 @@ a{color: var(--iq-primary);}
 hr{border-color: var(--iq-border-light);}
 .rounded-circle{border-radius: 50% !important;}
 .uppercase { text-transform: uppercase; }
-h1, h2, h3, h4, h5, h6 { font-family: 'Poppins', sans-serif; font-weight: 500; margin: 0px; line-height: 1.5; color: var(--iq-title-text); }
+h1, h2, h3, h4, h5, h6, span { font-family: 'Poppins', sans-serif; font-weight: 500; margin: 0px; line-height: 1.5; color: var(--iq-white); }
 h1 a, h2 a, h3 a, h4 a, h5 a, h6 a { color: inherit; }
 label { font-weight: normal; }
 h1 { font-size: 3.052em; }
@@ -97,7 +97,7 @@ label { color: var(--iq-dark); }
 dl dd { margin-bottom: 15px; }
 dl dd:last-child { margin-bottom: 0px; }
 th { }
-.table-striped tbody tr:nth-of-type(odd){background: var(--iq-body-bg);}
+.table-striped tbody tr:nth-of-type(odd){background: var(--iq-black);}
 
 /*----------------------------------------------
 loading

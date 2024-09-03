@@ -16,6 +16,10 @@
       <link rel="stylesheet" href="<?= BASE_URL?>assets/style/css/admin/mandatory/style.css">
       <!-- Responsive CSS -->
       <link rel="stylesheet" href="<?= BASE_URL?>assets/style/css/admin/mandatory/responsive.css">
+      <!-- Summer Note -->
+      <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
+      <!-- Datatables CSS -->
+      <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/dataTables.bootstrap5.min.css" />
       <!-- Custom CSS -->
       <link rel="stylesheet" href="<?= BASE_URL?>assets/style/css/admin/custom.css">
    </head>

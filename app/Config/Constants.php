@@ -104,6 +104,7 @@ defined('BASE_URL') || define('BASE_URL',$protocol);
 
 
 define("NAMETITLE", 'PN Global');
+define("URLAPI", 'https://api.pnglobalinternational.com');
 define("FEEMEETING", '$50');
 define("IDGTAG", 'G-Y7SBM0618C');
 

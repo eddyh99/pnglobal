@@ -2,7 +2,7 @@
         <!-- Wrapper END -->
         
         <!-- Footer -->
-        <footer class="iq-footer">
+        <!-- <footer class="iq-footer">
             <div class="container-fluid">
                 <div class="row">
                 <div class="col-lg-6">
@@ -16,7 +16,7 @@
                 </div>
                 </div>
             </div>
-        </footer>
+        </footer> -->
         <!-- Footer END -->
 
         <!-- Optional JavaScript -->
@@ -57,10 +57,6 @@
       <script src="<?= BASE_URL?>assets/js/admin/mandatory/kelly.js"></script>
       <!-- am maps JavaScript -->
       <script src="<?= BASE_URL?>assets/js/admin/mandatory/maps.js"></script>
-      <!-- am worldLow JavaScript -->
-      <script src="<?= BASE_URL?>assets/js/admin/mandatory/worldLow.js"></script>
-      <!-- Raphael-min JavaScript -->
-      <script src="<?= BASE_URL?>assets/js/admin/mandatory/raphael-min.js"></script>
       <!-- Morris JavaScript -->
       <script src="<?= BASE_URL?>assets/js/admin/mandatory/morris.js"></script>
       <!-- Morris min JavaScript -->
@@ -71,7 +67,32 @@
       <script src="<?= BASE_URL?>assets/js/admin/mandatory/style-customizer.js"></script>
       <!-- Chart Custom JavaScript -->
       <script src="<?= BASE_URL?>assets/js/admin/mandatory/chart-custom.js"></script>
+      <!-- Sweet Alert -->
+      <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+      <!-- Summer Note -->
+      <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
+      <!-- Datatables JS -->
+      <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+      <script src="https://cdn.datatables.net/1.13.6/js/dataTables.bootstrap5.min.js"></script>
       <!-- Custom JavaScript -->
       <script src="<?= BASE_URL?>assets/js/admin/mandatory/custom.js"></script>
+      <!-- Format Price -->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/autonumeric/1.8.2/autoNumeric.js"></script>
+
+        <script>
+            $(".price-input").autoNumeric('init', {
+                aSep: ',',
+                aDec: '.',
+                aForm: true,
+                vMax: '99999999999',
+                vMin: '0'
+            });
+        </script>
+
+        <?php
+        if (isset($extra)) {
+            echo view(@$extra);
+        }
+	    ?>
    </body>
 </html>
