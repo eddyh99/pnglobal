@@ -63,7 +63,5 @@ class Auth extends BaseController
             session()->setFlashdata('success', 'Welcome to admin panel');
             return redirect()->to(BASE_URL . 'godmode/dashboard');
         }
-
-        
     }
 }
