@@ -1,0 +1,197 @@
+:root {
+    --card-line-height: 1.2em;
+    --card-padding: 1em;
+    --card-radius: 0.5em;
+    --color-green: #558309;
+    --color-gray: #e2ebf6;
+    --color-dark-gray: #c4d1e1;
+    --radio-border-width: 2px;
+    --radio-size: 1.5em;
+  }
+
+* {
+    font-family: "Poppins", sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+}
+
+.btn-subs-continue {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    color: #000000;
+    box-shadow: none;
+    border-radius: 5px;
+    border: 1px solid #FFF;
+    background: #BFA573;
+    width: 10rem;
+    height: 2.2rem;
+}
+
+.subs {
+    .title-top {
+        margin-top: 4rem;
+        .title {
+            color: #FFFFFF;
+            font-weight: 400;
+            font-size: 32px;
+        }
+
+        .desc {
+            font-size: 14px;
+            color: #FFFFFF;
+            font-weight: 400;
+        }
+
+    }
+    .list-subs {
+        margin-top: 3rem;
+        width: 100%;        
+        border-radius: 10px;
+        background-color: rgba(204, 183, 143, 0.29);
+        padding: 1rem;
+    
+        .card {
+            background-color: #BFA573;
+            border-radius: var(--card-radius);
+            position: relative;
+            border: none;
+            
+            &:hover {
+                box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.15);
+            }
+        }
+  
+    }
+}
+
+.radio {
+    font-size: inherit;
+    margin: 0;
+    position: absolute;
+    left: calc(var(--card-padding) + var(--radio-border-width));
+    top: 12px;
+}
+  
+@supports(-webkit-appearance: none) or (-moz-appearance: none) { 
+    .radio {
+        appearance: none;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        background: #fff;
+        border: var(--radio-border-width) solid var(--color-gray);
+        border-radius: 50%;
+        cursor: pointer;
+        outline: none;
+        transition: 
+        background 0.2s ease-out,
+        border-color 0.2s ease-out;
+        height: 1.1em;
+        width: 1.1em; 
+  
+        &:checked {
+            background: var(--color-green);
+            border-color: var(--color-green);
+        }
+    }
+    
+    .card:hover .radio {
+        border-color: var(--color-dark-gray);
+        
+        &:checked {
+            border-color: var(--color-green);
+        }
+    }
+}
+
+  
+.plan-details {
+    cursor: pointer;
+    border-radius: var(--card-radius);
+    display: flex;
+    flex-direction: column;
+    transition: border-color 0.2s ease-out;
+
+    .plan-header {
+        background-color: #B48B3D;
+        border-radius: 0.5em 0.5em 0em 0em;
+        padding: 0.5em 0.7rem;
+
+        .plan-title {
+            color: #FFFFFF;
+            font-size: 20px;
+            margin-left: 2.5rem;
+        }
+    }
+
+    .plan-content {
+        padding: 1rem;
+
+        
+        span {
+            font-size: 16px;
+
+            &.left-active, &.right-active {
+                color: #000000;
+            }
+            
+            &.left-disable, &.right-disable {
+                color: #00000050;
+            }
+            
+            &.right-disable {
+                text-decoration: line-through;
+            }
+            
+
+        }
+    }
+}
+  
+.card:hover .plan-details {
+    border-color: var(--color-dark-gray);
+}
+  
+.radio:checked ~ .plan-details {
+    border-color: var(--color-green);
+}
+  
+.radio:focus ~ .plan-details {
+    box-shadow: 0 0 0 2px var(--color-dark-gray);
+}
+
+.radio:disabled ~ .plan-details {
+    color: var(--color-dark-gray);
+    cursor: default;
+}
+
+.radio:disabled ~ .plan-details .plan-type {
+    color: var(--color-dark-gray);
+}
+
+.card:hover .radio:disabled ~ .plan-details {
+    border-color: var(--color-gray);
+    box-shadow: none;
+}
+
+.card:hover .radio:disabled {
+    border-color: var(--color-gray);
+}
+
+.hidden-visually {
+    border: 0;
+    clip: rect(0, 0, 0, 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    white-space: nowrap;
+    width: 1px;
+}
+  

@@ -197,7 +197,6 @@
     font-weight: 400;
 }
 
-
 .send-signals .main-send-signal .signal-preview .all-buy .wrapper-buy .buy input,
 .send-signals .main-send-signal .signal-preview .all-sell .wrapper-sell .sell input {
     width: 100%;
@@ -292,8 +291,6 @@
     padding: 1rem;
     color: #FFFFFF;
 }
-
-
 
 
 /* RESPONSIVE */
