@@ -171,4 +171,96 @@
   width: 1px;
 }
 
+.dash-signal-preview {
+  border: 2px solid #B48B3D;
+  border-radius: 10px;
+  height: 100%;
+}
+.dash-signal-preview .dash-referral {
+  padding: 0.5rem 1rem;
+  display: flex;
+  flex-direction: column;
+}
+.dash-signal-preview .dash-referral label {
+  color: #FFFFFF;
+  font-size: 14px;
+}
+.dash-signal-preview .dash-referral .btn-primary {
+  width: 6rem;
+}
+.dash-signal-preview .title-signal-preview {
+  padding: 1rem;
+  border-bottom: 2px solid #B48B3D;
+}
+.dash-signal-preview .title-signal-preview h4 {
+  color: #FFFFFF;
+}
+.dash-signal-preview .main-signal-preview .date {
+  padding: 0.5rem;
+}
+.dash-signal-preview .main-signal-preview .insturctions .instructions-title {
+  color: #FFFFFF;
+  font-size: 14px;
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+}
+.dash-signal-preview .main-signal-preview .insturctions .box-insturctions {
+  background-color: #0E7304;
+  padding: 0.8rem 1rem;
+  width: 15rem;
+  border-radius: 5px;
+}
+.dash-signal-preview .main-signal-preview .insturctions .box-insturctions h4 {
+  color: #BFA573;
+  font-weight: 700;
+  font-size: 20px;
+}
+.dash-signal-preview .main-signal-preview .insturctions .box-insturctions span {
+  color: #BFA573;
+  font-weight: 600;
+  font-size: 10px;
+}
+.dash-signal-preview .main-signal-preview .signal-preview {
+  width: 100%;
+  margin: 2rem 0rem;
+}
+.dash-signal-preview .main-signal-preview .signal-preview .all-buy .wrapper-buy .buy {
+  padding: 0.5rem 0.3rem;
+}
+.dash-signal-preview .main-signal-preview .signal-preview .all-buy .wrapper-buy .buy .buy-title .buy-text {
+  font-size: 12px;
+  color: #FFFFFF;
+  font-weight: 600;
+}
+.dash-signal-preview .main-signal-preview .signal-preview .all-buy .wrapper-buy .buy .buy-title .buy-date {
+  font-size: 8px;
+  color: #FFFFFF;
+  font-weight: 400;
+}
+.dash-signal-preview .main-signal-preview .signal-preview .all-sell .wrapper-sell .sell {
+  padding: 0.5rem 0.3rem;
+}
+.dash-signal-preview .main-signal-preview .signal-preview .all-sell .wrapper-sell .sell .sell-title .sell-text {
+  font-size: 12px;
+  color: #FFFFFF;
+  font-weight: 600;
+}
+.dash-signal-preview .main-signal-preview .signal-preview .all-sell .wrapper-sell .sell .sell-title .sell-date {
+  font-size: 8px;
+  color: #FFFFFF;
+  font-weight: 400;
+}
+
+.dash-signal-preview .main-signal-preview .signal-preview .all-buy .wrapper-buy .buy input,
+.dash-signal-preview .main-signal-preview .signal-preview .all-sell .wrapper-sell .sell input {
+  width: 100%;
+  height: 35px;
+  border-radius: 5px;
+  padding-left: 10px;
+  font-size: 16px;
+  font-weight: 700;
+  border: none;
+  stroke: none;
+}
+
 /*# sourceMappingURL=widget.css.map */

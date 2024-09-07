@@ -17,8 +17,22 @@
     <!-- Telephone Code -->
     <script src="<?= base_url()?>assets/libs/intl-tel-input-master/build/js/intlTelInput.js"></script>
     
+    <!-- Format Price -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/autonumeric/1.8.2/autoNumeric.js"></script>
+    
     <!-- Custom General Javascript -->
     <script src="<?= base_url() ?>assets/js/script.js"></script>
+
+
+    <script>
+        $(".price-input").autoNumeric('init', {
+            aSep: ',',
+            aDec: '.',
+            aForm: true,
+            vMax: '99999999999',
+            vMin: '0'
+        });
+    </script>
 
     <?php
         if (@isset($extra)) {

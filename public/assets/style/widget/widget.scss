@@ -194,4 +194,134 @@
     white-space: nowrap;
     width: 1px;
 }
+
+.dash-signal-preview {
+    border: 2px solid #B48B3D;
+    border-radius: 10px;
+    height: 100%;
+
+    .dash-referral {
+        padding: 0.5rem 1rem;
+        display: flex;
+        flex-direction: column;
+
+        label {
+            color: #FFFFFF;
+            font-size: 14px;
+        }
+
+        .btn-primary {
+            width: 6rem;
+        }
+    }
+
+    .title-signal-preview {
+        padding: 1rem;
+        border-bottom: 2px solid #B48B3D;
+
+        h4 {
+            color: #FFFFFF;
+        }
+    }
+
+    .main-signal-preview {
+        .date {
+            padding: 0.5rem;
+        }
+
+        .insturctions {
+
+            .instructions-title {
+                color: #FFFFFF;
+                font-size: 14px;
+                text-transform: uppercase;
+                margin-bottom: 0.5rem;
+            }
+
+            .box-insturctions {
+                background-color: #0E7304;
+                padding: 0.8rem 1rem;
+                width: 15rem;
+                border-radius: 5px;
+
+                h4 {
+                    color: #BFA573;
+                    font-weight: 700;
+                    font-size: 20px;
+                }
+
+                span {
+                    color: #BFA573;
+                    font-weight: 600;
+                    font-size: 10px;
+                }
+
+            }
+        }
+
+        .signal-preview {
+            width: 100%;
+            margin: 2rem 0rem;
+
+            .all-buy {
+                .wrapper-buy {
+                    .buy {
+                        padding: 0.5rem 0.3rem;
+
+                        .buy-title {
+                            .buy-text {
+                                font-size: 12px;
+                                color: #FFFFFF;
+                                font-weight: 600;
+                            }
+
+                            .buy-date {
+                                font-size: 8px;
+                                color: #FFFFFF;
+                                font-weight: 400;
+                            }
+                        }
+                    }
+                }
+            }
+
+            .all-sell {
+                .wrapper-sell {
+                    .sell {
+                        padding: 0.5rem 0.3rem;
+
+                        .sell-title {
+                            .sell-text {
+                                font-size: 12px;
+                                color: #FFFFFF;
+                                font-weight: 600;
+                            }
+
+                            .sell-date {
+                                font-size: 8px;
+                                color: #FFFFFF;
+                                font-weight: 400;
+                            }
+                        }
+                    }
+                }
+            }
+
+        }   
+    }
+}
+
+
+.dash-signal-preview .main-signal-preview .signal-preview .all-buy .wrapper-buy .buy input,
+.dash-signal-preview .main-signal-preview .signal-preview .all-sell .wrapper-sell .sell input {
+    width: 100%;
+    height: 35px;
+    border-radius: 5px;
+    padding-left: 10px;
+    font-size: 16px;
+    font-weight: 700;
+    border: none;
+    stroke: none;
+}
+
   
