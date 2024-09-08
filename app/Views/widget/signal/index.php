@@ -1,9 +1,6 @@
 <div class="app-content row  mb-5 pb-5 pt-5">
     <div class="app-member mx-auto col-12 col-lg-8  border-1 border-white">
         <div class="dash-signal-preview">
-            <!-- <div class="title-signal-preview">
-                <h4>Signal Preview</h4>
-            </div> -->
             <div class="main-signal-preview d-flex flex-column align-items-center justify-content-center">
                 <div class="insturctions d-flex flex-column align-items-center justify-content-center mt-4">
                     <span class="instructions-title">Instructions</span>

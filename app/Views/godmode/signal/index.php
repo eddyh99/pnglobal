@@ -329,12 +329,6 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>BUY-A</td>
-                            <td>59.123</td>
-                            <td>01/01/24</td>
-                            <td>13:12</td>
-                        </tr>
                     </tbody>
                 </table>
             </div>

@@ -226,8 +226,7 @@
                         </div>
                         <div class="dash-referral d-flex justify-content-center align-items-center">
                             <button type="submit" class="btn btn-primary">CREATE</button>
-                        </div>
-                        
+                        </div>           
                     </div>
                 </form>
             </div>

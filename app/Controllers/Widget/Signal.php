@@ -3,6 +3,7 @@
 namespace App\Controllers\Widget;
 
 use App\Controllers\BaseController;
+use DateTime;
 
 class Signal extends BaseController
 {
@@ -238,6 +239,156 @@ class Signal extends BaseController
         ];
 
         return view('widget/layout/wrapper', $mdata);
+    }
+
+    public function history()
+    {
+        // Call Endpoin read history all signal
+        $url = URLAPI . "/v1/signal/readhistory";
+        $resultActive = satoshiAdmin($url)->result->message;
+
+        // initialitation variable dengan tipe data array
+        $newarray = [];
+        $tempGroup = [];
+
+        // Looping for grouping per period, pembatas field is Buy A again
+        foreach($resultActive as $key => $dt){
+
+            $temp = (object) [
+                'id' => $dt->id,
+                'type' => $dt->type,
+                'entry_price' => $dt->entry_price,
+                'pair_id' => $dt->pair_id,
+                'created_at' => $dt->created_at,
+                'update_at' => $dt->update_at,
+            ];
+
+            array_push($tempGroup,  $temp);
+
+            if($dt->type == 'Buy A'){
+                array_push($newarray, $tempGroup);
+                $tempGroup = [];
+            }
+        }
+
+        
+        $period = [];
+        foreach($newarray as $keyone => $wrapper){
+            foreach($wrapper as $keytwo => $dt){
+                if($dt->type == 'Buy A' && $dt->pair_id != null){
+                    $dateString = $dt->created_at;
+                    $date = new DateTime($dateString);
+                    $finaldate = $date->format('d M Y');
+                    // echo '<pre>'.print_r($finaldate,true).'</pre>';
+                    $temp = (object) [
+                        'id' => $dt->id,
+                        'type' => $dt->type,
+                        'entry_price' => $dt->entry_price,
+                        'pair_id' => $dt->pair_id,
+                        'created_at' => $finaldate,
+                        'update_at' => $dt->update_at,
+                        'status'    => 'Closed',
+                        'detail' => $keyone
+                    ];
+                    array_push($period, $temp);
+                }else if($dt->type == 'Buy A' && $dt->pair_id == null){
+                    $dateString = $dt->created_at;
+                    $date = new DateTime($dateString);
+                    $finaldate = $date->format('d M Y');
+
+                    $temp = (object) [
+                        'id' => $dt->id,
+                        'type' => $dt->type,
+                        'entry_price' => $dt->entry_price,
+                        'pair_id' => $dt->pair_id,
+                        'created_at' => $finaldate,
+                        'update_at' => $dt->update_at,
+                        'status'    => 'Running',
+                        'detail' => $keyone
+                    ];
+                    array_push($period, $temp);
+                }
+            }
+        }
+
+        // echo '<pre>'.print_r($period,true).'</pre>';
+        // echo '<pre>'.print_r($newarray,true).'</pre>';
+        // die;
+
+        $mdata = [
+            'title'     => 'History Signal - ' . SATOSHITITLE ,
+            'content'   => 'widget/signal/history_period',
+            'extra'     => 'widget/signal/js/_js_history_period',
+            'data'      => $period
+        ];
+
+        return view('widget/layout/wrapper', $mdata);
+  
+    }
+
+    public function detailhistory($detail)
+    {
+        // Get ID From segment
+        $id = base64_decode(htmlspecialchars($detail));
+
+        // Call Endpoin read history all signal
+        $url = URLAPI . "/v1/signal/readhistory";
+        $resultActive = satoshiAdmin($url)->result->message;
+
+        // initialitation variable dengan tipe data array
+        $newarray = [];
+        $tempGroup = [];
+
+        // Looping for grouping per period, pembatas field is Buy A again
+        foreach($resultActive as $key => $dt){
+            $dateString = $dt->created_at;
+            $date = new DateTime($dateString);
+            $finaldate = $date->format('d/m/Y');
+            $finaltime = $date->format('H:i');
+
+            $temp = (object) [
+                'id' => $dt->id,
+                'type' => $dt->type,
+                'entry_price' => $dt->entry_price,
+                'pair_id' => $dt->pair_id,
+                'finaldate' => $finaldate,
+                'finaltime' => $finaltime,
+            ];
+
+            array_push($tempGroup,  $temp);
+
+            if($dt->type == 'Buy A'){
+                array_push($newarray, $tempGroup);
+                $tempGroup = [];
+            }
+        }
+
+        // Change format to be period
+        $format = end($newarray[$id])->finaldate;
+        $reformat = DateTime::createFromFormat('d/m/Y', $format);
+        $newdate = $reformat->format('d M Y');
+
+        // echo '<pre>'.print_r(end($newarray[$id]),true).'</pre>';
+        // echo '<pre>'.print_r($newarray[$id],true).'</pre>';
+        // die;
+
+        $mdata = [
+            'title'     => 'History Signal - ' . SATOSHITITLE ,
+            'content'   => 'widget/signal/history_detail',
+            'extra'     => 'widget/signal/js/_js_history_detail',
+            'history'      => $newarray[$id],
+            'period'    => $newdate
+        ];
+
+        return view('widget/layout/wrapper', $mdata);
+    }
+
+    public function list_history()
+    {
+        // Call Endpoin List History Order
+        $url = URLAPI . "/v1/signal/readhistory";
+        $result = satoshiAdmin($url)->result->message;
+        echo json_encode($result);
     }
 
 }
