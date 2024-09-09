@@ -29,9 +29,7 @@
     
     <!-- Custom CSS -->
     <link rel="stylesheet" href="<?= BASE_URL ?>assets/style/widget/widget.css">
-    
-    <!-- Stripe -->
-    <script src="https://js.stripe.com/v3/"></script>
+
 
 
 </head>

@@ -13,13 +13,15 @@ class Subscription extends BaseController
         $result = satoshiAdmin($url)->result->message;
 
         $ref = @$_GET['ref'];
+        $email = @$_GET['mail'];
 
         $mdata = [
             'title'     => 'Subscription - Satoshi Signal' ,
-            'content'   => 'widget/subscription',
-            'extra'     => 'widget/js/_js_subcription',
+            'content'   => 'widget/subscription/subscription',
+            'extra'     => 'widget/subscription/js/_js_subcription',
             'subsprice' => $result,
-            'ref'       => $ref
+            'ref'       => $ref,
+            'email'     => $email
         ];
 
         return view('widget/layout/wrapper', $mdata);
@@ -27,7 +29,6 @@ class Subscription extends BaseController
 
     public function subsproccess()
     {
-        
         $token = htmlspecialchars($this->request->getVar('stripeToken'));
         $subs = htmlspecialchars($this->request->getVar('subs'));
 
@@ -35,10 +36,8 @@ class Subscription extends BaseController
         $amount = $array[0];
         $desc = $array[1];
 
-        // echo '<pre>'.print_r($token,true).'</pre>';
-        // echo '<pre>'.print_r($amount,true).'</pre>';
-        // echo '<pre>'.print_r($desc,true).'</pre>';
-        // die;
+        $email = @$_GET['mail'];
+
 
         // Stripe secret key
         \Stripe\Stripe::setApiKey(SECRET_KEY); 
@@ -52,16 +51,27 @@ class Subscription extends BaseController
                 'source' => $token,
             ]);
                         
-            echo '<pre>'.print_r($charge,true).'</pre>';
-            
-            // header("Location: ". BASE_URL . 'widget/subscription');
-            // exit();
-        
+            header("Location: ". BASE_URL . 'widget/subscription/success?mail='.$email);
+            exit();
+
         } catch (\Stripe\Exception\CardException $e) {
             session()->setFlashdata('failed', 'Payment Failed: '. $e->getError()->message);
             header("Location: ". BASE_URL . 'widget/subscription');
             exit();
         }
+    }
 
+    public function success()
+    {
+        $email = @$_GET['mail'];
+
+        $mdata = [
+            'title'     => 'Subscription Success - Satoshi Signal' ,
+            'content'   => 'widget/subscription/success',
+            'extra'     => 'widget/subscription/js/_js_success',
+            'email'     => $email
+        ];
+
+        return view('widget/layout/wrapper', $mdata);
     }
 }

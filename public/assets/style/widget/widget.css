@@ -283,4 +283,18 @@
   align-items: center;
 }
 
+.subs-success .title-top {
+  margin-top: 1rem;
+}
+.subs-success .title-top .title {
+  color: #FFFFFF;
+  font-weight: 400;
+  font-size: 32px;
+}
+.subs-success .title-top .desc {
+  font-size: 14px;
+  color: #FFFFFF;
+  font-weight: 400;
+}
+
 /*# sourceMappingURL=widget.css.map */

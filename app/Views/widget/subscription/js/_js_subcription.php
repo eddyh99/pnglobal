@@ -1,3 +1,7 @@
+    
+<!-- Stripe -->
+<script src="https://js.stripe.com/v3/"></script>
+
 <style>
     /* Base styles for the Stripe Elements container */
 .StripeElement {

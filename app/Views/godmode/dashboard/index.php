@@ -123,7 +123,11 @@
                                                     ?>
                                                 </span>
                                             </div>
-                                            <input type="text"  class="price-input" value="<?= @$buy_a['entry_price']?>" readonly>
+                                            <?php if(!empty($buy_a)){?>
+                                                <input type="text" class="price-input" value="<?= @$buy_a['entry_price'] ?>" readonly>
+                                            <?php }else{?>
+                                                <input type="text" value="-" readonly>
+                                            <?php }?>
                                         </div>
                                         <div class="buy">
                                             <div class="buy-title d-flex justify-content-between align-items-end">
@@ -137,7 +141,11 @@
                                                     ?>
                                                 </span>
                                             </div>
-                                            <input type="text" class="price-input" value="<?= @$buy_b['entry_price']?>" readonly>
+                                            <?php if(!empty($buy_b)){?>
+                                                <input type="text" class="price-input" value="<?= @$buy_b['entry_price'] ?>" readonly>
+                                            <?php }else{?>
+                                                <input type="text" value="-" readonly>
+                                            <?php }?>
                                         </div>
                                         <div class="buy">
                                             <div class="buy-title d-flex justify-content-between align-items-end">
@@ -151,7 +159,12 @@
                                                 ?>
                                                 </span>
                                             </div>
-                                            <input type="text" class="price-input" value="<?= @$buy_c['entry_price']?>"  readonly>
+                                           
+                                            <?php if(!empty($buy_c)){?>
+                                                <input type="text" class="price-input" value="<?= @$buy_c['entry_price'] ?>" readonly>
+                                            <?php }else{?>
+                                                <input type="text" value="-" readonly>
+                                            <?php }?>
                                         </div>
                                         <div class="buy">
                                             <div class="buy-title d-flex justify-content-between align-items-end">
@@ -165,7 +178,11 @@
                                                     ?>
                                                 </span>
                                             </div>
-                                            <input type="text" class="price-input" value="<?= @$buy_d['entry_price']?>"  readonly>
+                                            <?php if(!empty($buy_d)){?>
+                                                <input type="text" class="price-input" value="<?= @$buy_d['entry_price'] ?>" readonly>
+                                            <?php }else{?>
+                                                <input type="text" value="-" readonly>
+                                            <?php }?>
                                         </div>
                                     </div>
                                 </div>
@@ -174,30 +191,74 @@
                                         <div class="sell">
                                             <div class="sell-title d-flex justify-content-between align-items-end">
                                                 <span class="sell-text">Sell - A</span>
-                                                <span class="sell-date"></span>
+                                                <span class="sell-date">
+                                                <?php
+                                                    $newDate = date('d/m/Y H:i', strtotime(@$sell_a['created_at']));
+                                                    if(!empty($sell_a)){
+                                                        echo $newDate;
+                                                    }
+                                                ?>
+                                                </span>
                                             </div>
-                                            <input type="text" readonly>
+                                            <?php if(!empty($sell_a)){?>
+                                                <input type="text" class="price-input" value="<?= @$sell_a['entry_price'] ?>" readonly>
+                                            <?php }else{?>
+                                                <input type="text" value="-" readonly>
+                                            <?php }?>
                                         </div>
                                         <div class="sell">
                                             <div class="sell-title d-flex justify-content-between align-items-end">
                                                 <span class="sell-text">Sell - B</span>
-                                                <span class="sell-date"></span>
+                                                <span class="sell-date">
+                                                <?php
+                                                    $newDate = date('d/m/Y H:i', strtotime(@$sell_b['created_at']));
+                                                    if(!empty($sell_b)){
+                                                        echo $newDate;
+                                                    }
+                                                ?>
+                                                </span>
                                             </div>
-                                            <input type="text" readonly>
+                                            <?php if(!empty($sell_b)){?>
+                                                <input type="text" class="price-input" value="<?= @$sell_b['entry_price'] ?>" readonly>
+                                            <?php }else{?>
+                                                <input type="text" value="-" readonly>
+                                            <?php }?>
                                         </div>
                                         <div class="sell">
                                             <div class="sell-title d-flex justify-content-between align-items-end">
                                                 <span class="sell-text">Sell - C</span>
-                                                <span class="sell-date"></span>
+                                                <span class="sell-date">
+                                                <?php
+                                                    $newDate = date('d/m/Y H:i', strtotime(@$sell_c['created_at']));
+                                                    if(!empty($sell_c)){
+                                                        echo $newDate;
+                                                    }
+                                                ?>
+                                                </span>
                                             </div>
-                                            <input type="text" readonly>
+                                            <?php if(!empty($sell_c)){?>
+                                                <input type="text" class="price-input" value="<?= @$sell_c['entry_price'] ?>" readonly>
+                                            <?php }else{?>
+                                                <input type="text" value="-" readonly>
+                                            <?php }?>
                                         </div>
                                         <div class="sell">
                                             <div class="sell-title d-flex justify-content-between align-items-end">
                                                 <span class="sell-text">Sell - D</span>
-                                                <span class="sell-date"></span>
+                                                <span class="sell-date">
+                                                <?php
+                                                    $newDate = date('d/m/Y H:i', strtotime(@$sell_d['created_at']));
+                                                    if(!empty($sell_d)){
+                                                        echo $newDate;
+                                                    }
+                                                ?>
+                                                </span>
                                             </div>
-                                            <input type="text" readonly>
+                                            <?php if(!empty($sell_d)){?>
+                                                <input type="text" class="price-input" value="<?= @$sell_d['entry_price'] ?>" readonly>
+                                            <?php }else{?>
+                                                <input type="text" value="-" readonly>
+                                            <?php }?>
                                         </div>
                                     </div>
                                 </div>
