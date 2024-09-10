@@ -25,7 +25,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/livecanvas-team/ninjabootstrap/dist/css/bootstrap.min.css" media="all">
 
     <!-- Stripe -->
-    <script src="https://js.stripe.com/v3/"></script>
+    <!-- <script src="https://js.stripe.com/v3/"></script> -->
     
     <!-- Custom CSS -->
     <link rel="stylesheet" href="<?= BASE_URL ?>assets/style/widget/widget.css">

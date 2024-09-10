@@ -15,13 +15,13 @@
     <script src="https://unpkg.com/split-type"></script>
     
     <!-- Telephone Code -->
-    <script src="<?= base_url()?>assets/libs/intl-tel-input-master/build/js/intlTelInput.js"></script>
+    <script src="<?= BASE_URL?>assets/libs/intl-tel-input-master/build/js/intlTelInput.js"></script>
     
     <!-- Format Price -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/autonumeric/1.8.2/autoNumeric.js"></script>
     
     <!-- Custom General Javascript -->
-    <script src="<?= base_url() ?>assets/js/script.js"></script>
+    <script src="<?= BASE_URL ?>assets/js/script.js"></script>
 
 
     <script>
