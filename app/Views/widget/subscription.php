@@ -6,7 +6,7 @@
 <?php }?>
 <div class="app-content px-2 row  mb-5 pb-5">
     <div class="app-member mx-auto col-12 col-lg-8  border-1 border-white">
-        <form id="payment-form" action="<?=BASE_URL?>widget/subscription/subsproccess?mail=<?= $email?>" method="POST">
+        <form id="payment-form" action="<?=BASE_URL?>widget/subscription/subsproccess" method="POST">
             <div class="subs">
                 <div class="title-top">
                     <h1 class="title">Subscribe</h1>
@@ -111,7 +111,6 @@
                         <div id="card-element" class="StripeElement"></div>
                         <div class="card-brand" id="card-brand"></div>
                     </div>
-                    <div class="text-white mt-2" id="card-errors"></div>
                 </div>
                 <div class="d-flex justify-content-center mt-5">
                     <!-- <a href="" class="btn-subs-continue mx-2">Back</a> -->
