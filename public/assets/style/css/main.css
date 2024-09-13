@@ -13751,6 +13751,36 @@ p {
 }
 .banner-service .wrapper-service .download-video .button-download .top {
   margin-top: 0.5rem;
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+}
+.banner-service .wrapper-service .download-video .button-download .top .btn-download {
+  display: inline-block;
+  transform: translateY(115px);
+  -webkit-transform: translateY(115px);
+  -moz-transform: translateY(115px);
+  -ms-transform: translateY(115px);
+  -o-transform: translateY(115px);
+  transition: transform 0.5s;
+  -webkit-transition: transform 0.5s;
+  -moz-transition: transform 0.5s;
+  -ms-transition: transform 0.5s;
+  -o-transition: transform 0.5s;
+}
+.banner-service .wrapper-service .download-video .button-download .bottom {
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+}
+.banner-service .wrapper-service .download-video .button-download .bottom .btn-download {
+  display: inline-block;
+  transform: translateY(115px);
+  -webkit-transform: translateY(115px);
+  -moz-transform: translateY(115px);
+  -ms-transform: translateY(115px);
+  -o-transform: translateY(115px);
+  transition: transform 0.5s;
+  -webkit-transition: transform 0.5s;
+  -moz-transition: transform 0.5s;
+  -ms-transition: transform 0.5s;
+  -o-transition: transform 0.5s;
 }
 .banner-service .wrapper-service .download-video .button-download .btn-download {
   padding: 0.5rem;

@@ -52,9 +52,23 @@
             .button-download {
                 @include mix.flex-tengah;
                 flex-direction: column;
+        
 
                 .top {
                     margin-top: 0.5rem;
+                    clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+
+                    .btn-download {
+                         @include mix.animation-reveal;
+                    }
+                }
+
+                .bottom {
+                    clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+
+                    .btn-download {
+                         @include mix.animation-reveal;
+                    }
                 }
                 .btn-download {
                     padding: 0.5rem;

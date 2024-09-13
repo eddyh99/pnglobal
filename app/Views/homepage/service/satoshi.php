@@ -4,17 +4,19 @@
         <video autoplay="" preload="" muted="" loop="" playsinline="">
             <source src="<?= BASE_URL ?>assets/vid/banner-signal.webm" type="video/webm">
         </video>
-        <div id="g-text-downloadapp" class="download-video">
-            <h1 class="f-noto line-animation">
-                Download The App <br>
-                <span translate='no'> Satoshi Signal </span>
+        <div class="download-video">
+            <h1 id="g-text-downloadapp" class="f-noto line-animation">
+                <span class="line-animation">
+                    Download The App <br>
+                    <span translate='no'> Satoshi Signal </span>
+                </span>
             </h1>
             <div class="button-download">
-                <div class="top">
+                <div id="g-icondownloadtop" class="top">
                     <img class="btn-download" src="<?= BASE_URL ?>assets/img/playstore-download.png" alt="download playstore">
                     <img class="btn-download" src="<?= BASE_URL ?>assets/img/ios-download.png" alt="download playstore">
                 </div>
-                <div class="bottom">
+                <div id="g-icondownloadbottom" class="bottom">
                     <img class="btn-download" src="<?= BASE_URL ?>assets/img/window-download.png" alt="download playstore">
                 </div>
             </div>
