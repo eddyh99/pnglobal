@@ -65,7 +65,8 @@
 
 .bg-trainingform {
     background-color: #000000;
-    padding: 3rem 0;
+    padding: 1rem 0;
+    overflow: hidden;
 
     .wrapper-trainingform {
         padding-top: 3rem;
@@ -81,7 +82,7 @@
             padding: 2rem 2rem 2rem 0rem;
 
             @include mix.xl2 {
-                padding: 2rem 10rem 2rem 0rem;
+                padding: 2rem 6rem 2rem 0rem;
 
             }
         }
@@ -153,27 +154,27 @@
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
-    padding: 3rem 0rem 10rem 0rem ;
+    padding: 3rem 0rem 3rem 0rem ;
 
     .logo-footer {
         display: flex;
-        flex-direction: column;
         justify-content: center;
         align-items: center;
 
         img {
-            opacity: 0.8;
+            height: 150px;
+            width: auto;
         }
 
-
         .logo-text-footer {
-            margin-top: 1rem;
+            margin-left: 1rem;
+            margin-bottom: 0rem;
             text-align: center;
             text-transform: uppercase;
             letter-spacing: 4px;
             font-weight: 700;
             color: #FFFFFF;
-            font-size: 12px;
+            font-size: 16px;
         }
     }
     
@@ -185,14 +186,21 @@
     
     .text-link {
         .list { 
-            border-left: 2px solid var.$text-white-pnglobal;
+            border-left: 2px solid var.$text-primary-pnglobal;
             padding: 0rem 2rem;
+
+            @include mix.md {
+                margin-right: 0rem;
+                
+            }
+            margin-right: 5rem;
 
             a {
                 display: block;
                 color: var.$text-white-pnglobal;
                 // margin: 2rem 0;
                 text-decoration: underline;
+                font-size: 12px;
 
                 &:hover {
                     font-weight: 700;
@@ -201,8 +209,19 @@
         }
     }
 
+    .border-hr-footer {
+        width: 90%;
+        height: 2px;
+        background-color: var.$bg-primary-pnglobal;
+        margin-top: 4rem;
+    }
+
     .address {
-        border-left: 2px solid var.$text-white-pnglobal;
+        // border-left: 2px solid var.$text-white-pnglobal;
         padding-left: 2rem;
+
+        p {
+            font-size: 9px;
+        }
     }
 }

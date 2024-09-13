@@ -62,6 +62,7 @@
 }
 
 .btn-zoom {
+    width: 100%;
     background-color: var.$bg-primary-pnglobal;
     padding: 0.5rem;
     border-radius: 999999px;
@@ -101,6 +102,15 @@
         box-shadow: 0px 4px 4px 0px #E8D9BD;
         font-weight: 700;
     }
+}
+
+.btn-know-team {
+    background-color: #000000;
+    color: var.$text-primary-pnglobal;
+    padding: 0.8rem 3rem !important;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: 500;
 }
 
 

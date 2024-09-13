@@ -95,7 +95,7 @@ class Homepage extends BaseController
                 'content'   => 'homepage/service/satoshi',
                 'extra'     => 'homepage/js/_js_index',
                 'extragsap' => 'homepage/gsap/gsap_satoshi',
-                'flag'      => 'blockchain'
+                'flag'      => 'satoshi'
             ];
         }else{
             $mdata = [

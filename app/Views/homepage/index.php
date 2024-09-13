@@ -16,13 +16,6 @@
                             INTO SUCCESS
                         </span>
                     </span>
-                    <!-- <span>
-                        Transforming visions
-                    </span> 
-                    <br>
-                    <span  style="color: #BFA573;">
-                        into success
-                    </span> -->
                 </p>    
             </div>
 
@@ -39,9 +32,8 @@
                 <h2 class="f-odor text-primary-pnglobal">Efficiency and Professionalism at the Highest Levels</h2>
                 <h5 class="f-odor text-primary-pnglobal mt-4">A Team of Experts at Your Service</h5>
                 <p class="f-inter">
-                    <span translate="no"> PN Global </span> stands out for its efficiency and professionalism in providing top-level consultations. <br>
-                    Thanks to a team of highly qualified experts, we offer personalized and innovative solutions to meet the specific needs of each client: business consulting, fund reallocation consulting, business expansion or relocation abroad consulting, consulting for opening business and personal bank accounts, and transferring tax residence. Our proactive and results-oriented approach ensures that our clients achieve their goals quickly and safely. 
-                    Rely on <span translate='no'> PN Global </span> for impeccable management and sustainable growth.
+                    <span translate='no'> PN Global </span> excels in offering high-level consulting services. With a team of skilled experts, we provide tailored solutions for business consulting, fund reallocation, expansion or relocation abroad, account opening, and tax residence transfer. <br><br>
+                    We also offer training programs on Bitcoin, BTC mining, Blockchain, and paths to becoming entrepreneurs or consultants. <span translate='no'> PN Global </span> is the ideal partner for those seeking growth through innovative skills and successful strategies.
                 </p>
             </div>
             <div class="col-12 col-lg-5 col-xl-4 order-0 order-lg-1 bg-team-expert">
@@ -207,11 +199,13 @@
                 <div class="d-none d-lg-block col-1"></div>
                 <div class="col-12 col-lg-5 order-1 order-lg-0">
                     <p class="text-desc-service f-inter">
-                        At P.N. Global, we are dedicated to providing specialized and high-quality services to help our clients successfully navigate the complex world of international business. Our team of experts offers personalized and strategic support for a wide range of needs, ensuring effective solutions that comply with current regulations. We are proud to assist our clients at every stage of their entrepreneurial journey.
+                        Our specialized services empower you to navigate the complexities of international business. 
+                        Our expert team provides tailored solutions for a wide range of needs, ensuring compliance and strategic success. 
+                        Discover how we can support you at every stage of your entrepreneurial journey.
                     </p>
-                    <p class="text-desc-service f-inter mt-4">
+                    <!-- <p class="text-desc-service f-inter mt-4">
                         Explore our services to discover how we can help you achieve your goals with confidence and expertise.
-                    </p>
+                    </p> -->
                 </div>
                 <div class="d-none d-lg-block col-1"></div>
                 <div class="col-12 col-lg-5 order-0 order-lg-1 bg-img-service-desc">
@@ -238,8 +232,11 @@
                                 <div class="btn-flip f-odor">Open Company</div>
                             </div>
                             <div class="flip-box-back">
-                                <h4 class="f-inter">Company Openings</h4>
-                                <p class="f-inter">We offer comprehensive services for establishing new businesses, ensuring compliance with local regulations and guiding you through every step of the process. Our tailored services ensure a seamless and efficient company setup.</p>
+                                <div>
+                                    <h4 class="f-inter">Company Openings</h4>
+                                    <p class="f-inter">We offer comprehensive services for establishing new businesses, ensuring compliance with local regulations and guiding you through every step of the process. Our tailored services ensure a seamless and efficient company setup.</p>
+                                </div>
+                                <a href="">Contact us</a>
                             </div>
                         </div>
                     </div>
@@ -251,8 +248,11 @@
                                 <div class="btn-flip f-odor">VISAS & RESIDENCE PERMIT</div>
                             </div>
                             <div class="flip-box-back">
-                                <h4 class="f-inter">Visas and Residence Permits</h4>
-                                <p class="f-inter">Our team provides complete assistance in obtaining visas and residence permits, facilitating your access to international markets and ensuring a smooth relocation process. We ensure that all applications are meticulously prepared and compliant with relevant regulations to secure the necessary permits promptly.</p>
+                                <div>
+                                    <h4 class="f-inter">Visas and Residence Permits</h4>
+                                    <p class="f-inter">Our team provides complete assistance in obtaining visas and residence permits, facilitating your access to international markets and ensuring a smooth relocation process. We ensure that all applications are meticulously prepared and compliant with relevant regulations to secure the necessary permits promptly.</p>
+                                </div>
+                                <a href="">Contact us</a>
                             </div>
                         </div>
                     </div>
@@ -264,8 +264,11 @@
                                 <div class="btn-flip f-odor">Relocation of Residence</div>
                             </div>
                             <div class="flip-box-back">
-                                <h4 class="f-inter">Relocation of Residence</h4>
-                                <p class="f-inter">Our services assist you in relocating your residence, ensuring a smooth transition and compliance with all local regulations. We provide expert guidance on the most suitable residency options and streamline the application process for your new location.</p>
+                                <div>
+                                    <h4 class="f-inter">Relocation of Residence</h4>
+                                    <p class="f-inter">Our services assist you in relocating your residence, ensuring a smooth transition and compliance with all local regulations. We provide expert guidance on the most suitable residency options and streamline the application process for your new location.</p>
+                                </div>
+                                <a href="">Contact us</a>
                             </div>
                         </div>
                     </div>
@@ -277,8 +280,11 @@
                                 <div class="btn-flip f-odor">BUSINESS PLAN AND FEASIBILITY STUDY</div>
                             </div>
                             <div class="flip-box-back">
-                                <h4 class="f-inter">Business Plan and Feasibility Study</h4>
-                                <p class="f-inter">We deliver specialized services for developing business plans and conducting feasibility studies. Our services include thorough market analysis, financial forecasting, and strategic planning to ensure your business idea is viable and set for success.</p>
+                                <div>
+                                    <h4 class="f-inter">Business Plan and Feasibility Study</h4>
+                                    <p class="f-inter">We deliver specialized services for developing business plans and conducting feasibility studies. Our services include thorough market analysis, financial forecasting, and strategic planning to ensure your business idea is viable and set for success.</p>
+                                </div>
+                                <a href="">Contact us</a>
                             </div>
                         </div>
                     </div>
@@ -290,8 +296,11 @@
                                 <div class="btn-flip f-odor">CONTRACT DRAFTING</div>
                             </div>
                             <div class="flip-box-back">
-                                <h4 class="f-inter">Contract Drafting</h4>
-                                <p class="f-inter">Our legal experts offer professional services in drafting contracts that protect your interests and ensure compliance with all relevant laws. We provide clear, precise, and legally sound contract drafting services to meet your business needs.</p>
+                                <div>
+                                    <h4 class="f-inter">Contract Drafting</h4>
+                                    <p class="f-inter">Our legal experts offer professional services in drafting contracts that protect your interests and ensure compliance with all relevant laws. We provide clear, precise, and legally sound contract drafting services to meet your business needs.</p>
+                                </div>
+                                <a href="">Contact us</a>
                             </div>
                         </div>
                     </div>
@@ -303,8 +312,11 @@
                                 <div class="btn-flip f-odor">FUNDS REALLOCATION</div>
                             </div>
                             <div class="flip-box-back">
-                                <h4 class="f-inter">Fund Reallocation</h4>
-                                <p class="f-inter">Maximize profits and minimize risks with our expert services for fund reallocation. We provide 100% legal solutions tailored to enhance profitability and capitalize on market opportunities. Our strategies are designed to meet your specific needs and goals.</p>
+                                <div>
+                                    <h4 class="f-inter">Fund Reallocation</h4>
+                                    <p class="f-inter">Maximize profits and minimize risks with our expert services for fund reallocation. We provide 100% legal solutions tailored to enhance profitability and capitalize on market opportunities. Our strategies are designed to meet your specific needs and goals.</p>
+                                </div>
+                                <a href="">Contact us</a>
                             </div>
                         </div>
                     </div>
@@ -342,7 +354,8 @@
                                 href="<?php echo BASE_URL . "homepage/service?service=" . base64_encode("blockchain_mining_bitcoin_training")?>" 
                                 class="btn-zoom f-odor"
                             >
-                                Advanced Training on Blockchain, Mining and Bitcoin
+                                <!-- Advanced Training on Blockchain, Mining <br> and Bitcoin -->
+                                Advanced Training on Bitcoin, <br> Mining and Blockchain 
                             </a>
                         </div>
                     </div>
@@ -354,7 +367,7 @@
                                 href="<?php echo BASE_URL . "homepage/service?service=" . base64_encode("satoshi_signal")?>" 
                                 class="btn-zoom f-odor"
                             >
-                                Bitcoin BROKERAGE Guidance for 
+                                Bitcoin BROKERAGE Guidance for <br>
                                 Buy/Sell Decisions ‘’SATOSHI SIGNALS’’
                             </a>
                         </div>

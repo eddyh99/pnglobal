@@ -43,6 +43,7 @@
 
             img {
                 clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+                width: 150px;
             }
 
             .logo-text-banner {
@@ -449,6 +450,9 @@
                     color: var.$text-black-pnglobal;
                     transform: rotateY(180deg);
                     padding: 1rem;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-around;
 
                     @include mix.xs {
                         padding: 2rem;
@@ -470,6 +474,14 @@
 
                     p {
                         text-align: start;
+                    }
+
+                    a {
+                        text-decoration: underline;    
+
+                        &:hover {
+                            text-shadow: 2px 2px 2px #FFF;
+                        }
                     }
                 }
             }

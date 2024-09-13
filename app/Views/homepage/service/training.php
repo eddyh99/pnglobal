@@ -20,8 +20,8 @@
 <!-- Start of Advance Training -->
 <section class="advance-training">
     <div class="container">
-        <div class="row row-cols-1 row-cols-lg-2 ">
-            <div class="col">
+        <div class="row">
+            <div class="col-12 col-lg-8">
                 <h2 id="g-advancetraining-title" class="f-odor ">
                     <span class="line-animation">
                         Advanced Training for Global Entrepreneurs
@@ -34,11 +34,11 @@
                 </h4>
                 <p id="g-advancetraining-text" class="f-inter">
                     <span class="line-animation">
-                        PN Global is committed to ensuring the advanced and continuous training of its team, developing specialized and updated skills in all its services. If you are interested in a future as an entrepreneur, our training programs offer you the opportunity to become successful entrepreneurs and partners of P.N. Global. Develop the skills you need to successfully navigate global markets and maximize your returns with innovative strategies.
+                        <span translate='no'> PN Global, </span> comprised of successful entrepreneurs, is committed to ensuring the advanced and continuous training of its team, developing specialized and constantly updated skills across all service areas. If you are interested in building your future as an entrepreneur, our training programs offer you the opportunity to become not only a successful entrepreneur but also an affiliated consultant of <span translate='no'> PN Global.</span> Through these programs, you will develop the skills you need to successfully navigate global markets and maximize your returns using innovative and proven strategies. With <span translate='no'> PN Global, </span> you will have the chance to join a global network of experienced entrepreneurs and consultants.
                     </span>
                 </p>
             </div>
-            <div id="g-advancetrainingimg" class="col d-flex justify-content-end align-items-end">
+            <div id="g-advancetrainingimg" class="col d-none d-lg-flex justify-content-end align-items-end">
                 <img class="img-fluid line-animation" src="<?= BASE_URL ?>assets/img/img-22.webp" alt="img">
             </div>
         </div>
@@ -53,7 +53,7 @@
             <div class="col">
                 <h2 class="f-odor text-center">
                     <span class="line-animation">
-                        Training for Aspiring Entrepreneurs
+                        Training for Aspiring Entrepreneurs and consultants
                     </span>
                     <hr>
                 </h2>
@@ -88,7 +88,7 @@
                 <div class="row row-cols-1 row-cols-lg-2">
                     <div class="col wrapping-title">
                         <h3 class="box-content-title f-odor">
-                            Course Content
+                            Program Content
                             <hr>
                         </h3>
                     </div>
@@ -114,7 +114,7 @@
         <div class="box-service gold-training">
             <div class="container">
                 <div class="row row-cols-1 row-cols-lg-2">
-                    <div class="col box-content">
+                    <div class="col order-1 der-lg-0 box-content">
                         <p class="box-content-text f-inter">
                             <span>Personalized approach:</span> The training programs are tailored to the specific needs of each participant, ensuring effective and relevant learning.
                         </p>
@@ -122,10 +122,10 @@
                             <span>Support Network:</span> Access a global network of professionals and consultants to support your continued growth.
                         </p>
                         <p class="box-content-text f-inter ">
-                            <span>Continuous Feedback and Coaching:</span> Throughout the program, you will receive constant feedback and coaching to improve your skills and address business challenges.
+                            <span>Continuous Feedback and Updating:</span> Throughout the program, you will receive constant feedback and coaching to improve your skills and address business challenges.
                         </p>
                     </div>
-                    <div class="col wrapping-title">
+                    <div class="col order-0 order-lg-1 wrapping-title">
                         <h3 class="box-content-title f-odor">
                             Benefits of training <br>
                             with PN Global
