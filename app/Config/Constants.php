@@ -106,7 +106,7 @@ defined('BASE_URL') || define('BASE_URL',$protocol);
 define("NAMETITLE", 'PN Global');
 define("SATOSHITITLE", 'Satoshi Signal');
 define("URLAPI", 'https://api.pnglobalinternational.com');
-define("FEEMEETING", '$50');
+define("FEEMEETING", 'EUR 150');
 define("IDGTAG", 'G-Y7SBM0618C');
 
 // For Email
@@ -117,6 +117,10 @@ define("EMAIL_ONE", 'aripramana574@gmail.com');
 define("EMAIL_TWO", 'ari.pramana@undiksha.ac.id');
 
 // For Payment Gateway
+//define("PUBLIC_KEY", 'pk_live_51OHVdwC8KQHLEjXQ88yk2DqcZUQtLIAAWJYumnMwHJC4tQi95Cu514mFtxPD8ezJMOJI6NhTgDy9T5GJJ7dSRyyR00RLGJMXU9');
+//define("SECRET_KEY", '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');
+
+// For Payment Gateway Demo
 define("PUBLIC_KEY", 'pk_test_51Ph1A4RpjQaOZ7NCQcbJtlXTgcbQm5ulhsm1YgkkfS5LHvHKVZ79p1qP0lOJaxz1XsDMpALi1aUeoxocxD6Can5900DCqNrIHS');
 define("SECRET_KEY", 'sk_test_51Ph1A4RpjQaOZ7NCuVCzdyyy342tNGnlrfnDyox5YirDorblTYDPP7dXK9K4fGqJazDRwyReh9HnLf5MWS7hOUsA00GtKiFgQQ');
 

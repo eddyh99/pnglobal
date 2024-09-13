@@ -125,7 +125,7 @@ class Homepage extends BaseController
     
     public function getSlots()
     {
-        $calendarId = 'primary';
+        $calendarId = 'pnglobal.usa@gmail.com';
         $userTimeZone = $this->request->getPost('timezone');
 
         $availableSlots = $this->googleCalendarService->getSlotsNextDay($calendarId, $userTimeZone);
@@ -225,8 +225,8 @@ class Homepage extends BaseController
 
             // Insert Charge Stripe
             $charge = \Stripe\Charge::create([
-                'amount' => 5000, // Amount in cents ($50.00)
-                'currency' => 'usd',
+                'amount' => 15000, // Amount in cents ($50.00)
+                'currency' => 'eur',
                 'description' => $_SESSION['client']['description'],
                 'source' => $token,
             ]);
