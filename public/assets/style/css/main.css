@@ -16170,7 +16170,7 @@ p {
   border-radius: 20px;
   background: rgba(255, 255, 255, 0.9);
   padding: 2rem;
-  margin-top: 3rem;
+  margin-top: 5rem;
   position: relative;
 }
 .satoshi-profit .bg-why-satoshi .whitie .title {
@@ -16183,8 +16183,18 @@ p {
   font-weight: 600;
 }
 .satoshi-profit .bg-why-satoshi .bg-expert {
-  width: 360px;
+  width: 250px;
   margin-right: 4rem;
+}
+@media (min-width: 768px) {
+  .satoshi-profit .bg-why-satoshi .bg-expert {
+    width: 550px;
+  }
+}
+@media (min-width: 992px) {
+  .satoshi-profit .bg-why-satoshi .bg-expert {
+    width: 360px;
+  }
 }
 .satoshi-profit .bg-why-satoshi .bg-expert .bitcoin {
   width: 80px;
@@ -16195,6 +16205,16 @@ p {
 }
 .satoshi-profit .bg-why-satoshi .uptodate {
   width: 320px;
+}
+@media (min-width: 768px) {
+  .satoshi-profit .bg-why-satoshi .uptodate {
+    width: 550px;
+  }
+}
+@media (min-width: 992px) {
+  .satoshi-profit .bg-why-satoshi .uptodate {
+    width: 320px;
+  }
 }
 .satoshi-profit .bg-why-satoshi .uptodate .bitcoin {
   width: 70px;
@@ -16230,6 +16250,20 @@ p {
   justify-content: space-around;
   flex-wrap: wrap;
   margin-top: 2rem;
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+}
+.satoshi-useapp .left-side .button-download .btn-download {
+  display: inline-block;
+  transform: translateY(115px);
+  -webkit-transform: translateY(115px);
+  -moz-transform: translateY(115px);
+  -ms-transform: translateY(115px);
+  -o-transform: translateY(115px);
+  transition: transform 0.5s;
+  -webkit-transition: transform 0.5s;
+  -moz-transition: transform 0.5s;
+  -ms-transition: transform 0.5s;
+  -o-transition: transform 0.5s;
 }
 .satoshi-useapp #g-mobilesatoshi {
   clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);

@@ -50,4 +50,17 @@
             end: "top 0%",
         }
     })
+
+    gsap.to("#g-icondownloadfooter .btn-download", {
+        y: 0,
+        ease: "power1.inOut",
+        stagger: 0.5,
+        duration: 0.5,
+        scrollTrigger: {
+            trigger: "#g-icondownloadfooter",
+            start: "top 100%",
+            end: "top 0%",
+        }
+    })
+
 </script>

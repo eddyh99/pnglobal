@@ -36,7 +36,7 @@
 <section class="satoshi-short-desc">
     <div class="container">
         <div class="row row-cols-1">
-            <div class="col-6 mx-auto">
+            <div class="col-12 col-lg-6 mx-auto">
                 <h2 class="f-noto">
                     Maximize Profits with Reliable <br>
                     and Timely Signals from Our Brokers
@@ -46,8 +46,8 @@
                 </p>
             </div>
         </div>
-        <img class="el-satoshi-3" src="<?= BASE_URL?>assets/img/el-3.png" alt="element 1">
-        <img class="el-satoshi-4" src="<?= BASE_URL?>assets/img/el-4.png" alt="element 2">
+        <img class="el-satoshi-3 d-none d-lg-block" src="<?= BASE_URL?>assets/img/el-3.png" alt="element 1">
+        <img class="el-satoshi-4 d-none d-lg-block" src="<?= BASE_URL?>assets/img/el-4.png" alt="element 2">
     </div>
 </section>
 <!-- End of Short Desc -->
@@ -56,7 +56,7 @@
 <section class="satoshi-short-desc method">
     <div class="container">
         <div class="row row-cols-1">
-            <div class="col-8 mx-auto">
+            <div class="col-12 col-lg-8 mx-auto">
                 <h2 class="f-noto">
                     The Methodology
                 </h2>
@@ -160,7 +160,7 @@
 </section>
 <div class="container buy-noted">
     <div class="row">
-        <div class="col-10 mx-auto d-flex align-items-center">
+        <div class="col-12 col-lg-10 mx-auto d-flex align-items-center">
             <div>
                 <svg width="69" height="71" viewBox="0 0 69 71" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <mask id="mask0_821_5622" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="0" y="0" width="69" height="71">
@@ -469,7 +469,7 @@
 
     <div class="bg-why-satoshi">
         <div class="row">
-            <div class="col-6 d-flex justify-content-end">
+            <div class="col-12 col-lg-6 d-flex justify-content-end">
                 <div class="bg-expert whitie">
                     <p class="title">
                         Expert Consulting
@@ -480,7 +480,7 @@
                     <img class="bitcoin" src="<?= BASE_URL?>assets/img/el-1.png" alt="element">
                 </div>                
             </div>
-            <div class="col-6">
+            <div class="col-12 col-lg-6 d-flex justify-content-md-center justify-content-lg-start">
                 <div class="uptodate whitie">
                     <p class="title">
                         Expert Consulting
@@ -493,7 +493,7 @@
             </div>
         </div>
         <div class="row mt-5">
-            <div class="col-6 mx-auto">
+            <div class="col-12 d-flex justify-content-center mx-auto">
                 <div class="strategy whitie">
                     <p class="title">
                         A Proven Strategy for Confident Trading
@@ -513,20 +513,20 @@
 <section class="satoshi-useapp">
     <div class="container">
         <div class="row">
-            <div class="col-6 left-side">
+            <div class="col-12 col-lg-6 left-side order-1 order-lg-0">
                 <h1 class="f-noto">
                     How to Use the App
                 </h1>
                 <p class="mt-4">
                     Satoshi Signals is designed to provide you with reliable and timely operations from our brokers in Bitcoin trading. After downloading the app, confirm that you understand the system to access all features. Register your account, enter referral code, if any, and activate the monthly subscription, which renews automatically. Once subscribed, you’ll receive real-time notifications with our brokers' operations. Follow the guidance to buy and sell at the right moment, maximizing profits with minimal risk. Remember to keep notifications on so you never miss an opportunity.
                 </p>
-                <div class="button-download">
+                <div id="g-icondownloadfooter" class="button-download">
                     <img class="btn-download my-2" src="<?= BASE_URL ?>assets/img/playstore-download.png" alt="download playstore">
                     <img class="btn-download my-2" src="<?= BASE_URL ?>assets/img/ios-download.png" alt="download playstore">
                     <img class="btn-download my-2" src="<?= BASE_URL ?>assets/img/window-download.png" alt="download playstore">
                 </div>
             </div>
-            <div id="g-mobilesatoshi" class="col-6">
+            <div id="g-mobilesatoshi" class="col-12 col-lg-6 order-0 order-lg-1">
                 <img class="img-fluid line-animation" src="<?= BASE_URL?>assets/img/mobile-satoshi.png" alt="mobile satoshi">
             </div>
         </div>

@@ -2613,7 +2613,7 @@
             border-radius: 20px;
             background: rgba(255, 255, 255, 0.90);
             padding: 2rem;
-            margin-top: 3rem;
+            margin-top: 5rem;
             position: relative;
 
             .title {
@@ -2629,9 +2629,16 @@
         }
 
         .bg-expert {
-            width: 360px;
+            width: 250px;
             margin-right: 4rem;
+            
+            @include mix.md {
+                width: 550px;
+            }
 
+            @include mix.lg {
+                width: 360px;
+            }
             .bitcoin {
                 width: 80px;
                 display: inline-block;
@@ -2645,6 +2652,13 @@
         .uptodate {
             width: 320px;
 
+            @include mix.md {
+                width: 550px;
+            }
+
+            @include mix.lg {
+                width: 320px;
+            }
             .bitcoin {
                 width: 70px;
                 display: inline-block;
@@ -2691,6 +2705,11 @@
             justify-content: space-around;
             flex-wrap: wrap;
             margin-top: 2rem;
+            clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+
+            .btn-download {
+                 @include mix.animation-reveal;
+            }
         }
     }
 
