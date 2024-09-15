@@ -12,7 +12,7 @@
                         <p class="f-inter">
                             <span translate='no'> PN Global </span> invites you to join our training programs to become experienced and competent entrepreneurs. Contact us today to find out how we can help you build a successful future in the global landscape.
                         </p>
-                        <a href="<?= BASE_URL ?>homepage/contactus" class="btn-footer-contactform">Contact Form</a>
+                        <a href="<?= BASE_URL ?>homepage/bookingconsultation" class="btn-footer-contactform">Contact Form</a>
                     </div>
                     <div class="d-none d-lg-flex col-6 video-trainingform">
                         <video autoplay="" preload="" muted="" loop="" playsinline="">
@@ -39,7 +39,7 @@
                         <p>
                             By filling out the form at the link below, you can apply to be considered for our exclusive training programs. Our activities are limited to a select number of participants. The selection process is divided into two stages: first, your application will be reviewed based on the submitted form, and only the most compelling candidates will advance to the second stage, which involves an individual interview
                         </p>
-                        <a href="<?= BASE_URL ?>homepage/contactus" class="btn-footer-enrollnow">Contact Form</a>
+                        <a href="<?= BASE_URL ?>homepage/bookingconsultation" class="btn-footer-enrollnow">Contact Form</a>
                     </div>
                     <div class="d-none d-lg-flex align-items-center col-6 video-trainingform">
                         <video autoplay="" preload="" muted="" loop="" playsinline="">
@@ -67,7 +67,7 @@
                         <p id="g-textgetintouch" class="f-inter">
                             If you would like more information about our services or would like to discuss your specific needs with one of our experts, please contact us. Our team of financial consultants, lawyers and accountants is at your disposal to offer you personalized support and timely responses. We are ready to assist you with the utmost professionalism and competence.
                         </p>
-                        <a href="<?= BASE_URL ?>homepage/contactus" class="btn-footer-contactform">Book a Consultation</a>
+                        <a href="<?= BASE_URL ?>homepage/bookingconsultation" class="btn-footer-contactform">Book a Consultation</a>
                         
                     </div>
                     <div class="d-none d-md-flex col-4 logo-contactform">
@@ -112,6 +112,7 @@
                         <a class="my-4" href="#consulting">Consulting</a>
                         <a class="my-4" href="#service">Services</a>
                         <a class="mt-4" href="#hotdeal">Hot Deal</a>
+                        <a class="mt-4" href="#connections">Connections</a>
                     </div>
                 </div>
                 <div class="col-8 mx-auto border-hr-footer"></div>
@@ -205,38 +206,6 @@
                             </p>
                         </div>
                     </div>
-                    <!-- <div>
-                        <p class="f-inter text-white my-4">
-                            <svg width="16" height="23" viewBox="0 0 16 23" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M8 0C3.57714 0 0 3.5995 0 8.05C0 14.0875 8 23 8 23C8 23 16 14.0875 16 8.05C16 3.5995 12.4229 0 8 0ZM8 10.925C6.42286 10.925 5.14286 9.637 5.14286 8.05C5.14286 6.463 6.42286 5.175 8 5.175C9.57714 5.175 10.8571 6.463 10.8571 8.05C10.8571 9.637 9.57714 10.925 8 10.925Z" fill="#D1B06B"/>
-                            </svg>
-                            <strong>International finance department:</strong> 12 Collyer Quay, Ocean Financial Centre, Singapore 049319
-                        </p>
-                        <p class="f-inter text-white my-4">
-                            <svg width="16" height="23" viewBox="0 0 16 23" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M8 0C3.57714 0 0 3.5995 0 8.05C0 14.0875 8 23 8 23C8 23 16 14.0875 16 8.05C16 3.5995 12.4229 0 8 0ZM8 10.925C6.42286 10.925 5.14286 9.637 5.14286 8.05C5.14286 6.463 6.42286 5.175 8 5.175C9.57714 5.175 10.8571 6.463 10.8571 8.05C10.8571 9.637 9.57714 10.925 8 10.925Z" fill="#D1B06B"/>
-                            </svg>
-                            <strong>OPERATIONAL DEPARTMENT FOR CUSTOMER FUNDS MANAGEMENT </strong> 128 City Road London EC1V 2NX (UK)
-                        </p>
-                        <p class="f-inter text-white my-4">
-                            <svg width="16" height="23" viewBox="0 0 16 23" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M8 0C3.57714 0 0 3.5995 0 8.05C0 14.0875 8 23 8 23C8 23 16 14.0875 16 8.05C16 3.5995 12.4229 0 8 0ZM8 10.925C6.42286 10.925 5.14286 9.637 5.14286 8.05C5.14286 6.463 6.42286 5.175 8 5.175C9.57714 5.175 10.8571 6.463 10.8571 8.05C10.8571 9.637 9.57714 10.925 8 10.925Z" fill="#D1B06B"/>
-                            </svg>
-                            <strong>Brokers stock division:</strong> 11 Wallstreet, New York,  NY 10005 (USA)
-                        </p>
-                        <p class="f-inter text-white my-4">
-                            <svg width="16" height="23" viewBox="0 0 16 23" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M8 0C3.57714 0 0 3.5995 0 8.05C0 14.0875 8 23 8 23C8 23 16 14.0875 16 8.05C16 3.5995 12.4229 0 8 0ZM8 10.925C6.42286 10.925 5.14286 9.637 5.14286 8.05C5.14286 6.463 6.42286 5.175 8 5.175C9.57714 5.175 10.8571 6.463 10.8571 8.05C10.8571 9.637 9.57714 10.925 8 10.925Z" fill="#D1B06B"/>
-                            </svg>
-                            <strong>Crypto broker division: </strong> Mahe, Seychelles, Jivan’s complex, Suite 708, Global Village, Abacus, Seychelles
-                        </p>
-                        <p class="f-inter text-white mt-4">
-                            <svg width="16" height="23" viewBox="0 0 16 23" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M8 0C3.57714 0 0 3.5995 0 8.05C0 14.0875 8 23 8 23C8 23 16 14.0875 16 8.05C16 3.5995 12.4229 0 8 0ZM8 10.925C6.42286 10.925 5.14286 9.637 5.14286 8.05C5.14286 6.463 6.42286 5.175 8 5.175C9.57714 5.175 10.8571 6.463 10.8571 8.05C10.8571 9.637 9.57714 10.925 8 10.925Z" fill="#D1B06B"/>
-                            </svg>                            
-                            <strong>Operational detachment:</strong> Benoa Square, Jl. Bypass Ngurah Rai A Kedonganan No.21, Jimbaran, Kec. Kuta, Kabupaten Badung, Bali 80361, <br> Indonesia
-                        </p>
-                    </div> -->
                     
                 </div>
             </div>

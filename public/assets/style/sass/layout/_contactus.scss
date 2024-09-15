@@ -1,0 +1,238 @@
+/*----------------------------------------------------------
+    File Name  : _contactus.scss
+    Desc       : File ini merupakan styling untuk 3 jenis contact us
+
+------------------------------------------------------------*/ 
+
+/**
+ * TABLE OF CONTENTS
+ *
+ * 1. General Contact US
+ * 2. Contact Us Book Consultant
+ *
+ */
+
+ @use '../abstracts/variables' as var;
+ @use '../abstracts/mixins' as mix;
+ 
+
+/*----------------------------------------------------------
+1. General Contact Us Start
+------------------------------------------------------------*/ 
+input{
+    border: none;
+    padding: 0px 24px;
+}
+input:active, input:focus, textarea:active, textarea:focus {
+    outline: none;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+    appearance: textfield;
+  -moz-appearance: textfield;
+}
+
+input::-webkit-input-placeholder{
+    color: rgb(122, 122, 122);
+}
+
+input:-moz-placeholder {
+    color: rgb(27, 27, 27);
+}
+  
+.inp-fname {
+    height: 45px;
+    width: 400px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.08);
+    background-color: transparent;
+    border: 2px solid #BFA573;
+    color: #080808;
+}
+
+.inp-file-identity {
+    height: 45px;
+    width: 100px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.08);
+    background-color: transparent;
+    border: 2px solid #BFA573;
+    color: #080808;
+}
+
+.inp-email,
+.inp-email2 {
+    height: 45px;
+    width: 400px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.08);
+    background-color: transparent;
+    border: 2px solid #BFA573;
+    color: #080808;
+}
+
+.nohp-select.input-nohp {
+    height: 45px;
+    width: 400px;
+    border-radius: 10px;
+    padding: 20px 20px;
+    box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.08);
+    background-color: transparent;
+    border: 2px solid #BFA573;
+    color: #080808;
+}
+
+.textarea-desc {
+    width: 750px;
+    height: 120px;
+    padding: 20px 20px;
+    border-radius: 8px;
+    box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.08);
+    background-color: transparent;
+    border: 2px solid #BFA573;
+    color: #080808;
+}
+
+.inp-date {
+    border: 2px solid #BFA573;
+    height: 45px;
+    width: 500px;
+    border-radius: 8px;
+    box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.08);
+    background-color: #F0EADE;
+    color: #000000;
+}
+
+
+.select2-results__option--highlighted {
+    color: white !important;
+    background-color: #BFA573 !important;
+}
+
+.select2-container--default .select2-results__option[aria-selected=true] {
+    background-color: #BFA573;
+}
+
+.select2{
+    width: 100% !important;
+}
+
+.select2-container--bootstrap .select2-selection--multiple .select2-selection__choice__remove {
+    border: none;
+    padding: 0px 3px;
+}
+
+.select2-container--default .select2-selection--single {
+    background-color: #F0EADE !important;
+    border: 2px solid #BFA573 !important;
+    border-radius: 4px !important;
+    height: 45px !important;
+    max-width: 500px !important;
+    -webkit-border-radius: 4px !important;
+    -moz-border-radius: 4px !important;
+    -ms-border-radius: 4px !important;
+    -o-border-radius: 4px !important;
+}
+
+.select2-container--default .select2-selection--single .select2-selection__rendered{
+    line-height: 40px !important;
+    color: #000000 !important;
+}
+
+.select2-container--open .select2-dropdown--above {
+    background-color: #bc8e37 !important;
+}
+
+.select2-container--default .select2-results__option .select2-results__option {
+    color: #FFFFFF;
+}
+
+.select2-container--default .select2-results__group {
+    color: #F0EADE;
+}
+
+.select2-container--default .select2-selection--single .select2-selection__arrow {
+    top: 21px !important;
+    right: 18px !important;
+    display: none !important;
+}
+
+
+/*----------------------------------------------------------
+1. General Contact Us End
+------------------------------------------------------------*/ 
+
+/*----------------------------------------------------------
+2. Contact Us Book Consyltant Start
+------------------------------------------------------------*/ 
+.contact {
+    overflow: hidden;
+    .bg-contact-wrap {
+        background-color: #000000;
+
+        .bg-contact {
+            margin-top: 4rem;
+            height: 100%;
+            overflow: hidden;
+
+            .logo {
+                width: 90%;
+                // height: 100%;
+                color: var.$text-white-pnglobal;
+                @include mix.flex-tengah-vertical;
+
+                img {
+                    width: 40%;
+                }
+
+                .text {
+                    margin-top: 1rem;
+                    p {
+                        letter-spacing: 8px;
+                        font-weight: 700;
+                        color: var.$text-white-pnglobal;
+                        text-transform: uppercase;
+                        text-align: center;
+                        font-size: 20px;
+                    }
+                }
+            }
+
+            .bg-dollar {
+                margin-top: 3rem;
+                height: 100%;
+                overflow: hidden;
+                display: flex;
+
+                img {
+                    width: 100%;
+                    height: auto;
+                    object-fit: cover;
+                }
+            }
+        }
+    }
+
+    form {
+
+        .wrapper-field {
+            .bg-field {
+                background-color: #F0EADE;
+                padding: 2rem 3rem;
+                border-radius: 15px;
+            }
+        }
+    }
+}
+
+/*----------------------------------------------------------
+2. Contact Us Book Consyltant End
+------------------------------------------------------------*/ 
+

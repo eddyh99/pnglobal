@@ -22,10 +22,11 @@
     <link href="<?= BASE_URL?>assets/libs/intl-tel-input-master/build/css/intlTelInput.css" rel="stylesheet">
     
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/livecanvas-team/ninjabootstrap/dist/css/bootstrap.min.css" media="all">
-    <link rel="stylesheet" href="<?= BASE_URL?>assets/css/homepage.css">
-
+    
     <!-- Stripe -->
     <script src="https://js.stripe.com/v3/"></script>
+    
+    <link rel="stylesheet" href="<?= BASE_URL ?>assets/style/css/main.css">
 
 </head>
 <body style="background-color: #ffffff;">

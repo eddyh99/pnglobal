@@ -359,8 +359,9 @@
             background-color: transparent;
             width: 100%;
             height: 310px;
-            perspective: 1000px; 
             border-radius: 20px;
+            position: relative;
+            perspective: 1000px; 
             
             @include mix.xss {
                 height: 300px;
@@ -383,6 +384,9 @@
                 height: 320px;
             }
 
+            &:hover .flip-box-inner {
+                transform: rotateY(180deg);
+            }
             
             .flip-box-inner {
                 position: relative;
@@ -393,9 +397,7 @@
                 transform-style: preserve-3d;
                 border-radius: 20px;
                 
-                &:hover {
-                    transform: rotateY(180deg);
-                }
+              
 
                 .flip-box-front,
                 .flip-box-back {
@@ -549,7 +551,8 @@
         }
     }
 }
-  
+
+
 /*----------------------------------------------------------
 5. Service End
 ------------------------------------------------------------*/ 

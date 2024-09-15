@@ -111,12 +111,23 @@ class Homepage extends BaseController
     }
 
 
-    public function contactus()
+    public function contact_success()
     {
         $mdata = [
-            'title'     => 'Contact Us - ' . NAMETITLE,
-            'content'   => 'homepage/contactus',
-            'extra'     => 'homepage/js/_js_contactus'
+            'title'     => 'Contact Success - ' . NAMETITLE,
+            'content'   => 'homepage/contact/contact_success',
+        ];
+
+        return view('homepage/layout/wrapper-contactus', $mdata);
+    }
+
+    // Contact Booking Consultant
+    public function bookingconsultation()
+    {
+        $mdata = [
+            'title'     => 'Booking Consultant - ' . NAMETITLE,
+            'content'   => 'homepage/contact/bookingconsultation',
+            'extra'     => 'homepage/contact/js/_js_bookingconsultation'
         ];
 
         return view('homepage/layout/wrapper-contactus', $mdata);
@@ -125,7 +136,8 @@ class Homepage extends BaseController
     
     public function getSlots()
     {
-        $calendarId = 'pnglobal.usa@gmail.com';
+        // $calendarId = 'pnglobal.usa@gmail.com';
+        $calendarId = 'primary';
         $userTimeZone = $this->request->getPost('timezone');
 
         $availableSlots = $this->googleCalendarService->getSlotsNextDay($calendarId, $userTimeZone);
@@ -138,7 +150,7 @@ class Homepage extends BaseController
         die;
     }
 
-    public function contactus_summary()
+    public function booking_summary()
     {
 
         // Validation Field
@@ -176,7 +188,7 @@ class Homepage extends BaseController
         // Checking Validation
         if(!$rules){
             session()->setFlashdata('failed', $this->validation->listErrors());
-            return redirect()->to(base_url('homepage/contactus'))->withInput();
+            return redirect()->to(BASE_URL . 'homepage/bookingconsultation')->withInput();
         }
 
         // Filter EMAIL
@@ -199,20 +211,17 @@ class Homepage extends BaseController
 
         $this->session->set('client', $mdata);
 
-
         $views = [
             'title'     => 'Summary - ' . NAMETITLE,
-            'content'   => 'homepage/summary_contactus',
-            'extra'     => 'homepage/js/_js_summary_contactus'
+            'content'   => 'homepage/contact/summary_booking',
+            'extra'     => 'homepage/contact/js/_js_summary_booking'
         ];
 
         return view('homepage/layout/wrapper-contactus', $views);
 
     }
 
-    
-
-    public function contactus_proccess()
+    public function booking_proccess()
     {
 
         $token = htmlspecialchars($this->request->getVar('stripeToken'));
@@ -237,7 +246,7 @@ class Homepage extends BaseController
             $slotStart = $slot[0];
             $slotEnd = $slot[1];
 
-            $eventName = NAMETITLE . ' - Meeting';
+            $eventName = NAMETITLE . ' - Booking Consultation';
             $timezone = $_SESSION['client']['timezone'];
             $description = '<div>
                                 <p>Fullname: '.$_SESSION['client']['fname']  . ' ' . $_SESSION['client']['lname'].'</p>
@@ -267,26 +276,196 @@ class Homepage extends BaseController
                 $this->googleCalendarService->createEvent($calendarId, $eventData);
 
                 // Subject
-                $subject = NAMETITLE . ' - New Meeting';
+                $subject = NAMETITLE . ' - Booking Consultation ' . $_SESSION['client']['fname'];
 
                 // Assign SESSION client
                 $mdata = $_SESSION['client'];
 
-                sendmail($subject, $mdata);
+                sendmail_booking($subject, $mdata);
     
             } catch (\RuntimeException $e) {
-                session()->setFlashdata('failed', 'Failed to book schedule: '. $e->getMessage());
-                header("Location: ". base_url('homepage/contactus'));
+                session()->setFlashdata('failed', 'Failed to booking schedule: '. $e->getMessage());
+                header("Location: ". BASE_URL . 'homepage/bookingconsultation');
                 exit();
             }
 
         } catch (\Stripe\Exception\CardException $e) {
             session()->setFlashdata('failed', 'Payment Failed: '. $e->getError()->message);
-            header("Location: ". base_url('homepage/contactus'));
+            header("Location: ". BASE_URL . 'homepage/bookingconsultation');
             exit();
         }
-
-
     }
+
+    // Contact Form Normaly
+    public function contactform()
+    {
+        $mdata = [
+            'title'     => 'Contact Form - ' . NAMETITLE,
+            'content'   => 'homepage/contact/contactform',
+            'extra'     => 'homepage/contact/js/_js_contactform'
+        ];
+
+        return view('homepage/layout/wrapper-contactus', $mdata);
+    }
+
+    public function contactform_proccess()
+    {
+        // Validation Field
+        $rules = $this->validate([
+            'fname'     => [
+                'label'     => 'Name',
+                'rules'     => 'required'
+            ],
+            'lname'     => [
+                'label'     => 'Last Name',
+                'rules'     => 'required'
+            ],
+            'email'   => [
+                'label'     => 'Email',
+                'rules'     => 'valid_email'
+            ],
+            'whatsapp'  => [
+                'label'     => 'Whatsapp',
+                'rules'     => 'required'
+            ],
+            'desc'      => [
+                'label'     => 'Description',
+                'rules'     => 'required'
+            ],
+
+        ]);
+
+        // Checking Validation
+        if(!$rules){
+            session()->setFlashdata('failed', $this->validation->listErrors());
+            return redirect()->to(BASE_URL . 'homepage/contactform')->withInput();
+        }
+
+        // Initial Data
+        $mdata = [
+            'fname'         => htmlspecialchars($this->request->getVar('fname')),
+            'lname'         => htmlspecialchars($this->request->getVar('lname')),
+            'whatsapp'      => htmlspecialchars($this->request->getVar('whatsapp')),
+            'description'   => htmlspecialchars($this->request->getVar('desc')),
+            'email'         => filter_var($this->request->getVar('email'), FILTER_VALIDATE_EMAIL)
+        ];
+
+        // Subject
+        $subject = NAMETITLE . ' - Contact Form ' . $mdata['fname'];
+
+        sendmail_contactform($subject, $mdata);
+    }
+
+    // Contact Form for Get Referral
+    public function contactreferral()
+    {
+        $mdata = [
+            'title'     => 'Contact Form Referral- ' . NAMETITLE,
+            'content'   => 'homepage/contact/contactreferral',
+            'extra'     => 'homepage/contact/js/_js_contactreferral'
+        ];
+
+        return view('homepage/layout/wrapper-contactus', $mdata);
+    }
+
+    public function contactreferral_proccess()
+    {
+        // Validation Field
+        $rules = $this->validate([
+            'fname'     => [
+                'label'     => 'Name',
+                'rules'     => 'required'
+            ],
+            'lname'     => [
+                'label'     => 'Last Name',
+                'rules'     => 'required'
+            ],
+            'email'   => [
+                'label'     => 'Email',
+                'rules'     => 'valid_email'
+            ],
+            'whatsapp'  => [
+                'label'     => 'Whatsapp',
+                'rules'     => 'required'
+            ],
+            'mtongue'  => [
+                'label'     => 'Mother Tongoue',
+                'rules'     => 'required'
+            ],
+            'language'  => [
+                'label'     => 'Language',
+                'rules'     => 'required'
+            ],
+            'country'  => [
+                'label'     => 'Country',
+                'rules'     => 'required'
+            ],
+            // 'instagram'  => [
+            //     'label'     => 'Instagram',
+            //     'rules'     => 'valid_url'
+            // ],
+            // 'tiktok'  => [
+            //     'label'     => 'Tiktok',
+            //     'rules'     => 'valid_url'
+            // ],
+            // 'fprofile'  => [
+            //     'label'     => 'Facebook Profile',
+            //     'rules'     => 'valid_url'
+            // ],
+            // 'fgroup'  => [
+            //     'label'     => 'Facebook Group',
+            //     'rules'     => 'valid_url'
+            // ],
+            // 'fpage'  => [
+            //     'label'     => 'Facebook Page',
+            //     'rules'     => 'valid_url'
+            // ],
+            // 'linkedin'  => [
+            //     'label'     => 'Linkedin',
+            //     'rules'     => 'valid_url'
+            // ],
+            // 'discord'  => [
+            //     'label'     => 'Discord',
+            //     'rules'     => 'valid_url'
+            // ],
+            'identity'      => [
+                'label'     => 'Identity',
+                'rules'     => 'uploaded[identity]|max_size[identity,20000]|mime_in[identity,application/pdf]'
+            ],
+
+        ]);
+
+        // Checking Validation
+        if(!$rules){
+            session()->setFlashdata('failed', $this->validation->listErrors());
+            return redirect()->to(BASE_URL . 'homepage/contactreferral')->withInput();
+        }
+
+        // Get File PDF
+        $filePDF = $this->request->getFile('identity');
+        $filePath = $filePDF->getTempName();
+        $fileName = $filePDF->getClientName();
+
+        // Initial Data
+        $mdata = [
+            'fname'         => htmlspecialchars($this->request->getVar('fname')),
+            'lname'         => htmlspecialchars($this->request->getVar('lname')),
+            'whatsapp'      => htmlspecialchars($this->request->getVar('whatsapp')),
+            'email'         => filter_var($this->request->getVar('email'), FILTER_VALIDATE_EMAIL),
+            'instagram'     => htmlspecialchars($this->request->getVar('instagram')),
+            'tiktok'        => htmlspecialchars($this->request->getVar('tiktok')),
+            'fprofile'      => htmlspecialchars($this->request->getVar('fprofile')),
+            'fgroup'        => htmlspecialchars($this->request->getVar('fgroup')),
+            'fpage'         => htmlspecialchars($this->request->getVar('fpage')),
+            'linkedin'      => htmlspecialchars($this->request->getVar('linkedin')),
+            'discord'       => htmlspecialchars($this->request->getVar('discord')),
+        ];
+
+        // Subject
+        $subject = NAMETITLE . ' - Request Referral ' . $mdata['fname'];
+
+        sendmail_referral($subject, $mdata, $filePath, $fileName);
+    }
+
 
 }
