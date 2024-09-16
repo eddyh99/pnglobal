@@ -36,7 +36,7 @@
                             Expand Your Business Beyond Borders
                         </h4>
                         <p class="box-content-text f-inter">
-                            We provide comprehensive consulting for establishing businesses in flat tax countries. Leverage our expertise to navigate local regulations and maximize tax benefits. Our specialized consulting ensures you can successfully establish and manage your business in favorable tax environments.
+                            We offer comprehensive consulting for establishing businesses in countries with a flat tax rate. Leverage our expertise to navigate local regulations and maximize tax benefits. Our specialized consulting ensures you can successfully establish and manage your business in favorable tax environments.
                         </p>
                     </div>
                 </div>
@@ -64,7 +64,7 @@
                     </div>
                     <div class="col order-0 order-lg-1 wrapping-title">
                         <h3 class="box-content-title f-odor">
-                            Consulting for Visas and <br> Residence Permits
+                            Visa and Residence Permit <br> Facilitation
                             <hr>
                         </h3>
                     </div>
@@ -84,16 +84,16 @@
                 <div class="row row-cols-1 row-cols-lg-2">
                     <div class="col wrapping-title">
                         <h3 class="box-content-title f-odor">
-                            Consulting for <br> Offshore Bank Account Setup
+                            Offshore Bank Account <br> Setup
                             <hr>
                         </h3>
                     </div>
                     <div class="col box-content">
                         <h4 class="box-content-subtitle f-odor">
-                        Manage Your Wealth with Flexibility and Security
+                            Manage Your Wealth with Flexibility and Security
                         </h4>
                         <p class="box-content-text f-inter">
-                            We provide consulting for setting up personal and business bank accounts in offshore jurisdictions, ensuring secure and convenient management of your international assets. We assist in opening personal and corporate current accounts at major offshore banks, expediting your capital transfers and offering secure, profitable solutions for your business.
+                            We offer consulting for setting up personal and corporate bank accounts in offshore jurisdictions, ensuring secure and convenient management of your international assets. We assist in opening personal and corporate current accounts at major offshore banks, expediting your capital transfers and offering secure and profitable solutions for your business.
                         </p>
                     </div>
                 </div>

@@ -24,16 +24,17 @@
                 <div class="row row-cols-1 row-cols-lg-2">
                     <div class="col wrapping-title">
                         <h3 class="box-content-title f-odor">
-                            Aid in reallocating funds.
+                            Reallocate Your Funds <br> Strategically
                             <hr>
                         </h3>
                     </div>
                     <div class="col box-content">
                         <h4 class="box-content-subtitle f-odor">
-                            Maximize Profits, Minimize Risks 
+                            Maximize Profits, Minimize Risks, <br>
+                            1OO% Legal Solutions
                         </h4>
                         <p class="box-content-text f-inter">
-                            Our team provides expert consulting to assist you in reallocating your funds, using solutions that are 100% legal. We offer tailored consulting services designed to enhance profitability and reduce risks. Our customized solutions will help you make the most of the opportunities in various markets.
+                            Our team of experts offers personalized consulting to help you reallocate your funds strategically and legally. By utilizing innovative solutions, we assist you in maximizing profits and minimizing risks. Our tailored strategies will enable you to make the most of the opportunities offered by various markets.
                         </p>
                     </div>
                 </div>
@@ -50,17 +51,16 @@
         <div class="container py-2">
             <div class="row row-cols-1 row-cols-lg-2">
                 <div class="col wrapper-img">
-                    <!-- <img class="img-fluid w-100" src="<?= BASE_URL ?>assets/img/img-33.webp" alt="Strategies for Corporate Tax Exemption"> -->
                 </div>
                 <div class="col wrapper-box-content">
                     <h3 class="box-content-title f-odor">
-                        Strategies for Corporate Tax Exemption
+                        Optimize Your Tax Position
                     </h3>
                     <h5 class="box-content-subtitle f-odor">
-                        Reduce the tax burden and boost profits
+                        Unlock Tax Savings
                     </h5>
                     <p class="box-content-text f-inter">
-                        Our tax exemption strategies, which are in full compliance with the laws and taxation of your company's residence country, can help you reduce your tax burden, optimize your resources, and therefore increase profitability.
+                        Our tax exemption strategies, fully aligned with local regulations, help you reduce your tax burden, optimize resource allocation, and boost profitability.
                     </p>
                 </div>
             </div>
@@ -73,13 +73,13 @@
             <div class="row row-cols-1 row-cols-lg-2">
                 <div class="col order-1 order-lg-0 wrapper-box-content">
                     <h3 class="box-content-title f-odor">
-                        international tax planning
+                        Expand Your Fiscal Horizons
                     </h3>
                     <h5 class="box-content-subtitle f-odor">
-                        Tailored fiscal strategies for global expansion.
+                        Navigate Global Tax Complexity
                     </h5>
                     <p class="box-content-text f-inter">
-                        Our in-depth advice on international tax planning assists companies in optimizing their global tax structure. We explore the opportunities offered by international tax treaties and various jurisdictions to maximize tax benefits by providing full support for the transfer of tax residence of natural persons and/or legal persons.
+                        Benefit from our expert guidance to optimize your international tax structure. We leverage international tax treaties and explore opportunities in various jurisdictions to maximize tax advantages.
                     </p>
                 </div>
                 <div class="col wrapper-img order-0 order-lg-1 wrapper-img d-flex justify-content-start align-items-start">
@@ -96,16 +96,16 @@
                 <div class="row row-cols-1 row-cols-lg-2">
                     <div class="col wrapping-title">
                         <h3 class="box-content-title f-odor">
-                            Tax and Regulatory <br> Compliance
+                            Fiscal and Normative <br> Compliance 
                             <hr>
                         </h3>
                     </div>
                     <div class="col box-content">
                         <h4 class="box-content-subtitle f-odor">
-                            Ensure Compliance with Tax Regulations
+                            Stay Compliant, Thrive Globally
                         </h4>
                         <p class="box-content-text f-inter">
-                            We ensure that your company complies with all local and international tax regulations. Our team of experts solves the complexities of tax legislation for you, eliminating the risks of sanctions and optimizing your tax position.
+                            Our team ensures your business adheres to all local and international tax regulations. We navigate complex tax legislation, mitigating risks and optimizing your tax position.
                         </p>
                     </div>
                 </div>

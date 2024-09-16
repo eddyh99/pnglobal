@@ -12720,7 +12720,7 @@ p {
 1. Navbar Homepage Start
 ------------------------------------------------------------*/
 .navbar {
-  background-color: rgba(30, 30, 30, 0.4);
+  background-color: rgba(9, 9, 9, 0.75);
   position: absolute;
   top: 0;
   z-index: 999;
@@ -12874,7 +12874,8 @@ p {
 
 .bg-trainingform {
   background-color: #000000;
-  padding: 3rem 0;
+  padding: 1rem 0;
+  overflow: hidden;
 }
 .bg-trainingform .wrapper-trainingform {
   padding-top: 3rem;
@@ -12890,7 +12891,7 @@ p {
 }
 @media (min-width: 1200px) {
   .bg-trainingform .wrapper-trainingform p {
-    padding: 2rem 10rem 2rem 0rem;
+    padding: 2rem 6rem 2rem 0rem;
   }
 }
 .bg-trainingform .wrapper-trainingform .video-trainingform video {
@@ -12943,25 +12944,26 @@ p {
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
-  padding: 3rem 0rem 10rem 0rem;
+  padding: 3rem 0rem 3rem 0rem;
 }
 .bg-footer .logo-footer {
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 .bg-footer .logo-footer img {
-  opacity: 0.8;
+  height: 150px;
+  width: auto;
 }
 .bg-footer .logo-footer .logo-text-footer {
-  margin-top: 1rem;
+  margin-left: 1rem;
+  margin-bottom: 0rem;
   text-align: center;
   text-transform: uppercase;
   letter-spacing: 4px;
   font-weight: 700;
   color: #FFFFFF;
-  font-size: 12px;
+  font-size: 16px;
 }
 .bg-footer .border-footer {
   height: 50%;
@@ -12969,20 +12971,35 @@ p {
   background-color: #FFFFFF;
 }
 .bg-footer .text-link .list {
-  border-left: 2px solid #FFFFFF;
+  border-left: 2px solid #BFA573;
   padding: 0rem 2rem;
+  margin-right: 5rem;
+}
+@media (min-width: 768px) {
+  .bg-footer .text-link .list {
+    margin-right: 0rem;
+  }
 }
 .bg-footer .text-link .list a {
   display: block;
   color: #FFFFFF;
   text-decoration: underline;
+  font-size: 12px;
 }
 .bg-footer .text-link .list a:hover {
   font-weight: 700;
 }
+.bg-footer .border-hr-footer {
+  width: 90%;
+  height: 2px;
+  background-color: #BFA573;
+  margin-top: 4rem;
+}
 .bg-footer .address {
-  border-left: 2px solid #FFFFFF;
   padding-left: 2rem;
+}
+.bg-footer .address p {
+  font-size: 9px;
 }
 
 /*----------------------------------------------------------
@@ -13020,6 +13037,14 @@ p {
   object-fit: cover;
   object-position: 50% 50%;
 }
+.banner-homepage .wrapper-banner-homepage .img-banner {
+  width: 100%;
+  min-height: 100vh !important;
+  position: absolute;
+  z-index: 1;
+  object-fit: cover;
+  object-position: 50% 50%;
+}
 .banner-homepage .wrapper-banner-homepage .logo-banner {
   display: flex;
   justify-content: center;
@@ -13031,6 +13056,7 @@ p {
 }
 .banner-homepage .wrapper-banner-homepage .logo-banner img {
   clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+  width: 150px;
 }
 .banner-homepage .wrapper-banner-homepage .logo-banner .logo-text-banner {
   text-transform: uppercase;
@@ -13043,6 +13069,27 @@ p {
   margin-top: 1.5rem;
 }
 .banner-homepage .wrapper-banner-homepage .logo-banner .logo-text-banner .line-animation {
+  display: inline-block;
+  transform: translateY(115px);
+  -webkit-transform: translateY(115px);
+  -moz-transform: translateY(115px);
+  -ms-transform: translateY(115px);
+  -o-transform: translateY(115px);
+  transition: transform 0.5s;
+  -webkit-transition: transform 0.5s;
+  -moz-transition: transform 0.5s;
+  -ms-transition: transform 0.5s;
+  -o-transition: transform 0.5s;
+}
+.banner-homepage .wrapper-banner-homepage .logo-banner .logo-text-banner-teamwork {
+  letter-spacing: 4px;
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+  font-weight: 700;
+  text-align: center;
+  color: #383734;
+  margin-top: 1.5rem;
+}
+.banner-homepage .wrapper-banner-homepage .logo-banner .logo-text-banner-teamwork .line-animation {
   display: inline-block;
   transform: translateY(115px);
   -webkit-transform: translateY(115px);
@@ -13335,8 +13382,9 @@ p {
   background-color: transparent;
   width: 100%;
   height: 310px;
-  perspective: 1000px;
   border-radius: 20px;
+  position: relative;
+  perspective: 1000px;
 }
 @media (min-width: 425px) {
   .service-homepage .bg-complementary-service .flip-box {
@@ -13363,6 +13411,9 @@ p {
     height: 320px;
   }
 }
+.service-homepage .bg-complementary-service .flip-box:hover .flip-box-inner {
+  transform: rotateY(180deg);
+}
 .service-homepage .bg-complementary-service .flip-box .flip-box-inner {
   position: relative;
   width: 100%;
@@ -13372,9 +13423,6 @@ p {
   transform-style: preserve-3d;
   border-radius: 20px;
   /* Style the back side */
-}
-.service-homepage .bg-complementary-service .flip-box .flip-box-inner:hover {
-  transform: rotateY(180deg);
 }
 .service-homepage .bg-complementary-service .flip-box .flip-box-inner .flip-box-front,
 .service-homepage .bg-complementary-service .flip-box .flip-box-inner .flip-box-back {
@@ -13419,6 +13467,9 @@ p {
   color: #1E1E1E;
   transform: rotateY(180deg);
   padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
 }
 @media (min-width: 375px) {
   .service-homepage .bg-complementary-service .flip-box .flip-box-inner .flip-box-back {
@@ -13442,6 +13493,12 @@ p {
 }
 .service-homepage .bg-complementary-service .flip-box .flip-box-inner .flip-box-back p {
   text-align: start;
+}
+.service-homepage .bg-complementary-service .flip-box .flip-box-inner .flip-box-back a {
+  text-decoration: underline;
+}
+.service-homepage .bg-complementary-service .flip-box .flip-box-inner .flip-box-back a:hover {
+  text-shadow: 2px 2px 2px #FFF;
 }
 .service-homepage .bg-hot-deal {
   background-color: #BFA573;
@@ -13683,6 +13740,7 @@ p {
  * 6. Training 
  * 7. Blockchain
  * 8. Satoshi
+ * 9. Connection
  *
  */
 /*----------------------------------------------------------
@@ -13724,6 +13782,36 @@ p {
 }
 .banner-service .wrapper-service .download-video .button-download .top {
   margin-top: 0.5rem;
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+}
+.banner-service .wrapper-service .download-video .button-download .top .btn-download {
+  display: inline-block;
+  transform: translateY(115px);
+  -webkit-transform: translateY(115px);
+  -moz-transform: translateY(115px);
+  -ms-transform: translateY(115px);
+  -o-transform: translateY(115px);
+  transition: transform 0.5s;
+  -webkit-transition: transform 0.5s;
+  -moz-transition: transform 0.5s;
+  -ms-transition: transform 0.5s;
+  -o-transition: transform 0.5s;
+}
+.banner-service .wrapper-service .download-video .button-download .bottom {
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+}
+.banner-service .wrapper-service .download-video .button-download .bottom .btn-download {
+  display: inline-block;
+  transform: translateY(115px);
+  -webkit-transform: translateY(115px);
+  -moz-transform: translateY(115px);
+  -ms-transform: translateY(115px);
+  -o-transform: translateY(115px);
+  transition: transform 0.5s;
+  -webkit-transition: transform 0.5s;
+  -moz-transition: transform 0.5s;
+  -ms-transition: transform 0.5s;
+  -o-transition: transform 0.5s;
 }
 .banner-service .wrapper-service .download-video .button-download .btn-download {
   padding: 0.5rem;
@@ -13776,6 +13864,11 @@ p {
 }
 .banner-service .wrapper-service .banner-text-video .bg-text-video.satoshi h2 {
   font-weight: 700;
+}
+.banner-service .wrapper-service .banner-text-video .bg-text-video.connection {
+  background: #D7D7D7;
+  color: #383734;
+  padding: 1.5rem 3rem !important;
 }
 
 /*----------------------------------------------------------
@@ -13940,7 +14033,7 @@ p {
 }
 @media (min-width: 1200px) {
   .service .box-service.brownis .box-content .box-content-text {
-    padding: 2rem 3rem 0rem 3rem;
+    padding: 2rem 3rem 2rem 3rem;
   }
 }
 .service .box-service.brown-strategic {
@@ -14295,7 +14388,7 @@ p {
   font-weight: 700;
 }
 .service .box-service.gold-training {
-  background-color: #BFA573;
+  background-color: rgba(191, 165, 115, 0.9411764706);
   margin-top: 2rem;
   border-radius: 0px;
   padding: 2rem;
@@ -14326,12 +14419,12 @@ p {
 }
 .service .box-service.gold-training .box-content .box-content-text {
   line-height: 25px;
-  padding: 1rem 0rem 0rem 0rem;
+  padding: 0.3rem 0rem 0rem 0rem;
   color: #FFFFFF;
 }
 @media (min-width: 1200px) {
   .service .box-service.gold-training .box-content .box-content-text {
-    padding: 2rem 3rem 0rem 3rem;
+    padding: 0.5rem 3rem 0rem 3rem;
   }
 }
 .service .box-service.gold-training .box-content .box-content-text span {
@@ -14341,23 +14434,28 @@ p {
 .service .box-service.black-blockchain {
   background-color: #1E1E1E;
   border-radius: 0px;
+  padding: 2rem;
 }
 .service .box-service.black-blockchain .wrapping-title {
   display: flex;
-  justify-content: center;
-  align-items: center;
   flex-direction: column;
   justify-content: start;
-  margin-top: 5rem;
+  align-items: start;
+  margin-top: 0rem;
+}
+@media (min-width: 992px) {
+  .service .box-service.black-blockchain .wrapping-title {
+    align-items: center;
+  }
 }
 .service .box-service.black-blockchain .wrapping-title .box-content-title {
-  color: #FFFFFF;
-  text-transform: uppercase;
+  color: #BFA573;
   text-align: start;
+  line-height: 40px;
 }
 .service .box-service.black-blockchain .wrapping-title .box-content-title hr {
   margin-top: 1rem;
-  width: 140% !important;
+  width: 100% !important;
   height: 3px;
   color: #BFA573;
   background-color: #BFA573;
@@ -14381,7 +14479,7 @@ p {
 }
 @media (min-width: 1200px) {
   .service .box-service.black-blockchain .box-content .box-content-text {
-    padding: 2rem 3rem 0rem 3rem;
+    padding: 1rem 3rem 0rem 3rem;
   }
 }
 .service .box-service.black-blockchain .box-content .box-content-text span {
@@ -14406,11 +14504,15 @@ p {
 }
 .service .box-service.gold-blockchain .wrapping-title {
   display: flex;
-  justify-content: center;
-  align-items: center;
   flex-direction: column;
   justify-content: start;
-  margin-top: 5rem;
+  align-items: start;
+  margin-top: 0rem;
+}
+@media (min-width: 992px) {
+  .service .box-service.gold-blockchain .wrapping-title {
+    align-items: end;
+  }
 }
 .service .box-service.gold-blockchain .wrapping-title .box-content-title {
   color: #1E1E1E;
@@ -14569,7 +14671,13 @@ p {
 }
 @media (min-width: 992px) {
   .wrapper-box-service .wrapper-img-absolute .img-blockchain-design:nth-child(1) {
-    top: -6rem;
+    top: -8rem;
+    left: -5rem;
+  }
+}
+@media (min-width: 1200px) {
+  .wrapper-box-service .wrapper-img-absolute .img-blockchain-design:nth-child(1) {
+    left: 0rem;
   }
 }
 .wrapper-box-service .wrapper-img-absolute .img-blockchain-design:nth-child(2) {
@@ -14587,7 +14695,13 @@ p {
 }
 @media (min-width: 992px) {
   .wrapper-box-service .wrapper-img-absolute .img-blockchain-mining:nth-child(1) {
-    top: -6rem;
+    top: -12rem;
+    right: -9rem;
+  }
+}
+@media (min-width: 1200px) {
+  .wrapper-box-service .wrapper-img-absolute .img-blockchain-mining:nth-child(1) {
+    right: 0rem;
   }
 }
 .wrapper-box-service .wrapper-img-absolute .img-blockchain-mining:nth-child(2) {
@@ -14595,6 +14709,10 @@ p {
   height: auto;
   position: relative;
   opacity: 0;
+}
+
+.img-small-binance:hover {
+  filter: drop-shadow(0px 4px 20px #F5BF25);
 }
 
 /*----------------------------------------------------------
@@ -14756,7 +14874,7 @@ p {
 @media (min-width: 768px) {
   .strategic-for-corproat .wrapper-box-content .box-content-subtitle {
     text-align: start;
-    padding: 1rem 3rem 0rem 3rem;
+    padding: 0.5rem 3rem 0rem 3rem;
   }
 }
 .strategic-for-corproat .wrapper-box-content .box-content-text {
@@ -14767,7 +14885,7 @@ p {
 @media (min-width: 768px) {
   .strategic-for-corproat .wrapper-box-content .box-content-text {
     text-align: start;
-    padding: 3rem 3rem 0rem 3rem;
+    padding: 1.5rem 3rem 0rem 3rem;
   }
 }
 
@@ -14823,7 +14941,7 @@ p {
 @media (min-width: 768px) {
   .international-tax-planning .wrapper-box-content .box-content-subtitle {
     text-align: start;
-    padding: 1rem 3rem 0rem 3rem;
+    padding: 0.5rem 3rem 0rem 3rem;
   }
 }
 .international-tax-planning .wrapper-box-content .box-content-text {
@@ -14835,7 +14953,7 @@ p {
 @media (min-width: 768px) {
   .international-tax-planning .wrapper-box-content .box-content-text {
     text-align: start;
-    padding: 2rem 3rem 0rem 3rem;
+    padding: 1.5rem 3rem 0rem 3rem;
   }
 }
 
@@ -15002,7 +15120,7 @@ p {
 }
 .advance-training p {
   color: #FFFFFF;
-  margin-top: 4rem;
+  margin-top: 2rem;
   line-height: 35px;
   padding-bottom: 3rem;
   clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
@@ -15088,8 +15206,34 @@ p {
 7. Blockchain Start
 ------------------------------------------------------------*/
 .blockchain-short-desc {
-  padding-top: 3rem;
+  padding-top: 1rem;
   position: relative;
+  overflow: hidden;
+}
+.blockchain-short-desc .el-blockchain-1 {
+  display: none;
+  position: absolute;
+  left: 0;
+  bottom: -2%;
+  z-index: 2;
+  height: 105%;
+}
+@media (min-width: 992px) {
+  .blockchain-short-desc .el-blockchain-1 {
+    display: block;
+  }
+}
+.blockchain-short-desc .el-blockchain-2 {
+  display: none;
+  position: absolute;
+  right: 0;
+  bottom: -2%;
+  height: 105%;
+}
+@media (min-width: 992px) {
+  .blockchain-short-desc .el-blockchain-2 {
+    display: block;
+  }
 }
 .blockchain-short-desc .container {
   position: relative;
@@ -15101,16 +15245,6 @@ p {
 .blockchain-short-desc .container p {
   text-align: center;
   padding-bottom: 3rem;
-}
-.blockchain-short-desc .container .el-blockchain-1 {
-  position: absolute;
-  bottom: -5rem;
-  z-index: 2;
-}
-.blockchain-short-desc .container .el-blockchain-2 {
-  position: absolute;
-  bottom: 0;
-  right: 0;
 }
 
 .blockchain-from-basic {
@@ -15124,11 +15258,11 @@ p {
 }
 @media (min-width: 1024px) {
   .blockchain-from-basic {
-    margin-top: 18rem;
+    margin-top: 10rem;
   }
 }
 .blockchain-from-basic .wrapper-img {
-  background-image: url("../../img/img-31.webp");
+  background-image: url("../../img/img-29.webp");
   background-position: center top;
   background-repeat: no-repeat;
   background-size: cover;
@@ -15142,7 +15276,7 @@ p {
 }
 .blockchain-from-basic .wrapper-box-content .box-content-title {
   text-transform: uppercase;
-  color: #BFA573;
+  color: #FFFFFF;
   padding: 2rem 0rem 0rem 0rem;
   text-align: center;
 }
@@ -15166,7 +15300,7 @@ p {
 @media (min-width: 768px) {
   .blockchain-from-basic .wrapper-box-content .box-content-subtitle {
     text-align: start;
-    padding: 3rem 3rem 0rem 3rem;
+    padding: 1rem 3rem 0rem 3rem;
   }
 }
 .blockchain-from-basic .wrapper-box-content .box-content-text {
@@ -15178,7 +15312,7 @@ p {
 @media (min-width: 768px) {
   .blockchain-from-basic .wrapper-box-content .box-content-text {
     text-align: start;
-    padding: 1rem 3rem 0rem 3rem;
+    padding: 3rem 3rem 0rem 3rem;
   }
 }
 
@@ -15207,8 +15341,13 @@ p {
   background-position: center top;
   background-repeat: no-repeat;
   background-size: cover;
-  height: 600px;
   border-radius: 10px;
+  height: 600px;
+}
+@media (min-width: 992px) {
+  .blockchain-why .wrapper-cat .bg-cat {
+    height: 100%;
+  }
 }
 
 /*----------------------------------------------------------
@@ -15217,6 +15356,23 @@ p {
 /*----------------------------------------------------------
 8. Satoshi Start
 ------------------------------------------------------------*/
+.satoshi-banner #g-text-downloadapp {
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+}
+.satoshi-banner #g-text-downloadapp .line-animation {
+  display: inline-block;
+  transform: translateY(115px);
+  -webkit-transform: translateY(115px);
+  -moz-transform: translateY(115px);
+  -ms-transform: translateY(115px);
+  -o-transform: translateY(115px);
+  transition: transform 0.5s;
+  -webkit-transition: transform 0.5s;
+  -moz-transition: transform 0.5s;
+  -ms-transition: transform 0.5s;
+  -o-transition: transform 0.5s;
+}
+
 .satoshi-short-desc {
   background-color: #B2A291;
   padding-top: 3rem;
@@ -15267,100 +15423,1315 @@ p {
 .satoshi-buy-sell.buy {
   background-color: #1E1E1E;
   padding: 4rem 0rem;
+  margin-top: 2rem;
 }
-.satoshi-buy-sell.buy .satoshi-title-box {
-  padding-right: 1rem;
-}
-.satoshi-buy-sell.buy .satoshi-title-box .title {
-  width: auto;
-  background-color: #C5A571;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 2rem;
-  border-radius: 3rem;
-}
-.satoshi-buy-sell.buy .satoshi-title-box .title h4 {
-  text-align: center;
-}
-.satoshi-buy-sell.buy .satoshi-title-box .title img {
-  width: auto;
-  height: 4rem;
-  padding-top: 0.5rem;
-}
-.satoshi-buy-sell.buy .satoshi-title-box .subtitle {
-  margin-top: 1rem;
-  padding: 0.5rem 1rem;
-  background-color: #E8D9BD;
-  border-radius: 999999px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.satoshi-buy-sell.buy .line-connected {
+.satoshi-buy-sell.buy .title {
   padding: 1rem;
 }
-.satoshi-buy-sell.buy .satoshi-sub-box {
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: start;
+@media (min-width: 768px) {
+  .satoshi-buy-sell.buy .title {
+    padding: 2rem;
+  }
 }
-.satoshi-buy-sell.buy .satoshi-sub-box .subtitle {
-  display: flex;
-  align-items: center;
+.satoshi-buy-sell.buy .title .wrapping-box {
+  width: 16rem;
 }
-.satoshi-buy-sell.buy .satoshi-sub-box .subtitle .box-subtitle {
-  color: #1E1E1E;
-  background-color: #C5A571;
-  padding: 0.7rem 3.5rem;
-  border-radius: 9999999px;
-  width: 11rem;
-  text-align: center;
+@media (min-width: 768px) {
+  .satoshi-buy-sell.buy .title .wrapping-box {
+    width: 7rem;
+  }
 }
-.satoshi-buy-sell.buy .satoshi-sub-box .subtitle .wrapping-box-desc {
-  padding-left: 1rem;
-  position: relative;
-}
-.satoshi-buy-sell.buy .satoshi-sub-box .subtitle .wrapping-box-desc .box-desc {
-  width: 18rem;
-  color: #1E1E1E;
-  background-color: #FFFFFF;
-  border-radius: 99999999px;
-  border: 3px solid #CCB78F;
-  text-align: center;
-  padding: 0.3rem 3rem;
-  font-size: 14px;
-}
-.satoshi-buy-sell.buy .satoshi-sub-box .subtitle .wrapping-box-desc .star {
-  position: absolute;
-  top: 50%;
-  right: -2.8rem;
-  transform: translate(-50%, -50%);
-}
-.satoshi-buy-sell.buy .satoshi-main-content {
-  background: url("../../img/bg-satoshi-box.png");
-  background-position: center top;
-  background-repeat: no-repeat;
-  background-size: contain;
-  position: relative;
-  height: 100%;
+.satoshi-buy-sell.buy .title .wrapping-box .box-buy {
+  width: auto;
+  border-radius: 8px;
+  background: linear-gradient(180deg, #B48B3D 0%, #BFA573 100%);
+  padding: 1rem;
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
 }
-.satoshi-buy-sell.buy .satoshi-main-content .satoshi-main-text {
-  color: white;
-  position: relative;
-  padding: 0rem 8rem;
+@media (min-width: 768px) {
+  .satoshi-buy-sell.buy .title .wrapping-box .box-buy {
+    border-radius: 25px;
+  }
+}
+.satoshi-buy-sell.buy .title .wrapping-box .box-buy h4 {
   text-align: center;
-  line-height: 30px;
+  color: #1E1E1E;
+  font-weight: 700;
+}
+.satoshi-buy-sell.buy .title .wrapping-box .box-buy img {
+  width: 50px;
+  margin-top: 0rem;
+}
+@media (min-width: 768px) {
+  .satoshi-buy-sell.buy .title .wrapping-box .box-buy img {
+    margin-top: 1rem;
+  }
+}
+.satoshi-buy-sell.buy .title .wrapping-box .button-buy {
+  width: auto;
+  color: #1E1E1E;
+  background-color: #E8D9BD;
+  padding: 0.5rem;
+  text-align: center;
+  margin-top: 0.3rem;
+  border-radius: 9999px;
+  display: none;
+}
+@media (min-width: 768px) {
+  .satoshi-buy-sell.buy .title .wrapping-box .button-buy {
+    display: block;
+  }
+}
+.satoshi-buy-sell.buy .instruction .card-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.satoshi-buy-sell.buy .instruction .card-container ul {
+  list-style: none;
+  font-size: 50px;
+  color: transparent;
+}
+.satoshi-buy-sell.buy .instruction .card-container ul li {
+  position: relative;
+  margin-top: 1.5rem;
+}
+.satoshi-buy-sell.buy .instruction .card-container ul li::before {
+  content: "";
+  position: absolute;
+  left: -3rem;
+  font-size: 1.2em;
+  top: 50%;
+  transform: translateY(-50%);
+  background: linear-gradient(180deg, #B48B3D 0%, #BFA573 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+@media (min-width: 768px) {
+  .satoshi-buy-sell.buy .instruction .card-container ul li::before {
+    content: "•";
+  }
+}
+.satoshi-buy-sell.buy .instruction .card-container ul li .card {
+  width: 250px;
+  background-color: #fff;
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  border: none;
+  position: relative;
+}
+@media (min-width: 768px) {
+  .satoshi-buy-sell.buy .instruction .card-container ul li .card {
+    width: 170px;
+  }
+}
+@media (min-width: 992px) {
+  .satoshi-buy-sell.buy .instruction .card-container ul li .card {
+    width: 240px;
+  }
+}
+@media (min-width: 1200px) {
+  .satoshi-buy-sell.buy .instruction .card-container ul li .card {
+    width: 300px;
+  }
+}
+.satoshi-buy-sell.buy .instruction .card-container ul li .card .card-header {
+  background: linear-gradient(90deg, #B48B3D 0%, #BFA573 100%);
+  color: #1E1E1E;
+  padding: 6px;
+  border-radius: 15px 15px 0px 0px;
+  text-align: center;
+}
+.satoshi-buy-sell.buy .instruction .card-container ul li .card .card-header h4 {
+  font-size: 19px !important;
+  font-weight: 800;
+}
+.satoshi-buy-sell.buy .instruction .card-container ul li .card .card-body {
+  padding: 20px;
+  text-align: center;
+  font-size: 14px !important;
+  color: #1E1E1E;
+  font-weight: 600;
+}
+.satoshi-buy-sell.buy .instruction .card-container ul li .card .blink-white {
+  position: absolute;
+  top: -1rem;
+  right: -1rem;
+}
+.satoshi-buy-sell.buy .instruction .card-container ul li .card .blink-gold {
+  position: absolute;
+  bottom: -1rem;
+  left: -1rem;
+}
+.satoshi-buy-sell.buy .desc {
+  padding: 2rem;
+}
+@media (min-width: 768px) {
+  .satoshi-buy-sell.buy .desc {
+    padding: 0.5rem;
+  }
+}
+@media (min-width: 992px) {
+  .satoshi-buy-sell.buy .desc {
+    padding: 0rem;
+  }
+}
+@media (min-width: 1200px) {
+  .satoshi-buy-sell.buy .desc {
+    padding: 2rem;
+  }
+}
+.satoshi-buy-sell.buy .desc .wrapper-desc {
+  width: 100%;
+  height: 220px;
+  background: url("../../img/bg-satoshi-box-2.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+@media (min-width: 768px) {
+  .satoshi-buy-sell.buy .desc .wrapper-desc {
+    height: 100%;
+  }
+}
+.satoshi-buy-sell.buy .desc .wrapper-desc p {
+  width: 315px;
+  color: #FFFFFF;
+  padding: 0rem 1.5rem;
+  text-align: center;
+  font-size: 12px;
+}
+@media (min-width: 375px) {
+  .satoshi-buy-sell.buy .desc .wrapper-desc p {
+    font-size: 14px;
+  }
+}
+@media (min-width: 768px) {
+  .satoshi-buy-sell.buy .desc .wrapper-desc p {
+    font-size: 13px;
+  }
+}
+@media (min-width: 992px) {
+  .satoshi-buy-sell.buy .desc .wrapper-desc p {
+    font-size: 16px;
+  }
+}
+.satoshi-buy-sell.sell {
+  background-color: #E2D6BF;
+  padding: 4rem 0rem;
+}
+.satoshi-buy-sell.sell .title {
+  padding: 1rem;
+}
+@media (min-width: 768px) {
+  .satoshi-buy-sell.sell .title {
+    padding: 2rem;
+  }
+}
+.satoshi-buy-sell.sell .title .wrapping-box {
+  width: 16rem;
+}
+@media (min-width: 768px) {
+  .satoshi-buy-sell.sell .title .wrapping-box {
+    width: 10rem;
+  }
+}
+.satoshi-buy-sell.sell .title .wrapping-box .box-sell {
+  width: auto;
+  border-radius: 8px;
+  background: #000000;
+  padding: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+@media (min-width: 768px) {
+  .satoshi-buy-sell.sell .title .wrapping-box .box-sell {
+    border-radius: 25px;
+  }
+}
+.satoshi-buy-sell.sell .title .wrapping-box .box-sell h4 {
+  text-align: center;
+  color: #BFA573;
+  font-weight: 700;
+}
+.satoshi-buy-sell.sell .title .wrapping-box .box-sell img {
+  width: 50px;
+  margin-top: 0rem;
+}
+@media (min-width: 768px) {
+  .satoshi-buy-sell.sell .title .wrapping-box .box-sell img {
+    margin-top: 1rem;
+  }
+}
+.satoshi-buy-sell.sell .title .wrapping-box .button-sell {
+  width: auto;
+  color: #1E1E1E;
+  background: linear-gradient(180deg, #B48B3D 0%, #BFA573 100%);
+  padding: 0.5rem;
+  text-align: center;
+  margin-top: 0.3rem;
+  border-radius: 9999px;
+  display: none;
+}
+@media (min-width: 768px) {
+  .satoshi-buy-sell.sell .title .wrapping-box .button-sell {
+    display: block;
+  }
+}
+.satoshi-buy-sell.sell .instruction .card-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.satoshi-buy-sell.sell .instruction .card-container ul {
+  list-style: none;
+  font-size: 50px;
+  color: transparent;
+}
+.satoshi-buy-sell.sell .instruction .card-container ul li {
+  position: relative;
+  margin-top: 1.5rem;
+}
+.satoshi-buy-sell.sell .instruction .card-container ul li::before {
+  content: "";
+  position: absolute;
+  left: -3rem;
+  font-size: 1.2em;
+  top: 50%;
+  transform: translateY(-50%);
+  background: linear-gradient(180deg, #000000 0%, #000000 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+@media (min-width: 768px) {
+  .satoshi-buy-sell.sell .instruction .card-container ul li::before {
+    content: "•";
+  }
+}
+.satoshi-buy-sell.sell .instruction .card-container ul li .card {
+  width: 250px;
+  background-color: #fff;
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  border: none;
+  position: relative;
+}
+@media (min-width: 768px) {
+  .satoshi-buy-sell.sell .instruction .card-container ul li .card {
+    width: 170px;
+  }
+}
+@media (min-width: 992px) {
+  .satoshi-buy-sell.sell .instruction .card-container ul li .card {
+    width: 240px;
+  }
+}
+@media (min-width: 1200px) {
+  .satoshi-buy-sell.sell .instruction .card-container ul li .card {
+    width: 300px;
+  }
+}
+.satoshi-buy-sell.sell .instruction .card-container ul li .card .card-header {
+  background: #000000;
+  color: #BFA573;
+  padding: 6px;
+  border-radius: 15px 15px 0px 0px;
+  text-align: center;
+}
+.satoshi-buy-sell.sell .instruction .card-container ul li .card .card-header h4 {
+  font-size: 19px !important;
+  font-weight: 800;
+}
+.satoshi-buy-sell.sell .instruction .card-container ul li .card .card-header h4 span {
+  color: #FFFFFF;
+}
+.satoshi-buy-sell.sell .instruction .card-container ul li .card .card-body {
+  padding: 20px;
+  text-align: center;
+  font-size: 14px !important;
+  color: #1E1E1E;
+  font-weight: 600;
+}
+.satoshi-buy-sell.sell .instruction .card-container ul li .card .blink-white {
+  position: absolute;
+  top: -1rem;
+  right: -1rem;
+}
+.satoshi-buy-sell.sell .instruction .card-container ul li .card .blink-gold {
+  position: absolute;
+  bottom: -1rem;
+  left: -1rem;
+}
+.satoshi-buy-sell.sell .desc {
+  padding: 2rem;
+}
+@media (min-width: 768px) {
+  .satoshi-buy-sell.sell .desc {
+    padding: 0.5rem;
+  }
+}
+@media (min-width: 992px) {
+  .satoshi-buy-sell.sell .desc {
+    padding: 0rem;
+  }
+}
+@media (min-width: 1200px) {
+  .satoshi-buy-sell.sell .desc {
+    padding: 2rem;
+  }
+}
+.satoshi-buy-sell.sell .desc .wrapper-desc {
+  width: 100%;
+  height: 220px;
+  background: url("../../img/bg-satoshi-box.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+@media (min-width: 768px) {
+  .satoshi-buy-sell.sell .desc .wrapper-desc {
+    height: 100%;
+  }
+}
+.satoshi-buy-sell.sell .desc .wrapper-desc p {
+  width: 315px;
+  color: #1E1E1E;
+  padding: 0rem 1.5rem;
+  text-align: center;
+  font-size: 12px;
+}
+@media (min-width: 375px) {
+  .satoshi-buy-sell.sell .desc .wrapper-desc p {
+    font-size: 14px;
+  }
+}
+@media (min-width: 768px) {
+  .satoshi-buy-sell.sell .desc .wrapper-desc p {
+    font-size: 13px;
+  }
+}
+@media (min-width: 992px) {
+  .satoshi-buy-sell.sell .desc .wrapper-desc p {
+    font-size: 16px;
+  }
+}
+.satoshi-buy-sell.multiple {
+  background-color: #E0E0E0;
+  padding: 4rem 0rem;
+  margin-top: 2rem;
+}
+.satoshi-buy-sell.multiple .title {
+  padding: 1rem;
+}
+@media (min-width: 768px) {
+  .satoshi-buy-sell.multiple .title {
+    padding: 2rem;
+  }
+}
+.satoshi-buy-sell.multiple .title .wrapping-box {
+  width: 16rem;
+}
+@media (min-width: 768px) {
+  .satoshi-buy-sell.multiple .title .wrapping-box {
+    width: 10rem;
+  }
+}
+.satoshi-buy-sell.multiple .title .wrapping-box .box-multiple {
+  width: auto;
+  border-radius: 8px;
+  background: linear-gradient(180deg, #383734 0%, #383734 100%);
+  padding: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+@media (min-width: 768px) {
+  .satoshi-buy-sell.multiple .title .wrapping-box .box-multiple {
+    border-radius: 25px;
+  }
+}
+.satoshi-buy-sell.multiple .title .wrapping-box .box-multiple h4 {
+  text-align: center;
+  color: #FFFFFF;
+  font-weight: 700;
+}
+.satoshi-buy-sell.multiple .title .wrapping-box .box-multiple h4 span {
+  color: #BFA573;
+}
+.satoshi-buy-sell.multiple .title .wrapping-box .box-multiple img {
+  width: 50px;
+  margin-top: 0rem;
+}
+@media (min-width: 768px) {
+  .satoshi-buy-sell.multiple .title .wrapping-box .box-multiple img {
+    margin-top: 1rem;
+  }
+}
+.satoshi-buy-sell.multiple .title .wrapping-box .button-buy {
+  width: auto;
+  color: #1E1E1E;
+  background-color: #BFA573;
+  padding: 0.5rem;
+  text-align: center;
+  margin-top: 0.3rem;
+  border-radius: 9999px;
+  display: none;
+}
+@media (min-width: 768px) {
+  .satoshi-buy-sell.multiple .title .wrapping-box .button-buy {
+    display: block;
+  }
+}
+.satoshi-buy-sell.multiple .instruction .card-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.satoshi-buy-sell.multiple .instruction .card-container ul {
+  list-style: none;
+  font-size: 50px;
+  color: transparent;
+}
+.satoshi-buy-sell.multiple .instruction .card-container ul li {
+  position: relative;
+  margin-top: 1.5rem;
+}
+.satoshi-buy-sell.multiple .instruction .card-container ul li::before {
+  content: "";
+  position: absolute;
+  left: -3rem;
+  font-size: 1.2em;
+  top: 50%;
+  transform: translateY(-50%);
+  background: linear-gradient(180deg, #000000 0%, #000000 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+@media (min-width: 768px) {
+  .satoshi-buy-sell.multiple .instruction .card-container ul li::before {
+    content: "•";
+  }
+}
+.satoshi-buy-sell.multiple .instruction .card-container ul li .card {
+  width: 250px;
+  background-color: #fff;
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  border: none;
+  position: relative;
+}
+@media (min-width: 768px) {
+  .satoshi-buy-sell.multiple .instruction .card-container ul li .card {
+    width: 170px;
+  }
+}
+@media (min-width: 992px) {
+  .satoshi-buy-sell.multiple .instruction .card-container ul li .card {
+    width: 240px;
+  }
+}
+@media (min-width: 1200px) {
+  .satoshi-buy-sell.multiple .instruction .card-container ul li .card {
+    width: 300px;
+  }
+}
+.satoshi-buy-sell.multiple .instruction .card-container ul li .card .card-header {
+  background: linear-gradient(90deg, #383734 0%, #9A9A9A 100%);
+  color: #BFA573;
+  padding: 6px;
+  border-radius: 15px 15px 0px 0px;
+  text-align: center;
+}
+.satoshi-buy-sell.multiple .instruction .card-container ul li .card .card-header h4 {
+  font-size: 19px !important;
+  font-weight: 800;
+}
+.satoshi-buy-sell.multiple .instruction .card-container ul li .card .card-body {
+  padding: 20px;
+  text-align: center;
+  font-size: 14px !important;
+  color: #1E1E1E;
+  font-weight: 600;
+}
+.satoshi-buy-sell.multiple .instruction .card-container ul li .card .blink-white {
+  position: absolute;
+  top: -1rem;
+  right: -1rem;
+}
+.satoshi-buy-sell.multiple .instruction .card-container ul li .card .blink-gold {
+  position: absolute;
+  bottom: -1rem;
+  left: -1rem;
+}
+.satoshi-buy-sell.multiple .desc {
+  padding: 2rem;
+}
+@media (min-width: 768px) {
+  .satoshi-buy-sell.multiple .desc {
+    padding: 0.5rem;
+  }
+}
+@media (min-width: 992px) {
+  .satoshi-buy-sell.multiple .desc {
+    padding: 0rem;
+  }
+}
+@media (min-width: 1200px) {
+  .satoshi-buy-sell.multiple .desc {
+    padding: 2rem;
+  }
+}
+.satoshi-buy-sell.multiple .desc .wrapper-desc {
+  width: 100%;
+  height: 220px;
+  background: url("../../img/bg-satoshi-box.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+@media (min-width: 768px) {
+  .satoshi-buy-sell.multiple .desc .wrapper-desc {
+    height: 100%;
+  }
+}
+.satoshi-buy-sell.multiple .desc .wrapper-desc p {
+  width: 315px;
+  color: #1E1E1E;
+  padding: 0rem 1.5rem;
+  text-align: center;
+  font-size: 12px;
+}
+@media (min-width: 375px) {
+  .satoshi-buy-sell.multiple .desc .wrapper-desc p {
+    font-size: 14px;
+  }
+}
+@media (min-width: 768px) {
+  .satoshi-buy-sell.multiple .desc .wrapper-desc p {
+    font-size: 13px;
+  }
+}
+@media (min-width: 992px) {
+  .satoshi-buy-sell.multiple .desc .wrapper-desc p {
+    font-size: 16px;
+  }
+}
+
+.buy-noted {
+  padding: 2rem;
+}
+.buy-noted p {
+  font-weight: 700;
+}
+
+.mediation-satoshi {
+  margin-top: 2rem;
+  position: relative;
+}
+.mediation-satoshi .wrapper-mediaton .mediation h2 {
+  color: #C5A571;
+  text-align: center;
+}
+.mediation-satoshi .wrapper-mediaton .mediation p {
+  text-align: center;
+  margin: 1rem 0rem;
+}
+.mediation-satoshi .wrapper-mediaton .mediation h5 {
+  text-align: center;
+  margin: 1rem 0rem;
+  font-weight: 700;
+}
+.mediation-satoshi .el-left {
+  position: absolute;
+  left: 0;
+  top: -4rem;
+}
+.mediation-satoshi .el-right {
+  position: absolute;
+  right: 0;
+  top: -10rem;
+}
+
+.satoshi-profit .wrapper-big-title {
+  width: 100%;
+  background-color: #000000;
+  margin: 1rem 0rem;
+}
+.satoshi-profit .wrapper-big-title h3 {
+  text-align: center;
+  color: #FFFFFF;
+  padding: 1.5rem;
+}
+.satoshi-profit .wrapper-big-title h2 {
+  text-align: center;
+  color: #FFFFFF;
+  padding: 1.5rem;
+}
+.satoshi-profit .timeline {
+  background-color: #C9B6A2;
+  margin: 0;
+}
+.satoshi-profit .timeline .row {
+  padding: 0;
+  margin: 0;
+}
+.satoshi-profit .timeline .row .bg-timeline {
+  background-image: url("../../img/img-34.webp");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: auto;
+}
+.satoshi-profit .timeline .row .wrap-text-timeline {
+  padding: 2rem;
+}
+@media (min-width: 992px) {
+  .satoshi-profit .timeline .row .wrap-text-timeline {
+    padding: 2rem 0rem 0rem 4rem;
+  }
+}
+.satoshi-profit .timeline .row .wrap-text-timeline h3 {
+  text-align: center;
+}
+@media (min-width: 992px) {
+  .satoshi-profit .timeline .row .wrap-text-timeline h3 {
+    text-align: start;
+  }
+}
+.satoshi-profit .timeline .row .wrap-text-timeline .text-timeline {
+  line-height: 35px;
+  padding-bottom: 3rem;
+  text-align: center;
+}
+@media (min-width: 992px) {
+  .satoshi-profit .timeline .row .wrap-text-timeline .text-timeline {
+    text-align: start;
+  }
+}
+.satoshi-profit .commision {
+  position: relative;
+  background-color: #1E1E1E;
+  margin: 0;
+}
+.satoshi-profit .commision .row {
+  padding: 0;
+  margin: 0;
+}
+.satoshi-profit .commision .row .bg-commision {
+  background-image: url("../../img/img-35.webp");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: auto;
+}
+.satoshi-profit .commision .row .wrap-text-commision {
+  padding: 2rem;
+}
+@media (min-width: 992px) {
+  .satoshi-profit .commision .row .wrap-text-commision {
+    padding: 4rem 7rem 0rem 7rem;
+  }
+}
+.satoshi-profit .commision .row .wrap-text-commision h3 {
+  text-align: center;
+  color: #FFFFFF;
+}
+@media (min-width: 992px) {
+  .satoshi-profit .commision .row .wrap-text-commision h3 {
+    text-align: start;
+  }
+}
+.satoshi-profit .commision .row .wrap-text-commision .text-commision {
+  color: #FFFFFF;
+  line-height: 35px;
+  padding-bottom: 3rem;
+  text-align: center;
+}
+@media (min-width: 992px) {
+  .satoshi-profit .commision .row .wrap-text-commision .text-commision {
+    text-align: start;
+  }
+}
+.satoshi-profit .commision-note {
+  background-color: #E8D9BD;
+  padding: 1rem;
+}
+.satoshi-profit .wrapping-satoshi-key {
+  background-color: #1E1E1E;
+}
+.satoshi-profit .wrapping-satoshi-key .bg-satoshi-key {
+  background-image: url("../../img/img-36.webp");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 300px;
+}
+@media (min-width: 768px) {
+  .satoshi-profit .wrapping-satoshi-key .bg-satoshi-key {
+    height: auto;
+  }
+}
+.satoshi-profit .wrapping-satoshi-key .text-satoshi-key {
+  padding: 3rem;
+}
+.satoshi-profit .wrapping-satoshi-key .text-satoshi-key h3 {
+  color: #BFA573;
+  margin-bottom: 2rem;
+}
+.satoshi-profit .wrapping-satoshi-key .text-satoshi-key ul li {
+  color: #FFFFFF;
+  list-style: circle;
+  margin-bottom: 2rem;
+}
+.satoshi-profit .bg-why-satoshi {
+  background-image: url("../../img/bg-why-satoshi.webp");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  overflow: hidden;
+  width: 100%;
+  height: auto;
+  padding: 4rem 0rem;
+}
+.satoshi-profit .bg-why-satoshi .whitie {
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.9);
+  padding: 2rem;
+  margin-top: 5rem;
+  position: relative;
+}
+.satoshi-profit .bg-why-satoshi .whitie .title {
+  text-align: center;
+  color: #BFA573;
+  font-weight: bold;
+}
+.satoshi-profit .bg-why-satoshi .whitie .text {
+  color: #1E1E1E;
+  font-weight: 600;
+}
+.satoshi-profit .bg-why-satoshi .bg-expert {
+  width: 250px;
+  margin-right: 4rem;
+}
+@media (min-width: 768px) {
+  .satoshi-profit .bg-why-satoshi .bg-expert {
+    width: 550px;
+  }
+}
+@media (min-width: 992px) {
+  .satoshi-profit .bg-why-satoshi .bg-expert {
+    width: 360px;
+  }
+}
+.satoshi-profit .bg-why-satoshi .bg-expert .bitcoin {
+  width: 80px;
+  display: inline-block;
+  position: absolute;
+  bottom: -2rem;
+  right: -2rem;
+}
+.satoshi-profit .bg-why-satoshi .uptodate {
+  width: 320px;
+}
+@media (min-width: 768px) {
+  .satoshi-profit .bg-why-satoshi .uptodate {
+    width: 550px;
+  }
+}
+@media (min-width: 992px) {
+  .satoshi-profit .bg-why-satoshi .uptodate {
+    width: 320px;
+  }
+}
+.satoshi-profit .bg-why-satoshi .uptodate .bitcoin {
+  width: 70px;
+  display: inline-block;
+  position: absolute;
+  top: -2rem;
+  right: -2rem;
+}
+.satoshi-profit .bg-why-satoshi .strategy {
+  width: 650px;
+}
+.satoshi-profit .bg-why-satoshi .strategy .bitcoin {
+  width: 70px;
+  display: inline-block;
+  position: absolute;
+  bottom: -2rem;
+  right: 10rem;
+}
+
+.satoshi-useapp {
+  background-color: #F0EADE;
+  padding-top: 2rem;
+}
+.satoshi-useapp .left-side {
+  padding-bottom: 2rem;
+}
+.satoshi-useapp .left-side p {
+  margin-top: 3rem;
+  text-align: justify;
+}
+.satoshi-useapp .left-side .button-download {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  margin-top: 2rem;
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+}
+.satoshi-useapp .left-side .button-download .btn-download {
+  display: inline-block;
+  transform: translateY(115px);
+  -webkit-transform: translateY(115px);
+  -moz-transform: translateY(115px);
+  -ms-transform: translateY(115px);
+  -o-transform: translateY(115px);
+  transition: transform 0.5s;
+  -webkit-transition: transform 0.5s;
+  -moz-transition: transform 0.5s;
+  -ms-transition: transform 0.5s;
+  -o-transition: transform 0.5s;
+}
+.satoshi-useapp #g-mobilesatoshi {
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+}
+.satoshi-useapp #g-mobilesatoshi .line-animation {
+  display: inline-block;
+  transform: translateY(300px);
+  -webkit-transform: translateY(300px);
+  -moz-transform: translateY(300px);
+  -ms-transform: translateY(300px);
+  -o-transform: translateY(300px);
+  transition: transform 0.5s;
+  -webkit-transition: transform 0.5s;
+  -moz-transition: transform 0.5s;
+  -ms-transition: transform 0.5s;
+  -o-transition: transform 0.5s;
+}
+
+.banner-satoshi {
+  position: relative;
+  overflow: hidden;
+}
+.banner-satoshi .wrapper-satoshi {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  height: 100%;
+}
+.banner-satoshi .wrapper-satoshi video {
+  width: 100%;
+  object-fit: contain;
 }
 
 /*----------------------------------------------------------
 8. Satoshi End
+------------------------------------------------------------*/
+/*----------------------------------------------------------
+9. Connection Start
+------------------------------------------------------------*/
+.united-connections .left-side {
+  padding: 2rem 0rem;
+}
+@media (min-width: 992px) {
+  .united-connections .left-side {
+    padding: 0rem 3rem;
+  }
+}
+.united-connections .left-side p {
+  text-align: justify;
+}
+.united-connections .bg-united-connections {
+  background-image: url("../../img/img-37.webp");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 200px;
+}
+@media (min-width: 425px) {
+  .united-connections .bg-united-connections {
+    height: 400px;
+  }
+}
+@media (min-width: 992px) {
+  .united-connections .bg-united-connections {
+    height: auto;
+  }
+}
+
+#partner-connections .cayman-wrapper {
+  margin-top: 2rem;
+  padding: 2rem 0rem;
+  background-color: rgba(175, 190, 168, 0.7882352941);
+}
+#partner-connections .cayman-wrapper .cayman-logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#partner-connections .cayman-wrapper .cayman-logo img {
+  width: 24rem;
+}
+#partner-connections .cayman-wrapper .cayman-text .title {
+  text-transform: uppercase;
+  color: #01471F;
+  font-weight: 700;
+}
+#partner-connections .cayman-wrapper .cayman-text .desc {
+  text-align: justify;
+  padding-right: 6rem;
+  color: rgba(56, 55, 52, 0.8196078431);
+}
+#partner-connections .mif-wrapper {
+  padding: 2rem 0rem;
+  background-color: #FFFFFF;
+}
+#partner-connections .mif-wrapper .mif-logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#partner-connections .mif-wrapper .mif-logo img {
+  width: 24rem;
+}
+#partner-connections .mif-wrapper .mif-text .title {
+  text-transform: uppercase;
+  color: #BFA573;
+  font-weight: 700;
+  padding-left: 6rem;
+}
+#partner-connections .mif-wrapper .mif-text .desc {
+  text-align: justify;
+  padding-left: 6rem;
+  color: rgba(56, 55, 52, 0.8196078431);
+}
+#partner-connections .gp-wrapper {
+  padding: 2rem 0rem;
+  background-color: rgba(232, 221, 220, 0.5294117647);
+}
+#partner-connections .gp-wrapper .gp-logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#partner-connections .gp-wrapper .gp-logo img {
+  width: 24rem;
+}
+#partner-connections .gp-wrapper .gp-text .title {
+  text-transform: uppercase;
+  color: #BFA573;
+  font-weight: 700;
+}
+#partner-connections .gp-wrapper .gp-text .desc {
+  text-align: justify;
+  padding-right: 6rem;
+  color: rgba(56, 55, 52, 0.8196078431);
+}
+
+/*----------------------------------------------------------
+9. Connection End
+------------------------------------------------------------*/
+/*----------------------------------------------------------
+    File Name  : _contactus.scss
+    Desc       : File ini merupakan styling untuk 3 jenis contact us
+
+------------------------------------------------------------*/
+/**
+ * TABLE OF CONTENTS
+ *
+ * 1. General Contact US
+ * 2. Contact Us Book Consultant
+ *
+ */
+/*----------------------------------------------------------
+1. General Contact Us Start
+------------------------------------------------------------*/
+input {
+  border: none;
+  padding: 0px 24px;
+}
+
+input:active, input:focus, textarea:active, textarea:focus {
+  outline: none;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  appearance: textfield;
+  -moz-appearance: textfield;
+}
+
+input::-webkit-input-placeholder {
+  color: rgb(122, 122, 122);
+}
+
+input:-moz-placeholder {
+  color: rgb(27, 27, 27);
+}
+
+.inp-fname {
+  height: 45px;
+  width: 400px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.08);
+  background-color: transparent;
+  border: 2px solid #BFA573;
+  color: #080808;
+}
+
+.inp-file-identity {
+  height: 45px;
+  width: 100px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.08);
+  background-color: transparent;
+  border: 2px solid #BFA573;
+  color: #080808;
+}
+
+.inp-email,
+.inp-email2 {
+  height: 45px;
+  width: 400px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.08);
+  background-color: transparent;
+  border: 2px solid #BFA573;
+  color: #080808;
+}
+
+.nohp-select.input-nohp {
+  height: 45px;
+  width: 400px;
+  border-radius: 10px;
+  padding: 20px 20px;
+  box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.08);
+  background-color: transparent;
+  border: 2px solid #BFA573;
+  color: #080808;
+}
+
+.textarea-desc {
+  width: 750px;
+  height: 120px;
+  padding: 20px 20px;
+  border-radius: 8px;
+  box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.08);
+  background-color: transparent;
+  border: 2px solid #BFA573;
+  color: #080808;
+}
+
+.inp-date {
+  border: 2px solid #BFA573;
+  height: 45px;
+  width: 500px;
+  border-radius: 8px;
+  box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.08);
+  background-color: #F0EADE;
+  color: #000000;
+}
+
+.select2-results__option--highlighted {
+  color: white !important;
+  background-color: #BFA573 !important;
+}
+
+.select2-container--default .select2-results__option[aria-selected=true] {
+  background-color: #BFA573;
+}
+
+.select2 {
+  width: 100% !important;
+}
+
+.select2-container--bootstrap .select2-selection--multiple .select2-selection__choice__remove {
+  border: none;
+  padding: 0px 3px;
+}
+
+.select2-container--default .select2-selection--single {
+  background-color: #F0EADE !important;
+  border: 2px solid #BFA573 !important;
+  border-radius: 4px !important;
+  height: 45px !important;
+  max-width: 500px !important;
+  -webkit-border-radius: 4px !important;
+  -moz-border-radius: 4px !important;
+  -ms-border-radius: 4px !important;
+  -o-border-radius: 4px !important;
+}
+
+.select2-container--default .select2-selection--single .select2-selection__rendered {
+  line-height: 40px !important;
+  color: #000000 !important;
+}
+
+.select2-container--open .select2-dropdown--above {
+  background-color: #bc8e37 !important;
+}
+
+.select2-container--default .select2-results__option .select2-results__option {
+  color: #FFFFFF;
+}
+
+.select2-container--default .select2-results__group {
+  color: #F0EADE;
+}
+
+.select2-container--default .select2-selection--single .select2-selection__arrow {
+  top: 21px !important;
+  right: 18px !important;
+  display: none !important;
+}
+
+/*----------------------------------------------------------
+1. General Contact Us End
+------------------------------------------------------------*/
+/*----------------------------------------------------------
+2. Contact Us Book Consyltant Start
+------------------------------------------------------------*/
+.contact {
+  overflow: hidden;
+}
+.contact .bg-contact-wrap {
+  background-color: #000000;
+}
+.contact .bg-contact-wrap .bg-contact {
+  margin-top: 4rem;
+  height: 100%;
+  overflow: hidden;
+}
+.contact .bg-contact-wrap .bg-contact .logo {
+  width: 90%;
+  color: #FFFFFF;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.contact .bg-contact-wrap .bg-contact .logo img {
+  width: 40%;
+}
+.contact .bg-contact-wrap .bg-contact .logo .text {
+  margin-top: 1rem;
+}
+.contact .bg-contact-wrap .bg-contact .logo .text p {
+  letter-spacing: 8px;
+  font-weight: 700;
+  color: #FFFFFF;
+  text-transform: uppercase;
+  text-align: center;
+  font-size: 20px;
+}
+.contact .bg-contact-wrap .bg-contact .bg-dollar {
+  margin-top: 3rem;
+  height: 100%;
+  overflow: hidden;
+  display: flex;
+}
+.contact .bg-contact-wrap .bg-contact .bg-dollar img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+.contact form .wrapper-field .bg-field {
+  background-color: #F0EADE;
+  padding: 2rem 3rem;
+  border-radius: 15px;
+}
+
+/*----------------------------------------------------------
+2. Contact Us Book Consyltant End
+------------------------------------------------------------*/
+/*----------------------------------------------------------
+    File Name  : _teamwork.scss
+    Desc       : File ini merupakan styling untuk Teamwork Homepage
+
+------------------------------------------------------------*/
+/**
+ * TABLE OF CONTENTS
+ *
+ * 1. General
+ * 2. Teamwork
+ * 3. Teamwork Detail
+ *
+ */
+/*----------------------------------------------------------
+1. General Start
+------------------------------------------------------------*/
+/*----------------------------------------------------------
+1. General End
+------------------------------------------------------------*/
+/*----------------------------------------------------------
+2. Teamwork Start
+------------------------------------------------------------*/
+#teamwork-preview {
+  margin-bottom: 3rem;
+}
+#teamwork-preview .persona {
+  padding: 3rem;
+}
+#teamwork-preview .persona .wrapper-persona {
+  display: flex;
+}
+#teamwork-preview .persona .wrapper-persona .img-persona {
+  width: 15rem;
+}
+#teamwork-preview .persona .wrapper-persona .img-persona img {
+  width: 15rem;
+}
+#teamwork-preview .persona .wrapper-persona .bio {
+  margin: 0rem 2rem;
+  padding: 1rem 0rem;
+}
+#teamwork-preview .persona .wrapper-persona .bio .name {
+  color: #BFA573;
+  text-transform: uppercase;
+}
+#teamwork-preview .persona .wrapper-persona .bio .position {
+  margin: 1rem 0;
+  text-transform: uppercase;
+}
+#teamwork-preview .persona .wrapper-persona .bio .readmore {
+  color: #BFA573;
+}
+#teamwork-preview .persona.one, #teamwork-preview .persona.three, #teamwork-preview .persona.five {
+  background-color: #FFFFFF;
+}
+#teamwork-preview .persona.two {
+  background-color: #D9D9D9;
+}
+#teamwork-preview .persona.four {
+  background-color: #D3CAC1;
+}
+#teamwork-preview .persona.six {
+  background-color: #E9E0CE;
+}
+
+/*----------------------------------------------------------
+2. Teamwork End
+------------------------------------------------------------*/
+/*----------------------------------------------------------
+3. Teamwork Detail Start
+------------------------------------------------------------*/
+/*----------------------------------------------------------
+3. Teamwork Detail End
 ------------------------------------------------------------*/
 /*----------------------------------------------------------
     File Name  : _navbar.scss
@@ -15409,6 +16780,22 @@ p {
   font-weight: 700;
 }
 
+.btn-navbar-referral {
+  display: block;
+  background-color: #FFFFFF;
+  color: #BFA573;
+  padding: 0.3rem 0.5rem !important;
+  border-radius: 5px;
+  font-size: 13px;
+  font-weight: 500;
+}
+.btn-navbar-referral:hover {
+  background-color: #FFFFFF;
+  color: #BFA573;
+  box-shadow: 0px 4px 4px 0px #E8D9BD;
+  font-weight: 700;
+}
+
 .btn-flip {
   background-color: #BFA573;
   padding: 0.5rem;
@@ -15419,6 +16806,7 @@ p {
 }
 
 .btn-zoom {
+  width: 100%;
   background-color: #BFA573;
   padding: 0.5rem;
   border-radius: 999999px;
@@ -15456,6 +16844,15 @@ p {
   color: #FFFFFF;
   box-shadow: 0px 4px 4px 0px #E8D9BD;
   font-weight: 700;
+}
+
+.btn-know-team {
+  background-color: #000000;
+  color: #BFA573;
+  padding: 0.8rem 3rem !important;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: 500;
 }
 
 /*----------------------------------------------------------

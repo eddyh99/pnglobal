@@ -7,7 +7,7 @@
         <div class="banner-text-video">
             <div class="bg-text-video blockchain">
                 <h2 class="f-lato" >
-                    Advanced Training on <br> Blockchain, Mining and Bitcoin
+                    Advanced Training on <br> Bitcoin, Mining and Blockchain
                 </h2>
             </div>
         </div>
@@ -19,19 +19,19 @@
 <section class="blockchain-short-desc">
     <div class="container">
         <div class="row row-cols-1">
-            <div class="col-6 mx-auto">
+            <div class="col-12 col-lg-7 mx-auto">
                 <h1 class="f-odor">
-                    Mastering Blockchain, Bitcoin <br>
-                    and Mining Technologies
+                    Mastering in Bitcoin <br>
+                    Mining and Blockchain Technologies
                 </h1>
                 <p class="mt-4 f-inter">  
-                    Explore the future of financial technology with our advanced courses on Blockchain, Bitcoin Mining, and Bitcoin. Designed for professionals and enthusiasts alike, these courses offer an in-depth understanding of the emerging technologies that are revolutionizing the global economy.
+                    One of theBitcoin Insider active since 2009 as well as one of the longest running miners and brokers currently operating, with over 15 years of activity in the OTC market, spot trading and BTC arbitrage, through his direct experience and advanced knowledge gained over the years, offers an in-depth understanding of the philosophy of Bitcoin and its trading, BTC mining and blockchain technologies, helping you explore the sector with confidence, awareness and profitability.
                 </p>
             </div>
         </div>
-        <img class="el-blockchain-1" src="<?= BASE_URL?>assets/img/el-1.png" alt="element 1">
-        <img class="el-blockchain-2" src="<?= BASE_URL?>assets/img/el-2.png" alt="element 2">
     </div>
+    <img class="el-blockchain-1" src="<?= BASE_URL?>assets/img/bg-bitcoin.png" alt="element 1">
+    <img class="el-blockchain-2" src="<?= BASE_URL?>assets/img/bg-bitcoin-2.png" alt="element 2">
 </section>
 <!-- End of Short Desc -->
 
@@ -43,26 +43,28 @@
             <div class="container">
                 <div class="row row-cols-1 row-cols-lg-2">
                     <div class="col wrapping-title">
-                        <h2 class="box-content-title f-odor">
-                            Blockchain Design <br>
-                            and Implementation
+                        <h3 class="box-content-title f-odor">
+                            Bitcoin: <br>
+                            From Basics to Expert
                             <hr>
-                        </h2>
+                        </h3>
                     </div>
                     <div class="col box-content">
                         <h4 class="box-content-subtitle f-odor">
-                            Build Your Understanding of Blockchain Technology
+                            Understand Bitcoin and Its Global Impact
                         </h4>
                         <p class="box-content-text f-inter">
-                            Our Blockchain courses will guide you through the fundamental principles and advanced techniques needed to design, implement, and manage Blockchain-based solutions. You will learn to create secure, scalable, and efficient blockchains using the latest technologies and frameworks. Whether you are looking to develop a new cryptocurrency or implement Blockchain solutions within an existing organization, our courses will equip you with the skills you need to excel.
+                            Bitcoin is not just a cryptocurrency; it is an economic revolution. Our Bitcoin training provides a comprehensive learning path that will take you from the basics of Bitcoin to an advanced understanding of its global implications and market potential. You will explore the history of Bitcoin, the underlying technology, its role in the global economy, and its use as a tool for investment and transactions.
+                            <br>
+                            Our experts will guide you step by step, providing you with the knowledge necessary to use Bitcoin safely and profitably.
                         </p>
                     </div>
                 </div>
             </div>
         </div>
         <div class="wrapper-img-absolute right">
-            <img class="img-blockchain-design "src="<?= BASE_URL ?>assets/img/img-29.webp" alt="Blockchain Design">
-            <img class="img-blockchain-design d-none" src="<?= BASE_URL ?>assets/img/img-29.webp" alt="and Implementation">
+            <img class="img-blockchain-design "src="<?= BASE_URL ?>assets/img/img-31.webp" alt="Blockchain Design">
+            <img class="img-blockchain-design d-none" src="<?= BASE_URL ?>assets/img/img-31.webp" alt="and Implementation">
         </div>
     </section>
 
@@ -70,22 +72,23 @@
     <!-- Service 2 -->
     <section class="wrapper-box-service">
         <div class="box-service gold-blockchain">
-            <div class="container">
-                <div class="row row-cols-1 row-cols-lg-2">
-                    <div class="col box-content">
+            <div class="container py-4">
+                <div class="row">
+                    <div class="col-12 col-lg-7 order-1 order-lg-0 box-content">
                         <h4 class="box-content-subtitle f-odor">
-                            Build Your Understanding of Blockchain Technology
+                            Become a Mining Expert with Our Specialized Training
                         </h4>
                         <p class="box-content-text f-inter">
-                            Our Blockchain courses will guide you through the fundamental principles and advanced techniques needed to design, implement, and manage Blockchain-based solutions. You will learn to create secure, scalable, and efficient blockchains using the latest technologies and frameworks. Whether you are looking to develop a new cryptocurrency or implement Blockchain solutions within an existing organization, our courses will equip you with the skills you need to excel.
+                            Bitcoin mining is the beating heart of the cryptocurrency ecosystem, and a deep understanding of its technical and operational processes is essential for anyone wishing to enter this field successfully. Our advanced training courses will guide you in selecting the most suitable solutions, from the necessary hardware to energy efficiency optimization strategies. You will learn how and where to set up a mining farm, maximizing profits while gaining a thorough understanding of the mining market dynamics.
+                            <br>
+                            With a strong focus on sustainability and innovation, these courses will prepare you to become a leader in the Bitcoin mining sector.
                         </p>
                     </div>
-                    <div class="col wrapping-title">
-                        <h2 class="box-content-title f-odor">
-                            Blockchain Design <br>
-                            and Implementation
+                    <div class="col-12 col-lg-5 order-0 order-lg-1 wrapping-title">
+                        <h3 class="box-content-title f-odor">
+                            Bitcoin Mining: Advanced <br> Techniques and Strategies
                             <hr>
-                        </h2>
+                        </h3>
                     </div>
                 </div>
             </div>
@@ -102,18 +105,16 @@
         <div class="container py-5">
             <div class="row row-cols-1 row-cols-lg-2">
                 <div class="col wrapper-img">
-                    <!-- <img class="img-fluid w-100" src="<?= BASE_URL ?>assets/img/img-31.webp" alt="Strategies for Corporate Tax Exemption"> -->
                 </div>
                 <div class="col wrapper-box-content">
                     <h3 class="box-content-title f-odor">
-                        Bitcoin: From Basics to Expert
+                        Blockchain Design and Implementation
                     </h3>
                     <h5 class="box-content-subtitle f-odor">
-                        Understand Bitcoin and Its Global Impact
+                        Build Your Understanding of Blockchain Technology
                     </h5>
                     <p class="box-content-text f-inter">
-                        Bitcoin is not just a cryptocurrency; it is an economic revolution. Our Bitcoin courses offer a learning path that takes you from the basics of Bitcoin to an advanced understanding of its global implications. You will explore the history of Bitcoin, the underlying technology, its role in the global economy, and how it can be used as a tool for investment and transactions. <br>
-                        Our experts will guide you step by step, providing you with the knowledge needed to use Bitcoin safely and strategically
+                        Our Blockchain training will guide you through the fundamental principles and advanced techniques required to design, implement, and manage Blockchain-based solutions. You will have the opportunity to learn how to create secure, scalable, and efficient blockchains using the latest technologies and frameworks. Whether you aim to develop a new cryptocurrency or integrate Blockchain solutions within an existing organization, our program will provide you with the skills necessary to excel.
                     </p>
                 </div>
             </div>
@@ -127,10 +128,10 @@
                 <div class="d-none d-lg-block col-1"></div>
                 <div class="col-12 col-lg-5 wrapper-why">
                     <div class="box-why">
-                        <h3 class="f-odor">Why Choose Our Courses</h3>
+                        <h3 class="f-odor">Why Choose Our Instructors</h3>
                         <h5 class="f-odor">Technical Training, Practical Approach</h5>
                         <p>
-                            Our courses are designed by industry experts with years of practical experience in Blockchain, Bitcoin Mining, and cryptocurrencies. We offer comprehensive training that combines advanced theory with practical exercises, allowing you to gain skills that are immediately applicable in the real world. Whether you are a beginner or an experienced professional, our courses will provide you with the tools needed to succeed in a rapidly evolving market.
+                            Our technical training, with a practical approach, stands out from other online offerings due to the presence of highly qualified instructors with proven, hands-on experience in the Bitcoin world. They will not only share their knowledge but will engage in discussions and debates with you on various topics, offering you a unique perspective. You will receive personalized instruction, tailored to allow you to pursue your activities in a manner that best suits your personality and needs.
                         </p>
                     </div>
                 </div>

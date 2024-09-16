@@ -15,6 +15,7 @@
  * 6. Training 
  * 7. Blockchain
  * 8. Satoshi
+ * 9. Connection
  *
  */
 
@@ -52,9 +53,23 @@
             .button-download {
                 @include mix.flex-tengah;
                 flex-direction: column;
+        
 
                 .top {
                     margin-top: 0.5rem;
+                    clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+
+                    .btn-download {
+                         @include mix.animation-reveal;
+                    }
+                }
+
+                .bottom {
+                    clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+
+                    .btn-download {
+                         @include mix.animation-reveal;
+                    }
                 }
                 .btn-download {
                     padding: 0.5rem;
@@ -117,6 +132,13 @@
                         font-weight: 700;
                     }
                 }
+
+                &.connection {
+                    background: #D7D7D7;
+                    color: var.$text-black-100-pnglobal;
+                    padding: 1.5rem 3rem !important;
+                }
+
             }   
         }
     }
@@ -291,7 +313,7 @@
                     padding: 1rem 0rem 0rem 0rem;
                     
                     @include mix.xl2 {
-                        padding: 2rem 3rem 0rem 3rem;
+                        padding: 2rem 3rem 2rem 3rem;
                     }
                 }
             }
@@ -670,7 +692,7 @@
         }
 
         &.gold-training {
-            background-color: var.$bg-primary-pnglobal;
+            background-color: #BFA573F0;
             margin-top: 2rem;
             border-radius: 0px;
             padding: 2rem;
@@ -702,11 +724,11 @@
 
                 .box-content-text {
                     line-height: 25px;
-                    padding: 1rem 0rem 0rem 0rem;
+                    padding: 0.3rem 0rem 0rem 0rem;
                     color: var.$text-white-pnglobal;
 
                     @include mix.xl2 {
-                        padding: 2rem 3rem 0rem 3rem;
+                        padding: 0.5rem 3rem 0rem 3rem;
                     }
 
                     span {
@@ -720,20 +742,28 @@
         &.black-blockchain {
             background-color: var.$bg-black-pnglobal;
             border-radius: 0px;
+            padding: 2rem;
 
             .wrapping-title {
-                @include mix.flex-tengah-vertical;
+                display: flex;
+                flex-direction: column;
                 justify-content: start;
-                margin-top: 5rem;                
+                align-items: start;
+                margin-top: 0rem;     
+                
+                @include mix.lg {
+                    align-items: center;
+                }
+                
 
                 .box-content-title {
-                    color: var.$text-white-pnglobal;
-                    text-transform: uppercase;
+                    color: var.$text-primary-pnglobal;
                     text-align: start;
+                    line-height: 40px;
 
                     hr {
                         margin-top: 1rem;
-                        width: 140% !important;
+                        width: 100% !important;
                         height: 3px;
                         color: var.$text-primary-pnglobal;
                         background-color: var.$text-primary-pnglobal;
@@ -761,7 +791,7 @@
 
 
                     @include mix.xl2 {
-                        padding: 2rem 3rem 0rem 3rem;
+                        padding: 1rem 3rem 0rem 3rem;
                     }
 
                     span {
@@ -788,9 +818,15 @@
             }
 
             .wrapping-title {
-                @include mix.flex-tengah-vertical;
+                display: flex;
+                flex-direction: column;
                 justify-content: start;
-                margin-top: 5rem;                
+                align-items: start;
+                margin-top: 0rem;   
+                
+                @include mix.lg {
+                    align-items: end;
+                }
 
                 .box-content-title {
                     color: var.$text-black-pnglobal;
@@ -969,8 +1005,14 @@
                 position: absolute;
                 top: -2rem;
                 left: 0;
+
                 @include mix.lg {
-                    top: -6rem;
+                    top: -8rem;
+                    left: -5rem;
+                }
+
+                @include mix.xl2 {
+                    left: 0rem;
                 }
             }
 
@@ -989,8 +1031,14 @@
                 position: absolute;
                 top: -2rem;
                 right: 0;
+
                 @include mix.lg {
-                    top: -6rem;
+                    top: -12rem;
+                    right: -9rem;
+                }
+
+                @include mix.xl2 {
+                    right: 0rem;
                 }
             }
 
@@ -1001,6 +1049,14 @@
                 opacity: 0;
             }
         }
+    }
+}
+
+.img-small-binance {
+    &:hover {
+        // box-shadow: 0px 4px 20px 0px #F5BF25;
+        // -webkit-filter: drop-shadow(0px 4px 20px 0px   #F5BF25);
+        filter: drop-shadow( 0px 4px 20px#F5BF25);
     }
 }
 /*----------------------------------------------------------
@@ -1157,7 +1213,7 @@
             
             @include mix.md {
                 text-align: start;
-                padding: 1rem 3rem 0rem 3rem;
+                padding: 0.5rem 3rem 0rem 3rem;
             }
         }
 
@@ -1168,7 +1224,7 @@
             
             @include mix.md {
                 text-align: start;
-                padding: 3rem 3rem 0rem 3rem;
+                padding: 1.5rem 3rem 0rem 3rem;
 
             }
         }
@@ -1226,7 +1282,7 @@
             
             @include mix.md {
                 text-align: start;
-                padding: 1rem 3rem 0rem 3rem;
+                padding: 0.5rem 3rem 0rem 3rem;
             }
         }
 
@@ -1238,7 +1294,7 @@
             
             @include mix.md {
                 text-align: start;
-                padding: 2rem 3rem 0rem 3rem;
+                padding: 1.5rem 3rem 0rem 3rem;
 
             }
         }
@@ -1380,7 +1436,7 @@
 
     p {
         color: var.$text-white-pnglobal;
-        margin-top: 4rem;
+        margin-top: 2rem;
         line-height: 35px;
         padding-bottom: 3rem;
         clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
@@ -1391,7 +1447,7 @@
     }
 
     #g-advancetrainingimg {
-        // @include mix.flex-bawah;
+
         clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
         .line-animation {
             display: inline-block;
@@ -1470,8 +1526,34 @@
 ------------------------------------------------------------*/ 
 .blockchain-short-desc {
     // overflow-x: hidden;
-    padding-top: 3rem;
+    padding-top: 1rem;
     position: relative;
+    overflow: hidden;
+
+    .el-blockchain-1 {
+        display: none;
+        position: absolute;
+        left: 0;
+        bottom: -2%;
+        z-index: 2;
+        height: 105%;
+
+        @include mix.lg {
+            display: block;
+        }
+    }
+    
+    .el-blockchain-2 {
+        display: none;
+        position: absolute;
+        // bottom: 0;
+        right: 0;
+        bottom: -2%;
+        height: 105%;
+        @include mix.lg {
+            display: block;
+        }
+    }
     
     .container {
         position: relative;
@@ -1486,17 +1568,7 @@
             padding-bottom: 3rem;
         }
     
-        .el-blockchain-1 {
-            position: absolute;
-            bottom: -5rem;
-            z-index: 2;
-        }
-        
-        .el-blockchain-2 {
-            position: absolute;
-            bottom: 0;
-            right: 0;
-        }
+      
     }
 }
 
@@ -1509,11 +1581,11 @@
     }
 
     @include mix.xl {
-        margin-top: 18rem;
+        margin-top: 10rem;
     }
 
     .wrapper-img {
-        background-image: url('../../img/img-31.webp');
+        background-image: url('../../img/img-29.webp');
         background-position: center top;
         background-repeat: no-repeat;
         background-size: cover;
@@ -1531,7 +1603,7 @@
     .wrapper-box-content {
         .box-content-title {
             text-transform: uppercase;
-            color: var.$text-primary-pnglobal;
+            color: var.$text-white-pnglobal;
             padding: 2rem 0rem 0rem 0rem;
             text-align: center;
             
@@ -1553,7 +1625,7 @@
             
             @include mix.md {
                 text-align: start;
-                padding: 3rem 3rem 0rem 3rem;
+                padding: 1rem 3rem 0rem 3rem;
             }
         }
 
@@ -1565,7 +1637,7 @@
             
             @include mix.md {
                 text-align: start;
-                padding: 1rem 3rem 0rem 3rem;
+                padding: 3rem 3rem 0rem 3rem;
 
             }
         }
@@ -1602,8 +1674,12 @@
             background-position: center top;
             background-repeat: no-repeat;
             background-size: cover;
-            height: 600px;
             border-radius: 10px;
+            height: 600px;
+            
+            @include mix.lg {
+                height: 100%;
+            }
         }
     }
 }
@@ -1615,6 +1691,17 @@
 /*----------------------------------------------------------
 8. Satoshi Start
 ------------------------------------------------------------*/ 
+.satoshi-banner {
+    #g-text-downloadapp {
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+        
+        .line-animation {
+            @include mix.animation-reveal;
+        }
+    }
+}
+
+
 .satoshi-short-desc {
     background-color: var.$bg-box-200-pnglobal;
     padding-top: 3rem;
@@ -1673,132 +1760,1126 @@
 }
 
 .satoshi-buy-sell {
-    // height: 0rem;
     
     &.buy {
         background-color: var.$bg-black-pnglobal;
         padding: 4rem 0rem;
-        
-        .satoshi-title-box {
-            padding-right: 1rem;
+        margin-top: 2rem;
+
+        .title {
+            padding: 1rem;
             
-            .title {
-                width: auto;
-                background-color: var.$bg-primary-400-pnglobal; 
+            @include mix.md {
+                padding: 2rem;
+            }
+
+
+            .wrapping-box {
+                width: 16rem;
+                
+                @include mix.md{
+                    width: 7rem;
+                }
+
+                .box-buy {
+                    width: auto;
+                    border-radius: 8px;
+                    background: linear-gradient(180deg, #B48B3D 0%, #BFA573 100%);
+                    padding: 1rem;
+                    @include mix.flex-tengah-vertical;
+                    @include mix.md {
+                        border-radius: 25px;
+                    }
+
+                    
+                    h4 {
+                        text-align: center;
+                        color: var.$text-black-pnglobal;
+                        font-weight: 700;
+                    }
+    
+                    img {
+                        width: 50px;
+                        margin-top: 0rem;
+                        
+                        @include mix.md {
+                            margin-top: 1rem;
+                        }
+                    }
+                }
+
+                .button-buy {
+                    width: auto;
+                    color: var.$text-black-pnglobal;
+                    background-color: var.$bg-primary-600-pnglobal;
+                    padding: 0.5rem;
+                    text-align: center;
+                    margin-top: 0.3rem;
+                    border-radius: 9999px;
+                    display: none;
+
+                    @include mix.md {
+                        display: block;
+                    }
+
+                }
+            }
+        }
+
+        .instruction {
+            .card-container {
                 display: flex;
                 flex-direction: column;
-                justify-content: center;
-                align-items: center;
+                gap: 20px;
+
+                ul {
+                    list-style: none;
+                    font-size: 50px;
+                    color: transparent;
+
+                    li {
+                        position: relative;
+                        margin-top: 1.5rem;
+
+                        &::before {
+                            content: ''; 
+                            position: absolute; 
+                            left: -3rem; 
+                            font-size: 1.2em;
+                            top: 50%; 
+                            transform: translateY(-50%); 
+                            background: linear-gradient(180deg, #B48B3D 0%, #BFA573 100%); 
+                            -webkit-background-clip: text; 
+                            background-clip: text;
+                            color: transparent;
+                            
+                            @include mix.md {
+                                content: '\2022'; 
+                            }
+                        }
+
+                        .card {
+                            width: 250px;
+                            background-color: #fff;
+                            border-radius: 15px;
+                            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+                            border: none;
+                            position: relative;
+
+                            @include mix.md {
+                                width: 170px;
+                            }
+
+                            @include mix.lg {
+                                width: 240px;
+                            }
+                            
+                            @include mix.xl2 {
+                                width: 300px;
+                            }
+
+
+                            
+                            .card-header {
+                                background: linear-gradient(90deg, #B48B3D 0%, var.$text-primary-pnglobal 100%); 
+                                color: var.$text-black-pnglobal;
+                                padding: 6px;
+                                border-radius: 15px 15px 0px 0px;
+                                text-align: center;
+                                
+                                h4 {
+                                    font-size: 19px !important;
+                                    font-weight: 800;
+                                }
+
+                            }
+                            
+                            .card-body {
+                                padding: 20px;
+                                text-align: center;
+                                font-size:  14px !important;
+                                color: var.$text-black-pnglobal;
+                                font-weight: 600;
+
+
+                            }
+
+                            .blink-white {
+                                position: absolute;
+                                top: -1rem;
+                                right: -1rem;
+                            }
+
+                            .blink-gold {
+                                position: absolute;
+                                bottom: -1rem;
+                                left: -1rem;
+                            }
+                        }
+                    }
+                }
+
+            }
+            
+        }
+
+        .desc {
+            padding: 2rem;
+            
+            @include mix.md {
+                padding: 0.5rem;
+            }
+
+            @include mix.lg {
+                padding: 0rem;
+            }
+            
+            @include mix.xl2 {
                 padding: 2rem;
-                border-radius: 3rem;
+            }
+            
+            .wrapper-desc {
+                width: 100%;
+                height: 220px;
+                background: url('../../img/bg-satoshi-box-2.png');
+                background-position: center;
+                background-repeat: no-repeat;
+                background-size: contain;
 
-                h4 {
-                  text-align: center;  
-
+                @include mix.md {
+                    height: 100%;
                 }
 
-                img {
-                    width: auto;
-                    height: 4rem;
-                    padding-top: 0.5rem;
-                }
-            }
-
-            .subtitle {
-                margin-top: 1rem;
-                padding: 0.5rem 1rem;
-                background-color: var.$text-secondary-100-pnglobal;
-                border-radius: 999999px;
-                @include mix.flex-tengah;
-            }
-        }
-
-        .line-connected {
-            padding: 1rem;
-        }
-        
-        .satoshi-sub-box {
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            align-items: start;
-
-            .subtitle {
-                display: flex;
-                align-items: center;
-                
-                .box-subtitle {
-                    color: var.$text-black-pnglobal;
-                    background-color: var.$bg-primary-400-pnglobal;
-                    padding: 0.7rem 3.5rem;
-                    border-radius: 9999999px;
-                    width: 11rem;
+                p {
+                    width: 315px;
+                    color: var.$text-white-pnglobal;
+                    padding: 0rem 1.5rem;
                     text-align: center;
-                }
-
-                .wrapping-box-desc {
-                    padding-left: 1rem;
-                    position: relative;
-
-                    .box-desc {
-                        width: 18rem;
-                        color: var.$text-black-pnglobal;
-                        background-color: var.$bg-white-pnglobal;
-                        border-radius: 99999999px;
-                        border: 3px solid var.$bg-primary-100-pnglobal;
-                        text-align: center;
-                        padding: 0.3rem 3rem;
+                    font-size: 12px;
+                    
+                    @include mix.xs {
                         font-size: 14px;
                     }
 
-                    .star {
-                        position: absolute;
-                        // right: -1.5rem;
-                        // top: 5px;
-                        top: 50%;
-                        right: -2.8rem;
-                        transform: translate(-50%, -50%);
+                    @include mix.md {
+                        font-size: 13px;
                     }
+                    
+                    @include mix.lg {
+                        font-size: 16px;
+                    }
+                }
+
+            }
+        }
+    }
+
+    &.sell {
+        background-color: var.$bg-primary-700-pnglobal;
+        padding: 4rem 0rem;
+
+        .title {
+            padding: 1rem;
+            
+            @include mix.md {
+                padding: 2rem;
+            }
+
+
+            .wrapping-box {
+                width: 16rem;
+                
+                @include mix.md{
+                    width: 10rem;
+                }
+
+                .box-sell {
+                    width: auto;
+                    border-radius: 8px;
+                    background: #000000;
+                    padding: 1rem;
+                    @include mix.flex-tengah-vertical;
+                    @include mix.md {
+                        border-radius: 25px;
+                    }
+
+                    
+                    h4 {
+                        text-align: center;
+                        color: var.$text-primary-pnglobal;
+                        font-weight: 700;
+                    }
+    
+                    img {
+                        width: 50px;
+                        margin-top: 0rem;
+                        
+                        @include mix.md {
+                            margin-top: 1rem;
+                        }
+                    }
+                }
+
+                .button-sell {
+                    width: auto;
+                    color: var.$text-black-pnglobal;
+                    background: linear-gradient(180deg, #B48B3D 0%, #BFA573 100%);
+                    padding: 0.5rem;
+                    text-align: center;
+                    margin-top: 0.3rem;
+                    border-radius: 9999px;
+                    display: none;
+
+                    @include mix.md {
+                        display: block;
+                    }
+
                 }
             }
         }
 
-        .satoshi-main-content {
-            background: url('../../img/bg-satoshi-box.png');
-            background-position: center top;
-            background-repeat: no-repeat;
-            background-size: contain;
-            position: relative;
-            height: 100%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
+        .instruction {
+            .card-container {
+                display: flex;
+                flex-direction: column;
+                gap: 20px;
 
-            .satoshi-main-text {
-                color: white;
-                position: relative;
-                padding: 0rem 8rem;
-                text-align: center;
-                line-height: 30px;
-                // top: 50%;
-                // left: 50%;
-                // transform: translate(-50%, -50%);
+                ul {
+                    list-style: none;
+                    font-size: 50px;
+                    color: transparent;
+
+                    li {
+                        position: relative;
+                        margin-top: 1.5rem;
+
+                        &::before {
+                            content: ''; 
+                            position: absolute; 
+                            left: -3rem; 
+                            font-size: 1.2em;
+                            top: 50%; 
+                            transform: translateY(-50%); 
+                            background: linear-gradient(180deg, #000000 0%, #000000 100%); 
+                            -webkit-background-clip: text; 
+                            background-clip: text;
+                            color: transparent;
+                            
+                            @include mix.md {
+                                content: '\2022'; 
+                            }
+                        }
+
+                        .card {
+                            width: 250px;
+                            background-color: #fff;
+                            border-radius: 15px;
+                            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+                            border: none;
+                            position: relative;
+
+                            @include mix.md {
+                                width: 170px;
+                            }
+
+                            @include mix.lg {
+                                width: 240px;
+                            }
+                            
+                            @include mix.xl2 {
+                                width: 300px;
+                            }
+
+
+                            
+                            .card-header {
+                                background: #000000; 
+                                color: var.$text-primary-pnglobal;
+                                padding: 6px;
+                                border-radius: 15px 15px 0px 0px;
+                                text-align: center;
+                                
+                                h4 {
+                                    font-size: 19px !important;
+                                    font-weight: 800;
+
+                                    span {
+                                        color: var.$text-white-pnglobal;
+                                    }
+                                }
+
+                            }
+                            
+                            .card-body {
+                                padding: 20px;
+                                text-align: center;
+                                font-size:  14px !important;
+                                color: var.$text-black-pnglobal;
+                                font-weight: 600;
+
+
+                            }
+
+                            .blink-white {
+                                position: absolute;
+                                top: -1rem;
+                                right: -1rem;
+                            }
+
+                            .blink-gold {
+                                position: absolute;
+                                bottom: -1rem;
+                                left: -1rem;
+                            }
+                        }
+                    }
+                }
+
+            }
+            
+        }
+
+        .desc {
+            padding: 2rem;
+            
+            @include mix.md {
+                padding: 0.5rem;
+            }
+
+            @include mix.lg {
+                padding: 0rem;
+            }
+            
+            @include mix.xl2 {
+                padding: 2rem;
+            }
+            
+            .wrapper-desc {
+                width: 100%;
+                height: 220px;
+                background: url('../../img/bg-satoshi-box.png');
+                background-position: center;
+                background-repeat: no-repeat;
+                background-size: contain;
+
+                @include mix.md {
+                    height: 100%;
+                }
+
+                p {
+                    width: 315px;
+                    color: var.$text-black-pnglobal;
+                    padding: 0rem 1.5rem;
+                    text-align: center;
+                    font-size: 12px;
+                    
+                    @include mix.xs {
+                        font-size: 14px;
+                    }
+
+                    @include mix.md {
+                        font-size: 13px;
+                    }
+                    
+                    @include mix.lg {
+                        font-size: 16px;
+                    }
+                }
+
+            }
+        }
+    }
+
+    &.multiple {
+        background-color: var.$bg-silver-pnglobal;
+        padding: 4rem 0rem;
+        margin-top: 2rem;
+
+        .title {
+            padding: 1rem;
+            
+            @include mix.md {
+                padding: 2rem;
+            }
+
+
+            .wrapping-box {
+                width: 16rem;
+                
+                @include mix.md{
+                    width: 10rem;
+                }
+
+                .box-multiple {
+                    width: auto;
+                    border-radius: 8px;
+                    background: linear-gradient(180deg, #383734 0%, #383734 100%);
+                    padding: 1rem;
+
+                    @include mix.flex-tengah-vertical;
+                    @include mix.md {
+                        border-radius: 25px;
+                    }
+
+                    
+                    h4 {
+                        text-align: center;
+                        color: var.$text-white-pnglobal;
+                        font-weight: 700;
+                        
+                        span {
+                            color: var.$text-primary-pnglobal;
+                        }
+                    }
+    
+                    img {
+                        width: 50px;
+                        margin-top: 0rem;
+                        
+                        @include mix.md {
+                            margin-top: 1rem;
+                        }
+                    }
+                }
+
+                .button-buy {
+                    width: auto;
+                    color: var.$text-black-pnglobal;
+                    background-color: var.$bg-primary-pnglobal;
+                    padding: 0.5rem;
+                    text-align: center;
+                    margin-top: 0.3rem;
+                    border-radius: 9999px;
+                    display: none;
+
+                    @include mix.md {
+                        display: block;
+                    }
+
+                }
             }
         }
 
+        .instruction {
+            .card-container {
+                display: flex;
+                flex-direction: column;
+                gap: 20px;
+
+                ul {
+                    list-style: none;
+                    font-size: 50px;
+                    color: transparent;
+
+                    li {
+                        position: relative;
+                        margin-top: 1.5rem;
+
+                        &::before {
+                            content: ''; 
+                            position: absolute; 
+                            left: -3rem; 
+                            font-size: 1.2em;
+                            top: 50%; 
+                            transform: translateY(-50%); 
+                            background: linear-gradient(180deg, #000000 0%, #000000 100%); 
+                            -webkit-background-clip: text; 
+                            background-clip: text;
+                            color: transparent;
+                            
+                            @include mix.md {
+                                content: '\2022'; 
+                            }
+                        }
+
+                        .card {
+                            width: 250px;
+                            background-color: #fff;
+                            border-radius: 15px;
+                            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+                            border: none;
+                            position: relative;
+
+                            @include mix.md {
+                                width: 170px;
+                            }
+
+                            @include mix.lg {
+                                width: 240px;
+                            }
+                            
+                            @include mix.xl2 {
+                                width: 300px;
+                            }
+
+
+                            
+                            .card-header {
+                                background: linear-gradient(90deg, #383734 0%, #9A9A9A 100%); 
+                                color: var.$text-primary-pnglobal;
+                                padding: 6px;
+                                border-radius: 15px 15px 0px 0px;
+                                text-align: center;
+                                
+                                h4 {
+                                    font-size: 19px !important;
+                                    font-weight: 800;
+                                }
+
+                            }
+                            
+                            .card-body {
+                                padding: 20px;
+                                text-align: center;
+                                font-size:  14px !important;
+                                color: var.$text-black-pnglobal;
+                                font-weight: 600;
+
+
+                            }
+
+                            .blink-white {
+                                position: absolute;
+                                top: -1rem;
+                                right: -1rem;
+                            }
+
+                            .blink-gold {
+                                position: absolute;
+                                bottom: -1rem;
+                                left: -1rem;
+                            }
+                        }
+                    }
+                }
+
+            }
             
-        // .line-sub-connected {
-        //     height: 100%;
-        //     display: flex;
-        //     flex-direction: column;
-        //     justify-content: space-between;
-        //     align-items: start;
+        }
+
+        .desc {
+            padding: 2rem;
+            
+            @include mix.md {
+                padding: 0.5rem;
+            }
+
+            @include mix.lg {
+                padding: 0rem;
+            }
+            
+            @include mix.xl2 {
+                padding: 2rem;
+            }
+            
+            .wrapper-desc {
+                width: 100%;
+                height: 220px;
+                background: url('../../img/bg-satoshi-box.png');
+                background-position: center;
+                background-repeat: no-repeat;
+                background-size: contain;
+
+                @include mix.md {
+                    height: 100%;
+                }
+
+                p {
+                    width: 315px;
+                    color: var.$text-black-pnglobal;
+                    padding: 0rem 1.5rem;
+                    text-align: center;
+                    font-size: 12px;
+                    
+                    @include mix.xs {
+                        font-size: 14px;
+                    }
+
+                    @include mix.md {
+                        font-size: 13px;
+                    }
+                    
+                    @include mix.lg {
+                        font-size: 16px;
+                    }
+                }
+
+            }
+        }
+    }
+}
+
+.buy-noted {
+    padding: 2rem;
+    p {
+        font-weight: 700;
+    }
+}
+
+
+
+.mediation-satoshi {
+    margin-top: 2rem;
+    position: relative;
+
+    .wrapper-mediaton {
+        .mediation {
+            h2 {
+                color: var.$bg-primary-400-pnglobal;
+                text-align: center;
+            }
+
+            p {
+                text-align: center;
+                margin: 1rem 0rem;
+            }
+
+            h5 {
+                text-align: center;
+                margin: 1rem 0rem;
+                font-weight: 700;
+            }
+        }
+    }
+
+    .el-left {
+        position: absolute;
+        left: 0;
+        top: -4rem;
+    }
+
+    .el-right {
+        position: absolute;
+        right: 0;
+        top: -10rem;
+    }
+}
+
+.satoshi-profit {
+    .wrapper-big-title {
+        width: 100%;
+        background-color: #000000;
+        margin: 1rem 0rem;
+        h3 {
+            text-align: center;
+            color: var.$text-white-pnglobal;
+            padding: 1.5rem;
+        }
+        h2 {
+            text-align: center;
+            color: var.$text-white-pnglobal;
+            padding: 1.5rem;
+        }
+    }
+
+    .timeline {
+        // position: relative;
+        background-color: var.$bg-primary-500-pnglobal;
+        margin: 0;
+
+        .row {
+            padding: 0;
+            margin: 0;
+
+            .bg-timeline {
+                background-image: url('../../img/img-34.webp');
+                background-position: center center;
+                background-repeat: no-repeat;
+                background-size: cover;
+                height: auto;
+            }
+
+
+            .wrap-text-timeline {
+                // margin: 4rem 0;  
+                padding: 2rem;
+                
+                @include mix.lg {
+                    padding: 2rem 0rem 0rem 4rem;  
+                }
+
+                h3 {
+                    text-align: center;
+                    
+                    @include mix.lg {
+                        text-align: start;
+                    }
+                }
+                
+                .text-timeline {
+                    line-height: 35px;
+                    padding-bottom: 3rem;
+                    text-align: center;
+                    
+                    @include mix.lg {
+                        text-align: start;
+                    }
+                }
+            }
+        }
+    }
+
+    .commision {
+        position: relative;
+        background-color: var.$bg-black-pnglobal;
+        margin: 0;
+
+        .row {
+            padding: 0;
+            margin: 0;
+
+            .bg-commision {
+                background-image: url('../../img/img-35.webp');
+                background-position: center center;
+                background-repeat: no-repeat;
+                background-size: cover;
+                height: auto;
+            }
+
+
+            .wrap-text-commision {
+                // margin: 4rem 0;  
+                padding: 2rem;
+         
+                
+                @include mix.lg {
+                    padding: 4rem 7rem 0rem 7rem;  
+                }
+
+                h3 {
+                    text-align: center;
+                    color: #FFFFFF;
+                    
+                    @include mix.lg {
+                        text-align: start;
+                    }
+                }
+                
+                .text-commision {
+                    color: #FFFFFF;
+                    line-height: 35px;
+                    padding-bottom: 3rem;
+                    text-align: center;
+                    
+                    @include mix.lg {
+                        text-align: start;
+                    }
+                }
+            }
+        }
+    }
+
+    .commision-note {
+        background-color: var.$bg-primary-600-pnglobal;
+        padding: 1rem;
+    }
+
+    .wrapping-satoshi-key {
+        background-color: var.$bg-black-pnglobal;
+
+        .bg-satoshi-key {
+            background-image: url('../../img/img-36.webp');
+            background-position: center center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            height: 300px;
+            
+            @include mix.md {
+                height: auto;
+            }
+        }
+
+        .text-satoshi-key {
+            padding: 3rem;
+            h3 {
+                color: var.$text-primary-pnglobal;
+                margin-bottom: 2rem;
+            }
+
+            ul {
+                li {
+                    color: var.$text-white-pnglobal;
+                    list-style: circle;
+                    margin-bottom: 2rem;
+                }
+            }
+
+        }
+    }
+
+    .bg-why-satoshi {
+        background-image: url('../../img/bg-why-satoshi.webp');
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        overflow: hidden;
+        width: 100%;
+        height: auto;
+        padding: 4rem 0rem;
+
+        .whitie {
+            border-radius: 20px;
+            background: rgba(255, 255, 255, 0.90);
+            padding: 2rem;
+            margin-top: 5rem;
+            position: relative;
+
+            .title {
+                text-align: center;
+                color: var.$text-primary-pnglobal;
+                font-weight: bold;
+            }
+
+            .text {
+                color: var.$text-black-pnglobal;
+                font-weight: 600;
+            }
+        }
+
+        .bg-expert {
+            width: 250px;
+            margin-right: 4rem;
+            
+            @include mix.md {
+                width: 550px;
+            }
+
+            @include mix.lg {
+                width: 360px;
+            }
+            .bitcoin {
+                width: 80px;
+                display: inline-block;
+                position: absolute;
+                bottom: -2rem;
+                right: -2rem;
+
+            }
+        }
+
+        .uptodate {
+            width: 320px;
+
+            @include mix.md {
+                width: 550px;
+            }
+
+            @include mix.lg {
+                width: 320px;
+            }
+            .bitcoin {
+                width: 70px;
+                display: inline-block;
+                position: absolute;
+                top: -2rem;
+                right: -2rem;
+
+            }
+        }
+
+        
+        .strategy {
+            width: 650px;
+
+            .bitcoin {
+                width: 70px;
+                display: inline-block;
+                position: absolute;
+                bottom: -2rem;
+                right: 10rem;
+
+            }
+        }
+        
+        // .bg-expert {
+
         // }
+    }
+}
+
+.satoshi-useapp {
+    background-color: #F0EADE;
+    padding-top: 2rem;
+
+    .left-side {
+        padding-bottom: 2rem;
+        p {
+            margin-top: 3rem;
+            text-align: justify;
+        }
+
+        .button-download {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+            clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+
+            .btn-download {
+                 @include mix.animation-reveal;
+            }
+        }
+    }
+
+    
+    #g-mobilesatoshi {
+        
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+        .line-animation {
+            display: inline-block;
+            transform: translateY(300px);
+            -webkit-transform: translateY(300px);
+            -moz-transform: translateY(300px);
+            -ms-transform: translateY(300px);
+            -o-transform: translateY(300px);
+            transition: transform .5s;
+            -webkit-transition: transform .5s;
+            -moz-transition: transform .5s;
+            -ms-transition: transform .5s;
+            -o-transition: transform .5s;
+        }
+    }
+}
+
+.banner-satoshi {
+    position: relative;
+    overflow: hidden;
+
+    .wrapper-satoshi {
+        display: flex;
+        justify-content: center;
+        // min-height: 100vh;
+        position: relative;
+        height: 100%;
+
+        video {
+            // @include mix.video-banner-center;
+            width: 100%;
+            object-fit: contain;
+        }
 
     }
 }
 
+
 /*----------------------------------------------------------
 8. Satoshi End
+------------------------------------------------------------*/ 
+
+/*----------------------------------------------------------
+9. Connection Start
+------------------------------------------------------------*/ 
+.united-connections {
+
+    .left-side {
+        padding: 2rem 0rem;
+        
+        @include mix.lg {
+            padding: 0rem 3rem;
+        }
+
+        p {
+
+            text-align: justify;
+        }
+    }
+
+    .bg-united-connections {
+        background-image: url('../../img/img-37.webp');
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        height: 200px;
+
+        @include mix.xss {
+            height: 400px;
+        }
+
+        @include mix.lg {
+            height: auto;
+        }
+    }
+}
+
+#partner-connections {  
+
+    .cayman-wrapper {
+        margin-top: 2rem;
+        padding: 2rem 0rem;
+        background-color: #AFBEA8C9;
+        .cayman-logo {
+            @include mix.flex-tengah;
+            img {
+                width: 24rem;
+            }
+        }
+
+        .cayman-text {
+            .title {
+                text-transform: uppercase;
+                color: #01471F;
+                font-weight: 700;
+            }
+
+            .desc {
+                text-align: justify;
+                padding-right: 6rem;
+                color: #383734D1;
+            }
+        }
+    }
+
+    .mif-wrapper {
+        padding: 2rem 0rem;
+        background-color: #FFFFFF;
+        .mif-logo {
+            @include mix.flex-tengah;
+            img {
+                width: 24rem;
+            }
+        }
+
+        .mif-text {
+            .title {
+                text-transform: uppercase;
+                color: var.$text-primary-pnglobal;
+                font-weight: 700;
+                padding-left: 6rem;
+            }
+
+            .desc {
+                text-align: justify;
+                padding-left: 6rem;
+                color: #383734D1;
+            }
+        }
+    }
+
+    .gp-wrapper {
+        padding: 2rem 0rem;
+        background-color: #E8DDDC87;
+        .gp-logo {
+            @include mix.flex-tengah;
+            img {
+                width: 24rem;
+            }
+        }
+
+        .gp-text {
+            .title {
+                text-transform: uppercase;
+                color: var.$text-primary-pnglobal;
+                font-weight: 700;
+            }
+
+            .desc {
+                text-align: justify;
+                padding-right: 6rem;
+                color: #383734D1;
+            }
+        }
+    }
+}
+/*----------------------------------------------------------
+9. Connection End
 ------------------------------------------------------------*/ 

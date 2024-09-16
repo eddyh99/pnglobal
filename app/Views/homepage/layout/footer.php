@@ -12,7 +12,7 @@
                         <p class="f-inter">
                             <span translate='no'> PN Global </span> invites you to join our training programs to become experienced and competent entrepreneurs. Contact us today to find out how we can help you build a successful future in the global landscape.
                         </p>
-                        <a href="<?= BASE_URL ?>homepage/contactus" class="btn-footer-contactform">Contact Form</a>
+                        <a href="<?= BASE_URL ?>homepage/bookingconsultation" class="btn-footer-contactform">Contact Form</a>
                     </div>
                     <div class="d-none d-lg-flex col-6 video-trainingform">
                         <video autoplay="" preload="" muted="" loop="" playsinline="">
@@ -29,19 +29,17 @@
          <section class="bg-trainingform blockchain">
             <div class="wrapper-trainingform">
                 <div class="row">
-                    <div class="col-12 col-lg-6 ps-0 ps-lg-5">
+                    <div class="col-12 col-lg-6 ps-0 ps-lg-5 py-5">
                         <h2 class="f-odor">
-                            Enroll Now
+                            Apply Now
                         </h2>
-                        <h5>
-                            Start Your Journey in Blockchain and Bitcoin Technology
+                        <h5 class="f-odor">
+                            Join the Selection Process for Our Exclusive Training Programs
                         </h5>
                         <p>
-                            Don't miss the opportunity to be at the forefront of the cryptocurrency world. <br>
-                            Enroll in our courses on Blockchain, Bitcoin Mining, and Bitcoin, and start building your future today. <br>
-                            Contact us for more information and discover how we can help you achieve your professional goals.
+                            By filling out the form at the link below, you can apply to be considered for our exclusive training programs. Our activities are limited to a select number of participants. The selection process is divided into two stages: first, your application will be reviewed based on the submitted form, and only the most compelling candidates will advance to the second stage, which involves an individual interview
                         </p>
-                        <a href="<?= BASE_URL ?>homepage/contactus" class="btn-footer-enrollnow">Contact Form</a>
+                        <a href="<?= BASE_URL ?>homepage/bookingconsultation" class="btn-footer-enrollnow">Contact Form</a>
                     </div>
                     <div class="d-none d-lg-flex align-items-center col-6 video-trainingform">
                         <video autoplay="" preload="" muted="" loop="" playsinline="">
@@ -52,9 +50,11 @@
             </div>
         </section>
         <!-- End of Contact Form -->
-    <?php } else { ?>
-        <!-- Start of Contact Form -->
-        <section class="bg-contactform">
+    <?php } else if(@$flag == 'satoshi') { ?>
+        <div></div>
+    <?php } else {  ?>
+          <!-- Start of Contact Form -->
+          <section class="bg-contactform">
             <div class="container">
                 <div class="row">
                     <div class="col-12 col-md-8 left-side">
@@ -67,11 +67,11 @@
                         <p id="g-textgetintouch" class="f-inter">
                             If you would like more information about our services or would like to discuss your specific needs with one of our experts, please contact us. Our team of financial consultants, lawyers and accountants is at your disposal to offer you personalized support and timely responses. We are ready to assist you with the utmost professionalism and competence.
                         </p>
-                        <a href="<?= BASE_URL ?>homepage/contactus" class="btn-footer-contactform">Book a Consultation</a>
+                        <a href="<?= BASE_URL ?>homepage/bookingconsultation" class="btn-footer-contactform">Book a Consultation</a>
                         
                     </div>
                     <div class="d-none d-md-flex col-4 logo-contactform">
-                        <img class="img-fluid" src="<?= BASE_URL ?>assets/img/logo.png" alt="img">
+                        <img class="img-fluid" style="width: 200px;" src="<?= BASE_URL ?>assets/img/logo.png" alt="img">
                         <p class="logo-text-contactform">
                             <span class="line-animation">
                                 Transforming visions
@@ -86,84 +86,125 @@
             </div>
         </section>
         <!-- End of Contact Form -->
-    <?php }  ?>
+    <?php }   ?>
 
     <!-- Start of Contact Form -->
     <section class="bg-footer">
         <div class="container">
             <div class="row">
-                <div class="col-12 col-lg-4 text-link d-flex align-items-center justify-content-start">
-                    <div class="list">
+                <div class="col-12 text-link d-flex flex-column flex-md-row align-items-center justify-content-between">
+                    <div class="d-flex justify-content-center align-items-center">
+                        <div class="logo-footer">
+                            <img src="<?= BASE_URL ?>assets/img/logo.png" alt="img">
+                            <p class="logo-text-footer">
+                                <span class="line-animation">
+                                    Transforming visions
+                                </span> 
+                                <br>
+                                <span class="line-animation">
+                                    into success
+                                </span>
+                            </p>    
+                        </div>
+                    </div>
+                    <div class="list mt-4 mt-md-0">
                         <a class="mb-4" href="">About Pn Global</a>
                         <a class="my-4" href="#consulting">Consulting</a>
                         <a class="my-4" href="#service">Services</a>
                         <a class="mt-4" href="#hotdeal">Hot Deal</a>
+                        <a class="mt-4" href="<?= BASE_URL ?>homepage/connection">Connections</a>
                     </div>
                 </div>
-                <div class="col-3 d-flex justify-content-center align-items-center">
-                    <div class="logo-footer">
-                        <img class="w-100" src="<?= BASE_URL ?>assets/img/logo.png" alt="img">
-                        <p class="logo-text-footer">
-                            <span class="line-animation">
-                                Transforming visions
-                            </span> 
-                            <br>
-                            <span class="line-animation">
-                                into success
-                            </span>
-                        </p>    
-                    </div>
-                </div>
-                <div class="col-12 col-lg-5 my-4 d-flex justify-content-between align-items-center address">
-                    <div>
-                        <p class="f-inter text-white mb-4">
-                            <svg width="16" height="23" viewBox="0 0 16 23" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M8 0C3.57714 0 0 3.5995 0 8.05C0 14.0875 8 23 8 23C8 23 16 14.0875 16 8.05C16 3.5995 12.4229 0 8 0ZM8 10.925C6.42286 10.925 5.14286 9.637 5.14286 8.05C5.14286 6.463 6.42286 5.175 8 5.175C9.57714 5.175 10.8571 6.463 10.8571 8.05C10.8571 9.637 9.57714 10.925 8 10.925Z" fill="#D1B06B"/>
-                            </svg>
-                            <strong>Company incorporation:</strong> 16192 Coastal Highway, Lewes Delaware 19958 (USA)
-                        </p>
-                        <p class="f-inter text-white my-4">
-                            <svg width="16" height="23" viewBox="0 0 16 23" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M8 0C3.57714 0 0 3.5995 0 8.05C0 14.0875 8 23 8 23C8 23 16 14.0875 16 8.05C16 3.5995 12.4229 0 8 0ZM8 10.925C6.42286 10.925 5.14286 9.637 5.14286 8.05C5.14286 6.463 6.42286 5.175 8 5.175C9.57714 5.175 10.8571 6.463 10.8571 8.05C10.8571 9.637 9.57714 10.925 8 10.925Z" fill="#D1B06B"/>
-                            </svg>
-                            <strong>Head quarter:</strong> 46 street, 247W Platinum Tower, New York,NY 10036 (USA)
-                        </p>
-                        <p class="f-inter text-white my-4">
-                            <svg width="16" height="23" viewBox="0 0 16 23" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M8 0C3.57714 0 0 3.5995 0 8.05C0 14.0875 8 23 8 23C8 23 16 14.0875 16 8.05C16 3.5995 12.4229 0 8 0ZM8 10.925C6.42286 10.925 5.14286 9.637 5.14286 8.05C5.14286 6.463 6.42286 5.175 8 5.175C9.57714 5.175 10.8571 6.463 10.8571 8.05C10.8571 9.637 9.57714 10.925 8 10.925Z" fill="#D1B06B"/>
-                            </svg>
-                            <strong>International monetary departments:</strong> Business Location: 109 Bismarckia Way - George Town Cayman Islands
-                        </p>
-                        <p class="f-inter text-white my-4">
-                            <svg width="16" height="23" viewBox="0 0 16 23" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M8 0C3.57714 0 0 3.5995 0 8.05C0 14.0875 8 23 8 23C8 23 16 14.0875 16 8.05C16 3.5995 12.4229 0 8 0ZM8 10.925C6.42286 10.925 5.14286 9.637 5.14286 8.05C5.14286 6.463 6.42286 5.175 8 5.175C9.57714 5.175 10.8571 6.463 10.8571 8.05C10.8571 9.637 9.57714 10.925 8 10.925Z" fill="#D1B06B"/>
-                            </svg>
-                            <strong>International finance department:</strong> 12 Collyer Quay, Ocean Financial Centre, Singapore 049319
-                        </p>
-                        <p class="f-inter text-white my-4">
-                            <svg width="16" height="23" viewBox="0 0 16 23" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M8 0C3.57714 0 0 3.5995 0 8.05C0 14.0875 8 23 8 23C8 23 16 14.0875 16 8.05C16 3.5995 12.4229 0 8 0ZM8 10.925C6.42286 10.925 5.14286 9.637 5.14286 8.05C5.14286 6.463 6.42286 5.175 8 5.175C9.57714 5.175 10.8571 6.463 10.8571 8.05C10.8571 9.637 9.57714 10.925 8 10.925Z" fill="#D1B06B"/>
-                            </svg>
-                            <strong>OPERATIONAL DEPARTMENT FOR CUSTOMER FUNDS MANAGEMENT </strong> 128 City Road London EC1V 2NX (UK)
-                        </p>
-                        <p class="f-inter text-white my-4">
-                            <svg width="16" height="23" viewBox="0 0 16 23" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M8 0C3.57714 0 0 3.5995 0 8.05C0 14.0875 8 23 8 23C8 23 16 14.0875 16 8.05C16 3.5995 12.4229 0 8 0ZM8 10.925C6.42286 10.925 5.14286 9.637 5.14286 8.05C5.14286 6.463 6.42286 5.175 8 5.175C9.57714 5.175 10.8571 6.463 10.8571 8.05C10.8571 9.637 9.57714 10.925 8 10.925Z" fill="#D1B06B"/>
-                            </svg>
-                            <strong>Brokers stock division:</strong> 11 Wallstreet, New York,  NY 10005 (USA)
-                        </p>
-                        <p class="f-inter text-white my-4">
-                            <svg width="16" height="23" viewBox="0 0 16 23" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M8 0C3.57714 0 0 3.5995 0 8.05C0 14.0875 8 23 8 23C8 23 16 14.0875 16 8.05C16 3.5995 12.4229 0 8 0ZM8 10.925C6.42286 10.925 5.14286 9.637 5.14286 8.05C5.14286 6.463 6.42286 5.175 8 5.175C9.57714 5.175 10.8571 6.463 10.8571 8.05C10.8571 9.637 9.57714 10.925 8 10.925Z" fill="#D1B06B"/>
-                            </svg>
-                            <strong>Crypto broker division: </strong> Mahe, Seychelles, Jivan’s complex, Suite 708, Global Village, Abacus, Seychelles
-                        </p>
-                        <p class="f-inter text-white mt-4">
-                            <svg width="16" height="23" viewBox="0 0 16 23" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M8 0C3.57714 0 0 3.5995 0 8.05C0 14.0875 8 23 8 23C8 23 16 14.0875 16 8.05C16 3.5995 12.4229 0 8 0ZM8 10.925C6.42286 10.925 5.14286 9.637 5.14286 8.05C5.14286 6.463 6.42286 5.175 8 5.175C9.57714 5.175 10.8571 6.463 10.8571 8.05C10.8571 9.637 9.57714 10.925 8 10.925Z" fill="#D1B06B"/>
-                            </svg>                            
-                            <strong>Operational detachment:</strong> Benoa Square, Jl. Bypass Ngurah Rai A Kedonganan No.21, Jimbaran, Kec. Kuta, Kabupaten Badung, Bali 80361, <br> Indonesia
-                        </p>
+                <div class="col-8 mx-auto border-hr-footer"></div>
+                <div class="col-12 my-4 d-flex justify-content-between align-items-center address">
+                    <div class="row">
+                        <div class="col-12 col-md-4">
+                            <p class="f-inter text-white mb-4 d-flex">
+                                <span>
+                                    <svg width="11" height="14" viewBox="0 0 11 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M5.5 0C2.45929 0 0 2.191 0 4.9C0 8.575 5.5 14 5.5 14C5.5 14 11 8.575 11 4.9C11 2.191 8.54071 0 5.5 0ZM5.5 6.65C4.41571 6.65 3.53571 5.866 3.53571 4.9C3.53571 3.934 4.41571 3.15 5.5 3.15C6.58429 3.15 7.46429 3.934 7.46429 4.9C7.46429 5.866 6.58429 6.65 5.5 6.65Z" fill="#D1B06B"/>
+                                    </svg>
+                                </span>
+                                <span class="ps-1">
+                                    <strong>Company incorporation:</strong> 16192 Coastal Highway, Lewes Delaware 19958 (USA)
+                                </span>
+                            </p>
+                            <p class="f-inter text-white mb-4 d-flex">
+                                <span>
+                                    <svg width="11" height="14" viewBox="0 0 11 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M5.5 0C2.45929 0 0 2.191 0 4.9C0 8.575 5.5 14 5.5 14C5.5 14 11 8.575 11 4.9C11 2.191 8.54071 0 5.5 0ZM5.5 6.65C4.41571 6.65 3.53571 5.866 3.53571 4.9C3.53571 3.934 4.41571 3.15 5.5 3.15C6.58429 3.15 7.46429 3.934 7.46429 4.9C7.46429 5.866 6.58429 6.65 5.5 6.65Z" fill="#D1B06B"/>
+                                    </svg>
+                                </span>
+                                <span class="ps-1">
+                                    <strong>International finance department:</strong> 12 Collyer Quay, Ocean Financial Centre, Singapore 049319
+                                </span>
+                            </p>
+                            <p class="f-inter text-white my-4 d-flex">
+                                <span>
+                                    <svg width="11" height="14" viewBox="0 0 11 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M5.5 0C2.45929 0 0 2.191 0 4.9C0 8.575 5.5 14 5.5 14C5.5 14 11 8.575 11 4.9C11 2.191 8.54071 0 5.5 0ZM5.5 6.65C4.41571 6.65 3.53571 5.866 3.53571 4.9C3.53571 3.934 4.41571 3.15 5.5 3.15C6.58429 3.15 7.46429 3.934 7.46429 4.9C7.46429 5.866 6.58429 6.65 5.5 6.65Z" fill="#D1B06B"/>
+                                    </svg>     
+                                </span>
+                                <span class="ps-1">
+                                    <strong>Crypto broker division:</strong> Mahe, Seychelles, Jivan’s complex, Suite 708, Global Village, Abacus, Seychelles
+                                </span>                           
+                            </p>
+                        </div>
+                        <div class="col-12 col-md-4">
+                            <p class="f-inter text-white mb-4 d-flex">
+                                <span>
+                                    <svg width="11" height="14" viewBox="0 0 11 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M5.5 0C2.45929 0 0 2.191 0 4.9C0 8.575 5.5 14 5.5 14C5.5 14 11 8.575 11 4.9C11 2.191 8.54071 0 5.5 0ZM5.5 6.65C4.41571 6.65 3.53571 5.866 3.53571 4.9C3.53571 3.934 4.41571 3.15 5.5 3.15C6.58429 3.15 7.46429 3.934 7.46429 4.9C7.46429 5.866 6.58429 6.65 5.5 6.65Z" fill="#D1B06B"/>
+                                    </svg>     
+                                </span>
+                                <span class="ps-1">
+                                    <strong>Head quarter:</strong> 46 street, 247W Platinum Tower, New York,NY 10036 (USA)
+                                </span>                           
+                            </p>
+                            <p class="f-inter text-white mb-4 d-flex">
+                                <span>
+                                    <svg width="11" height="14" viewBox="0 0 11 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M5.5 0C2.45929 0 0 2.191 0 4.9C0 8.575 5.5 14 5.5 14C5.5 14 11 8.575 11 4.9C11 2.191 8.54071 0 5.5 0ZM5.5 6.65C4.41571 6.65 3.53571 5.866 3.53571 4.9C3.53571 3.934 4.41571 3.15 5.5 3.15C6.58429 3.15 7.46429 3.934 7.46429 4.9C7.46429 5.866 6.58429 6.65 5.5 6.65Z" fill="#D1B06B"/>
+                                    </svg>
+                                </span>
+                                <span class="ps-1">
+                                    <strong>OPERATIONAL DEPARTMENT FOR CUSTOMER FUNDS MANAGEMENT</strong> 128 City Road London EC1V 2NX (UK)
+                                </span>
+                            </p>
+                            <p class="f-inter text-white mb-4 d-flex">
+                                <span>
+                                    <svg width="11" height="14" viewBox="0 0 11 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M5.5 0C2.45929 0 0 2.191 0 4.9C0 8.575 5.5 14 5.5 14C5.5 14 11 8.575 11 4.9C11 2.191 8.54071 0 5.5 0ZM5.5 6.65C4.41571 6.65 3.53571 5.866 3.53571 4.9C3.53571 3.934 4.41571 3.15 5.5 3.15C6.58429 3.15 7.46429 3.934 7.46429 4.9C7.46429 5.866 6.58429 6.65 5.5 6.65Z" fill="#D1B06B"/>
+                                    </svg>
+                                </span>
+                                <span class="ps-1">
+                                    <strong>Operational detachment:</strong> Benoa Square, Jl. Bypass Ngurah Rai A Kedonganan No.21, Jimbaran, Kec. Kuta, Kabupaten Badung, Bali 80361, Indonesia
+                                </span>
+                            </p>
+                          
+                        </div>
+                        <div class="col-12 col-md-4">
+                            <p class="f-inter text-white mb-4 d-flex">
+                                <span>
+                                    <svg width="11" height="14" viewBox="0 0 11 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M5.5 0C2.45929 0 0 2.191 0 4.9C0 8.575 5.5 14 5.5 14C5.5 14 11 8.575 11 4.9C11 2.191 8.54071 0 5.5 0ZM5.5 6.65C4.41571 6.65 3.53571 5.866 3.53571 4.9C3.53571 3.934 4.41571 3.15 5.5 3.15C6.58429 3.15 7.46429 3.934 7.46429 4.9C7.46429 5.866 6.58429 6.65 5.5 6.65Z" fill="#D1B06B"/>
+                                    </svg>     
+                                </span>
+                                <span class="ps-1">
+                                    <strong>International monetary departments:</strong> Business Location: 109 Bismarckia Way - George Town Cayman Islands
+                                </span>                           
+                            </p>
+                            <p class="f-inter text-white mb-4 d-flex">
+                                <span>
+                                    <svg width="11" height="14" viewBox="0 0 11 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M5.5 0C2.45929 0 0 2.191 0 4.9C0 8.575 5.5 14 5.5 14C5.5 14 11 8.575 11 4.9C11 2.191 8.54071 0 5.5 0ZM5.5 6.65C4.41571 6.65 3.53571 5.866 3.53571 4.9C3.53571 3.934 4.41571 3.15 5.5 3.15C6.58429 3.15 7.46429 3.934 7.46429 4.9C7.46429 5.866 6.58429 6.65 5.5 6.65Z" fill="#D1B06B"/>
+                                    </svg>     
+                                </span>
+                                <span class="ps-1">
+                                    <strong>Brokers stock division:</strong> 11 Wallstreet, New York,  NY 10005 (USA)
+                                </span>                           
+                            </p>
+                        </div>
                     </div>
                     
                 </div>

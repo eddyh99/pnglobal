@@ -113,8 +113,14 @@ define("IDGTAG", 'G-Y7SBM0618C');
 define("HOST_MAIL", 'mail.tracklessbank.com');
 define("USERNAME_MAIL", 'no-reply@tracklessbank.com');
 define("PASS_MAIL", 'DLgV4o?L1B]m');
+
+// Email DEMO
 define("EMAIL_ONE", 'aripramana574@gmail.com');
 define("EMAIL_TWO", 'ari.pramana@undiksha.ac.id');
+
+// Email Live
+// define("EMAIL_ONE", 'pnglobal.usa@gmail.com');
+// define("EMAIL_TWO", 'robnolfo62@gmail.com');
 
 // For Payment Gateway
 //define("PUBLIC_KEY", 'pk_live_51OHVdwC8KQHLEjXQ88yk2DqcZUQtLIAAWJYumnMwHJC4tQi95Cu514mFtxPD8ezJMOJI6NhTgDy9T5GJJ7dSRyyR00RLGJMXU9');

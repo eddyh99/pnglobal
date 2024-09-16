@@ -17,11 +17,7 @@
     });
 
 
-
     // GSAP General 
-    // const getintouch = new SplitType("#g-getintouch");
-    // const subgetintouch = new SplitType("#g-subgetintouch");
-    // const textgetintouch = new SplitType("#g-textgetintouch")
     gsap.to("#g-getintouch .line-animation", {
         y: 0,
         stagger: 0.05,

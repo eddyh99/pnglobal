@@ -22,13 +22,12 @@
     <link href="<?= BASE_URL ?>assets/libs/intl-tel-input-master/build/css/intlTelInput.css" rel="stylesheet">
     
     <!-- Bootstrap -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/livecanvas-team/ninjabootstrap/dist/css/bootstrap.min.css" media="all">
+    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/livecanvas-team/ninjabootstrap/dist/css/bootstrap.min.css" media="all"> -->
 
     <!-- Stripe -->
     <script src="https://js.stripe.com/v3/"></script>
     
     <!-- Custom CSS -->
-    <!-- <link rel="stylesheet" href="<?= base_url() ?>assets/css/homepage.css"> -->
     <link rel="stylesheet" href="<?= BASE_URL ?>assets/style/css/main.css">
 
 
@@ -68,7 +67,10 @@
                         <a class="btn-navbar-about" href="<?= BASE_URL ?>homepage/about">About PN Global</a>
                     </li>
                     <li class="nav-item mt-2 mt-lg-0 d-flex align-items-center justify-content-center">
-                        <a class="btn-navbar-contactform" href="#">Contact Form</a>
+                        <a class="btn-navbar-contactform" href="<?= BASE_URL ?>homepage/contactform">Contact Form</a>
+                    </li>
+                    <li class="nav-item ms-0 ms-lg-3 d-flex align-items-center justify-content-center">
+                        <a class="btn-navbar-referral" href="<?= BASE_URL ?>homepage/contactreferral">Get Your Referral</a>
                     </li>
                 </ul>
             </div>

@@ -32,7 +32,11 @@
         min-height: 100vh !important;
         
         video {
-         @include mix.video-banner-center;
+            @include mix.video-banner-center;
+        }
+        
+        .img-banner {
+            @include mix.video-banner-center;
         }
 
         .logo-banner {
@@ -43,6 +47,7 @@
 
             img {
                 clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+                width: 150px;
             }
 
             .logo-text-banner {
@@ -53,6 +58,19 @@
                 font-weight: 700;
                 text-align: center;
                 color: var.$text-white-pnglobal;
+                margin-top: 1.5rem;
+
+                .line-animation {
+                    @include mix.animation-reveal;
+                }
+            }
+
+            .logo-text-banner-teamwork {
+                letter-spacing: 4px;
+                clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+                font-weight: 700;
+                text-align: center;
+                color: var.$text-black-100-pnglobal;
                 margin-top: 1.5rem;
 
                 .line-animation {
@@ -358,8 +376,9 @@
             background-color: transparent;
             width: 100%;
             height: 310px;
-            perspective: 1000px; 
             border-radius: 20px;
+            position: relative;
+            perspective: 1000px; 
             
             @include mix.xss {
                 height: 300px;
@@ -382,6 +401,9 @@
                 height: 320px;
             }
 
+            &:hover .flip-box-inner {
+                transform: rotateY(180deg);
+            }
             
             .flip-box-inner {
                 position: relative;
@@ -392,9 +414,7 @@
                 transform-style: preserve-3d;
                 border-radius: 20px;
                 
-                &:hover {
-                    transform: rotateY(180deg);
-                }
+              
 
                 .flip-box-front,
                 .flip-box-back {
@@ -449,6 +469,9 @@
                     color: var.$text-black-pnglobal;
                     transform: rotateY(180deg);
                     padding: 1rem;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-around;
 
                     @include mix.xs {
                         padding: 2rem;
@@ -470,6 +493,14 @@
 
                     p {
                         text-align: start;
+                    }
+
+                    a {
+                        text-decoration: underline;    
+
+                        &:hover {
+                            text-shadow: 2px 2px 2px #FFF;
+                        }
                     }
                 }
             }
@@ -537,7 +568,8 @@
         }
     }
 }
-  
+
+
 /*----------------------------------------------------------
 5. Service End
 ------------------------------------------------------------*/ 
