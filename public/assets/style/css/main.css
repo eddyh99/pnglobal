@@ -13016,6 +13016,7 @@ p {
  * 4. Why
  * 5. Service
  * 6. About Us
+ * 7. Account Deletion
  *
  */
 /*----------------------------------------------------------
@@ -13723,6 +13724,65 @@ p {
 
 /*----------------------------------------------------------
 6. About Us End
+------------------------------------------------------------*/
+/*----------------------------------------------------------
+7. Account Deletion Start
+------------------------------------------------------------*/
+.wrapper-account-deletion {
+  overflow-x: hidden;
+}
+.wrapper-account-deletion .header-account-deletion {
+  overflow-x: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(204, 183, 143, 0.2901960784);
+  padding: 2rem;
+}
+.wrapper-account-deletion .header-account-deletion h2 {
+  text-align: center;
+  font-weight: 600;
+}
+.wrapper-account-deletion .first-step {
+  margin-top: 2rem;
+}
+.wrapper-account-deletion .first-step h4 {
+  text-align: center;
+}
+.wrapper-account-deletion .first-step .box-cons {
+  background-color: rgba(204, 183, 143, 0.2901960784);
+  border-radius: 10px;
+  padding: 2rem 1rem 2rem 3rem;
+  margin-top: 2rem;
+}
+.wrapper-account-deletion .first-step .box-cons ul li {
+  list-style: disc;
+}
+.wrapper-account-deletion .first-step .by-continue {
+  text-align: center;
+  margin-top: 1rem;
+}
+.wrapper-account-deletion .second-step {
+  margin-top: 2rem;
+}
+.wrapper-account-deletion .second-step h4 {
+  text-align: center;
+}
+.wrapper-account-deletion .second-step .box-cons {
+  background-color: rgba(204, 183, 143, 0.2901960784);
+  border-radius: 10px;
+  padding: 1rem;
+  margin-top: 2rem;
+}
+.wrapper-account-deletion .second-step .box-cons ul li {
+  list-style: disc;
+}
+.wrapper-account-deletion .second-step .actions-button {
+  margin-top: 1rem;
+}
+
+/*----------------------------------------------------------
+7. Account Deletion End
 ------------------------------------------------------------*/
 /*----------------------------------------------------------
     File Name  : _service.scss

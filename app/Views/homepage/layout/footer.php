@@ -113,6 +113,8 @@
                         <a class="my-4" href="#service">Services</a>
                         <a class="mt-4" href="#hotdeal">Hot Deal</a>
                         <a class="mt-4" href="<?= BASE_URL ?>homepage/connection">Connections</a>
+                        <a class="mt-4" href="<?= BASE_URL ?>homepage/privacy_policy">Privacy Policy</a>
+                        <a class="mt-4" href="<?= BASE_URL ?>homepage/terms_conditions">Term & Condition</a>
                     </div>
                 </div>
                 <div class="col-8 mx-auto border-hr-footer"></div>

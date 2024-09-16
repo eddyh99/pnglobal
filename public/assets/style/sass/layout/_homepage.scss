@@ -13,6 +13,7 @@
  * 4. Why
  * 5. Service
  * 6. About Us
+ * 7. Account Deletion
  *
  */
 
@@ -771,4 +772,74 @@
 
 /*----------------------------------------------------------
 6. About Us End
+------------------------------------------------------------*/ 
+
+
+/*----------------------------------------------------------
+7. Account Deletion Start
+------------------------------------------------------------*/ 
+.wrapper-account-deletion {
+    overflow-x: hidden;
+    .header-account-deletion{
+        overflow-x: hidden;
+        @include mix.flex-tengah;
+        background-color: #CCB78F4A;
+        padding: 2rem;
+
+        h2 {
+            text-align: center;
+            font-weight: 600;
+        }
+    }
+
+    .first-step {
+        margin-top: 2rem;
+
+        h4 {
+            text-align: center;
+        }
+
+        .box-cons {
+            background-color: #CCB78F4A;
+            border-radius: 10px;
+            padding: 2rem 1rem 2rem 3rem;
+            margin-top: 2rem;
+
+            ul li {
+                list-style: disc;
+            }
+        }
+
+        .by-continue {
+            text-align: center;
+            margin-top: 1rem;
+        }
+    }
+
+    .second-step {
+        margin-top: 2rem;
+
+        h4 {
+            text-align: center;
+        }
+
+        .box-cons {
+            background-color: #CCB78F4A;
+            border-radius: 10px;
+            padding: 1rem;
+            margin-top: 2rem;
+
+            ul li {
+                list-style: disc;
+            }
+        }
+
+        .actions-button {
+            margin-top: 1rem;
+        }
+    }
+}
+
+/*----------------------------------------------------------
+7. Account Deletion End
 ------------------------------------------------------------*/ 
