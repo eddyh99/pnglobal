@@ -13037,6 +13037,14 @@ p {
   object-fit: cover;
   object-position: 50% 50%;
 }
+.banner-homepage .wrapper-banner-homepage .img-banner {
+  width: 100%;
+  min-height: 100vh !important;
+  position: absolute;
+  z-index: 1;
+  object-fit: cover;
+  object-position: 50% 50%;
+}
 .banner-homepage .wrapper-banner-homepage .logo-banner {
   display: flex;
   justify-content: center;
@@ -13061,6 +13069,27 @@ p {
   margin-top: 1.5rem;
 }
 .banner-homepage .wrapper-banner-homepage .logo-banner .logo-text-banner .line-animation {
+  display: inline-block;
+  transform: translateY(115px);
+  -webkit-transform: translateY(115px);
+  -moz-transform: translateY(115px);
+  -ms-transform: translateY(115px);
+  -o-transform: translateY(115px);
+  transition: transform 0.5s;
+  -webkit-transition: transform 0.5s;
+  -moz-transition: transform 0.5s;
+  -ms-transition: transform 0.5s;
+  -o-transition: transform 0.5s;
+}
+.banner-homepage .wrapper-banner-homepage .logo-banner .logo-text-banner-teamwork {
+  letter-spacing: 4px;
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+  font-weight: 700;
+  text-align: center;
+  color: #383734;
+  margin-top: 1.5rem;
+}
+.banner-homepage .wrapper-banner-homepage .logo-banner .logo-text-banner-teamwork .line-animation {
   display: inline-block;
   transform: translateY(115px);
   -webkit-transform: translateY(115px);
@@ -13711,6 +13740,7 @@ p {
  * 6. Training 
  * 7. Blockchain
  * 8. Satoshi
+ * 9. Connection
  *
  */
 /*----------------------------------------------------------
@@ -13834,6 +13864,11 @@ p {
 }
 .banner-service .wrapper-service .banner-text-video .bg-text-video.satoshi h2 {
   font-weight: 700;
+}
+.banner-service .wrapper-service .banner-text-video .bg-text-video.connection {
+  background: #D7D7D7;
+  color: #383734;
+  padding: 1.5rem 3rem !important;
 }
 
 /*----------------------------------------------------------
@@ -16302,6 +16337,110 @@ p {
 8. Satoshi End
 ------------------------------------------------------------*/
 /*----------------------------------------------------------
+9. Connection Start
+------------------------------------------------------------*/
+.united-connections .left-side {
+  padding: 2rem 0rem;
+}
+@media (min-width: 992px) {
+  .united-connections .left-side {
+    padding: 0rem 3rem;
+  }
+}
+.united-connections .left-side p {
+  text-align: justify;
+}
+.united-connections .bg-united-connections {
+  background-image: url("../../img/img-37.webp");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 200px;
+}
+@media (min-width: 425px) {
+  .united-connections .bg-united-connections {
+    height: 400px;
+  }
+}
+@media (min-width: 992px) {
+  .united-connections .bg-united-connections {
+    height: auto;
+  }
+}
+
+#partner-connections .cayman-wrapper {
+  margin-top: 2rem;
+  padding: 2rem 0rem;
+  background-color: rgba(175, 190, 168, 0.7882352941);
+}
+#partner-connections .cayman-wrapper .cayman-logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#partner-connections .cayman-wrapper .cayman-logo img {
+  width: 24rem;
+}
+#partner-connections .cayman-wrapper .cayman-text .title {
+  text-transform: uppercase;
+  color: #01471F;
+  font-weight: 700;
+}
+#partner-connections .cayman-wrapper .cayman-text .desc {
+  text-align: justify;
+  padding-right: 6rem;
+  color: rgba(56, 55, 52, 0.8196078431);
+}
+#partner-connections .mif-wrapper {
+  padding: 2rem 0rem;
+  background-color: #FFFFFF;
+}
+#partner-connections .mif-wrapper .mif-logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#partner-connections .mif-wrapper .mif-logo img {
+  width: 24rem;
+}
+#partner-connections .mif-wrapper .mif-text .title {
+  text-transform: uppercase;
+  color: #BFA573;
+  font-weight: 700;
+  padding-left: 6rem;
+}
+#partner-connections .mif-wrapper .mif-text .desc {
+  text-align: justify;
+  padding-left: 6rem;
+  color: rgba(56, 55, 52, 0.8196078431);
+}
+#partner-connections .gp-wrapper {
+  padding: 2rem 0rem;
+  background-color: rgba(232, 221, 220, 0.5294117647);
+}
+#partner-connections .gp-wrapper .gp-logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#partner-connections .gp-wrapper .gp-logo img {
+  width: 24rem;
+}
+#partner-connections .gp-wrapper .gp-text .title {
+  text-transform: uppercase;
+  color: #BFA573;
+  font-weight: 700;
+}
+#partner-connections .gp-wrapper .gp-text .desc {
+  text-align: justify;
+  padding-right: 6rem;
+  color: rgba(56, 55, 52, 0.8196078431);
+}
+
+/*----------------------------------------------------------
+9. Connection End
+------------------------------------------------------------*/
+/*----------------------------------------------------------
     File Name  : _contactus.scss
     Desc       : File ini merupakan styling untuk 3 jenis contact us
 
@@ -16519,6 +16658,80 @@ input:-moz-placeholder {
 
 /*----------------------------------------------------------
 2. Contact Us Book Consyltant End
+------------------------------------------------------------*/
+/*----------------------------------------------------------
+    File Name  : _teamwork.scss
+    Desc       : File ini merupakan styling untuk Teamwork Homepage
+
+------------------------------------------------------------*/
+/**
+ * TABLE OF CONTENTS
+ *
+ * 1. General
+ * 2. Teamwork
+ * 3. Teamwork Detail
+ *
+ */
+/*----------------------------------------------------------
+1. General Start
+------------------------------------------------------------*/
+/*----------------------------------------------------------
+1. General End
+------------------------------------------------------------*/
+/*----------------------------------------------------------
+2. Teamwork Start
+------------------------------------------------------------*/
+#teamwork-preview {
+  margin-bottom: 3rem;
+}
+#teamwork-preview .persona {
+  padding: 3rem;
+}
+#teamwork-preview .persona .wrapper-persona {
+  display: flex;
+}
+#teamwork-preview .persona .wrapper-persona .img-persona {
+  width: 15rem;
+}
+#teamwork-preview .persona .wrapper-persona .img-persona img {
+  width: 15rem;
+}
+#teamwork-preview .persona .wrapper-persona .bio {
+  margin: 0rem 2rem;
+  padding: 1rem 0rem;
+}
+#teamwork-preview .persona .wrapper-persona .bio .name {
+  color: #BFA573;
+  text-transform: uppercase;
+}
+#teamwork-preview .persona .wrapper-persona .bio .position {
+  margin: 1rem 0;
+  text-transform: uppercase;
+}
+#teamwork-preview .persona .wrapper-persona .bio .readmore {
+  color: #BFA573;
+}
+#teamwork-preview .persona.one, #teamwork-preview .persona.three, #teamwork-preview .persona.five {
+  background-color: #FFFFFF;
+}
+#teamwork-preview .persona.two {
+  background-color: #D9D9D9;
+}
+#teamwork-preview .persona.four {
+  background-color: #D3CAC1;
+}
+#teamwork-preview .persona.six {
+  background-color: #E9E0CE;
+}
+
+/*----------------------------------------------------------
+2. Teamwork End
+------------------------------------------------------------*/
+/*----------------------------------------------------------
+3. Teamwork Detail Start
+------------------------------------------------------------*/
+/*----------------------------------------------------------
+3. Teamwork Detail End
 ------------------------------------------------------------*/
 /*----------------------------------------------------------
     File Name  : _navbar.scss

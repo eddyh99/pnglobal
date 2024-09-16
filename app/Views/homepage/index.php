@@ -236,7 +236,7 @@
                                     <h4 class="f-inter">Company Openings</h4>
                                     <p class="f-inter">We offer comprehensive services for establishing new businesses, ensuring compliance with local regulations and guiding you through every step of the process. Our tailored services ensure a seamless and efficient company setup.</p>
                                 </div>
-                                <a href="">Contact us</a>
+                                <a href="<?= BASE_URL ?>homepage/contactform">Contact us</a>
                             </div>
                         </div>
                     </div>
@@ -252,7 +252,7 @@
                                     <h4 class="f-inter">Visas and Residence Permits</h4>
                                     <p class="f-inter">Our team provides complete assistance in obtaining visas and residence permits, facilitating your access to international markets and ensuring a smooth relocation process. We ensure that all applications are meticulously prepared and compliant with relevant regulations to secure the necessary permits promptly.</p>
                                 </div>
-                                <a href="">Contact us</a>
+                                <a href="<?= BASE_URL ?>homepage/contactform">Contact us</a>
                             </div>
                         </div>
                     </div>
@@ -268,7 +268,7 @@
                                     <h4 class="f-inter">Relocation of Residence</h4>
                                     <p class="f-inter">Our services assist you in relocating your residence, ensuring a smooth transition and compliance with all local regulations. We provide expert guidance on the most suitable residency options and streamline the application process for your new location.</p>
                                 </div>
-                                <a href="">Contact us</a>
+                                <a href="<?= BASE_URL ?>homepage/contactform">Contact us</a>
                             </div>
                         </div>
                     </div>
@@ -284,7 +284,7 @@
                                     <h4 class="f-inter">Business Plan and Feasibility Study</h4>
                                     <p class="f-inter">We deliver specialized services for developing business plans and conducting feasibility studies. Our services include thorough market analysis, financial forecasting, and strategic planning to ensure your business idea is viable and set for success.</p>
                                 </div>
-                                <a href="">Contact us</a>
+                                <a href="<?= BASE_URL ?>homepage/contactform">Contact us</a>
                             </div>
                         </div>
                     </div>
@@ -300,7 +300,7 @@
                                     <h4 class="f-inter">Contract Drafting</h4>
                                     <p class="f-inter">Our legal experts offer professional services in drafting contracts that protect your interests and ensure compliance with all relevant laws. We provide clear, precise, and legally sound contract drafting services to meet your business needs.</p>
                                 </div>
-                                <a href="">Contact us</a>
+                                <a href="<?= BASE_URL ?>homepage/contactform">Contact us</a>
                             </div>
                         </div>
                     </div>
@@ -316,7 +316,7 @@
                                     <h4 class="f-inter">Fund Reallocation</h4>
                                     <p class="f-inter">Maximize profits and minimize risks with our expert services for fund reallocation. We provide 100% legal solutions tailored to enhance profitability and capitalize on market opportunities. Our strategies are designed to meet your specific needs and goals.</p>
                                 </div>
-                                <a href="">Contact us</a>
+                                <a href="<?= BASE_URL ?>homepage/contactform">Contact us</a>
                             </div>
                         </div>
                     </div>

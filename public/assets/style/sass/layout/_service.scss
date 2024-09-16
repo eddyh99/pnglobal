@@ -15,6 +15,7 @@
  * 6. Training 
  * 7. Blockchain
  * 8. Satoshi
+ * 9. Connection
  *
  */
 
@@ -131,6 +132,13 @@
                         font-weight: 700;
                     }
                 }
+
+                &.connection {
+                    background: #D7D7D7;
+                    color: var.$text-black-100-pnglobal;
+                    padding: 1.5rem 3rem !important;
+                }
+
             }   
         }
     }
@@ -2756,4 +2764,122 @@
 
 /*----------------------------------------------------------
 8. Satoshi End
+------------------------------------------------------------*/ 
+
+/*----------------------------------------------------------
+9. Connection Start
+------------------------------------------------------------*/ 
+.united-connections {
+
+    .left-side {
+        padding: 2rem 0rem;
+        
+        @include mix.lg {
+            padding: 0rem 3rem;
+        }
+
+        p {
+
+            text-align: justify;
+        }
+    }
+
+    .bg-united-connections {
+        background-image: url('../../img/img-37.webp');
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        height: 200px;
+
+        @include mix.xss {
+            height: 400px;
+        }
+
+        @include mix.lg {
+            height: auto;
+        }
+    }
+}
+
+#partner-connections {  
+
+    .cayman-wrapper {
+        margin-top: 2rem;
+        padding: 2rem 0rem;
+        background-color: #AFBEA8C9;
+        .cayman-logo {
+            @include mix.flex-tengah;
+            img {
+                width: 24rem;
+            }
+        }
+
+        .cayman-text {
+            .title {
+                text-transform: uppercase;
+                color: #01471F;
+                font-weight: 700;
+            }
+
+            .desc {
+                text-align: justify;
+                padding-right: 6rem;
+                color: #383734D1;
+            }
+        }
+    }
+
+    .mif-wrapper {
+        padding: 2rem 0rem;
+        background-color: #FFFFFF;
+        .mif-logo {
+            @include mix.flex-tengah;
+            img {
+                width: 24rem;
+            }
+        }
+
+        .mif-text {
+            .title {
+                text-transform: uppercase;
+                color: var.$text-primary-pnglobal;
+                font-weight: 700;
+                padding-left: 6rem;
+            }
+
+            .desc {
+                text-align: justify;
+                padding-left: 6rem;
+                color: #383734D1;
+            }
+        }
+    }
+
+    .gp-wrapper {
+        padding: 2rem 0rem;
+        background-color: #E8DDDC87;
+        .gp-logo {
+            @include mix.flex-tengah;
+            img {
+                width: 24rem;
+            }
+        }
+
+        .gp-text {
+            .title {
+                text-transform: uppercase;
+                color: var.$text-primary-pnglobal;
+                font-weight: 700;
+            }
+
+            .desc {
+                text-align: justify;
+                padding-right: 6rem;
+                color: #383734D1;
+            }
+        }
+    }
+}
+/*----------------------------------------------------------
+9. Connection End
 ------------------------------------------------------------*/ 

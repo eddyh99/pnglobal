@@ -1,0 +1,96 @@
+/*----------------------------------------------------------
+    File Name  : _teamwork.scss
+    Desc       : File ini merupakan styling untuk Teamwork Homepage
+
+------------------------------------------------------------*/ 
+
+/**
+ * TABLE OF CONTENTS
+ *
+ * 1. General
+ * 2. Teamwork
+ * 3. Teamwork Detail
+ *
+ */
+
+ @use '../abstracts/variables' as var;
+ @use '../abstracts/mixins' as mix;
+ 
+/*----------------------------------------------------------
+1. General Start
+------------------------------------------------------------*/ 
+ 
+/*----------------------------------------------------------
+1. General End
+------------------------------------------------------------*/ 
+ 
+
+/*----------------------------------------------------------
+2. Teamwork Start
+------------------------------------------------------------*/ 
+#teamwork-preview {
+    margin-bottom: 3rem;
+   .persona {
+        padding: 3rem;
+        .wrapper-persona {
+            display: flex;
+
+            .img-persona {
+                width: 15rem;
+                
+                img {
+                    width: 15rem;
+                }
+            }
+
+            .bio {
+                margin: 0rem 2rem;
+                padding: 1rem 0rem;
+                
+                .name {
+                    color: var.$text-primary-pnglobal;
+                    text-transform: uppercase;
+                }
+
+                .position {
+                    margin: 1rem 0;
+                    text-transform: uppercase;
+                }
+
+                .readmore {
+                    color: var.$text-primary-pnglobal;
+                }
+            }
+        }
+
+        &.one,
+        &.three,
+        &.five {
+            background-color: #FFFFFF;
+        }
+
+        &.two {
+            background-color: #D9D9D9;
+        }
+
+        &.four {
+            background-color: #D3CAC1;
+        }
+
+        &.six {
+            background-color: #E9E0CE;
+        }
+   }
+}
+/*----------------------------------------------------------
+2. Teamwork End
+------------------------------------------------------------*/ 
+
+
+/*----------------------------------------------------------
+3. Teamwork Detail Start
+------------------------------------------------------------*/ 
+
+/*----------------------------------------------------------
+3. Teamwork Detail End
+------------------------------------------------------------*/ 

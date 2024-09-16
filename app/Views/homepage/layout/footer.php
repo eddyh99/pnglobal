@@ -112,7 +112,7 @@
                         <a class="my-4" href="#consulting">Consulting</a>
                         <a class="my-4" href="#service">Services</a>
                         <a class="mt-4" href="#hotdeal">Hot Deal</a>
-                        <a class="mt-4" href="#connections">Connections</a>
+                        <a class="mt-4" href="<?= BASE_URL ?>homepage/connection">Connections</a>
                     </div>
                 </div>
                 <div class="col-8 mx-auto border-hr-footer"></div>

@@ -467,5 +467,17 @@ class Homepage extends BaseController
         sendmail_referral($subject, $mdata, $filePath, $fileName);
     }
 
+    public function connection()
+    {
+        $mdata = [
+            'title'     => 'Connections - ' . NAMETITLE,
+            'content'   => 'homepage/connection',
+            'extra'     => 'homepage/js/_js_index',
+            'extragsap' => 'homepage/gsap/gsap_finance'
+        ];
+
+        return view('homepage/layout/wrapper', $mdata);
+    }
+
 
 }

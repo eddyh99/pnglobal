@@ -131,7 +131,7 @@
                 <p class="mt-4 f-noto" style="line-height: 30px;">  
                     We're committed to providing exceptional service and support to help you achieve your business goals. Our team goes the extra mile to deliver results, and our client-centric approach means we're always available for guidance. We're proud of our clients' achievements and honored to be their trusted advisors.
                 </p>
-                <a href="#" class="btn-know-team f-odor">Know Our Team</a>
+                <a href="<?= BASE_URL?>teamwork" class="btn-know-team f-odor">Know Our Team</a>
             </div>
         </div>
     </div>

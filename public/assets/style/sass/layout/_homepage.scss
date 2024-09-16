@@ -32,7 +32,11 @@
         min-height: 100vh !important;
         
         video {
-         @include mix.video-banner-center;
+            @include mix.video-banner-center;
+        }
+        
+        .img-banner {
+            @include mix.video-banner-center;
         }
 
         .logo-banner {
@@ -54,6 +58,19 @@
                 font-weight: 700;
                 text-align: center;
                 color: var.$text-white-pnglobal;
+                margin-top: 1.5rem;
+
+                .line-animation {
+                    @include mix.animation-reveal;
+                }
+            }
+
+            .logo-text-banner-teamwork {
+                letter-spacing: 4px;
+                clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+                font-weight: 700;
+                text-align: center;
+                color: var.$text-black-100-pnglobal;
                 margin-top: 1.5rem;
 
                 .line-animation {
