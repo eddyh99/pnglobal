@@ -113,6 +113,8 @@
                         <a class="my-4" href="#service">Services</a>
                         <a class="mt-4" href="#hotdeal">Hot Deal</a>
                         <a class="mt-4" href="<?= BASE_URL ?>homepage/connection">Connections</a>
+                        <a class="mt-4" href="<?= BASE_URL ?>homepage/privacy_policy">Privacy Policy</a>
+                        <a class="mt-4" href="<?= BASE_URL ?>homepage/terms_conditions">Term & Condition</a>
                     </div>
                 </div>
                 <div class="col-8 mx-auto border-hr-footer"></div>
@@ -224,7 +226,7 @@
     <script src="https://unpkg.com/split-type"></script>
     
     <!-- Telephone Code -->
-    <script src="<?= base_url()?>assets/libs/intl-tel-input-master/build/js/intlTelInput.js"></script>
+    <script src="<?= BASE_URL?>assets/libs/intl-tel-input-master/build/js/intlTelInput.js"></script>
 
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=<?= IDGTAG ?>"></script>
@@ -237,7 +239,7 @@
     </script>
     
     <!-- Custom General Javascript -->
-    <script src="<?= base_url() ?>assets/js/script.js"></script>
+    <script src="<?= BASE_URL ?>assets/js/script.js"></script>
 
     <?php
         if (@isset($extra)) {

@@ -136,6 +136,16 @@
     stroke: none;
 }
 
+.dash-statistics {
+    width: 100%;
+    display: flex;
+}
+
+.dash-statistics .statistics{
+    width: 20%;
+    padding: 0rem 1rem;
+}
+
 .send-signals {
     border: 2px solid #B48B3D;
     border-radius: 10px;
@@ -264,7 +274,7 @@
 }
 
 .table td {
-    border-top: 1px solid #B48B3D;
+    border-top: 1px solid #BFA573;
 }
 
 .table th {
@@ -291,6 +301,138 @@
     padding: 1rem;
     color: #FFFFFF;
 }
+
+
+.dash-table-totalmember {
+    border: 2px solid #BFA573;
+    /* padding: 1rem; */
+    border-radius: 20px 20px 0px 0px;
+}
+
+.thead_totalmember {
+    background-color: #BFA573;
+    color: #000000;
+}
+
+#table_totalmember_wrapper {
+    border: none;
+}
+
+#table_totalmember_filter, #table_totalmember_length {
+    display:  none;
+}
+
+#table_totalmember_length {
+    padding: 0.5rem;
+}
+
+#table_totalmember_length select{
+    padding: 0.2rem;
+}
+
+#table_totalmember_paginate,#table_totalmember_info {
+    padding: 1rem;
+    color: #FFFFFF;
+}
+
+.dataTables_scrollHeadInner {
+    width: 100% !important;
+}
+
+div.dataTables_scrollHead table.dataTable {
+    width: 100% !important;
+}
+
+.iq-card-body .active {
+    width: 100%;
+    height: 5px;
+    border-radius: 9999px;
+    background-color: #0E7304;
+}
+
+.iq-card-body .disable {
+    width: 100%;
+    height: 5px;
+    border-radius: 9999px;
+    background-color: transparent;
+}
+
+.dash-table-freemember {
+    border: 2px solid #BFA573;
+    /* padding: 1rem; */
+    border-radius: 20px 20px 0px 0px;
+}
+
+.thead_freemember {
+    background-color: #BFA573;
+    color: #000000;
+}
+
+#table_freemember_wrapper {
+    border: none;
+}
+
+#table_freemember_filter, #table_freemember_length {
+    display:  none;
+}
+
+#table_freemember_length {
+    padding: 0.5rem;
+}
+
+#table_freemember_length select{
+    padding: 0.2rem;
+}
+
+#table_freemember_paginate,#table_freemember_info {
+    padding: 1rem;
+    color: #FFFFFF;
+}
+
+.dash-detailmember {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0px;
+    margin-top: 3rem;
+}
+
+.dash-detailmember > div {
+    padding: 8px 20px;
+    border: 1px solid #8a6d3b;
+    display: flex;
+    align-items: center;
+    margin: 0rem 0.3rem;
+}
+
+.dash-detailmember .header {
+    grid-column: span 2;
+    font-weight: bold;
+    background-color: #1E1E1E;
+    margin-bottom: 0.5rem;
+    color: #FFFFFF;
+}
+
+.dash-detailmember .label {
+    font-weight: bold;
+    justify-content: flex-start;
+    color: #FFFFFF;
+}
+
+.dash-detailmember .value {
+    justify-content: space-between;
+    color: #FFFFFF;
+}
+
+.dash-detailmember .value .upgrade-btn{
+    background-color: #d4af37;
+    color: black;
+    border: none;
+    padding: 2px 20px;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
 
 
 /* RESPONSIVE */

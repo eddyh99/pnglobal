@@ -1,9 +1,6 @@
 <!-- Start of Banner -->
 <div class="banner-homepage">
     <div class="wrapper-banner-homepage" >
-        <!-- <video autoplay="" preload="" muted="" loop="" playsinline="">
-            <source src="<?= BASE_URL ?>assets/vid/banner.webm" type="video/webm">
-        </video> -->
         <img class="img-banner" src="<?= BASE_URL?>assets/img/bg-teamwork.webp" alt="bg-teamwork">
         <div class="logo-banner">
             <div>
@@ -16,7 +13,6 @@
                     </span>
                 </h1>    
             </div>
-
         </div>
     </div>
 </div>

@@ -1,9 +1,10 @@
 <!-- Start of Banner -->
 <div class="banner-service">
     <div class="wrapper-service" >
-        <video autoplay="" preload="" muted="" loop="" playsinline="">
+        <!-- <video autoplay="" preload="" muted="" loop="" playsinline="">
             <source src="<?= BASE_URL ?>assets/vid/banner-finance.webm" type="video/webm">
-        </video>
+        </video> -->
+        <img class="img-banner" src="<?= BASE_URL?>assets/img/bg-connections.webp" alt="bg-connections">
         <div class="banner-text-video">
             <div class="bg-text-video connection">
                 <h2 class="f-lato" >
@@ -45,10 +46,10 @@
     <div class="cayman-wrapper">
         <div class="container">
             <div class="row">
-                <div class="col-6 cayman-logo">
+                <div class="col-12 col-lg-6 cayman-logo ">
                     <img class="img-fluid" src="<?= BASE_URL?>assets/img/partner/cayman-logo.webp" alt="cayman">
                 </div>
-                <div class="col-6 cayman-text">
+                <div class="col-12 col-lg-6 cayman-text">
                     <p class="title f-noto" translate='no'>
                         Cayman Financial Group
                     </p>
@@ -64,7 +65,7 @@
     <div class="mif-wrapper">
         <div class="container">
             <div class="row">
-                <div class="col-6 mif-text">
+                <div class="col-12 order-1 order-lg-0 col-lg-6 mif-text">
                     <p class="title f-noto" translate='no'>
                         Money Industrial Factory
                     </p>
@@ -72,7 +73,7 @@
                        <span translate='no'> Money Industrial Factory </span> is a leading company in the construction of mining farms and cryptocurrency mining. Thanks to the expertise and high specialization of the PN Global team, we have been tasked with designing and optimizing mining farms for <span translate='no'> Money Industrial Factory </span> and their clients. Through our research, development, and consulting department, <span translate='no'> PN Global </span> provides technical and strategic support to ensure the efficiency and profitability of mining operations.
                     </p>
                 </div>
-                <div class="col-6 mif-logo">
+                <div class="col-12 order-0 order-lg-1 col-lg-6 mif-logo">
                     <img class="img-fluid" src="<?= BASE_URL?>assets/img/partner/mif-logo.webp" alt="cayman">
                 </div>
             </div>
@@ -84,10 +85,10 @@
     <div class="gp-wrapper">
         <div class="container">
             <div class="row">
-                <div class="col-6 gp-logo">
+                <div class="col-12 col-lg-6 gp-logo">
                     <img class="img-fluid" src="<?= BASE_URL?>assets/img/partner/gp-logo.webp" alt="gp">
                 </div>
-                <div class="col-6 gp-text">
+                <div class="col-12 col-lg-6 gp-text">
                     <p class="title f-noto" translate='no'>
                         gp Financial Group
                     </p>

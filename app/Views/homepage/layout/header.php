@@ -21,8 +21,6 @@
     <!-- Telephone Code -->
     <link href="<?= BASE_URL ?>assets/libs/intl-tel-input-master/build/css/intlTelInput.css" rel="stylesheet">
     
-    <!-- Bootstrap -->
-    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/livecanvas-team/ninjabootstrap/dist/css/bootstrap.min.css" media="all"> -->
 
     <!-- Stripe -->
     <script src="https://js.stripe.com/v3/"></script>
@@ -55,13 +53,13 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item me-0 me-lg-4">
-                        <a class="nav-link" aria-current="page" href="<?=BASE_URL?>#consulting">Specialized Consulting</a>
+                        <a class="nav-link" aria-current="page" href="<?=BASE_URL?>?type=consulting">Specialized Consulting</a>
                     </li>
                     <li class="nav-item me-0 me-lg-4">
-                        <a class="nav-link" href="<?=BASE_URL?>#service">Service</a>
+                        <a class="nav-link" href="<?=BASE_URL?>?type=service">Service</a>
                     </li>
                     <li class="nav-item me-0 me-lg-4">
-                        <a class="nav-link" aria-current="page" href="<?=BASE_URL?>#hotdeal">Hot Deal</a>
+                        <a class="nav-link" aria-current="page" href="<?=BASE_URL?>?type=hotdeal">Hot Deal</a>
                     </li>
                     <li class="nav-item me-0 me-lg-3 d-flex align-items-center justify-content-center">
                         <a class="btn-navbar-about" href="<?= BASE_URL ?>homepage/about">About PN Global</a>

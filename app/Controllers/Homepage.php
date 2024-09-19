@@ -400,34 +400,6 @@ class Homepage extends BaseController
                 'label'     => 'Country',
                 'rules'     => 'required'
             ],
-            // 'instagram'  => [
-            //     'label'     => 'Instagram',
-            //     'rules'     => 'valid_url'
-            // ],
-            // 'tiktok'  => [
-            //     'label'     => 'Tiktok',
-            //     'rules'     => 'valid_url'
-            // ],
-            // 'fprofile'  => [
-            //     'label'     => 'Facebook Profile',
-            //     'rules'     => 'valid_url'
-            // ],
-            // 'fgroup'  => [
-            //     'label'     => 'Facebook Group',
-            //     'rules'     => 'valid_url'
-            // ],
-            // 'fpage'  => [
-            //     'label'     => 'Facebook Page',
-            //     'rules'     => 'valid_url'
-            // ],
-            // 'linkedin'  => [
-            //     'label'     => 'Linkedin',
-            //     'rules'     => 'valid_url'
-            // ],
-            // 'discord'  => [
-            //     'label'     => 'Discord',
-            //     'rules'     => 'valid_url'
-            // ],
             'identity'      => [
                 'label'     => 'Identity',
                 'rules'     => 'uploaded[identity]|max_size[identity,20000]|mime_in[identity,application/pdf]'
@@ -477,6 +449,85 @@ class Homepage extends BaseController
         ];
 
         return view('homepage/layout/wrapper', $mdata);
+    }
+
+    public function privacy_policy()
+    {
+        $mdata = [
+            'title'     => 'Privacy Policy - ' . NAMETITLE,
+            'content'   => 'homepage/privacy_policy',
+            'extra'     => 'homepage/js/_js_privacy_policy'
+        ];
+
+        return view('homepage/layout/wrapper-contactus', $mdata);
+    }
+
+    public function terms_conditions()
+    {
+        $mdata = [
+            'title'     => 'Privacy Policy - ' . NAMETITLE,
+            'content'   => 'homepage/terms_conditions',
+            'extra'     => 'homepage/js/_js_privacy_policy'
+        ];
+
+        return view('homepage/layout/wrapper-contactus', $mdata);
+    }
+
+    public function account_deletion()
+    {
+        $step = base64_decode(@$_GET['step']);
+
+        if($step == 'second_step' || $step == 'third_step'){
+            $mdata = [
+                'title'     => 'Account Deletion - ' . NAMETITLE,
+                'content'   => 'homepage/account_deletion',
+                'extra'     => 'homepage/js/_js_account_deletion',
+                'step'      => $step
+            ];
+        }else{
+            $mdata = [
+                'title'     => 'Account Deletion - ' . NAMETITLE,
+                'content'   => 'homepage/account_deletion',
+                'extra'     => 'homepage/js/_js_account_deletion',
+                'step'      => 'first_step'
+            ];
+        }
+
+
+        return view('homepage/layout/wrapper-contactus', $mdata);
+    }
+
+    public function account_deletion_proccess()
+    {
+        
+        // Validation Field
+        $rules = $this->validate([
+            'email'   => [
+                'label'     => 'Email',
+                'rules'     => 'valid_email'
+            ],
+            'reason'      => [
+                'label'     => 'Reason',
+                'rules'     => 'required'
+            ],
+        ]);
+
+        // Checking Validation
+        if(!$rules){
+            session()->setFlashdata('failed', $this->validation->listErrors());
+            return redirect()->to(BASE_URL . 'homepage/account_deletion?step='.base64_encode('second_step'))->withInput();
+        }
+
+        // Initial Data
+        $mdata = [
+            'email'         => filter_var($this->request->getVar('email'), FILTER_VALIDATE_EMAIL),
+            'reason'        => htmlspecialchars($this->request->getVar('reason')),
+        ];
+
+        // Subject
+        $subject = NAMETITLE . ' - Account Deletion ' . $mdata['email'];
+        sendmail_accountdel($subject, $mdata);
+
     }
 
 
