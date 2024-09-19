@@ -13823,6 +13823,14 @@ p {
   object-fit: cover;
   object-position: 50% 50%;
 }
+.banner-service .wrapper-service .img-banner {
+  width: 100%;
+  min-height: 100vh !important;
+  position: absolute;
+  z-index: 1;
+  object-fit: cover;
+  object-position: 50% 50%;
+}
 .banner-service .wrapper-service .download-video {
   z-index: 2;
   position: absolute;
@@ -16400,7 +16408,7 @@ p {
 9. Connection Start
 ------------------------------------------------------------*/
 .united-connections .left-side {
-  padding: 2rem 0rem;
+  padding: 2rem;
 }
 @media (min-width: 992px) {
   .united-connections .left-side {
@@ -16437,6 +16445,7 @@ p {
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-bottom: 2rem;
 }
 #partner-connections .cayman-wrapper .cayman-logo img {
   width: 24rem;
@@ -16448,8 +16457,13 @@ p {
 }
 #partner-connections .cayman-wrapper .cayman-text .desc {
   text-align: justify;
-  padding-right: 6rem;
   color: rgba(56, 55, 52, 0.8196078431);
+  padding-right: 0rem;
+}
+@media (min-width: 992px) {
+  #partner-connections .cayman-wrapper .cayman-text .desc {
+    padding-right: 6rem;
+  }
 }
 #partner-connections .mif-wrapper {
   padding: 2rem 0rem;
@@ -16459,6 +16473,7 @@ p {
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-bottom: 2rem;
 }
 #partner-connections .mif-wrapper .mif-logo img {
   width: 24rem;
@@ -16471,8 +16486,13 @@ p {
 }
 #partner-connections .mif-wrapper .mif-text .desc {
   text-align: justify;
-  padding-left: 6rem;
   color: rgba(56, 55, 52, 0.8196078431);
+  padding-left: 0rem;
+}
+@media (min-width: 992px) {
+  #partner-connections .mif-wrapper .mif-text .desc {
+    padding-left: 6rem;
+  }
 }
 #partner-connections .gp-wrapper {
   padding: 2rem 0rem;
@@ -16482,6 +16502,7 @@ p {
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-bottom: 2rem;
 }
 #partner-connections .gp-wrapper .gp-logo img {
   width: 24rem;
@@ -16493,8 +16514,13 @@ p {
 }
 #partner-connections .gp-wrapper .gp-text .desc {
   text-align: justify;
-  padding-right: 6rem;
   color: rgba(56, 55, 52, 0.8196078431);
+  padding-right: 0rem;
+}
+@media (min-width: 992px) {
+  #partner-connections .gp-wrapper .gp-text .desc {
+    padding-right: 6rem;
+  }
 }
 
 /*----------------------------------------------------------
