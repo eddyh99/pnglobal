@@ -195,8 +195,10 @@ class Signal extends BaseController
         }
 
 
+
         // For get instruction last order
         $order = '';
+        $lastdate = '';
         $temp_price = '';
         foreach($newarray[0] as $key => $dt){
 
@@ -204,16 +206,19 @@ class Signal extends BaseController
 
             if($key == 0){
                 $order = $dt->type;
+                $lastdate = $dt->created_at;
                 $temp_price = $dt->entry_price;
 
                 if($type[0] == 'Buy'){
                     $order = $dt->type;
+                    $lastdate = $dt->created_at;
                     break;
                 }
             }
 
             if($type[0] == 'Sell' && $dt->entry_price == $temp_price){
                 $order = $dt->type;
+                $lastdate = $dt->created_at;
             }
 
             if($type[0] == 'Buy'){
@@ -235,7 +240,8 @@ class Signal extends BaseController
             'sell_c'    => $sell_c,
             'buy_d'     => $buy_d,
             'sell_d'    => $sell_d,
-            'order'     => $order
+            'order'     => $order,
+            'lastdate'  => $lastdate
         ];
 
         return view('widget/layout/wrapper', $mdata);

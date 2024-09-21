@@ -24,9 +24,12 @@
                             <label for="exampleInputEmail2">Email address</label>
                             <input type="email" class="form-control mb-0" name="email" id="exampleInputEmail2" placeholder="Enter email">
                         </div>
-                        <div class="form-group">
-                            <label for="exampleInputPassword2">Password</label>
-                            <input type="password" class="form-control mb-0" name="password" id="exampleInputPassword2" placeholder="Password">
+                        <div class="form-group position-relative">
+                            <div>
+                                <label for="exampleInputPassword2">Password</label>
+                                <input type="password" class="form-control mb-0" name="password" id="password" placeholder="Password">
+                            </div>
+                            <i class="icon-pass-login las la-eye" id="togglePassword"></i>
                         </div>
                         <div class="sign-info">
                             <button type="submit" class="btn btn-primary mb-2">Sign in</button>

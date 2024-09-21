@@ -8,14 +8,12 @@
                 <div class="send-signals">
                     <div class="title-signal-preview d-flex justify-content-between align-items-center">
                         <h4>Send Signals</h4>
-                        <!-- <h5><?= date('d-m-Y')?></h5> -->
                     </div>
                     <div class="main-send-signal d-flex flex-column align-items-center justify-content-center">
                         <div class="insturctions d-flex flex-column align-items-center justify-content-center">
                             <span class="instructions-title">Instructions</span>
                             <div class="box-insturctions d-flex align-items-center justify-content-center">
-                                <h4>EMPTY</h4>
-                                <!-- <span><?= date('d/m/y | H:i')?></span> -->
+                                <h4 class="last-insturctions"><?= @$order?></h4>
                             </div>
                         </div>
                         <div class="signal-preview">

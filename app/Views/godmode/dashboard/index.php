@@ -44,7 +44,7 @@
                                         <h1 class="text-black fw-bold"><?= @$totalmember?></h1>
                                     </div>
                                 </div>
-                                <div class="<?= ((base64_decode(@$_GET["type"]) != "free_member") ? "active" : "disable" )?>"></div>
+                                <div class="<?= ((base64_decode(@$_GET["type"]) == "free_member" || base64_decode(@$_GET["type"]) == "referral_member") ? "disable" : "active" )?>"></div>
                             </div>
                         </div>
                     </a>
@@ -56,14 +56,14 @@
                                         <h5 class="text-black">Free Member</h5>
                                     </div>
                                     <div class="mt-3 w-100 d-flex justify-content-end">
-                                        <h1 class="text-black fw-bold"><?= @$exclusive?></h1>
+                                        <h1 class="text-black fw-bold"><?= @$freemember?></h1>
                                     </div>
                                 </div>
                                 <div class="<?= ((base64_decode(@$_GET["type"]) == "free_member") ? "active" : "disable" )?>"></div>
                             </div>
                         </div>
                     </a>
-                    <a href="" class="statistics">
+                    <a href="<?= BASE_URL?>godmode/dashboard?type=<?=base64_encode("referral_member")?>" class="statistics">
                         <div class="iq-card">
                             <div class="iq-card-body">
                                 <div class="d-flex flex-column justify-content-center align-items-start">
@@ -71,10 +71,10 @@
                                         <h5 class="text-black">Referral</h5>
                                     </div>
                                     <div class="mt-3 w-100 d-flex justify-content-end">
-                                        <h1 class="text-black fw-bold"><?= @$mainsignal?></h1>
+                                        <h1 class="text-black fw-bold"><?= @$referral?></h1>
                                     </div>
                                 </div>
-                                <div class="disable"></div>
+                                <div class="<?= ((base64_decode(@$_GET["type"]) == "referral_member") ? "active" : "disable" )?>"></div>
                             </div>
                         </div>
                     </a>
@@ -86,7 +86,7 @@
                                         <h5 class="text-black">Message</h5>
                                     </div>
                                     <div class="mt-3 w-100 d-flex justify-content-end">
-                                        <h1 class="text-black fw-bold"><?= @$subsignal; ?></h1>
+                                        <h1 class="text-black fw-bold"><?= @$message; ?></h1>
                                     </div>
                                 </div>
                                 <div class="disable"></div>
@@ -101,7 +101,7 @@
                                         <h5 class="text-black">Signal Sent</h5>
                                     </div>
                                     <div class="mt-3 w-100 d-flex justify-content-end">
-                                        <h1 class="text-black fw-bold"><?= @$subsignal; ?></h1>
+                                        <h1 class="text-black fw-bold"><?= @$signal; ?></h1>
                                     </div>
                                 </div>
                                 <div class="disable"></div>
@@ -110,7 +110,7 @@
                     </a>
                 </div>
             </div>
-            <?php if(base64_decode(@$_GET["type"]) != "free_member") {?>
+            <?php if(base64_decode(@$_GET["type"]) != "free_member" && base64_decode(@$_GET["type"]) != "referral_member") {?>
                 <div class="col-lg-12 dash-table-totalmember">
                     <h4 class="text-white my-3 text-uppercase fw-bold">Total Member</h4>
                     <table id="table_totalmember" class="table table-striped" style="width:100%">
@@ -134,9 +134,27 @@
                         <thead class="thead_freemember">
                             <tr>
                                 <th>EMAIL</th>
-                                <th>REFERRAL CODE</th>
-                                <th>REFERRING MEMBER</th>
-                                <th>NUMBER OF REFERRALS</th>
+                                <th>REGISTRATION DATE</th>
+                                <th>STATUS</th>
+                                <th>DETAIL</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                    </table>
+                </div>
+            <?php } else if(base64_decode(@$_GET["type"]) == "referral_member") {?>
+                <div class="col-lg-12 dash-table-referralmember">
+                    <h4 class="text-white my-3 text-uppercase fw-bold">Referral Member</h4>
+                    <table id="table_referralmember" class="table table-striped" style="width:100%">
+                        <thead class="thead_referralmember">
+                            <tr>
+                                <th>EMAIL</th>
+                                <th>TOTAL REFERRAL</th>
+                                <th>MONTHLY REFERRAL</th>
+                                <th>UNPAID SUBSCRIPTIONS</th>
+                                <th>UNPAID COMMISSION</th>
+                                <th>UNPAID COMMISSION PREVIOUS MONTH</th>
                                 <th>DETAIL</th>
                             </tr>
                         </thead>

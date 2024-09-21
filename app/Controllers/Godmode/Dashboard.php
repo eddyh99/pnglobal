@@ -16,23 +16,26 @@ class Dashboard extends BaseController
     
     public function index()
     {
-
-        // Call Endpoin total_exclusive
-        $url = URLAPI . "/v1/member/total_exclusive";
-        $resultExclusive = satoshiAdmin($url)->result->message;
-
         // Call Endpoin total_member
         $url = URLAPI . "/v1/member/total_member";
         $resultTotalMember = satoshiAdmin($url)->result->message;
 
-        // Call Endpoin total Main Signal
+        // Call Endpoin total free member
+        $url = URLAPI . "/v1/member/total_freemember";
+        $resultFreemember = satoshiAdmin($url)->result->message;
+
+        // Call Endpoin total Referral
+        $url = URLAPI . "/v1/member/total_exclusive";
+        $resultReferral = satoshiAdmin($url)->result->message;
+
+        // Call Endpoin total Message
+        $url = URLAPI . "/v1/signal/total_message";
+        $resultMessage = satoshiAdmin($url)->result->message;
+
+        // Call Endpoin total Signal
         $url = URLAPI . "/v1/member/total_signal";
-        $resultMainSignal = satoshiAdmin($url)->result->message;
+        $resultSignal = satoshiAdmin($url)->result->message;
 
-
-        // Call Endpoin total Main Signal
-        $url = URLAPI . "/v1/member/total_subsignal";
-        $resultSubSignal = satoshiAdmin($url)->result->message;
 
         
         $mdata = [
@@ -40,24 +43,94 @@ class Dashboard extends BaseController
             'content'   => 'godmode/dashboard/index',
             'extra'     => 'godmode/dashboard/js/_js_index',
             'active_dash'    => 'active',
-            'exclusive' => $resultExclusive,
             'totalmember' => $resultTotalMember,
-            'mainsignal' => $resultMainSignal,
-            'subsignal' => $resultSubSignal,
+            'freemember' => $resultFreemember,
+            'referral' => $resultReferral,
+            'message' => $resultMessage,
+            'signal' => $resultSignal,
         ];
 
         return view('godmode/layout/admin_wrapper', $mdata);
     }
 
-    public function detailmember()
+    public function detailmember($type, $email)
     {
+
+        // Decode Type
+        $finaltype = base64_decode($type);
+        
+        // Call Get Memeber By Email
+        $url = URLAPI . "/auth/getmember_byemail?email=".base64_decode($email);
+        $resultMember = satoshiAdmin($url)->result->message;
+
+
         $mdata = [
-            'title'     => 'Dashboard - ' . NAMETITLE,
+            'title'     => 'Detail Member - ' . NAMETITLE,
             'content'   => 'godmode/dashboard/detail_member',
             'extra'     => 'godmode/dashboard/js/_js_detailmember',
-            'active_dash'    => 'active',
+            'member'    => $resultMember,
+            'active_dash'   => 'active',
+            'type'      => $finaltype,
         ];
 
         return view('godmode/layout/admin_wrapper', $mdata);
+    }
+
+
+    public function detailreferral($type, $email)
+    {
+        
+        // Decode Type
+        $finaltype = base64_decode($type);
+        
+        // Call Get Memeber By Email
+        $url = URLAPI . "/auth/getmember_byemail?email=".base64_decode($email);
+        $resultMember = satoshiAdmin($url)->result->message;
+
+        // Call Get Detail Referral
+        $url = URLAPI . "/v1/member/detailreferral?id=".$resultMember->id;
+        $resultReferral = satoshiAdmin($url)->result->message;
+
+
+        $mdata = [
+            'title'     => 'Detail Member - ' . NAMETITLE,
+            'content'   => 'godmode/dashboard/detail_referral',
+            'extra'     => 'godmode/dashboard/js/_js_detailreferral',
+            'active_dash'  => 'active',
+            'member'    => $resultMember,
+            'type'      => $finaltype,
+            'emailreferral' => base64_decode($email),
+            'referral'  => $resultReferral
+        ];
+
+        return view('godmode/layout/admin_wrapper', $mdata);
+    }
+
+    public function payreferral($type, $email)
+    {
+        // Init Data
+        $mdata = [
+            'id'    => htmlspecialchars($this->request->getVar('id')),
+            'type'  => htmlspecialchars($this->request->getVar('type')),
+        ];
+
+        // Proccess Endpoin API
+        $url = URLAPI . "/v1/member/paid_referral?id=".$mdata['id']."&is_paid=".$mdata['type'];
+        $response = satoshiAdmin($url, json_encode($mdata));
+        $result = $response->result;
+        
+        if($result->code != '200') {
+            session()->setFlashdata('failed', "Something Wrong, Please Try Again!");
+            return redirect()->to(BASE_URL . 'godmode/dashboard/detailreferral/'.$type.'/'.$email);
+        }else{
+
+            if($mdata['type'] == 'yes'){
+                session()->setFlashdata('success', "Successfully paid transaction");
+            }else{
+                session()->setFlashdata('success', "Successfully cancel transaction");
+            }
+            return redirect()->to(BASE_URL . 'godmode/dashboard/detailreferral/'.$type.'/'.$email);
+        }    
+        
     }
 }

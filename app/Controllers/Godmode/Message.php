@@ -8,14 +8,27 @@ class Message extends BaseController
 {
     public function index()
     {
+        // Call Endpoin Get All Message
+        $url = URLAPI . "/v1/signal/getallmessage";
+        $result = satoshiAdmin($url)->result->message;
+
         $mdata = [
             'title'     => 'Message - ' . NAMETITLE,
             'content'   => 'godmode/message/index',
             'extra'     => 'godmode/message/js/_js_index',
-            'active_msg'    => 'active active-menu'
+            'active_msg'    => 'active active-menu',
+            'message'   => $result
         ];
 
         return view('godmode/layout/admin_wrapper', $mdata);
+    }
+
+    public function get_allmessage()
+    {
+        // Call Endpoin Get All Message
+        $url = URLAPI . "/v1/signal/getallmessage";
+        $result = satoshiAdmin($url)->result->message;
+        echo json_encode($result);
     }
 
     public function sendmessage()
@@ -55,11 +68,6 @@ class Message extends BaseController
         }else{
             session()->setFlashdata('success', $result->message);
             return redirect()->to(BASE_URL . 'godmode/message');
-        }
-
-
-        echo '<pre>'.print_r($mdata,true).'</pre>';
-        die;
-    
+        }    
     }
 }
