@@ -64,4 +64,10 @@ class Auth extends BaseController
             return redirect()->to(BASE_URL . 'godmode/dashboard');
         }
     }
+
+    public function logout()
+    {
+        $this->session->remove('logged_user');
+        return redirect()->to(BASE_URL . 'godmode/auth/signin');
+    }
 }

@@ -36,6 +36,9 @@
                             timerProgressBar: true,
                         });
 
+                        // Change last instructor
+                        $(".last-insturctions").text("Buy A");
+
                         // Add attribute input and button buy for disabled
                         $("#buy-a").attr('disabled', true);
                         $("#send-buy-a").attr('disabled', true);
@@ -130,6 +133,10 @@
                             timer: 3000,
                             timerProgressBar: true,
                         });
+
+                        // Change last instructor
+                        $(".last-insturctions").text("Buy B");
+
                         // Add attribute input and button buy for disabled
                         $("#buy-b").attr('disabled', true);
                         $("#send-buy-b").attr('disabled', true);
@@ -223,6 +230,10 @@
                             timer: 3000,
                             timerProgressBar: true,
                         });
+
+                        // Change last instructor
+                        $(".last-insturctions").text("Buy C");
+
                         // Add attribute input and button buy for disabled
                         $("#buy-c").attr('disabled', true);
                         $("#send-buy-c").attr('disabled', true);
@@ -315,6 +326,10 @@
                             timer: 3000,
                             timerProgressBar: true,
                         });
+
+                        // Change last instructor
+                        $(".last-insturctions").text("Buy D");
+
                         // Add attribute input and button buy for disabled
                         $("#buy-d").attr('disabled', true);
                         $("#send-buy-d").attr('disabled', true);

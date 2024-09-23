@@ -8,8 +8,11 @@
         });
 
         $('#table_message').DataTable({
-            pageLength: 50,
+            "pageLength": 25,
             "scrollX": true,
+            "order": false,
         });
+
     });
+
 </script>

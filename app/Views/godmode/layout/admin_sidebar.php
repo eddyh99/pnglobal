@@ -72,8 +72,8 @@
                         <span class="<?= (@$active_msg != null) ? 'text-black' : 'text-white' ?>">Message</span>
                     </a>
                 </li>
-                <li>
-                    <a href="" class="iq-waves-effect">
+                <li class="<?= @$active_reff?>">
+                    <a href="<?=BASE_URL?>godmode/referral" class="iq-waves-effect">
                         <i>
                             <svg width="30" height="24" viewBox="0 0 30 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M15 10.525C17.4611 10.525 19.4563 8.52992 19.4563 6.0688C19.4563 3.60768 17.4611 1.61255 15 1.61255C12.5389 1.61255 10.5438 3.60768 10.5438 6.0688C10.5438 8.52992 12.5389 10.525 15 10.525Z" fill="<?= (@$active_reff != null) ? 'black' : 'white' ?>"/>
@@ -84,11 +84,11 @@
                                 <path d="M5.35628 10.2313L4.34377 10.5313H4.33748C1.74377 11.3125 0 13.6563 0 16.3625V21.375H3.54371V18.0125C3.54371 15.4312 4.81223 13.1167 6.85109 11.7261L5.35628 10.2313Z" fill="<?= (@$active_reff != null) ? 'black' : 'white' ?>"/>
                             </svg>
                         </i>
-                        <span>Referral</span>
+                        <span class="<?= (@$active_reff != null) ? 'text-black' : 'text-white' ?>">Referral</span>
                     </a>
                 </li>
                 <li>
-                    <a href="" class="iq-waves-effect">
+                    <a href="<?= BASE_URL ?>godmode/auth/logout" class="iq-waves-effect">
                         <i>
                             <svg width="36" height="37" viewBox="0 0 36 37" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M18 18.561H31.5M31.5 18.561L27.75 14.811M31.5 18.561L27.75 22.311M22.5 13.311V13.161C22.5 9.78628 22.5 8.0989 21.6406 6.916C21.363 6.53398 21.0271 6.19802 20.645 5.92046C19.4621 5.06104 17.7748 5.06104 14.4 5.06104H12.6C9.22524 5.06104 7.53786 5.06104 6.35497 5.92046C5.97294 6.19802 5.63698 6.53398 5.35942 6.916C4.5 8.0989 4.5 9.78628 4.5 13.161V23.961C4.5 27.3358 4.5 29.0232 5.35942 30.2061C5.63698 30.5881 5.97294 30.9241 6.35497 31.2016C7.53786 32.061 9.22524 32.061 12.6 32.061H14.4C17.7748 32.061 19.4621 32.061 20.645 31.2016C21.0271 30.9241 21.363 30.5881 21.6406 30.2061C22.5 29.0232 22.5 27.3358 22.5 23.961V23.811" stroke="white" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round"/>

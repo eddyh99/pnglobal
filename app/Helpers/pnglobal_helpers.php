@@ -120,35 +120,35 @@ function sendmail_booking($subject, $mdata){
 
 function sendmail_satoshi($email, $subject, $message){
     $mail = new PHPMailer();
-    $mail->isSMTP();
-    $mail->Host         = HOST_MAIL;
-    $mail->SMTPAuth     = true;
-    $mail->Username     = USERNAME_MAIL;
-    $mail->Password     = PASS_MAIL;
-    $mail->SMTPAutoTLS  = true;
-    $mail->SMTPSecure   = "tls";
-    $mail->Port         = 587;
-    // $mail->SMTPDebug    = 2;
-    $mail->SMTPOptions = array(
-        'ssl'   => array(
-            'verify_peer'           => false,
-            'verify_peer_name'      => false,
-            'allow_self_signed'     => false,
-        )
-    );
+    try{
+        $mail->isSMTP();
+        $mail->Host         = HOST_MAIL;
+        $mail->SMTPAuth     = true;
+        $mail->Username     = USERNAME_MAIL;
+        $mail->Password     = PASS_MAIL;
+        $mail->SMTPAutoTLS  = true;
+        $mail->SMTPSecure   = "tls";
+        $mail->Port         = 587;
+        $mail->SMTPOptions = array(
+            'ssl'   => array(
+                'verify_peer'           => false,
+                'verify_peer_name'      => false,
+                'allow_self_signed'     => false,
+            )
+        );
+
+        $mail->setFrom(USERNAME_MAIL, NAMETITLE . ' Activation Email');
+        $mail->isHTML(true);
+        $mail->ClearAllRecipients();
+        $mail->Subject = $subject;
+        $mail->AddAddress($email);
+        $mail->msgHTML($message);
+        $mail->send();
+    }catch (Exception $e){
+        exit();
+    }
 
 
-    $mail->setFrom(USERNAME_MAIL, NAMETITLE);
-    $mail->isHTML(true);
-
-    $mail->ClearAllRecipients();
-
-
-    $mail->Subject = $subject;
-    $mail->AddAddress($email);
-
-    $mail->msgHTML($message);
-    $mail->send();
 }
 
 

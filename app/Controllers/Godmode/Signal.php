@@ -63,6 +63,69 @@ class Signal extends BaseController
             }
         }
 
+
+
+        // Call Endpoin read history all signal
+        $url = URLAPI . "/v1/signal/readhistory";
+        $resultActive = satoshiAdmin($url)->result->message;
+
+        // initialitation variable dengan tipe data array
+        $newarray = [];
+        $tempGroup = [];
+ 
+        // Looping for grouping per period, pembatas field is Buy A again
+        foreach($resultActive as $key => $dt){
+
+            $temp = (object) [
+                'id' => $dt->id,
+                'type' => $dt->type,
+                'entry_price' => $dt->entry_price,
+                'pair_id' => $dt->pair_id,
+                'created_at' => $dt->created_at,
+                'update_at' => $dt->update_at,
+            ];
+
+            array_push($tempGroup,  $temp);
+
+            if($dt->type == 'Buy A'){
+                array_push($newarray, $tempGroup);
+                $tempGroup = [];
+                // stop hanya index ke 0
+                break; 
+            }
+        }
+  
+        // For get instruction last order
+        $order = '';
+        $lastdate = '';
+        $temp_price = '';
+        foreach($newarray[0] as $key => $dt){
+
+            $type = explode(" ", $dt->type);
+
+            if($key == 0){
+                $order = $dt->type;
+                $lastdate = $dt->created_at;
+                $temp_price = $dt->entry_price;
+
+                if($type[0] == 'Buy'){
+                    $order = $dt->type;
+                    $lastdate = $dt->created_at;
+                    break;
+                }
+            }
+
+            if($type[0] == 'Sell' && $dt->entry_price == $temp_price){
+                $order = $dt->type;
+                $lastdate = $dt->created_at;
+            }
+
+            if($type[0] == 'Buy'){
+                break;
+            }
+
+        }
+
         $mdata = [
             'title'     => 'Signal - ' . NAMETITLE,
             'content'   => 'godmode/signal/index',
@@ -72,6 +135,8 @@ class Signal extends BaseController
             'buy_b'      => $buy_b,
             'buy_c'      => $buy_c,
             'buy_d'      => $buy_d,
+            'order'      => $order,
+            'lastdate'      => $lastdate,
         ];
 
         return view('godmode/layout/admin_wrapper', $mdata);

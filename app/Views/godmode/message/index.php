@@ -19,35 +19,30 @@
                     <thead>
                         <tr>
                             <th>Subject</th>
-                            <th class="d-flex justify-content-end">Action</th>
+                            <th>Message</th>
+                            <th class="d-flex justify-content-end">Date</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>INI SUBJECT</td>
-                            <td class="d-flex justify-content-end align-items-center">01/12/2024 <a href="" style="margin-left: 10px; font-size: 24px;"><i class="las la-trash text-white"></i></a></td>
-                        </tr>
-                        <tr>
-                            <td>INI SUBJECT</td>
-                            <td class="d-flex justify-content-end align-items-center">01/12/2024 <a href="" style="margin-left: 10px; font-size: 24px;"><i class="las la-trash text-white"></i></a></td>
-                        </tr>
-                        <tr>
-                            <td>INI SUBJECT</td>
-                            <td class="d-flex justify-content-end align-items-center">01/12/2024 <a href="" style="margin-left: 10px; font-size: 24px;"><i class="las la-trash text-white"></i></a></td>
-                        </tr>
-                        <tr>
-                            <td>INI SUBJECT</td>
-                            <td class="d-flex justify-content-end align-items-center">01/12/2024 <a href="" style="margin-left: 10px; font-size: 24px;"><i class="las la-trash text-white"></i></a></td>
-                        </tr>
-                        <tr>
-                            <td>INI SUBJECT</td>
-                            <td class="d-flex justify-content-end align-items-center">01/12/2024 <a href="" style="margin-left: 10px; font-size: 24px;"><i class="las la-trash text-white"></i></a></td>
-                        </tr>
-                        <tr>
-                            <td>INI SUBJECT</td>
-                            <td class="d-flex justify-content-end align-items-center">01/12/2024 <a href="" style="margin-left: 10px; font-size: 24px;"><i class="las la-trash text-white"></i></a></td>
-                        </tr>
-                        
+                        <?php foreach($message as $dt){?>
+                            <tr>
+                                <td><?= $dt->title?></td>
+                                <td>
+                                    <?php 
+                                        $temp = html_entity_decode($dt->pesan);
+                                        echo htmlspecialchars_decode($temp);
+                                    ?>
+                                </td>
+                                <td class="d-flex justify-content-end align-items-center">
+                                    <?php 
+                                        $dateString = $dt->created_at;
+                                        $date = new DateTime($dateString);
+                                        $formattedDate = $date->format('d M Y');
+                                        echo $formattedDate;
+                                    ?>
+                                </td>
+                            </tr>    
+                        <?php }?>
                     </tbody>
                 </table>
             </div>
