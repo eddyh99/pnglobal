@@ -24,9 +24,9 @@
     <!-- Bootstrap -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/livecanvas-team/ninjabootstrap/dist/css/bootstrap.min.css" media="all">
 
-    <!-- Stripe -->
-<!--    <script src="https://js.stripe.com/v3/"></script>
--->    
+    <!-- Datatables CSS -->
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/dataTables.bootstrap5.min.css" />
+
     <!-- Custom CSS -->
     <link rel="stylesheet" href="<?= BASE_URL ?>assets/style/widget/widget.css">
 

@@ -19,6 +19,11 @@
     margin: 0;
 }
 
+a {
+    color: #FFFFFF;
+    text-decoration: none;
+}
+
 .btn-subs-continue {
     display: flex;
     justify-content: center;
@@ -188,7 +193,7 @@
     clip: rect(0, 0, 0, 0);
     height: 1px;
     margin: -1px;
-    overflow: hidden;
+    // overflow: hidden;
     padding: 0;
     position: absolute;
     white-space: nowrap;
@@ -363,5 +368,77 @@
             font-weight: 400;
         }
 
+    }
+}
+
+.table {
+    color: #FFFFFF;
+}
+
+.table thead th {
+    border-bottom: none;
+}
+
+.table td {
+    border-top: 1px solid #BFA573;
+}
+
+.table th {
+    border-top: none;
+}
+
+
+#table_message_wrapper {
+    border: 2px solid #BFA573;
+    border-radius: 4px;
+    padding: 6px;
+}
+
+#table_message_filter, #table_message_length {
+    display:  none;
+}
+
+#table_message_length {
+    padding: 0.5rem;
+}
+
+#table_message_length select{
+    padding: 0.2rem;
+}
+
+#table_message_paginate,#table_message_info {
+    padding: 1rem;
+    color: #FFFFFF;
+}
+
+.wrapper-detailmessage {
+    border: 2px solid #BFA573;
+    border-radius: 10px;
+
+
+    .header-detailmessage {
+        border-bottom:  2px solid #BFA573;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0.8rem;
+
+        h1 {
+            font-size: 14px;
+            color: #FFFFFF;
+        }
+
+        span {
+            font-size: 12px;
+            color: #FFFFFF;
+        }
+    }
+
+    .body-detailmessage {
+        padding: 0.8rem;
+        p {
+            font-size: 12px;
+            color: #FFFFFF !important;
+        }
     }
 }

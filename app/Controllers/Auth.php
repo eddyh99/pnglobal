@@ -33,7 +33,6 @@ class Auth extends BaseController
     public function send_activation($email)
 	{
 		$email = urldecode($email);
-		$email =  $this->security->xss_clean($email);
 		$subject = "Satoshi Signal Activation Account";
 
 
