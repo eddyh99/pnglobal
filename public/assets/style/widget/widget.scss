@@ -67,6 +67,10 @@ a {
             position: relative;
             border: none;
             
+            &.disabled {
+                background-color: #3b3b3b;
+            }
+            
             &:hover {
                 box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.15);
             }
@@ -126,6 +130,10 @@ a {
         background-color: #B48B3D;
         border-radius: 0.5em 0.5em 0em 0em;
         padding: 0.5em 0.7rem;
+
+        &.disabled {
+            background-color: #4d4d4d;
+        }
 
         .plan-title {
             color: #FFFFFF;
@@ -359,13 +367,14 @@ a {
         .title {
             color: #FFFFFF;
             font-weight: 400;
-            font-size: 32px;
+            font-size: 18px;
         }
 
         .desc {
-            font-size: 14px;
+            font-size: 13px;
             color: #FFFFFF;
             font-weight: 400;
+            line-height: 24px;
         }
 
     }
@@ -440,5 +449,20 @@ a {
             font-size: 12px;
             color: #FFFFFF !important;
         }
+    }
+}
+
+.upgrade-plan {
+    position: relative;
+
+    input {
+        padding: 13px;
+        font-size: 14px;
+    }
+
+    .btn-primary {
+        position: absolute;
+        top: 5px;
+        right: 5px;
     }
 }

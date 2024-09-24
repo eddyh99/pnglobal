@@ -23,6 +23,9 @@
     
     <!-- Format Price -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/autonumeric/1.8.2/autoNumeric.js"></script>
+
+    <!-- Sweet Alert -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     
     <!-- Custom General Javascript -->
     <script src="<?= BASE_URL ?>assets/js/script.js"></script>

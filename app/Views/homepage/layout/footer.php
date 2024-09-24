@@ -12,7 +12,7 @@
                         <p class="f-inter">
                             <span translate='no'> PN Global </span> invites you to join our training programs to become experienced and competent entrepreneurs. Contact us today to find out how we can help you build a successful future in the global landscape.
                         </p>
-                        <a href="<?= BASE_URL ?>homepage/bookingconsultation" class="btn-footer-contactform">Contact Form</a>
+                        <a href="<?= BASE_URL ?>homepage/contactform" class="btn-footer-contactform">Contact Form</a>
                     </div>
                     <div class="d-none d-lg-flex col-6 video-trainingform">
                         <video autoplay="" preload="" muted="" loop="" playsinline="">
@@ -39,7 +39,7 @@
                         <p>
                             By filling out the form at the link below, you can apply to be considered for our exclusive training programs. Our activities are limited to a select number of participants. The selection process is divided into two stages: first, your application will be reviewed based on the submitted form, and only the most compelling candidates will advance to the second stage, which involves an individual interview
                         </p>
-                        <a href="<?= BASE_URL ?>homepage/bookingconsultation" class="btn-footer-enrollnow">Contact Form</a>
+                        <a href="<?= BASE_URL ?>homepage/contactform" class="btn-footer-enrollnow">Contact Form</a>
                     </div>
                     <div class="d-none d-lg-flex align-items-center col-6 video-trainingform">
                         <video autoplay="" preload="" muted="" loop="" playsinline="">
@@ -108,7 +108,7 @@
                         </div>
                     </div>
                     <div class="list mt-4 mt-md-0">
-                        <a class="mb-4" href="">About Pn Global</a>
+                        <a class="mb-4" href="<?= BASE_URL ?>homepage/about">About Pn Global</a>
                         <a class="my-4" href="#consulting">Consulting</a>
                         <a class="my-4" href="#service">Services</a>
                         <a class="mt-4" href="#hotdeal">Hot Deal</a>
