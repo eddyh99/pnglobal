@@ -6,7 +6,7 @@
                 <span class="desc">We was send an email to <?= $email?></span> <br>
             </div>
             <div class="d-flex justify-content-center mt-4">
-                <img class="img-fluid" src="<?= BASE_URL?>assets/img/logo.png" alt="logo">
+                <img style="width: 140px;" class="img-fluid" src="<?= BASE_URL?>assets/img/logo.png" alt="logo">
             </div>
             <div class="title-top d-flex flex-column justify-content-center align-items-center">
                 <span class="desc text-center">Check email from SATOSHI SIGNAL,</span> <br>

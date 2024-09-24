@@ -1,4 +1,4 @@
-<div class="contact wrapper">
+<div class="contact wrapper" style="margin-top: 96px;">
     <div class="row">
         <div class="col-5 d-none d-lg-block bg-contact-wrap position-relative">
             <div class="bg-contact d-flex flex-column justify-content-between align-items-center">

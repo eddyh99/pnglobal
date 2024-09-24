@@ -223,7 +223,6 @@ class Homepage extends BaseController
 
     public function booking_proccess()
     {
-
         $token = htmlspecialchars($this->request->getVar('stripeToken'));
 
         // Stripe secret key
@@ -456,7 +455,8 @@ class Homepage extends BaseController
         $mdata = [
             'title'     => 'Privacy Policy - ' . NAMETITLE,
             'content'   => 'homepage/privacy_policy',
-            'extra'     => 'homepage/js/_js_privacy_policy'
+            'extra'     => 'homepage/js/_js_privacy_policy',
+            'flag'      => 'privacy'
         ];
 
         return view('homepage/layout/wrapper-contactus', $mdata);
@@ -467,7 +467,8 @@ class Homepage extends BaseController
         $mdata = [
             'title'     => 'Privacy Policy - ' . NAMETITLE,
             'content'   => 'homepage/terms_conditions',
-            'extra'     => 'homepage/js/_js_privacy_policy'
+            'extra'     => 'homepage/js/_js_privacy_policy',
+            'flag'      => 'terms'
         ];
 
         return view('homepage/layout/wrapper-contactus', $mdata);

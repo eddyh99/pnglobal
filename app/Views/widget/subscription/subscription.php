@@ -85,7 +85,7 @@
                     <label class="card mt-3">
                         <input 
                             name="subs" 
-                            value="<?= (empty($ref)) ? ($subsprice[0]->price*12).',1 Year Regular' : ($subsprice[0]->ref_price*12).',1 Year With Referral' ?>" 
+                            value="<?= (empty($ref)) ? ($subsprice[0]->price*12).',12 Year Regular' : ($subsprice[0]->ref_price*12).',12 Year With Referral' ?>" 
                             class="radio" 
                             type="radio"
                             checked
