@@ -163,7 +163,7 @@ class Auth extends BaseController
 					font-size: 14px;
 					color: #000000;
 					'>
-						Thank you for use Satoshi Signal App. To proceed with your request, please copy token reset password below 
+						Thank you for using Satoshi Signal App. To proceed with your request, please copy token reset password below 
 					</p>
 					<h2 id='copyToken'>
 						".$resultMember->token."

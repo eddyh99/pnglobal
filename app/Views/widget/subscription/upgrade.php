@@ -7,9 +7,9 @@
 <div class="app-content px-2 row  mb-5 pb-5">
     <div class="app-member mx-auto col-12 col-lg-8  border-1 border-white">
         <div class="subs">
-            <div class="title-top">
+            <!-- <div class="title-top">
                 <h1 class="title">Upgrade Your Plan</h1>
-            </div>
+            </div> -->
             <div class="list-subs">
                 <form method="POST" id="checking-referral">
                     <div class="position-relative upgrade-plan">
@@ -21,7 +21,7 @@
             <form id="payment-form" action="<?=BASE_URL?>widget/subscription/upgrade_proccess" method="POST">
                 <input type="hidden" name="email" value="<?= $member->email; ?>">
                 <input type="hidden" name="new_referral" id="new-referral">
-                <div class="list-subs">
+                <div class="list-subs mt-3">
                     <label class="card <?= (($member->total_period >= 30) ? "disabled" : "")?> mt-3">
                         <input 
                             id="plan-onemonth"
