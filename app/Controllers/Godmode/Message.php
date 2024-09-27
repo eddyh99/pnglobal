@@ -47,7 +47,7 @@ class Message extends BaseController
 
         // Checking Validation
         if(!$rules){
-            session()->setFlashdata('failed', $this->validation->listErrors());
+            session()->setFlashdata('error_validation', $this->validation->listErrors());
             return redirect()->to(BASE_URL . 'godmode/message');
         }
 
@@ -61,6 +61,7 @@ class Message extends BaseController
         $url = URLAPI . "/v1/signal/send_message";
         $response = satoshiAdmin($url, json_encode($mdata));
         $result = $response->result;
+        
         
         if($result->code != '201') {
             session()->setFlashdata('failed', $result->message);

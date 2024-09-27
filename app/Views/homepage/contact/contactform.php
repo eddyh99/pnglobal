@@ -45,6 +45,7 @@
                 </a>
             </div>
             <form id="contact-form" action="<?= BASE_URL ?>homepage/contactform_proccess" method="POST" enctype="multipart/form-data">
+                <input type="hidden" name="subject" value="<?= $subject?>">
                 <div class="img-fluid wrapper-field">
                     <h1 class="fw-bold f-cormorant mb-3">Contact Form</h1>
                     <div class="bg-field">
