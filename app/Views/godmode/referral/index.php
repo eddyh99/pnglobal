@@ -81,6 +81,21 @@
             });
         }, 100);
     <?php }?>
+    
+    <?php if(!empty(session('error_validation'))) { ?>
+        setTimeout(function() {
+            Swal.fire({
+                html: '<?= trim(str_replace('"', '', json_encode($_SESSION['error_validation']))) ?>',
+                showCloseButton: true,
+                showConfirmButton: false,
+                background: '#FFE4DC',
+                color: '#000000',
+                position: 'top-end',
+                timer: 3000,
+                timerProgressBar: true,
+            });
+        }, 100);
+    <?php }?>
 </script>
 
 

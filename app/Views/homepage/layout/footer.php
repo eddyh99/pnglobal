@@ -12,7 +12,7 @@
                         <p class="f-inter">
                             <span translate='no'> PN Global </span> invites you to join our training programs to become experienced and competent entrepreneurs. Contact us today to find out how we can help you build a successful future in the global landscape.
                         </p>
-                        <a href="<?= BASE_URL ?>homepage/contactform" class="btn-footer-contactform">Contact Form</a>
+                        <a href="<?= BASE_URL ?>homepage/contactform?service=<?= base64_encode($title)?>" class="btn-footer-contactform">Contact Form</a>
                     </div>
                     <div class="d-none d-lg-flex col-6 video-trainingform">
                         <video autoplay="" preload="" muted="" loop="" playsinline="">
@@ -39,7 +39,7 @@
                         <p>
                             By filling out the form at the link below, you can apply to be considered for our exclusive training programs. Our activities are limited to a select number of participants. The selection process is divided into two stages: first, your application will be reviewed based on the submitted form, and only the most compelling candidates will advance to the second stage, which involves an individual interview
                         </p>
-                        <a href="<?= BASE_URL ?>homepage/contactform" class="btn-footer-enrollnow">Contact Form</a>
+                        <a href="<?= BASE_URL ?>homepage/contactform?service=<?= base64_encode($title)?>" class="btn-footer-enrollnow">Contact Form</a>
                     </div>
                     <div class="d-none d-lg-flex align-items-center col-6 video-trainingform">
                         <video autoplay="" preload="" muted="" loop="" playsinline="">
@@ -67,7 +67,7 @@
                         <p id="g-textgetintouch" class="f-inter">
                             If you would like more information about our services or would like to discuss your specific needs with one of our experts, please contact us. Our team of financial consultants, lawyers and accountants is at your disposal to offer you personalized support and timely responses. We are ready to assist you with the utmost professionalism and competence.
                         </p>
-                        <a href="<?= BASE_URL ?>homepage/bookingconsultation" class="btn-footer-contactform">Book a Consultation</a>
+                        <a href="<?= BASE_URL ?>homepage/bookingconsultation?service=<?= base64_encode($title)?>" class="btn-footer-contactform">Book a Consultation</a>
                         
                     </div>
                     <div class="d-none d-md-flex col-4 logo-contactform">
@@ -170,7 +170,7 @@
                                     </svg>
                                 </span>
                                 <span class="ps-1">
-                                    <strong>OPERATIONAL DEPARTMENT FOR CUSTOMER FUNDS MANAGEMENT</strong> 128 City Road London EC1V 2NX (UK)
+                                    <strong>Operational Department for Customer Funds Management</strong> 128 City Road London EC1V 2NX (UK)
                                 </span>
                             </p>
                             <p class="f-inter text-white mb-4 d-flex">

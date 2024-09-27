@@ -22,7 +22,7 @@ class Homepage extends BaseController
             'title'     => 'Homepage - ' . NAMETITLE,
             'content'   => 'homepage/index',
             'extra'     => 'homepage/js/_js_index',
-            'extragsap' => 'homepage/gsap/gsap_homepage'
+            'extragsap' => 'homepage/gsap/gsap_homepage',
         ];
 
         return view('homepage/layout/wrapper', $mdata);
@@ -50,7 +50,7 @@ class Homepage extends BaseController
                 'title'     => 'Service Finance Advice Assets And Investment - ' . NAMETITLE,
                 'content'   => 'homepage/service/finance',
                 'extra'     => 'homepage/js/_js_index',
-                'extragsap' => 'homepage/gsap/gsap_finance'
+                'extragsap' => 'homepage/gsap/gsap_finance',
             ];
         }else if($service == "strategic_optimization"){
             $mdata = [
@@ -124,10 +124,16 @@ class Homepage extends BaseController
     // Contact Booking Consultant
     public function bookingconsultation()
     {
+
+        $service = base64_decode($_GET['service']);
+        $service = explode('-', $service);
+        $subject = $service[0];
+
         $mdata = [
             'title'     => 'Booking Consultant - ' . NAMETITLE,
             'content'   => 'homepage/contact/bookingconsultation',
-            'extra'     => 'homepage/contact/js/_js_bookingconsultation'
+            'extra'     => 'homepage/contact/js/_js_bookingconsultation',
+            'subject'   => $subject
         ];
 
         return view('homepage/layout/wrapper-contactus', $mdata);
@@ -183,6 +189,10 @@ class Homepage extends BaseController
                 'label'     => 'Schedule', 
                 'rules'     => 'trim|required'
             ],
+            'subject'      => [
+                'label'     => 'Subject', 
+                'rules'     => 'required'
+            ],
         ]);
 
         // Checking Validation
@@ -206,7 +216,8 @@ class Homepage extends BaseController
             'datetime'      => htmlspecialchars($this->request->getVar('schedule')),
             'timezone'      =>  htmlspecialchars($this->request->getVar('timezone')),
             'description'   => htmlspecialchars($this->request->getVar('desc')),
-            'email'         => $newEmail
+            'email'         => $newEmail,
+            'subject'       => htmlspecialchars($this->request->getVar('subject'))
         ];
 
         $this->session->set('client', $mdata);
@@ -245,7 +256,7 @@ class Homepage extends BaseController
             $slotStart = $slot[0];
             $slotEnd = $slot[1];
 
-            $eventName = NAMETITLE . ' - Booking Consultation';
+            $eventName = NAMETITLE . ' - Booking Consultation ' . $_SESSION['client']['subject'] . ' | ' . $_SESSION['client']['fname'];
             $timezone = $_SESSION['client']['timezone'];
             $description = '<div>
                                 <p>Fullname: '.$_SESSION['client']['fname']  . ' ' . $_SESSION['client']['lname'].'</p>
@@ -275,7 +286,8 @@ class Homepage extends BaseController
                 $this->googleCalendarService->createEvent($calendarId, $eventData);
 
                 // Subject
-                $subject = NAMETITLE . ' - Booking Consultation ' . $_SESSION['client']['fname'];
+                $subject = NAMETITLE . ' - Booking Consultation ' . $_SESSION['client']['subject'] . ' | ' . $_SESSION['client']['fname'];
+
 
                 // Assign SESSION client
                 $mdata = $_SESSION['client'];
@@ -298,10 +310,16 @@ class Homepage extends BaseController
     // Contact Form Normaly
     public function contactform()
     {
+        
+        $service = base64_decode($_GET['service']);
+        $service = explode('-', $service);
+        $subject = $service[0];
+
         $mdata = [
             'title'     => 'Contact Form - ' . NAMETITLE,
             'content'   => 'homepage/contact/contactform',
-            'extra'     => 'homepage/contact/js/_js_contactform'
+            'extra'     => 'homepage/contact/js/_js_contactform',
+            'subject'   => $subject
         ];
 
         return view('homepage/layout/wrapper-contactus', $mdata);
@@ -331,6 +349,10 @@ class Homepage extends BaseController
                 'label'     => 'Description',
                 'rules'     => 'required'
             ],
+            'subject'      => [
+                'label'     => 'Subject', 
+                'rules'     => 'required'
+            ],
 
         ]);
 
@@ -349,8 +371,10 @@ class Homepage extends BaseController
             'email'         => filter_var($this->request->getVar('email'), FILTER_VALIDATE_EMAIL)
         ];
 
+        $tempSubject = htmlspecialchars($this->request->getVar('subject'));
+
         // Subject
-        $subject = NAMETITLE . ' - Contact Form ' . $mdata['fname'];
+        $subject = NAMETITLE . ' - Contact Form ' . $tempSubject . ' | ' . $mdata['fname'];
 
         sendmail_contactform($subject, $mdata);
     }

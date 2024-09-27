@@ -34,7 +34,7 @@ class Referral extends BaseController
 
         // Checking Validation
         if(!$rules){
-            session()->setFlashdata('failed', $this->validation->listErrors());
+            session()->setFlashdata('error_validation', $this->validation->listErrors());
             return redirect()->to(BASE_URL . 'godmode/referral');
         }
 

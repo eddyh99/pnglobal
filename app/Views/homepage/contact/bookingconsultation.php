@@ -45,6 +45,7 @@
                 </a>
             </div>
             <form id="formbooking" action="<?= BASE_URL ?>homepage/booking_summary" method="POST">
+                <input type="hidden" name="subject" value="<?= $subject?>">
                 <div class="img-fluid wrapper-field">
                     <h1 class="fw-bold f-cormorant">Booking Consultation</h1>
                     <p class="me-0 pe-0 me-md-5 pe-md-5">
