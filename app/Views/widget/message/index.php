@@ -30,14 +30,6 @@
                         </td>
                     </tr>
                 <?php }?>
-                <tr>
-                    <td>
-                        <a href="">
-                            BUY A B C
-                        </a>
-                    </td>
-                    <td class="text-end">20/09/24</td>
-                </tr>
             </tbody>
         </table>
     </div>

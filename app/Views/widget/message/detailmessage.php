@@ -19,7 +19,10 @@
             </div>
             <div class="body-detailmessage">
                 <p>
-                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Qui magnam corrupti facilis, impedit, in molestias nam unde amet aliquam modi atque voluptatum rerum quaerat tempore ut debitis mollitia, consectetur iure.
+                    <?php 
+                        $temp = html_entity_decode($detail->pesan);
+                        echo htmlspecialchars_decode($temp);
+                    ?>
                 </p>
             </div>
         </div>
