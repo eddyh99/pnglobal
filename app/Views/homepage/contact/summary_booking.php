@@ -1,3 +1,4 @@
+<?php require_once("countries-list.php")?>
 <div class="contact wrapper" style="margin-top: 96px;">
     <div class="row">
     <div class="col-5 d-none d-lg-block bg-contact-wrap position-relative">
@@ -98,9 +99,27 @@
                         <div id="card-element" class="StripeElement"></div>
                         <div class="card-brand" id="card-brand"></div>
                     </div>
+                    <div class="mt-3 f-poppins pe-4">
+                        <label for="cardholder-name">Cardholder's Name</label>
+                        <input type="text" id="cardholder-name" placeholder="Full Name" class="form-control" required>
+                    </div>
+                    
+                    <div class="mt-3 f-poppins pe-4">
+                        <label for="billing-address-line1">Billing Address</label>
+                        <input type="text" id="billing-address-line1"  class="form-control mt-1" placeholder="Address Line 1" required>
+                        <input type="text" id="billing-address-city"  class="form-control mt-1" placeholder="City" required>
+                        <input type="text" id="billing-address-state"  class="form-control mt-1" placeholder="State" required>
+                        <input type="text" id="billing-address-zip"  class="form-control mt-1" placeholder="Postal Code" required>
+                        <select id="billing-address-country" class="form-control mt-1" required>
+                            <option value>---- Country ----</option>
+                            <?php foreach($countries_list  as $dt){?>
+                                <option value="<?=$dt["code"]?>"><?=$dt["name"]?></option>
+                            <?php }?>
+                        </select>
+                    </div>
         
                     <div class="mt-5 f-poppins">
-                        <button type="submit" class="btn btn-footer-contactform">CONFIRM</button>
+                        <button type="submit" id="submit-button" class="btn btn-footer-contactform">CONFIRM</button>
                     </div>
                     
                 </div>

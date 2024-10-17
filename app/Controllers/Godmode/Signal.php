@@ -228,6 +228,7 @@ class Signal extends BaseController
                 // Send Endpoin send signal Sell
                 $url = URLAPI . "/v1/signal/sendsignal";
                 $result = satoshiAdmin($url, json_encode($mdata))->result;
+                sleep(1);
             }
         }else if($typesignal == 'Sell B'){
             // initial Flag Buy B
@@ -247,6 +248,7 @@ class Signal extends BaseController
                     // Send Endpoin send signal Sell
                     $url = URLAPI . "/v1/signal/sendsignal";
                     $result = satoshiAdmin($url, json_encode($mdata))->result;
+                    sleep(1);
                 }
             }
         }else if($typesignal == 'Sell C'){
@@ -267,7 +269,8 @@ class Signal extends BaseController
                     // Send Endpoin send signal Sell
                     $url = URLAPI . "/v1/signal/sendsignal";
                     $result = satoshiAdmin($url, json_encode($mdata))->result;
-                }
+                    sleep(1);
+            }
             }
         }else if($typesignal == 'Sell D'){
             // initial Flag Buy D

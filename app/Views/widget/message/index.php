@@ -23,21 +23,13 @@
                                 <?php 
                                     $dateString = $dt->created_at;
                                     $date = new DateTime($dateString);
-                                    $formattedDate = $date->format('d/m/y');
+                                    $formattedDate = $date->format('m/d/y');
                                     echo $formattedDate;
                                 ?>
                             </a>
                         </td>
                     </tr>
                 <?php }?>
-                <tr>
-                    <td>
-                        <a href="">
-                            BUY A B C
-                        </a>
-                    </td>
-                    <td class="text-end">20/09/24</td>
-                </tr>
             </tbody>
         </table>
     </div>

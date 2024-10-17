@@ -37,8 +37,8 @@ function sendmail_booking($subject, $mdata){
         $mail->Username     = USERNAME_MAIL;
         $mail->Password     = PASS_MAIL;
         $mail->SMTPAutoTLS  = true;
-        $mail->SMTPSecure   = "tls";
-        $mail->Port         = 587;
+        $mail->SMTPSecure   = "ssl";
+        $mail->Port         = 465;
         // $mail->SMTPDebug    = 2;
         $mail->SMTPOptions = array(
             'ssl'   => array(
@@ -74,8 +74,8 @@ function sendmail_booking($subject, $mdata){
             $mail->Username     = USERNAME_MAIL;
             $mail->Password     = PASS_MAIL;
             $mail->SMTPAutoTLS  = true;
-            $mail->SMTPSecure   = "tls";
-            $mail->Port         = 587;
+            $mail->SMTPSecure   = "ssl";
+            $mail->Port         = 465;
             // $mail->SMTPDebug    = 2;
             $mail->SMTPOptions = array(
                 'ssl'   => array(
