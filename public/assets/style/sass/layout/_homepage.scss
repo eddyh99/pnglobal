@@ -54,29 +54,29 @@
             .logo-text-banner {
                 text-transform: uppercase;
                 letter-spacing: 8px;
-                clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+                // clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
                 font-size: 18px;
                 font-weight: 700;
                 text-align: center;
                 color: var.$text-white-pnglobal;
-                margin-top: 1.5rem;
+                // margin-top: 1.5rem;
 
-                .line-animation {
-                    @include mix.animation-reveal;
-                }
+                // .line-animation {
+                //     @include mix.animation-reveal;
+                // }
             }
 
             .logo-text-banner-teamwork {
                 letter-spacing: 4px;
-                clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+                // clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
                 font-weight: 700;
                 text-align: center;
                 color: var.$text-black-100-pnglobal;
                 margin-top: 1.5rem;
 
-                .line-animation {
-                    @include mix.animation-reveal;
-                }
+                // .line-animation {
+                //     @include mix.animation-reveal;
+                // }
             }
         }
     }
@@ -281,11 +281,11 @@
             .subtitle-why {
                 color: var.$text-primary-pnglobal;
                 margin-bottom: 1rem;
-                clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+                // clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
 
-                .line-animation{
-                    @include mix.animation-reveal;
-                }
+                // .line-animation{
+                //     @include mix.animation-reveal;
+                // }
             }
 
     
@@ -293,21 +293,21 @@
                 color: var.$text-white-pnglobal;
                 line-height: 25px;
                 padding-right: 0rem;
-                clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+                // clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
                 
-                .line-animation{
-                    display: inline-block;
-                    transform: translateY(200px);
-                    -webkit-transform: translateY(200px);
-                    -moz-transform: translateY(200px);
-                    -ms-transform: translateY(200px);
-                    -o-transform: translateY(200px);
-                    transition: transform .5s;
-                    -webkit-transition: transform .5s;
-                    -moz-transition: transform .5s;
-                    -ms-transition: transform .5s;
-                    -o-transition: transform .5s;
-                }
+                // .line-animation{
+                //     display: inline-block;
+                //     transform: translateY(200px);
+                //     -webkit-transform: translateY(200px);
+                //     -moz-transform: translateY(200px);
+                //     -ms-transform: translateY(200px);
+                //     -o-transform: translateY(200px);
+                //     transition: transform .5s;
+                //     -webkit-transition: transform .5s;
+                //     -moz-transition: transform .5s;
+                //     -ms-transition: transform .5s;
+                //     -o-transition: transform .5s;
+                // }
 
                 @include mix.xl2{
                     padding-right: 10rem;
@@ -416,7 +416,6 @@
                 border-radius: 20px;
                 
               
-
                 .flip-box-front,
                 .flip-box-back {
                     position: absolute;

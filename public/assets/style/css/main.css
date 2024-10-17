@@ -13061,46 +13061,17 @@ p {
 .banner-homepage .wrapper-banner-homepage .logo-banner .logo-text-banner {
   text-transform: uppercase;
   letter-spacing: 8px;
-  clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
   font-size: 18px;
   font-weight: 700;
   text-align: center;
   color: #FFFFFF;
-  margin-top: 1.5rem;
-}
-.banner-homepage .wrapper-banner-homepage .logo-banner .logo-text-banner .line-animation {
-  display: inline-block;
-  transform: translateY(115px);
-  -webkit-transform: translateY(115px);
-  -moz-transform: translateY(115px);
-  -ms-transform: translateY(115px);
-  -o-transform: translateY(115px);
-  transition: transform 0.5s;
-  -webkit-transition: transform 0.5s;
-  -moz-transition: transform 0.5s;
-  -ms-transition: transform 0.5s;
-  -o-transition: transform 0.5s;
 }
 .banner-homepage .wrapper-banner-homepage .logo-banner .logo-text-banner-teamwork {
   letter-spacing: 4px;
-  clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
   font-weight: 700;
   text-align: center;
   color: #383734;
   margin-top: 1.5rem;
-}
-.banner-homepage .wrapper-banner-homepage .logo-banner .logo-text-banner-teamwork .line-animation {
-  display: inline-block;
-  transform: translateY(115px);
-  -webkit-transform: translateY(115px);
-  -moz-transform: translateY(115px);
-  -ms-transform: translateY(115px);
-  -o-transform: translateY(115px);
-  transition: transform 0.5s;
-  -webkit-transition: transform 0.5s;
-  -moz-transition: transform 0.5s;
-  -ms-transition: transform 0.5s;
-  -o-transition: transform 0.5s;
 }
 
 /*----------------------------------------------------------
@@ -13290,39 +13261,11 @@ p {
 .why-homepage .why-right .wrapper-content-why .subtitle-why {
   color: #BFA573;
   margin-bottom: 1rem;
-  clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
-}
-.why-homepage .why-right .wrapper-content-why .subtitle-why .line-animation {
-  display: inline-block;
-  transform: translateY(115px);
-  -webkit-transform: translateY(115px);
-  -moz-transform: translateY(115px);
-  -ms-transform: translateY(115px);
-  -o-transform: translateY(115px);
-  transition: transform 0.5s;
-  -webkit-transition: transform 0.5s;
-  -moz-transition: transform 0.5s;
-  -ms-transition: transform 0.5s;
-  -o-transition: transform 0.5s;
 }
 .why-homepage .why-right .wrapper-content-why .content-why {
   color: #FFFFFF;
   line-height: 25px;
   padding-right: 0rem;
-  clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
-}
-.why-homepage .why-right .wrapper-content-why .content-why .line-animation {
-  display: inline-block;
-  transform: translateY(200px);
-  -webkit-transform: translateY(200px);
-  -moz-transform: translateY(200px);
-  -ms-transform: translateY(200px);
-  -o-transform: translateY(200px);
-  transition: transform 0.5s;
-  -webkit-transition: transform 0.5s;
-  -moz-transition: transform 0.5s;
-  -ms-transition: transform 0.5s;
-  -o-transition: transform 0.5s;
 }
 @media (min-width: 1200px) {
   .why-homepage .why-right .wrapper-content-why .content-why {
@@ -13849,36 +13792,6 @@ p {
 }
 .banner-service .wrapper-service .download-video .button-download .top {
   margin-top: 0.5rem;
-  clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
-}
-.banner-service .wrapper-service .download-video .button-download .top .btn-download {
-  display: inline-block;
-  transform: translateY(115px);
-  -webkit-transform: translateY(115px);
-  -moz-transform: translateY(115px);
-  -ms-transform: translateY(115px);
-  -o-transform: translateY(115px);
-  transition: transform 0.5s;
-  -webkit-transition: transform 0.5s;
-  -moz-transition: transform 0.5s;
-  -ms-transition: transform 0.5s;
-  -o-transition: transform 0.5s;
-}
-.banner-service .wrapper-service .download-video .button-download .bottom {
-  clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
-}
-.banner-service .wrapper-service .download-video .button-download .bottom .btn-download {
-  display: inline-block;
-  transform: translateY(115px);
-  -webkit-transform: translateY(115px);
-  -moz-transform: translateY(115px);
-  -ms-transform: translateY(115px);
-  -o-transform: translateY(115px);
-  transition: transform 0.5s;
-  -webkit-transition: transform 0.5s;
-  -moz-transition: transform 0.5s;
-  -ms-transition: transform 0.5s;
-  -o-transition: transform 0.5s;
 }
 .banner-service .wrapper-service .download-video .button-download .btn-download {
   padding: 0.5rem;
@@ -14791,19 +14704,6 @@ p {
 #finance-ourconsulting {
   overflow: hidden;
 }
-#finance-ourconsulting .line-animation {
-  display: inline-block;
-  transform: translateY(115px);
-  -webkit-transform: translateY(115px);
-  -moz-transform: translateY(115px);
-  -ms-transform: translateY(115px);
-  -o-transform: translateY(115px);
-  transition: transform 0.5s;
-  -webkit-transition: transform 0.5s;
-  -moz-transition: transform 0.5s;
-  -ms-transition: transform 0.5s;
-  -o-transition: transform 0.5s;
-}
 
 .win-finance {
   overflow: hidden !important;
@@ -14822,20 +14722,6 @@ p {
   display: flex;
   justify-content: end;
   align-items: end;
-  clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
-}
-.win-finance #g-financeconsultingimg.line-animation {
-  display: inline-block;
-  transform: translateY(300px);
-  -webkit-transform: translateY(300px);
-  -moz-transform: translateY(300px);
-  -ms-transform: translateY(300px);
-  -o-transform: translateY(300px);
-  transition: transform 0.5s;
-  -webkit-transition: transform 0.5s;
-  -moz-transition: transform 0.5s;
-  -ms-transition: transform 0.5s;
-  -o-transition: transform 0.5s;
 }
 
 .finance-service-one {
@@ -15036,55 +14922,13 @@ p {
 .legal-short-desc h1 {
   color: #BFA573;
   text-align: center;
-  clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
-}
-.legal-short-desc h1 .line-animation {
-  display: inline-block;
-  transform: translateY(115px);
-  -webkit-transform: translateY(115px);
-  -moz-transform: translateY(115px);
-  -ms-transform: translateY(115px);
-  -o-transform: translateY(115px);
-  transition: transform 0.5s;
-  -webkit-transition: transform 0.5s;
-  -moz-transition: transform 0.5s;
-  -ms-transition: transform 0.5s;
-  -o-transition: transform 0.5s;
 }
 .legal-short-desc h3 {
   margin-top: 1rem;
   text-align: center;
-  clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
-}
-.legal-short-desc h3 .line-animation {
-  display: inline-block;
-  transform: translateY(115px);
-  -webkit-transform: translateY(115px);
-  -moz-transform: translateY(115px);
-  -ms-transform: translateY(115px);
-  -o-transform: translateY(115px);
-  transition: transform 0.5s;
-  -webkit-transition: transform 0.5s;
-  -moz-transition: transform 0.5s;
-  -ms-transition: transform 0.5s;
-  -o-transition: transform 0.5s;
 }
 .legal-short-desc p {
   text-align: center;
-  clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
-}
-.legal-short-desc p .line-animation {
-  display: inline-block;
-  transform: translateY(115px);
-  -webkit-transform: translateY(115px);
-  -moz-transform: translateY(115px);
-  -ms-transform: translateY(115px);
-  -o-transform: translateY(115px);
-  transition: transform 0.5s;
-  -webkit-transition: transform 0.5s;
-  -moz-transition: transform 0.5s;
-  -ms-transition: transform 0.5s;
-  -o-transition: transform 0.5s;
 }
 
 .legal-hand {
@@ -15152,76 +14996,17 @@ p {
 .advance-training h2 {
   color: #BFA573;
   margin-top: 3rem;
-  clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
-}
-.advance-training h2 .line-animation {
-  display: inline-block;
-  transform: translateY(115px);
-  -webkit-transform: translateY(115px);
-  -moz-transform: translateY(115px);
-  -ms-transform: translateY(115px);
-  -o-transform: translateY(115px);
-  transition: transform 0.5s;
-  -webkit-transition: transform 0.5s;
-  -moz-transition: transform 0.5s;
-  -ms-transition: transform 0.5s;
-  -o-transition: transform 0.5s;
 }
 .advance-training h4 {
   margin-top: 1rem;
   color: #FFFFFF;
-  clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
-}
-.advance-training h4 .line-animation {
-  display: inline-block;
-  transform: translateY(115px);
-  -webkit-transform: translateY(115px);
-  -moz-transform: translateY(115px);
-  -ms-transform: translateY(115px);
-  -o-transform: translateY(115px);
-  transition: transform 0.5s;
-  -webkit-transition: transform 0.5s;
-  -moz-transition: transform 0.5s;
-  -ms-transition: transform 0.5s;
-  -o-transition: transform 0.5s;
 }
 .advance-training p {
   color: #FFFFFF;
   margin-top: 2rem;
   line-height: 35px;
   padding-bottom: 3rem;
-  clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
 }
-.advance-training p .line-animation {
-  display: inline-block;
-  transform: translateY(115px);
-  -webkit-transform: translateY(115px);
-  -moz-transform: translateY(115px);
-  -ms-transform: translateY(115px);
-  -o-transform: translateY(115px);
-  transition: transform 0.5s;
-  -webkit-transition: transform 0.5s;
-  -moz-transition: transform 0.5s;
-  -ms-transition: transform 0.5s;
-  -o-transition: transform 0.5s;
-}
-.advance-training #g-advancetrainingimg {
-  clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
-}
-.advance-training #g-advancetrainingimg .line-animation {
-  display: inline-block;
-  transform: translateY(300px);
-  -webkit-transform: translateY(300px);
-  -moz-transform: translateY(300px);
-  -ms-transform: translateY(300px);
-  -o-transform: translateY(300px);
-  transition: transform 0.5s;
-  -webkit-transition: transform 0.5s;
-  -moz-transition: transform 0.5s;
-  -ms-transition: transform 0.5s;
-  -o-transition: transform 0.5s;
-}
-
 .training-aspire {
   margin: 2rem 0;
 }
@@ -15423,23 +15208,6 @@ p {
 /*----------------------------------------------------------
 8. Satoshi Start
 ------------------------------------------------------------*/
-.satoshi-banner #g-text-downloadapp {
-  clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
-}
-.satoshi-banner #g-text-downloadapp .line-animation {
-  display: inline-block;
-  transform: translateY(115px);
-  -webkit-transform: translateY(115px);
-  -moz-transform: translateY(115px);
-  -ms-transform: translateY(115px);
-  -o-transform: translateY(115px);
-  transition: transform 0.5s;
-  -webkit-transition: transform 0.5s;
-  -moz-transition: transform 0.5s;
-  -ms-transition: transform 0.5s;
-  -o-transition: transform 0.5s;
-}
-
 .satoshi-short-desc {
   background-color: #B2A291;
   padding-top: 3rem;
@@ -16353,38 +16121,7 @@ p {
   justify-content: space-around;
   flex-wrap: wrap;
   margin-top: 2rem;
-  clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
 }
-.satoshi-useapp .left-side .button-download .btn-download {
-  display: inline-block;
-  transform: translateY(115px);
-  -webkit-transform: translateY(115px);
-  -moz-transform: translateY(115px);
-  -ms-transform: translateY(115px);
-  -o-transform: translateY(115px);
-  transition: transform 0.5s;
-  -webkit-transition: transform 0.5s;
-  -moz-transition: transform 0.5s;
-  -ms-transition: transform 0.5s;
-  -o-transition: transform 0.5s;
-}
-.satoshi-useapp #g-mobilesatoshi {
-  clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
-}
-.satoshi-useapp #g-mobilesatoshi .line-animation {
-  display: inline-block;
-  transform: translateY(300px);
-  -webkit-transform: translateY(300px);
-  -moz-transform: translateY(300px);
-  -ms-transform: translateY(300px);
-  -o-transform: translateY(300px);
-  transition: transform 0.5s;
-  -webkit-transition: transform 0.5s;
-  -moz-transition: transform 0.5s;
-  -ms-transition: transform 0.5s;
-  -o-transition: transform 0.5s;
-}
-
 .banner-satoshi {
   position: relative;
   overflow: hidden;
