@@ -234,73 +234,82 @@ class Homepage extends BaseController
 
     public function booking_proccess()
     {
-        $token = htmlspecialchars($this->request->getVar('stripeToken'));
-
         // Stripe secret key
         \Stripe\Stripe::setApiKey(SECRET_KEY); 
-
-        // Proses payment gateway
-        try {
-
-            // Insert Charge Stripe
-            $charge = \Stripe\Charge::create([
-                'amount' => 15000, // Amount in cents ($50.00)
-                'currency' => 'eur',
-                'description' => $_SESSION['client']['description'],
-                'source' => $token,
-            ]);
-
-            // Create Google Calendar
-            $calendarId = 'primary'; // Your calendar ID
-            $slot = explode("#", $_SESSION['client']['datetime']);
-            $slotStart = $slot[0];
-            $slotEnd = $slot[1];
-
-            $eventName = NAMETITLE . ' - Booking Consultation ' . $_SESSION['client']['subject'] . ' | ' . $_SESSION['client']['fname'];
-            $timezone = $_SESSION['client']['timezone'];
-            $description = '<div>
-                                <p>Fullname: '.$_SESSION['client']['fname']  . ' ' . $_SESSION['client']['lname'].'</p>
-                                <p>Whatsapp: '.$_SESSION['client']['whatsapp'].'</p>
-                                <p>Email: '.$_SESSION['client']['email'][0].'</p>
-                                <p>'.$_SESSION['client']['description'].'</p>
-                            </div>';
-
-            // Parse and format slot times back to RFC3339 for event creation
-            $slotStartDT = DateTime::createFromFormat('d-m-Y H:i:s', $slotStart, new DateTimeZone($timezone));
-            $slotEndDT = DateTime::createFromFormat('d-m-Y H:i:s', $slotEnd, new DateTimeZone($timezone));
-
-            $eventData = [
-                'summary' => $eventName,
-                'description' => $description,
-                'start' => [
-                    'dateTime' => $slotStartDT->format(DateTime::RFC3339),
-                    'timeZone' => $timezone,
-                ],
-                'end' => [
-                    'dateTime' => $slotEndDT->format(DateTime::RFC3339),
-                    'timeZone' => $timezone,
-                ],
-            ];
-
-            try {
-                $this->googleCalendarService->createEvent($calendarId, $eventData);
-
-                // Subject
-                $subject = NAMETITLE . ' - Booking Consultation ' . $_SESSION['client']['subject'] . ' | ' . $_SESSION['client']['fname'];
-
-
-                // Assign SESSION client
-                $mdata = $_SESSION['client'];
-
-                sendmail_booking($subject, $mdata);
+        $paymentMethodId = $_POST['payment_method_id'];
+        $amount = 15000; // Replace with the actual amount in cents (e.g., $50.00 = 5000)
+        $currency = 'usd'; // Replace with your desired currency
     
-            } catch (\RuntimeException $e) {
-                session()->setFlashdata('failed', 'Failed to booking schedule: '. $e->getMessage());
-                header("Location: ". BASE_URL . 'homepage/bookingconsultation');
-                exit();
-            }
+        try {
+            // Create a PaymentIntent with the payment method ID
+            $paymentIntent = \Stripe\PaymentIntent::create([
+                'amount' => $amount,
+                'currency' => $currency,
+                'payment_method' => $paymentMethodId,
+                'automatic_payment_methods' => [
+                    'enabled' => true,
+                    'allow_redirects' => 'never', // Disable redirect-based payment methods
+                ],
+            ]);
+            
+            if ($paymentIntent->status === 'requires_confirmation') {
+                 $confirmedPaymentIntent = $paymentIntent->confirm();
+                
+                // If the payment was successful, proceed with creating the calendar event
+                if ($confirmedPaymentIntent->status === 'succeeded') {
 
-        } catch (\Stripe\Exception\CardException $e) {
+                    // Create Google Calendar
+                    $calendarId = 'primary'; // Your calendar ID
+                    $slot = explode("#", $_SESSION['client']['datetime']);
+                    $slotStart = $slot[0];
+                    $slotEnd = $slot[1];
+        
+                    $eventName = NAMETITLE . ' - Booking Consultation ' . $_SESSION['client']['subject'] . ' | ' . $_SESSION['client']['fname'];
+                    $timezone = $_SESSION['client']['timezone'];
+                    $description = '<div>
+                                        <p>Fullname: '.$_SESSION['client']['fname']  . ' ' . $_SESSION['client']['lname'].'</p>
+                                        <p>Whatsapp: '.$_SESSION['client']['whatsapp'].'</p>
+                                        <p>Email: '.$_SESSION['client']['email'][0].'</p>
+                                        <p>'.$_SESSION['client']['description'].'</p>
+                                    </div>';
+        
+                    // Parse and format slot times back to RFC3339 for event creation
+                    $slotStartDT = DateTime::createFromFormat('d-m-Y H:i:s', $slotStart, new DateTimeZone($timezone));
+                    $slotEndDT = DateTime::createFromFormat('d-m-Y H:i:s', $slotEnd, new DateTimeZone($timezone));
+        
+                    $eventData = [
+                        'summary' => $eventName,
+                        'description' => $description,
+                        'start' => [
+                            'dateTime' => $slotStartDT->format(DateTime::RFC3339),
+                            'timeZone' => $timezone,
+                        ],
+                        'end' => [
+                            'dateTime' => $slotEndDT->format(DateTime::RFC3339),
+                            'timeZone' => $timezone,
+                        ],
+                    ];
+        
+                    try {
+                        $this->googleCalendarService->createEvent($calendarId, $eventData);
+        
+                        // Subject
+                        $subject = NAMETITLE . ' - Booking Consultation ' . $_SESSION['client']['subject'] . ' | ' . $_SESSION['client']['fname'];
+        
+        
+                        // Assign SESSION client
+                        $mdata = $_SESSION['client'];
+                        sendmail_booking($subject, $mdata);
+            
+                    } catch (\RuntimeException $e) {
+                        session()->setFlashdata('failed', 'Failed to booking schedule: '. $e->getMessage());
+                        header("Location: ". BASE_URL . 'homepage/bookingconsultation');
+                        exit();
+                    }
+        
+                }
+            }
+        }catch (\Stripe\Exception\CardException $e) {
             session()->setFlashdata('failed', 'Payment Failed: '. $e->getError()->message);
             header("Location: ". BASE_URL . 'homepage/bookingconsultation');
             exit();

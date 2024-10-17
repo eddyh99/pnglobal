@@ -23,7 +23,7 @@
                                 <?php 
                                     $dateString = $dt->created_at;
                                     $date = new DateTime($dateString);
-                                    $formattedDate = $date->format('d/m/y');
+                                    $formattedDate = $date->format('m/d/y');
                                     echo $formattedDate;
                                 ?>
                             </a>
