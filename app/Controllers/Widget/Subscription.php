@@ -55,21 +55,37 @@ class Subscription extends BaseController
 
         // Stripe secret key
         \Stripe\Stripe::setApiKey(SECRET_KEY); 
+        $paymentMethodId = $_POST['payment_method_id'];
+        $currency = 'usd';
 
         try {
 
-            $charge = \Stripe\Charge::create([
+            $paymentIntent = \Stripe\PaymentIntent::create([
                 'amount' => $amount,
-                'currency' => 'eur',
-                'description' => $desc,
-                'source' => $token,
+                'currency' => $currency,
+                'payment_method' => $paymentMethodId,
+                'automatic_payment_methods' => [
+                    'enabled' => true,
+                    'allow_redirects' => 'never', // Disable redirect-based payment methods
+                ],
             ]);
 
-            // POST subscribe member
-            $url = URLAPI . "/v1/subscription/paidsubscribe";
-            $result = satoshiAdmin($url, json_encode($mdata))->result->message;
-                        
-            header("Location: ". BASE_URL . 'widget/subscription/success?mail='.$mdata['email']);
+            if ($paymentIntent->status === 'requires_confirmation') {
+                $confirmedPaymentIntent = $paymentIntent->confirm();
+                
+                // If the payment was successful, proceed with creating the calendar event
+                if ($confirmedPaymentIntent->status === 'succeeded') {
+                    // POST subscribe member
+                    $url = URLAPI . "/v1/subscription/paidsubscribe";
+                    $result = satoshiAdmin($url, json_encode($mdata))->result->message;
+                                
+                    header("Location: ". BASE_URL . 'widget/subscription/success?mail='.$mdata['email']);
+                    exit();
+                }
+            }
+            
+            session()->setFlashdata('failed', 'Payment Failed: Please Try Again');
+            header("Location: ". BASE_URL . 'widget/subscription');
             exit();
 
         } catch (\Stripe\Exception\CardException $e) {
@@ -184,21 +200,37 @@ class Subscription extends BaseController
 
         // Stripe secret key
         \Stripe\Stripe::setApiKey(SECRET_KEY); 
+        $paymentMethodId = $_POST['payment_method_id'];
+        $currency = 'usd';
 
         try {
 
-            $charge = \Stripe\Charge::create([
+            $paymentIntent = \Stripe\PaymentIntent::create([
                 'amount' => $amount,
-                'currency' => 'eur',
-                'description' => $desc,
-                'source' => $token,
+                'currency' => $currency,
+                'payment_method' => $paymentMethodId,
+                'automatic_payment_methods' => [
+                    'enabled' => true,
+                    'allow_redirects' => 'never', // Disable redirect-based payment methods
+                ],
             ]);
 
-            // POST subscribe member
-            $url = URLAPI . "/v1/subscription/paidsubscribe";
-            $result = satoshiAdmin($url,  json_encode($mdata))->result->message;
-                        
-            header("Location: ". BASE_URL . 'widget/subscription/upgrade_success');
+            if ($paymentIntent->status === 'requires_confirmation') {
+                $confirmedPaymentIntent = $paymentIntent->confirm();
+                
+                // If the payment was successful, proceed with creating the calendar event
+                if ($confirmedPaymentIntent->status === 'succeeded') {
+                    // POST subscribe member
+                    $url = URLAPI . "/v1/subscription/paidsubscribe";
+                    $result = satoshiAdmin($url,  json_encode($mdata))->result->message;
+                                
+                    header("Location: ". BASE_URL . 'widget/subscription/upgrade_success');
+                    exit();
+                }
+            }
+
+            session()->setFlashdata('failed', 'Payment Failed: Please Try Again');
+            header("Location: ". BASE_URL . 'widget/subscription/upgrade/'.$mdata['email']);
             exit();
 
         } catch (\Stripe\Exception\CardException $e) {
