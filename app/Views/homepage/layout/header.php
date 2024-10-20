@@ -32,16 +32,16 @@
 </head>
 <body>
     <!-- Start of Navbar -->
-    <nav class="navbar navbar-expand-lg">
+    <nav class="navbar navbar-expand-xxl">
         <div class="container">
             <a class="navbar-logo" href="<?= BASE_URL?>">
-                <img class="logo" src="<?= BASE_URL?>assets/img/logo.png" alt="logo pnglobal">
-                <span class="logo-text">
+                <img class="logo" src="<?= BASE_URL?>assets/img/new-logo.png" alt="logo pnglobal">
+                <!-- <span class="logo-text">
                     TRANSFORMING VISIONS <br>
                     <span>
                         INTO SUCCESS
                     </span>
-                </span>
+                </span> -->
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <div class="openbtn">
@@ -52,24 +52,27 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav ms-auto">
-                    <li class="nav-item me-0 me-lg-4">
-                        <a class="nav-link" aria-current="page" href="<?=BASE_URL?>?type=consulting">Specialized Consulting</a>
+                    <li class="nav-item me-0 me-xl-2">
+                        <a class="nav-link" aria-current="page" href="<?php echo BASE_URL . "homepage/service?service=" . base64_encode("satoshi_signal")?>">Satoshi Signal</a>
                     </li>
-                    <li class="nav-item me-0 me-lg-4">
-                        <a class="nav-link" href="<?=BASE_URL?>?type=service">Service</a>
+                    <li class="nav-item me-0 me-xl-2">
+                        <a class="nav-link" aria-current="page" href="<?=BASE_URL?>?type=productservice">Product and Service</a>
                     </li>
-                    <li class="nav-item me-0 me-lg-4">
-                        <a class="nav-link" aria-current="page" href="<?=BASE_URL?>?type=hotdeal">Hot Deal</a>
+                    <li class="nav-item me-0 me-xl-2">
+                        <a class="nav-link" aria-current="page" href="<?=BASE_URL?>?type=training">Training</a>
+                    </li>
+                    <li class="nav-item me-0 me-xl-2">
+                        <a class="nav-link" href="<?=BASE_URL?>?type=service">Complementary Service</a>
                     </li>
                     <li class="nav-item me-0 me-lg-3 d-flex align-items-center justify-content-center">
-                        <a class="btn-navbar-about" href="<?= BASE_URL ?>homepage/about">About PN Global</a>
+                        <a class="btn-navbar-referral" href="<?= BASE_URL ?>homepage/about">About PN Global</a>
                     </li>
                     <li class="nav-item mt-2 mt-lg-0 d-flex align-items-center justify-content-center">
-                        <a class="btn-navbar-contactform" href="<?= BASE_URL ?>homepage/contactform">Contact Form</a>
+                        <a class="btn-navbar-contactform" href="<?= BASE_URL ?>homepage/contactform?service=<?= base64_encode("Company Openings - One")?>">Contact Form</a>
                     </li>
-                    <li class="nav-item ms-0 ms-lg-3 d-flex align-items-center justify-content-center">
+                    <!-- <li class="nav-item ms-0 ms-lg-3 d-flex align-items-center justify-content-center">
                         <a class="btn-navbar-referral" href="<?= BASE_URL ?>homepage/contactreferral">Get Your Referral</a>
-                    </li>
+                    </li> -->
                 </ul>
             </div>
         </div>

@@ -38,7 +38,8 @@
         <div class="row row-cols-1 row-cols-lg-2 ">
             <div id="g-financeconsultingtext" class="col">
                 <p class="f-inter line-animation">
-                    At <span translate='no'> PN Global, </span> we don't just provide financial advice; we offer you a roadmap to navigate the complex world of investments. Our team of experts, with an in-depth understanding of global markets, is ready to guide you toward wise and personalized financial decisions. We believe that every investor is unique and deserves a tailored approach. With us, you can build a solid and lasting financial future.
+                    At <span translate='no'> PN Global </span>, we pride ourselves on offering an unparalleled level of expertise in our financial consulting and investment strategies. Our team of experts, highly qualified, is dedicated to recommend customized and innovative investment strategies to better meet the specific needs of each customer. 
+                    We can create winning strategies by advising you on the best investments to realize independently, with our in-depth knowledge of global financial markets and ability to analyze and predict economic trends.
                 </p>
             </div>
             <div id="g-financeconsultingimg" class="line-animation col d-flex justify-content-end align-items-end">
@@ -58,7 +59,7 @@
         </div>
         <div class="col-12 col-lg-5 wrap-text-service-one">
             <p class="text-service-one f-inter">
-                Our commitment is to help you plan your future with precision and foresight, ensuring stable financial growth and protecting your assets from market uncertainties. With PN Global, you can rely on top-tier consulting that will guide you toward financial success and secure, sustainable asset management.
+                We are here to provide you with efficient financial advice and help you plan your future with wisdom and accuracy. Whether it’s tailored financial advice or targeted investment advice, our commitment is to guide you towards financial success. You can count on <span translate='no'> PN Global </span> to safeguard your financial future.
             </p>
         </div>
     </div>
@@ -78,7 +79,7 @@
                        Manage your finances with wisdom and precision
                    </h5>
                    <p class="box-content-text f-inter">
-                        With <span translate='no'> PN Global, </span> your finances are in good hands. Our team stays up-to-date on the latest market trends, from cryptocurrencies to traditional investments. We offer personalized and innovative solutions to help you achieve your financial goals. Whether you're a seasoned investor or just starting out, you'll find a reliable partner in us.
+                       <span translate='no'> PN Global </span>, using its team of experts, will implement innovative strategies to provide efficient and customized solutions to its customers. The ability to adapt quickly to market changes and full knowledge of international markets and the world of cryptocurrencies allows you to always recommend the best winning investment opportunities.
                    </p>
                </div>
                <div class="wrapping-img d-none d-lg-flex col-12 col-lg-4">
@@ -100,7 +101,8 @@
                         Invest in the Future with Awareness
                     </h5>
                     <p class="box-content-text f-inter">
-                        Want to grow your savings wisely? Our experts will guide you on a personalized investment journey, helping you diversify your portfolio and seize the best market opportunities. With us, investing becomes an opportunity to build your future.
+                        Our team of specialists will provide you with personalized advice for investing in stock markets, cryptocurrencies and other financial and non-financial opportunities.
+                        Trust us to create a balanced and profitable portfolio.
                     </p>
                 </div>
                 <div class="wrapping-img d-none d-lg-flex col-12 col-lg-4">

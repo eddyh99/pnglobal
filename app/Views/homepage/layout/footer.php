@@ -1,6 +1,6 @@
     
     
-    <?php if(@$flag == 'training'){?>
+    <?php if(@$flag == 'training' || @$flag == 'comingsoon'){?>
         <!-- Start of Contact Form -->
         <section class="bg-trainingform">
             <div class="wrapper-trainingform">
@@ -61,10 +61,10 @@
                         <h2 id="g-getintouch" class="f-odor">
                             Get in touch with <span translate='no'> PN Global </span>
                         </h2>
-                        <h4 id="g-subgetintouch" class="f-odor">
+                        <h4 id="g-subgetintouch" class="f-noto">
                             We are Here to Assist You in Every Step of Your Growth and Development Journey
                         </h3>
-                        <p id="g-textgetintouch" class="f-inter">
+                        <p id="g-textgetintouch" class="f-noto">
                             If you would like more information about our services or would like to discuss your specific needs with one of our experts, please contact us. Our team of financial consultants, lawyers and accountants is at your disposal to offer you personalized support and timely responses. We are ready to assist you with the utmost professionalism and competence.
                         </p>
                         <a href="<?= BASE_URL ?>homepage/bookingconsultation?service=<?= base64_encode($title)?>" class="btn-footer-contactform">Book a Consultation</a>

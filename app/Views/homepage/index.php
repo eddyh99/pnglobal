@@ -5,15 +5,15 @@
             <source src="<?= BASE_URL ?>assets/vid/banner.webm" type="video/webm">
         </video>
         <div class="logo-banner">
-            <div>
+            <!-- <div>
                 <img id="g-img-banner-homepage" src="<?= BASE_URL ?>assets/img/logo.png" alt="logo pnglobal">
-            </div>
+            </div> -->
             <div>
                 <p id="g-text-banner-homepage" class="logo-text-banner" >
                     <span class="line-animation">
-                        TRANSFORMING VISIONS <br>
+                        YOUR GOAL IS FINANCIAL FREEDOM. <br>
                         <span style="color: #BFA573;">
-                            INTO SUCCESS
+                            OUR GOAL IS TO MAKE IT HAPPEN.
                         </span>
                     </span>
                 </p>    
@@ -28,26 +28,56 @@
 <section class="content team-expert-homepage">
     <div class="container">
         <div class="row">
-            <div class="col-12 col-lg-7 col-xl-8 order-1 order-lg-0 left-side">
+            <div class="col-12 col-lg-7 order-1 order-lg-0 left-side">
                 <h2 class="f-odor text-primary-pnglobal">Efficiency and Professionalism at the Highest Levels</h2>
                 <h5 class="f-odor text-primary-pnglobal mt-4">A Team of Experts at Your Service</h5>
                 <p class="f-inter">
-                    <span translate='no'> PN Global </span> excels in offering high-level consulting services. With a team of skilled experts, we provide tailored solutions for business consulting, fund reallocation, expansion or relocation abroad, account opening, and tax residence transfer. <br><br>
-                    We also offer training programs on Bitcoin, BTC mining, Blockchain, and paths to becoming entrepreneurs or consultants. <span translate='no'> PN Global </span> is the ideal partner for those seeking growth through innovative skills and successful strategies.
+                    <span translate='no'> PN Global </span> stands out for its efficiency and professionalism in providing top-level consultations. <br>
+                    Thanks to a team of highly qualified experts, we offer personalized and innovative solutions to meet the specific needs of each client: business consulting, fund reallocation consulting, business expansion or relocation abroad consulting, consulting for opening business and personal bank accounts, and transferring tax residence. Our proactive and results-oriented approach ensures that our clients achieve their goals quickly and safely. 
+                    Rely on <span translate='no'> PN Global </span> for impeccable management and sustainable growth.
                 </p>
             </div>
-            <div class="col-12 col-lg-5 col-xl-4 order-0 order-lg-1 bg-team-expert">
+            <div class="col-12 col-lg-5 order-0 order-lg-1 bg-team-expert">
             </div>
         </div>
     </div>
 </section>
 <!-- End of Team Expert -->
 
+<section id="satoshi" class="service-homepage">
+    
+    <div class="wrapper-big-title">
+        <h1 class="f-odor text-uppercase">
+            Bitcoin Brokerage guidance for buy/sell decisions
+        </h1>
+    </div>
+
+    <div class="bg-desc-service">
+        <div class="container">
+            <div class="row">
+                <div class="d-none d-lg-block col-1"></div>
+                <div class="col-12 col-lg-5 order-1 order-lg-0">
+                    <p class="text-desc-service f-noto">
+                        At <span translate='no'> P.N. Global </span>, we are dedicated to providing specialized and high-quality services to help our clients successfully navigate the complex world of international business. Our team of experts offers personalized and strategic support for a wide range of needs, ensuring effective solutions that comply with current regulations. We are proud to assist our clients at every stage of their entrepreneurial journey.
+                    </p>
+                    <p class="text-desc-service f-noto">
+                        Explore our services to discover how we can help you achieve your goals with confidence and expertise.
+                    </p>
+                </div>
+                <div class="d-none d-lg-block col-1"></div>
+                <div class="col-12 col-lg-5 order-0 order-lg-1 px-5 bg-img-satoshi-homepage">
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
 <!-- Start of Cosulting -->
-<section id="consulting" class="content consulting-homepage">
+<section id="productservice" class="content consulting-homepage">
     <div class="wrapper-big-title">
         <h1 class="f-odor">
-            Specialized Consulting
+            PRODUCTS AND SERVICES
         </h1>
     </div>
 
@@ -76,10 +106,10 @@
             <div class="wrapper-consulting">
                 <div class="d-flex justify-content-center w-100 order-1 order-lg-0">
                     <a 
-                        href="<?php echo BASE_URL . "homepage/service?service=" . base64_encode("strategic_optimization")?>" 
+                        href="<?php echo BASE_URL . "homepage/service?service=" . base64_encode("legal_tax_accounting")?>" 
                         class="link-consulting textblack f-odor"
                     >
-                        Strategic and Tax <br>
+                        Law and Tax
                         Optimization
                     </a>
                 </div>
@@ -98,8 +128,7 @@
                         href="<?php echo BASE_URL . "homepage/service?service=" . base64_encode("international_expansion_management")?>" 
                         class="link-consulting f-odor"
                     >
-                        International Expansion <br>
-                        and Management
+                        Capital Reallocation
                     </a>
                 </div>
             </div>
@@ -107,7 +136,7 @@
     </div>
 
     <!-- Consulting 4 -->
-    <div class="row box-consulting-homepage justify-content-end">
+    <!-- <div class="row box-consulting-homepage justify-content-end">
         <div class="col-10 col-lg-8 gold">
             <div class="wrapper-consulting">
                 <div class="d-flex justify-content-center w-100 order-1 order-lg-0">
@@ -122,7 +151,7 @@
                 <img class="order-0 order-lg-1" src="<?= BASE_URL ?>assets/img/img-4.webp" alt="img-2">
             </div>
         </div>
-    </div>
+    </div> -->
 </section>
 <!-- End of Cosulting -->
      
@@ -185,9 +214,61 @@
 
 <!-- Start of Service -->
 
-<section id="service" class="service-homepage">
+<section class="service-homepage">
+
+    <div id="training" class="bg-hot-deal">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <h1 class="text-center my-5 text-white f-odor text-uppercase">
+                        take charge of the future by investing in yourself
+                    </h1>
+                </div>
+            </div>
+            <div class="row row-cols-1 row-cols-lg-2 justify-content-center">
+                <div class="col my-4">
+                    <div class="zoom-box zoom-1">
+                        <div class="with-blur-backdrop">
+                            <a 
+                                href="<?php echo BASE_URL . "homepage/service?service=" . base64_encode("professional_enterpreneurial_training")?>" 
+                                class="btn-zoom f-odor"
+                            >
+                                free online basic training program 
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col my-4">
+                    <div class="zoom-box zoom-2">
+                        <div class="with-blur-backdrop">
+                            <a 
+                                href="<?= BASE_URL ?>homepage/comingsoon" 
+                                class="btn-zoom f-odor"
+                                style="padding: 0.2rem;"
+                            >
+                                Advanced Training on Bitcoin, <br> Mining and Blockchain 
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <!-- <div class="col my-4">
+                    <div class="zoom-box zoom-3">
+                        <div class="with-blur-backdrop">
+                            <a 
+                                href="<?php echo BASE_URL . "homepage/service?service=" . base64_encode("satoshi_signal")?>" 
+                                class="btn-zoom f-odor"
+                            >
+                                Bitcoin BROKERAGE Guidance for <br>
+                                Buy/Sell Decisions ‘’SATOSHI SIGNALS’’
+                            </a>
+                        </div>
+                    </div>
+                </div> -->
+            </div>
+        </div>
+    </div>
     
-    <div class="wrapper-big-title">
+    <div id="service" class="wrapper-big-title mt-4">
         <h1 class="f-odor">
             Services to Complement Our Consulting
         </h1>
@@ -198,14 +279,12 @@
             <div class="row">
                 <div class="d-none d-lg-block col-1"></div>
                 <div class="col-12 col-lg-5 order-1 order-lg-0">
-                    <p class="text-desc-service f-inter">
-                        Our specialized services empower you to navigate the complexities of international business. 
-                        Our expert team provides tailored solutions for a wide range of needs, ensuring compliance and strategic success. 
-                        Discover how we can support you at every stage of your entrepreneurial journey.
+                    <p class="text-desc-service f-noto">
+                        At <span translate='no'> P.N. Global </span>, we are dedicated to providing specialized and high-quality services to help our clients successfully navigate the complex world of international business. Our team of experts offers personalized and strategic support for a wide range of needs, ensuring effective solutions that comply with current regulations. We are proud to assist our clients at every stage of their entrepreneurial journey.
                     </p>
-                    <!-- <p class="text-desc-service f-inter mt-4">
-                        Explore our services to discover how we can help you achieve your goals with confidence and expertise.
-                    </p> -->
+                    <p class="text-desc-service f-noto">
+                    Explore our services to discover how we can help you achieve your goals with confidence and expertise.
+                    </p>
                 </div>
                 <div class="d-none d-lg-block col-1"></div>
                 <div class="col-12 col-lg-5 order-0 order-lg-1 bg-img-service-desc">
@@ -229,14 +308,16 @@
                     <div class="flip-box">
                         <div class="flip-box-inner">
                             <div class="flip-box-front flip-1">
-                                <div class="btn-flip f-odor">Open Company</div>
+                                <p>test</p>
+                                <img class="img-fluid" src="<?= BASE_URL?>assets/img/partner/cayman-logo.webp" alt="cayman logo">
+                                <div class="btn-flip f-odor">Investment Encrypted bank account</div>
                             </div>
                             <div class="flip-box-back">
                                 <div>
-                                    <h4 class="f-inter">Company Openings</h4>
-                                    <p class="f-inter">We offer comprehensive services for establishing new businesses, ensuring compliance with local regulations and guiding you through every step of the process. Our tailored services ensure a seamless and efficient company setup.</p>
+                                    <!-- <h4 class="f-inter">Company Openings</h4> -->
+                                    <p class="f-inter"> <span translate='no'> Cayman Financial Group </span> is a financial group based in the Cayman Islands. This company has been entrusted by PN Global to represent and promote its products to investors. Through this collaboration, <span translate='no'> PN Global </span> not only manages its own funds but also oversees the management of funds raised by <span translate='no'> Cayman Financial Group </span>, entrusted by investors who believe in our investment strategies.</p>
                                 </div>
-                                <a href="<?= BASE_URL ?>homepage/contactform?service=<?= base64_encode("Company Openings - One")?>">Contact us</a>
+                                <a target="_blank" class="btn-flip f-odor px-3 py-1" href="https://caymanfinancialgroup.ky/">See More</a>
                             </div>
                         </div>
                     </div>
@@ -245,14 +326,15 @@
                     <div class="flip-box">
                         <div class="flip-box-inner">
                             <div class="flip-box-front flip-2">
-                                <div class="btn-flip f-odor">VISAS & RESIDENCE PERMIT</div>
+                                <p>test</p>
+                                <img class="img-fluid" src="<?= BASE_URL?>assets/img/partner/mif-logo.png" alt="MIF logo">
+                                <div class="btn-flip f-odor">BTC mining and technology</div>
                             </div>
                             <div class="flip-box-back">
                                 <div>
-                                    <h4 class="f-inter">Visas and Residence Permits</h4>
-                                    <p class="f-inter">Our team provides complete assistance in obtaining visas and residence permits, facilitating your access to international markets and ensuring a smooth relocation process. We ensure that all applications are meticulously prepared and compliant with relevant regulations to secure the necessary permits promptly.</p>
+                                    <p class="f-inter"><span translate='no'> Money Industrial Factory </span> is a leading company in the construction of mining farms and cryptocurrency mining. Thanks to the expertise and high specialization of the <span translate='no'> PN Global team </span>, we have been tasked with designing and optimizing mining farms for <span translate='no'> Money Industrial Factory </span> and their clients. Through our research, development, and consulting department, <span translate='no'> PN Global </span> provides technical and strategic support to ensure the efficiency and profitability of mining operations.</p>
                                 </div>
-                                <a href="<?= BASE_URL ?>homepage/contactform?service=<?= base64_encode("Visas And Residence Permits - Two")?>">Contact us</a>
+                                <a target="_blank" class="btn-flip f-odor px-3 py-1" href="https://moneyindustrialfactory.io/">See More</a>
                             </div>
                         </div>
                     </div>
@@ -261,19 +343,20 @@
                     <div class="flip-box">
                         <div class="flip-box-inner">
                             <div class="flip-box-front flip-3">
-                                <div class="btn-flip f-odor">Relocation of Residence</div>
+                                <p>test</p>
+                                <img class="img-fluid" src="<?= BASE_URL?>assets/img/partner/logo-pbs.png" alt="PBS logo">
+                                <div class="btn-flip f-odor" style="padding: 0.3rem 1.5rem;">Company Formation Services <br> and International Support</div>
                             </div>
                             <div class="flip-box-back">
                                 <div>
-                                    <h4 class="f-inter">Relocation of Residence</h4>
-                                    <p class="f-inter">Our services assist you in relocating your residence, ensuring a smooth transition and compliance with all local regulations. We provide expert guidance on the most suitable residency options and streamline the application process for your new location.</p>
+                                    <p class="f-inter">Professional solutions for creating international businesses At <span translate='no'> PBS Oline </span> we specialize in providing comprehensive support services to help you overcome the complexities of business operations. From legal and tax support to accounting and financial management, our team of experts is here to ensure your business runs smoothly and efficiently. We support you in setting up international companies, transferring residence, feasibility studies, business plans and opening bank accounts. We also offer visa and residence permit services.</p>
                                 </div>
-                                <a href="<?= BASE_URL ?>homepage/contactform?service=<?= base64_encode("Relocation of Residence - Three")?>">Contact us</a>
+                                <a class="btn-flip f-odor px-3 py-1" href="https://www.pbsonlinellc.com/" target="_blank">See More</a>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col my-3">
+                <!-- <div class="col my-3">
                     <div class="flip-box">
                         <div class="flip-box-inner">
                             <div class="flip-box-front flip-4">
@@ -320,61 +403,11 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> -->
             </div>
         </div>
     </div>
 
-    <div id="hotdeal" class="bg-hot-deal">
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <h1 class="text-center my-5 text-white f-odor">
-                        HOT DEAL
-                    </h1>
-                </div>
-            </div>
-            <div class="row row-cols-1 row-cols-lg-2 justify-content-center">
-                <div class="col my-4">
-                    <div class="zoom-box zoom-1">
-                        <div class="with-blur-backdrop">
-                            <a 
-                                href="<?php echo BASE_URL . "homepage/service?service=" . base64_encode("professional_enterpreneurial_training")?>" 
-                                class="btn-zoom f-odor"
-                            >
-                                Comprehensive Entrepreneurial Training Programs for Success
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col my-4">
-                    <div class="zoom-box zoom-2">
-                        <div class="with-blur-backdrop">
-                            <a 
-                                href="<?php echo BASE_URL . "homepage/service?service=" . base64_encode("blockchain_mining_bitcoin_training")?>" 
-                                class="btn-zoom f-odor"
-                            >
-                                <!-- Advanced Training on Blockchain, Mining <br> and Bitcoin -->
-                                Advanced Training on Bitcoin, <br> Mining and Blockchain 
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col my-4">
-                    <div class="zoom-box zoom-3">
-                        <div class="with-blur-backdrop">
-                            <a 
-                                href="<?php echo BASE_URL . "homepage/service?service=" . base64_encode("satoshi_signal")?>" 
-                                class="btn-zoom f-odor"
-                            >
-                                Bitcoin BROKERAGE Guidance for <br>
-                                Buy/Sell Decisions ‘’SATOSHI SIGNALS’’
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+
 </section>
 <!-- End of Service -->

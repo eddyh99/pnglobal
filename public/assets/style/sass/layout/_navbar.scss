@@ -31,7 +31,12 @@
         @include mix.flex-tengah;
 
         .logo {
-            height: 80px;
+            height: 50px;
+            
+            @include mix.md {
+                height: 80px;
+            }
+
         }
 
         .logo-text {
@@ -46,6 +51,7 @@
             @include mix.xss {
                 display: inline-block;
             }
+            
 
             span {
                 color: var.$text-primary-pnglobal;

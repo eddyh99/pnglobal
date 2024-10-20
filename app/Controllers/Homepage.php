@@ -40,6 +40,19 @@ class Homepage extends BaseController
         return view('homepage/layout/wrapper', $mdata);
     }
 
+    public function comingsoon()
+    {
+        $mdata = [
+            'title'     => 'Coming Soon - ' . NAMETITLE,
+            'content'   => 'homepage/comingsoon',
+            'extra'     => 'homepage/js/_js_index',
+            'flag'      => 'comingsoon'
+        ];
+
+        return view('homepage/layout/wrapper', $mdata);
+    }
+
+
 
     public function service()
     {
