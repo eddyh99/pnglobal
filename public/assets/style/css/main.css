@@ -12732,7 +12732,12 @@ p {
   align-items: center;
 }
 .navbar .navbar-logo .logo {
-  height: 80px;
+  height: 50px;
+}
+@media (min-width: 768px) {
+  .navbar .navbar-logo .logo {
+    height: 80px;
+  }
 }
 .navbar .navbar-logo .logo-text {
   text-align: center;
@@ -12850,7 +12855,6 @@ p {
   color: #BFA573;
 }
 .bg-contactform .left-side #g-subgetintouch {
-  font-weight: 300;
   margin-top: 0.5rem;
 }
 .bg-contactform .left-side #g-textgetintouch {
@@ -13060,47 +13064,35 @@ p {
 }
 .banner-homepage .wrapper-banner-homepage .logo-banner .logo-text-banner {
   text-transform: uppercase;
-  letter-spacing: 8px;
-  clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
-  font-size: 18px;
+  letter-spacing: 3px;
+  font-size: 16px;
   font-weight: 700;
   text-align: center;
   color: #FFFFFF;
-  margin-top: 1.5rem;
 }
-.banner-homepage .wrapper-banner-homepage .logo-banner .logo-text-banner .line-animation {
-  display: inline-block;
-  transform: translateY(115px);
-  -webkit-transform: translateY(115px);
-  -moz-transform: translateY(115px);
-  -ms-transform: translateY(115px);
-  -o-transform: translateY(115px);
-  transition: transform 0.5s;
-  -webkit-transition: transform 0.5s;
-  -moz-transition: transform 0.5s;
-  -ms-transition: transform 0.5s;
-  -o-transition: transform 0.5s;
+@media (min-width: 768px) {
+  .banner-homepage .wrapper-banner-homepage .logo-banner .logo-text-banner {
+    letter-spacing: 8px;
+    font-size: 20px;
+  }
+}
+@media (min-width: 1024px) {
+  .banner-homepage .wrapper-banner-homepage .logo-banner .logo-text-banner {
+    font-size: 30px;
+  }
+}
+@media (min-width: 1200px) {
+  .banner-homepage .wrapper-banner-homepage .logo-banner .logo-text-banner {
+    padding: 0rem 3rem;
+    font-size: 40px;
+  }
 }
 .banner-homepage .wrapper-banner-homepage .logo-banner .logo-text-banner-teamwork {
   letter-spacing: 4px;
-  clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
   font-weight: 700;
   text-align: center;
   color: #383734;
   margin-top: 1.5rem;
-}
-.banner-homepage .wrapper-banner-homepage .logo-banner .logo-text-banner-teamwork .line-animation {
-  display: inline-block;
-  transform: translateY(115px);
-  -webkit-transform: translateY(115px);
-  -moz-transform: translateY(115px);
-  -ms-transform: translateY(115px);
-  -o-transform: translateY(115px);
-  transition: transform 0.5s;
-  -webkit-transition: transform 0.5s;
-  -moz-transition: transform 0.5s;
-  -ms-transition: transform 0.5s;
-  -o-transition: transform 0.5s;
 }
 
 /*----------------------------------------------------------
@@ -13236,39 +13228,11 @@ p {
   padding-right: 2rem;
   height: 120px;
 }
-.why-homepage .why-left .wrapper-why-logo img.line-animation {
-  display: inline-block;
-  transform: translateX(-115px);
-  -webkit-transform: translateX(-115px);
-  -moz-transform: translateX(-115px);
-  -ms-transform: translateX(-115px);
-  -o-transform: translateX(-115px);
-  transition: transform 0.5s;
-  -webkit-transition: transform 0.5s;
-  -moz-transition: transform 0.5s;
-  -ms-transition: transform 0.5s;
-  -o-transition: transform 0.5s;
-  opacity: 0;
-}
 .why-homepage .why-left .wrapper-why-logo h2 {
   line-height: 40px;
   color: #FFFFFF;
   padding-bottom: 16px;
   border-bottom: 3px solid #BFA573;
-  clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
-}
-.why-homepage .why-left .wrapper-why-logo h2.line-animation {
-  display: inline-block;
-  transform: translateY(115px);
-  -webkit-transform: translateY(115px);
-  -moz-transform: translateY(115px);
-  -ms-transform: translateY(115px);
-  -o-transform: translateY(115px);
-  transition: transform 0.5s;
-  -webkit-transition: transform 0.5s;
-  -moz-transition: transform 0.5s;
-  -ms-transition: transform 0.5s;
-  -o-transition: transform 0.5s;
 }
 .why-homepage .why-right .wrapper-content-why {
   margin: 0.3rem 0;
@@ -13290,39 +13254,11 @@ p {
 .why-homepage .why-right .wrapper-content-why .subtitle-why {
   color: #BFA573;
   margin-bottom: 1rem;
-  clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
-}
-.why-homepage .why-right .wrapper-content-why .subtitle-why .line-animation {
-  display: inline-block;
-  transform: translateY(115px);
-  -webkit-transform: translateY(115px);
-  -moz-transform: translateY(115px);
-  -ms-transform: translateY(115px);
-  -o-transform: translateY(115px);
-  transition: transform 0.5s;
-  -webkit-transition: transform 0.5s;
-  -moz-transition: transform 0.5s;
-  -ms-transition: transform 0.5s;
-  -o-transition: transform 0.5s;
 }
 .why-homepage .why-right .wrapper-content-why .content-why {
   color: #FFFFFF;
   line-height: 25px;
   padding-right: 0rem;
-  clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
-}
-.why-homepage .why-right .wrapper-content-why .content-why .line-animation {
-  display: inline-block;
-  transform: translateY(200px);
-  -webkit-transform: translateY(200px);
-  -moz-transform: translateY(200px);
-  -ms-transform: translateY(200px);
-  -o-transform: translateY(200px);
-  transition: transform 0.5s;
-  -webkit-transition: transform 0.5s;
-  -moz-transition: transform 0.5s;
-  -ms-transition: transform 0.5s;
-  -o-transition: transform 0.5s;
 }
 @media (min-width: 1200px) {
   .why-homepage .why-right .wrapper-content-why .content-why {
@@ -13375,40 +13311,53 @@ p {
     height: auto;
   }
 }
+.service-homepage .bg-desc-service .bg-img-satoshi-homepage {
+  background-image: url("../../img/img-38.webp");
+  background-position: left center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 10px;
+  height: 300px;
+}
+@media (min-width: 992px) {
+  .service-homepage .bg-desc-service .bg-img-satoshi-homepage {
+    height: auto;
+  }
+}
 .service-homepage .bg-complementary-service {
   background-color: #1E1E1E;
 }
 .service-homepage .bg-complementary-service .flip-box {
   background-color: transparent;
   width: 100%;
-  height: 310px;
+  height: 450px;
   border-radius: 20px;
   position: relative;
   perspective: 1000px;
 }
 @media (min-width: 425px) {
   .service-homepage .bg-complementary-service .flip-box {
-    height: 300px;
+    height: 400px;
   }
 }
 @media (min-width: 768px) {
   .service-homepage .bg-complementary-service .flip-box {
-    height: 410px;
+    height: 510px;
   }
 }
 @media (min-width: 992px) {
   .service-homepage .bg-complementary-service .flip-box {
-    height: 400px;
+    height: 530px;
   }
 }
 @media (min-width: 1200px) {
   .service-homepage .bg-complementary-service .flip-box {
-    height: 340px;
+    height: 460px;
   }
 }
 @media (min-width: 1280px) {
   .service-homepage .bg-complementary-service .flip-box {
-    height: 320px;
+    height: 410px;
   }
 }
 .service-homepage .bg-complementary-service .flip-box:hover .flip-box-inner {
@@ -13435,23 +13384,16 @@ p {
 }
 .service-homepage .bg-complementary-service .flip-box .flip-box-inner .flip-box-front {
   display: flex;
-  align-items: end;
-  justify-content: center;
-  background-color: #BFA573;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #D9D9D9;
   color: #1E1E1E;
-  background-repeat: no-repeat;
   padding-bottom: 2rem;
-  background-size: cover;
-  background-position: center center;
 }
-.service-homepage .bg-complementary-service .flip-box .flip-box-inner .flip-box-front.flip-1 {
-  background-image: url("../../img/flip-1.webp");
-}
-.service-homepage .bg-complementary-service .flip-box .flip-box-inner .flip-box-front.flip-2 {
-  background-image: url("../../img/flip-2.webp");
-}
-.service-homepage .bg-complementary-service .flip-box .flip-box-inner .flip-box-front.flip-3 {
-  background-image: url("../../img/flip-3.webp");
+.service-homepage .bg-complementary-service .flip-box .flip-box-inner .flip-box-front p {
+  color: #D9D9D9;
+  text-align: center;
 }
 .service-homepage .bg-complementary-service .flip-box .flip-box-inner .flip-box-front.flip-4 {
   background-image: url("../../img/flip-4.webp");
@@ -13463,7 +13405,7 @@ p {
   background-image: url("../../img/flip-6.webp");
 }
 .service-homepage .bg-complementary-service .flip-box .flip-box-inner .flip-box-back {
-  background-color: #BFA573;
+  background-color: #CCB78F;
   color: #1E1E1E;
   transform: rotateY(180deg);
   padding: 1rem;
@@ -13492,13 +13434,7 @@ p {
   font-weight: 600;
 }
 .service-homepage .bg-complementary-service .flip-box .flip-box-inner .flip-box-back p {
-  text-align: start;
-}
-.service-homepage .bg-complementary-service .flip-box .flip-box-inner .flip-box-back a {
-  text-decoration: underline;
-}
-.service-homepage .bg-complementary-service .flip-box .flip-box-inner .flip-box-back a:hover {
-  text-shadow: 2px 2px 2px #FFF;
+  text-align: center;
 }
 .service-homepage .bg-hot-deal {
   background-color: #BFA573;
@@ -13514,7 +13450,7 @@ p {
   background-image: url("../../img/zoom-1.webp");
 }
 .service-homepage .bg-hot-deal .zoom-box.zoom-2 {
-  background-image: url("../../img/zoom-2.webp");
+  background-image: url("../../img/zoom-4.webp");
 }
 .service-homepage .bg-hot-deal .zoom-box.zoom-3 {
   background-image: url("../../img/zoom-3.webp");
@@ -13849,36 +13785,6 @@ p {
 }
 .banner-service .wrapper-service .download-video .button-download .top {
   margin-top: 0.5rem;
-  clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
-}
-.banner-service .wrapper-service .download-video .button-download .top .btn-download {
-  display: inline-block;
-  transform: translateY(115px);
-  -webkit-transform: translateY(115px);
-  -moz-transform: translateY(115px);
-  -ms-transform: translateY(115px);
-  -o-transform: translateY(115px);
-  transition: transform 0.5s;
-  -webkit-transition: transform 0.5s;
-  -moz-transition: transform 0.5s;
-  -ms-transition: transform 0.5s;
-  -o-transition: transform 0.5s;
-}
-.banner-service .wrapper-service .download-video .button-download .bottom {
-  clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
-}
-.banner-service .wrapper-service .download-video .button-download .bottom .btn-download {
-  display: inline-block;
-  transform: translateY(115px);
-  -webkit-transform: translateY(115px);
-  -moz-transform: translateY(115px);
-  -ms-transform: translateY(115px);
-  -o-transform: translateY(115px);
-  transition: transform 0.5s;
-  -webkit-transition: transform 0.5s;
-  -moz-transition: transform 0.5s;
-  -ms-transition: transform 0.5s;
-  -o-transition: transform 0.5s;
 }
 .banner-service .wrapper-service .download-video .button-download .btn-download {
   padding: 0.5rem;
@@ -13913,8 +13819,8 @@ p {
   color: #FFFFFF;
 }
 .banner-service .wrapper-service .banner-text-video .bg-text-video.legal {
-  background: rgba(47, 26, 7, 0.82);
-  color: #BFA573;
+  background: rgba(106, 98, 91, 0.86);
+  color: #E8D9BD;
   padding: 2rem 3rem;
 }
 .banner-service .wrapper-service .banner-text-video .bg-text-video.training {
@@ -14791,19 +14697,6 @@ p {
 #finance-ourconsulting {
   overflow: hidden;
 }
-#finance-ourconsulting .line-animation {
-  display: inline-block;
-  transform: translateY(115px);
-  -webkit-transform: translateY(115px);
-  -moz-transform: translateY(115px);
-  -ms-transform: translateY(115px);
-  -o-transform: translateY(115px);
-  transition: transform 0.5s;
-  -webkit-transition: transform 0.5s;
-  -moz-transition: transform 0.5s;
-  -ms-transition: transform 0.5s;
-  -o-transition: transform 0.5s;
-}
 
 .win-finance {
   overflow: hidden !important;
@@ -14822,20 +14715,6 @@ p {
   display: flex;
   justify-content: end;
   align-items: end;
-  clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
-}
-.win-finance #g-financeconsultingimg.line-animation {
-  display: inline-block;
-  transform: translateY(300px);
-  -webkit-transform: translateY(300px);
-  -moz-transform: translateY(300px);
-  -ms-transform: translateY(300px);
-  -o-transform: translateY(300px);
-  transition: transform 0.5s;
-  -webkit-transition: transform 0.5s;
-  -moz-transition: transform 0.5s;
-  -ms-transition: transform 0.5s;
-  -o-transition: transform 0.5s;
 }
 
 .finance-service-one {
@@ -15036,55 +14915,13 @@ p {
 .legal-short-desc h1 {
   color: #BFA573;
   text-align: center;
-  clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
-}
-.legal-short-desc h1 .line-animation {
-  display: inline-block;
-  transform: translateY(115px);
-  -webkit-transform: translateY(115px);
-  -moz-transform: translateY(115px);
-  -ms-transform: translateY(115px);
-  -o-transform: translateY(115px);
-  transition: transform 0.5s;
-  -webkit-transition: transform 0.5s;
-  -moz-transition: transform 0.5s;
-  -ms-transition: transform 0.5s;
-  -o-transition: transform 0.5s;
 }
 .legal-short-desc h3 {
   margin-top: 1rem;
   text-align: center;
-  clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
-}
-.legal-short-desc h3 .line-animation {
-  display: inline-block;
-  transform: translateY(115px);
-  -webkit-transform: translateY(115px);
-  -moz-transform: translateY(115px);
-  -ms-transform: translateY(115px);
-  -o-transform: translateY(115px);
-  transition: transform 0.5s;
-  -webkit-transition: transform 0.5s;
-  -moz-transition: transform 0.5s;
-  -ms-transition: transform 0.5s;
-  -o-transition: transform 0.5s;
 }
 .legal-short-desc p {
   text-align: center;
-  clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
-}
-.legal-short-desc p .line-animation {
-  display: inline-block;
-  transform: translateY(115px);
-  -webkit-transform: translateY(115px);
-  -moz-transform: translateY(115px);
-  -ms-transform: translateY(115px);
-  -o-transform: translateY(115px);
-  transition: transform 0.5s;
-  -webkit-transition: transform 0.5s;
-  -moz-transition: transform 0.5s;
-  -ms-transition: transform 0.5s;
-  -o-transition: transform 0.5s;
 }
 
 .legal-hand {
@@ -15152,76 +14989,17 @@ p {
 .advance-training h2 {
   color: #BFA573;
   margin-top: 3rem;
-  clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
-}
-.advance-training h2 .line-animation {
-  display: inline-block;
-  transform: translateY(115px);
-  -webkit-transform: translateY(115px);
-  -moz-transform: translateY(115px);
-  -ms-transform: translateY(115px);
-  -o-transform: translateY(115px);
-  transition: transform 0.5s;
-  -webkit-transition: transform 0.5s;
-  -moz-transition: transform 0.5s;
-  -ms-transition: transform 0.5s;
-  -o-transition: transform 0.5s;
 }
 .advance-training h4 {
   margin-top: 1rem;
   color: #FFFFFF;
-  clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
-}
-.advance-training h4 .line-animation {
-  display: inline-block;
-  transform: translateY(115px);
-  -webkit-transform: translateY(115px);
-  -moz-transform: translateY(115px);
-  -ms-transform: translateY(115px);
-  -o-transform: translateY(115px);
-  transition: transform 0.5s;
-  -webkit-transition: transform 0.5s;
-  -moz-transition: transform 0.5s;
-  -ms-transition: transform 0.5s;
-  -o-transition: transform 0.5s;
 }
 .advance-training p {
   color: #FFFFFF;
   margin-top: 2rem;
   line-height: 35px;
   padding-bottom: 3rem;
-  clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
 }
-.advance-training p .line-animation {
-  display: inline-block;
-  transform: translateY(115px);
-  -webkit-transform: translateY(115px);
-  -moz-transform: translateY(115px);
-  -ms-transform: translateY(115px);
-  -o-transform: translateY(115px);
-  transition: transform 0.5s;
-  -webkit-transition: transform 0.5s;
-  -moz-transition: transform 0.5s;
-  -ms-transition: transform 0.5s;
-  -o-transition: transform 0.5s;
-}
-.advance-training #g-advancetrainingimg {
-  clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
-}
-.advance-training #g-advancetrainingimg .line-animation {
-  display: inline-block;
-  transform: translateY(300px);
-  -webkit-transform: translateY(300px);
-  -moz-transform: translateY(300px);
-  -ms-transform: translateY(300px);
-  -o-transform: translateY(300px);
-  transition: transform 0.5s;
-  -webkit-transition: transform 0.5s;
-  -moz-transition: transform 0.5s;
-  -ms-transition: transform 0.5s;
-  -o-transition: transform 0.5s;
-}
-
 .training-aspire {
   margin: 2rem 0;
 }
@@ -15423,23 +15201,6 @@ p {
 /*----------------------------------------------------------
 8. Satoshi Start
 ------------------------------------------------------------*/
-.satoshi-banner #g-text-downloadapp {
-  clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
-}
-.satoshi-banner #g-text-downloadapp .line-animation {
-  display: inline-block;
-  transform: translateY(115px);
-  -webkit-transform: translateY(115px);
-  -moz-transform: translateY(115px);
-  -ms-transform: translateY(115px);
-  -o-transform: translateY(115px);
-  transition: transform 0.5s;
-  -webkit-transition: transform 0.5s;
-  -moz-transition: transform 0.5s;
-  -ms-transition: transform 0.5s;
-  -o-transition: transform 0.5s;
-}
-
 .satoshi-short-desc {
   background-color: #B2A291;
   padding-top: 3rem;
@@ -16353,38 +16114,7 @@ p {
   justify-content: space-around;
   flex-wrap: wrap;
   margin-top: 2rem;
-  clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
 }
-.satoshi-useapp .left-side .button-download .btn-download {
-  display: inline-block;
-  transform: translateY(115px);
-  -webkit-transform: translateY(115px);
-  -moz-transform: translateY(115px);
-  -ms-transform: translateY(115px);
-  -o-transform: translateY(115px);
-  transition: transform 0.5s;
-  -webkit-transition: transform 0.5s;
-  -moz-transition: transform 0.5s;
-  -ms-transition: transform 0.5s;
-  -o-transition: transform 0.5s;
-}
-.satoshi-useapp #g-mobilesatoshi {
-  clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
-}
-.satoshi-useapp #g-mobilesatoshi .line-animation {
-  display: inline-block;
-  transform: translateY(300px);
-  -webkit-transform: translateY(300px);
-  -moz-transform: translateY(300px);
-  -ms-transform: translateY(300px);
-  -o-transform: translateY(300px);
-  transition: transform 0.5s;
-  -webkit-transition: transform 0.5s;
-  -moz-transition: transform 0.5s;
-  -ms-transition: transform 0.5s;
-  -o-transition: transform 0.5s;
-}
-
 .banner-satoshi {
   position: relative;
   overflow: hidden;
@@ -16883,7 +16613,7 @@ input:-moz-placeholder {
 
 .btn-flip {
   background-color: #BFA573;
-  padding: 0.5rem;
+  padding: 1rem 1.5rem;
   border-radius: 999999px;
   text-transform: uppercase;
   color: #000000;
@@ -16893,7 +16623,7 @@ input:-moz-placeholder {
 .btn-zoom {
   width: 100%;
   background-color: #BFA573;
-  padding: 0.5rem;
+  padding: 1rem 0.5rem;
   border-radius: 999999px;
   text-transform: uppercase;
   color: #FFFFFF;
@@ -16903,7 +16633,7 @@ input:-moz-placeholder {
 
 .btn-footer-contactform {
   background-color: #BFA573;
-  color: #FFFFFF;
+  color: #1E1E1E;
   padding: 0.8rem 1rem !important;
   border-radius: 10px;
   font-size: 13px;

@@ -40,6 +40,19 @@ class Homepage extends BaseController
         return view('homepage/layout/wrapper', $mdata);
     }
 
+    public function comingsoon()
+    {
+        $mdata = [
+            'title'     => 'Coming Soon - ' . NAMETITLE,
+            'content'   => 'homepage/comingsoon',
+            'extra'     => 'homepage/js/_js_index',
+            'flag'      => 'comingsoon'
+        ];
+
+        return view('homepage/layout/wrapper', $mdata);
+    }
+
+
 
     public function service()
     {
@@ -253,7 +266,7 @@ class Homepage extends BaseController
             ]);
             
             if ($paymentIntent->status === 'requires_confirmation') {
-                 $confirmedPaymentIntent = $paymentIntent->confirm();
+                $confirmedPaymentIntent = $paymentIntent->confirm();
                 
                 // If the payment was successful, proceed with creating the calendar event
                 if ($confirmedPaymentIntent->status === 'succeeded') {

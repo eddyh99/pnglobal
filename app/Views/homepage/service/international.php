@@ -7,8 +7,8 @@
         <div class="banner-text-video">
             <div class="bg-text-video international">
                 <h2 class="f-lato">
-                    International expansion <br>
-                    and management
+                    Capital Reallocation
+                    <br>
                 </h2>
             </div>
 
@@ -36,7 +36,7 @@
                             Expand Your Business Beyond Borders
                         </h4>
                         <p class="box-content-text f-inter">
-                            We offer comprehensive consulting for establishing businesses in countries with a flat tax rate. Leverage our expertise to navigate local regulations and maximize tax benefits. Our specialized consulting ensures you can successfully establish and manage your business in favorable tax environments.
+                            We provide comprehensive consulting for establishing businesses in flat tax countries. Leverage our expertise to navigate local regulations and maximize tax benefits. Our specialized consulting ensures you can successfully establish and manage your business in favorable tax environments.
                         </p>
                     </div>
                 </div>
@@ -64,7 +64,7 @@
                     </div>
                     <div class="col order-0 order-lg-1 wrapping-title">
                         <h3 class="box-content-title f-odor">
-                            Visa and Residence Permit <br> Facilitation
+                            Consulting for Visas and <br> Residence Permits
                             <hr>
                         </h3>
                     </div>
@@ -84,7 +84,7 @@
                 <div class="row row-cols-1 row-cols-lg-2">
                     <div class="col wrapping-title">
                         <h3 class="box-content-title f-odor">
-                            Offshore Bank Account <br> Setup
+                            Consulting for Offshore <br> Bank Account Setup
                             <hr>
                         </h3>
                     </div>
@@ -93,7 +93,7 @@
                             Manage Your Wealth with Flexibility and Security
                         </h4>
                         <p class="box-content-text f-inter">
-                            We offer consulting for setting up personal and corporate bank accounts in offshore jurisdictions, ensuring secure and convenient management of your international assets. We assist in opening personal and corporate current accounts at major offshore banks, expediting your capital transfers and offering secure and profitable solutions for your business.
+                            We provide consulting for setting up personal and business bank accounts in offshore jurisdictions, ensuring secure and convenient management of your international assets. We assist in opening personal and corporate current accounts at major offshore banks, expediting your capital transfers and offering secure, profitable solutions for your business.
                         </p>
                     </div>
                 </div>

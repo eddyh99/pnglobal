@@ -18,6 +18,7 @@
                 </div>
                 <div id="g-icondownloadbottom" class="bottom">
                     <img class="btn-download" src="<?= BASE_URL ?>assets/img/window-download.png" alt="download playstore">
+                    <img class="btn-download" src="<?= BASE_URL ?>assets/img/apk-download.png" alt="download APK">
                 </div>
             </div>
         </div>
@@ -52,6 +53,14 @@
 </section>
 <!-- End of Short Desc -->
 
+<section  class="service-homepage">
+    <div class="wrapper-big-title">
+        <h1 class="f-odor text-uppercase">
+            earn by promoting Satoshi Signal
+        </h1>
+    </div>
+</section>
+
 <!-- Start of Method Desc -->
 <section class="satoshi-short-desc method">
     <div class="container">
@@ -69,7 +78,9 @@
                 </p>
                 <div class="d-flex justify-content-center align-items-center">
                     <h5 class="f-noto fw-bold">We prefer and we suggest Binance</h5>
-                    <img class="img-small-binance" src="<?= BASE_URL ?>assets/img/logo-binance.png" alt="logo">
+                    <a href="https://accounts.binance.info/register?ref=38492683">
+                        <img class="img-small-binance" src="<?= BASE_URL ?>assets/img/logo-binance.png" alt="logo">
+                    </a>
                 </div>
             </div>
         </div>
@@ -87,7 +98,7 @@
                         <h4 class="f-noto order-1 order-md-0">
                             BUY SIGNAL
                         </h4>
-                        <img class="img-fluid order-0 order-md-1" src="<?= BASE_URL?>assets/img/logo.png" alt="logo">
+                        <img class="img-fluid order-0 order-md-1" src="<?= BASE_URL?>assets/img/logo-satoshi.png" alt="logo">
                     </div>
                     <div class="button-buy f-noto">
                         <h4>
@@ -202,7 +213,7 @@
                         <h4 class="f-noto order-1 order-md-0">
                             SIGNLE SELLS SIGNALS
                         </h4>
-                        <img class="img-fluid order-0 order-md-1" src="<?= BASE_URL?>assets/img/logo.png" alt="logo">
+                        <img class="img-fluid order-0 order-md-1" src="<?= BASE_URL?>assets/img/logo-satoshi.png" alt="logo">
                     </div>
                     <div class="button-sell f-noto">
                         <h4>
@@ -280,7 +291,7 @@
                         <h4 class="f-noto order-1 order-md-0">
                             COMBINE <span> MULTIPLE </span> SALES
                         </h4>
-                        <img class="img-fluid order-0 order-md-1" src="<?= BASE_URL?>assets/img/logo.png" alt="logo">
+                        <img class="img-fluid order-0 order-md-1" src="<?= BASE_URL?>assets/img/logo-satoshi.png" alt="logo">
                     </div>
                     <div class="button-buy f-noto">
                         <h4>
@@ -427,7 +438,9 @@
                     <h5>
                         We prefer and we suggest Binance 
                         <span>
-                            <img class="img-small-binance" src="<?= BASE_URL ?>assets/img/logo-binance.png" alt="logo">
+                            <a href="https://accounts.binance.info/register?ref=38492683">
+                                <img class="img-small-binance" src="<?= BASE_URL ?>assets/img/logo-binance.png" alt="logo">
+                            </a>
                         </span>
                     </h5>
                 </div>      
@@ -524,6 +537,7 @@
                     <img class="btn-download my-2" src="<?= BASE_URL ?>assets/img/playstore-download.png" alt="download playstore">
                     <img class="btn-download my-2" src="<?= BASE_URL ?>assets/img/ios-download.png" alt="download playstore">
                     <img class="btn-download my-2" src="<?= BASE_URL ?>assets/img/window-download.png" alt="download playstore">
+                    <img class="btn-download my-2" src="<?= BASE_URL ?>assets/img/apk-download.png" alt="download playstore">
                 </div>
             </div>
             <div id="g-mobilesatoshi" class="col-12 col-lg-6 order-0 order-lg-1">
