@@ -5,9 +5,6 @@
             <source src="<?= BASE_URL ?>assets/vid/banner.webm" type="video/webm">
         </video>
         <div class="logo-banner">
-            <!-- <div>
-                <img id="g-img-banner-homepage" src="<?= BASE_URL ?>assets/img/logo.png" alt="logo pnglobal">
-            </div> -->
             <div>
                 <p id="g-text-banner-homepage" class="logo-text-banner" >
                     <span class="line-animation">
@@ -52,7 +49,7 @@
         </h1>
     </div>
 
-    <div class="bg-desc-service">
+    <a href="<?php echo BASE_URL . "homepage/service?service=" . base64_encode("satoshi_signal")?>" class="bg-desc-service d-block">
         <div class="container">
             <div class="row">
                 <div class="d-none d-lg-block col-1"></div>
@@ -70,7 +67,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </a>
 </section>
 
 <!-- Start of Cosulting -->
@@ -113,7 +110,7 @@
                         Optimization
                     </a>
                 </div>
-                <img class="order-0 order-lg-1" src="<?= BASE_URL ?>assets/img/img-3.webp" alt="img-2">
+                <img class="order-0 order-lg-1" src="<?= BASE_URL ?>assets/img/img-39.webp" alt="img-2">
             </div>
         </div>
     </div>
@@ -303,7 +300,7 @@
                     </h2>
                 </div>
             </div>
-            <div class="row py-4 row-cols-1 row-cols-md-2 row-cols-lg-3">
+            <div class="row py-4 mb-4 row-cols-1 row-cols-md-2 row-cols-lg-3">
                 <div class="col my-3">
                     <div class="flip-box">
                         <div class="flip-box-inner">
