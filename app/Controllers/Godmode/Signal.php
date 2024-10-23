@@ -126,6 +126,9 @@ class Signal extends BaseController
 
         }
 
+        // echo '<pre>'.print_r($buy_d,true).'</pre>';
+        // die;
+
         $mdata = [
             'title'     => 'Signal - ' . NAMETITLE,
             'content'   => 'godmode/signal/index',

@@ -148,14 +148,14 @@
                                 <div class="sell">
                                     <div class="sell-title d-flex justify-content-between align-items-end">
                                         <span class="sell-text">Sell - D</span>
-                                        <!-- <span class="sell-date">
+                                        <span class="sell-date">
                                             <?php
                                                 $newDate = date('d/m/Y H:i', strtotime(@$sell_d['created_at']));
                                                 if(!empty($sell_d)){
                                                     echo $newDate;
                                                 }
                                             ?>
-                                        </span> -->
+                                        </span>
                                     </div>
                                     <?php if(!empty($sell_d)){?>
                                         <input type="text" class="price-input" value="<?= @$sell_d['entry_price'] ?>" readonly>
