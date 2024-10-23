@@ -63,6 +63,9 @@ class Dashboard extends BaseController
         $url = URLAPI . "/auth/getmember_byemail?email=".base64_decode($email);
         $resultMember = satoshiAdmin($url)->result->message;
 
+        // echo '<pre>'.print_r($resultMember,true).'</pre>';
+        // die;
+
 
         $mdata = [
             'title'     => 'Detail Member - ' . NAMETITLE,

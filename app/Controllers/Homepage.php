@@ -92,7 +92,7 @@ class Homepage extends BaseController
                 'content'   => 'homepage/service/training',
                 'extra'     => 'homepage/js/_js_index',
                 'extragsap' => 'homepage/gsap/gsap_training',
-                'flag'      => 'training'
+                'flag'      => 'blockchain'
             ];
         }else if($service == "blockchain_mining_bitcoin_training"){
             $mdata = [

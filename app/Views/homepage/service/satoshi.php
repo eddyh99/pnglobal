@@ -526,7 +526,7 @@
 <section class="satoshi-useapp">
     <div class="container">
         <div class="row">
-            <div class="col-12 col-lg-6 left-side order-1 order-lg-0">
+            <div class="col-12 col-lg-8 left-side order-1 order-lg-0">
                 <h1 class="f-noto">
                     How to Use the App
                 </h1>
@@ -540,8 +540,8 @@
                     <img class="btn-download my-2" src="<?= BASE_URL ?>assets/img/apk-download.png" alt="download playstore">
                 </div>
             </div>
-            <div id="g-mobilesatoshi" class="col-12 col-lg-6 order-0 order-lg-1">
-                <img class="img-fluid line-animation" src="<?= BASE_URL?>assets/img/mobile-satoshi.png" alt="mobile satoshi">
+            <div id="g-mobilesatoshi" class="col-12 col-lg-4 order-0 order-lg-1">
+                <img class="img-fluid line-animation" src="<?= BASE_URL?>assets/img/logo-satoshi.png" alt="mobile satoshi">
             </div>
         </div>
     </div>
@@ -552,7 +552,7 @@
 <div class="banner-satoshi">
     <div class="wrapper-satoshi" >
         <video autoplay="" preload="" muted="" loop="" playsinline="">
-            <source src="<?= BASE_URL ?>assets/vid/satoshi-video-footer.webm" type="video/webm">
+            <source src="<?= BASE_URL ?>assets/vid/satoshi-video-footer.mp4" type="video/mp4">
         </video>
     </div>
 </div>

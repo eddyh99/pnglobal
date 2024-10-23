@@ -66,11 +66,14 @@
                         <a class="nav-link" href="<?=BASE_URL?>?type=service">Complementary Service</a>
                     </li>
                     <li class="nav-item me-0 me-lg-3 d-flex align-items-center justify-content-center">
-                        <a class="btn-navbar-referral" href="<?= BASE_URL ?>homepage/about">About PN Global</a>
+                        <a class="btn-navbar-referral" href="<?= BASE_URL ?>">Referral Login</a>
                     </li>
                     <li class="nav-item mt-2 mt-lg-0 d-flex align-items-center justify-content-center">
-                        <a class="btn-navbar-contactform" href="<?= BASE_URL ?>homepage/contactform?service=<?= base64_encode("Company Openings - One")?>">Contact Form</a>
+                        <a class="btn-navbar-contactform" href="<?= BASE_URL ?>homepage/contactreferral">Get Referral</a>
                     </li>
+                    <!-- <li class="nav-item mt-2 mt-lg-0 d-flex align-items-center justify-content-center">
+                        <a class="btn-navbar-contactform" href="<?= BASE_URL ?>homepage/contactform?service=<?= base64_encode("Company Openings - One")?>">Contact Form</a>
+                    </li> -->
                     <!-- <li class="nav-item ms-0 ms-lg-3 d-flex align-items-center justify-content-center">
                         <a class="btn-navbar-referral" href="<?= BASE_URL ?>homepage/contactreferral">Get Your Referral</a>
                     </li> -->

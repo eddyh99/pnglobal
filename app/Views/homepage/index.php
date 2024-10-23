@@ -325,7 +325,7 @@
                             <div class="flip-box-front flip-2">
                                 <p>test</p>
                                 <img class="img-fluid" src="<?= BASE_URL?>assets/img/partner/mif-logo.png" alt="MIF logo">
-                                <div class="btn-flip f-odor">BTC mining and technology</div>
+                                <div class="btn-flip f-odor">Bitcoin mining and technology</div>
                             </div>
                             <div class="flip-box-back">
                                 <div>

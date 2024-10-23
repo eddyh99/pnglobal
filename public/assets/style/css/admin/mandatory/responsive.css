@@ -21,7 +21,7 @@ NOTE: This file contains the styling for responsive Template.
 	.progress-round.income-progress {height: 60px; width: 60px;}
 	.progress-round.heatmap-progress {height: 70px; width: 70px;}
 }
-@media(min-width:1300px) {
+@media(min-width:992px) {
 	body.sidebar-main .iq-sidebar { width: 80px; }
 	body.sidebar-main .iq-menu-bt { opacity: 0; }
 	body.sidebar-main .iq-sidebar:hover, body.sidebar-main .iq-sidebar:hover .iq-sidebar-logo { width: 300px; }
@@ -78,16 +78,29 @@ NOTE: This file contains the styling for responsive Template.
 	.animation-card .an-img .bodymovin { margin-bottom: -28px; }
 	.animation-card .an-img { margin-top: 0; }
 }
-@media(max-width:1299px) {
+
+@media(max-width:1199px) {
+	.an-img-two { display: none; }
+	.iq-booking-no li .iq-seat { width: 35px; height: 45px; }
+	.iq-booking-no li { width: 4.7%; }
+	.iq-email-to-list { overflow-x: scroll; }
+	.iq-email-to-list ul li { margin: 0 5px 0 0; }
+	.iq-email-to-list .justify-content-between { float: left; width: 900px; }
+	.sign-in-from { padding: 0 30px; }
+	.sign-in-detail { padding: 100px 50px; }
+	.sign-in-page { height: 100%; }
+}
+@media(max-width:991px) {
+
 	.iq-top-navbar .iq-navbar-custom .iq-menu-bt { display: block; }
 	.iq-circle-progressbar .percent { font-size: 1.3rem !important; }
 	.iq-circle-progressbar svg { width: 80px !important; height: 80px !important; }
 	.iq-circle-progressbar { margin: 0 auto; width: 80px !important; height: 80px !important; }
-	.content-page, body.sidebar-main .content-page { margin-left: 0; padding: 100px 0 0; }
+
 	.iq-top-navbar, body.sidebar-main .iq-top-navbar { width: auto; left: 0; right: 0; padding-left: 15px; }
 	.iq-top-navbar.fixed-header { width: 100%; left: 0; }
 	.iq-footer, body.sidebar-main .iq-footer { padding: 15px 10px; margin-left: 0; width: 100%; }
-	.iq-sidebar { display: inline-block; z-index: 99; left: -260px; top: 75px; padding-top: 15px; }
+
 	.iq-top-navbar .iq-navbar-custom .navbar-breadcrumb { display: none; }
 	.iq-sidebar-logo { width: auto; padding-top: 0; }
 	.iq-sidebar-logo .logo-title span { font-size: 18px !important; }
@@ -105,7 +118,7 @@ NOTE: This file contains the styling for responsive Template.
 	.iq-search-bar .searchbox { width: 100%; }
 	.without-right-sidebar .iq-footer { width: 100%; }
 	.iq-navbar-logo { padding: 0; }
-	.iq-sidebar { display: inline-block; z-index: 99; left: -300px; top: 0px; }
+
 	body.two-sidebar.sidebar-main .iq-sidebar .iq-navbar-logo { padding-left: 15px; }
 	body.two-sidebar.sidebar-main .iq-sidebar { width: 260px; z-index: 1000; }
 	body.two-sidebar .iq-top-navbar { width: calc(100% - 85px); left: auto; }
@@ -129,19 +142,10 @@ NOTE: This file contains the styling for responsive Template.
 	.icon-with-text.sidebar-main .iq-sidebar .iq-sidebar-logo { display: none !important; }
 	.iq-page-menu-horizontal .iq-top-navbar { background: var(--iq-primary); }
 	body.iq-page-menu-horizontal .wrapper-menu {color: var(--iq-white);}
-}
-@media(max-width:1199px) {
-	.an-img-two { display: none; }
-	.iq-booking-no li .iq-seat { width: 35px; height: 45px; }
-	.iq-booking-no li { width: 4.7%; }
-	.iq-email-to-list { overflow-x: scroll; }
-	.iq-email-to-list ul li { margin: 0 5px 0 0; }
-	.iq-email-to-list .justify-content-between { float: left; width: 900px; }
-	.sign-in-from { padding: 0 30px; }
-	.sign-in-detail { padding: 100px 50px; }
-	.sign-in-page { height: 100%; }
-}
-@media(max-width:991px) {
+	.iq-sidebar { display: inline-block; z-index: 99; left: -260px; top: 75px; padding-top: 15px; }
+	.iq-sidebar { display: inline-block; z-index: 99; left: -300px; top: 0px; }
+	.content-page, body.sidebar-main .content-page { margin-left: 0; padding: 100px 0 0; }
+
 	.iq-navbar-custom { margin-top: 11px; }
 	#chartdiv { margin-top: 30px; }
 	.an-img-two .bodymovin { display: none; }

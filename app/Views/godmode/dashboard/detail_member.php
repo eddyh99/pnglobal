@@ -52,7 +52,7 @@
                         <span>
                             <?php 
                                 if($member->role == "member"){
-                                    if($member->period < 400 || $member->period == null) { ?>
+                                    if($member->total_period < 400 || $member->total_period == null) { ?>
                                         Normal Member
                             <?php   } else {?>
                                         Free Member
@@ -67,7 +67,7 @@
                             class="upgrade-btn" 
                             data-toggle="modal" 
                             data-target="#upgradeModal"
-                            <?= (($member->period < 400 || $member->period == null) ? "" : "disabled")?>
+                            <?= (($member->total_period < 400 || $member->total_period == null) ? "" : "disabled")?>
                         >  
                             Upgrade
                         </button>
@@ -92,11 +92,11 @@
                     <div class="label">Subscription Plan</div>
                     <div class="value">
                         <?php 
-                            $totalDays = (int)$member->period;
+                            $totalDays = (int)$member->total_period;
                             $months = floor($totalDays / 30);
                             $days = $totalDays % 30;   
                             
-                            if($member->period < 400 || $member->period == null){
+                            if($member->total_period < 400 || $member->total_period == null){
                                 if($months < 1){
                                     echo $days . " Days";
                                 }else if($days == 0){

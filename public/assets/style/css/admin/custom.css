@@ -139,6 +139,8 @@
 .dash-statistics {
     width: 100%;
     display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
 }
 
 .dash-statistics .statistics{
@@ -609,10 +611,20 @@ div.dataTables_wrapper div.dataTables_filter input {
 @media(min-width:1300px) {}
 @media(max-width:1399px) {}
 @media(max-width:1299px) {}
-@media(max-width:1199px) {}
+
+@media(max-width:1199px) {
+    .dash-statistics .statistics{
+        width: 30%;
+    }
+}
+
 @media(max-width:979px) {}
 @media(max-width:991px) {}
 @media(max-width:767px) {}
-@media(max-width:580px) {}
+@media(max-width:580px) {
+    .dash-statistics .statistics{
+        width: 50%;
+    }
+}
 @media(max-width:479px) {}
 @media(max-width:359px) {}
