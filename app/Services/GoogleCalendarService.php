@@ -65,47 +65,74 @@ class GoogleCalendarService
             'singleEvents' => true,
             'orderBy' => 'startTime',
         ]);
-
+    
         $availableSlots = [];
-        $slotDuration = 2 * 60 * 60; // 2 hours in seconds
-        $currentTime = strtotime($timeMin);
-        $endTime = strtotime($timeMax);
-
-        while ($currentTime < $endTime) {
-            $slotStart = date(DateTime::RFC3339, $currentTime);
-            $slotEnd = date(DateTime::RFC3339, $currentTime + $slotDuration);
-
-            $slotAvailable = true;
-            foreach ($events->getItems() as $event) {
-                $eventStart = strtotime($event->start->dateTime);
-                $eventEnd = strtotime($event->end->dateTime);
-
-                if (($currentTime >= $eventStart && $currentTime < $eventEnd) || 
-                    ($currentTime + $slotDuration > $eventStart && $currentTime + $slotDuration <= $eventEnd)) {
-                    $slotAvailable = false;
-                    break;
+    
+        // Define the fixed time slots for each day
+        $fixedSlots = [
+            ['08:00:00', '09:00:00'],
+            ['09:30:00', '10:30:00'],
+            ['11:00:00', '12:00:00'],
+            ['14:00:00', '15:00:00'],
+            ['15:30:00', '16:30:00'],
+            ['17:00:00', '18:00:00'],
+        ];
+    
+        // Create DateTime objects for the start (timeMin) and end (timeMax) range
+        $currentDate = new DateTime($timeMin, new DateTimeZone($this->calendarTimeZone));
+        $endDate = new DateTime($timeMax, new DateTimeZone($this->calendarTimeZone));
+    
+        // Loop through each day within the time range (week)
+        while ($currentDate < $endDate) {
+            foreach ($fixedSlots as $slot) {
+                // Create start and end times for each slot
+                $slotStart = clone $currentDate;
+                $slotStart->setTime(...explode(':', $slot[0]));
+    
+                $slotEnd = clone $slotStart;
+                $slotEnd->setTime(...explode(':', $slot[1]));
+    
+                // Convert to RFC3339 format for comparison
+                $slotStartStr = $slotStart->format(DateTime::RFC3339);
+                $slotEndStr = $slotEnd->format(DateTime::RFC3339);
+    
+                $slotAvailable = true;
+    
+                foreach ($events->getItems() as $event) {
+                    $eventStart = strtotime($event->start->dateTime);
+                    $eventEnd = strtotime($event->end->dateTime);
+    
+                    $slotStartTimestamp = strtotime($slotStartStr);
+                    $slotEndTimestamp = strtotime($slotEndStr);
+    
+                    // Check if the current slot overlaps with any existing event
+                    if (($slotStartTimestamp >= $eventStart && $slotStartTimestamp < $eventEnd) ||
+                        ($slotEndTimestamp > $eventStart && $slotEndTimestamp <= $eventEnd)) {
+                        $slotAvailable = false;
+                        break;
+                    }
+                }
+    
+                if ($slotAvailable) {
+                    // Convert slot times to user timezone and format as d-m-Y H:i:s
+                    $slotStart->setTimezone(new DateTimeZone($userTimeZone));
+                    $slotEnd->setTimezone(new DateTimeZone($userTimeZone));
+    
+                    $availableSlots[] = [
+                        'start' => $slotStart->format('d-m-Y H:i:s'),
+                        'end' => $slotEnd->format('d-m-Y H:i:s'),
+                    ];
                 }
             }
-
-            if ($slotAvailable) {
-                // Convert slot times to user timezone and format as d-m-Y H:i:s
-                $slotStartDT = new DateTime($slotStart, new DateTimeZone($this->calendarTimeZone));
-                $slotEndDT = new DateTime($slotEnd, new DateTimeZone($this->calendarTimeZone));
-
-                $slotStartDT->setTimezone(new DateTimeZone($userTimeZone));
-                $slotEndDT->setTimezone(new DateTimeZone($userTimeZone));
-
-                $availableSlots[] = [
-                    'start' => $slotStartDT->format('d-m-Y H:i:s'),
-                    'end' => $slotEndDT->format('d-m-Y H:i:s'),
-                ];
-            }
-
-            $currentTime += $slotDuration;
+    
+            // Move to the next day
+            $currentDate->modify('+1 day');
         }
-
+    
         return $availableSlots;
     }
+
+
 
     public function getSlotsNextDay($calendarId, $userTimeZone)
     {
