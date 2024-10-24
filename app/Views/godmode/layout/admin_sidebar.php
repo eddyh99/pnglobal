@@ -102,7 +102,7 @@
     </div>
 </div>
 <!-- TOP Nav Bar -->
-<div class="iq-top-navbar d-block d-xl-none">
+<div class="iq-top-navbar d-block d-lg-none">
     <div class="iq-navbar-custom">
         <nav class="navbar navbar-expand-lg navbar-light p-0">
             <div class="iq-menu-bt d-flex align-items-center">

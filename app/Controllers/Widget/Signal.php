@@ -228,73 +228,18 @@ class Signal extends BaseController
         }
 
 
-
-
-
-
-        // Call Endpoin read signal
-        $url = URLAPI . "/v1/signal/readsignal";
-        $result = satoshiAdmin($url)->result->message;
-
-        // Initial Array Buy A, Buy B, and Buy C
-        $buy_a = array();
-        $buy_b = array();
-        $buy_c = array();
-        $buy_d = array();
-
-        // Looping for get type of buy
-        foreach($result as $dt){
-            // Type Buy A
-            if($dt->type == 'Buy A'){
-                $buy_a['id'] = $dt->id;
-                $buy_a['type'] = $dt->type;
-                $buy_a['entry_price'] = intval($dt->entry_price);
-                $buy_a['pair_id'] = $dt->pair_id;
-                $buy_a['created_at'] = $dt->created_at;
-
-            // Type Buy B
-            }else if($dt->type == 'Buy B'){
-                $buy_b['id'] = $dt->id;
-                $buy_b['type'] = $dt->type;
-                $buy_b['entry_price'] = intval($dt->entry_price);
-                $buy_b['pair_id'] = $dt->pair_id;
-                $buy_b['created_at'] = $dt->created_at;
-
-            // Type Buy C
-            }else if($dt->type == 'Buy C'){
-                $buy_c['id'] = $dt->id;
-                $buy_c['type'] = $dt->type;
-                $buy_c['entry_price'] = intval($dt->entry_price);
-                $buy_c['pair_id'] = $dt->pair_id;
-                $buy_c['created_at'] = $dt->created_at;
-            
-            // Type Buy D
-            }else if($dt->type == 'Buy D'){
-                $buy_d['id'] = $dt->id;
-                $buy_d['type'] = $dt->type;
-                $buy_d['entry_price'] = intval($dt->entry_price);
-                $buy_d['pair_id'] = $dt->pair_id;
-                $buy_d['created_at'] = $dt->created_at;
-            }
-        }
-
-
-        
-
-
-
         $mdata = [
             'title'     => 'Signal - ' . SATOSHITITLE ,
             'content'   => 'widget/signal/index',
             'extra'     => 'widget/signal/js/_js_index',
             'buy_a'     => $buy_a,
-            // 'sell_a'    => $sell_a,
+            'sell_a'    => $sell_a,
             'buy_b'     => $buy_b,
-            // 'sell_b'    => $sell_b,
+            'sell_b'    => $sell_b,
             'buy_c'     => $buy_c,
-            // 'sell_c'    => $sell_c,
+            'sell_c'    => $sell_c,
             'buy_d'     => $buy_d,
-            // 'sell_d'    => $sell_d,
+            'sell_d'    => $sell_d,
             'order'     => $order,
             'lastdate'  => $lastdate
         ];

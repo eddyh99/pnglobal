@@ -16108,6 +16108,12 @@ p {
 .satoshi-useapp .left-side p {
   margin-top: 3rem;
   text-align: justify;
+  padding-right: 2rem;
+}
+@media (min-width: 992px) {
+  .satoshi-useapp .left-side p {
+    padding-right: 10rem;
+  }
 }
 .satoshi-useapp .left-side .button-download {
   display: flex;

@@ -14,76 +14,7 @@
                     <span class="desc">Please choose your subscription</span>
                 </div>
                 <div class="list-subs">
-                    <label class="card mt-3">
-                        <input 
-                            name="subs" 
-                            value="<?= (empty($ref)) ? ($subsprice[0]->price*1).',1 Month Regular' : ($subsprice[0]->ref_price*1).',1 Month With Referral' ?>" 
-                            class="radio" 
-                            type="radio"
-                        >
-                        <div class="plan-details">
-                            <div class="plan-header">
-                                <h4 class="plan-title">1 Month</h4>
-                            </div>
-                            <div class="plan-content">
-                                <div class="d-flex justify-content-between align-items-center">
-                                    <span class="<?= (empty($ref)) ? 'left-active' : 'left-disable' ?>">Regular</span>
-                                    <span class="<?= (empty($ref)) ? 'right-active' : 'right-disable' ?>">€ <?= $subsprice[0]->price*1?></span>
-                                </div>
-                                <div class="d-flex justify-content-between align-items-center mt-3">
-                                    <span class="<?= (!empty($ref)) ? 'left-active' : 'left-disable' ?>">With referral</span>
-                                    <span class="<?= (!empty($ref)) ? 'right-active' : 'right-disable' ?>">€ <?= $subsprice[0]->ref_price*1 ?></span>
-                                </div>
-                            </div>
-                        </div>
-                    </label>
-                    <label class="card mt-3">
-                        <input 
-                            name="subs" 
-                            value="<?= (empty($ref)) ? ($subsprice[0]->price*3).',3 Month Regular' : ($subsprice[0]->ref_price*3).',3 Month With Referral' ?>" 
-                            class="radio" 
-                            type="radio"
-                        >
-                        <div class="plan-details">
-                            <div class="plan-header">
-                                <h4 class="plan-title">3 Month</h4>
-                            </div>
-                            <div class="plan-content">
-                                <div class="d-flex justify-content-between align-items-center">
-                                    <span class="<?= (empty($ref)) ? 'left-active' : 'left-disable' ?>">Regular</span>
-                                    <span class="<?= (empty($ref)) ? 'right-active' : 'right-disable' ?>">€ <?= $subsprice[0]->price*3?></span>
-                                </div>
-                                <div class="d-flex justify-content-between align-items-center mt-3">
-                                    <span class="<?= (!empty($ref)) ? 'left-active' : 'left-disable' ?>">With referral</span>
-                                    <span class="<?= (!empty($ref)) ? 'right-active' : 'right-disable' ?>">€ <?= $subsprice[0]->ref_price*3 ?></span>
-                                </div>
-                            </div>
-                        </div>
-                    </label>
-                    <label class="card mt-3">
-                        <input 
-                            name="subs" 
-                            value="<?= (empty($ref)) ? ($subsprice[0]->price*6).',6 Month Regular' : ($subsprice[0]->ref_price*6).',6 Month With Referral' ?>" 
-                            class="radio" 
-                            type="radio"
-                        >
-                        <div class="plan-details">
-                            <div class="plan-header">
-                                <h4 class="plan-title">6 Month</h4>
-                            </div>
-                            <div class="plan-content">
-                                <div class="d-flex justify-content-between align-items-center">
-                                    <span class="<?= (empty($ref)) ? 'left-active' : 'left-disable' ?>">Regular</span>
-                                    <span class="<?= (empty($ref)) ? 'right-active' : 'right-disable' ?>">€ <?= $subsprice[0]->price*6?></span>
-                                </div>
-                                <div class="d-flex justify-content-between align-items-center mt-3">
-                                    <span class="<?= (!empty($ref)) ? 'left-active' : 'left-disable' ?>">With referral</span>
-                                    <span class="<?= (!empty($ref)) ? 'right-active' : 'right-disable' ?>">€ <?= $subsprice[0]->ref_price*6 ?></span>
-                                </div>
-                            </div>
-                        </div>
-                    </label>
-                    <label class="card mt-3">
+                <label class="card mt-3">
                         <input 
                             name="subs" 
                             value="<?= (empty($ref)) ? ($subsprice[0]->price*12).',12 Year Regular' : ($subsprice[0]->ref_price*12).',12 Year With Referral' ?>" 
@@ -107,6 +38,79 @@
                             </div>
                         </div>
                     </label>
+
+                    <label class="card mt-3">
+                        <input 
+                            name="subs" 
+                            value="<?= (empty($ref)) ? ($subsprice[0]->price*6).',6 Month Regular' : ($subsprice[0]->ref_price*6).',6 Month With Referral' ?>" 
+                            class="radio" 
+                            type="radio"
+                        >
+                        <div class="plan-details">
+                            <div class="plan-header">
+                                <h4 class="plan-title">6 Month</h4>
+                            </div>
+                            <div class="plan-content">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <span class="<?= (empty($ref)) ? 'left-active' : 'left-disable' ?>">Regular</span>
+                                    <span class="<?= (empty($ref)) ? 'right-active' : 'right-disable' ?>">€ <?= $subsprice[0]->price*6?></span>
+                                </div>
+                                <div class="d-flex justify-content-between align-items-center mt-3">
+                                    <span class="<?= (!empty($ref)) ? 'left-active' : 'left-disable' ?>">With referral</span>
+                                    <span class="<?= (!empty($ref)) ? 'right-active' : 'right-disable' ?>">€ <?= $subsprice[0]->ref_price*6 ?></span>
+                                </div>
+                            </div>
+                        </div>
+                    </label>
+
+                    <label class="card mt-3">
+                        <input 
+                            name="subs" 
+                            value="<?= (empty($ref)) ? ($subsprice[0]->price*3).',3 Month Regular' : ($subsprice[0]->ref_price*3).',3 Month With Referral' ?>" 
+                            class="radio" 
+                            type="radio"
+                        >
+                        <div class="plan-details">
+                            <div class="plan-header">
+                                <h4 class="plan-title">3 Month</h4>
+                            </div>
+                            <div class="plan-content">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <span class="<?= (empty($ref)) ? 'left-active' : 'left-disable' ?>">Regular</span>
+                                    <span class="<?= (empty($ref)) ? 'right-active' : 'right-disable' ?>">€ <?= $subsprice[0]->price*3?></span>
+                                </div>
+                                <div class="d-flex justify-content-between align-items-center mt-3">
+                                    <span class="<?= (!empty($ref)) ? 'left-active' : 'left-disable' ?>">With referral</span>
+                                    <span class="<?= (!empty($ref)) ? 'right-active' : 'right-disable' ?>">€ <?= $subsprice[0]->ref_price*3 ?></span>
+                                </div>
+                            </div>
+                        </div>
+                    </label>
+
+                    <label class="card mt-3">
+                        <input 
+                            name="subs" 
+                            value="<?= (empty($ref)) ? ($subsprice[0]->price*1).',1 Month Regular' : ($subsprice[0]->ref_price*1).',1 Month With Referral' ?>" 
+                            class="radio" 
+                            type="radio"
+                        >
+                        <div class="plan-details">
+                            <div class="plan-header">
+                                <h4 class="plan-title">1 Month</h4>
+                            </div>
+                            <div class="plan-content">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <span class="<?= (empty($ref)) ? 'left-active' : 'left-disable' ?>">Regular</span>
+                                    <span class="<?= (empty($ref)) ? 'right-active' : 'right-disable' ?>">€ <?= $subsprice[0]->price*1?></span>
+                                </div>
+                                <div class="d-flex justify-content-between align-items-center mt-3">
+                                    <span class="<?= (!empty($ref)) ? 'left-active' : 'left-disable' ?>">With referral</span>
+                                    <span class="<?= (!empty($ref)) ? 'right-active' : 'right-disable' ?>">€ <?= $subsprice[0]->ref_price*1 ?></span>
+                                </div>
+                            </div>
+                        </div>
+                    </label>
+
                     <div class="mt-3 f-poppins pe-4">
                         <small class="text-white">Please fill your card*</small>
                         <div id="card-element" class="StripeElement"></div>

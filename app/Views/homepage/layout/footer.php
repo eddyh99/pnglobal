@@ -31,15 +31,17 @@
                 <div class="row">
                     <div class="col-12 col-lg-6 ps-0 ps-lg-5 py-5">
                         <h2 class="f-odor">
-                            Apply Now
+                            Enroll Now
                         </h2>
                         <h5 class="f-odor">
-                            Join the Selection Process for Our Exclusive Training Programs
+                            Start Your Journey in Blockchain and Bitcoin Technology
                         </h5>
                         <p>
-                            By filling out the form at the link below, you can apply to be considered for our exclusive training programs. Our activities are limited to a select number of participants. The selection process is divided into two stages: first, your application will be reviewed based on the submitted form, and only the most compelling candidates will advance to the second stage, which involves an individual interview
+                            Don't miss the opportunity to be at the forefront of the cryptocurrency world. 
+                            Enroll in our courses on Blockchain, Bitcoin Mining, and Bitcoin, and start building your future today. 
+                            Contact us for more information and discover how we can help you achieve your professional goals.
                         </p>
-                        <a href="<?= BASE_URL ?>homepage/contactform?service=<?= base64_encode($title)?>" class="btn-footer-enrollnow">Contact Form</a>
+                        <!-- <a href="<?= BASE_URL ?>homepage/contactform?service=<?= base64_encode($title)?>" class="btn-footer-enrollnow">Contact Form</a> -->
                     </div>
                     <div class="d-none d-lg-flex align-items-center col-6 video-trainingform">
                         <video autoplay="" preload="" muted="" loop="" playsinline="">
@@ -72,13 +74,13 @@
                     </div>
                     <div class="d-none d-md-flex col-4 logo-contactform">
                         <img class="img-fluid" style="width: 200px;" src="<?= BASE_URL ?>assets/img/logo.png" alt="img">
-                        <p class="logo-text-contactform">
+                        <p class="logo-text-contactform f-noto">
                             <span class="line-animation">
-                                Transforming visions
+                                ASSET
                             </span> 
                             <br>
                             <span class="line-animation" style="color: #BFA573;">
-                                into success
+                                MANAGEMENT
                             </span>
                         </p>    
                     </div>
@@ -96,25 +98,28 @@
                     <div class="d-flex justify-content-center align-items-center">
                         <div class="logo-footer">
                             <img src="<?= BASE_URL ?>assets/img/logo.png" alt="img">
-                            <p class="logo-text-footer">
+                            <p class="logo-text-footer f-noto">
                                 <span class="line-animation">
-                                    Transforming visions
+                                    ASSET
                                 </span> 
-                                <br>
-                                <span class="line-animation">
-                                    into success
+                                <span class="line-animation" style="color: #BFA573;">
+                                    MANAGEMENT
                                 </span>
                             </p>    
                         </div>
                     </div>
                     <div class="list mt-4 mt-md-0">
-                        <a class="mb-4" href="<?= BASE_URL ?>homepage/about">About Pn Global</a>
-                        <a class="my-4" href="#consulting">Consulting</a>
-                        <a class="my-4" href="#service">Services</a>
-                        <a class="mt-4" href="#hotdeal">Hot Deal</a>
-                        <a class="mt-4" href="<?= BASE_URL ?>homepage/connection">Connections</a>
-                        <a class="mt-4" href="<?= BASE_URL ?>homepage/privacy_policy">Privacy Policy</a>
-                        <a class="mt-4" href="<?= BASE_URL ?>homepage/terms_conditions">Term & Condition</a>
+                        <div class=" d-flex justify-content-start">
+                            <a class="btn-navbar-contactform px-0 mb-3 text-decoration-none text-uppercase" href="<?= BASE_URL ?>homepage/contactform?service=<?= base64_encode($title)?>">Contact Form</a>
+                        </div>
+                        <a class="mb-3 text-uppercase" href="<?= BASE_URL ?>homepage/about">About Pn Global</a>
+                        <a class="mb-3 text-uppercase" href="<?php echo BASE_URL . "homepage/service?service=" . base64_encode("satoshi_signal")?>">Satoshi Signal</a>
+                        <a class="my-3 text-uppercase" href="#productservice">Product And Services</a>
+                        <a class="my-3 text-uppercase" href="#service">Training</a>
+                        <a class="mt-3 text-uppercase" href="#service">Complementary Service</a>
+                        <a class="mt-3 text-uppercase" href="<?= BASE_URL ?>homepage/connection">Connections</a>
+                        <a class="mt-3 text-uppercase" href="<?= BASE_URL ?>homepage/privacy_policy">Privacy Policy</a>
+                        <a class="mt-3 text-uppercase" href="<?= BASE_URL ?>homepage/terms_conditions">Term & Condition</a>
                     </div>
                 </div>
                 <div class="col-8 mx-auto border-hr-footer"></div>
@@ -141,7 +146,7 @@
                                     <strong>International finance department:</strong> 12 Collyer Quay, Ocean Financial Centre, Singapore 049319
                                 </span>
                             </p>
-                            <p class="f-inter text-white my-4 d-flex">
+                            <!-- <p class="f-inter text-white my-4 d-flex">
                                 <span>
                                     <svg width="11" height="14" viewBox="0 0 11 14" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <path d="M5.5 0C2.45929 0 0 2.191 0 4.9C0 8.575 5.5 14 5.5 14C5.5 14 11 8.575 11 4.9C11 2.191 8.54071 0 5.5 0ZM5.5 6.65C4.41571 6.65 3.53571 5.866 3.53571 4.9C3.53571 3.934 4.41571 3.15 5.5 3.15C6.58429 3.15 7.46429 3.934 7.46429 4.9C7.46429 5.866 6.58429 6.65 5.5 6.65Z" fill="#D1B06B"/>
@@ -150,7 +155,7 @@
                                 <span class="ps-1">
                                     <strong>Crypto broker division:</strong> Mahe, Seychelles, Jivan’s complex, Suite 708, Global Village, Abacus, Seychelles
                                 </span>                           
-                            </p>
+                            </p> -->
                         </div>
                         <div class="col-12 col-md-4">
                             <p class="f-inter text-white mb-4 d-flex">
@@ -163,7 +168,7 @@
                                     <strong>Head quarter:</strong> 46 street, 247W Platinum Tower, New York,NY 10036 (USA)
                                 </span>                           
                             </p>
-                            <p class="f-inter text-white mb-4 d-flex">
+                            <!-- <p class="f-inter text-white mb-4 d-flex">
                                 <span>
                                     <svg width="11" height="14" viewBox="0 0 11 14" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <path d="M5.5 0C2.45929 0 0 2.191 0 4.9C0 8.575 5.5 14 5.5 14C5.5 14 11 8.575 11 4.9C11 2.191 8.54071 0 5.5 0ZM5.5 6.65C4.41571 6.65 3.53571 5.866 3.53571 4.9C3.53571 3.934 4.41571 3.15 5.5 3.15C6.58429 3.15 7.46429 3.934 7.46429 4.9C7.46429 5.866 6.58429 6.65 5.5 6.65Z" fill="#D1B06B"/>
@@ -172,7 +177,7 @@
                                 <span class="ps-1">
                                     <strong>Operational Department for Customer Funds Management</strong> 128 City Road London EC1V 2NX (UK)
                                 </span>
-                            </p>
+                            </p> -->
                             <p class="f-inter text-white mb-4 d-flex">
                                 <span>
                                     <svg width="11" height="14" viewBox="0 0 11 14" fill="none" xmlns="http://www.w3.org/2000/svg">

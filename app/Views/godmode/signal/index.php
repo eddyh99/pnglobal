@@ -18,7 +18,7 @@
                         </div>
                         <div class="signal-preview">
                             <div class="row">
-                                <div class="col-6 all-buy">
+                                <div class="col-12 col-md-6 all-buy">
                                     <div class="wrapper-buy">
                                         <!-- BUY A -->
                                         <div class="buy">
@@ -173,7 +173,7 @@
                                     </div>
                                 </div>
                                 <!-- SELL SECTION -->
-                                <div class="col-6 all-sell">
+                                <div class="col-12 col-md-6 all-sell mt-5 mt-md-0">
                                     <div class="wrapper-sell">
                                         <!-- Sell A -->
                                         <div class="sell">
