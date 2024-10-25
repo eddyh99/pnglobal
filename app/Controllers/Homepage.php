@@ -221,6 +221,15 @@ class Homepage extends BaseController
             array_push($newEmail, filter_var($dt, FILTER_VALIDATE_EMAIL));
         }
 
+        $tempreferral = trim(htmlspecialchars($this->request->getVar('referral')));
+
+        // Call API
+        $url = URLAPI . "/v1/member/get_byreferral?refcode=".$tempreferral;
+        $resultReff = satoshiAdmin($url)->result;
+
+
+        $referral = ($resultReff->code == 200) ? $tempreferral : null;
+
         // Initial Data
         $mdata = [
             'fname'         => htmlspecialchars($this->request->getVar('fname')),
@@ -230,15 +239,18 @@ class Homepage extends BaseController
             'timezone'      =>  htmlspecialchars($this->request->getVar('timezone')),
             'description'   => htmlspecialchars($this->request->getVar('desc')),
             'email'         => $newEmail,
-            'subject'       => htmlspecialchars($this->request->getVar('subject'))
+            'subject'       => htmlspecialchars($this->request->getVar('subject')),
+            'referral'      => $referral
         ];
+
 
         $this->session->set('client', $mdata);
 
         $views = [
             'title'     => 'Summary - ' . NAMETITLE,
             'content'   => 'homepage/contact/summary_booking',
-            'extra'     => 'homepage/contact/js/_js_summary_booking'
+            'extra'     => 'homepage/contact/js/_js_summary_booking', 
+            'data'      => $mdata
         ];
 
         return view('homepage/layout/wrapper-contactus', $views);

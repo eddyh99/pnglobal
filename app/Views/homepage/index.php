@@ -80,12 +80,11 @@
 
     <!-- Consulting 1 -->
     <div class="row box-consulting-homepage">
-        <div class="col-10 col-lg-8 black">
+        <div onClick="linkproduct('<?php echo BASE_URL . "homepage/service?service=" . base64_encode("finance_advice_investment")?>')" class="col-10 col-lg-8 black" style="cursor: pointer;" >
             <div class="wrapper-consulting">
                 <img src="<?= BASE_URL ?>assets/img/img-5.webp" alt="img-2">
                 <div class="d-flex justify-content-center w-100">
                     <a 
-                        href="<?php echo BASE_URL . "homepage/service?service=" . base64_encode("finance_advice_investment")?>" 
                         class="link-consulting f-odor"
                     >
                         Financial advice, assets <br>
@@ -99,11 +98,10 @@
 
     <!-- Consulting 2 -->
     <div class="row box-consulting-homepage justify-content-end">
-        <div class="col-10 col-lg-8 gold">
+        <div onClick="linkproduct('<?php echo BASE_URL . "homepage/service?service=" . base64_encode("legal_tax_accounting")?>')" class="col-10 col-lg-8 gold" style="cursor: pointer;">
             <div class="wrapper-consulting">
                 <div class="d-flex justify-content-center w-100 order-1 order-lg-0">
                     <a 
-                        href="<?php echo BASE_URL . "homepage/service?service=" . base64_encode("legal_tax_accounting")?>" 
                         class="link-consulting textblack f-odor"
                     >
                         Law and Tax
@@ -117,12 +115,11 @@
 
     <!-- Consulting 3 -->
     <div class="row box-consulting-homepage">
-        <div class="col-10 col-lg-8 black">
+        <div onClick="linkproduct('<?php echo BASE_URL . "homepage/service?service=" . base64_encode("international_expansion_management")?>')" class="col-10 col-lg-8 black" style="cursor: pointer;">
             <div class="wrapper-consulting">
                 <img src="<?= BASE_URL ?>assets/img/img-2.webp" alt="img-2">
                 <div class="d-flex justify-content-center w-100">
                     <a 
-                        href="<?php echo BASE_URL . "homepage/service?service=" . base64_encode("international_expansion_management")?>" 
                         class="link-consulting f-odor"
                     >
                         Capital Reallocation

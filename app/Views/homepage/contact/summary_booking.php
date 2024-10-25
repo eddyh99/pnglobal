@@ -31,8 +31,8 @@
             <form id="payment-form" action="<?= BASE_URL?>homepage/booking_proccess" method="POST">
                 <div class="img-fluid">
                     <h1 class="fw-bold f-cormorant">Summary Meeting</h1>
-                    <p class="me-0 pe-0 me-md-5 pe-md-5">
-                        This is summary for your schedule meeting, before we accept please confirm your payment of <?= FEEMEETING?>
+                    <p class="me-0 pe-0 me-md-5 pe-md-2">
+                        This is summary for your schedule meeting, before we accept please confirm your payment of <?= (isset($data->referral) ? "EUR 200" : FEEMEETING )?>
                     </p>
                     <div class="mt-5 f-poppins pe-4">
                         <label for="fname">Full Name</label> <br>
