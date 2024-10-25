@@ -16,9 +16,13 @@
         $(this).toggleClass('active');
     });
 
-   $(function() {
+    $(function() {
         $(window).scrollTop($('#<?= @$_GET['type'] ?>').offset().top);
     });
+
+    function linkproduct($link){
+        return window.location.href = $link;
+    }
 
     
 

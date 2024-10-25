@@ -53,7 +53,39 @@
         </section>
         <!-- End of Contact Form -->
     <?php } else if(@$flag == 'satoshi') { ?>
-        <div></div>
+        <!-- Start of Contact Form -->
+        <section class="bg-contactform">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 col-md-8 left-side">
+                        <h2 id="g-getintouch" class="f-odor">
+                            Get in touch with <span translate='no'> PN Global </span>
+                        </h2>
+                        <h4 id="g-subgetintouch" class="f-noto">
+                            We are Here to Assist You in Every Step of Your Growth and Development Journey
+                        </h3>
+                        <p id="g-textgetintouch" class="f-noto">
+                            If you would like more information about our services or would like to discuss your specific needs with one of our experts, please contact us. Our team of financial consultants, lawyers and accountants is at your disposal to offer you personalized support and timely responses. We are ready to assist you with the utmost professionalism and competence.
+                        </p>
+                        <a href="<?= BASE_URL ?>homepage/bookingconsultation?service=<?= base64_encode($title)?>" class="btn-footer-contactform">Book a Consultation</a>
+                        
+                    </div>
+                    <div class="d-none d-md-flex col-4 logo-contactform">
+                        <img class="img-fluid" style="width: 200px;" src="<?= BASE_URL ?>assets/img/logo.png" alt="img">
+                        <p class="logo-text-contactform f-noto">
+                            <span class="line-animation">
+                                ASSET
+                            </span> 
+                            <br>
+                            <span class="line-animation" style="color: #BFA573;">
+                                MANAGEMENT
+                            </span>
+                        </p>    
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- End of Contact Form -->
     <?php } else {  ?>
           <!-- Start of Contact Form -->
           <section class="bg-contactform">
@@ -146,16 +178,6 @@
                                     <strong>International finance department:</strong> 12 Collyer Quay, Ocean Financial Centre, Singapore 049319
                                 </span>
                             </p>
-                            <!-- <p class="f-inter text-white my-4 d-flex">
-                                <span>
-                                    <svg width="11" height="14" viewBox="0 0 11 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M5.5 0C2.45929 0 0 2.191 0 4.9C0 8.575 5.5 14 5.5 14C5.5 14 11 8.575 11 4.9C11 2.191 8.54071 0 5.5 0ZM5.5 6.65C4.41571 6.65 3.53571 5.866 3.53571 4.9C3.53571 3.934 4.41571 3.15 5.5 3.15C6.58429 3.15 7.46429 3.934 7.46429 4.9C7.46429 5.866 6.58429 6.65 5.5 6.65Z" fill="#D1B06B"/>
-                                    </svg>     
-                                </span>
-                                <span class="ps-1">
-                                    <strong>Crypto broker division:</strong> Mahe, Seychelles, Jivan’s complex, Suite 708, Global Village, Abacus, Seychelles
-                                </span>                           
-                            </p> -->
                         </div>
                         <div class="col-12 col-md-4">
                             <p class="f-inter text-white mb-4 d-flex">
@@ -168,16 +190,6 @@
                                     <strong>Head quarter:</strong> 46 street, 247W Platinum Tower, New York,NY 10036 (USA)
                                 </span>                           
                             </p>
-                            <!-- <p class="f-inter text-white mb-4 d-flex">
-                                <span>
-                                    <svg width="11" height="14" viewBox="0 0 11 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M5.5 0C2.45929 0 0 2.191 0 4.9C0 8.575 5.5 14 5.5 14C5.5 14 11 8.575 11 4.9C11 2.191 8.54071 0 5.5 0ZM5.5 6.65C4.41571 6.65 3.53571 5.866 3.53571 4.9C3.53571 3.934 4.41571 3.15 5.5 3.15C6.58429 3.15 7.46429 3.934 7.46429 4.9C7.46429 5.866 6.58429 6.65 5.5 6.65Z" fill="#D1B06B"/>
-                                    </svg>
-                                </span>
-                                <span class="ps-1">
-                                    <strong>Operational Department for Customer Funds Management</strong> 128 City Road London EC1V 2NX (UK)
-                                </span>
-                            </p> -->
                             <p class="f-inter text-white mb-4 d-flex">
                                 <span>
                                     <svg width="11" height="14" viewBox="0 0 11 14" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -188,7 +200,6 @@
                                     <strong>Operational detachment:</strong> Benoa Square, Jl. Bypass Ngurah Rai A Kedonganan No.21, Jimbaran, Kec. Kuta, Kabupaten Badung, Bali 80361, Indonesia
                                 </span>
                             </p>
-                          
                         </div>
                         <div class="col-12 col-md-4">
                             <p class="f-inter text-white mb-4 d-flex">
