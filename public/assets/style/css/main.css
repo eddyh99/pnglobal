@@ -12547,7 +12547,7 @@ html {
 }
 
 body {
-  font-family: "Inter", sans-serif;
+  font-family: "Noto Serif", serif;
 }
 
 a {
@@ -13146,7 +13146,7 @@ p {
   text-align: center;
 }
 .consulting-homepage .box-consulting-homepage {
-  margin: 1rem 0;
+  margin: 2rem 0;
 }
 .consulting-homepage .box-consulting-homepage .wrapper-consulting {
   display: flex;
@@ -13175,6 +13175,7 @@ p {
   font-size: 25px;
   margin-bottom: 2rem;
   transition: all ease-in-out 0.5s;
+  font-weight: 800;
 }
 .consulting-homepage .box-consulting-homepage .wrapper-consulting .link-consulting:hover {
   color: #BFA573;
@@ -13254,6 +13255,7 @@ p {
 .why-homepage .why-right .wrapper-content-why .subtitle-why {
   color: #BFA573;
   margin-bottom: 1rem;
+  font-weight: 800;
 }
 .why-homepage .why-right .wrapper-content-why .content-why {
   color: #FFFFFF;

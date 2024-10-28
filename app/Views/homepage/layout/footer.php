@@ -6,7 +6,7 @@
             <div class="wrapper-trainingform">
                 <div class="row position-relative">
                     <div class="col-12 col-lg-6 ps-0 ps-lg-5">
-                        <h2 class="f-odor">
+                        <h2 class="">
                             Join our Professional Training Programs
                         </h2>
                         <p class="f-inter">
@@ -30,18 +30,32 @@
             <div class="wrapper-trainingform">
                 <div class="row">
                     <div class="col-12 col-lg-6 ps-0 ps-lg-5 py-5">
-                        <h2 class="f-odor">
+                        <h2 class="">
                             Enroll Now
                         </h2>
-                        <h5 class="f-odor">
-                            Start Your Journey in Blockchain and Bitcoin Technology
+                        <h5 class="">
+                            How to get free online training
                         </h5>
-                        <p>
-                            Don't miss the opportunity to be at the forefront of the cryptocurrency world. 
-                            Enroll in our courses on Blockchain, Bitcoin Mining, and Bitcoin, and start building your future today. 
-                            Contact us for more information and discover how we can help you achieve your professional goals.
-                        </p>
-                        <!-- <a href="<?= BASE_URL ?>homepage/contactform?service=<?= base64_encode($title)?>" class="btn-footer-enrollnow">Contact Form</a> -->
+                        <h5 class="fw-bold">
+                            Follow the simple steps below:  
+                        </h5>
+                        <div class="mt-4">
+                            <ol>
+                                <li class="mt-3">Follow this INSTAGRAM profile: <a href="https://www.instagram.com/principe.nerini_official/" class="fw-bold d-inline">https://www.instagram.com/ principe.nerini_official/</a> </li>
+                                <li class="mt-3">
+                                    Every time a new course is organised, a Reel will be published on the profiles announcing the event, just comment "FRIENDS";
+                                </li>
+                                <li class="mt-3">
+                                    Once you have commented, if you are selected, you will be added to the close friends list; 
+                                </li>
+                                <li class="mt-3">
+                                    Take live lessons exclusively for close friends for free and Good Luck!
+                                </li>
+                                
+
+                                
+                            </ol>
+                        </div>
                     </div>
                     <div class="d-none d-lg-flex align-items-center col-6 video-trainingform">
                         <video autoplay="" preload="" muted="" loop="" playsinline="">
@@ -57,7 +71,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-12 col-md-8 left-side">
-                        <h2 id="g-getintouch" class="f-odor">
+                        <h2 id="g-getintouch" class="">
                             Get in touch with <span translate='no'> PN Global </span>
                         </h2>
                         <h4 id="g-subgetintouch" class="f-noto">
@@ -92,7 +106,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-12 col-md-8 left-side">
-                        <h2 id="g-getintouch" class="f-odor">
+                        <h2 id="g-getintouch" class="">
                             Get in touch with <span translate='no'> PN Global </span>
                         </h2>
                         <h4 id="g-subgetintouch" class="f-noto">
@@ -126,7 +140,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-12 col-md-8 left-side">
-                        <h2 id="g-getintouch" class="f-odor">
+                        <h2 id="g-getintouch" class="">
                             Get in touch with <span translate='no'> PN Global </span>
                         </h2>
                         <h4 id="g-subgetintouch" class="f-noto">
