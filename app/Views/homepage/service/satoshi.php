@@ -5,7 +5,7 @@
             <source src="<?= BASE_URL ?>assets/vid/banner-signal.webm" type="video/webm">
         </video>
         <div class="download-video">
-            <h1 id="g-text-downloadapp" class="f-noto line-animation">
+            <h1 id="g-text-downloadapp" class=" line-animation">
                 <span class="line-animation">
                     Download The App <br>
                     <span translate='no'> Satoshi Signal </span>
@@ -24,7 +24,7 @@
         </div>
         <div class="banner-text-video">
             <div class="bg-text-video satoshi">
-                <h2 class="f-lato" >
+                <h2 class="" >
                     Bitcoin Trading Guidance <br> for Buy/Sell Decisions
                 </h2>
             </div>
@@ -38,11 +38,11 @@
     <div class="container">
         <div class="row row-cols-1">
             <div class="col-12 col-lg-6 mx-auto">
-                <h2 class="f-noto">
+                <h2 class="">
                     Maximize Profits with Reliable <br>
                     and Timely Signals from Our Brokers
                 </h2>
-                <p class="mt-4 f-noto">  
+                <p class="mt-4 ">  
                     Our application is not the classic signals room but inside it you will see the information shared by our brokers so you can decide to buy or sell following the best in the field, Our brokers provide timely and accurate information to help you make informed investment decisions. We guarantee our customers the most reliable and up-to-date information. Our method, perfected over the years, allows you to trade profitably without risk in the spot purchase and sale of bitcoin.
                 </p>
             </div>
@@ -55,7 +55,7 @@
 
 <section  class="service-homepage">
     <div class="wrapper-big-title">
-        <h1 class="f-odor text-uppercase">
+        <h1 class="fw-bold text-uppercase">
             earn by promoting Satoshi Signal
         </h1>
     </div>
@@ -66,18 +66,21 @@
     <div class="container">
         <div class="row row-cols-1">
             <div class="col-12 col-lg-8 mx-auto">
-                <h2 class="f-noto">
+                <h2 class="">
                     The Methodology
                 </h2>
-                <h4 class="f-noto">
+                <h4 class="">
                     Diving Your Capital
                 </h4>
-                <p class="mt-4 f-noto">  
-                    The USDT capital you have on cryptocurrency exchanges should be divided into four equal parts. This strategy is designed to reduce risk and maximize profitability. By following Satoshi Signals, you will buy and sell according to a precise order that helps you effectively manage your portfolio and optimize profits. <br>
-                    Our brokers operate exclusively on the <strong> Binance platform, </strong> using a strategy that takes into account the buy and sell prices of the <strong> USDT/BTC </strong> pair and the platform’s fees. This ensures that each trade is optimized to provide you with the maximum advantage.
+                <p class="mt-4 ">  
+                    <!-- The USDT capital you have on cryptocurrency exchanges should be divided into four equal parts. This strategy is designed to reduce risk and maximize profitability. By following Satoshi Signals, you will buy and sell according to a precise order that helps you effectively manage your portfolio and optimize profits. <br>
+                    Our brokers operate exclusively on the <strong> Binance platform, </strong> using a strategy that takes into account the buy and sell prices of the <strong> USDT/BTC </strong> pair and the platform’s fees. This ensures that each trade is optimized to provide you with the maximum advantage. -->
+
+                    The <span translate='no'> USDT </span> capital you have on cryptocurrency exchanges should be divided into four equal parts. This strategy is designed to reduce risk and maximize profitability. By following <span translate='no'> Satoshi Signal </span>, you will buy and sell according to a precise order that helps you effectively manage your portfolio and optimize profits. 
+                    Our brokers operate exclusively on the <strong> Binance platform </strong>, using a strategy that takes into account the buy and sell prices of the <strong> BTC/USDT </strong> pair and the platform’s fees. This ensures that each trade is optimized to provide you with the maximum advantage.
                 </p>
                 <div class="d-flex justify-content-center align-items-center">
-                    <h5 class="f-noto fw-bold">We prefer and we suggest Binance</h5>
+                    <h5 class=" fw-bold">We prefer and we suggest Binance</h5>
                     <a href="https://accounts.binance.info/register?ref=38492683">
                         <img class="img-small-binance" src="<?= BASE_URL ?>assets/img/logo-binance.png" alt="logo">
                     </a>
@@ -95,12 +98,12 @@
             <div class="col-12 col-md-3 col-lg-4 order-1 order-md-0 title d-flex justify-content-center justify-content-md-end align-items-center">
                 <div class="wrapping-box">
                     <div class="box-buy">
-                        <h4 class="f-noto order-1 order-md-0">
+                        <h4 class=" order-1 order-md-0">
                             BUY SIGNAL
                         </h4>
                         <img class="img-fluid order-0 order-md-1" src="<?= BASE_URL?>assets/img/logo-satoshi.png" alt="logo">
                     </div>
-                    <div class="button-buy f-noto">
+                    <div class="button-buy ">
                         <h4>
                             BUY
                         </h4>
@@ -113,7 +116,7 @@
                         <li>
                             <div class="card">
                                 <div class="card-header">
-                                    <h4 class="f-noto">
+                                    <h4 class="">
                                         BUY <span translate='no'> A </span>
                                     </h4>
                                 </div>
@@ -124,7 +127,7 @@
                         </li>
                         <li>
                             <div class="card">
-                                <div class="card-header f-noto">
+                                <div class="card-header ">
                                     <h4>
                                         BUY <span translate='no'> B </span>
                                     </h4>
@@ -136,7 +139,7 @@
                         </li>
                         <li>
                             <div class="card">
-                                <div class="card-header f-noto">
+                                <div class="card-header ">
                                     <h4>
                                         BUY <span translate='no'> C </span>
                                     </h4>
@@ -148,7 +151,7 @@
                         </li>
                         <li>
                             <div class="card">
-                                <div class="card-header f-noto">
+                                <div class="card-header ">
                                     <h4>
                                         BUY <span translate='no'> D </span>
                                     </h4>
@@ -163,7 +166,7 @@
             </div>
             <div class="col-12 col-md-5 col-lg-4 order-0 order-md-2 desc">
                 <div class="wrapper-desc d-flex justify-content-center align-items-center">
-                    <p class="f-noto">In <span translate='no'> Satoshi Signals </span> system, the execution order of operations is crucial to ensure effective and safe portfolio management. For  buying, it is necessary to strictly follow the <span translate='no'> ABCD </span> order.</p>
+                    <p class="">In <span translate='no'> Satoshi Signals </span> system, the execution order of operations is crucial to ensure effective and safe portfolio management. For  buying, it is necessary to strictly follow the <span translate='no'> ABCD </span> order.</p>
                 </div>
             </div>
         </div>
@@ -182,7 +185,7 @@
                     </g>
                 </svg>
             </div>
-            <p class="f-noto text-center">
+            <p class=" text-center">
                 The same order must be followed during the selling phase. You cannot sell an operation bought with the BUY A signal without first selling those bought with BUY B, C, and D. 
             </p>
             <div>
@@ -204,18 +207,18 @@
         <div class="row">
             <div class="col-12 col-md-5 col-lg-4 desc">
                 <div class="wrapper-desc d-flex justify-content-center align-items-center">
-                    <p class="f-noto">These single sell signals allow you to close each operation individually while following the inverted order of buying <span translate='no'> DCBA </span></p>
+                    <p class="">These single sell signals allow you to close each operation individually while following the inverted order of buying <span translate='no'> DCBA </span></p>
                 </div>
             </div>
             <div class="col-12 col-md-3 col-xxl-2 title d-flex justify-content-center justify-content-md-end align-items-center">
                 <div class="wrapping-box">
                     <div class="box-sell">
-                        <h4 class="f-noto order-1 order-md-0">
+                        <h4 class=" order-1 order-md-0">
                             SIGNLE SELLS SIGNALS
                         </h4>
                         <img class="img-fluid order-0 order-md-1" src="<?= BASE_URL?>assets/img/logo-satoshi.png" alt="logo">
                     </div>
-                    <div class="button-sell f-noto">
+                    <div class="button-sell ">
                         <h4>
                             SELL
                         </h4>
@@ -228,7 +231,7 @@
                         <li>
                             <div class="card">
                                 <div class="card-header">
-                                    <h4 class="f-noto">
+                                    <h4 class="">
                                         SELL <span translate='no'> D </span>
                                     </h4>
                                 </div>
@@ -239,7 +242,7 @@
                         </li>
                         <li>
                             <div class="card">
-                                <div class="card-header f-noto">
+                                <div class="card-header ">
                                     <h4>
                                         SELL <span translate='no'> C </span>
                                     </h4>
@@ -251,7 +254,7 @@
                         </li>
                         <li>
                             <div class="card">
-                                <div class="card-header f-noto">
+                                <div class="card-header ">
                                     <h4>
                                         SELL <span translate='no'> B </span>
                                     </h4>
@@ -263,7 +266,7 @@
                         </li>
                         <li>
                             <div class="card">
-                                <div class="card-header f-noto">
+                                <div class="card-header ">
                                     <h4>
                                         SELL <span translate='no'> A </span>
                                     </h4>
@@ -288,12 +291,12 @@
             <div class="col-12 col-md-3 col-lg-4 order-1 order-md-0 title d-flex justify-content-center justify-content-md-end align-items-center">
                 <div class="wrapping-box">
                     <div class="box-multiple">
-                        <h4 class="f-noto order-1 order-md-0">
+                        <h4 class=" order-1 order-md-0">
                             COMBINE <span> MULTIPLE </span> SALES
                         </h4>
                         <img class="img-fluid order-0 order-md-1" src="<?= BASE_URL?>assets/img/logo-satoshi.png" alt="logo">
                     </div>
-                    <div class="button-buy f-noto">
+                    <div class="button-buy ">
                         <h4>
                             SELL
                         </h4>
@@ -306,7 +309,7 @@
                         <li>
                             <div class="card">
                                 <div class="card-header">
-                                    <h4 class="f-noto">
+                                    <h4 class="">
                                         SELL <span translate='no'> DCBA </span>
                                         <br>
                                         <small>(SELL ALL)</small>
@@ -319,7 +322,7 @@
                         </li>
                         <li>
                             <div class="card">
-                                <div class="card-header f-noto">
+                                <div class="card-header ">
                                     <h4>
                                         SELL <span translate='no'> DCB </span>
                                     </h4>
@@ -331,7 +334,7 @@
                         </li>
                         <li>
                             <div class="card">
-                                <div class="card-header f-noto">
+                                <div class="card-header ">
                                     <h4>
                                         SELL <span translate='no'> DC </span>
                                     </h4>
@@ -343,7 +346,7 @@
                         </li>
                         <li>
                             <div class="card">
-                                <div class="card-header f-noto">
+                                <div class="card-header ">
                                     <h4>
                                         SELL <span translate='no'> BA </span>
                                     </h4>
@@ -358,7 +361,7 @@
             </div>
             <div class="col-12 col-md-5 col-lg-4 order-0 order-md-2 desc">
                 <div class="wrapper-desc d-flex justify-content-center align-items-center">
-                    <p class="f-noto">These multiple sell signals allow you to sell several operations together, but always following the tabel order.</p>
+                    <p class="">These multiple sell signals allow you to sell several operations together, but always following the tabel order.</p>
                 </div>
             </div>
         </div>
@@ -371,7 +374,7 @@
     <div class="container">
         <div class="row wrapper-mediaton">
             <div class="col-12 col-md-8 mx-auto mediation">
-                <h2 class="f-odor">
+                <h2 class="">
                     The Mediation System for New Purchases
                 </h2>
                 <p>
@@ -391,7 +394,7 @@
 <!-- Start of Profit -->
 <section class="satoshi-profit">
     <div class="wrapper-big-title">
-        <h3 class="f-odor">
+        <h3 class="">
             Ensuring Profitability
         </h3>
     </div>
@@ -402,7 +405,7 @@
             <div class="col-12 col-lg-6 bg-timeline">
             </div>
             <div class="col-12 col-lg-5 wrap-text-timeline">
-                <h3 class="f-odor">
+                <h3 class="">
                     Timeliness, Precision, and Order
                 </h3>
                 <p class="text-timeline f-inter">
@@ -416,7 +419,7 @@
     <div class="commision mt-5">
         <div class="row">
             <div class="col-12 col-lg-6 wrap-text-commision">
-                <h3 class="f-odor">
+                <h3 class="">
                     Commission Calculations
                 </h3>
                 <p class="text-commision f-inter">
@@ -453,7 +456,7 @@
             <div class="col-11 mx-auto">
                 <div class="row wrapping-satoshi-key">
                     <div class="col-12 col-md-6 order-1 order-md-0 text-satoshi-key">
-                        <h3 class="f-odor">
+                        <h3 class="">
                             Key Points to Remember
                         </h3>
                         <ul>
@@ -475,7 +478,7 @@
     </div>
 
     <div class="wrapper-big-title">
-        <h2 class="f-odor">
+        <h2 class="">
         Why Choose Our Application
         </h2>
     </div>
@@ -527,7 +530,7 @@
     <div class="container">
         <div class="row">
             <div class="col-12 col-lg-8 left-side order-1 order-lg-0">
-                <h1 class="f-noto">
+                <h1 class="">
                     How to Use the App
                 </h1>
                 <p class="mt-4">

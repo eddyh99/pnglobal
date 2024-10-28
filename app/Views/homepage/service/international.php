@@ -6,7 +6,7 @@
         </video>
         <div class="banner-text-video">
             <div class="bg-text-video international">
-                <h2 class="f-lato">
+                <h2 class="">
                     Capital Reallocation
                     <br>
                 </h2>
@@ -26,17 +26,17 @@
             <div class="container">
                 <div class="row row-cols-1 row-cols-lg-2">
                     <div class="col wrapping-title">
-                        <h3 class="box-content-title f-odor">
-                            Expansion in more <br> favorable Jurisdictions
+                        <h3 class="box-content-title ">
+                            Reallocate your capital to <br> more favorable <br> jurisdictions
                             <hr>
                         </h3>
                     </div>
                     <div class="col box-content">
-                        <h4 class="box-content-subtitle f-odor">
-                            Expand Your Business Beyond Borders
+                        <h4 class="box-content-subtitle ">
+                            Explore opportunities across borders
                         </h4>
                         <p class="box-content-text f-inter">
-                            We provide comprehensive consulting for establishing businesses in flat tax countries. Leverage our expertise to navigate local regulations and maximize tax benefits. Our specialized consulting ensures you can successfully establish and manage your business in favorable tax environments.
+                            Together with a <span translate='no'> PN Global </span> consultant, after a careful analysis, explore the opportunities of moving your capital to countries that can bring enormous advantages in terms of taxation, privacy, secrecy, security and reliability.
                         </p>
                     </div>
                 </div>
@@ -55,16 +55,16 @@
             <div class="container">
                 <div class="row row-cols-1 row-cols-lg-2">
                     <div class="col order-1 order-lg-0 box-content">
-                        <h4 class="box-content-subtitle f-odor">
-                            We facilitate your access to foreign markets
+                        <h4 class="box-content-subtitle ">
+                            We facilitate your transfer while remaining within the law
                         </h4>
                         <p class="box-content-text f-inter">
-                            We offer in-depth consulting for obtaining visas and residence permits, facilitating your and your staff's access to foreign markets to expand your business seamlessly. We provide comprehensive assistance in obtaining visas and residence permits, ensuring smooth and efficient access for you and your team to international markets.
+                            We offer in-depth consultancy and complete support throughout the reallocation process, facilitating operations, regardless of the country of origin of the funds and the country of destination. We operate in absolute privacy and secrecy to carry out the correct paperwork on your behalf in the chosen jurisdiction
                         </p>
                     </div>
                     <div class="col order-0 order-lg-1 wrapping-title">
-                        <h3 class="box-content-title f-odor">
-                            Consulting for Visas and <br> Residence Permits
+                        <h3 class="box-content-title ">
+                            OPERATE  100% LEGALLY
                             <hr>
                         </h3>
                     </div>
@@ -83,17 +83,17 @@
             <div class="container">
                 <div class="row row-cols-1 row-cols-lg-2">
                     <div class="col wrapping-title">
-                        <h3 class="box-content-title f-odor">
-                            Consulting for Offshore <br> Bank Account Setup
+                        <h3 class="box-content-title ">
+                            CONSULTANCY FOR OPENING <br> AN OFFSHORE BANK ACCOUNT
                             <hr>
                         </h3>
                     </div>
                     <div class="col box-content">
-                        <h4 class="box-content-subtitle f-odor">
-                            Manage Your Wealth with Flexibility and Security
+                        <h4 class="box-content-subtitle ">
+                            Manage your assets with flexibility and security
                         </h4>
                         <p class="box-content-text f-inter">
-                            We provide consulting for setting up personal and business bank accounts in offshore jurisdictions, ensuring secure and convenient management of your international assets. We assist in opening personal and corporate current accounts at major offshore banks, expediting your capital transfers and offering secure, profitable solutions for your business.
+                            We provide consulting for setting up personal and business bank accounts in offshore jurisdictions, ensuring secure and convenient management of your international assets. We assist in opening personal and corporate current accounts at major offshore banks, expediting your capital transfers and offering secure, profitable solutions for you and your business.
                         </p>
                     </div>
                 </div>

@@ -26,9 +26,9 @@
     <div class="container">
         <div class="row">
             <div class="col-12 col-lg-7 order-1 order-lg-0 left-side">
-                <h2 class="f-odor text-primary-pnglobal">Efficiency and Professionalism at the Highest Levels</h2>
-                <h5 class="f-odor text-primary-pnglobal mt-4">A Team of Experts at Your Service</h5>
-                <p class="f-inter">
+                <h2 class="text-primary-pnglobal">Efficiency and Professionalism at the Highest Levels</h2>
+                <h5 class="text-primary-pnglobal mt-4">A Team of Experts at Your Service</h5>
+                <p>
                     <span translate='no'> PN Global </span> is an Asset Management company that operates mainly in the Bitcoin field without, obviously, neglecting traditional markets.
 We operate as a Bitcoin broker and have established an Edge Fund to manage Bitcoin mining. <br>
                     Our operations are mainly aimed at institutional clients and we have chosen to make the operations of our brokers transparent so that all the necessary information is available to all those interested in operating and earning independently.
@@ -44,7 +44,7 @@ We operate as a Bitcoin broker and have established an Edge Fund to manage Bitco
 <section id="satoshi" class="service-homepage">
     
     <div class="wrapper-big-title">
-        <h1 class="f-odor text-uppercase">
+        <h1 class=" text-uppercase fw-bold">
             Bitcoin Brokerage guidance for buy/sell decisions
         </h1>
     </div>
@@ -55,7 +55,7 @@ We operate as a Bitcoin broker and have established an Edge Fund to manage Bitco
                 <div class="d-none d-lg-block col-1"></div>
                 <div class="col-12 col-lg-5 order-1 order-lg-0">
                     <p class="text-desc-service f-noto">
-                        Satoshi Signal is not the classic signal room, in reality it is a real App which not only shows when to buy or sell Bitcoin from the signals section but inside it has a messages section where you can choose the language in which to receive messages from the APP setting
+                        Satoshi Signal is not the classic signal room, in reality it is a real App which not only shows when to buy or sell Bitcoin from the signals section but inside it has a messages section where you can choose the language in which to receive messages from the APP setting.
                     </p>
                     <p class="text-desc-service f-noto">
                         These messages explain the motivations and reasoning that lead to the decisions of our brokers which, we hope, will provide lessons to help users create their own strategy over time.
@@ -71,9 +71,9 @@ We operate as a Bitcoin broker and have established an Edge Fund to manage Bitco
 </section>
 
 <!-- Start of Cosulting -->
-<section id="productservice" class="content consulting-homepage">
+<section id="productservice" class="content consulting-homepage pt-0">
     <div class="wrapper-big-title">
-        <h1 class="f-odor">
+        <h1 class="fw-bold">
             PRODUCTS AND SERVICES
         </h1>
     </div>
@@ -85,7 +85,7 @@ We operate as a Bitcoin broker and have established an Edge Fund to manage Bitco
                 <img src="<?= BASE_URL ?>assets/img/img-5.webp" alt="img-2">
                 <div class="d-flex justify-content-center w-100">
                     <a 
-                        class="link-consulting f-odor"
+                        class="link-consulting "
                     >
                         Financial advice, assets <br>
                         and investment
@@ -102,7 +102,7 @@ We operate as a Bitcoin broker and have established an Edge Fund to manage Bitco
             <div class="wrapper-consulting">
                 <div class="d-flex justify-content-center w-100 order-1 order-lg-0">
                     <a 
-                        class="link-consulting textblack f-odor"
+                        class="link-consulting textblack "
                     >
                         Law and Tax
                         Optimization
@@ -120,7 +120,7 @@ We operate as a Bitcoin broker and have established an Edge Fund to manage Bitco
                 <img src="<?= BASE_URL ?>assets/img/img-2.webp" alt="img-2">
                 <div class="d-flex justify-content-center w-100">
                     <a 
-                        class="link-consulting f-odor"
+                        class="link-consulting "
                     >
                         Capital Reallocation
                     </a>
@@ -136,7 +136,7 @@ We operate as a Bitcoin broker and have established an Edge Fund to manage Bitco
                 <div class="d-flex justify-content-center w-100 order-1 order-lg-0">
                     <a 
                         href="<?php echo BASE_URL . "homepage/service?service=" . base64_encode("legal_tax_accounting")?>" 
-                        class="link-consulting textblack f-odor"
+                        class="link-consulting textblack "
                     >
                         Legal and Tax <br>
                         Advise
@@ -157,7 +157,7 @@ We operate as a Bitcoin broker and have established an Edge Fund to manage Bitco
             <div class="col-12 col-lg-6 why-left">
                 <div class="wrapper-why-logo">
                     <img id="g-logo-why-homepage" class="line-animation" src="<?= BASE_URL ?>assets/img/logo.png" alt="logo PNGLOBAL">
-                    <h2 id="g-title-why-homepage" class="f-odor line-animation">
+                    <h2 id="g-title-why-homepage" class=" line-animation">
                         Why Choose <br><span translate="no"> PN Global </span>
                     </h2>
                 </div>
@@ -165,38 +165,40 @@ We operate as a Bitcoin broker and have established an Edge Fund to manage Bitco
             </div>
             <div class="col-12 col-lg-6 why-right px-4">
                 <div class="wrapper-content-why first">
-                    <h3 id="g-why-sub-innovation" class="f-odor subtitle-why">
+                    <h3 id="g-why-sub-innovation" class="subtitle-why">
                         <span class="line-animation">
                             INNOVATION
                         </span>
                     </h3>
-                    <p id="g-why-content-innovation" class="f-inter content-why">
+                    <p id="g-why-content-innovation" class=" content-why">
                         <span class="line-animation">
-                            <span translate="no"> PN Global </span> is at the forefront of the international scene, utilizing the latest technologies and innovative strategies to provide efficient and personalized solutions to its clients. Its ability to quickly adapt to market changes allows us to consistently offer the best investment and business opportunities.
+                           <span translate='no'> PN Global </span> is at the forefront on the international scene, its ability to quickly adapt to market changes allows us to constantly offer the best investment and business opportunities.
                         </span>
                     </p>
                 </div>
                 <div class="wrapper-content-why">
-                    <h3 id="g-why-sub-reliability" class="f-odor line-animation subtitle-why">
+                    <h3 id="g-why-sub-reliability" class=" line-animation subtitle-why">
                         <span class="line-animation">
                             RELIABILITY
                         </span>
                     </h3>
-                    <p id="g-why-content-reliability" class="f-inter content-why">
+                    <p id="g-why-content-reliability" class=" content-why">
                         <span class="line-animation">
-                            <span translate="no"> PN Global </span> is committed to maintaining the highest standards of integrity and transparency in all its activities to repay the trust placed by its clients. You can count on <span translate='no'> PN Global </span> for precise financial consulting and constant support.
+                           <span translate='no'> PN Global </span> is committed to maintaining the highest standards of integrity and transparency in all its activities to repay the trust placed by its clients. You can count on <span translate='no'> PN Global </span> for precise financial consulting and constant support.
                         </span>
                     </p>
                 </div>
                 <div class="wrapper-content-why">
-                    <h3 id="g-why-sub-competence" class="f-odor line-animation subtitle-why">
+                    <h3 id="g-why-sub-competence" class=" line-animation subtitle-why">
                         <span class="line-animation">
-                            COMPETENCE
+                            PROFICIENCY
                         </span>
                     </h3>
-                    <p id="g-why-content-competence" class="f-inter content-why">
+                    <p id="g-why-content-competence" class=" content-why">
                         <span class="line-animation">
-                            The team is composed of professionals located in various jurisdictions; thanks to their extensive experience and in-depth knowledge in the legal, financial, and technological fields, they can support their clients in all their international needs. The competence of <span translate='no'> PN Global’s </span>consultants ensures that every decision is based on thorough analysis and proven strategies, guaranteeing success.
+                            The team is made up of professionals located in various jurisdictions; thanks to their wide experience and knowledge acquired in the legal, financial and technological fields they can support their clients in all their needs.
+                            <br>
+                            The skills of <span translate='no'> PN Global </span> consultants ensure that every decision is based on in-depth analysis and proven strategies, guaranteeing success.
                         </span>
                     </p>
                 </div>
@@ -214,7 +216,7 @@ We operate as a Bitcoin broker and have established an Edge Fund to manage Bitco
         <div class="container">
             <div class="row">
                 <div class="col-12">
-                    <h1 class="text-center my-5 text-white f-odor text-uppercase">
+                    <h1 class="text-center my-5 text-white  text-uppercase fw-bold">
                         take charge of the future by investing in yourself
                     </h1>
                 </div>
@@ -225,7 +227,7 @@ We operate as a Bitcoin broker and have established an Edge Fund to manage Bitco
                         <div class="with-blur-backdrop">
                             <a 
                                 href="<?php echo BASE_URL . "homepage/service?service=" . base64_encode("professional_enterpreneurial_training")?>" 
-                                class="btn-zoom f-odor"
+                                class="btn-zoom fw-bold"
                             >
                                 free online basic training program 
                             </a>
@@ -237,34 +239,20 @@ We operate as a Bitcoin broker and have established an Edge Fund to manage Bitco
                         <div class="with-blur-backdrop">
                             <a 
                                 href="<?= BASE_URL ?>homepage/comingsoon" 
-                                class="btn-zoom f-odor"
-                                style="padding: 0.2rem;"
+                                class="btn-zoom fw-bold"
                             >
-                                Advanced Training on Bitcoin, <br> Mining and Blockchain 
+                                CAMPUS FOR ADVANCED TRAINING    
                             </a>
                         </div>
                     </div>
                 </div>
-                <!-- <div class="col my-4">
-                    <div class="zoom-box zoom-3">
-                        <div class="with-blur-backdrop">
-                            <a 
-                                href="<?php echo BASE_URL . "homepage/service?service=" . base64_encode("satoshi_signal")?>" 
-                                class="btn-zoom f-odor"
-                            >
-                                Bitcoin BROKERAGE Guidance for <br>
-                                Buy/Sell Decisions ‘’SATOSHI SIGNALS’’
-                            </a>
-                        </div>
-                    </div>
-                </div> -->
             </div>
         </div>
     </div>
     
     <div id="service" class="wrapper-big-title mt-4">
-        <h1 class="f-odor">
-            Services to Complement Our Consulting
+        <h1 class="text-uppercase fw-bold">
+            Complementary services offered by our partners
         </h1>
     </div>
 
@@ -274,11 +262,9 @@ We operate as a Bitcoin broker and have established an Edge Fund to manage Bitco
                 <div class="d-none d-lg-block col-1"></div>
                 <div class="col-12 col-lg-5 order-1 order-lg-0">
                     <p class="text-desc-service f-noto">
-                        At <span translate='no'> P.N. Global </span>, we are dedicated to providing specialized and high-quality services to help our clients successfully navigate the complex world of international business. Our team of experts offers personalized and strategic support for a wide range of needs, ensuring effective solutions that comply with current regulations. We are proud to assist our clients at every stage of their entrepreneurial journey.
+                        The services offered by our partners allow you to overcome the complexities of international business.  Our team of experts, in collaboration with our partners, will provide you with tailored solutions for a wide range of needs, ensuring compliance and strategic success.  Find out how we can support you every step of the way.
                     </p>
-                    <p class="text-desc-service f-noto">
-                    Explore our services to discover how we can help you achieve your goals with confidence and expertise.
-                    </p>
+                    <br><br><br><br>
                 </div>
                 <div class="d-none d-lg-block col-1"></div>
                 <div class="col-12 col-lg-5 order-0 order-lg-1 bg-img-service-desc">
@@ -292,7 +278,7 @@ We operate as a Bitcoin broker and have established an Edge Fund to manage Bitco
         <div class="container">
             <div class="row">
                 <div class="col-12">
-                    <h2 class="text-center my-5 text-white f-odor">
+                    <h2 class="text-center my-5 text-white ">
                         Complementary Services
                     </h2>
                 </div>
@@ -304,14 +290,14 @@ We operate as a Bitcoin broker and have established an Edge Fund to manage Bitco
                             <div class="flip-box-front flip-1">
                                 <p>test</p>
                                 <img class="img-fluid" src="<?= BASE_URL?>assets/img/partner/cayman-logo.webp" alt="cayman logo">
-                                <div class="btn-flip f-odor">Investment Encrypted bank account</div>
+                                <div class="btn-flip ">Investment Encrypted bank account</div>
                             </div>
                             <div class="flip-box-back">
                                 <div>
-                                    <!-- <h4 class="f-inter">Company Openings</h4> -->
-                                    <p class="f-inter"> <span translate='no'> Cayman Financial Group </span> is a financial group based in the Cayman Islands. This company has been entrusted by PN Global to represent and promote its products to investors. Through this collaboration, <span translate='no'> PN Global </span> not only manages its own funds but also oversees the management of funds raised by <span translate='no'> Cayman Financial Group </span>, entrusted by investors who believe in our investment strategies.</p>
+                                    <!-- <h4 class="">Company Openings</h4> -->
+                                    <p class=""> <span translate='no'> Cayman Financial Group </span> is a financial group based in the Cayman Islands. This company has been entrusted by PN Global to represent and promote its products to investors. Through this collaboration, <span translate='no'> PN Global </span> not only manages its own funds but also oversees the management of funds raised by <span translate='no'> Cayman Financial Group </span>, entrusted by investors who believe in our investment strategies.</p>
                                 </div>
-                                <a target="_blank" class="btn-flip f-odor px-3 py-1" href="https://caymanfinancialgroup.ky/">See More</a>
+                                <a target="_blank" class="btn-flip  px-3 py-1" href="https://caymanfinancialgroup.ky/">See More</a>
                             </div>
                         </div>
                     </div>
@@ -322,13 +308,13 @@ We operate as a Bitcoin broker and have established an Edge Fund to manage Bitco
                             <div class="flip-box-front flip-2">
                                 <p>test</p>
                                 <img class="img-fluid" src="<?= BASE_URL?>assets/img/partner/mif-logo.png" alt="MIF logo">
-                                <div class="btn-flip f-odor">Bitcoin mining and technology</div>
+                                <div class="btn-flip " style="padding: 0.3rem 1.5rem;">BITCOIN MINING AND TECHNOLOGY <br> SERVICES</div>
                             </div>
                             <div class="flip-box-back">
                                 <div>
-                                    <p class="f-inter"><span translate='no'> Money Industrial Factory </span> is a leading company in the construction of mining farms and cryptocurrency mining. Thanks to the expertise and high specialization of the <span translate='no'> PN Global team </span>, we have been tasked with designing and optimizing mining farms for <span translate='no'> Money Industrial Factory </span> and their clients. Through our research, development, and consulting department, <span translate='no'> PN Global </span> provides technical and strategic support to ensure the efficiency and profitability of mining operations.</p>
+                                    <p class=""><span translate='no'> Money Industrial Factory </span> is a leading company in the construction of mining farms and cryptocurrency mining. Thanks to the expertise and high specialization of the <span translate='no'> PN Global team </span>, we have been tasked with designing and optimizing mining farms for <span translate='no'> Money Industrial Factory </span> and their clients. Through our research, development, and consulting department, <span translate='no'> PN Global </span> provides technical and strategic support to ensure the efficiency and profitability of mining operations.</p>
                                 </div>
-                                <a target="_blank" class="btn-flip f-odor px-3 py-1" href="https://moneyindustrialfactory.io/">See More</a>
+                                <a target="_blank" class="btn-flip  px-3 py-1" href="https://moneyindustrialfactory.io/">See More</a>
                             </div>
                         </div>
                     </div>
@@ -339,13 +325,13 @@ We operate as a Bitcoin broker and have established an Edge Fund to manage Bitco
                             <div class="flip-box-front flip-3">
                                 <p>test</p>
                                 <img class="img-fluid" src="<?= BASE_URL?>assets/img/partner/logo-pbs.png" alt="PBS logo">
-                                <div class="btn-flip f-odor" style="padding: 0.3rem 1.5rem;">Company Formation Services <br> and International Support</div>
+                                <div class="btn-flip " style="padding: 0.3rem 1.5rem;">Company Formation Services <br> and International Support</div>
                             </div>
                             <div class="flip-box-back">
                                 <div>
-                                    <p class="f-inter">Professional solutions for creating international businesses At <span translate='no'> PBS Oline </span> we specialize in providing comprehensive support services to help you overcome the complexities of business operations. From legal and tax support to accounting and financial management, our team of experts is here to ensure your business runs smoothly and efficiently. We support you in setting up international companies, transferring residence, feasibility studies, business plans and opening bank accounts. We also offer visa and residence permit services.</p>
+                                    <p class="">Professional solutions for creating international businesses At <span translate='no'> PBS Oline </span> we specialize in providing comprehensive support services to help you overcome the complexities of business operations. From legal and tax support to accounting and financial management, our team of experts is here to ensure your business runs smoothly and efficiently. We support you in setting up international companies, transferring residence, feasibility studies, business plans and opening bank accounts. We also offer visa and residence permit services.</p>
                                 </div>
-                                <a class="btn-flip f-odor px-3 py-1" href="https://www.pbsonlinellc.com/" target="_blank">See More</a>
+                                <a class="btn-flip  px-3 py-1" href="https://www.pbsonlinellc.com/" target="_blank">See More</a>
                             </div>
                         </div>
                     </div>
@@ -354,12 +340,12 @@ We operate as a Bitcoin broker and have established an Edge Fund to manage Bitco
                     <div class="flip-box">
                         <div class="flip-box-inner">
                             <div class="flip-box-front flip-4">
-                                <div class="btn-flip f-odor">BUSINESS PLAN AND FEASIBILITY STUDY</div>
+                                <div class="btn-flip ">BUSINESS PLAN AND FEASIBILITY STUDY</div>
                             </div>
                             <div class="flip-box-back">
                                 <div>
-                                    <h4 class="f-inter">Business Plan and Feasibility Study</h4>
-                                    <p class="f-inter">We deliver specialized services for developing business plans and conducting feasibility studies. Our services include thorough market analysis, financial forecasting, and strategic planning to ensure your business idea is viable and set for success.</p>
+                                    <h4 class="">Business Plan and Feasibility Study</h4>
+                                    <p class="">We deliver specialized services for developing business plans and conducting feasibility studies. Our services include thorough market analysis, financial forecasting, and strategic planning to ensure your business idea is viable and set for success.</p>
                                 </div>
                                 <a href="<?= BASE_URL ?>homepage/contactform?service=<?= base64_encode("Business Plan and Feasibility Study - Four")?>">Contact us</a>
                             </div>
@@ -370,12 +356,12 @@ We operate as a Bitcoin broker and have established an Edge Fund to manage Bitco
                     <div class="flip-box">
                         <div class="flip-box-inner">
                             <div class="flip-box-front flip-5">
-                                <div class="btn-flip f-odor">CONTRACT DRAFTING</div>
+                                <div class="btn-flip ">CONTRACT DRAFTING</div>
                             </div>
                             <div class="flip-box-back">
                                 <div>
-                                    <h4 class="f-inter">Contract Drafting</h4>
-                                    <p class="f-inter">Our legal experts offer professional services in drafting contracts that protect your interests and ensure compliance with all relevant laws. We provide clear, precise, and legally sound contract drafting services to meet your business needs.</p>
+                                    <h4 class="">Contract Drafting</h4>
+                                    <p class="">Our legal experts offer professional services in drafting contracts that protect your interests and ensure compliance with all relevant laws. We provide clear, precise, and legally sound contract drafting services to meet your business needs.</p>
                                 </div>
                                 <a href="<?= BASE_URL ?>homepage/contactform?service=<?= base64_encode("Contract Drafting - Five")?>">Contact us</a>
                             </div>
@@ -386,12 +372,12 @@ We operate as a Bitcoin broker and have established an Edge Fund to manage Bitco
                     <div class="flip-box">
                         <div class="flip-box-inner">
                             <div class="flip-box-front flip-6">
-                                <div class="btn-flip f-odor">FUNDS REALLOCATION</div>
+                                <div class="btn-flip ">FUNDS REALLOCATION</div>
                             </div>
                             <div class="flip-box-back">
                                 <div>
-                                    <h4 class="f-inter">Fund Reallocation</h4>
-                                    <p class="f-inter">Maximize profits and minimize risks with our expert services for fund reallocation. We provide 100% legal solutions tailored to enhance profitability and capitalize on market opportunities. Our strategies are designed to meet your specific needs and goals.</p>
+                                    <h4 class="">Fund Reallocation</h4>
+                                    <p class="">Maximize profits and minimize risks with our expert services for fund reallocation. We provide 100% legal solutions tailored to enhance profitability and capitalize on market opportunities. Our strategies are designed to meet your specific needs and goals.</p>
                                 </div>
                                 <a href="<?= BASE_URL ?>homepage/contactform?service=<?= base64_encode("Fund Reallocation - Six")?>">Contact us</a>
                             </div>
