@@ -113,7 +113,7 @@
                         </div>     
                         <div class="mt-5 f-poppins">
                             <label class="label-email" for="referral">Referral Code</label> <br>
-                            <input id="referral" class="inp-email mt-1 img-fluid" name="referral" type="text" required placeholder="Enter referral code"> <br>
+                            <input id="referral" class="inp-email mt-1 img-fluid" name="referral" type="text" placeholder="Enter referral code (optional)"> <br>
                         </div>          
                         <div class="mt-5 f-poppins">
                             <button type="submit" class="btn btn-footer-contactform">CONFIRM</button>

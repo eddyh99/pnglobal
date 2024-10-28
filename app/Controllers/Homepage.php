@@ -222,14 +222,18 @@ class Homepage extends BaseController
         }
 
         $tempreferral = trim(htmlspecialchars($this->request->getVar('referral')));
-
-        // Call API
-        $url = URLAPI . "/v1/member/get_byreferral?refcode=".$tempreferral;
-        $resultReff = satoshiAdmin($url)->result;
-
-
-        $referral = ($resultReff->code == 200) ? $tempreferral : null;
-
+        $_SESSION["referral"]=null;
+        $referral=null;
+        if (!empty($tempreferral)){
+            // Call API
+            $url = URLAPI . "/v1/member/get_byreferral?refcode=".$tempreferral;
+            $resultReff = satoshiAdmin($url)->result;
+    
+    
+            $referral = ($resultReff->code == 200) ? $tempreferral : null;
+            $_SESSION["referral"] = ($resultReff->code == 200) ? $resultReff->message->id : null;
+        }
+        
         // Initial Data
         $mdata = [
             'fname'         => htmlspecialchars($this->request->getVar('fname')),
@@ -262,9 +266,13 @@ class Homepage extends BaseController
         // Stripe secret key
         \Stripe\Stripe::setApiKey(SECRET_KEY); 
         $paymentMethodId = $_POST['payment_method_id'];
-        $amount = 15000; // Replace with the actual amount in cents (e.g., $50.00 = 5000)
-        $currency = 'usd'; // Replace with your desired currency
-    
+        if (!empty($_SESSION["referral"])){
+            $amount = 15000; // Replace with the actual amount in cents (e.g., $50.00 = 5000)
+        }else{
+            $amount = 20000;
+        }
+        $currency = 'eur'; // Replace with your desired currency
+        
         try {
             // Create a PaymentIntent with the payment method ID
             $paymentIntent = \Stripe\PaymentIntent::create([
@@ -282,6 +290,15 @@ class Homepage extends BaseController
                 
                 // If the payment was successful, proceed with creating the calendar event
                 if ($confirmedPaymentIntent->status === 'succeeded') {
+                    // Call API
+                    
+                    $mdata=array(
+                            "email"     => $_SESSION['client']['email'][0],
+                            "amount"    => $amount/100,
+                            "referral"  => empty($_SESSION["referral"]) ? null : $_SESSION["referral"]
+                        );
+                    $url = URLAPI . "/auth/bookconsultation";
+                    $resultReff = satoshiAdmin($url,json_encode($mdata))->result;
 
                     // Create Google Calendar
                     $calendarId = 'primary'; // Your calendar ID
@@ -316,7 +333,7 @@ class Homepage extends BaseController
                     ];
         
                     try {
-                        $this->googleCalendarService->createEvent($calendarId, $eventData);
+                        //$this->googleCalendarService->createEvent($calendarId, $eventData);
         
                         // Subject
                         $subject = NAMETITLE . ' - Booking Consultation ' . $_SESSION['client']['subject'] . ' | ' . $_SESSION['client']['fname'];
@@ -324,7 +341,7 @@ class Homepage extends BaseController
         
                         // Assign SESSION client
                         $mdata = $_SESSION['client'];
-                        sendmail_booking($subject, $mdata);
+                        //sendmail_booking($subject, $mdata);
             
                     } catch (\RuntimeException $e) {
                         session()->setFlashdata('failed', 'Failed to booking schedule: '. $e->getMessage());
