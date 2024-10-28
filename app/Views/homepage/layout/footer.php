@@ -52,6 +52,40 @@
             </div>
         </section>
         <!-- End of Contact Form -->
+        <!-- Start of Contact Form -->
+        <section class="bg-contactform">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 col-md-8 left-side">
+                        <h2 id="g-getintouch" class="f-odor">
+                            Get in touch with <span translate='no'> PN Global </span>
+                        </h2>
+                        <h4 id="g-subgetintouch" class="f-noto">
+                            We are Here to Assist You in Every Step of Your Growth and Development Journey
+                        </h4>
+                        <p id="g-textgetintouch" class="f-noto">
+                            If you would like more information about our services or would like to discuss your specific needs with one of our experts, please contact us. Our team of financial consultants, lawyers and accountants is at your disposal to offer you personalized support and timely responses. We are ready to assist you with the utmost professionalism and competence.
+                        </p>
+                        <a href="<?= BASE_URL ?>homepage/bookingconsultation?service=<?= base64_encode($title)?>" class="btn-footer-contactform">Book a Consultation</a>
+                        
+                    </div>
+                    <div class="d-none d-md-flex col-4 logo-contactform">
+                        <img class="img-fluid" style="width: 200px;" src="<?= BASE_URL ?>assets/img/logo.png" alt="img">
+                        <p class="logo-text-contactform f-noto">
+                            <span class="line-animation">
+                                ASSET
+                            </span> 
+                            <br>
+                            <span class="line-animation" style="color: #BFA573;">
+                                MANAGEMENT
+                            </span>
+                        </p>    
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- End of Contact Form -->
+        
     <?php } else if(@$flag == 'satoshi') { ?>
         <!-- Start of Contact Form -->
         <section class="bg-contactform">
@@ -63,7 +97,7 @@
                         </h2>
                         <h4 id="g-subgetintouch" class="f-noto">
                             We are Here to Assist You in Every Step of Your Growth and Development Journey
-                        </h3>
+                        </h4>
                         <p id="g-textgetintouch" class="f-noto">
                             If you would like more information about our services or would like to discuss your specific needs with one of our experts, please contact us. Our team of financial consultants, lawyers and accountants is at your disposal to offer you personalized support and timely responses. We are ready to assist you with the utmost professionalism and competence.
                         </p>

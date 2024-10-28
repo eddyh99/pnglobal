@@ -29,9 +29,9 @@
                 <h2 class="f-odor text-primary-pnglobal">Efficiency and Professionalism at the Highest Levels</h2>
                 <h5 class="f-odor text-primary-pnglobal mt-4">A Team of Experts at Your Service</h5>
                 <p class="f-inter">
-                    <span translate='no'> PN Global </span> stands out for its efficiency and professionalism in providing top-level consultations. <br>
-                    Thanks to a team of highly qualified experts, we offer personalized and innovative solutions to meet the specific needs of each client: business consulting, fund reallocation consulting, business expansion or relocation abroad consulting, consulting for opening business and personal bank accounts, and transferring tax residence. Our proactive and results-oriented approach ensures that our clients achieve their goals quickly and safely. 
-                    Rely on <span translate='no'> PN Global </span> for impeccable management and sustainable growth.
+                    <span translate='no'> PN Global </span> is an Asset Management company that operates mainly in the Bitcoin field without, obviously, neglecting traditional markets.
+We operate as a Bitcoin broker and have established an Edge Fund to manage Bitcoin mining. <br>
+                    Our operations are mainly aimed at institutional clients and we have chosen to make the operations of our brokers transparent so that all the necessary information is available to all those interested in operating and earning independently.
                 </p>
             </div>
             <div class="col-12 col-lg-5 order-0 order-lg-1 bg-team-expert">
@@ -55,10 +55,10 @@
                 <div class="d-none d-lg-block col-1"></div>
                 <div class="col-12 col-lg-5 order-1 order-lg-0">
                     <p class="text-desc-service f-noto">
-                        At <span translate='no'> P.N. Global </span>, we are dedicated to providing specialized and high-quality services to help our clients successfully navigate the complex world of international business. Our team of experts offers personalized and strategic support for a wide range of needs, ensuring effective solutions that comply with current regulations. We are proud to assist our clients at every stage of their entrepreneurial journey.
+                        Satoshi Signal is not the classic signal room, in reality it is a real App which not only shows when to buy or sell Bitcoin from the signals section but inside it has a messages section where you can choose the language in which to receive messages from the APP setting
                     </p>
                     <p class="text-desc-service f-noto">
-                        Explore our services to discover how we can help you achieve your goals with confidence and expertise.
+                        These messages explain the motivations and reasoning that lead to the decisions of our brokers which, we hope, will provide lessons to help users create their own strategy over time.
                     </p>
                 </div>
                 <div class="d-none d-lg-block col-1"></div>

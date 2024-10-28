@@ -267,9 +267,9 @@ class Homepage extends BaseController
         \Stripe\Stripe::setApiKey(SECRET_KEY); 
         $paymentMethodId = $_POST['payment_method_id'];
         if (!empty($_SESSION["referral"])){
-            $amount = 15000; // Replace with the actual amount in cents (e.g., $50.00 = 5000)
+            $amount = 25000; // Replace with the actual amount in cents (e.g., $50.00 = 5000)
         }else{
-            $amount = 20000;
+            $amount = 35000;
         }
         $currency = 'eur'; // Replace with your desired currency
         
