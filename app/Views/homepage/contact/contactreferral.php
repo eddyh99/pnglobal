@@ -6,9 +6,9 @@
                     <img class="img-fluid" src="<?= BASE_URL ?>assets/img/logo.png" alt="logo">
                     <div class="text">
                         <p>
-                            Transforming visions <br>
+                            Asset <br>
                             <span  style="color: #BFA573;">
-                                into success
+                                Management
                             </span>
                         </p>    
                     </div>               
