@@ -64,7 +64,7 @@
                             <span>Normative Compliance:</span> Our team ensures your business adheres to all local and international normative. We navigate complex tax legislation, mitigating risks and optimizing your tax position.
                         </p>
                         <p class="box-content-text  ">
-                            <span>Corporate Law:</span> Advice on the establishment of new companies, mergers, acquisitions, corporate restructuring and other corporate transactions.
+                            <span>Corporate Law:</span> Advising on the formation of new companies, mergers, acquisitions, restructurings and other corporate transactions.
                         </p>
                         <p class="box-content-text  ">
                             <span>Regulatory Compliance:</span> Assistance in adapting to local and international regulations, including privacy management and data protection.
@@ -90,7 +90,7 @@
                             <span>Optimize Your Tax Position:</span> Our tax exemption strategies, fully aligned with local and international regulations, help you reduce your tax burden, optimize resource allocation, and boost profitability.
                         </p>
                         <p class="box-content-text  ">
-                            <span>Expand Your Fiscal Horizons:</span> Benefit from our expert guidance to optimize your international tax structure. We leverage international tax treaties and explore opportunities in various jurisdictions to maximize tax advantages, maximize tax advantages and reduce capital gains.
+                            <span>Expand Your Fiscal Horizons:</span> Benefit from our expert advice to optimize your international tax structure. We leverage international tax treaties and explore opportunities in various jurisdictions to maximize tax benefits and reduce capital gains taxation.
                         </p>
                         <p class="box-content-text  ">
                             <span>Consultancy on direct and indirect taxes:</span> Thanks to our team of experts you will know in advance all the direct and indirect taxes in force in the recommended country.
@@ -121,7 +121,7 @@
                 <h1 class=" ">International Consulting Specialists</h1>
                 <h2 class="">Navigating the Global Markets with Expertise</h2>
                 <p class="">  
-                    At <span translate='no'> P.N. Global </span>, we stand out for our ability to assist companies in their global expansion and in managing complex international challenges. Our international consulting is a strength that helps you navigate the global legal and tax landscape with confidence and expertise. We have a thorough understanding of the laws and regulations in each country where our clients wish to expand their business. Whether it is the establishment of foreign subsidiaries, management of legal and tax risks, or regulatory compliance, Our team of experts is always ready to provide personalized and strategic support. Trust us at <span translate='no'> P.N. Global </span> to make your international ambitions a reality, by taking full advantage of the opportunities offered by global markets.
+                   <span translate='no'> At PN Global </span>, we stand out for our ability to assist companies in their global expansion and in managing complex international challenges. Our international consultancy is a strength that helps you navigate the global legal and tax landscape with confidence and competence. We have in-depth knowledge of the laws and regulations of each country where our clients wish to expand their business. Whether it is setting up foreign subsidiaries, managing legal and tax risks or regulatory compliance, our team of experts is always ready to provide personalized and strategic support. Trust <span translate='no'> PN Global </span> to make your international ambitions a reality by taking full advantage of the opportunities offered by global markets.
                 </p>
             </div>
         </div>

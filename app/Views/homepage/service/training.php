@@ -182,9 +182,7 @@
                             Become a Mining Expert with Our Specialized Training
                         </h4>
                         <p class="box-content-text ">
-                            Bitcoin mining is the beating heart of the cryptocurrency ecosystem, and a deep understanding of its technical and operational processes is essential for anyone wishing to enter this field successfully. Our advanced training courses will guide you in selecting the most suitable solutions, from the necessary hardware to energy efficiency optimization strategies. You will learn how and where to set up a mining farm, maximizing profits while gaining a thorough understanding of the mining market dynamics.
-                            <br>
-                            With a strong focus on sustainability and innovation, these courses will prepare you to become a leader in the Bitcoin mining sector.
+                            Bitcoin mining is the beating heart of the cryptocurrency ecosystem, and a deep understanding of its technical and operational processes is essential for anyone who wishes to successfully enter this field. Our advanced training courses will guide you in selecting the most suitable solutions, from the necessary hardware to energy efficiency optimization strategies. You will learn how and where to set up a mining farm, maximizing profits and gaining in-depth knowledge of the dynamics of the mining market. With a strong focus on sustainability and innovation, these courses will prepare you to become a leader in the Bitcoin mining industry.
                         </p>
                     </div>
                     <div class="col-12 col-lg-5 order-0 order-lg-1 wrapping-title">
@@ -214,10 +212,10 @@
                         Blockchain Design and Implementation
                     </h3>
                     <h5 class="box-content-subtitle ">
-                        Build Your Understanding of Blockchain Technology
+                        Develop your understanding of Blockchain technology
                     </h5>
                     <p class="box-content-text ">
-                        Our Blockchain training will guide you through the fundamental principles and advanced techniques required to design, implement, and manage Blockchain-based solutions. You will have the opportunity to learn how to create secure, scalable, and efficient blockchains using the latest technologies and frameworks. Whether you aim to develop a new cryptocurrency or integrate Blockchain solutions within an existing organization, our program will provide you with the skills necessary to excel.
+                        Our Blockchain training will guide you through the fundamental principles and implementations of this new and revolutionary technology, you will have the opportunity to learn how the bitcoin blockchain works and compare it with new types of blockchain, you will learn how to integrate blockchain solutions within an existing organization; Our program will provide you with the skills you need to excel.
                     </p>
                 </div>
             </div>

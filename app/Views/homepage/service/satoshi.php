@@ -491,7 +491,7 @@
                         Expert Consulting
                     </p>
                     <p class="text"> 
-                        Our team of experienced brokers is dedicated to sharing with you the trading operations of Bitcoin. Our method has been refined over years of practice to ensure zero risk and maximum profit.
+                        Our team of experienced brokers is dedicated to sharing with you the Bitcoin brokerage operations. Our method has been refined over years of practice to ensure zero risk and maximum profit.
                     </p>
                     <img class="bitcoin" src="<?= BASE_URL?>assets/img/el-1.png" alt="element">
                 </div>                
@@ -499,10 +499,10 @@
             <div class="col-12 col-lg-6 d-flex justify-content-md-center justify-content-lg-start">
                 <div class="uptodate whitie">
                     <p class="title">
-                        Expert Consulting
+                        Up-to-Date Information
                     </p>
                     <p class="text"> 
-                        Our team of experienced brokers is dedicated to sharing with you the trading operations of Bitcoin. Our method has been refined over years of practice to ensure zero risk and maximum profit.
+                        Stay one step ahead of the market with our expert brokers. We continuously monitor market conditions to provide you with the most up-to-date information.
                     </p>
                     <img class="bitcoin" src="<?= BASE_URL?>assets/img/el-1.png" alt="element">
                 </div>                
@@ -515,7 +515,7 @@
                         A Proven Strategy for Confident Trading
                     </p>
                     <p class="text"> 
-                       <span translate='no'> Satoshi Signals </span> offers a structured, disciplined approach to Bitcoin trading, designed to maximize profits while minimizing risks. Our app provides real-time signals from our brokers, ensuring you are always informed of the exact prices at which to buy and sell. By following our precise methodology and waiting for Bitcoin to reach the specified prices, you can confidently navigate the volatile cryptocurrency market with a strategy that prioritizes both accuracy and profitability.
+                       <span translate='no'> Satoshi Signal </span> offers a structured and disciplined approach to Bitcoin brokerage, designed to maximize profits while minimizing risks. Our app provides real-time signals from our brokers, ensuring you are always informed of the exact prices at which to buy and sell. By following our precise methodology and waiting for Bitcoin to reach the specified prices, you can confidently navigate the volatile cryptocurrency market with a strategy that prioritizes both accuracy and profitability.
                     </p>
                     <img class="bitcoin" src="<?= BASE_URL?>assets/img/el-1.png" alt="element">
                 </div>   
@@ -534,7 +534,7 @@
                     How to Use the App
                 </h1>
                 <p class="mt-4">
-                    Satoshi Signals is designed to provide you with reliable and timely operations from our brokers in Bitcoin trading. After downloading the app, confirm that you understand the system to access all features. Register your account, enter referral code, if any, and activate the monthly subscription, which renews automatically. Once subscribed, you’ll receive real-time notifications with our brokers' operations. Follow the guidance to buy and sell at the right moment, maximizing profits with minimal risk. Remember to keep notifications on so you never miss an opportunity.
+                   <span translate='no'> Satoshi Signals </span> is designed to provide you with reliable and timely information from our Bitcoin market brokers. After downloading the app, confirm that you understand the system to access all the features. Register your account, enter the referral code if applicable, and activate the chosen subscription that automatically renews. Once subscribed, you will receive real-time notifications and messages with decisions from our brokers. Follow the information to buy and sell at the right time, maximizing profits with minimal risk. Remember to keep the notifications turned on so you never miss an opportunity.
                 </p>
                 <div id="g-icondownloadfooter" class="button-download">
                     <img class="btn-download my-2" src="<?= BASE_URL ?>assets/img/playstore-download.png" alt="download playstore">

@@ -51,9 +51,6 @@
                                 <li class="mt-3">
                                     Take live lessons exclusively for close friends for free and Good Luck!
                                 </li>
-                                
-
-                                
                             </ol>
                         </div>
                     </div>
@@ -195,7 +192,7 @@
                         <a class="mb-3 text-uppercase" href="<?= BASE_URL ?>homepage/about">About Pn Global</a>
                         <a class="mb-3 text-uppercase" href="<?php echo BASE_URL . "homepage/service?service=" . base64_encode("satoshi_signal")?>">Satoshi Signal</a>
                         <a class="my-3 text-uppercase" href="#productservice">Product And Services</a>
-                        <a class="my-3 text-uppercase" href="#service">Training</a>
+                        <a class="my-3 text-uppercase" href="<?=BASE_URL?>?type=training">Training</a>
                         <a class="mt-3 text-uppercase" href="#service">Complementary Service</a>
                         <a class="mt-3 text-uppercase" href="<?= BASE_URL ?>homepage/connection">Connections</a>
                         <a class="mt-3 text-uppercase" href="<?= BASE_URL ?>homepage/privacy_policy">Privacy Policy</a>
