@@ -131,7 +131,7 @@
                 <p class="mt-4 f-noto" style="line-height: 30px;">  
                     At <span translate='no'> P.N. Global </span>, our clients' success is our top priority. We are dedicated to providing the highest level of service and support, ensuring that our clients achieve their business objectives. Our team goes above and beyond to deliver results, and our client-centric approach means that we are always available to offer guidance and assistance. We take pride in our clients' achievements and are honored to be their trusted advisors.
                 </p>
-                <a href="<?= BASE_URL?>teamwork" class="btn-know-team f-odor">Know Our Team</a>
+                <!-- <a href="<?= BASE_URL?>teamwork" class="btn-know-team f-odor">Know Our Team</a> -->
             </div>
         </div>
     </div>

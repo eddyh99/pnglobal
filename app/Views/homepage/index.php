@@ -288,14 +288,16 @@ We operate as a Bitcoin broker and have established an Edge Fund to manage Bitco
                     <div class="flip-box">
                         <div class="flip-box-inner">
                             <div class="flip-box-front flip-1">
-                                <p>test</p>
+                                <p>.</p>
                                 <img class="img-fluid" src="<?= BASE_URL?>assets/img/partner/cayman-logo.webp" alt="cayman logo">
                                 <div class="btn-flip ">Investment Encrypted bank account</div>
                             </div>
                             <div class="flip-box-back">
                                 <div>
-                                    <!-- <h4 class="">Company Openings</h4> -->
-                                    <p class=""> <span translate='no'> Cayman Financial Group </span> is a financial group based in the Cayman Islands. This company has been entrusted by PN Global to represent and promote its products to investors. Through this collaboration, <span translate='no'> PN Global </span> not only manages its own funds but also oversees the management of funds raised by <span translate='no'> Cayman Financial Group </span>, entrusted by investors who believe in our investment strategies.</p>
+                                    <p class=""> 
+                                       <span translate='no'> Cayman Financial Group </span> is a financial group based in the Cayman Islands that offers high-profit, zero-risk financial investment plans, as well as encrypted bearer current accounts.  Thanks to the collaboration with PN Global, <span translate='no'> Cayman Financial Group </span> can offer an Edge Fund on BTC Mining with guaranteed interest.
+                                        The management of the funds of the financial group and its customers is carried out on the markets by PN Global brokers.
+                                    </p>
                                 </div>
                                 <a target="_blank" class="btn-flip  px-3 py-1" href="https://caymanfinancialgroup.ky/">See More</a>
                             </div>
@@ -306,13 +308,16 @@ We operate as a Bitcoin broker and have established an Edge Fund to manage Bitco
                     <div class="flip-box">
                         <div class="flip-box-inner">
                             <div class="flip-box-front flip-2">
-                                <p>test</p>
+                                <p>.</p>
                                 <img class="img-fluid" src="<?= BASE_URL?>assets/img/partner/mif-logo.png" alt="MIF logo">
                                 <div class="btn-flip " style="padding: 0.3rem 1.5rem;">BITCOIN MINING AND TECHNOLOGY <br> SERVICES</div>
                             </div>
                             <div class="flip-box-back">
                                 <div>
-                                    <p class=""><span translate='no'> Money Industrial Factory </span> is a leading company in the construction of mining farms and cryptocurrency mining. Thanks to the expertise and high specialization of the <span translate='no'> PN Global team </span>, we have been tasked with designing and optimizing mining farms for <span translate='no'> Money Industrial Factory </span> and their clients. Through our research, development, and consulting department, <span translate='no'> PN Global </span> provides technical and strategic support to ensure the efficiency and profitability of mining operations.</p>
+                                    <p class="">
+                                       <span translate='no'> Money Industrial Factory </span> is a leading company in mining farm construction and cryptocurrency mining. Thanks to the collaboration with the <span translate='no'> PN Global team, Money industrial factorty </span> has managed to transform Cryptocurrency Mining into a zero-risk financial instrument, approved and proposed by the <span translate='no'> Cayman Financial Group</span>.
+                                        Through the research and development department, <span translate='no'> Money Industrial Factory </span> provides technical support and innovative technological solutions to its customers.
+                                    </p>
                                 </div>
                                 <a target="_blank" class="btn-flip  px-3 py-1" href="https://moneyindustrialfactory.io/">See More</a>
                             </div>
@@ -323,13 +328,15 @@ We operate as a Bitcoin broker and have established an Edge Fund to manage Bitco
                     <div class="flip-box">
                         <div class="flip-box-inner">
                             <div class="flip-box-front flip-3">
-                                <p>test</p>
+                                <p>.</p>
                                 <img class="img-fluid" src="<?= BASE_URL?>assets/img/partner/logo-pbs.png" alt="PBS logo">
                                 <div class="btn-flip " style="padding: 0.3rem 1.5rem;">Company Formation Services <br> and International Support</div>
                             </div>
                             <div class="flip-box-back">
                                 <div>
-                                    <p class="">Professional solutions for creating international businesses At <span translate='no'> PBS Oline </span> we specialize in providing comprehensive support services to help you overcome the complexities of business operations. From legal and tax support to accounting and financial management, our team of experts is here to ensure your business runs smoothly and efficiently. We support you in setting up international companies, transferring residence, feasibility studies, business plans and opening bank accounts. We also offer visa and residence permit services.</p>
+                                    <p class="">
+                                       <span translate='no'> PBS Online </span> specializes in providing comprehensive support services to overcome the complexities of opening or relocating a business abroad. We provide legal and tax support, our team of experts will support you, after a careful feasibility study, in setting up the company and opening bank accounts. We also offer visa and residence permit services.    
+                                    </p>
                                 </div>
                                 <a class="btn-flip  px-3 py-1" href="https://www.pbsonlinellc.com/" target="_blank">See More</a>
                             </div>
