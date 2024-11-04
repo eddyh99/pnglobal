@@ -33,6 +33,7 @@
     <div id="sidebar-scrollbar">
         <nav class="iq-sidebar-menu">
             <ul id="iq-sidebar-toggle" class="iq-menu">
+                <?php if ($_SESSION["logged_user"]->role=="admin"){?>
                 <li class="<?= @$active_dash?>">
                     <a href="<?=BASE_URL?>godmode/dashboard" class="iq-waves-effect">
                         <i>
@@ -43,6 +44,7 @@
                         <span class="<?= (@$active_dash != null) ? 'text-black' : 'text-white' ?>">Dashboard</span>
                     </a>
                 </li>
+                <?php }?>
                 <li class="<?= @$active_signal?>">
                     <a href="<?=BASE_URL?>godmode/signal" class="iq-waves-effect">
                         <i>
@@ -72,6 +74,7 @@
                         <span class="<?= (@$active_msg != null) ? 'text-black' : 'text-white' ?>">Message</span>
                     </a>
                 </li>
+                <?php if ($_SESSION["logged_user"]->role=="admin"){?>
                 <li class="<?= @$active_reff?>">
                     <a href="<?=BASE_URL?>godmode/referral" class="iq-waves-effect">
                         <i>
@@ -87,6 +90,7 @@
                         <span class="<?= (@$active_reff != null) ? 'text-black' : 'text-white' ?>">Referral</span>
                     </a>
                 </li>
+                <?php }?>
                 <li>
                     <a href="<?= BASE_URL ?>godmode/auth/logout" class="iq-waves-effect">
                         <i>

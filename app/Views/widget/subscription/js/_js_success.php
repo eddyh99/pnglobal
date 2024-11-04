@@ -5,7 +5,7 @@
     postMessage();
     
     function sendStatus() {
-        var value = {"status": "success"}
+        var value = {"status":"success"}
         window.chrome.webview.postMessage(value);
     }
     sendStatus();

@@ -61,7 +61,11 @@ class Auth extends BaseController
         }else{
             $this->session->set('logged_user', $result->message);
             session()->setFlashdata('success', 'Welcome to admin panel');
-            return redirect()->to(BASE_URL . 'godmode/dashboard');
+            if ($_SESSION["logged_user"]->role=="admin"){
+                return redirect()->to(BASE_URL . 'godmode/dashboard');
+            }elseif ($_SESSION["logged_user"]->role=="manager"){
+                return redirect()->to(BASE_URL . 'godmode/signal');
+            }
         }
     }
 
