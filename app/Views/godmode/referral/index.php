@@ -36,8 +36,8 @@
                     <thead class="thead_referralmember">
                         <tr>
                             <th>EMAIL</th>
+                            <th>REFERRAL CODE</th>
                             <th>TOTAL REFERRAL</th>
-                            <th>MONTHLY REFERRAL</th>
                             <th>UNPAID SUBSCRIPTIONS</th>
                             <th>UNPAID COMMISSION</th>
                             <th>UNPAID COMMISSION PREVIOUS MONTH</th>

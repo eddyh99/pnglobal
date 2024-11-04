@@ -13,16 +13,16 @@
             </h1>
             <div class="button-download">
                 <div id="g-icondownloadtop" class="top">
-                    <img class="btn-download" src="<?= BASE_URL ?>assets/img/playstore-download.png" alt="download playstore">
-                    <img class="btn-download" src="<?= BASE_URL ?>assets/img/ios-download.png" alt="download playstore">
+                    <a href="https://play.google.com/store/apps/details?id=com.pnglobalinternational.satoshi"  target="_blank"><img class="btn-download" src="<?= BASE_URL ?>assets/img/playstore-download.png" alt="download playstore"></a>
+                    <img class="btn-download" src="<?= BASE_URL ?>assets/img/ios-download.png" alt="download app store">
                 </div>
                 <div id="g-icondownloadbottom" class="bottom">
-                    <img class="btn-download" src="<?= BASE_URL ?>assets/img/window-download.png" alt="download playstore">
-                    <img class="btn-download" src="<?= BASE_URL ?>assets/img/apk-download.png" alt="download APK">
+                    <img class="btn-download" src="<?= BASE_URL ?>assets/img/window-download.png" alt="download windows store">
+                    <a href="<?= BASE_URL ?>apk/satoshi-signal.apk"  target="_blank"><img class="btn-download" src="<?= BASE_URL ?>assets/img/apk-download.png" alt="download APK"></a>
                 </div>
             </div>
         </div>
-        <div class="banner-text-video">
+        <div class="banner-text-video" style="z-index:1">
             <div class="bg-text-video satoshi">
                 <h2 class="" >
                     Bitcoin Trading Guidance <br> for Buy/Sell Decisions
@@ -537,10 +537,10 @@
                    <span translate='no'> Satoshi Signals </span> is designed to provide you with reliable and timely information from our Bitcoin market brokers. After downloading the app, confirm that you understand the system to access all the features. Register your account, enter the referral code if applicable, and activate the chosen subscription that automatically renews. Once subscribed, you will receive real-time notifications and messages with decisions from our brokers. Follow the information to buy and sell at the right time, maximizing profits with minimal risk. Remember to keep the notifications turned on so you never miss an opportunity.
                 </p>
                 <div id="g-icondownloadfooter" class="button-download">
-                    <img class="btn-download my-2" src="<?= BASE_URL ?>assets/img/playstore-download.png" alt="download playstore">
-                    <img class="btn-download my-2" src="<?= BASE_URL ?>assets/img/ios-download.png" alt="download playstore">
-                    <img class="btn-download my-2" src="<?= BASE_URL ?>assets/img/window-download.png" alt="download playstore">
-                    <img class="btn-download my-2" src="<?= BASE_URL ?>assets/img/apk-download.png" alt="download playstore">
+                    <a href="https://play.google.com/store/apps/details?id=com.pnglobalinternational.satoshi"  target="_blank"><img class="btn-download my-2" src="<?= BASE_URL ?>assets/img/playstore-download.png" alt="download playstore"></a>
+                    <img class="btn-download my-2" src="<?= BASE_URL ?>assets/img/ios-download.png" alt="download app store">
+                    <img class="btn-download my-2" src="<?= BASE_URL ?>assets/img/window-download.png" alt="download windows store">
+                    <a href="<?= BASE_URL ?>apk/satoshi-signal.apk" target="_blank"><img class="btn-download my-2" src="<?= BASE_URL ?>assets/img/apk-download.png" alt="download APK"></a>
                 </div>
             </div>
             <div id="g-mobilesatoshi" class="col-12 col-lg-4 order-0 order-lg-1">

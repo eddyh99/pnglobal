@@ -14,8 +14,8 @@
         },
         "columns": [
             { data: 'email'},
+            { data: 'refcode'},
             { data: 'total_referral'},
-            { data: 'monthly_referral'},
             { data: 'total_unpaid_subscriptions'},
             { 
                 data: null, 
