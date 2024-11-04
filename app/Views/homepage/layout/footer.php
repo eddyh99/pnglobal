@@ -5,7 +5,7 @@
         <section class="bg-trainingform">
             <div class="wrapper-trainingform">
                 <div class="row position-relative">
-                    <div class="col-12 col-lg-6 ps-0 ps-lg-5">
+                    <div class="col-12 col-lg-6 ps-0 ps-lg-5 py-4 py-lg-0">
                         <h2 class="">
                             Join our Professional Training Programs
                         </h2>

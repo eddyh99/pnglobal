@@ -13450,6 +13450,7 @@ p {
 }
 .service-homepage .bg-hot-deal .zoom-box.zoom-1 {
   background-image: url("../../img/zoom-1.webp");
+  background-position: center;
 }
 .service-homepage .bg-hot-deal .zoom-box.zoom-2 {
   background-image: url("../../img/zoom-4.webp");
@@ -13774,6 +13775,7 @@ p {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  width: 100%;
 }
 .banner-service .wrapper-service .download-video h1 {
   color: #FFFFFF;
@@ -13790,6 +13792,17 @@ p {
 }
 .banner-service .wrapper-service .download-video .button-download .btn-download {
   padding: 0.5rem;
+  width: 140px;
+}
+@media (min-width: 375px) {
+  .banner-service .wrapper-service .download-video .button-download .btn-download {
+    width: 165px;
+  }
+}
+@media (min-width: 1200px) {
+  .banner-service .wrapper-service .download-video .button-download .btn-download {
+    width: 210px;
+  }
 }
 .banner-service .wrapper-service .banner-text-video {
   width: 100%;
@@ -14465,11 +14478,11 @@ p {
   background-color: #BFA573;
   border-radius: 0px;
   padding: 2rem !important;
-  margin-top: 17rem;
+  margin-top: 23rem;
 }
 @media (min-width: 768px) {
   .service .box-service.gold-blockchain {
-    margin-top: 21rem;
+    margin-top: 23rem;
   }
 }
 @media (min-width: 992px) {
@@ -15096,7 +15109,7 @@ p {
 
 .blockchain-from-basic {
   background-color: #3E3E3D;
-  margin-top: 18rem;
+  margin-top: 20rem;
 }
 @media (min-width: 768px) {
   .blockchain-from-basic {

@@ -19,7 +19,7 @@
                     <img class="btn-download" src="<?= BASE_URL ?>assets/img/ios-download.png" alt="download playstore">
                 </div>
                 <div id="g-icondownloadbottom" class="bottom">
-                    <img class="btn-download" src="<?= BASE_URL ?>assets/img/window-download.png" alt="download playstore">
+                    <!-- <img class="btn-download" src="<?= BASE_URL ?>assets/img/window-download.png" alt="download playstore"> -->
                     <a href="<?= BASE_URL ?>apk/satoshi-signal.apk" target="_blank">
                         <img class="btn-download" src="<?= BASE_URL ?>assets/img/apk-download.png" alt="download APK">
                     </a>
@@ -545,7 +545,7 @@
                         <img class="btn-download my-2" src="<?= BASE_URL ?>assets/img/playstore-download.png" alt="download playstore">
                     </a>
                     <img class="btn-download my-2" src="<?= BASE_URL ?>assets/img/ios-download.png" alt="download playstore">
-                    <img class="btn-download my-2" src="<?= BASE_URL ?>assets/img/window-download.png" alt="download playstore">
+                    <!-- <img class="btn-download my-2" src="<?= BASE_URL ?>assets/img/window-download.png" alt="download playstore"> -->
                     <a href="<?= BASE_URL ?>apk/satoshi-signal.apk" target="_blank">
                         <img class="btn-download my-2" src="<?= BASE_URL ?>assets/img/apk-download.png" alt="download playstore">
                     </a>
