@@ -18,8 +18,7 @@ class Subscription extends BaseController
         $url = URLAPI . "/auth/getmember_byemail?email=".$email;
         $resultMember = satoshiAdmin($url)->result->message;
 
-        $ref = $resultMember->id_referral;
-
+        $ref = @$resultMember->id_referral;
         $mdata = [
             'title'     => 'Subscription - Satoshi Signal' ,
             'content'   => 'widget/subscription/subscription',
@@ -39,17 +38,16 @@ class Subscription extends BaseController
         $subs = htmlspecialchars($this->request->getVar('subs'));
 
         $array = explode(',', $subs);
-        $amount = $array[0];
-        $desc = $array[1];
 
+        $amount = $array[0]*100;
+        $desc = $array[1];
         $arrayDesc = explode(' ', $desc);
         $total_period = $arrayDesc[0];
 
-
         $mdata = [
             "email"     => @$_GET['mail'],
-            "amount"    => $amount,
-            "period"    => $total_period * 30,
+            "amount"    => $amount/100,
+            "period"    => ($total_period==12) ? 365 : $total_period * 30,
             "referral"  => null
         ];
 
@@ -183,12 +181,11 @@ class Subscription extends BaseController
         $arrayDesc = explode(' ', $desc);
         $total_period = $arrayDesc[0];
 
-
         // Init Data
         $mdata = [
             'email'     => htmlspecialchars($this->request->getVar('email')),
-            'amount'    => $amount,
-            'period'    => $total_period * 30,
+            'amount'    => $amount*100,
+            "period"    => ($total_period==12) ? 365 : $total_period * 30,
             'referral'  => htmlspecialchars($this->request->getVar('new_referral'))
         ];
 

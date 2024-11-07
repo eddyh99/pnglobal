@@ -113,6 +113,7 @@
                     </div>
                     <div class="text-white mt-2" id="card-errors"></div>
                 </div>
+                <div class="text-danger" id="card-errors"></div>
                 <div class="d-flex justify-content-center mt-5">
                     <!-- <a href="" class="btn-subs-continue mx-2">Back</a> -->
                     <button type="submit" class="btn-subs-continue mx-2">

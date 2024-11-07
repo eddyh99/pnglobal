@@ -28,7 +28,7 @@
                         <input 
                             id="plan-oneyear"
                             name="subs" 
-                            value="<?= (empty($member->id_referral)) ? ($subsprice[0]->price*12).',12 Month Regular' : ($subsprice[0]->ref_price*12).',12 Month With Referral' ?>" 
+                            value="<?= (empty($member->id_referral)) ? ($subsprice[3]->price).',12 Month Regular' : ($subsprice[3]->ref_price).',12 Month With Referral' ?>" 
                             class="radio" 
                             type="radio"
                             <?= (($member->total_period >= 360) ? "disabled" : "")?>
@@ -40,11 +40,11 @@
                             <div class="plan-content">
                                 <div class="d-flex justify-content-between align-items-center">
                                     <span class="text-regular <?= (empty($member->id_referral)) ? 'left-active' : 'left-disable' ?>">Regular</span>
-                                    <span class="price-regular <?= (empty($member->id_referral)) ? 'right-active' : 'right-disable' ?>">€ <?= $subsprice[0]->price*12?></span>
+                                    <span class="price-regular <?= (empty($member->id_referral)) ? 'right-active' : 'right-disable' ?>">€ <?= $subsprice[3]->price?></span>
                                 </div>
                                 <div class="d-flex justify-content-between align-items-center mt-3">
                                     <span class="text-referral <?= (!empty($member->id_referral)) ? 'left-active' : 'left-disable' ?>">With referral</span>
-                                    <span class="price-referral <?= (!empty($member->id_referral)) ? 'right-active' : 'right-disable' ?>">€ <?= $subsprice[0]->ref_price*12 ?></span>
+                                    <span class="price-referral <?= (!empty($member->id_referral)) ? 'right-active' : 'right-disable' ?>">€ <?= $subsprice[3]->ref_price ?></span>
                                 </div>
                             </div>
                         </div>
@@ -54,7 +54,7 @@
                         <input 
                             id="plan-sixmonth"
                             name="subs" 
-                            value="<?= (empty($member->id_referral)) ? ($subsprice[0]->price*6).',6 Month Regular' : ($subsprice[0]->ref_price*6).',6 Month With Referral' ?>" 
+                            value="<?= (empty($member->id_referral)) ? ($subsprice[2]->price).',6 Month Regular' : ($subsprice[2]->ref_price).',6 Month With Referral' ?>" 
                             class="radio" 
                             type="radio"
                             <?= (($member->total_period >= 180) ? "disabled" : "")?>
@@ -66,11 +66,11 @@
                             <div class="plan-content">
                                 <div class="d-flex justify-content-between align-items-center">
                                     <span class="text-regular <?= (empty($member->id_referral)) ? 'left-active' : 'left-disable' ?>">Regular</span>
-                                    <span class="price-regular <?= (empty($member->id_referral)) ? 'right-active' : 'right-disable' ?>">€ <?= $subsprice[0]->price*6?></span>
+                                    <span class="price-regular <?= (empty($member->id_referral)) ? 'right-active' : 'right-disable' ?>">€ <?= $subsprice[2]->price?></span>
                                 </div>
                                 <div class="d-flex justify-content-between align-items-center mt-3">
                                     <span class="text-referral <?= (!empty($member->id_referral)) ? 'left-active' : 'left-disable' ?>">With referral</span>
-                                    <span class="price-referral <?= (!empty($member->id_referral)) ? 'right-active' : 'right-disable' ?>">€ <?= $subsprice[0]->ref_price*6 ?></span>
+                                    <span class="price-referral <?= (!empty($member->id_referral)) ? 'right-active' : 'right-disable' ?>">€ <?= $subsprice[2]->ref_price ?></span>
                                 </div>
                             </div>
                         </div>
@@ -80,7 +80,7 @@
                         <input 
                             id="plan-threemonth"
                             name="subs" 
-                            value="<?= (empty($member->id_referral)) ? ($subsprice[0]->price*3).',3 Month Regular' : ($subsprice[0]->ref_price*3).',3 Month With Referral' ?>" 
+                            value="<?= (empty($member->id_referral)) ? ($subsprice[1]->price).',3 Month Regular' : ($subsprice[1]->ref_price).',3 Month With Referral' ?>" 
                             class="radio" 
                             type="radio"
                             <?= (($member->total_period >= 90) ? "disabled" : "")?>
@@ -92,11 +92,11 @@
                             <div class="plan-content">
                                 <div class="d-flex justify-content-between align-items-center">
                                     <span class="text-regular <?= (empty($member->id_referral)) ? 'left-active' : 'left-disable' ?>">Regular</span>
-                                    <span class="price-regular <?= (empty($member->id_referral)) ? 'right-active' : 'right-disable' ?>">€ <?= $subsprice[0]->price*3?></span>
+                                    <span class="price-regular <?= (empty($member->id_referral)) ? 'right-active' : 'right-disable' ?>">€ <?= $subsprice[1]->price?></span>
                                 </div>
                                 <div class="d-flex justify-content-between align-items-center mt-3">
                                     <span class="text-referral <?= (!empty($member->id_referral)) ? 'left-active' : 'left-disable' ?>">With referral</span>
-                                    <span class="price-referral <?= (!empty($member->id_referral)) ? 'right-active' : 'right-disable' ?>">€ <?= $subsprice[0]->ref_price*3 ?></span>
+                                    <span class="price-referral <?= (!empty($member->id_referral)) ? 'right-active' : 'right-disable' ?>">€ <?= $subsprice[1]->ref_price ?></span>
                                 </div>
                             </div>
                         </div>
@@ -106,7 +106,7 @@
                         <input 
                             id="plan-onemonth"
                             name="subs" 
-                            value="<?= (empty($member->id_referral)) ? ($subsprice[0]->price*1).',1 Month Regular' : ($subsprice[0]->ref_price*1).',1 Month With Referral' ?>" 
+                            value="<?= (empty($member->id_referral)) ? ($subsprice[0]->price).',1 Month Regular' : ($subsprice[0]->ref_price).',1 Month With Referral' ?>" 
                             class="radio" 
                             type="radio"
                             <?= (($member->total_period >= 30) ? "disabled" : "")?>
@@ -118,11 +118,11 @@
                             <div class="plan-content">
                                 <div class="d-flex justify-content-between align-items-center">
                                     <span class="text-regular <?= (empty($member->id_referral)) ? 'left-active' : 'left-disable' ?>">Regular</span>
-                                    <span class="price-regular <?= (empty($member->id_referral)) ? 'right-active' : 'right-disable' ?>">€ <?= $subsprice[0]->price*1?></span>
+                                    <span class="price-regular <?= (empty($member->id_referral)) ? 'right-active' : 'right-disable' ?>">€ <?= $subsprice[0]->price?></span>
                                 </div>
                                 <div class="d-flex justify-content-between align-items-center mt-3">
                                     <span class="text-referral <?= (!empty($member->id_referral)) ? 'left-active' : 'left-disable' ?>">With referral</span>
-                                    <span class="price-referral <?= (!empty($member->id_referral)) ? 'right-active' : 'right-disable' ?>">€ <?= $subsprice[0]->ref_price*1 ?></span>
+                                    <span class="price-referral <?= (!empty($member->id_referral)) ? 'right-active' : 'right-disable' ?>">€ <?= $subsprice[0]->ref_price ?></span>
                                 </div>
                             </div>
                         </div>
@@ -155,6 +155,7 @@
                     </div>
         
                 </div>
+                <div class="text-danger" id="card-errors"></div>
                 <div class="d-flex justify-content-center mt-5">
                     <!-- <a href="" class="btn-subs-continue mx-2">Back</a> -->
                     <button type="submit" class="btn-subs-continue mx-2">
