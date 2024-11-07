@@ -96,6 +96,13 @@
     }
 }
 
+// 599
+@mixin sm-fold {
+    @media (min-width: #{var.$screen-599}) {
+        @content;
+    }
+}
+
 // 768
 @mixin md {
     @media (min-width: #{var.$screen-768}) {

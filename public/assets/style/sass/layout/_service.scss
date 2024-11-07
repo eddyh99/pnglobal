@@ -49,6 +49,7 @@
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
+            width: 100%;
 
             h1 {
                 color: var.$text-white-pnglobal;
@@ -78,6 +79,16 @@
                 }
                 .btn-download {
                     padding: 0.5rem;
+                    width: 140px;
+
+                    @include mix.xs {
+                        width: 165px;
+                    }
+
+                    @include mix.xl2 {
+                        width: 210px;
+                    }
+                    
                 }
             }
         }
@@ -813,10 +824,10 @@
             background-color: var.$bg-primary-pnglobal;
             border-radius: 0px;
             padding: 2rem !important;
-            margin-top: 17rem;
+            margin-top: 23rem;
             
             @include mix.md {
-                margin-top: 21rem;
+                margin-top: 23rem;
             }
 
             @include mix.lg {
@@ -1580,7 +1591,7 @@
 
 .blockchain-from-basic {
     background-color: var.$bg-box-600-pnglobal;
-    margin-top: 18rem;
+    margin-top: 20rem;
     
     @include mix.md {
         margin-top: 22rem;
