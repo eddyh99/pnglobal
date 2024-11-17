@@ -13,7 +13,7 @@ class Auth extends BaseController
             'extra'     => 'member/subscription/js/_js_register',
         ];
 
-        return view('member/layout/login_wrapper', $mdata);
+        return view('member/layout/wrapper', $mdata);
     }
     
     public function signup(){
