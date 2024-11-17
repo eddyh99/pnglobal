@@ -53,7 +53,7 @@ We operate as a Bitcoin broker and have established an Edge Fund to manage Bitco
         <div class="container">
             <div class="row">
                 <div class="d-none d-lg-block col-1"></div>
-                <div class="col-12 col-lg-5 order-1 order-lg-0 mt-4 mt-4 mt-lg-0">
+                <div class="col-12 col-lg-5 order-1 order-lg-0">
                     <p class="text-desc-service f-noto">
                         Satoshi Signal is not the classic signal room, in reality it is a real App which not only shows when to buy or sell Bitcoin from the signals section but inside it has a messages section where you can choose the language in which to receive messages from the APP setting.
                     </p>
