@@ -124,11 +124,275 @@ class Homepage extends BaseController
     }
 
 
+    public function satoshi_price()
+    {
+        $mdata = [
+            'title'     => 'Price - ' . NAMETITLE,
+            'content'   => 'homepage/service/satoshi-price',
+            'extra'     => 'homepage/service/js/_js_satoshi_price',
+            'navoption' => true,
+        ];
+
+        return view('homepage/layout/wrapper', $mdata);
+    }
+
+    public function register_process()
+    {
+        // Validation Field
+        $rules = $this->validate([
+            'email'   => [
+                'label'     => 'Email',
+                'rules'     => 'valid_email'
+            ],
+            'pass'     => [
+                'label'     => 'Password',
+                'rules'     => 'required|min_length[8]'
+            ],
+            'cpass'     => [
+                'label'     => 'Confirm Password',
+                'rules'     => 'required|matches[pass]|min_length[8]'
+            ],
+        ]);
+
+        // Checking Validation
+        if(!$rules){
+            session()->setFlashdata('failed', $this->validation->listErrors());
+            return redirect()->to(BASE_URL . 'homepage/satoshi_price#register')->withInput();
+        }
+
+        // Initial Data
+        $mdata = [
+            'email'         => htmlspecialchars($this->request->getVar('email')),
+            'password'      => sha1(htmlspecialchars($this->request->getVar('pass'))),
+            'ipaddress'      => htmlspecialchars($this->request->getIPAddress()),
+        ];
+
+       $reff = trim(htmlspecialchars($this->request->getVar('reff')));
+
+        // Call Endpoin Check Referral
+        $urlReff = URLAPI . "/v1/member/get_byreferral?refcode=".$reff;
+        $isValidReff = satoshiAdmin($urlReff)->result;
+
+        if($isValidReff->code != "200" && $reff != ""){
+            session()->setFlashdata('failed', $isValidReff->message);
+            return redirect()->to(BASE_URL . 'homepage/satoshi_price#register')->withInput();
+        }
+        
+        $mdata['referral'] = empty($reff) ? null : $reff;
+        // Call Endpoin Register
+        $url = URLAPI . "/auth/register";
+        $result = satoshiAdmin($url, json_encode($mdata))->result;
+        
+        if($result->code != '201'){
+            session()->setFlashdata('failed', $result->message);
+            return redirect()->to(BASE_URL . 'homepage/satoshi_price#register')->withInput();
+        }else{
+            $subject = "Activation Account - " . SATOSHITITLE;
+            sendmail_satoshi($mdata['email'], $subject,  emailtemplate_activation_account($result->message->token, $mdata['email']));
+            return redirect()->to(BASE_URL . 'homepage/satoshi_active_account/'.base64_encode($mdata['email']));
+        }
+    }
+
+    public function satoshi_active_account($email)
+    {   
+        $email = base64_decode($email);
+
+        // Call Endpoin Get Member By Email
+        $url = URLAPI . "/auth/getmember_byemail?email=".$email;
+        $result = satoshiAdmin($url)->result;
+
+        if($result->message->status == "active" && $result->message->membership == "expired"){
+            return redirect()->to(BASE_URL . 'homepage/satoshi_register_payment/'.base64_encode($email));
+        }
+        
+        $mdata = [
+            'title'     => 'Active Account - ' . NAMETITLE,
+            'content'   => 'homepage/service/satoshi-otp',
+            'extra'     => 'homepage/service/js/_js_satoshi_otp',
+            'navoption' => true,
+            'emailuser' => $email
+        ];
+
+        return view('homepage/layout/wrapper', $mdata);
+    }
+
+    public function satoshi_check_otp()
+    {
+        // Validation Field
+        $rules = $this->validate([
+            'first'     => [
+                'label'     => 'First Column',
+                'rules'     => 'required'
+            ],
+            'second'     => [
+                'label'     => 'Second Column',
+                'rules'     => 'required'
+            ],
+            'third'     => [
+                'label'     => 'Third Column',
+                'rules'     => 'required'
+            ],
+            'fourth'     => [
+                'label'     => 'Fourth Column',
+                'rules'     => 'required'
+            ],
+            'email'     => [
+                'label'     => 'Email',
+                'rules'     => 'required'
+            ],
+        ]);
+
+        // Checking Validation
+        if(!$rules){
+            echo json_encode(["code" => "500", "message" => $this->validation->listErrors()]);
+            exit();
+        }
+
+        $first = htmlspecialchars($this->request->getVar('first'));
+        $second = htmlspecialchars($this->request->getVar('second'));
+        $third = htmlspecialchars($this->request->getVar('third'));
+        $fourth = htmlspecialchars($this->request->getVar('fourth'));
+
+        $mdata = [
+            "otp"   => $first.$second.$third.$fourth,
+            "email" => htmlspecialchars($this->request->getVar('email'))
+        ];
+
+        // Call Endpoin Activation Account
+        $url = URLAPI . "/auth/activate?token=" . $mdata['otp'] . "&email=" . $mdata['email'];
+        $result = satoshiAdmin($url, json_encode($mdata))->result;
+        
+        echo json_encode($result);
+    }
+
+    public function satoshi_register_payment($email)
+    {
+        $email = base64_decode($email);
+        // Call Endpoin Get Member By Email
+        $url = URLAPI . "/auth/getmember_byemail?email=".$email;
+        $result = satoshiAdmin($url)->result->message;
+
+        $price = [
+            "1m"    => 250,
+            "3m"    => 600,
+            "6m"    => 1050,
+            "1y"    => 1800
+        ];
+
+        $selisihReferral = [
+            "1m"    => 25,
+            "3m"    => 75,
+            "6m"    => 150,
+            "1y"    => 300
+        ];
+     
+        $mdata = [
+            'title'     => 'Active Account - ' . NAMETITLE,
+            'content'   => 'homepage/service/satoshi-payment',
+            'extra'     => 'homepage/service/js/_js_satoshi_payment',
+            'navoption' => true,
+            'member'    => $result,
+            'price'     => $price,
+            'disc'      => $selisihReferral
+        ];
+
+        return view('homepage/layout/wrapper', $mdata);
+    }
+
+    public function satoshi_register_process($email)
+    {
+        $email = base64_decode($email);
+        // Call Endpoin Get Member By Email
+        $url = URLAPI . "/auth/getmember_byemail?email=".$email;
+        $result = satoshiAdmin($url)->result->message;
+
+        // Stripe secret key
+        \Stripe\Stripe::setApiKey(SECRET_KEY); 
+        $paymentMethodId = $_POST['payment_method_id'];
+
+        $getprice = htmlspecialchars($this->request->getVar('price'));
+        $currency = 'eur';
+        $mdata = [
+            "email" => $result->email,
+            "referral"  => $result->id_referral
+        ];
+
+        if(!empty($result->id_referral)){
+            $discount = [
+                "1m"    => 25,
+                "3m"    => 75,
+                "6m"    => 150,
+                "1y"    => 300  
+            ];   
+
+        }else {
+            $discount = [
+                "1m"    => 0,
+                "3m"    => 0,
+                "6m"    => 0,
+                "1y"    => 0  
+            ];            
+        }
+
+
+
+        if($getprice == 250){
+            $mdata['amount'] = $getprice - $discount['1m'];
+            $mdata['period'] = 30;
+        }else if($getprice == 600){
+            $mdata['amount'] = $getprice - $discount['3m'];
+            $mdata['period'] = 30 * 3;
+        }else if($getprice == 1050){
+            $mdata['amount'] = $getprice - $discount['6m'];
+            $mdata['period'] = 30 * 6;
+        }else if($getprice == 1800){
+            $mdata['amount'] = $getprice - $discount['1y'];
+            $mdata['period'] = 365;
+        }else{
+            session()->setFlashdata('failed', "Invalid Amount, Please Try Again");
+            return redirect()->to(BASE_URL . 'homepage/satoshi_register_payment/' .  base64_encode($result->email));
+        }
+
+
+        try {
+
+            $paymentIntent = \Stripe\PaymentIntent::create([
+                'amount' => $mdata['amount'],
+                'currency' => $currency,
+                'payment_method' => $paymentMethodId,
+                'automatic_payment_methods' => [
+                    'enabled' => true,
+                    'allow_redirects' => 'never', // Disable redirect-based payment methods
+                ],
+            ]);
+
+            if ($paymentIntent->status === 'requires_confirmation') {
+                $confirmedPaymentIntent = $paymentIntent->confirm();
+                  
+                // If the payment was successful, proceed with creating the calendar event
+                if ($confirmedPaymentIntent->status === 'succeeded') {
+                    // POST subscribe member
+                    $url = URLAPI . "/v1/subscription/paidsubscribe";
+                    $result = satoshiAdmin($url, json_encode($mdata))->result->message;
+
+                    session()->setFlashdata('successPayment', 'Thank you for your register, wait 1-5 minutes our team will be contact');
+                    header("Location: ". BASE_URL . "homepage/service?service=" . base64_encode("satoshi_signal"));
+                    exit();
+                }
+            }
+        } catch (\Stripe\Exception\CardException $e) {
+            session()->setFlashdata('failed', 'Payment Failed: '. $e->getError()->message);
+            header("Location: ". BASE_URL . 'homepage/satoshi_register_payment/' .  base64_encode($result->email));
+            exit();
+        }
+    }
+
     public function contact_success()
     {
         $mdata = [
             'title'     => 'Contact Success - ' . NAMETITLE,
             'content'   => 'homepage/contact/contact_success',
+            
         ];
 
         return view('homepage/layout/wrapper-contactus', $mdata);

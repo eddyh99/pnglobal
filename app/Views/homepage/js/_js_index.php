@@ -20,9 +20,14 @@
         $(window).scrollTop($('#<?= @$_GET['type'] ?>').offset().top);
     });
 
+    setTimeout(function(){
+        $('#loadingcontent').modal('show'); 
+    }, 1000);
+
     function linkproduct($link){
         return window.location.href = $link;
     }
+
 
     
 
