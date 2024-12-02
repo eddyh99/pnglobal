@@ -283,3 +283,79 @@ function emailtemplate_accountdel($mdata){
         </body>
     </html>";
 }
+
+function emailtemplate_activation_account($otp, $email){
+    return "
+     <!DOCTYPE html>
+        <html lang='en'>
+            <head>
+                <meta name='color-scheme' content='light'>
+                <meta name='supported-color-schemes' content='light'>
+                <title>Activation Account Satoshi Signal</title>
+            </head>
+    
+            <body>
+                <div style='
+                max-width: 420px;
+                margin: 0 auto;
+                position: relative;
+                padding: 1rem;
+                '>
+                    <div style='
+                    text-align: center;
+                    padding: 3rem;
+                    '>
+                        <h3 style='
+                        font-weight: 600;
+                        font-size: 30px;
+                        line-height: 45px;
+                        color: #000000;
+                        margin-bottom: 1rem;
+                        text-align: center;
+                        '>
+                            Dear, New User
+                        </h3>
+                    </div>
+    
+                    <div style='
+                    text-align: center;
+                    padding-bottom: 1rem;
+                    '>
+                        <p style='
+                        font-weight: 400;
+                        font-size: 14px;
+                        color: #000000;
+                        '>
+                            Thank you for register Satoshi Signal. To proceed with your request, enter OTP for Active Account Below
+                        </p>
+                        <h1 style='letter-spacing: 12px;'>".$otp."</h1>
+                        <br><br>
+                        <h5>
+                            or you can click link below for activation account
+                        </h5>
+                        <a target='_blank' href='".BASE_URL."homepage/satoshi_active_account/".base64_encode($email)."'>
+                            Active Account
+                        </a>
+                        <p style='
+                        font-weight: 400;
+                        font-size: 14px;
+                        color: #000000;
+                        '>
+                            Best regards,<br>  
+                            Satoshi Signal Team
+                        </p>
+                    </div>
+                    <hr>
+                    <hr>
+                    <p style='
+                    text-align: center;
+                    font-weight: 400;
+                    font-size: 12px;
+                    color: #999999;
+                    '>
+                        Copyright © " . date('Y') . "
+                    </p>
+                </div>
+            </body>
+        </html>";
+}

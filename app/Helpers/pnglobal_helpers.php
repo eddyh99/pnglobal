@@ -137,7 +137,7 @@ function sendmail_satoshi($email, $subject, $message){
             )
         );
 
-        $mail->setFrom(USERNAME_MAIL, NAMETITLE . ' Activation Email');
+        $mail->setFrom(USERNAME_MAIL, SATOSHITITLE . ' Activation Email');
         $mail->isHTML(true);
         $mail->ClearAllRecipients();
         $mail->Subject = $subject;

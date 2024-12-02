@@ -39,7 +39,7 @@ class Dashboard extends BaseController
 
         
         $mdata = [
-            'title'     => 'Dashboard - ' . NAMETITLE,
+            'title'     => 'Dashboard - ' . SATOSHITITLE,
             'content'   => 'godmode/dashboard/index',
             'extra'     => 'godmode/dashboard/js/_js_index',
             'active_dash'    => 'active',
@@ -68,7 +68,7 @@ class Dashboard extends BaseController
 
 
         $mdata = [
-            'title'     => 'Detail Member - ' . NAMETITLE,
+            'title'     => 'Detail Member - ' . SATOSHITITLE,
             'content'   => 'godmode/dashboard/detail_member',
             'extra'     => 'godmode/dashboard/js/_js_detailmember',
             'member'    => $resultMember,
@@ -96,7 +96,7 @@ class Dashboard extends BaseController
 
 
         $mdata = [
-            'title'     => 'Detail Member - ' . NAMETITLE,
+            'title'     => 'Detail Member - ' . SATOSHITITLE,
             'content'   => 'godmode/dashboard/detail_referral',
             'extra'     => 'godmode/dashboard/js/_js_detailreferral',
             'active_dash'  => 'active',

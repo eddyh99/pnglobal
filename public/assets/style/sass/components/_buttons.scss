@@ -130,6 +130,42 @@
     font-weight: 500;
 }
 
+.btn-satoshi-price-register {
+    background-color: #C5A571;
+    color: #000000;
+    font-weight: 900;
+    -webkit-text-stroke: 0.3px #ECCF98;
+    font-weight: 800;
+    font-size: 22px;
+}
+
+.plan-btn {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border: 1px solid #000;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+
+    input[type="radio"]{
+        appearance: auto; 
+        accent-color: green; 
+        
+        &:hover {
+            accent-color: green; 
+        }
+    }
+
+    input[type="radio"]:checked + span {
+        color: rgb(1, 1, 1);
+    }
+
+    span {
+        color: #000000;
+        font-weight: 700;
+    }
+}
 
  /*----------------------------------------------------------
 1. Buttons Landing page End 

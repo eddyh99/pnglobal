@@ -1,3 +1,4 @@
+
 <!-- Start of Banner -->
 <div class="banner-service satoshi-banner">
     <div class="wrapper-service" >
@@ -24,7 +25,7 @@
         </div>
         <div class="banner-text-video" style="z-index:1">
             <div class="bg-text-video satoshi">
-                <h2 class="" >
+                <h2>
                     Bitcoin Trading Guidance <br> for Buy/Sell Decisions
                 </h2>
             </div>
@@ -32,6 +33,23 @@
     </div>
 </div>
 <!-- End of Banner -->
+
+<!-- Start of Satoshi Join -->
+<section id="bg-satoshi-join">
+    <div class="wrapper-big-title">
+        <div class="big-title">
+            <h1>Be our BIG family at Satoshi Signal</h1>
+        </div>
+    </div>
+    <div class="wrapper-join-now">
+        <a href="<?= BASE_URL ?>homepage/satoshi_price" class="btn btn-join-now">
+            <h1 class="f-lato">
+                JOIN NOW
+            </h1>
+        </a>
+    </div>
+</section>
+<!-- End of Satoshi Join -->
 
 <!-- Start of Short Desc -->
 <section class="satoshi-short-desc">
@@ -560,3 +578,21 @@
     </div>
 </div>
 <!-- End of video mobile satoshi -->
+
+
+<?php if(!empty(session('successPayment'))) { ?>
+    <div class="modal fade" id="loadingcontent" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered" >
+            <div class="modal-content" style="height: 50vh;">
+                <div class="modal-body h-100" style="background-color: #C5A571;">
+                    <div class="h-100 d-flex flex-column align-items-center justify-content-center">
+                        <h2 class="text-center text-capitalize">Payment Success</h2>
+                        <h5 class="text-center text-capitalize mt-2">
+                            <?= session('successPayment')?>
+                        </h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<?php } ?>

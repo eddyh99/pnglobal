@@ -40,6 +40,14 @@
     flex-direction: column;
 }
 
+@mixin flex-kiri-vertical {
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    flex-direction: column;
+}
+
+
 @mixin flex-kiri {
     display: flex;
     justify-content: start;

@@ -20,7 +20,7 @@ class Subscription extends BaseController
 
         $ref = @$resultMember->id_referral;
         $mdata = [
-            'title'     => 'Subscription - Satoshi Signal' ,
+            'title'     => 'Subscription - ' . SATOSHITITLE ,
             'content'   => 'widget/subscription/subscription',
             'extra'     => 'widget/subscription/js/_js_subcription',
             'subsprice' => $result,
@@ -76,9 +76,11 @@ class Subscription extends BaseController
                     // POST subscribe member
                     $url = URLAPI . "/v1/subscription/paidsubscribe";
                     $result = satoshiAdmin($url, json_encode($mdata))->result->message;
-                                
-                    header("Location: ". BASE_URL . 'widget/subscription/success?mail='.$mdata['email']);
-                    exit();
+
+                    echo '<pre>'.print_r($result,true).'</pre>';
+                    die;       
+                    // header("Location: ". BASE_URL . 'widget/subscription/success?mail='.$mdata['email']);
+                    // exit();
                 }
             }
             
@@ -98,7 +100,7 @@ class Subscription extends BaseController
         $email = @$_GET['mail'];
 
         $mdata = [
-            'title'     => 'Subscription Success - Satoshi Signal' ,
+            'title'     => 'Subscription Success - '.SATOSHITITLE ,
             'content'   => 'widget/subscription/success',
             'extra'     => 'widget/subscription/js/_js_success',
             'email'     => $email

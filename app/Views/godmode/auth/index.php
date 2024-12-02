@@ -41,8 +41,7 @@
         <div class="overlay-container">
             <div class="overlay">
                 <div class="overlay-panel overlay-right">
-                    <img src="<?= BASE_URL?>assets/img/logo-big.png" class="logo-signin" alt="logo">
-                    <p class="logo-text-login">TRANSFORMING VISIONS <br> <span style="color: #BFA573;">INTO SUCCESS</span></p>
+                    <img src="<?= BASE_URL?>assets/img/logo-satoshi.png" class="logo-signin" alt="logo">
                 </div>
             </div>
         </div>

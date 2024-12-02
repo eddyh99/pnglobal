@@ -149,10 +149,10 @@
                         <a href="<?= BASE_URL ?>homepage/bookingconsultation?service=<?= base64_encode($title)?>" class="btn-footer-contactform">Book a Consultation</a>
                         
                     </div>
-                    <div class="d-none d-md-flex col-4 logo-contactform">
+                    <a class="d-none d-md-flex col-4 logo-contactform" href="<?= BASE_URL ?>">
                         <img class="img-fluid" style="width: 200px;" src="<?= BASE_URL ?>assets/img/logo.png" alt="img">
                         <p class="logo-text-contactform f-noto">
-                            <span class="line-animation">
+                            <span class="line-animation text-white">
                                 ASSET
                             </span> 
                             <br>
@@ -160,7 +160,7 @@
                                 MANAGEMENT
                             </span>
                         </p>    
-                    </div>
+                    </a>
                 </div>
             </div>
         </section>
@@ -173,7 +173,7 @@
             <div class="row">
                 <div class="col-12 text-link d-flex flex-column flex-md-row align-items-center justify-content-between">
                     <div class="d-flex justify-content-center align-items-center">
-                        <div class="logo-footer">
+                        <a href="<?= BASE_URL ?>" class="logo-footer">
                             <img src="<?= BASE_URL ?>assets/img/logo.png" alt="img">
                             <p class="logo-text-footer f-noto">
                                 <span class="line-animation">
@@ -183,7 +183,7 @@
                                     MANAGEMENT
                                 </span>
                             </p>    
-                        </div>
+                        </a>
                     </div>
                     <div class="list mt-4 mt-md-0">
                         <div class=" d-flex justify-content-start">
@@ -191,9 +191,9 @@
                         </div>
                         <a class="mb-3 text-uppercase" href="<?= BASE_URL ?>homepage/about">About Pn Global</a>
                         <a class="mb-3 text-uppercase" href="<?php echo BASE_URL . "homepage/service?service=" . base64_encode("satoshi_signal")?>">Satoshi Signal</a>
-                        <a class="my-3 text-uppercase" href="#productservice">Product And Services</a>
+                        <a class="my-3 text-uppercase" href="<?= BASE_URL ?>?type=productservice">Product And Services</a>
                         <a class="my-3 text-uppercase" href="<?=BASE_URL?>?type=training">Training</a>
-                        <a class="mt-3 text-uppercase" href="#service">Complementary Service</a>
+                        <a class="mt-3 text-uppercase" href="<?= BASE_URL ?>?type=service">Complementary Service</a>
                         <a class="mt-3 text-uppercase" href="<?= BASE_URL ?>homepage/connection">Connections</a>
                         <a class="mt-3 text-uppercase" href="<?= BASE_URL ?>homepage/privacy_policy">Privacy Policy</a>
                         <a class="mt-3 text-uppercase" href="<?= BASE_URL ?>homepage/terms_conditions">Term & Condition</a>
@@ -270,6 +270,11 @@
                         </div>
                     </div>
                     
+                </div>
+                <div class="col-10 mx-auto d-flex justify-content-center">
+                    <a href="https://moneyindustrialfactory.io" target="_blank">
+                        <img class='img-fluid' src='<?= BASE_URL ?>assets/img/powered-mif.png' alt='img'>
+                    </a>
                 </div>
             </div>
         </div>

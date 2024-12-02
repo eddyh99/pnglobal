@@ -13,7 +13,7 @@ class Message extends BaseController
         $result = satoshiAdmin($url)->result->message;
 
         $mdata = [
-            'title'     => 'Message - ' . NAMETITLE,
+            'title'     => 'Message - ' . SATOSHITITLE,
             'content'   => 'godmode/message/index',
             'extra'     => 'godmode/message/js/_js_index',
             'active_msg'    => 'active active-menu',

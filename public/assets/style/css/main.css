@@ -15216,6 +15216,237 @@ p {
 /*----------------------------------------------------------
 8. Satoshi Start
 ------------------------------------------------------------*/
+#bg-satoshi-join {
+  background: url("../../img/bg-satoshi-join.png");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  height: 100vh;
+}
+#bg-satoshi-join .wrapper-big-title {
+  padding-top: 3rem;
+}
+#bg-satoshi-join .wrapper-big-title .big-title {
+  background-color: #000000;
+  color: #BFA573;
+  padding: 2rem;
+}
+#bg-satoshi-join .wrapper-big-title .big-title h1 {
+  text-align: center;
+  font-size: 24px;
+}
+@media (min-width: 768px) {
+  #bg-satoshi-join .wrapper-big-title .big-title h1 {
+    font-size: 30px;
+  }
+}
+#bg-satoshi-join .wrapper-join-now {
+  width: 100%;
+  height: 78vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#bg-satoshi-join .wrapper-join-now .btn-join-now {
+  background-color: #252C32;
+  border: 1px solid #A8771A;
+  padding: 1rem 3rem;
+  border-radius: 9999999px;
+}
+#bg-satoshi-join .wrapper-join-now .btn-join-now h1 {
+  background: linear-gradient(92deg, #A8771A 0%, #EEE4A0 48.28%, #A8771A 95.07%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: 42px;
+}
+@media (min-width: 768px) {
+  #bg-satoshi-join .wrapper-join-now .btn-join-now h1 {
+    font-size: 64px;
+  }
+}
+
+#bg-satoshi-price {
+  background: url("../../img/bg-satoshi-price.png");
+  background-position: bottom;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  height: 100%;
+  padding: 5rem 0rem;
+}
+
+.satoshi-pricing {
+  background-color: #201E1D;
+  margin-top: 2rem;
+  padding: 4rem 0rem;
+}
+.satoshi-pricing .row-satoshi-pricing {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.satoshi-pricing .row-satoshi-pricing .col-duration {
+  width: 0%;
+  padding: 0.3rem;
+  display: none;
+}
+@media (min-width: 992px) {
+  .satoshi-pricing .row-satoshi-pricing .col-duration {
+    width: 16%;
+    display: block;
+  }
+}
+.satoshi-pricing .row-satoshi-pricing .col-duration .wrapper {
+  background-color: #201E1D;
+  border-radius: 10px;
+}
+.satoshi-pricing .row-satoshi-pricing .col-duration .wrapper .header {
+  text-align: center;
+  padding: 0.7rem 0.7rem 0rem 0.7rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  justify-content: space-around;
+  height: 4rem;
+}
+.satoshi-pricing .row-satoshi-pricing .col-duration .wrapper .el-line {
+  width: 100%;
+}
+.satoshi-pricing .row-satoshi-pricing .col-duration .wrapper .el-line svg {
+  width: 100%;
+}
+.satoshi-pricing .row-satoshi-pricing .col-duration .wrapper .body-content {
+  padding: 1rem 0rem;
+}
+.satoshi-pricing .row-satoshi-pricing .col-duration .wrapper .body-content .list .text {
+  background-color: #6F6969;
+  color: #FFFFFF;
+  margin-bottom: 0.5rem;
+  padding: 0.5rem;
+  text-align: center;
+  border-radius: 5px;
+  height: 3rem;
+  font-size: 14px;
+  line-height: 2rem;
+}
+.satoshi-pricing .row-satoshi-pricing .col-card {
+  width: 95%;
+  padding: 0.3rem;
+}
+@media (min-width: 567px) {
+  .satoshi-pricing .row-satoshi-pricing .col-card {
+    width: 50%;
+  }
+}
+@media (min-width: 992px) {
+  .satoshi-pricing .row-satoshi-pricing .col-card {
+    width: 21% !important;
+  }
+}
+.satoshi-pricing .row-satoshi-pricing .col-card .wrapper {
+  background-color: #BFA573;
+  border-radius: 10px;
+}
+.satoshi-pricing .row-satoshi-pricing .col-card .wrapper .header {
+  height: 4rem;
+  text-align: center;
+  padding: 0.7rem 0.7rem 0rem 0.7rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.satoshi-pricing .row-satoshi-pricing .col-card .wrapper .header img {
+  height: 3rem;
+}
+.satoshi-pricing .row-satoshi-pricing .col-card .wrapper .header .wrapper-title {
+  display: flex;
+  flex-direction: column;
+}
+.satoshi-pricing .row-satoshi-pricing .col-card .wrapper .header .wrapper-title .title {
+  text-align: start;
+  font-size: 24px;
+  line-height: 20px;
+}
+.satoshi-pricing .row-satoshi-pricing .col-card .wrapper .header .wrapper-title .referral {
+  line-height: 20px;
+  text-align: end;
+  font-size: 20px;
+  color: #CB161D;
+  -webkit-text-stroke: 0.5px #fff;
+}
+.satoshi-pricing .row-satoshi-pricing .col-card .wrapper .el-line {
+  width: 100%;
+}
+.satoshi-pricing .row-satoshi-pricing .col-card .wrapper .el-line svg {
+  width: 100%;
+}
+.satoshi-pricing .row-satoshi-pricing .col-card .wrapper .body-content {
+  padding: 1rem;
+}
+.satoshi-pricing .row-satoshi-pricing .col-card .wrapper .body-content .list .text {
+  background-color: #1E1E1E;
+  color: #FFFFFF;
+  margin-bottom: 0.5rem;
+  padding: 0.5rem;
+  text-align: center;
+  border-radius: 5px;
+  height: 3rem;
+  line-height: 2rem;
+}
+.satoshi-pricing .row-satoshi-pricing .col-card .wrapper.use-referral {
+  background-color: #ECCF98;
+}
+.satoshi-pricing .row-satoshi-pricing .col-card .wrapper.use-referral .header {
+  justify-content: space-around;
+}
+.satoshi-pricing .row-satoshi-pricing .col-card .wrapper.use-referral .body-content .list .text {
+  background-color: #D49A1D;
+}
+
+.satoshi-register {
+  background-color: #141312;
+  margin-top: 2rem;
+  padding: 4rem 0rem;
+}
+.satoshi-register .bg-satoshi-register {
+  background-color: #BFA573;
+  border-radius: 10px;
+  padding: 4rem;
+}
+.satoshi-register .bg-satoshi-register .register-form .form-control {
+  background-color: #FFFFFF;
+}
+.satoshi-register .bg-satoshi-register .form-group-pass .icon-pass-login {
+  font-size: 18px;
+  position: absolute;
+  display: block;
+  right: 20px;
+  bottom: 10px;
+}
+
+.satoshi-activation .otp-area .inputs input {
+  width: 80px !important;
+  height: 80px !important;
+  background-color: #D9D9D9 !important;
+}
+.satoshi-activation .otp-area .inputs input:focus {
+  box-shadow: none;
+  border: 3px solid #C5A571;
+}
+
+.satoshi-register-payment {
+  margin: 5rem 0rem;
+}
+.satoshi-register-payment .summary-box {
+  border: 1px solid #000;
+  padding: 10px;
+  text-align: start;
+  border-radius: 5px;
+}
+
 .satoshi-short-desc {
   background-color: #B2A291;
   padding-top: 3rem;
@@ -16689,6 +16920,39 @@ input:-moz-placeholder {
   border-radius: 10px;
   font-size: 16px;
   font-weight: 500;
+}
+
+.btn-satoshi-price-register {
+  background-color: #C5A571;
+  color: #000000;
+  font-weight: 900;
+  -webkit-text-stroke: 0.3px #ECCF98;
+  font-weight: 800;
+  font-size: 22px;
+}
+
+.plan-btn {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border: 1px solid #000;
+  border-radius: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+.plan-btn input[type=radio] {
+  appearance: auto;
+  accent-color: green;
+}
+.plan-btn input[type=radio]:hover {
+  accent-color: green;
+}
+.plan-btn input[type=radio]:checked + span {
+  color: rgb(1, 1, 1);
+}
+.plan-btn span {
+  color: #000000;
+  font-weight: 700;
 }
 
 /*----------------------------------------------------------

@@ -130,7 +130,7 @@ class Signal extends BaseController
         // die;
 
         $mdata = [
-            'title'     => 'Signal - ' . NAMETITLE,
+            'title'     => 'Signal - ' . SATOSHITITLE,
             'content'   => 'godmode/signal/index',
             'extra'     => 'godmode/signal/js/_js_index',
             'active_signal'    => 'active active-menu',
