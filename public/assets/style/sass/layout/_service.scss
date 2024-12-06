@@ -1788,12 +1788,34 @@
     margin-top: 2rem;
     padding: 4rem 0rem;
 
+    .row-category-pricing {
+        width: 100%;
+        display: flex;
+
+        .col-empty {
+            width: 0%;
+            
+            @include mix.lg{
+                width: 20%;
+            }
+        }
+
+        .col-category {
+            width: 100%;
+            @include mix.flex-tengah;
+            
+            @include mix.lg{
+                width: 40%;
+            }
+        }
+    }
+
     .row-satoshi-pricing {
         width: 100%;
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
-
+        
         .col-duration {
             width: 0%;
             padding: 0.3rem;

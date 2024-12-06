@@ -15282,6 +15282,29 @@ p {
   margin-top: 2rem;
   padding: 4rem 0rem;
 }
+.satoshi-pricing .row-category-pricing {
+  width: 100%;
+  display: flex;
+}
+.satoshi-pricing .row-category-pricing .col-empty {
+  width: 0%;
+}
+@media (min-width: 992px) {
+  .satoshi-pricing .row-category-pricing .col-empty {
+    width: 20%;
+  }
+}
+.satoshi-pricing .row-category-pricing .col-category {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+@media (min-width: 992px) {
+  .satoshi-pricing .row-category-pricing .col-category {
+    width: 40%;
+  }
+}
 .satoshi-pricing .row-satoshi-pricing {
   width: 100%;
   display: flex;

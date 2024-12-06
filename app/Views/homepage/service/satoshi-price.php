@@ -24,6 +24,15 @@
 
 <section class="satoshi-pricing">
     <div class="container-fluid">
+        <div class="row-category-pricing">
+            <div class="col-empty"></div>
+            <div class="col-category">
+                <h4 class="text-white text-center">If ACTIVATED YOUR ACCOUNT FROM WEBSITE</h4>
+            </div>
+            <div class="col-category d-none d-lg-block">
+                <h4 class="text-white text-center">If ACTIVATED YOUR ACCOUNT FROM APPS</h4>
+            </div>
+        </div>
         <div class="row-satoshi-pricing">
             <div class="col-duration">
                 <div class="wrapper">
@@ -119,6 +128,9 @@
                         </div>
                     </div>
                 </div>
+            </div>
+            <div class="col-category mt-4 d-block d-lg-none">
+                <h4 class="text-white text-center">If ACTIVATED YOUR ACCOUNT FROM APPS</h4>
             </div>
             <div class="col-card">
                 <div class="wrapper">

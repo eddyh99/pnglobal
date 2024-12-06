@@ -40,6 +40,7 @@
     border-top: 1px solid #B48B3D;
     background-color: transparent;
     color: #FFFFFF;
+    
 }
 
 .table th {
