@@ -62,18 +62,49 @@
     .navbar-nav {
 
         @include mix.flex-tengah;
+        width: 100%;
 
-        .nav-item {
-            .nav-link {
-                color: var.$text-white-pnglobal;
-                text-decoration: underline;
-                font-size: 14px;
-
-                &:hover {
-                    font-weight: 700;
+        // Regular nav items
+            .nav-item {
+                .nav-link {
+                    color: var.$text-white-pnglobal;
+                    font-size: 15px;
+                    text-align: center;
+        
+                    &:hover {
+                        font-weight: 700;
+                        text-decoration: underline;
+                    }
                 }
             }
-        }
+        
+    }
+
+    // New container for buttons
+    .nav-buttons {
+        display: flex;
+        gap: 1rem;
+        margin-left: auto;
+
+        .btn-navbar-referral {
+                width: 122px;
+                height: 43px;
+                background-color: white;
+                border-radius: 5px;
+                box-shadow: 0px 4px 4px 0px rgba(189, 160, 105, 1);
+                display: flex;
+                align-items: center;
+                font-size: 13px;
+                text-decoration: none;
+                text-align: center;
+                color: var.$text-primary-pnglobal;
+                font-size: 14px;
+                transition: all 0.3s ease;
+        
+                &:hover {
+                    transform: translateY(-2px);
+                }
+            }
     }
 
     .navbar-toggler:focus,
