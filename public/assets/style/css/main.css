@@ -12777,6 +12777,7 @@ p {
   justify-content: center;
   align-items: center;
   width: 100%;
+  gap: 2rem;
 }
 .navbar .navbar-nav .nav-item .nav-link {
   color: #FFFFFF;
@@ -13103,9 +13104,19 @@ p {
   clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
   width: 150px;
 }
+.banner-homepage .wrapper-banner-homepage .logo-banner .discover-text {
+  font-family: "Noto Serif", serif;
+  color: #FFFFFF;
+  font-size: 22px;
+  font-weight: 600;
+  line-height: loose;
+  text-align: center;
+  margin-bottom: 24px;
+}
 .banner-homepage .wrapper-banner-homepage .logo-banner .logo-text-banner {
   text-transform: uppercase;
   letter-spacing: 3px;
+  margin-bottom: 11px;
   font-size: 16px;
   font-weight: 700;
   text-align: center;
@@ -13127,6 +13138,29 @@ p {
     padding: 0rem 3rem;
     font-size: 40px;
   }
+}
+.banner-homepage .wrapper-banner-homepage .logo-banner .logo-text-banner .goal-text {
+  font-family: "Odor Mean Chey", serif;
+  text-transform: uppercase;
+  font-weight: normal;
+  line-height: 50px;
+  font-size: 25px;
+  letter-spacing: 0;
+  color: #FFFFFF;
+}
+@media (min-width: 768px) {
+  .banner-homepage .wrapper-banner-homepage .logo-banner .logo-text-banner .goal-text {
+    font-size: 30px;
+  }
+}
+@media (min-width: 1024px) {
+  .banner-homepage .wrapper-banner-homepage .logo-banner .logo-text-banner .goal-text {
+    font-size: 40px;
+  }
+}
+.banner-homepage .wrapper-banner-homepage .logo-banner .logo-text-banner .goal-text span {
+  color: #BFA573;
+  display: block;
 }
 .banner-homepage .wrapper-banner-homepage .logo-banner .logo-text-banner-teamwork {
   letter-spacing: 4px;

@@ -18,3 +18,35 @@
 /storage/*.key
 .env
 .env.backup
+
+# CodeIgniter 4 specific
+writable/cache/*
+writable/logs/*
+writable/session/*
+writable/uploads/*
+writable/debugbar/*
+writable/ci_sessions/*
+writable/debugbar/*.json
+writable/debugbar/debug*.json
+writable/logs/*.log
+writable/logs/*.php
+writable/session/ci_*
+writable/session/*.json
+writable/token/*.json
+writable/google/*.json
+
+# Ignore all files in these directories
+!writable/cache/index.html
+!writable/logs/index.html
+!writable/session/index.html
+!writable/uploads/index.html
+
+# IDE Files
+.idea/
+.vscode/
+*.sublime-project
+*.sublime-workspace
+
+# System Files
+.DS_Store
+Thumbs.db

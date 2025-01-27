@@ -51,9 +51,20 @@
                 width: 150px;
             }
 
+            .discover-text {
+                font-family: var.$f-noto;
+                color: var.$text-white-pnglobal;
+                font-size: 22px;
+                font-weight: 600;
+                line-height: loose;
+                text-align: center;
+                margin-bottom: 24px;
+            }
+
             .logo-text-banner {
                 text-transform: uppercase;
                 letter-spacing: 3px;
+                margin-bottom: 11px;
                 // clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
                 font-size: 16px;
                 font-weight: 700;
@@ -80,6 +91,32 @@
                 // .line-animation {
                 //     @include mix.animation-reveal;
                 // }
+
+            .goal-text {
+                font-family: var.$f-odor;
+                text-transform: uppercase;
+                font-weight: normal;
+                line-height: 50px;
+                font-size: 25px;
+                letter-spacing: 0;
+
+                @include mix.md {
+                    font-size: 30px;
+                }
+
+                @include mix.xl {
+                    font-size: 40px;
+                }
+
+                // First line
+                color: var.$text-white-pnglobal;
+
+                // Second line (gold text)
+                span {
+                    color: var.$text-primary-pnglobal;
+                    display: block; // Forces line break
+                }
+            }
             }
 
             .logo-text-banner-teamwork {
