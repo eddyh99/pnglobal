@@ -13065,6 +13065,46 @@ p {
  *
  */
 /*----------------------------------------------------------
+    File Name  : _animations.scss
+    Desc       : File ini merupakan file untuk membuat keyframe animations
+                 yang akan digunakan secara berulang di file lain
+
+    Cara Pakai : Panggil directory ini dengan @use '../abstracts/animations'
+                 di file yang akan menggunakan animations
+------------------------------------------------------------*/
+/**
+ * TABLE OF CONTENTS
+ *
+ * 1. Fade Animations
+ * 2. Slide Animations
+ * 3. Scale Animations
+ *
+ */
+/*----------------------------------------------------------
+1. Fade Animations Start
+------------------------------------------------------------*/
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+/*----------------------------------------------------------
+2. Fade Animations End
+------------------------------------------------------------*/
+/*----------------------------------------------------------
 1. Banner Homepage Start
 ------------------------------------------------------------*/
 .banner-homepage {
@@ -13099,19 +13139,81 @@ p {
   z-index: 2;
   text-align: center;
   width: 100%;
+  animation: fadeIn 1s ease-out;
 }
 .banner-homepage .wrapper-banner-homepage .logo-banner img {
   clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
   width: 150px;
 }
-.banner-homepage .wrapper-banner-homepage .logo-banner .discover-text {
+.banner-homepage .wrapper-banner-homepage .logo-banner .button-wrapper {
+  display: flex;
+  justify-content: center;
+  gap: 44px;
+  margin-top: 2rem;
+  opacity: 0;
+  animation: fadeInUp 1s ease-out forwards;
+  animation-delay: 1s;
+}
+.banner-homepage .wrapper-banner-homepage .logo-banner .btn-primary,
+.banner-homepage .wrapper-banner-homepage .logo-banner .btn-secondary {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 268px;
+  height: 64px;
+  border-radius: 5px;
+}
+.banner-homepage .wrapper-banner-homepage .logo-banner .btn-primary:hover,
+.banner-homepage .wrapper-banner-homepage .logo-banner .btn-secondary:hover {
+  transform: translateY(-5px);
+}
+.banner-homepage .wrapper-banner-homepage .logo-banner .btn-primary .btn-text,
+.banner-homepage .wrapper-banner-homepage .logo-banner .btn-secondary .btn-text {
+  text-align: center;
+  font-size: 18px;
+  font-weight: 700;
+  font-family: "Noto Serif", serif;
+  text-transform: uppercase;
+  line-height: 25px;
+  padding: 0.5rem;
+}
+.banner-homepage .wrapper-banner-homepage .logo-banner .btn-primary {
+  background-color: #BFA573;
+  box-shadow: 0px 4px 4px 0px rgb(255, 255, 255);
+}
+.banner-homepage .wrapper-banner-homepage .logo-banner .btn-primary:hover {
+  box-shadow: 0px 8px 8px 0px rgba(255, 255, 255, 0.8);
+}
+.banner-homepage .wrapper-banner-homepage .logo-banner .btn-primary .btn-text {
+  color: #FFFFFF;
+}
+.banner-homepage .wrapper-banner-homepage .logo-banner .btn-secondary {
+  background-color: #FFFFFF;
+  box-shadow: 0px 4px 4px 0px rgb(189, 160, 105);
+}
+.banner-homepage .wrapper-banner-homepage .logo-banner .btn-secondary:hover {
+  box-shadow: 0px 8px 8px 0px rgba(189, 160, 105, 0.8);
+}
+.banner-homepage .wrapper-banner-homepage .logo-banner .btn-secondary .btn-text {
+  color: #1E1E1E;
+}
+.banner-homepage .wrapper-banner-homepage .logo-banner .text-wrapper {
+  background-color: rgba(0, 0, 0, 0.75);
+  padding: 20px;
+  width: 100%;
+  border-radius: 5px;
+  opacity: 0;
+  animation: fadeInUp 1s ease-out forwards;
+  animation-delay: 0.5s;
+}
+.banner-homepage .wrapper-banner-homepage .logo-banner .text-wrapper .discover-text {
   font-family: "Noto Serif", serif;
   color: #FFFFFF;
   font-size: 22px;
   font-weight: 600;
   line-height: loose;
   text-align: center;
-  margin-bottom: 24px;
+  margin-bottom: 0;
 }
 .banner-homepage .wrapper-banner-homepage .logo-banner .logo-text-banner {
   text-transform: uppercase;

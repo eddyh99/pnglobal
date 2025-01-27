@@ -1,0 +1,55 @@
+/*----------------------------------------------------------
+    File Name  : _animations.scss
+    Desc       : File ini merupakan file untuk membuat keyframe animations
+                 yang akan digunakan secara berulang di file lain
+
+    Cara Pakai : Panggil directory ini dengan @use '../abstracts/animations'
+                 di file yang akan menggunakan animations
+------------------------------------------------------------*/ 
+
+/**
+ * TABLE OF CONTENTS
+ *
+ * 1. Fade Animations
+ * 2. Slide Animations
+ * 3. Scale Animations
+ *
+ */
+
+/*----------------------------------------------------------
+1. Fade Animations Start
+------------------------------------------------------------*/ 
+@mixin fadeIn {
+    animation: fadeIn 1s ease-out;
+}
+
+@mixin fadeInUp($delay: 0s) {
+    opacity: 0;
+    animation: fadeInUp 1s ease-out forwards;
+    animation-delay: $delay;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+/*----------------------------------------------------------
+2. Fade Animations End
+------------------------------------------------------------*/

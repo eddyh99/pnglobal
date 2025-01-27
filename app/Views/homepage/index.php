@@ -5,7 +5,7 @@
             <source src="<?= BASE_URL ?>assets/vid/banner.webm" type="video/webm">
         </video>
         <div class="logo-banner">
-            <div>
+            <div class="text-wrapper">
                 <p id="g-text-banner-homepage" class="logo-text-banner">
                     <span class="line-animation">
                         <span class="goal-text">
@@ -17,6 +17,16 @@
                     </span>
                 </p>
                 <p class="discover-text">Discover How to Reduce Taxes and Grow Your Capital Today!</p>
+            </div>
+
+            <div class="button-wrapper">
+                <div class="btn-primary">
+                    <div class="btn-text">Claim Your<br /> Financial Freedom</div>
+                </div>
+
+                <div class="btn-secondary">
+                    <div class="btn-text">Request a Consultation</div>
+                </div>
             </div>
 
         </div>

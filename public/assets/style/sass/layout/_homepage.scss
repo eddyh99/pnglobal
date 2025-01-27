@@ -19,6 +19,7 @@
 
  @use '../abstracts/variables' as var;
  @use '../abstracts/mixins' as mix;
+ @use '../abstracts/animations' as anim;
  
 /*----------------------------------------------------------
 1. Banner Homepage Start
@@ -45,20 +46,87 @@
             z-index: 2;
             text-align: center;
             width: 100%;
+            @include anim.fadeIn;
 
             img {
                 clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
                 width: 150px;
             }
 
-            .discover-text {
-                font-family: var.$f-noto;
-                color: var.$text-white-pnglobal;
-                font-size: 22px;
-                font-weight: 600;
-                line-height: loose;
-                text-align: center;
-                margin-bottom: 24px;
+            .button-wrapper {
+                display: flex;
+                justify-content: center;
+                gap: 44px;
+                margin-top: 2rem;
+                @include anim.fadeInUp(1s);
+            }
+
+            .btn-primary,
+            .btn-secondary {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 268px;
+                height: 64px;
+                border-radius: 5px;
+
+                &:hover {
+                    transform: translateY(-5px);
+                }
+
+                .btn-text {
+                    text-align: center;
+                    font-size: 18px;
+                    font-weight: 700;
+                    font-family: var.$f-noto;
+                    text-transform: uppercase;
+                    line-height: 25px;
+                    padding: 0.5rem;
+                }
+            }
+
+            .btn-primary {
+                background-color: var.$text-primary-pnglobal;
+                box-shadow: 0px 4px 4px 0px rgba(255, 255, 255, 1);
+
+                &:hover {
+                    box-shadow: 0px 8px 8px 0px rgba(255, 255, 255, 0.8);
+                }
+
+                .btn-text {
+                    color: var.$text-white-pnglobal;
+                }
+            }
+
+            .btn-secondary {
+                background-color: var.$text-white-pnglobal;
+                box-shadow: 0px 4px 4px 0px rgba(189, 160, 105, 1);
+
+                &:hover {
+                    box-shadow: 0px 8px 8px 0px rgba(189, 160, 105, 0.8);
+                }
+
+                .btn-text {
+                    color: var.$text-black-pnglobal;
+                }
+            }
+
+            .text-wrapper {
+                background-color: rgba(0, 0, 0, 0.75);
+                padding: 20px;
+                width: 100%;
+                border-radius: 5px;
+                @include anim.fadeInUp(0.5s);
+
+                .discover-text {
+                    font-family: var.$f-noto;
+                    color: var.$text-white-pnglobal;
+                    font-size: 22px;
+                    font-weight: 600;
+                    line-height: loose;
+                    text-align: center;
+                    margin-bottom: 0;
+                }
             }
 
             .logo-text-banner {
