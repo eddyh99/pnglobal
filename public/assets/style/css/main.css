@@ -13276,36 +13276,44 @@ p {
 1. Banner Homepage End
 ------------------------------------------------------------*/
 /*----------------------------------------------------------
-2. Team Expert Start
+2. Future Start
 ------------------------------------------------------------*/
-.team-expert-homepage .left-side {
-  padding: 2rem 0rem;
+.future-heading {
+  color: #BFA573;
+  text-align: center;
+  font-family: "Noto Serif", serif;
+  font-size: 30px;
+  font-style: normal;
+  font-weight: 800;
+  line-height: 25px;
+  text-transform: uppercase;
 }
-@media (min-width: 992px) {
-  .team-expert-homepage .left-side {
-    padding: 0rem 3rem;
-  }
+
+.future-text {
+  color: #000;
+  text-align: center;
+  font-family: "Noto Serif", serif;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 25px;
 }
-.team-expert-homepage .bg-team-expert {
-  background-image: url("../../img/img-24.webp");
-  background-position: center center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  height: 200px;
-}
-@media (min-width: 425px) {
-  .team-expert-homepage .bg-team-expert {
-    height: 400px;
-  }
-}
-@media (min-width: 992px) {
-  .team-expert-homepage .bg-team-expert {
-    height: auto;
-  }
+
+.future-cta {
+  color: #000;
+  text-align: center;
+  font-family: "Noto Serif", serif;
+  font-size: 22px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 25px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 /*----------------------------------------------------------
-2. Team Expert End
+2. Future End End
 ------------------------------------------------------------*/
 /*----------------------------------------------------------
 3. Consulting Start

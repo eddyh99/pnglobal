@@ -209,38 +209,45 @@
 
 
 /*----------------------------------------------------------
-2. Team Expert Start
+2. Future Start
 ------------------------------------------------------------*/ 
 
-.team-expert-homepage {
+.future-heading {
+    color: var.$text-primary-pnglobal; // This should be gold (#BFA573)
+    text-align: center;
+    font-family: var.$f-noto;
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: 25px;
+    text-transform: uppercase;
+}
 
-    .left-side {
-        padding: 2rem 0rem;
-        
-        @include mix.lg {
-            padding: 0rem 3rem;
-        }
-    }
+.future-text {
+    color: #000;    
+    text-align: center;
+    font-family: var.$f-noto;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 25px;
+}
 
-    .bg-team-expert {
-        background-image: url('../../img/img-24.webp');
-        background-position: center center;
-        background-repeat: no-repeat;
-        background-size: cover;
-        height: 200px;
-
-        @include mix.xss {
-            height: 400px;
-        }
-
-        @include mix.lg {
-            height: auto;
-        }
-    }
+.future-cta {
+    color: #000;
+    text-align: center;
+    font-family: var.$f-noto;
+    font-size: 22px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 25px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 /*----------------------------------------------------------
-2. Team Expert End
+2. Future End End
 ------------------------------------------------------------*/ 
 
 

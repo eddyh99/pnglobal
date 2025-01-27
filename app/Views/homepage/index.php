@@ -34,25 +34,25 @@
 </div>
 <!-- End of Banner -->
 
-<!-- Start of Team Expert -->
-<section class="content team-expert-homepage">
+<!-- Start of Future Section -->
+<section class="content future-section text-center">
     <div class="container">
-        <div class="row">
-            <div class="col-12 col-lg-7 order-1 order-lg-0 left-side">
-                <h2 class="text-primary-pnglobal">Efficiency and Professionalism at the Highest Levels</h2>
-                <h5 class="text-primary-pnglobal mt-4">A Team of Experts at Your Service</h5>
-                <p>
-                    <span translate='no'> PN Global </span> is an Asset Management company that operates mainly in the Bitcoin field without, obviously, neglecting traditional markets.
-                    We operate as a Bitcoin broker and have established an Edge Fund to manage Bitcoin mining. <br>
-                    Our operations are mainly aimed at institutional clients and we have chosen to make the operations of our brokers transparent so that all the necessary information is available to all those interested in operating and earning independently.
+        <div class="row justify-content-center">
+            <div class="col-12 col-lg-8">
+                <h2 class="future-heading">Imagine a Future Without Limits</h2>
+
+                <p class="future-text mt-4">
+                    With our personalized consulting, you can increase your earnings, pay fewer taxes, and protect your capital from unnecessary risks.
                 </p>
-            </div>
-            <div class="col-12 col-lg-5 order-0 order-lg-1 bg-team-expert">
+
+                <p class="future-cta mt-4">
+                    Join us for a personalized strategy that guides you to success, wherever you are in the world.
+                </p>
             </div>
         </div>
     </div>
 </section>
-<!-- End of Team Expert -->
+<!-- End of Future Section -->
 
 <section id="satoshi" class="service-homepage">
 
