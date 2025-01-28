@@ -22,6 +22,7 @@
 // @use '../abstracts/animations' as anim;
 
 
+
 /*----------------------------------------------------------
 1. Banner Homepage Start
 ------------------------------------------------------------*/ 
@@ -241,7 +242,7 @@
     line-height: 25px;
     padding: 0 15px;
     margin: 0 auto;
-    max-width: fit-content;
+    // max-width: fit-content;
 }
 
 /*----------------------------------------------------------
@@ -333,6 +334,79 @@
 3. Consulting End
 ------------------------------------------------------------*/ 
 
+/*----------------------------------------------------------
+3. Why Choose Start
+------------------------------------------------------------*/ 
+.why-choose {
+    background-color: var.$bg-black-pnglobal;
+    overflow: hidden;
+    padding: 55px 0;
+
+    .row {
+        margin: 0;
+    }
+
+    .col-12.col-lg-6 {
+        &:last-child {
+            padding-right: 0;
+            display: flex;
+            justify-content: flex-end;
+        }
+    }
+
+    .why-title {
+        color: #BFA573;
+        font-family: var.$f-noto;
+        font-size: 30px;
+        font-weight: 800;
+        line-height: 30px;
+        text-transform: capitalize;
+        margin-bottom: 2rem;
+        margin-left: 98px;
+        margin-right: 67px;
+    }
+
+    .why-desc {
+        color: #FFF;
+        font-family: var.$f-noto;
+        font-size: 18px;
+        font-weight: 500;
+        line-height: 30px;
+        margin-bottom: 2rem;
+        margin-left: 98px;
+        margin-right: 67px;
+    }
+
+    .why-cta {
+        color: #FFF;
+        font-family: var.$f-noto;
+        font-size: 20px;
+        font-weight: 700;
+        line-height: 30px;
+        margin-left: 98px;
+        margin-right: 67px;
+    }
+
+    .why-image-container {
+        height: 300px;
+        overflow: hidden;
+        width: 100%;
+        
+        @include mix.lg {
+            height: 413px;
+            margin-right: 0;
+        }
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+}
+/*----------------------------------------------------------
+3. Why Choose End
+------------------------------------------------------------*/
 
 /*----------------------------------------------------------
 4. Why Start

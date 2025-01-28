@@ -52,34 +52,30 @@
 </section>
 <!-- End of Future Section -->
 
-<section id="satoshi" class="service-homepage">
-
-    <div class="wrapper-big-title">
-        <h1 class=" text-uppercase fw-bold">
-            Bitcoin Brokerage guidance for buy/sell decisions
-        </h1>
-    </div>
-
-    <a href="<?php echo BASE_URL . "homepage/service?service=" . base64_encode("satoshi_signal") ?>" class="bg-desc-service d-block">
-        <div class="container">
-            <div class="row">
-                <div class="d-none d-lg-block col-1"></div>
-                <div class="col-12 col-lg-5 order-1 order-lg-0">
-                    <p class="text-desc-service f-noto">
-                        Satoshi Signal is not the classic signal room, in reality it is a real App which not only shows when to buy or sell Bitcoin from the signals section but inside it has a messages section where you can choose the language in which to receive messages from the APP setting.
-                    </p>
-                    <p class="text-desc-service f-noto">
-                        These messages explain the motivations and reasoning that lead to the decisions of our brokers which, we hope, will provide lessons to help users create their own strategy over time.
-                    </p>
-                </div>
-                <div class="d-none d-lg-block col-1"></div>
-                <div class="col-12 col-lg-5 order-0 order-lg-1 px-5 bg-img-satoshi-homepage">
-
-                </div>
+<!-- Start Of Why Choose -->
+<section class="why-choose">
+    <div class="row align-items-center">
+        <div class="col-12 col-lg-6">
+            <h2 class="why-title">Why Choose PN Global</h2>
+            <p class="why-desc">
+                In a constantly evolving financial world, protecting and growing your capital requires smart and tailored strategies. With PN Global International, access strategic consulting to reduce your tax burden, protect your assets, and create investment packages customized for your needs.
+            </p>
+            <p class="why-cta">
+                Choose PN Global and discover how we can help you to achieve your financial goals.
+            </p>
+        </div>
+        <div class="col-12 col-lg-6">
+            <div class="why-image-container">
+                <img src="<?php echo BASE_URL; ?>assets/img/why-choose.webp"
+                    alt="Why Choose PN Global"
+                    class="img-fluid object-fit-cover">
             </div>
         </div>
-    </a>
+    </div>
+    <div class="container">
+    </div>
 </section>
+<!-- End Of Why -->
 
 <!-- Start of Cosulting -->
 <section id="productservice" class="content consulting-homepage pt-0">
