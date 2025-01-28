@@ -17,10 +17,11 @@
  *
  */
 
- @use '../abstracts/variables' as var;
- @use '../abstracts/mixins' as mix;
- @use '../abstracts/animations' as anim;
- 
+@use '../abstracts/variables' as var;
+@use '../abstracts/mixins' as mix;
+// @use '../abstracts/animations' as anim;
+
+
 /*----------------------------------------------------------
 1. Banner Homepage Start
 ------------------------------------------------------------*/ 
@@ -46,7 +47,6 @@
             z-index: 2;
             text-align: center;
             width: 100%;
-            @include anim.fadeIn;
 
             img {
                 clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
@@ -58,7 +58,6 @@
                 justify-content: center;
                 gap: 44px;
                 margin-top: 2rem;
-                @include anim.fadeInUp(1s);
             }
 
             .btn-primary,
@@ -116,7 +115,6 @@
                 padding: 20px;
                 width: 100%;
                 border-radius: 5px;
-                @include anim.fadeInUp(0.5s);
 
                 .discover-text {
                     font-family: var.$f-noto;
@@ -213,7 +211,7 @@
 ------------------------------------------------------------*/ 
 
 .future-heading {
-    color: var.$text-primary-pnglobal; // This should be gold (#BFA573)
+    color: var.$text-primary-pnglobal;
     text-align: center;
     font-family: var.$f-noto;
     font-size: 30px;
@@ -241,9 +239,9 @@
     font-style: normal;
     font-weight: 700;
     line-height: 25px;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+    padding: 0 15px;
+    margin: 0 auto;
+    max-width: fit-content;
 }
 
 /*----------------------------------------------------------

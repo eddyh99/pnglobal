@@ -6,25 +6,23 @@
         </video>
         <div class="logo-banner">
             <div class="text-wrapper">
-                <p id="g-text-banner-homepage" class="logo-text-banner">
-                    <span class="line-animation">
-                        <span class="goal-text">
-                            YOUR GOAL IS FINANCIAL FREEDOM, <br>
-                            <span style="color: #BFA573;">
-                                OUR GOAL IS TO ACHIEVE IT
-                            </span>
+                <p id="g-text-banner-homepage" class="logo-text-banner" data-aos="fade-down" data-aos-duration="1500">
+                    <span class="goal-text">
+                        YOUR GOAL IS FINANCIAL FREEDOM, <br>
+                        <span style="color: #BFA573;">
+                            OUR GOAL IS TO ACHIEVE IT
                         </span>
                     </span>
                 </p>
-                <p class="discover-text">Discover How to Reduce Taxes and Grow Your Capital Today!</p>
+                <p class="discover-text" data-aos="fade-down" data-aos-duration="2000">Discover How to Reduce Taxes and Grow Your Capital Today!</p>
             </div>
 
             <div class="button-wrapper">
-                <div class="btn-primary">
+                <div class="btn-primary" data-aos="flip-down" data-aos-duration="3000">
                     <div class="btn-text">Claim Your<br /> Financial Freedom</div>
                 </div>
 
-                <div class="btn-secondary">
+                <div class="btn-secondary" data-aos="flip-down" data-aos-duration="3000">
                     <div class="btn-text">Request a Consultation</div>
                 </div>
             </div>
@@ -39,16 +37,16 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-12 col-lg-8">
-                <h2 class="future-heading">Imagine a Future Without Limits</h2>
+                <h2 class="future-heading" data-aos="fade-down">Future Without Limits</h2>
 
-                <p class="future-text mt-4">
+                <p class="future-text mt-4" data-aos="fade-up">
                     With our personalized consulting, you can increase your earnings, pay fewer taxes, and protect your capital from unnecessary risks.
                 </p>
 
-                <p class="future-cta mt-4">
-                    Join us for a personalized strategy that guides you to success, wherever you are in the world.
-                </p>
             </div>
+            <p class="future-cta mt-4 mx-auto" data-aos="fade-up">
+                Join us for a personalized strategy that guides you to success, wherever you are in the world.
+            </p>
         </div>
     </div>
 </section>

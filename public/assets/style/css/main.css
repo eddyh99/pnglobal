@@ -13065,46 +13065,6 @@ p {
  *
  */
 /*----------------------------------------------------------
-    File Name  : _animations.scss
-    Desc       : File ini merupakan file untuk membuat keyframe animations
-                 yang akan digunakan secara berulang di file lain
-
-    Cara Pakai : Panggil directory ini dengan @use '../abstracts/animations'
-                 di file yang akan menggunakan animations
-------------------------------------------------------------*/
-/**
- * TABLE OF CONTENTS
- *
- * 1. Fade Animations
- * 2. Slide Animations
- * 3. Scale Animations
- *
- */
-/*----------------------------------------------------------
-1. Fade Animations Start
-------------------------------------------------------------*/
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-/*----------------------------------------------------------
-2. Fade Animations End
-------------------------------------------------------------*/
-/*----------------------------------------------------------
 1. Banner Homepage Start
 ------------------------------------------------------------*/
 .banner-homepage {
@@ -13139,7 +13099,6 @@ p {
   z-index: 2;
   text-align: center;
   width: 100%;
-  animation: fadeIn 1s ease-out;
 }
 .banner-homepage .wrapper-banner-homepage .logo-banner img {
   clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
@@ -13150,9 +13109,6 @@ p {
   justify-content: center;
   gap: 44px;
   margin-top: 2rem;
-  opacity: 0;
-  animation: fadeInUp 1s ease-out forwards;
-  animation-delay: 1s;
 }
 .banner-homepage .wrapper-banner-homepage .logo-banner .btn-primary,
 .banner-homepage .wrapper-banner-homepage .logo-banner .btn-secondary {
@@ -13202,9 +13158,6 @@ p {
   padding: 20px;
   width: 100%;
   border-radius: 5px;
-  opacity: 0;
-  animation: fadeInUp 1s ease-out forwards;
-  animation-delay: 0.5s;
 }
 .banner-homepage .wrapper-banner-homepage .logo-banner .text-wrapper .discover-text {
   font-family: "Noto Serif", serif;
@@ -13307,9 +13260,9 @@ p {
   font-style: normal;
   font-weight: 700;
   line-height: 25px;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  padding: 0 15px;
+  margin: 0 auto;
+  max-width: fit-content;
 }
 
 /*----------------------------------------------------------

@@ -5,7 +5,10 @@
 
 # IDE files
 .idea/
-.vscode/
+.vscode/*
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
 
 # Thumbnails
 ._*
@@ -50,3 +53,9 @@ writable/google/*.json
 # System Files
 .DS_Store
 Thumbs.db
+
+# Sass
+.sass-cache/
+*.css.map
+*.sass.map
+*.scss.map

@@ -1,9 +1,8 @@
-
 <script>
-    $("document").ready(function($){
+    $("document").ready(function($) {
         var nav = $('#navbar');
 
-        $(window).scroll(function () {
+        $(window).scroll(function() {
             if ($(this).scrollTop() > 600) {
                 nav.addClass("active");
             } else {
@@ -12,7 +11,7 @@
         });
     });
 
-    $(".openbtn").click(function () {
+    $(".openbtn").click(function() {
         $(this).toggleClass('active');
     });
 
@@ -20,18 +19,11 @@
         $(window).scrollTop($('#<?= @$_GET['type'] ?>').offset().top);
     });
 
-    setTimeout(function(){
-        $('#loadingcontent').modal('show'); 
+    setTimeout(function() {
+        $('#loadingcontent').modal('show');
     }, 1000);
 
-    function linkproduct($link){
+    function linkproduct($link) {
         return window.location.href = $link;
     }
-
-
-    
-
-
-
-
 </script>

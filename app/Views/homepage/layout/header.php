@@ -22,6 +22,7 @@
     <!-- Telephone Code -->
     <link href="<?= BASE_URL ?>assets/libs/intl-tel-input-master/build/css/intlTelInput.css" rel="stylesheet">
 
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 
     <!-- Stripe -->
     <script src="https://js.stripe.com/v3/"></script>
