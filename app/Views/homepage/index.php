@@ -328,3 +328,29 @@
     </div>
 </section>
 <!-- End of Service -->
+
+<!-- Start OF Who We Are -->
+<section class="who-we-are">
+    <h2 class="section-title">Our Services</h2>
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-lg-6">
+                <div class="who-image">
+                    <img src="assets/img/img-who-we-are.webp" alt="Who We Are">
+                </div>
+            </div>
+            <div class="col-12 col-lg-6">
+                <div class="who-content">
+                    <h3 class="who-title">PN Global Asset Management<br>
+                        <span>Experts in Global Wealth Growth and Security</span>
+                    </h3>
+                    <div class="who-description">
+                        <p>PN Global is an Asset Management company specialized in managing and protecting clients' wealth on a global scale. We provide tailored solutions to optimize investments, grow capital, protect assets, and reduce tax pressure through a dedicated, customized approach.</p>
+                        <p>Our team of financial, legal, and tax experts works with a clear mission: to optimize the management and security of your assets, offering advanced strategies to successfully navigate the complex world of international finance.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Enf Of Who We Are -->
