@@ -13787,6 +13787,58 @@ p {
 7. Who We Are End
 ------------------------------------------------------------*/
 /*----------------------------------------------------------
+8. Quotes Start
+------------------------------------------------------------*/
+.quotes {
+  position: relative;
+  padding: 120px 0;
+}
+.quotes .quotes-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+.quotes .quotes-bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.quotes .quotes-bg::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+}
+.quotes .container {
+  position: relative;
+  z-index: 2;
+}
+.quotes .quotes-content {
+  max-width: 1000px;
+  margin: 0 auto;
+  text-align: center;
+}
+.quotes .quote-text {
+  color: #FFF;
+  text-align: center;
+  font-family: "Noto Serif", serif;
+  font-size: 30px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 45px;
+  margin: 0;
+}
+
+/*----------------------------------------------------------
+8. Quotes End
+------------------------------------------------------------*/
+/*----------------------------------------------------------
 6. About Us Start
 ------------------------------------------------------------*/
 .banner-about {

@@ -336,7 +336,7 @@
         <div class="row">
             <div class="col-12 col-lg-6">
                 <div class="who-image">
-                    <img src="assets/img/img-who-we-are.webp" alt="Who We Are">
+                    <img src="<?php echo BASE_URL; ?>assets/img/img-who-we-are.webp" alt="Who We Are">
                 </div>
             </div>
             <div class="col-12 col-lg-6">
@@ -354,3 +354,16 @@
     </div>
 </section>
 <!-- Enf Of Who We Are -->
+
+<!-- Start Of Quotes -->
+<section class="quotes">
+    <div class="quotes-bg">
+        <img src="<?php echo BASE_URL; ?>assets/img/bg-quotes.webp" alt="Quotes Background">
+    </div>
+    <div class="container">
+        <div class="quotes-content">
+            <p class="quote-text">With PN Global by your side, you're not just choosing an advisor, but a strategic partner dedicated to your financial freedom and long-term success.</p>
+        </div>
+    </div>
+</section>
+<!-- End Of Quotes -->
