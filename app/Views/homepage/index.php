@@ -384,4 +384,17 @@
         </div>
     </div>
 </section>
-<!-- End Of -->
+
+<section class="cards-section">
+    <div class="container">
+        <div class="cards-wrapper">
+            <div class="card dark-card">
+                <h3 class="card-title">Free Basic Online<br>Training Program</h3>
+            </div>
+            <div class="card light-card">
+                <h3 class="card-title">Campus for<br>Advanced Training</h3>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End Of Invest-->

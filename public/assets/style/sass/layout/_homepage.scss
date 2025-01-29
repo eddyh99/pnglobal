@@ -932,6 +932,9 @@
 .invest {
     position: relative;
     background-color: #FFF;
+    position: relative;
+    margin-bottom: 0;
+    height: 400px;
 
     .invest-title-wrapper {
         background-color: #BFA573;
@@ -963,7 +966,7 @@
     }
 
     .invest-content {
-        padding: 20px 0;
+        padding: 40px 0;
         max-width: 795px;
         margin: 0 auto;
 
@@ -987,6 +990,64 @@
             font-weight: 500;
             line-height: 25px;
             margin: 0;
+        }
+    }
+}
+
+.cards-section {
+    background-color: #000;
+    height: 400px;
+    margin-top: 0; // Pull up black section
+    
+    .container {
+        position: relative;
+    }
+
+    .cards-wrapper {
+        position: absolute;
+        top: -70px; // Pull up cards to overlap
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        gap: 30px;
+        width: 100%;
+        max-width: 1000px;
+        
+        .card {
+            flex: 1;
+            padding: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 200px;
+            
+            &.dark-card {
+                border-radius: 5px;
+                background: #1E1E1E;
+                
+                .card-title {
+                    color: #FFF;
+                }
+            }
+            
+            &.light-card {
+                border-radius: 5px;
+                background: #CCB78F;
+                
+                .card-title {
+                    color: #000;
+                }
+            }
+            
+            .card-title {
+                text-align: center;
+                font-family: "Noto Serif";
+                font-size: 20px;
+                font-style: normal;
+                font-weight: 600;
+                line-height: 40px;
+                text-transform: uppercase;
+            }
         }
     }
 }
