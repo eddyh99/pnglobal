@@ -341,8 +341,9 @@
             </div>
             <div class="col-12 col-lg-6">
                 <div class="who-content">
-                    <h3 class="who-title">PN Global Asset Management<br>
-                        <span>Experts in Global Wealth Growth and Security</span>
+                    <h3 class="who-title">
+                        <span class="title-main" translate="no">PN Global Asset Management</span>
+                        <span class="subtitle">Experts in Global Wealth Growth and Security</span>
                     </h3>
                     <div class="who-description">
                         <p>PN Global is an Asset Management company specialized in managing and protecting clients' wealth on a global scale. We provide tailored solutions to optimize investments, grow capital, protect assets, and reduce tax pressure through a dedicated, customized approach.</p>
@@ -367,3 +368,20 @@
     </div>
 </section>
 <!-- End Of Quotes -->
+
+<!-- Start Of Invest -->
+<section class="invest">
+    <div class="invest-title-wrapper">
+        <h2 class="invest-title">
+            <span class="dark">Invest in Yourself,</span>
+            <span class="light">Take Control of Your Future</span>
+        </h2>
+    </div>
+    <div class="container">
+        <div class="invest-content">
+            <p class="invest-description">Every step toward education is a step toward financial freedom. Discover our solutions for your success: from advanced courses on Bitcoin, Blockchain, BTC Mining, and entrepreneurship, to tax strategy and sales consulting. Explore our exclusive Campus for Advanced Training designed to deepen strategic skills.</p>
+            <p class="invest-cta">Choose Your Path and Turn Knowledge into Concrete, Lasting Results!</p>
+        </div>
+    </div>
+</section>
+<!-- End Of -->

@@ -13736,7 +13736,7 @@ p {
 .who-we-are .section-title {
   color: #000;
   text-align: center;
-  font-family: "Noto Serif";
+  font-family: "Noto Serif", serif;
   font-size: 40px;
   font-style: normal;
   font-weight: 800;
@@ -13761,19 +13761,32 @@ p {
 }
 .who-we-are .who-content .who-title {
   color: #BFA573;
-  font-family: "Noto Serif";
+  font-family: "Noto Serif", serif;
   font-size: 30px;
   font-weight: 800;
   line-height: 40px;
   text-transform: capitalize;
   margin-bottom: 30px;
+  display: flex;
+  flex-direction: column;
 }
-.who-we-are .who-content .who-title span {
+.who-we-are .who-content .who-title .title-main {
+  white-space: nowrap;
+  margin-bottom: 10px;
+}
+.who-we-are .who-content .who-title .subtitle {
   display: block;
+  color: #FFF;
+  font-family: "Noto Serif", serif;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 800;
+  line-height: 40px;
+  text-transform: capitalize;
 }
 .who-we-are .who-content .who-description p {
   color: #FFF;
-  font-family: "Noto Serif";
+  font-family: "Noto Serif", serif;
   font-size: 18px;
   font-weight: 500;
   line-height: 30px;
@@ -13837,6 +13850,67 @@ p {
 
 /*----------------------------------------------------------
 8. Quotes End
+------------------------------------------------------------*/
+/*----------------------------------------------------------
+9. Invest Start
+------------------------------------------------------------*/
+.invest {
+  position: relative;
+  background-color: #FFF;
+}
+.invest .invest-title-wrapper {
+  background-color: #BFA573;
+  padding: 20px 0;
+  width: 100%;
+  position: relative;
+  top: 0;
+}
+.invest .invest-title-wrapper .invest-title {
+  text-align: center;
+  font-family: "Odor Mean Chey";
+  font-size: 35px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 50px;
+  text-transform: uppercase;
+  margin: 0;
+}
+.invest .invest-title-wrapper .invest-title .dark {
+  color: #000;
+  display: inline-block;
+}
+.invest .invest-title-wrapper .invest-title .light {
+  color: #FFF;
+  display: inline-block;
+}
+.invest .invest-content {
+  padding: 20px 0;
+  max-width: 795px;
+  margin: 0 auto;
+}
+.invest .invest-content .invest-description {
+  color: #000;
+  text-align: center;
+  font-family: "Noto Serif", serif;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 30px;
+  margin-bottom: 30px;
+}
+.invest .invest-content .invest-cta {
+  color: #000;
+  text-align: center;
+  font-family: "Noto Serif", serif;
+  font-size: 22px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 25px;
+  margin: 0;
+}
+
+/*----------------------------------------------------------
+9. Invest End
 ------------------------------------------------------------*/
 /*----------------------------------------------------------
 6. About Us Start
