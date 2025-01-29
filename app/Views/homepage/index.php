@@ -389,12 +389,34 @@
     <div class="container">
         <div class="cards-wrapper">
             <div class="card dark-card">
-                <h3 class="card-title">Free Basic Online<br>Training Program</h3>
+                <div class="card-content">
+                    <h3 class="card-title">Free Basic Online<br>Training Program</h3>
+                    <img src="<?php echo BASE_URL; ?>assets/img/free-training.png" alt="Free Training" class="card-image">
+                </div>
             </div>
             <div class="card light-card">
-                <h3 class="card-title">Campus for<br>Advanced Training</h3>
+                <div class="card-content">
+                    <h3 class="card-title">Campus for<br>Advanced Training</h3>
+                    <img src="<?php echo BASE_URL; ?>assets/img/advanced-training.png" alt="Advanced Training" class="card-image">
+                </div>
             </div>
         </div>
     </div>
 </section>
 <!-- End Of Invest-->
+
+<section class="first-steps">
+    <div class="first-steps-bg">
+        <img src="<?php echo BASE_URL; ?>assets/img/bg-first-step.png" alt="First Steps Background" class="bg-image">
+    </div>
+    <div class="logo-big">
+        <img src="<?php echo BASE_URL; ?>assets/img/logo-big.png" alt="PN Global Logo" class="logo-image">
+    </div>
+    <div class="container">
+        <div class="content-box">
+            <h2 class="title">Your Future Starts Now.<br>Choose the Path That Will Change Your Life!</h2>
+            <p class="description">Don't postpone success! Every great change begins with a decision. Are you ready to invest in yourself, master finance and technology, and build the future you desire? Discover how our solutions can accelerate your journey toward financial freedom and entrepreneurial success.</p>
+            <button class="cta-button">Take the First Step<br>to Success!</button>
+        </div>
+    </div>
+</section>

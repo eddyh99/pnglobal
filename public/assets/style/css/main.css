@@ -13732,6 +13732,8 @@ p {
   background: linear-gradient(135deg, #000 0%, #1a1a1a 40%, #2D2D2D 60%, #4a4a4a 80%, #5f5f5f 100%);
   padding-top: 50px;
   padding-bottom: 50px;
+  max-width: 100%;
+  margin: 0;
 }
 .who-we-are .section-title {
   color: #000;
@@ -13964,6 +13966,97 @@ p {
 
 /*----------------------------------------------------------
 9. Invest End
+------------------------------------------------------------*/
+/*----------------------------------------------------------
+10. First Step Start
+------------------------------------------------------------*/
+.first-steps {
+  position: relative;
+  max-height: 637px;
+}
+.first-steps .first-steps-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  max-height: 637px;
+}
+.first-steps .first-steps-bg .bg-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.first-steps .container {
+  position: relative;
+  z-index: 2;
+  max-width: 746px;
+  margin: 0 auto;
+  padding: 150px 0;
+  margin-left: 25%;
+  margin-right: 50px;
+}
+.first-steps .content-box {
+  border: 1px solid #000;
+  background: rgba(0, 0, 0, 0.88);
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  padding: 10px 40px 50px;
+  position: relative;
+  margin-bottom: 10px;
+}
+.first-steps .title {
+  color: #BFA573;
+  text-align: center;
+  font-family: "Noto Serif";
+  font-size: 30px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 37px;
+  margin-bottom: 10px;
+}
+.first-steps .description {
+  color: #FFF;
+  text-align: center;
+  font-family: "Noto Serif";
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 30px;
+  margin-bottom: 10px;
+  padding: 0 20px;
+}
+.first-steps .cta-button {
+  position: absolute;
+  left: 50%;
+  bottom: -40px;
+  transform: translateX(-50%);
+  border-radius: 5px;
+  background: #BFA573;
+  box-shadow: 0px 4px 4px 1px #FFF;
+  color: #000;
+  text-align: center;
+  font-family: "Noto Serif";
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 25px;
+  text-transform: uppercase;
+  border: none;
+  padding: 15px 30px;
+  cursor: pointer;
+}
+.first-steps .logo-big {
+  position: absolute;
+  top: 50px;
+  right: 50px;
+  z-index: 2;
+}
+.first-steps .logo-big .logo-image {
+  max-width: 150px;
+  height: auto;
+}
+
+/*----------------------------------------------------------
+10. First Step End
 ------------------------------------------------------------*/
 /*----------------------------------------------------------
 6. About Us Start
