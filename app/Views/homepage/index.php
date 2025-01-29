@@ -331,7 +331,7 @@
 
 <!-- Start OF Who We Are -->
 <section class="who-we-are">
-    <h2 class="section-title">Our Services</h2>
+    <h2 class="section-title">Who We Are</h2>
     <div class="container">
         <div class="row">
             <div class="col-12 col-lg-6">

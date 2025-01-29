@@ -519,19 +519,23 @@
 .earning-section {
     position: relative;
     background-color: var.$bg-black-pnglobal;
-    min-height: 681px;
-    padding-top: 0; 
+    padding: 0;
+    min-height: 100vh; // Changed from fixed height≈
+    overflow: hidden; // Prevent image overflow
 
     .earning-bg {
         position: absolute;
         top: 0;
         left: 0;
         width: 100%;
+                    height: 100%;
+
         
         img {
             width: 100%;
+            height: 100%;
             display: block;
-            object-fit: contain;
+            object-fit: cover;
         }
     }
 
@@ -543,12 +547,19 @@
 
     .title-wrapper {
         background-color: rgba(0, 0, 0, 0.7);
-        width: 100%;
+        margin-left: calc(-50vw + 50%);
+        margin-right: calc(-50vw + 50%);
         padding: 20px 0 80px;
         position: relative;
         z-index: 1;
         margin-bottom: 0;
-
+    
+        .inner-wrapper {
+            max-width: 983px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+    
         .title {
             color: #FFF;
             text-align: center;
@@ -557,13 +568,14 @@
             font-weight: 400;
             line-height: 50px;
             text-transform: uppercase;
-            margin: 0 190px;
-
+            margin: 0 auto;
+            max-width: 800px;
+            
             .highlight {
                 color: #BFA573;
             }
         }
-
+    
         .subtitle {
             color: #FFF;
             text-align: center;
@@ -571,7 +583,8 @@
             font-size: 20px;
             font-weight: 600;
             line-height: 144.687%;
-            margin: 10px 190px 0;
+            margin: 10px auto 0;
+            max-width: 700px;
         }
     }
 
@@ -650,7 +663,8 @@
 6. Service Start
 ------------------------------------------------------------*/ 
 .service-homepage {
-    padding: 0;
+    position: relative;
+    margin: 0;
     padding-bottom: 30px;
     background-color: #000;
 
@@ -672,6 +686,8 @@
     }
     
     .section-title {
+        position: relative;
+        z-index: 2;
         color: #000;
         text-align: center;
         font-family: var.$f-noto;
@@ -685,6 +701,7 @@
         background-color: #fff;
         width: 100%;
         margin-bottom: 40px;
+        box-shadow: 0 4px 4px rgba(0,0,0,0.1);
     }
 
     .service-cards {
@@ -1062,14 +1079,16 @@
 ------------------------------------------------------------*/
 .first-steps {
     position: relative;
-    max-height: 637px;
+    height: auto; // Change from max-height
+    min-height: 637px; // Add min-height instead
+    // margin-bottom: 120px; // Add space for footer
     
     .first-steps-bg {
         position: absolute;
         top: 0;
         left: 0;
         width: 100%;
-        max-height: 637px;
+        height: 100%;
         
         .bg-image {
             width: 100%;
