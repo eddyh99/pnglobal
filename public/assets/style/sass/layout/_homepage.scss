@@ -253,7 +253,7 @@
 3. Why Choose Start
 ------------------------------------------------------------*/ 
 .why-choose {
-    background-color: var.$bg-black-pnglobal;
+    background-color: #000;
     overflow: hidden;
     padding: 55px 0;
 
@@ -947,7 +947,7 @@
 
         .invest-title {
             text-align: center;
-            font-family: "Odor Mean Chey";
+            font-family: var.$f-odor;
             font-size: 35px;
             font-style: normal;
             font-weight: 400;
@@ -1043,7 +1043,7 @@
             
             .card-title {
                 text-align: center;
-                font-family: "Noto Serif";
+                font-family: var.$f-noto;
                 font-size: 20px;
                 font-style: normal;
                 font-weight: 600;
@@ -1100,7 +1100,7 @@
     .title {
         color: #BFA573;
         text-align: center;
-        font-family: "Noto Serif";
+        font-family: var.$f-noto;
         font-size: 30px;
         font-style: normal;
         font-weight: 600;
@@ -1111,7 +1111,7 @@
     .description {
         color: #FFF;
         text-align: center;
-        font-family: "Noto Serif";
+        font-family: var.$f-noto;
         font-size: 18px;
         font-style: normal;
         font-weight: 600;
@@ -1130,7 +1130,7 @@
         box-shadow: 0px 4px 4px 1px #FFF;
         color: #000;
         text-align: center;
-        font-family: "Noto Serif";
+        font-family: var.$f-noto;
         font-size: 16px;
         font-style: normal;
         font-weight: 700;

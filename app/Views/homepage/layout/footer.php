@@ -148,13 +148,12 @@
 
                     </div>
                     <a class="d-none d-md-flex col-4 logo-contactform" href="<?= BASE_URL ?>">
-                        <img class="img-fluid" style="width: 200px;" src="<?= BASE_URL ?>assets/img/logo.png" alt="img">
+                        <img class="img-fluid" style="width: 179px;" src="<?= BASE_URL ?>assets/img/logo.png" alt="img">
                         <p class="logo-text-contactform f-noto">
-                            <span class="line-animation text-white">
+                            <span class="line-animation" style="color: #BFA573;">
                                 ASSET
                             </span>
-                            <br>
-                            <span class="line-animation" style="color: #BFA573;">
+                            <span class="line-animation text-white">
                                 MANAGEMENT
                             </span>
                         </p>
@@ -307,8 +306,7 @@
 
     <!-- Custom General Javascript -->
     <script src="<?= BASE_URL ?>assets/js/script.js"></script>
-    <script src="<?= BASE_URL ?>assets/js/animations.js"></script>
-    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    \ <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script>
         AOS.init();
     </script>

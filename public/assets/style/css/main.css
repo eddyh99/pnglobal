@@ -12881,7 +12881,8 @@ p {
 1. ContactForm Start
 ------------------------------------------------------------*/
 .bg-contactform {
-  background-color: #3F3F3F;
+  background-color: rgba(30, 30, 30, 0.85);
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
   padding: 3rem 0px;
   color: #FFFFFF;
 }
@@ -12895,13 +12896,23 @@ p {
 }
 .bg-contactform .left-side #g-getintouch {
   color: #BFA573;
+  font-size: 30px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 15px;
 }
 .bg-contactform .left-side #g-subgetintouch {
   margin-top: 0.5rem;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 40px;
 }
 .bg-contactform .left-side #g-textgetintouch {
-  margin: 3rem 0;
+  margin: 1rem 0 1rem;
   line-height: 30px;
+  font-size: 18px;
+  font-weight: 500;
 }
 .bg-contactform .logo-contactform {
   display: flex;
@@ -13271,7 +13282,7 @@ p {
 3. Why Choose Start
 ------------------------------------------------------------*/
 .why-choose {
-  background-color: #1E1E1E;
+  background-color: #000;
   overflow: hidden;
   padding: 55px 0;
 }
@@ -13872,7 +13883,7 @@ p {
 }
 .invest .invest-title-wrapper .invest-title {
   text-align: center;
-  font-family: "Odor Mean Chey";
+  font-family: "Odor Mean Chey", serif;
   font-size: 35px;
   font-style: normal;
   font-weight: 400;
@@ -13956,7 +13967,7 @@ p {
 }
 .cards-section .cards-wrapper .card .card-title {
   text-align: center;
-  font-family: "Noto Serif";
+  font-family: "Noto Serif", serif;
   font-size: 20px;
   font-style: normal;
   font-weight: 600;
@@ -14006,7 +14017,7 @@ p {
 .first-steps .title {
   color: #BFA573;
   text-align: center;
-  font-family: "Noto Serif";
+  font-family: "Noto Serif", serif;
   font-size: 30px;
   font-style: normal;
   font-weight: 600;
@@ -14016,7 +14027,7 @@ p {
 .first-steps .description {
   color: #FFF;
   text-align: center;
-  font-family: "Noto Serif";
+  font-family: "Noto Serif", serif;
   font-size: 18px;
   font-style: normal;
   font-weight: 600;
@@ -14034,7 +14045,7 @@ p {
   box-shadow: 0px 4px 4px 1px #FFF;
   color: #000;
   text-align: center;
-  font-family: "Noto Serif";
+  font-family: "Noto Serif", serif;
   font-size: 16px;
   font-style: normal;
   font-weight: 700;
