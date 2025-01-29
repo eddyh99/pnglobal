@@ -13500,76 +13500,118 @@ p {
 /*----------------------------------------------------------
 4. Newsletter End
 ------------------------------------------------------------*/
-/*----------------------------------------------------------
-4. Why Start
-------------------------------------------------------------*/
-.why-homepage {
+.earning-section {
+  position: relative;
   background-color: #1E1E1E;
+  min-height: 681px;
+  padding-top: 0;
 }
-.why-homepage .why-left .img-competen {
+.earning-section .earning-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
-  height: 400px;
+}
+.earning-section .earning-bg img {
+  width: 100%;
+  display: block;
   object-fit: contain;
-  margin: auto;
 }
-@media (min-width: 992px) {
-  .why-homepage .why-left .img-competen {
-    height: auto;
-  }
+.earning-section .container {
+  position: relative;
+  z-index: 2;
+  top: 0;
 }
-.why-homepage .why-left .wrapper-why-logo {
-  display: flex;
-  align-items: center;
-  margin-bottom: 3rem;
-  clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+.earning-section .title-wrapper {
+  background-color: rgba(0, 0, 0, 0.7);
+  width: 100%;
+  padding: 20px 0 80px;
+  position: relative;
+  z-index: 1;
+  margin-bottom: 0;
 }
-.why-homepage .why-left .wrapper-why-logo img {
-  display: inline-block;
-  padding-right: 2rem;
-  height: 120px;
+.earning-section .title-wrapper .title {
+  color: #FFF;
+  text-align: center;
+  font-family: "Odor Mean Chey", serif;
+  font-size: 40px;
+  font-weight: 400;
+  line-height: 50px;
+  text-transform: uppercase;
+  margin: 0 190px;
 }
-.why-homepage .why-left .wrapper-why-logo h2 {
-  line-height: 40px;
-  color: #FFFFFF;
-  padding-bottom: 16px;
-  border-bottom: 3px solid #BFA573;
-}
-.why-homepage .why-right .wrapper-content-why {
-  margin: 0.3rem 0;
-  overflow: hidden;
-}
-@media (min-width: 1200px) {
-  .why-homepage .why-right .wrapper-content-why {
-    margin: 3rem 0;
-  }
-}
-.why-homepage .why-right .wrapper-content-why.first {
-  margin-bottom: 0.3rem;
-}
-@media (min-width: 1200px) {
-  .why-homepage .why-right .wrapper-content-why.first {
-    margin-bottom: 3rem;
-  }
-}
-.why-homepage .why-right .wrapper-content-why .subtitle-why {
+.earning-section .title-wrapper .title .highlight {
   color: #BFA573;
-  margin-bottom: 1rem;
-  font-weight: 800;
 }
-.why-homepage .why-right .wrapper-content-why .content-why {
-  color: #FFFFFF;
+.earning-section .title-wrapper .subtitle {
+  color: #FFF;
+  text-align: center;
+  font-family: "Noto Serif", serif;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 144.687%;
+  margin: 10px 190px 0;
+}
+.earning-section .highlight-title {
+  color: #C5A571;
+  text-align: center;
+  font-family: "Noto Serif", serif;
+  font-size: 25px;
+  font-weight: 900;
+  line-height: 35px;
+  text-transform: uppercase;
+  margin-bottom: 2rem;
+}
+.earning-section .description {
+  color: #FFF;
+  text-align: center;
+  font-family: "Noto Serif", serif;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 30px;
+  margin-bottom: 2rem;
+}
+.earning-section .content-gradient-wrapper {
+  background: linear-gradient(90deg, rgba(0, 0, 0, 0.9) 57.83%, #FFF 154.12%);
+  position: relative;
+  z-index: 2;
+  width: fit-content;
+  margin: -50px auto 0;
+  padding: 25px;
+  position: relative;
+  z-index: 2;
+}
+.earning-section .content-wrapper {
+  max-width: 620px;
+  margin: 0 auto;
+}
+.earning-section .button-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
+}
+.earning-section .cta {
+  max-width: 333px;
+  color: #F7941D;
+  text-align: center;
+  font-family: "Noto Serif", serif;
+  font-size: 17px;
+  font-weight: 500;
   line-height: 25px;
-  padding-right: 0rem;
+  text-transform: uppercase;
+  border-radius: 5px;
+  border: 1px solid #FFF;
+  background: #000;
+  box-shadow: 0px 4px 35px 8px #FFF;
+  padding: 12px 24px;
+  cursor: pointer;
+  transition: all 0.3s ease;
 }
-@media (min-width: 1200px) {
-  .why-homepage .why-right .wrapper-content-why .content-why {
-    padding-right: 10rem;
-  }
+.earning-section .cta:hover {
+  transform: translateY(-2px);
+  box-shadow: 0px 6px 40px 10px #FFF;
 }
 
-/*----------------------------------------------------------
-4. Why End
-------------------------------------------------------------*/
 /*----------------------------------------------------------
 5. Service Start
 ------------------------------------------------------------*/

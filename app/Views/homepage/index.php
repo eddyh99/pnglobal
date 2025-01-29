@@ -128,63 +128,30 @@
 <!-- End of Cosulting -->
 
 
-<!-- Start of Why -->
-<section class="content why-homepage">
+<!-- Start of Earning -->
+<section class="content earning-section">
+    <div class="earning-bg">
+        <img src="<?php echo BASE_URL; ?>assets/img/bg-start-earning.webp" alt="Earning Background">
+    </div>
     <div class="container">
-        <div class="row">
-            <div class="col-12 col-lg-6 why-left">
-                <div class="wrapper-why-logo">
-                    <img id="g-logo-why-homepage" class="line-animation" src="<?= BASE_URL ?>assets/img/logo.png" alt="logo PNGLOBAL">
-                    <h2 id="g-title-why-homepage" class=" line-animation">
-                        Why Choose <br><span translate="no"> PN Global </span>
-                    </h2>
-                </div>
-                <img class="img-competen" src="<?= BASE_URL ?>assets/img/img-25.webp" alt="img-25">
-            </div>
-            <div class="col-12 col-lg-6 why-right px-4">
-                <div class="wrapper-content-why first">
-                    <h3 id="g-why-sub-innovation" class="subtitle-why">
-                        <span class="line-animation">
-                            INNOVATION
-                        </span>
-                    </h3>
-                    <p id="g-why-content-innovation" class=" content-why">
-                        <span class="line-animation">
-                            <span translate='no'> PN Global </span> is at the forefront on the international scene, its ability to quickly adapt to market changes allows us to constantly offer the best investment and business opportunities.
-                        </span>
-                    </p>
-                </div>
-                <div class="wrapper-content-why">
-                    <h3 id="g-why-sub-reliability" class=" line-animation subtitle-why">
-                        <span class="line-animation">
-                            RELIABILITY
-                        </span>
-                    </h3>
-                    <p id="g-why-content-reliability" class=" content-why">
-                        <span class="line-animation">
-                            <span translate='no'> PN Global </span> is committed to maintaining the highest standards of integrity and transparency in all its activities to repay the trust placed by its clients. You can count on <span translate='no'> PN Global </span> for precise financial consulting and constant support.
-                        </span>
-                    </p>
-                </div>
-                <div class="wrapper-content-why">
-                    <h3 id="g-why-sub-competence" class=" line-animation subtitle-why">
-                        <span class="line-animation">
-                            PROFICIENCY
-                        </span>
-                    </h3>
-                    <p id="g-why-content-competence" class=" content-why">
-                        <span class="line-animation">
-                            The team is made up of professionals located in various jurisdictions; thanks to their wide experience and knowledge acquired in the legal, financial and technological fields they can support their clients in all their needs.
-                            <br>
-                            The skills of <span translate='no'> PN Global </span> consultants ensure that every decision is based on in-depth analysis and proven strategies, guaranteeing success.
-                        </span>
-                    </p>
+        <div class="title-wrapper">
+            <h2 class="title">
+                <span class="highlight">Satoshi Signal</span> Earn with the Power of Our Expert Brokers
+            </h2>
+            <p class="subtitle">Accurate buy and sell signals to maximize your profits, risk-free. <br> Rely on PN Global brokers and our exclusive app for guaranteed results</p>
+        </div>
+        <div class="content-gradient-wrapper">
+            <div class="content-wrapper">
+                <h3 class="highlight-title">Want to Profit from Bitcoin Without ANY Stress?</h3>
+                <p class="description">With Satoshi Signal, you are connected to our brokers who work 24/7 to provide infallible buy and sell signals. We do the hard work; you collect the profits. No more uncertainties: maximize your gains with a proven and zero risk strategy.</p>
+                <div class="button-wrapper">
+                    <button class="cta">Activate Satoshi Signal and Start Earning Now!</button>
                 </div>
             </div>
         </div>
     </div>
 </section>
-<!-- End of Why -->
+<!-- End of Earning -->
 
 <!-- Start of Service -->
 
