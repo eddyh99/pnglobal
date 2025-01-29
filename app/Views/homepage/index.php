@@ -154,190 +154,177 @@
 <!-- End of Earning -->
 
 <!-- Start of Service -->
-
 <section class="service-homepage">
-
-    <div id="training" class="bg-hot-deal">
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <h1 class="text-center my-5 text-white  text-uppercase fw-bold">
-                        take charge of the future by investing in yourself
-                    </h1>
+    <h2 class="section-title">Our Services</h2>
+    <div class="container">
+        <div class="row">
+            <!-- Left Column -->
+            <div class="col-12 col-lg-6">
+                <div class="service-cards">
+                    <div class="service-card">
+                        <div class="row">
+                            <div class="col-3">
+                                <div class="service-image">
+                                    <img src="assets/img/ic_satoshi.webp" alt="Satoshi Signal">
+                                </div>
+                            </div>
+                            <div class="col-9">
+                                <h3 class="service-title">Satoshi Signal</h3>
+                                <p class="service-description">Receive real-time buy and sell signals from expert brokers to boost profits and reduce risk.</p>
+                                <button class="service-btn">Activate Instant <br> Brokerage Signals</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="service-card">
+                        <div class="row">
+                            <div class="col-3">
+                                <div class="service-image">
+                                    <img src="assets/img/ic_btc_elite_management.webp" alt="BTC Elite Management">
+                                </div>
+                            </div>
+                            <div class="col-9">
+                                <h3 class="service-title">btc elite management</h3>
+                                <p class="service-description">Entrust your Binance wallet to a dedicated personal broker who manages your assets directly.</p>
+                                <button class="service-btn">Full Management <br> of Your Wallet</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="service-card">
+                        <div class="row">
+                            <div class="col-3">
+                                <div class="service-image">
+                                    <img src="assets/img/ic_passive.webp" alt="Passive Income">
+                                </div>
+                            </div>
+                            <div class="col-9">
+                                <h3 class="service-title">Passive Income</h3>
+                                <p class="service-description">Together, we build your passive income stream for consistent and automatic earnings.</p>
+                                <button class="service-btn">Start Earning <br> Passively</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="service-card">
+                        <div class="row">
+                            <div class="col-3">
+                                <div class="service-image">
+                                    <img src="assets/img/ic_portfolio.webp" alt="portfolio creation">
+                                </div>
+                            </div>
+                            <div class="col-9">
+                                <h3 class="service-title">portfolio creation</h3>
+                                <p class="service-description">TOGETHER WE CREATE A stock PORTFOLIO THAT MEETS YOUR RETURN AND RISK NEEDs.</p>
+                                <button class="service-btn">Build Your <br> Perfect Portfolio</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="service-card">
+                        <div class="row">
+                            <div class="col-3">
+                                <div class="service-image">
+                                    <img src="assets/img/ic_wealth.webp" alt=" Wealth Consulting">
+                                </div>
+                            </div>
+                            <div class="col-9">
+                                <h3 class="service-title"> Wealth Consulting</h3>
+                                <p class="service-description">We help you protect and grow your wealth with personalized strategies.</p>
+                                <button class="service-btn">ENTRUST US WITH YOUR <br> ASSET GROWTH</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="service-card">
+                        <div class="row">
+                            <div class="col-3">
+                                <div class="service-image">
+                                    <img src="assets/img/ic_tax.webp" alt="Tax Reduction">
+                                </div>
+                            </div>
+                            <div class="col-9">
+                                <h3 class="service-title">Tax Reduction</h3>
+                                <p class="service-description">We find for you the best solutions, personalized and 100% legal, to reduce the tax burden on your returns.</p>
+                                <button class="service-btn">Cut Your Taxes <br> with Us</button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="row row-cols-1 row-cols-lg-2 justify-content-center">
-                <div class="col my-4">
-                    <div class="zoom-box zoom-1">
-                        <div class="with-blur-backdrop">
-                            <a
-                                href="<?php echo BASE_URL . "homepage/service?service=" . base64_encode("professional_enterpreneurial_training") ?>"
-                                class="btn-zoom fw-bold">
-                                free online basic training program
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col my-4">
-                    <div class="zoom-box zoom-2">
-                        <div class="with-blur-backdrop">
-                            <a
-                                href="<?= BASE_URL ?>homepage/comingsoon"
-                                class="btn-zoom fw-bold">
-                                CAMPUS FOR ADVANCED TRAINING
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
 
-    <div id="service" class="wrapper-big-title mt-4">
-        <h1 class="text-uppercase fw-bold">
-            Complementary services offered by our partners
-        </h1>
-    </div>
-
-    <div class="bg-desc-service">
-        <div class="container">
-            <div class="row">
-                <div class="d-none d-lg-block col-1"></div>
-                <div class="col-12 col-lg-5 order-1 order-lg-0">
-                    <p class="text-desc-service f-noto">
-                        The services offered by our partners allow you to overcome the complexities of international business. Our team of experts, in collaboration with our partners, will provide you with tailored solutions for a wide range of needs, ensuring compliance and strategic success. Find out how we can support you every step of the way.
-                    </p>
-                    <br><br><br><br>
-                </div>
-                <div class="d-none d-lg-block col-1"></div>
-                <div class="col-12 col-lg-5 order-0 order-lg-1 bg-img-service-desc">
-
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="bg-complementary-service">
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <h2 class="text-center my-5 text-white ">
-                        Complementary Services
-                    </h2>
-                </div>
-            </div>
-            <div class="row py-4 mb-4 row-cols-1 row-cols-md-2 row-cols-lg-3">
-                <div class="col my-3">
-                    <div class="flip-box">
-                        <div class="flip-box-inner">
-                            <div class="flip-box-front flip-1">
-                                <p>.</p>
-                                <img class="img-fluid" src="<?= BASE_URL ?>assets/img/partner/cayman-logo.webp" alt="cayman logo">
-                                <div class="btn-flip ">Investment Encrypted bank account</div>
-                            </div>
-                            <div class="flip-box-back">
-                                <div>
-                                    <p class="">
-                                        <span translate='no'> Cayman Financial Group </span> is a financial group based in the Cayman Islands that offers high-profit, zero-risk financial investment plans, as well as encrypted bearer current accounts. Thanks to the collaboration with PN Global, <span translate='no'> Cayman Financial Group </span> can offer an Edge Fund on BTC Mining with guaranteed interest.
-                                        The management of the funds of the financial group and its customers is carried out on the markets by PN Global brokers.
-                                    </p>
+            <!-- Right Column -->
+            <div class="col-12 col-lg-6">
+                <div class="service-cards">
+                    <div class="service-card">
+                        <div class="row">
+                            <div class="col-3">
+                                <div class="service-image">
+                                    <img src="assets/img/ic_lux_btc.webp" alt="lux btc brokers">
                                 </div>
-                                <a target="_blank" class="btn-flip  px-3 py-1" href="https://caymanfinancialgroup.ky/">See More</a>
+                            </div>
+                            <div class="col-9">
+                                <h3 class="service-title">lux btc brokers</h3>
+                                <p class="service-description">Connect your Binance wallet via API to let our brokers handle trades your funds stay under your full control.</p>
+                                <button class="service-btn">Connect API and Let <br> Brokers Operate</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="service-card">
+                        <div class="row">
+                            <div class="col-3">
+                                <div class="service-image">
+                                    <img src="assets/img/ic_crypto.webp" alt="Crypto Consulting">
+                                </div>
+                            </div>
+                            <div class="col-9">
+                                <h3 class="service-title">Crypto Consulting</h3>
+                                <p class="service-description">We guide you in choosing top-performing
+                                    crypto and help you to manage their taxation effectively.</p>
+                                <button class="service-btn">Get Your Crypto <br> Consultation</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="service-card">
+                        <div class="row">
+                            <div class="col-3">
+                                <div class="service-image">
+                                    <img src="assets/img/ic_accumulation.webp" alt=" Accumulation Plans">
+                                </div>
+                            </div>
+                            <div class="col-9">
+                                <h3 class="service-title"> Accumulation Plans</h3>
+                                <p class="service-description">Plan your future with strategic and secure accumulation plans.</p>
+                                <button class="service-btn">Build Your <br> Winning Plan</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="service-card">
+                        <div class="row">
+                            <div class="col-3">
+                                <div class="service-image">
+                                    <img src="assets/img/ic_funds.webp" alt="Funds Reallocation">
+                                </div>
+                            </div>
+                            <div class="col-9">
+                                <h3 class="service-title">Funds Reallocation</h3>
+                                <p class="service-description">TOGETHER WE SEARCH FOR THE MOST RELIABLE JURISDICTIONS WHERE TO TRANSFER your FUNDS.</p>
+                                <button class="service-btn">Reallocate Your <br> Funds Successfully</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="service-card">
+                        <div class="row">
+                            <div class="col-3">
+                                <div class="service-image">
+                                    <img src="assets/img/ic_protection.webp" alt="Capital Protection">
+                                </div>
+                            </div>
+                            <div class="col-9">
+                                <h3 class="service-title">Capital Protection</h3>
+                                <p class="service-description">We protect your assets from risks and unforeseen events with customized strategies.</p>
+                                <button class="service-btn">Protect Your <br> Capital Now</button>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col my-3">
-                    <div class="flip-box">
-                        <div class="flip-box-inner">
-                            <div class="flip-box-front flip-2">
-                                <p>.</p>
-                                <img class="img-fluid" src="<?= BASE_URL ?>assets/img/partner/mif-logo.png" alt="MIF logo">
-                                <div class="btn-flip " style="padding: 0.3rem 1.5rem;">BITCOIN MINING AND TECHNOLOGY <br> SERVICES</div>
-                            </div>
-                            <div class="flip-box-back">
-                                <div>
-                                    <p class="">
-                                        <span translate='no'> Money Industrial Factory </span> is a leading company in mining farm construction and cryptocurrency mining. Thanks to the collaboration with the <span translate='no'> PN Global team, Money industrial factorty </span> has managed to transform Cryptocurrency Mining into a zero-risk financial instrument, approved and proposed by the <span translate='no'> Cayman Financial Group</span>.
-                                        Through the research and development department, <span translate='no'> Money Industrial Factory </span> provides technical support and innovative technological solutions to its customers.
-                                    </p>
-                                </div>
-                                <a target="_blank" class="btn-flip  px-3 py-1" href="https://moneyindustrialfactory.io/">See More</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col my-3">
-                    <div class="flip-box">
-                        <div class="flip-box-inner">
-                            <div class="flip-box-front flip-3">
-                                <p>.</p>
-                                <img class="img-fluid" src="<?= BASE_URL ?>assets/img/partner/logo-pbs.png" alt="PBS logo">
-                                <div class="btn-flip " style="padding: 0.3rem 1.5rem;">Company Formation Services <br> and International Support</div>
-                            </div>
-                            <div class="flip-box-back">
-                                <div>
-                                    <p class="">
-                                        <span translate='no'> PBS Online </span> specializes in providing comprehensive support services to overcome the complexities of opening or relocating a business abroad. We provide legal and tax support, our team of experts will support you, after a careful feasibility study, in setting up the company and opening bank accounts. We also offer visa and residence permit services.
-                                    </p>
-                                </div>
-                                <a class="btn-flip  px-3 py-1" href="https://www.pbsonlinellc.com/" target="_blank">See More</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- <div class="col my-3">
-                    <div class="flip-box">
-                        <div class="flip-box-inner">
-                            <div class="flip-box-front flip-4">
-                                <div class="btn-flip ">BUSINESS PLAN AND FEASIBILITY STUDY</div>
-                            </div>
-                            <div class="flip-box-back">
-                                <div>
-                                    <h4 class="">Business Plan and Feasibility Study</h4>
-                                    <p class="">We deliver specialized services for developing business plans and conducting feasibility studies. Our services include thorough market analysis, financial forecasting, and strategic planning to ensure your business idea is viable and set for success.</p>
-                                </div>
-                                <a href="<?= BASE_URL ?>homepage/contactform?service=<?= base64_encode("Business Plan and Feasibility Study - Four") ?>">Contact us</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col my-3">
-                    <div class="flip-box">
-                        <div class="flip-box-inner">
-                            <div class="flip-box-front flip-5">
-                                <div class="btn-flip ">CONTRACT DRAFTING</div>
-                            </div>
-                            <div class="flip-box-back">
-                                <div>
-                                    <h4 class="">Contract Drafting</h4>
-                                    <p class="">Our legal experts offer professional services in drafting contracts that protect your interests and ensure compliance with all relevant laws. We provide clear, precise, and legally sound contract drafting services to meet your business needs.</p>
-                                </div>
-                                <a href="<?= BASE_URL ?>homepage/contactform?service=<?= base64_encode("Contract Drafting - Five") ?>">Contact us</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col my-3">
-                    <div class="flip-box">
-                        <div class="flip-box-inner">
-                            <div class="flip-box-front flip-6">
-                                <div class="btn-flip ">FUNDS REALLOCATION</div>
-                            </div>
-                            <div class="flip-box-back">
-                                <div>
-                                    <h4 class="">Fund Reallocation</h4>
-                                    <p class="">Maximize profits and minimize risks with our expert services for fund reallocation. We provide 100% legal solutions tailored to enhance profitability and capitalize on market opportunities. Our strategies are designed to meet your specific needs and goals.</p>
-                                </div>
-                                <a href="<?= BASE_URL ?>homepage/contactform?service=<?= base64_encode("Fund Reallocation - Six") ?>">Contact us</a>
-                            </div>
-                        </div>
-                    </div>
-                </div> -->
             </div>
         </div>
     </div>
-
-
 </section>
 <!-- End of Service -->
