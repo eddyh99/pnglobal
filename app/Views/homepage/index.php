@@ -78,78 +78,52 @@
 <!-- End Of Why -->
 
 <!-- Start of Cosulting -->
-<section id="productservice" class="content consulting-homepage pt-0">
-    <div class="wrapper-big-title">
-        <h1 class="fw-bold">
-            PRODUCTS AND SERVICES
-        </h1>
+<section class="newsletter position-relative container-fluid p-0">
+    <!-- Background with image -->
+    <div class="newsletter-bg">
+        <img src="<?php echo BASE_URL; ?>assets/img/bg-newsletter.webp"
+            alt="Newsletter Background"
+            class="img-fluid">
     </div>
 
-    <!-- Consulting 1 -->
-    <div class="row box-consulting-homepage">
-        <div onClick="linkproduct('<?php echo BASE_URL . "homepage/service?service=" . base64_encode("finance_advice_investment") ?>')" class="col-10 col-lg-8 black" style="cursor: pointer;">
-            <div class="wrapper-consulting">
-                <img src="<?= BASE_URL ?>assets/img/img-5.webp" alt="img-2">
-                <div class="d-flex justify-content-center w-100">
-                    <a
-                        class="link-consulting ">
-                        Financial advice, assets <br>
-                        and investment
-                    </a>
+    <!-- Content section -->
+    <div class="newsletter-content text-center text-white">
+        <header>
+            <h1>Something Big and Sensational is About to Arrive!</h1>
+            <p class="lead">Are You Ready For A Once-In-A-Lifetime Opportunity?<br>
+                <span class="text-white">Get ready to be amazed!</span>
+            </p>
+        </header>
+
+        <section class="newsletter-text">
+            <div class="row">
+                <div class="col-md-6">
+                    <!-- Left column empty -->
+                </div>
+                <div class="col-md-6">
+                    <p class="countdown">The countdown has begun!</p>
+                    <p class="description">In April, PN Global will reveal a secret that will radically transform your financial life. A new service, available only to a limited number of users, that will exceed your expectations.</p>
+                    <p class="highlight">Forget risky investments and long working hours; with our new tool, you can generate extra income effortlessly, with zero risk to your capital and maintaining full control without having to entrust your money to anyone. <br><span class="highlight-1">You will comfortably see your money multiply automatically!</span></p>
+
                 </div>
             </div>
-        </div>
+        </section>
+
+        <section class="mt-4">
+            <div class="row">
+                <div class="col-md-6">
+                    <!-- Left column empty -->
+                </div>
+                <div class="col-md-6">
+                    <p class="opportunity">Be among the first to take advantage of this tool that will revolutionize the financial sector! Don't miss out on this unique opportunity.</p>
+                    <p class="signup">Sign up for our newsletter and become a member of this exclusive community.</p>
+                    <div class="button-wrapper">
+                        <button class="btn custom-btn px-4 py-2">Join the newsletter <br> for free!</button>
+                    </div>
+                </div>
+            </div>
+        </section>
     </div>
-
-
-    <!-- Consulting 2 -->
-    <div class="row box-consulting-homepage justify-content-end">
-        <div onClick="linkproduct('<?php echo BASE_URL . "homepage/service?service=" . base64_encode("legal_tax_accounting") ?>')" class="col-10 col-lg-8 gold" style="cursor: pointer;">
-            <div class="wrapper-consulting">
-                <div class="d-flex justify-content-center w-100 order-1 order-lg-0">
-                    <a
-                        class="link-consulting textblack ">
-                        Law and Tax
-                        Optimization
-                    </a>
-                </div>
-                <img class="order-0 order-lg-1" src="<?= BASE_URL ?>assets/img/img-39.webp" alt="img-2">
-            </div>
-        </div>
-    </div>
-
-    <!-- Consulting 3 -->
-    <div class="row box-consulting-homepage">
-        <div onClick="linkproduct('<?php echo BASE_URL . "homepage/service?service=" . base64_encode("international_expansion_management") ?>')" class="col-10 col-lg-8 black" style="cursor: pointer;">
-            <div class="wrapper-consulting">
-                <img src="<?= BASE_URL ?>assets/img/img-2.webp" alt="img-2">
-                <div class="d-flex justify-content-center w-100">
-                    <a
-                        class="link-consulting ">
-                        Capital Reallocation
-                    </a>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Consulting 4 -->
-    <!-- <div class="row box-consulting-homepage justify-content-end">
-        <div class="col-10 col-lg-8 gold">
-            <div class="wrapper-consulting">
-                <div class="d-flex justify-content-center w-100 order-1 order-lg-0">
-                    <a 
-                        href="<?php echo BASE_URL . "homepage/service?service=" . base64_encode("legal_tax_accounting") ?>" 
-                        class="link-consulting textblack "
-                    >
-                        Legal and Tax <br>
-                        Advise
-                    </a>
-                </div>
-                <img class="order-0 order-lg-1" src="<?= BASE_URL ?>assets/img/img-4.webp" alt="img-2">
-            </div>
-        </div>
-    </div> -->
 </section>
 <!-- End of Cosulting -->
 
