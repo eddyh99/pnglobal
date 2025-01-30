@@ -365,7 +365,7 @@
     </div>
     <div class="container">
         <div class="quotes-content">
-            <p class="quote-text">With PN Global by your side, you're not just choosing an advisor, but a strategic partner dedicated to your financial freedom and long-term success.</p>
+            <p class="quote-text">With PN Global by your side, <br> you're not just choosing an advisor, but a <br> strategic partner dedicated to your financial freedom and long-term success.</p>
         </div>
     </div>
 </section>
