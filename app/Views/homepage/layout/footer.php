@@ -150,11 +150,11 @@
                     <a class="d-none d-md-flex col-4 logo-contactform" href="<?= BASE_URL ?>">
                         <img class="img-fluid" style="width: 179px;" src="<?= BASE_URL ?>assets/img/logo.png" alt="img">
                         <p class="logo-text-contactform f-noto">
-                            <span class="line-animation" style="color: #BFA573;">
+                            <span class="line-animation" translate="no" style="color: #BFA573;">
                                 ASSET
                             </span>
-                            <span class="line-animation text-white">
-                                MANAGEMENT
+                            <span class="line-animation text-white" translate="no">
+                                MENAGEMENT
                             </span>
                         </p>
                     </a>
@@ -179,8 +179,8 @@
                 <div class="col-12 col-md-4 text-center mb-4 mb-md-0">
                     <div class="d-flex flex-column align-items-center">
                         <p class="logo-text-footer f-noto">
-                            <span class="text-gold">ASSET</span>
-                            <span class="text-white">MENAGEMENT</span>
+                            <span class="text-gold" translate="no">ASSET</span>
+                            <span class="text-white" translate="no">MENAGEMENT</span>
                         </p>
                         <a class="btn btn-contact-form text-uppercase px-4 pb-2"
                             href="<?= BASE_URL ?>homepage/contactform?service=<?= base64_encode($title) ?>">

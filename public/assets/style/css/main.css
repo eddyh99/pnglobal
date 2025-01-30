@@ -12960,7 +12960,7 @@ p {
   margin-top: 1rem;
   text-align: center;
   text-transform: uppercase;
-  letter-spacing: 4px;
+  font-size: 25px;
   font-weight: 700;
 }
 
@@ -13379,7 +13379,7 @@ p {
   box-shadow: 0px 4px 4px 0px rgb(255, 255, 255);
 }
 .banner-homepage .wrapper-banner-homepage .logo-banner .btn-primary:hover {
-  box-shadow: 0px 4px 15px 10px #FFF;
+  box-shadow: 0px 4px 15px 10px #fff;
 }
 .banner-homepage .wrapper-banner-homepage .logo-banner .btn-primary:hover .btn-text {
   color: #1E1E1E !important;
@@ -13393,10 +13393,10 @@ p {
   box-shadow: 0px 4px 4px 0px rgb(189, 160, 105);
 }
 .banner-homepage .wrapper-banner-homepage .logo-banner .btn-secondary:hover {
-  box-shadow: 0px 4px 10px 10px #BDA069;
+  box-shadow: 0px 4px 10px 10px #bda069;
 }
 .banner-homepage .wrapper-banner-homepage .logo-banner .btn-secondary:hover .btn-text {
-  color: #BDA069 !important;
+  color: #bda069 !important;
 }
 .banner-homepage .wrapper-banner-homepage .logo-banner .btn-secondary .btn-text {
   color: #1E1E1E;
@@ -13533,7 +13533,7 @@ p {
   justify-content: flex-end;
 }
 .why-choose .why-title {
-  color: #BFA573;
+  color: #bfa573;
   font-family: "Noto Serif", serif;
   font-size: 30px;
   font-weight: 800;
@@ -13544,7 +13544,7 @@ p {
   margin-right: 67px;
 }
 .why-choose .why-desc {
-  color: #FFF;
+  color: #fff;
   font-family: "Noto Serif", serif;
   font-size: 18px;
   font-weight: 500;
@@ -13554,7 +13554,7 @@ p {
   margin-right: 67px;
 }
 .why-choose .why-cta {
-  color: #FFF;
+  color: #fff;
   font-family: "Noto Serif", serif;
   font-size: 20px;
   font-weight: 700;
@@ -13648,7 +13648,7 @@ p {
   text-align: center;
 }
 .newsletter .newsletter-content header .lead .text-white {
-  color: #FFF;
+  color: #fff;
   font-family: "Noto Serif", serif;
   font-size: 25px;
   font-style: normal;
@@ -13666,15 +13666,16 @@ p {
   padding-right: 110px;
 }
 .newsletter .newsletter-content .newsletter-text .countdown {
-  color: #BDA069;
+  color: #bda069;
   font-family: "Noto Serif", serif;
   font-size: 25px;
   font-style: normal;
   font-weight: 800;
   line-height: 35px;
 }
-.newsletter .newsletter-content .newsletter-text .description, .newsletter .newsletter-content .newsletter-text .highlight {
-  color: #FFF;
+.newsletter .newsletter-content .newsletter-text .description,
+.newsletter .newsletter-content .newsletter-text .highlight {
+  color: #fff;
   font-family: "Noto Serif", serif;
   font-size: 20px;
   font-style: normal;
@@ -13682,7 +13683,7 @@ p {
   line-height: 35px;
 }
 .newsletter .newsletter-content .newsletter-text .highlight-1 {
-  color: #BDA069;
+  color: #bda069;
   font-family: "Noto Serif", serif;
   font-size: 20px;
   font-style: normal;
@@ -13706,12 +13707,14 @@ p {
   background: linear-gradient(180deg, rgba(189, 160, 105, 0.54) 0%, rgba(87, 74, 48, 0.54) 80.1%);
   z-index: -1;
 }
-.newsletter .newsletter-content .mt-4 .col-md-6:last-child .opportunity, .newsletter .newsletter-content .mt-4 .col-md-6:last-child .signup, .newsletter .newsletter-content .mt-4 .col-md-6:last-child .btn {
+.newsletter .newsletter-content .mt-4 .col-md-6:last-child .opportunity,
+.newsletter .newsletter-content .mt-4 .col-md-6:last-child .signup,
+.newsletter .newsletter-content .mt-4 .col-md-6:last-child .btn {
   padding-left: 46px;
   padding-right: 126px;
 }
 .newsletter .newsletter-content .mt-4 .col-md-6:last-child .opportunity {
-  color: #FFF;
+  color: #fff;
   font-family: "Noto Serif", serif;
   font-size: 20px;
   font-weight: 700;
@@ -13737,8 +13740,8 @@ p {
 .newsletter .newsletter-content .mt-4 .col-md-6:last-child .button-wrapper .btn.custom-btn {
   margin: 35px auto;
   width: auto;
-  background: #BDA069;
-  box-shadow: 0px 4px 15px 10px #FFF;
+  background: #bda069;
+  box-shadow: 0px 4px 15px 10px #fff;
   color: #000;
   font-family: "Noto Serif", serif;
   font-size: 20px;
@@ -13802,7 +13805,7 @@ p {
   padding: 0 15px;
 }
 .earning-section .title-wrapper .title {
-  color: #FFF;
+  color: #fff;
   text-align: center;
   font-family: "Odor Mean Chey", serif;
   font-size: 40px;
@@ -13813,10 +13816,10 @@ p {
   max-width: 800px;
 }
 .earning-section .title-wrapper .title .highlight {
-  color: #BFA573;
+  color: #bfa573;
 }
 .earning-section .title-wrapper .subtitle {
-  color: #FFF;
+  color: #fff;
   text-align: center;
   font-family: "Noto Serif", serif;
   font-size: 20px;
@@ -13826,7 +13829,7 @@ p {
   max-width: 700px;
 }
 .earning-section .highlight-title {
-  color: #C5A571;
+  color: #c5a571;
   text-align: center;
   font-family: "Noto Serif", serif;
   font-size: 25px;
@@ -13836,7 +13839,7 @@ p {
   margin-bottom: 2rem;
 }
 .earning-section .description {
-  color: #FFF;
+  color: #fff;
   text-align: center;
   font-family: "Noto Serif", serif;
   font-size: 18px;
@@ -13845,7 +13848,7 @@ p {
   margin-bottom: 2rem;
 }
 .earning-section .content-gradient-wrapper {
-  background: linear-gradient(90deg, rgba(0, 0, 0, 0.9) 57.83%, #FFF 154.12%);
+  background: linear-gradient(90deg, rgba(0, 0, 0, 0.9) 57.83%, #fff 154.12%);
   position: relative;
   z-index: 2;
   width: fit-content;
@@ -13865,7 +13868,7 @@ p {
 }
 .earning-section .cta {
   max-width: 333px;
-  color: #F7941D;
+  color: #f7941d;
   text-align: center;
   font-family: "Noto Serif", serif;
   font-size: 17px;
@@ -13873,17 +13876,17 @@ p {
   line-height: 25px;
   text-transform: uppercase;
   border-radius: 5px;
-  border: 1px solid #FFF;
+  border: 1px solid #fff;
   background: #000;
-  box-shadow: 0px 4px 35px 8px #FFF;
+  box-shadow: 0px 4px 35px 8px #fff;
   padding: 12px 24px;
   cursor: pointer;
   transition: all 0.3s ease;
 }
 .earning-section .cta:hover {
   transform: translateY(-2px);
-  box-shadow: 0px 4px 35px 8px #F7941D;
-  color: #FFF;
+  box-shadow: 0px 4px 35px 8px #f7941d;
+  color: #fff;
 }
 
 /*----------------------------------------------------------
@@ -13933,7 +13936,7 @@ p {
 }
 .service-homepage .service-card {
   border-radius: 5px;
-  border: 1px solid #BFA573;
+  border: 1px solid #bfa573;
   background: radial-gradient(circle at right, #656565 0%, #000 50%, #000 100%);
   padding: 24px;
   min-height: 200px;
@@ -13950,7 +13953,7 @@ p {
   object-fit: contain;
 }
 .service-homepage .service-card .service-title {
-  color: #D1B06B;
+  color: #d1b06b;
   font-family: "Noto Serif", serif;
   font-size: 25px;
   font-weight: 800;
@@ -13958,7 +13961,7 @@ p {
   text-transform: uppercase;
 }
 .service-homepage .service-card .service-description {
-  color: #FFF;
+  color: #fff;
   font-family: "Noto Serif", serif;
   font-size: 16px;
   font-weight: 400;
@@ -13977,16 +13980,18 @@ p {
   line-height: 18px;
   text-transform: uppercase;
   border-radius: 5px;
-  background: #BFA573;
+  background: #bfa573;
   box-shadow: 0px 4px 6px 0px rgba(255, 255, 255, 0.9);
   border: none;
   padding: 3px 20px;
   cursor: pointer;
   transition: all 0.3s ease;
+  min-width: 206px;
+  min-height: 45px;
 }
 .service-homepage .service-card .service-btn:hover {
   transform: translateY(-2px);
-  box-shadow: 0px 4px 10px 3px #E8D9BD;
+  box-shadow: 0px 4px 10px 3px #e8d9bd;
   background-color: #fff;
 }
 @media (min-width: 992px) {
@@ -14005,7 +14010,7 @@ p {
 7. Who We Are Start
 ------------------------------------------------------------*/
 .who-we-are .container {
-  background: linear-gradient(135deg, #000 0%, #1a1a1a 40%, #2D2D2D 60%, #4a4a4a 80%, #5f5f5f 100%);
+  background: linear-gradient(135deg, #000 0%, #1a1a1a 40%, #2d2d2d 60%, #4a4a4a 80%, #5f5f5f 100%);
   padding-top: 50px;
   padding-bottom: 50px;
   max-width: 100%;
@@ -14038,7 +14043,7 @@ p {
   padding: 20px;
 }
 .who-we-are .who-content .who-title {
-  color: #BFA573;
+  color: #bfa573;
   font-family: "Noto Serif", serif;
   font-size: 30px;
   font-weight: 800;
@@ -14054,7 +14059,7 @@ p {
 }
 .who-we-are .who-content .who-title .subtitle {
   display: block;
-  color: #FFF;
+  color: #fff;
   font-family: "Noto Serif", serif;
   font-size: 24px;
   font-style: normal;
@@ -14063,7 +14068,7 @@ p {
   text-transform: capitalize;
 }
 .who-we-are .who-content .who-description p {
-  color: #FFF;
+  color: #fff;
   font-family: "Noto Serif", serif;
   font-size: 18px;
   font-weight: 500;
@@ -14117,7 +14122,7 @@ p {
   text-transform: uppercase;
 }
 .quotes .quote-text {
-  color: #FFF;
+  color: #fff;
   text-align: center;
   text-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
   -webkit-text-stroke: 1.5px rgba(56, 55, 52, 0.76);
@@ -14138,12 +14143,12 @@ p {
 ------------------------------------------------------------*/
 .invest {
   position: relative;
-  background-color: #FFF;
+  background-color: #fff;
   min-height: 400px;
   z-index: 2;
 }
 .invest .invest-title-wrapper {
-  background-color: #BFA573;
+  background-color: #bfa573;
   padding: 20px 0;
   width: 100%;
   position: relative;
@@ -14164,7 +14169,7 @@ p {
   display: inline-block;
 }
 .invest .invest-title-wrapper .invest-title .light {
-  color: #FFF;
+  color: #fff;
   display: inline-block;
 }
 .invest .invest-content {
@@ -14226,29 +14231,29 @@ p {
 }
 .cards-section .cards-wrapper .card.dark-card {
   border-radius: 5px;
-  background: #1E1E1E;
+  background: #1e1e1e;
 }
 .cards-section .cards-wrapper .card.dark-card .card-title {
-  color: #FFF;
+  color: #fff;
 }
 .cards-section .cards-wrapper .card.dark-card:hover {
-  box-shadow: 0px 4px 20px 10px #BDA069;
+  box-shadow: 0px 4px 20px 10px #bda069;
 }
 .cards-section .cards-wrapper .card.dark-card:hover .card-title {
-  color: #D1B06B;
+  color: #d1b06b;
 }
 .cards-section .cards-wrapper .card.light-card {
   border-radius: 5px;
-  background: #CCB78F;
+  background: #ccb78f;
 }
 .cards-section .cards-wrapper .card.light-card .card-title {
   color: #000;
 }
 .cards-section .cards-wrapper .card.light-card:hover {
-  box-shadow: 0px 4px 20px 10px #FFF;
+  box-shadow: 0px 4px 20px 10px #fff;
 }
 .cards-section .cards-wrapper .card.light-card:hover .card-title {
-  color: #FFF;
+  color: #fff;
 }
 .cards-section .cards-wrapper .card .card-title {
   text-align: center;
@@ -14301,7 +14306,7 @@ p {
   margin-bottom: 10px;
 }
 .first-steps .title {
-  color: #BFA573;
+  color: #bfa573;
   text-align: center;
   font-family: "Noto Serif", serif;
   font-size: 30px;
@@ -14311,7 +14316,7 @@ p {
   margin-bottom: 10px;
 }
 .first-steps .description {
-  color: #FFF;
+  color: #fff;
   text-align: center;
   font-family: "Noto Serif", serif;
   font-size: 18px;
@@ -14327,8 +14332,8 @@ p {
   bottom: -40px;
   transform: translateX(-50%);
   border-radius: 5px;
-  background: #BFA573;
-  box-shadow: 0px 4px 4px 1px #FFF;
+  background: #bfa573;
+  box-shadow: 0px 4px 4px 1px #fff;
   color: #000;
   text-align: center;
   font-family: "Noto Serif", serif;
@@ -14342,7 +14347,7 @@ p {
   cursor: pointer;
 }
 .first-steps .cta-button:hover {
-  box-shadow: 0px 4px 10px 3px #FFF;
+  box-shadow: 0px 4px 10px 3px #fff;
   color: #fff;
 }
 .first-steps .logo-big {
@@ -14358,228 +14363,6 @@ p {
 
 /*----------------------------------------------------------
 10. First Step End
-------------------------------------------------------------*/
-/*----------------------------------------------------------
-6. About Us Start
-------------------------------------------------------------*/
-.banner-about {
-  position: relative;
-  overflow: hidden;
-}
-.banner-about .wrapper-about {
-  display: flex;
-  min-height: 100vh;
-}
-.banner-about .wrapper-about video {
-  width: 100%;
-  min-height: 100vh !important;
-  position: absolute;
-  z-index: 1;
-  object-fit: cover;
-  object-position: 50% 50%;
-}
-.banner-about .wrapper-about .banner-text-video {
-  width: 100%;
-  z-index: 2;
-  display: flex;
-  justify-content: start;
-  align-items: end;
-  margin-bottom: 4rem;
-}
-.banner-about .wrapper-about .banner-text-video .bg-text-video {
-  border-radius: 0px 5px 5px 0px;
-  -webkit-border-radius: 0px 5px 5px 0px;
-  -moz-border-radius: 0px 5px 5px 0px;
-  -ms-border-radius: 0px 5px 5px 0px;
-  -o-border-radius: 0px 5px 5px 0px;
-  padding: 1rem 3rem;
-  font-weight: 700;
-}
-.banner-about .wrapper-about .banner-text-video .bg-text-video.about {
-  background: rgba(232, 217, 189, 0.75);
-  color: #383734;
-}
-
-.about-formation {
-  background-color: #F3EBDC;
-}
-.about-formation .row .wrapper-about-formation-left {
-  display: flex;
-  flex-direction: column;
-  align-items: start;
-  justify-content: center;
-}
-.about-formation .row .wrapper-about-formation-left h2 hr {
-  margin-top: 2rem;
-  width: 70% !important;
-  height: 3px;
-  color: #BFA573;
-  background-color: #BFA573;
-  opacity: 1;
-}
-.about-formation .row .wrapper-about-formation-right .skill-training h3 {
-  text-transform: uppercase;
-  color: #BFA573;
-  margin-bottom: 1rem;
-}
-.about-formation .row .wrapper-about-formation-right .skill-training p span {
-  font-weight: 700;
-}
-
-.about-climb {
-  background: url("../../img/bg-climb.png"), #000000;
-  background-position: center center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  height: 185vh;
-}
-@media (min-width: 1200px) {
-  .about-climb {
-    height: 170vh;
-  }
-}
-.about-climb .container {
-  height: 170vh;
-  display: flex;
-  flex-direction: column;
-  align-items: end;
-  justify-content: end;
-}
-@media (min-width: 1200px) {
-  .about-climb .container {
-    height: 150vh;
-  }
-}
-.about-climb .container .row .wrapper-about-climb-left {
-  height: auto;
-  display: flex;
-  align-items: end;
-}
-@media (min-width: 992px) {
-  .about-climb .container .row .wrapper-about-climb-left {
-    height: 100%;
-  }
-}
-.about-climb .container .row .wrapper-about-climb-left .wrapper-content p {
-  color: #FFFFFF;
-  line-height: 35px;
-}
-.about-climb .container .row .wrapper-about-climb-left .wrapper-content p span {
-  color: #BFA573;
-}
-.about-climb .container .row .wrapper-about-climb-right {
-  height: 100%;
-}
-.about-climb .container .row .wrapper-about-climb-right .wrapper-content {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-.about-climb .container .row .wrapper-about-climb-right .wrapper-content p {
-  color: #FFFFFF;
-  line-height: 35px;
-}
-.about-climb .container .row .wrapper-about-climb-right .wrapper-content p span {
-  color: #BFA573;
-}
-
-.bg-about-collab {
-  background-color: #CCB78F;
-}
-.bg-about-collab .about-plan img {
-  display: block;
-  width: 100%;
-  height: 95%;
-  object-fit: cover;
-  object-position: right;
-  padding-right: 3rem;
-}
-.bg-about-collab .about-plan p {
-  padding: 2rem 5rem 2rem 2rem;
-  text-align: justify;
-  line-height: 35px;
-}
-.bg-about-collab .about-plan p span {
-  color: #FFFFFF;
-}
-.bg-about-collab .about-vision .wrapping-video {
-  display: flex;
-  justify-content: end;
-}
-.bg-about-collab .about-vision .wrapping-video video {
-  width: 100%;
-  height: auto;
-}
-.bg-about-collab .about-vision p {
-  padding: 2rem;
-  text-align: justify;
-  line-height: 35px;
-}
-.bg-about-collab .about-vision p span {
-  color: #FFFFFF;
-}
-
-/*----------------------------------------------------------
-6. About Us End
-------------------------------------------------------------*/
-/*----------------------------------------------------------
-7. Account Deletion Start
-------------------------------------------------------------*/
-.wrapper-account-deletion {
-  overflow-x: hidden;
-}
-.wrapper-account-deletion .header-account-deletion {
-  overflow-x: hidden;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: rgba(204, 183, 143, 0.2901960784);
-  padding: 2rem;
-}
-.wrapper-account-deletion .header-account-deletion h2 {
-  text-align: center;
-  font-weight: 600;
-}
-.wrapper-account-deletion .first-step {
-  margin-top: 2rem;
-}
-.wrapper-account-deletion .first-step h4 {
-  text-align: center;
-}
-.wrapper-account-deletion .first-step .box-cons {
-  background-color: rgba(204, 183, 143, 0.2901960784);
-  border-radius: 10px;
-  padding: 2rem 1rem 2rem 3rem;
-  margin-top: 2rem;
-}
-.wrapper-account-deletion .first-step .box-cons ul li {
-  list-style: disc;
-}
-.wrapper-account-deletion .first-step .by-continue {
-  text-align: center;
-  margin-top: 1rem;
-}
-.wrapper-account-deletion .second-step {
-  margin-top: 2rem;
-}
-.wrapper-account-deletion .second-step h4 {
-  text-align: center;
-}
-.wrapper-account-deletion .second-step .box-cons {
-  background-color: rgba(204, 183, 143, 0.2901960784);
-  border-radius: 10px;
-  padding: 1rem;
-  margin-top: 2rem;
-}
-.wrapper-account-deletion .second-step .box-cons ul li {
-  list-style: disc;
-}
-.wrapper-account-deletion .second-step .actions-button {
-  margin-top: 1rem;
-}
-
-/*----------------------------------------------------------
-7. Account Deletion End
 ------------------------------------------------------------*/
 /*----------------------------------------------------------
     File Name  : _service.scss

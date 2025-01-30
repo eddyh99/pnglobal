@@ -2,7 +2,7 @@
     File Name  : _homepage.scss
     Desc       : File ini merupakan styling untuk Homepage
 
-------------------------------------------------------------*/ 
+------------------------------------------------------------*/
 
 /**
  * TABLE OF CONTENTS
@@ -21,11 +21,9 @@
 @use '../abstracts/mixins' as mix;
 // @use '../abstracts/animations' as anim;
 
-
-
 /*----------------------------------------------------------
 1. Banner Homepage Start
-------------------------------------------------------------*/ 
+------------------------------------------------------------*/
 
 .banner-homepage {
     position: relative;
@@ -34,11 +32,11 @@
     .wrapper-banner-homepage {
         display: flex;
         min-height: 100vh !important;
-        
+
         video {
             @include mix.video-banner-center;
         }
-        
+
         .img-banner {
             @include mix.video-banner-center;
         }
@@ -88,15 +86,15 @@
             .btn-primary {
                 background-color: var.$text-primary-pnglobal;
                 box-shadow: 0px 4px 4px 0px rgba(255, 255, 255, 1);
-            
+
                 &:hover {
-                    box-shadow: 0px 4px 15px 10px #FFF;
-                    
+                    box-shadow: 0px 4px 15px 10px #fff;
+
                     .btn-text {
                         color: var.$text-black-pnglobal !important;
                     }
                 }
-            
+
                 .btn-text {
                     color: var.$text-white-pnglobal;
                     transition: color 0.3s ease;
@@ -108,16 +106,15 @@
                 box-shadow: 0px 4px 4px 0px rgba(189, 160, 105, 1);
 
                 &:hover {
-                    box-shadow: 0px 4px 10px 10px #BDA069;
+                    box-shadow: 0px 4px 10px 10px #bda069;
                     .btn-text {
-                        color: #BDA069 !important;
+                        color: #bda069 !important;
                     }
                 }
 
                 .btn-text {
                     color: var.$text-black-pnglobal;
-                        transition: color 0.3s ease;
-
+                    transition: color 0.3s ease;
                 }
             }
 
@@ -147,7 +144,7 @@
                 font-weight: 700;
                 text-align: center;
                 color: var.$text-white-pnglobal;
-                
+
                 @include mix.md {
                     letter-spacing: 8px;
                     font-size: 20px;
@@ -162,38 +159,37 @@
                     font-size: 40px;
                 }
 
-                
                 // margin-top: 1.5rem;
 
                 // .line-animation {
                 //     @include mix.animation-reveal;
                 // }
 
-            .goal-text {
-                font-family: var.$f-odor;
-                text-transform: uppercase;
-                font-weight: normal;
-                line-height: 50px;
-                font-size: 25px;
-                letter-spacing: 0;
+                .goal-text {
+                    font-family: var.$f-odor;
+                    text-transform: uppercase;
+                    font-weight: normal;
+                    line-height: 50px;
+                    font-size: 25px;
+                    letter-spacing: 0;
 
-                @include mix.md {
-                    font-size: 30px;
+                    @include mix.md {
+                        font-size: 30px;
+                    }
+
+                    @include mix.xl {
+                        font-size: 40px;
+                    }
+
+                    // First line
+                    color: var.$text-white-pnglobal;
+
+                    // Second line (gold text)
+                    span {
+                        color: var.$text-primary-pnglobal;
+                        display: block; // Forces line break
+                    }
                 }
-
-                @include mix.xl {
-                    font-size: 40px;
-                }
-
-                // First line
-                color: var.$text-white-pnglobal;
-
-                // Second line (gold text)
-                span {
-                    color: var.$text-primary-pnglobal;
-                    display: block; // Forces line break
-                }
-            }
             }
 
             .logo-text-banner-teamwork {
@@ -214,12 +210,11 @@
 
 /*----------------------------------------------------------
 1. Banner Homepage End
-------------------------------------------------------------*/ 
-
+------------------------------------------------------------*/
 
 /*----------------------------------------------------------
 2. Future Start
-------------------------------------------------------------*/ 
+------------------------------------------------------------*/
 
 .future-heading {
     color: var.$text-primary-pnglobal;
@@ -233,7 +228,7 @@
 }
 
 .future-text {
-    color: #000;    
+    color: #000;
     text-align: center;
     font-family: var.$f-noto;
     font-size: 20px;
@@ -257,11 +252,11 @@
 
 /*----------------------------------------------------------
 2. Future End End
-------------------------------------------------------------*/ 
+------------------------------------------------------------*/
 
 /*----------------------------------------------------------
 3. Why Choose Start
-------------------------------------------------------------*/ 
+------------------------------------------------------------*/
 .why-choose {
     background-color: #000;
     overflow: hidden;
@@ -280,7 +275,7 @@
     }
 
     .why-title {
-        color: #BFA573;
+        color: #bfa573;
         font-family: var.$f-noto;
         font-size: 30px;
         font-weight: 800;
@@ -292,7 +287,7 @@
     }
 
     .why-desc {
-        color: #FFF;
+        color: #fff;
         font-family: var.$f-noto;
         font-size: 18px;
         font-weight: 500;
@@ -303,7 +298,7 @@
     }
 
     .why-cta {
-        color: #FFF;
+        color: #fff;
         font-family: var.$f-noto;
         font-size: 20px;
         font-weight: 700;
@@ -316,7 +311,7 @@
         height: 300px;
         overflow: hidden;
         width: 100%;
-        
+
         @include mix.lg {
             height: 413px;
             margin-right: 0;
@@ -335,10 +330,10 @@
 
 /*----------------------------------------------------------
 4. Newsletter Start
-------------------------------------------------------------*/ 
+------------------------------------------------------------*/
 .newsletter {
-    position  : relative;
-    width     : 100%;
+    position: relative;
+    width: 100%;
     min-height: 100vh;
     overflow-x: hidden;
 
@@ -379,7 +374,7 @@
 
         header {
             width: 100%;
-            background-color: #BDA069B0;
+            background-color: #bda069b0;
             padding: 1rem;
             text-align: center;
             text-transform: uppercase;
@@ -401,9 +396,9 @@
                 font-weight: 800;
                 line-height: 35px;
                 text-align: center;
-            
+
                 .text-white {
-                    color: #FFF;
+                    color: #fff;
                     font-family: var.$f-noto;
                     font-size: 25px;
                     font-style: normal;
@@ -425,16 +420,17 @@
             }
 
             .countdown {
-                color: #BDA069;
+                color: #bda069;
                 font-family: var.$f-noto;
                 font-size: 25px;
                 font-style: normal;
                 font-weight: 800;
                 line-height: 35px;
             }
-        
-            .description, .highlight {
-                color: #FFF;
+
+            .description,
+            .highlight {
+                color: #fff;
                 font-family: var.$f-noto;
                 font-size: 20px;
                 font-style: normal;
@@ -443,7 +439,7 @@
             }
 
             .highlight-1 {
-                color: #BDA069;
+                color: #bda069;
                 font-family: var.$f-noto;
                 font-size: 20px;
                 font-style: normal;
@@ -467,17 +463,23 @@
                     left: 0;
                     right: 75px;
                     bottom: 0;
-                    background: linear-gradient(180deg, rgba(189, 160, 105, 0.54) 0%, rgba(87, 74, 48, 0.54) 80.1%);
+                    background: linear-gradient(
+                        180deg,
+                        rgba(189, 160, 105, 0.54) 0%,
+                        rgba(87, 74, 48, 0.54) 80.1%
+                    );
                     z-index: -1;
                 }
-        
-                .opportunity, .signup, .btn {
+
+                .opportunity,
+                .signup,
+                .btn {
                     padding-left: 46px;
                     padding-right: 126px;
                 }
-        
+
                 .opportunity {
-                    color: #FFF;
+                    color: #fff;
                     font-family: var.$f-noto;
                     font-size: 20px;
                     font-weight: 700;
@@ -485,7 +487,7 @@
                     text-transform: capitalize;
                     margin-bottom: 1rem;
                 }
-        
+
                 .signup {
                     color: #000;
                     font-family: var.$f-noto;
@@ -500,7 +502,7 @@
                 //     padding-left: 46px;
                 //     padding-right: 126px;
                 // }
-        
+
                 // .btn.custom-btn {
                 //     background: #BDA069;
                 //     box-shadow: 0px 4px 15px 10px #FFF;
@@ -530,12 +532,12 @@
                     width: 100%;
                     padding-left: 46px;
                     padding-right: 126px;
-                    
+
                     .btn.custom-btn {
                         margin: 35px auto; // Changed from 35px 0
                         width: auto;
-                        background: #BDA069;
-                        box-shadow: 0px 4px 15px 10px #FFF;
+                        background: #bda069;
+                        box-shadow: 0px 4px 15px 10px #fff;
                         color: #000;
                         font-family: var.$f-noto;
                         font-size: 20px;
@@ -572,7 +574,7 @@
         left: 0;
         width: 100%;
         height: 100%;
-        
+
         video {
             width: 100%;
             height: 100%;
@@ -588,77 +590,81 @@
         position: relative;
         z-index: 2;
         top: 0;
-         max-width: 100% !important;
-  padding: 0 !important;
-  margin: 0 !important;
+        max-width: 100% !important;
+        padding: 0 !important;
+        margin: 0 !important;
     }
 
     .title-wrapper {
         background-color: rgba(0, 0, 0, 0.7);
-        width           : 100%;
-        padding         : 20px 0 80px;
-        position        : relative;
-        z-index         : 1;
-        margin-bottom   : 0;
-    
+        width: 100%;
+        padding: 20px 0 80px;
+        position: relative;
+        z-index: 1;
+        margin-bottom: 0;
+
         .inner-wrapper {
             width: 100%;
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 15px;
         }
-    
+
         .title {
-            color         : #FFF;
-            text-align    : center;
-            font-family   : var.$f-odor;
-            font-size     : 40px;
-            font-weight   : 400;
-            line-height   : 50px;
+            color: #fff;
+            text-align: center;
+            font-family: var.$f-odor;
+            font-size: 40px;
+            font-weight: 400;
+            line-height: 50px;
             text-transform: uppercase;
-            margin        : 0 auto;
-            max-width     : 800px;
-            
+            margin: 0 auto;
+            max-width: 800px;
+
             .highlight {
-                color: #BFA573;
+                color: #bfa573;
             }
         }
-    
+
         .subtitle {
-            color      : #FFF;
-            text-align : center;
+            color: #fff;
+            text-align: center;
             font-family: var.$f-noto;
-            font-size  : 20px;
+            font-size: 20px;
             font-weight: 600;
             line-height: 144.687%;
-            margin     : 10px auto 0;
-            max-width  : 700px;
+            margin: 10px auto 0;
+            max-width: 700px;
         }
     }
 
     .highlight-title {
-        color         : #C5A571;
-        text-align    : center;
-        font-family   : var.$f-noto;
-        font-size     : 25px;
-        font-weight   : 900;
-        line-height   : 35px;
+        color: #c5a571;
+        text-align: center;
+        font-family: var.$f-noto;
+        font-size: 25px;
+        font-weight: 900;
+        line-height: 35px;
         text-transform: uppercase;
-        margin-bottom : 2rem;
+        margin-bottom: 2rem;
     }
 
     .description {
-        color        : #FFF;
-        text-align   : center;
-        font-family  : var.$f-noto;
-        font-size    : 18px;
-        font-weight  : 600;
-        line-height  : 30px;
+        color: #fff;
+        text-align: center;
+        font-family: var.$f-noto;
+        font-size: 18px;
+        font-weight: 600;
+        line-height: 30px;
         margin-bottom: 2rem;
     }
 
     .content-gradient-wrapper {
-        background: linear-gradient(90deg, rgba(0, 0, 0, 0.90) 57.83%, #FFF 154.12%);
+        background: linear-gradient(
+            90deg,
+            rgba(0, 0, 0, 0.9) 57.83%,
+            #fff 154.12%
+        );
         position: relative;
         z-index: 2;
         width: fit-content;
@@ -681,7 +687,7 @@
 
     .cta {
         max-width: 333px;
-        color: #F7941D;
+        color: #f7941d;
         text-align: center;
         font-family: var.$f-noto;
         font-size: 17px;
@@ -689,20 +695,19 @@
         line-height: 25px;
         text-transform: uppercase;
         border-radius: 5px;
-        border: 1px solid #FFF;
+        border: 1px solid #fff;
         background: #000;
-        box-shadow: 0px 4px 35px 8px #FFF;
+        box-shadow: 0px 4px 35px 8px #fff;
         padding: 12px 24px;
         cursor: pointer;
         transition: all 0.3s ease;
 
         &:hover {
             transform: translateY(-2px);
-            box-shadow: 0px 4px 35px 8px #F7941D;
-            color: #FFF;
+            box-shadow: 0px 4px 35px 8px #f7941d;
+            color: #fff;
         }
     }
-
 }
 /*----------------------------------------------------------
 5. Earning Section End
@@ -710,7 +715,7 @@
 
 /*----------------------------------------------------------
 6. Service Start
-------------------------------------------------------------*/ 
+------------------------------------------------------------*/
 .service-homepage {
     position: relative;
     margin: 0;
@@ -733,7 +738,7 @@
             }
         }
     }
-    
+
     .section-title {
         position: relative;
         z-index: 2;
@@ -750,7 +755,7 @@
         background-color: #fff;
         width: 100%;
         margin-bottom: 40px;
-        box-shadow: 0 4px 4px rgba(0,0,0,0.1);
+        box-shadow: 0 4px 4px rgba(0, 0, 0, 0.1);
     }
 
     .service-cards {
@@ -761,8 +766,13 @@
 
     .service-card {
         border-radius: 5px;
-        border: 1px solid #BFA573; 
-        background: radial-gradient(circle at right, #656565 0%, #000 50%, #000 100%);
+        border: 1px solid #bfa573;
+        background: radial-gradient(
+            circle at right,
+            #656565 0%,
+            #000 50%,
+            #000 100%
+        );
         padding: 24px;
         min-height: 200px;
 
@@ -771,7 +781,7 @@
             width: 100%;
             display: flex;
             align-items: center;
-            
+
             img {
                 max-width: 110px;
                 max-height: 129px;
@@ -780,7 +790,7 @@
         }
 
         .service-title {
-            color: #D1B06B;
+            color: #d1b06b;
             font-family: var.$f-noto;
             font-size: 25px;
             font-weight: 800;
@@ -789,13 +799,13 @@
         }
 
         .service-description {
-            color: #FFF;
+            color: #fff;
             font-family: var.$f-noto;
             font-size: 16px;
             font-weight: 400;
             line-height: 30px;
             text-transform: lowercase;
-            
+
             &::first-letter {
                 text-transform: uppercase;
             }
@@ -810,16 +820,18 @@
             line-height: 18px;
             text-transform: uppercase;
             border-radius: 5px;
-            background: #BFA573;
-            box-shadow: 0px 4px 6px 0px rgba(255, 255, 255, 0.90);            
+            background: #bfa573;
+            box-shadow: 0px 4px 6px 0px rgba(255, 255, 255, 0.9);
             border: none;
             padding: 3px 20px;
             cursor: pointer;
             transition: all 0.3s ease;
+            min-width: 206px;
+            min-height: 45px;
 
             &:hover {
                 transform: translateY(-2px);
-                box-shadow: 0px 4px 10px 3px #E8D9BD;
+                box-shadow: 0px 4px 10px 3px #e8d9bd;
                 background-color: #fff;
             }
         }
@@ -829,27 +841,27 @@
         .row {
             margin: 0 -12px;
         }
-        
+
         .col-lg-6 {
             padding: 0 12px;
         }
     }
 }
 
-
 /*----------------------------------------------------------
 6. Service End
-------------------------------------------------------------*/ 
+------------------------------------------------------------*/
 
 /*----------------------------------------------------------
 7. Who We Are Start
-------------------------------------------------------------*/ 
+------------------------------------------------------------*/
 .who-we-are {
     .container {
-        background: linear-gradient(135deg, 
-            #000 0%, 
+        background: linear-gradient(
+            135deg,
+            #000 0%,
             #1a1a1a 40%,
-            #2D2D2D 60%, 
+            #2d2d2d 60%,
             #4a4a4a 80%,
             #5f5f5f 100%
         );
@@ -877,7 +889,7 @@
         left: 0;
         width: 100%;
         height: 100%;
-        
+
         img {
             width: 100%;
             height: 100%;
@@ -889,7 +901,7 @@
         padding: 20px;
 
         .who-title {
-            color: #BFA573;
+            color: #bfa573;
             font-family: var.$f-noto;
             font-size: 30px;
             font-weight: 800;
@@ -899,7 +911,6 @@
             display: flex;
             flex-direction: column;
 
-
             .title-main {
                 white-space: nowrap;
                 margin-bottom: 10px;
@@ -907,7 +918,7 @@
 
             .subtitle {
                 display: block;
-                color: #FFF;
+                color: #fff;
                 font-family: var.$f-noto;
                 font-size: 24px;
                 font-style: normal;
@@ -919,7 +930,7 @@
 
         .who-description {
             p {
-                color: #FFF;
+                color: #fff;
                 font-family: var.$f-noto;
                 font-size: 18px;
                 font-weight: 500;
@@ -943,7 +954,7 @@
 .quotes {
     position: relative;
     padding: 120px 0;
-    
+
     .quotes-bg {
         position: absolute;
         top: 0;
@@ -951,7 +962,7 @@
         width: 100%;
         height: 100%;
         z-index: 1;
-        
+
         img {
             width: 100%;
             height: 100%;
@@ -982,7 +993,7 @@
     }
 
     .quote-text {
-        color: #FFF;
+        color: #fff;
         text-align: center;
         text-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
         -webkit-text-stroke: 1.5px rgba(56, 55, 52, 0.76);
@@ -1004,12 +1015,12 @@
 ------------------------------------------------------------*/
 .invest {
     position: relative;
-    background-color: #FFF;
+    background-color: #fff;
     min-height: 400px;
     z-index: 2;
 
     .invest-title-wrapper {
-        background-color: #BFA573;
+        background-color: #bfa573;
         padding: 20px 0;
         width: 100%;
         position: relative;
@@ -1031,7 +1042,7 @@
             }
 
             .light {
-                color: #FFF;
+                color: #fff;
                 display: inline-block;
             }
         }
@@ -1044,7 +1055,6 @@
         position: relative;
         z-index: 2;
         padding-bottom: calc(100px + var(--content-overflow, 0px));
-
 
         .invest-description {
             color: #000;
@@ -1091,7 +1101,6 @@
         margin: auto;
         z-index: 3;
 
-        
         .card {
             flex: 1;
             padding: 30px;
@@ -1099,41 +1108,41 @@
             align-items: center;
             justify-content: center;
             min-height: 200px;
-            
+
             &.dark-card {
                 border-radius: 5px;
-                background: #1E1E1E;
-                
+                background: #1e1e1e;
+
                 .card-title {
-                    color: #FFF;
+                    color: #fff;
                 }
 
                 &:hover {
-                    box-shadow: 0px 4px 20px 10px #BDA069;
+                    box-shadow: 0px 4px 20px 10px #bda069;
 
                     .card-title {
-                        color: #D1B06B;
+                        color: #d1b06b;
                     }
                 }
             }
-            
+
             &.light-card {
                 border-radius: 5px;
-                background: #CCB78F;
-                
+                background: #ccb78f;
+
                 .card-title {
                     color: #000;
                 }
 
                 &:hover {
-                    box-shadow: 0px 4px 20px 10px #FFF;
+                    box-shadow: 0px 4px 20px 10px #fff;
 
                     .card-title {
-                        color: #FFF;
+                        color: #fff;
                     }
                 }
             }
-            
+
             .card-title {
                 text-align: center;
                 font-family: var.$f-noto;
@@ -1158,14 +1167,14 @@
     height: auto; // Change from max-height
     min-height: 637px; // Add min-height instead
     // margin-bottom: 120px; // Add space for footer
-    
+
     .first-steps-bg {
         position: absolute;
         top: 0;
         left: 0;
         width: 100%;
         height: 100%;
-        
+
         .bg-image {
             width: 100%;
             height: 100%;
@@ -1193,7 +1202,7 @@
     }
 
     .title {
-        color: #BFA573;
+        color: #bfa573;
         text-align: center;
         font-family: var.$f-noto;
         font-size: 30px;
@@ -1204,7 +1213,7 @@
     }
 
     .description {
-        color: #FFF;
+        color: #fff;
         text-align: center;
         font-family: var.$f-noto;
         font-size: 18px;
@@ -1221,8 +1230,8 @@
         bottom: -40px;
         transform: translateX(-50%);
         border-radius: 5px;
-        background: #BFA573;
-        box-shadow: 0px 4px 4px 1px #FFF;
+        background: #bfa573;
+        box-shadow: 0px 4px 4px 1px #fff;
         color: #000;
         text-align: center;
         font-family: var.$f-noto;
@@ -1236,7 +1245,7 @@
         cursor: pointer;
 
         &:hover {
-            box-shadow: 0px 4px 10px 3px #FFF;
+            box-shadow: 0px 4px 10px 3px #fff;
             color: #fff;
         }
     }
@@ -1246,7 +1255,7 @@
         top: 50px;
         right: 50px;
         z-index: 2;
-        
+
         .logo-image {
             max-width: 150px;
             height: auto;
@@ -1256,271 +1265,3 @@
 /*----------------------------------------------------------
 10. First Step End
 ------------------------------------------------------------*/
-
-/*----------------------------------------------------------
-6. About Us Start
-------------------------------------------------------------*/ 
-.banner-about {
-    position: relative;
-    overflow: hidden;
-
-    .wrapper-about {
-        display: flex;
-        min-height: 100vh;
-
-        video {
-            @include mix.video-banner-center;
-        }
-
-        .banner-text-video {
-            width: 100%;
-            z-index: 2;
-            display: flex;
-            justify-content: start;
-            align-items: end;
-            margin-bottom: 4rem;
-
-            .bg-text-video {
-                border-radius: 0px 5px 5px 0px ;
-                -webkit-border-radius: 0px 5px 5px 0px ;
-                -moz-border-radius: 0px 5px 5px 0px ;
-                -ms-border-radius: 0px 5px 5px 0px ;
-                -o-border-radius: 0px 5px 5px 0px ;
-                padding: 1rem 3rem;
-                font-weight: 700;
-                
-                &.about {
-                    background: rgba(232, 217, 189, 0.75);
-                    color: #383734;
-                }
-            }   
-        }
-    }
-}
-
-.about-formation {
-    background-color: var.$bg-about-pnglobal;
-
-    .row {
-        .wrapper-about-formation-left {
-            display: flex;
-            flex-direction: column;
-            align-items: start;
-            justify-content: center;
-
-            h2 {
-                hr {
-                    margin-top: 2rem;
-                    width: 70% !important;
-                    height: 3px;
-                    color: var.$text-primary-pnglobal;
-                    background-color: var.$text-primary-pnglobal;
-                    opacity: 1;
-                }
-            }
-
-        }
-        .wrapper-about-formation-right {
-            .skill-training {
-                h3 {
-                    text-transform: uppercase;
-                    color: var.$text-primary-pnglobal;
-                    margin-bottom: 1rem;
-                }
-
-                p {
-                    span {
-                        font-weight: 700;
-                    }
-                }
-            }
-        } 
-    }
-}
-
-.about-climb {
-    background: url('../../img/bg-climb.png'), #000000;
-    background-position: center center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    height: 185vh;
- 
-    @include mix.xl2 {
-        height: 170vh;
-    }
-
-    .container {
-        height: 170vh;
-        display: flex;
-        flex-direction: column;
-        align-items: end;
-        justify-content: end;
-        
-        @include mix.xl2 {
-            height: 150vh;
-        }
-
-
-        .row {
-            .wrapper-about-climb-left {
-                height: auto;
-                display: flex;
-                align-items: end;
-
-                @include mix.lg {
-                    height: 100%;
-                }
-
-                .wrapper-content {
-                    p {
-                        color: var.$text-white-pnglobal;
-                        line-height: 35px;
-    
-                        span {
-                            color: var.$text-primary-pnglobal;
-                        }
-                    }
-                }
-            }
-            .wrapper-about-climb-right {
-                height: 100%;
-
-                .wrapper-content {
-                    display: flex;
-                    flex-direction: column;
-                    align-items: center;
-                    p {
-                        color: var.$text-white-pnglobal;
-                        line-height: 35px;
-    
-                        span {
-                            color: var.$text-primary-pnglobal;
-                        }
-                    }
-                }
-            }
-        }
-    }
-}
-
-.bg-about-collab {
-    background-color: var.$bg-primary-100-pnglobal;
-
-    .about-plan {
-        img {
-            display: block;
-            width: 100%;
-            height: 95%;
-            object-fit: cover;
-            object-position: right;
-            padding-right: 3rem ;
-        }
-
-        p {
-            padding: 2rem 5rem 2rem 2rem;
-            text-align: justify;
-            line-height: 35px;
-
-            span {
-                color: var.$text-white-pnglobal;
-            }
-        }
-    }
-    
-    .about-vision {
-        .wrapping-video {
-            display: flex;
-            justify-content: end;
-
-            video {
-                    width: 100%;
-                    height: auto;
-                    // right: -0.5rem;
-            }
-        
-        }
-        p {
-            padding: 2rem;
-            text-align: justify;
-            line-height: 35px;
-
-            span {
-                color: var.$text-white-pnglobal;
-            }
-        }
-    }
-}
-
-/*----------------------------------------------------------
-6. About Us End
-------------------------------------------------------------*/ 
-
-
-/*----------------------------------------------------------
-7. Account Deletion Start
-------------------------------------------------------------*/ 
-.wrapper-account-deletion {
-    overflow-x: hidden;
-    .header-account-deletion{
-        overflow-x: hidden;
-        @include mix.flex-tengah;
-        background-color: #CCB78F4A;
-        padding: 2rem;
-
-        h2 {
-            text-align: center;
-            font-weight: 600;
-        }
-    }
-
-    .first-step {
-        margin-top: 2rem;
-
-        h4 {
-            text-align: center;
-        }
-
-        .box-cons {
-            background-color: #CCB78F4A;
-            border-radius: 10px;
-            padding: 2rem 1rem 2rem 3rem;
-            margin-top: 2rem;
-
-            ul li {
-                list-style: disc;
-            }
-        }
-
-        .by-continue {
-            text-align: center;
-            margin-top: 1rem;
-        }
-    }
-
-    .second-step {
-        margin-top: 2rem;
-
-        h4 {
-            text-align: center;
-        }
-
-        .box-cons {
-            background-color: #CCB78F4A;
-            border-radius: 10px;
-            padding: 1rem;
-            margin-top: 2rem;
-
-            ul li {
-                list-style: disc;
-            }
-        }
-
-        .actions-button {
-            margin-top: 1rem;
-        }
-    }
-}
-
-/*----------------------------------------------------------
-7. Account Deletion End
-------------------------------------------------------------*/ 
