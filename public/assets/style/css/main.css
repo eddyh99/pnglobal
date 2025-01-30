@@ -17444,6 +17444,101 @@ input:-moz-placeholder {
 3. Teamwork Detail End
 ------------------------------------------------------------*/
 /*----------------------------------------------------------
+    File Name  : _trainingcourse.scss
+    Desc       : File ini merupakan styling untuk Training Course
+
+------------------------------------------------------------*/
+/**
+ * TABLE OF CONTENTS
+ *
+ * //semua//
+ *
+ */
+.advanced-training {
+  position: relative;
+  overflow: visible;
+  background: #1e1e1e;
+  z-index: 2;
+}
+.advanced-training .section-title {
+  color: #bfa573;
+  font-family: "Noto Serif", serif;
+  font-size: 30px;
+  font-style: normal;
+  font-weight: 800;
+  line-height: 45px; /* 150% */
+  margin-bottom: 1rem;
+}
+.advanced-training .section-subtitle {
+  color: #fff;
+  font-family: "Noto Serif", serif;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 20px;
+  margin-bottom: 4rem;
+}
+.advanced-training .section-description {
+  color: #fff;
+  font-family: "Noto Serif", serif;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 30px; /* 166.667% */
+}
+.advanced-training img {
+  min-width: 473px;
+  min-height: 418px;
+  object-fit: contain;
+  margin-bottom: -50px;
+  position: relative;
+  z-index: 3;
+}
+
+.course-content {
+  padding: 30px 0;
+  background-color: #000;
+  z-index: 1;
+}
+.course-content .section-title {
+  color: #fff;
+  font-family: "Noto Serif", serif;
+  font-size: 30px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 40px;
+  text-transform: capitalize;
+  text-align: center;
+  margin: 0 auto 1rem;
+  width: fit-content;
+}
+.course-content .section-title:after {
+  content: "";
+  display: block;
+  width: calc(100% + 30px);
+  height: 3px;
+  background: #bfa573;
+  margin: 20px -15px;
+}
+.course-content .section-description {
+  color: #fff;
+  font-family: "Noto Serif", serif;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 25px;
+  margin-bottom: 2rem;
+}
+.course-content .section-description strong {
+  color: #bfa573;
+  font-family: "Noto Serif", serif;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 25px;
+}
+
+/*----------------------------------------------------------
     File Name  : _navbar.scss
     Desc       : File ini merupakan styling untuk 
                  Component Button yang akan dipakai berulang
