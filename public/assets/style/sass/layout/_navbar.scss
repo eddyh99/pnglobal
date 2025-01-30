@@ -27,36 +27,29 @@
     z-index: 999; 
     width: 100%;
 
-    .navbar-logo {
-        @include mix.flex-tengah;
+    .logo {
+        height: 50px;
+        width: auto;
+    }
 
-        .logo {
-            height: 50px;
-            
-            @include mix.md {
-                height: 80px;
-            }
+    .logo-text {
+        font-family: "Odor Mean Chey", serif;
+        font-size: 22px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 50px;
+        text-transform: uppercase;
+        display: flex;
+        gap: 0.5rem;
 
+        .text-gold {
+            color: #BDA069;
         }
 
-        .logo-text {
-            text-align: center;
-            color: var.$text-white-pnglobal;
-            font-size: 12px;
-            font-weight: 400;
-            letter-spacing: 3px;
-            margin-left: 1rem;
-            display: none;
-
-            @include mix.xss {
-                display: inline-block;
-            }
-            
-
-            span {
-                color: var.$text-primary-pnglobal;
-            }
+        .text-white {
+            color: #FFFFFF;
         }
+    
     }
 
     .navbar-nav {

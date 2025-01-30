@@ -12742,35 +12742,25 @@ p {
   z-index: 999;
   width: 100%;
 }
-.navbar .navbar-logo {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.navbar .navbar-logo .logo {
+.navbar .logo {
   height: 50px;
+  width: auto;
 }
-@media (min-width: 768px) {
-  .navbar .navbar-logo .logo {
-    height: 80px;
-  }
-}
-.navbar .navbar-logo .logo-text {
-  text-align: center;
-  color: #FFFFFF;
-  font-size: 12px;
+.navbar .logo-text {
+  font-family: "Odor Mean Chey", serif;
+  font-size: 22px;
+  font-style: normal;
   font-weight: 400;
-  letter-spacing: 3px;
-  margin-left: 1rem;
-  display: none;
+  line-height: 50px;
+  text-transform: uppercase;
+  display: flex;
+  gap: 0.5rem;
 }
-@media (min-width: 425px) {
-  .navbar .navbar-logo .logo-text {
-    display: inline-block;
-  }
+.navbar .logo-text .text-gold {
+  color: #BDA069;
 }
-.navbar .navbar-logo .logo-text span {
-  color: #BFA573;
+.navbar .logo-text .text-white {
+  color: #FFFFFF;
 }
 .navbar .navbar-nav {
   display: flex;

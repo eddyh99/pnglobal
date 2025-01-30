@@ -35,8 +35,12 @@
     <!-- Start of Navbar -->
     <nav class="navbar navbar-expand-xxl <?= @$navoption ? 'position-relative' : '' ?>">
         <div class="container">
-            <a class="navbar-logo" href="<?= BASE_URL ?>">
-                <img class="logo" src="<?= BASE_URL ?>assets/img/new-logo.png" alt="logo pnglobal">
+            <a class="navbar-logo d-flex align-items-center gap-3" href="<?= BASE_URL ?>">
+                <img class="logo" src="<?= BASE_URL ?>assets/img/logo-big.png" alt="logo pnglobal">
+                <span class="logo-text">
+                    <span class="text-gold" translate="no">Asset</span>
+                    <span class="text-white" translate="no">Menagement</span>
+                </span>
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <div class="openbtn">
