@@ -549,21 +549,23 @@
     background-color: var.$bg-black-pnglobal;
     padding: 0;
     min-height: 100vh; // Changed from fixed height≈
-    overflow: hidden; // Prevent image overflow
+    overflow: visible; // Prevent image overflow
 
     .earning-bg {
         position: absolute;
         top: 0;
         left: 0;
         width: 100%;
-                    height: 100%;
-
+        height: 100%;
         
-        img {
+        video {
             width: 100%;
             height: 100%;
-            display: block;
             object-fit: cover;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 1;
         }
     }
 

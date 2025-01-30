@@ -131,7 +131,9 @@
 <!-- Start of Earning -->
 <section class="content earning-section">
     <div class="earning-bg">
-        <img src="<?php echo BASE_URL; ?>assets/img/bg-start-earning.webp" alt="Earning Background">
+        <video autoplay loop muted playsinline>
+            <source src="<?php echo BASE_URL; ?>assets/vid/bg-start-earning.mp4" type="video/mp4">
+        </video>
     </div>
     <div class="container">
         <div class="title-wrapper">
