@@ -20,7 +20,6 @@
     </div>
 </div>
 <!-- End of Banner -->
-
 <!-- Start Advanced Training Section -->
 <section class="advanced-training">
     <div class="container">
@@ -88,3 +87,71 @@
         </div>
     </div>
 </section>
+
+
+<div class="dark-bg-sections">
+    <section class="understand-bitcoin">
+        <div class="container">
+            <div class="row align-items-start">
+                <!-- Left Column -->
+                <div class="col-12 col-lg-6">
+                    <p class="section-description">
+                        Understand Bitcoin and Its Global Impact
+                    </p>
+                    <p class="section-content">
+                        Bitcoin is not just a cryptocurrency; it is an economic revolution. Our Bitcoin courses offer a learning path that takes you from the basics of Bitcoin to an advanced understanding of its global implications. You will explore the history of Bitcoin, the underlying technology, its role in the global economy, and how it can be used as a tool for investment and transactions. <br>
+                        Our experts will guide you step by step, providing you with the knowledge needed to use Bitcoin safely and strategically.
+                    </p>
+                </div>
+                <!-- Right Column -->
+                <div class="col-12 col-lg-6">
+                    <h3 class="bitcoin-title">Bitcoin: <br>From Basics to Expert</h3>
+                    <img src="<?= BASE_URL ?>assets/img/ic_understand_bitcoin.png" alt="Understand Bitcoin" class="img-fluid">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="blockchain-design">
+        <div class="container">
+            <div class="row align-items-start">
+                <!-- Left Column -->
+                <div class="col-12 col-lg-6">
+                    <h3 class="blockchain-title">Blockchain Design <br>
+                        and Implementation</h3>
+                    <img src="<?= BASE_URL ?>assets/img/ic_blockchain_design.png" alt="Blockchain Design" class="img-fluid">
+                </div>
+                <!-- Right Column -->
+                <div class="col-12 col-lg-6">
+                    <p class="section-description">
+                        Develop your understanding of Blockchain technology
+                    </p>
+                    <p class="section-content">
+                        Our Blockchain courses will guide you through the fundamental principles and advanced techniques needed to design, implement, and manage Blockchain-based solutions. You will learn to create secure, scalable, and efficient blockchains using the latest technologies and frameworks. Whether you are looking to develop a new cryptocurrency or implement Blockchain solutions within an existing organization, our courses will equip you with the skills you need to excel.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="bitcoin-mining">
+        <div class="container">
+            <div class="row align-items-start">
+                <!-- Left Column -->
+                <div class="col-12 col-lg-6">
+                    <p class="section-description">
+                        Become a Mining Expert with Our Specialized Training
+                    </p>
+                    <p class="section-content">
+                        Bitcoin mining is at the heart of the cryptocurrency ecosystem, and understanding its technical and operational processes is crucial for anyone looking to enter this field. Our Bitcoin Mining courses cover everything from the necessary hardware to energy efficiency optimization strategies. You will learn how to set up and manage a mining operation, maximize profits, and understand the dynamics of the mining market. With a focus on sustainability and innovation, these courses will prepare you to become a leader in Bitcoin Mining.
+                    </p>
+                </div>
+                <!-- Right Column -->
+                <div class="col-12 col-lg-6">
+                    <h3 class="mining-title">Bitcoin Mining: Advanced <br> Techniques and Strategies</h3>
+                    <img src="<?= BASE_URL ?>assets/img/ic_bitcoin_mining.png" alt="Bitcoin Mining" class="img-fluid">
+                </div>
+            </div>
+        </div>
+    </section>
+</div>

@@ -14,6 +14,28 @@
 @use '../abstracts/variables' as var;
 @use '../abstracts/mixins' as mix;
 
+.dark-bg-sections {
+    background-color: #000;
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    margin: 0;
+    padding: 85px 0 125px;
+
+    > section {
+        margin: 85px 0 125px;
+        width: 100%;
+
+        &:first-child {
+            margin-top: 0;
+        }
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+}
+
 // Advanced training section
 .advanced-training {
     position: relative;
@@ -151,4 +173,188 @@
         font-weight: 400;
         line-height: 30px;
     }
+}
+
+.understand-bitcoin {
+    padding: 30px 0 0;
+    background: rgba(97, 95, 91, 0.84);
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    margin: 0;
+    position: relative;
+    overflow: visible;
+
+    .section-description {
+        color: #bfa573;
+        font-family: var.$f-noto;
+        font-size: 18px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 25px;
+        margin-bottom: 2rem;
+    }
+
+    .section-content {
+        color: #fff;
+        font-family: var.$f-noto;
+        font-size: 18px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 30px;
+    }
+
+    .bitcoin-title {
+        color: #fff;
+        font-family: var.$f-noto;
+        font-size: 25px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 40px;
+        margin: 0 auto 2rem;
+        text-align: left;
+        width: fit-content;
+        position: relative;
+
+        &:after {
+            content: '';
+            display: block;
+            width: calc(100% + 30px);
+            height: 3px;
+            background: #bfa573;
+            margin: 10px -15px;
+        }
+    }
+
+    img {
+        width: 100%;
+        height: auto;
+        position: relative;
+        margin-bottom: -50px; // Push image down
+        z-index: 2; // Ensure image stays above next section
+    }
+}
+
+.blockchain-design {
+    padding: 30px 0 0;
+    background: #1e1e1e;
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    margin: 0;
+    position: relative;
+    overflow: visible;
+
+    .section-description {
+        color: #bfa573;
+        font-family: var.$f-noto;
+        font-size: 18px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 25px;
+        margin-bottom: 2rem;
+    }
+
+    .section-content {
+        color: #fff;
+        font-family: var.$f-noto;
+        font-size: 18px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 30px;
+    }
+
+    .blockchain-title {
+        color: #fff;
+        font-family: var.$f-noto;
+        font-size: 25px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 40px;
+        margin: 0 auto 2rem;
+        text-align: left;
+        width: fit-content;
+        position: relative;
+
+        &:after {
+            content: '';
+            display: block;
+            width: calc(100% + 30px);
+            height: 3px;
+            background: #bfa573;
+            margin: 10px -15px;
+        }
+    }
+
+    img {
+        width: 100%;
+        height: auto;
+        position: relative;
+        margin-bottom: -50px; // Push image down
+        z-index: 2; // Ensure image stays above next section
+    }
+}
+
+.bitcoin-mining {
+    padding: 30px 0 0;
+    background: #bfa573;
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    margin: 0;
+    position: relative;
+    overflow: visible;
+
+    .section-description {
+        color: #fff;
+        font-family: var.$f-noto;
+        font-size: 18px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 25px;
+        margin-bottom: 2rem;
+    }
+
+    .section-content {
+        color: #1e1e1e;
+        font-family: var.$f-noto;
+        font-size: 18px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 30px;
+    }
+
+    .mining-title {
+        color: #1e1e1e;
+        font-family: var.$f-noto;
+        font-size: 25px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 40px;
+        margin: 0 auto 2rem;
+        text-align: left;
+        width: fit-content;
+        position: relative;
+
+        &:after {
+            content: '';
+            display: block;
+            width: calc(100% + 30px);
+            height: 3px;
+            background: #fff;
+            margin: 10px -15px;
+        }
+    }
+
+    img {
+        width: 100%;
+        height: auto;
+        position: relative;
+        margin-bottom: -50px; // Push image down
+        z-index: 2; // Ensure image stays above next section
+    }
+}
+
+.dark-bg-sections > * {
+    margin: 0;
 }
