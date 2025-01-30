@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Controllers;
+
 use App\Controllers\BaseController;
 use App\Services\GoogleCalendarService;
 use DateTime;
@@ -9,7 +10,7 @@ use DateTimeZone;
 class Homepage extends BaseController
 {
     protected $googleCalendarService;
-    
+
     public function __construct()
     {
         $this->googleCalendarService = new GoogleCalendarService();
@@ -57,36 +58,36 @@ class Homepage extends BaseController
     public function service()
     {
         $service = base64_decode($_GET['service']);
-        
-        if($service == "finance_advice_investment"){
+
+        if ($service == "finance_advice_investment") {
             $mdata = [
                 'title'     => 'Service Finance Advice Assets And Investment - ' . NAMETITLE,
                 'content'   => 'homepage/service/finance',
                 'extra'     => 'homepage/js/_js_index',
                 'extragsap' => 'homepage/gsap/gsap_finance',
             ];
-        }else if($service == "strategic_optimization"){
+        } else if ($service == "strategic_optimization") {
             $mdata = [
                 'title'     => 'Service Strategic And Tax Optimization - ' . NAMETITLE,
                 'content'   => 'homepage/service/strategic',
                 'extra'     => 'homepage/js/_js_index',
                 'extragsap' => 'homepage/gsap/gsap_strategic'
             ];
-        }else if($service == "international_expansion_management"){
+        } else if ($service == "international_expansion_management") {
             $mdata = [
                 'title'     => 'Service International Expansion And Management - ' . NAMETITLE,
                 'content'   => 'homepage/service/international',
                 'extra'     => 'homepage/js/_js_index',
                 'extragsap' => 'homepage/gsap/gsap_international'
             ];
-        }else if($service == "legal_tax_accounting"){
+        } else if ($service == "legal_tax_accounting") {
             $mdata = [
                 'title'     => 'Legal, Tax, And Accounting Advice - ' . NAMETITLE,
                 'content'   => 'homepage/service/legal',
                 'extra'     => 'homepage/js/_js_index',
                 'extragsap' => 'homepage/gsap/gsap_legal'
             ];
-        }else if($service == "professional_enterpreneurial_training"){
+        } else if ($service == "professional_enterpreneurial_training") {
             $mdata = [
                 'title'     => 'Service Professional Enterpreneurial Training - ' . NAMETITLE,
                 'content'   => 'homepage/service/training',
@@ -94,7 +95,7 @@ class Homepage extends BaseController
                 'extragsap' => 'homepage/gsap/gsap_training',
                 'flag'      => 'blockchain'
             ];
-        }else if($service == "blockchain_mining_bitcoin_training"){
+        } else if ($service == "blockchain_mining_bitcoin_training") {
             $mdata = [
                 'title'     => 'Advanced Training on Blockchain, Mining and Bitcoin - ' . NAMETITLE,
                 'content'   => 'homepage/service/blockchain',
@@ -102,7 +103,7 @@ class Homepage extends BaseController
                 'extragsap' => 'homepage/gsap/gsap_blockchain',
                 'flag'      => 'blockchain'
             ];
-        }else if($service == "satoshi_signal"){
+        } else if ($service == "satoshi_signal") {
             $mdata = [
                 'title'     => 'Bitcoin Trading Guidance for Buy/Sell Decisions - ' . NAMETITLE,
                 'content'   => 'homepage/service/satoshi',
@@ -110,7 +111,7 @@ class Homepage extends BaseController
                 'extragsap' => 'homepage/gsap/gsap_satoshi',
                 'flag'      => 'satoshi'
             ];
-        }else{
+        } else {
             $mdata = [
                 'title'     => 'Service Finance Advice Assets And Investment - ' . NAMETITLE,
                 'content'   => 'homepage/service/finance',
@@ -120,7 +121,6 @@ class Homepage extends BaseController
         }
 
         return view('homepage/layout/wrapper', $mdata);
-
     }
 
 
@@ -155,7 +155,7 @@ class Homepage extends BaseController
         ]);
 
         // Checking Validation
-        if(!$rules){
+        if (!$rules) {
             session()->setFlashdata('failed', $this->validation->listErrors());
             return redirect()->to(BASE_URL . 'homepage/satoshi_price#register')->withInput();
         }
@@ -167,44 +167,44 @@ class Homepage extends BaseController
             'ipaddress'      => htmlspecialchars($this->request->getIPAddress()),
         ];
 
-       $reff = trim(htmlspecialchars($this->request->getVar('reff')));
+        $reff = trim(htmlspecialchars($this->request->getVar('reff')));
 
         // Call Endpoin Check Referral
-        $urlReff = URLAPI . "/v1/member/get_byreferral?refcode=".$reff;
+        $urlReff = URLAPI . "/v1/member/get_byreferral?refcode=" . $reff;
         $isValidReff = satoshiAdmin($urlReff)->result;
 
-        if($isValidReff->code != "200" && $reff != ""){
+        if ($isValidReff->code != "200" && $reff != "") {
             session()->setFlashdata('failed', $isValidReff->message);
             return redirect()->to(BASE_URL . 'homepage/satoshi_price#register')->withInput();
         }
-        
+
         $mdata['referral'] = empty($reff) ? null : $reff;
         // Call Endpoin Register
         $url = URLAPI . "/auth/register";
         $result = satoshiAdmin($url, json_encode($mdata))->result;
-        
-        if($result->code != '201'){
+
+        if ($result->code != '201') {
             session()->setFlashdata('failed', $result->message);
             return redirect()->to(BASE_URL . 'homepage/satoshi_price#register')->withInput();
-        }else{
+        } else {
             $subject = "Activation Account - " . SATOSHITITLE;
             sendmail_satoshi($mdata['email'], $subject,  emailtemplate_activation_account($result->message->token, $mdata['email']));
-            return redirect()->to(BASE_URL . 'homepage/satoshi_active_account/'.base64_encode($mdata['email']));
+            return redirect()->to(BASE_URL . 'homepage/satoshi_active_account/' . base64_encode($mdata['email']));
         }
     }
 
     public function satoshi_active_account($email)
-    {   
+    {
         $email = base64_decode($email);
 
         // Call Endpoin Get Member By Email
-        $url = URLAPI . "/auth/getmember_byemail?email=".$email;
+        $url = URLAPI . "/auth/getmember_byemail?email=" . $email;
         $result = satoshiAdmin($url)->result;
 
-        if($result->message->status == "active" && $result->message->membership == "expired"){
-            return redirect()->to(BASE_URL . 'homepage/satoshi_register_payment/'.base64_encode($email));
+        if ($result->message->status == "active" && $result->message->membership == "expired") {
+            return redirect()->to(BASE_URL . 'homepage/satoshi_register_payment/' . base64_encode($email));
         }
-        
+
         $mdata = [
             'title'     => 'Active Account - ' . NAMETITLE,
             'content'   => 'homepage/service/satoshi-otp',
@@ -243,7 +243,7 @@ class Homepage extends BaseController
         ]);
 
         // Checking Validation
-        if(!$rules){
+        if (!$rules) {
             echo json_encode(["code" => "500", "message" => $this->validation->listErrors()]);
             exit();
         }
@@ -254,14 +254,14 @@ class Homepage extends BaseController
         $fourth = htmlspecialchars($this->request->getVar('fourth'));
 
         $mdata = [
-            "otp"   => $first.$second.$third.$fourth,
+            "otp"   => $first . $second . $third . $fourth,
             "email" => htmlspecialchars($this->request->getVar('email'))
         ];
 
         // Call Endpoin Activation Account
         $url = URLAPI . "/auth/activate?token=" . $mdata['otp'] . "&email=" . $mdata['email'];
         $result = satoshiAdmin($url, json_encode($mdata))->result;
-        
+
         echo json_encode($result);
     }
 
@@ -269,7 +269,7 @@ class Homepage extends BaseController
     {
         $email = base64_decode($email);
         // Call Endpoin Get Member By Email
-        $url = URLAPI . "/auth/getmember_byemail?email=".$email;
+        $url = URLAPI . "/auth/getmember_byemail?email=" . $email;
         $result = satoshiAdmin($url)->result->message;
 
         $price = [
@@ -285,7 +285,7 @@ class Homepage extends BaseController
             "6m"    => 150,
             "1y"    => 300
         ];
-     
+
         $mdata = [
             'title'     => 'Active Account - ' . NAMETITLE,
             'content'   => 'homepage/service/satoshi-payment',
@@ -303,11 +303,11 @@ class Homepage extends BaseController
     {
         $email = base64_decode($email);
         // Call Endpoin Get Member By Email
-        $url = URLAPI . "/auth/getmember_byemail?email=".$email;
+        $url = URLAPI . "/auth/getmember_byemail?email=" . $email;
         $result = satoshiAdmin($url)->result->message;
 
         // Stripe secret key
-        \Stripe\Stripe::setApiKey(SECRET_KEY); 
+        \Stripe\Stripe::setApiKey(SECRET_KEY);
         $paymentMethodId = $_POST['payment_method_id'];
 
         $getprice = htmlspecialchars($this->request->getVar('price'));
@@ -317,38 +317,37 @@ class Homepage extends BaseController
             "referral"  => $result->id_referral
         ];
 
-        if(!empty($result->id_referral)){
+        if (!empty($result->id_referral)) {
             $discount = [
                 "1m"    => 25,
                 "3m"    => 75,
                 "6m"    => 150,
-                "1y"    => 300  
-            ];   
-
-        }else {
+                "1y"    => 300
+            ];
+        } else {
             $discount = [
                 "1m"    => 0,
                 "3m"    => 0,
                 "6m"    => 0,
-                "1y"    => 0  
-            ];            
+                "1y"    => 0
+            ];
         }
 
 
 
-        if($getprice == 250){
+        if ($getprice == 250) {
             $mdata['amount'] = $getprice - $discount['1m'];
             $mdata['period'] = 30;
-        }else if($getprice == 600){
+        } else if ($getprice == 600) {
             $mdata['amount'] = $getprice - $discount['3m'];
             $mdata['period'] = 30 * 3;
-        }else if($getprice == 1050){
+        } else if ($getprice == 1050) {
             $mdata['amount'] = $getprice - $discount['6m'];
             $mdata['period'] = 30 * 6;
-        }else if($getprice == 1800){
+        } else if ($getprice == 1800) {
             $mdata['amount'] = $getprice - $discount['1y'];
             $mdata['period'] = 365;
-        }else{
+        } else {
             session()->setFlashdata('failed', "Invalid Amount, Please Try Again");
             return redirect()->to(BASE_URL . 'homepage/satoshi_register_payment/' .  base64_encode($result->email));
         }
@@ -368,7 +367,7 @@ class Homepage extends BaseController
 
             if ($paymentIntent->status === 'requires_confirmation') {
                 $confirmedPaymentIntent = $paymentIntent->confirm();
-                  
+
                 // If the payment was successful, proceed with creating the calendar event
                 if ($confirmedPaymentIntent->status === 'succeeded') {
                     // POST subscribe member
@@ -376,13 +375,13 @@ class Homepage extends BaseController
                     $result = satoshiAdmin($url, json_encode($mdata))->result->message;
 
                     session()->setFlashdata('successPayment', 'Thank you for your register, wait 1-5 minutes our team will be contact');
-                    header("Location: ". BASE_URL . "homepage/service?service=" . base64_encode("satoshi_signal"));
+                    header("Location: " . BASE_URL . "homepage/service?service=" . base64_encode("satoshi_signal"));
                     exit();
                 }
             }
         } catch (\Stripe\Exception\CardException $e) {
-            session()->setFlashdata('failed', 'Payment Failed: '. $e->getError()->message);
-            header("Location: ". BASE_URL . 'homepage/satoshi_register_payment/' .  base64_encode($result->email));
+            session()->setFlashdata('failed', 'Payment Failed: ' . $e->getError()->message);
+            header("Location: " . BASE_URL . 'homepage/satoshi_register_payment/' .  base64_encode($result->email));
             exit();
         }
     }
@@ -392,7 +391,7 @@ class Homepage extends BaseController
         $mdata = [
             'title'     => 'Contact Success - ' . NAMETITLE,
             'content'   => 'homepage/contact/contact_success',
-            
+
         ];
 
         return view('homepage/layout/wrapper-contactus', $mdata);
@@ -416,7 +415,7 @@ class Homepage extends BaseController
         return view('homepage/layout/wrapper-contactus', $mdata);
     }
 
-    
+
     public function getSlots()
     {
         // $calendarId = 'pnglobal.usa@gmail.com';
@@ -459,21 +458,21 @@ class Homepage extends BaseController
                 'rules'     => 'trim|required'
             ],
             'timezone'      => [
-                'label'     => 'Timezone', 
+                'label'     => 'Timezone',
                 'rules'     => 'trim|required'
             ],
             'schedule'      => [
-                'label'     => 'Schedule', 
+                'label'     => 'Schedule',
                 'rules'     => 'trim|required'
             ],
             'subject'      => [
-                'label'     => 'Subject', 
+                'label'     => 'Subject',
                 'rules'     => 'required'
             ],
         ]);
 
         // Checking Validation
-        if(!$rules){
+        if (!$rules) {
             session()->setFlashdata('failed', $this->validation->listErrors());
             return redirect()->to(BASE_URL . 'homepage/bookingconsultation')->withInput();
         }
@@ -481,23 +480,23 @@ class Homepage extends BaseController
         // Filter EMAIL
         $email = $this->request->getVar('email');
         $newEmail = array();
-        foreach($email as $dt){
+        foreach ($email as $dt) {
             array_push($newEmail, filter_var($dt, FILTER_VALIDATE_EMAIL));
         }
 
         $tempreferral = trim(htmlspecialchars($this->request->getVar('referral')));
-        $_SESSION["referral"]=null;
-        $referral=null;
-        if (!empty($tempreferral)){
+        $_SESSION["referral"] = null;
+        $referral = null;
+        if (!empty($tempreferral)) {
             // Call API
-            $url = URLAPI . "/v1/member/get_byreferral?refcode=".$tempreferral;
+            $url = URLAPI . "/v1/member/get_byreferral?refcode=" . $tempreferral;
             $resultReff = satoshiAdmin($url)->result;
-    
-    
+
+
             $referral = ($resultReff->code == 200) ? $tempreferral : null;
             $_SESSION["referral"] = ($resultReff->code == 200) ? $resultReff->message->id : null;
         }
-        
+
         // Initial Data
         $mdata = [
             'fname'         => htmlspecialchars($this->request->getVar('fname')),
@@ -517,26 +516,25 @@ class Homepage extends BaseController
         $views = [
             'title'     => 'Summary - ' . NAMETITLE,
             'content'   => 'homepage/contact/summary_booking',
-            'extra'     => 'homepage/contact/js/_js_summary_booking', 
+            'extra'     => 'homepage/contact/js/_js_summary_booking',
             'data'      => $mdata
         ];
 
         return view('homepage/layout/wrapper-contactus', $views);
-
     }
 
     public function booking_proccess()
     {
         // Stripe secret key
-        \Stripe\Stripe::setApiKey(SECRET_KEY); 
+        \Stripe\Stripe::setApiKey(SECRET_KEY);
         $paymentMethodId = $_POST['payment_method_id'];
-        if (!empty($_SESSION["referral"])){
+        if (!empty($_SESSION["referral"])) {
             $amount = 25000; // Replace with the actual amount in cents (e.g., $50.00 = 5000)
-        }else{
+        } else {
             $amount = 35000;
         }
         $currency = 'eur'; // Replace with your desired currency
-        
+
         try {
             // Create a PaymentIntent with the payment method ID
             $paymentIntent = \Stripe\PaymentIntent::create([
@@ -548,41 +546,41 @@ class Homepage extends BaseController
                     'allow_redirects' => 'never', // Disable redirect-based payment methods
                 ],
             ]);
-            
+
             if ($paymentIntent->status === 'requires_confirmation') {
                 $confirmedPaymentIntent = $paymentIntent->confirm();
-                
+
                 // If the payment was successful, proceed with creating the calendar event
                 if ($confirmedPaymentIntent->status === 'succeeded') {
                     // Call API
-                    
-                    $mdata=array(
-                            "email"     => $_SESSION['client']['email'][0],
-                            "amount"    => $amount/100,
-                            "referral"  => empty($_SESSION["referral"]) ? null : $_SESSION["referral"]
-                        );
+
+                    $mdata = array(
+                        "email"     => $_SESSION['client']['email'][0],
+                        "amount"    => $amount / 100,
+                        "referral"  => empty($_SESSION["referral"]) ? null : $_SESSION["referral"]
+                    );
                     $url = URLAPI . "/auth/bookconsultation";
-                    $resultReff = satoshiAdmin($url,json_encode($mdata))->result;
+                    $resultReff = satoshiAdmin($url, json_encode($mdata))->result;
 
                     // Create Google Calendar
                     $calendarId = 'primary'; // Your calendar ID
                     $slot = explode("#", $_SESSION['client']['datetime']);
                     $slotStart = $slot[0];
                     $slotEnd = $slot[1];
-        
+
                     $eventName = NAMETITLE . ' - Booking Consultation ' . $_SESSION['client']['subject'] . ' | ' . $_SESSION['client']['fname'];
                     $timezone = $_SESSION['client']['timezone'];
                     $description = '<div>
-                                        <p>Fullname: '.$_SESSION['client']['fname']  . ' ' . $_SESSION['client']['lname'].'</p>
-                                        <p>Whatsapp: '.$_SESSION['client']['whatsapp'].'</p>
-                                        <p>Email: '.$_SESSION['client']['email'][0].'</p>
-                                        <p>'.$_SESSION['client']['description'].'</p>
+                                        <p>Fullname: ' . $_SESSION['client']['fname']  . ' ' . $_SESSION['client']['lname'] . '</p>
+                                        <p>Whatsapp: ' . $_SESSION['client']['whatsapp'] . '</p>
+                                        <p>Email: ' . $_SESSION['client']['email'][0] . '</p>
+                                        <p>' . $_SESSION['client']['description'] . '</p>
                                     </div>';
-        
+
                     // Parse and format slot times back to RFC3339 for event creation
                     $slotStartDT = DateTime::createFromFormat('d-m-Y H:i:s', $slotStart, new DateTimeZone($timezone));
                     $slotEndDT = DateTime::createFromFormat('d-m-Y H:i:s', $slotEnd, new DateTimeZone($timezone));
-        
+
                     $eventData = [
                         'summary' => $eventName,
                         'description' => $description,
@@ -595,29 +593,28 @@ class Homepage extends BaseController
                             'timeZone' => $timezone,
                         ],
                     ];
-        
+
                     try {
                         //$this->googleCalendarService->createEvent($calendarId, $eventData);
-        
+
                         // Subject
                         $subject = NAMETITLE . ' - Booking Consultation ' . $_SESSION['client']['subject'] . ' | ' . $_SESSION['client']['fname'];
-        
-        
+
+
                         // Assign SESSION client
                         $mdata = $_SESSION['client'];
                         //sendmail_booking($subject, $mdata);
-            
+
                     } catch (\RuntimeException $e) {
-                        session()->setFlashdata('failed', 'Failed to booking schedule: '. $e->getMessage());
-                        header("Location: ". BASE_URL . 'homepage/bookingconsultation');
+                        session()->setFlashdata('failed', 'Failed to booking schedule: ' . $e->getMessage());
+                        header("Location: " . BASE_URL . 'homepage/bookingconsultation');
                         exit();
                     }
-        
                 }
             }
-        }catch (\Stripe\Exception\CardException $e) {
-            session()->setFlashdata('failed', 'Payment Failed: '. $e->getError()->message);
-            header("Location: ". BASE_URL . 'homepage/bookingconsultation');
+        } catch (\Stripe\Exception\CardException $e) {
+            session()->setFlashdata('failed', 'Payment Failed: ' . $e->getError()->message);
+            header("Location: " . BASE_URL . 'homepage/bookingconsultation');
             exit();
         }
     }
@@ -625,7 +622,7 @@ class Homepage extends BaseController
     // Contact Form Normaly
     public function contactform()
     {
-        
+
         $service = base64_decode($_GET['service']);
         $service = explode('-', $service);
         $subject = $service[0];
@@ -665,14 +662,14 @@ class Homepage extends BaseController
                 'rules'     => 'required'
             ],
             'subject'      => [
-                'label'     => 'Subject', 
+                'label'     => 'Subject',
                 'rules'     => 'required'
             ],
 
         ]);
 
         // Checking Validation
-        if(!$rules){
+        if (!$rules) {
             session()->setFlashdata('failed', $this->validation->listErrors());
             return redirect()->to(BASE_URL . 'homepage/contactform')->withInput();
         }
@@ -746,7 +743,7 @@ class Homepage extends BaseController
         ]);
 
         // Checking Validation
-        if(!$rules){
+        if (!$rules) {
             session()->setFlashdata('failed', $this->validation->listErrors());
             return redirect()->to(BASE_URL . 'homepage/contactreferral')->withInput();
         }
@@ -817,14 +814,14 @@ class Homepage extends BaseController
     {
         $step = base64_decode(@$_GET['step']);
 
-        if($step == 'second_step' || $step == 'third_step'){
+        if ($step == 'second_step' || $step == 'third_step') {
             $mdata = [
                 'title'     => 'Account Deletion - ' . NAMETITLE,
                 'content'   => 'homepage/account_deletion',
                 'extra'     => 'homepage/js/_js_account_deletion',
                 'step'      => $step
             ];
-        }else{
+        } else {
             $mdata = [
                 'title'     => 'Account Deletion - ' . NAMETITLE,
                 'content'   => 'homepage/account_deletion',
@@ -839,7 +836,7 @@ class Homepage extends BaseController
 
     public function account_deletion_proccess()
     {
-        
+
         // Validation Field
         $rules = $this->validate([
             'email'   => [
@@ -853,9 +850,9 @@ class Homepage extends BaseController
         ]);
 
         // Checking Validation
-        if(!$rules){
+        if (!$rules) {
             session()->setFlashdata('failed', $this->validation->listErrors());
-            return redirect()->to(BASE_URL . 'homepage/account_deletion?step='.base64_encode('second_step'))->withInput();
+            return redirect()->to(BASE_URL . 'homepage/account_deletion?step=' . base64_encode('second_step'))->withInput();
         }
 
         // Initial Data
@@ -867,8 +864,17 @@ class Homepage extends BaseController
         // Subject
         $subject = NAMETITLE . ' - Account Deletion ' . $mdata['email'];
         sendmail_accountdel($subject, $mdata);
-
     }
 
+    public function training_course()
+    {
+        $mdata = [
+            'title'     => 'Training Courses - ' . NAMETITLE,
+            'content'   => 'homepage/training_course',
+            'extra'     => 'homepage/js/_js_training_course',
+            'extragsap' => 'homepage/gsap/gsap_training_course',
+        ];
 
+        return view('homepage/layout/wrapper', $mdata);
+    }
 }
