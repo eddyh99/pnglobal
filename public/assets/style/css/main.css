@@ -13018,7 +13018,9 @@ p {
 .bg-trainingform.blockchain .wrapper-trainingform {
   padding-top: 0;
 }
-.bg-trainingform.blockchain .wrapper-trainingform h2, .bg-trainingform.blockchain .wrapper-trainingform h5, .bg-trainingform.blockchain .wrapper-trainingform p {
+.bg-trainingform.blockchain .wrapper-trainingform h2,
+.bg-trainingform.blockchain .wrapper-trainingform h5,
+.bg-trainingform.blockchain .wrapper-trainingform p {
   color: #1E1E1E;
 }
 .bg-trainingform.blockchain .wrapper-trainingform h5 {
@@ -13032,8 +13034,7 @@ p {
 1. ContactForm End
 ------------------------------------------------------------*/
 .bg-footer {
-  background-color: #1a1a1a;
-  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../../img/bg-footer.webp");
+  background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url("../../img/bg-footer.webp");
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -13042,7 +13043,8 @@ p {
 }
 .bg-footer .logo-footer {
   display: flex;
-  justify-content: flex-end;
+  justify-content: center;
+  align-items: center;
   width: 100%;
 }
 .bg-footer .logo-footer img {
@@ -13053,7 +13055,11 @@ p {
 .bg-footer .logo-footer img:hover {
   transform: scale(1.05);
 }
-.bg-footer .logo-text-footer {
+.bg-footer .col-12.col-md-4 .d-flex.flex-column {
+  min-height: 200px;
+  justify-content: center;
+}
+.bg-footer .col-12.col-md-4 .d-flex.flex-column .logo-text-footer {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -13067,10 +13073,10 @@ p {
   text-transform: uppercase;
   margin-bottom: 1rem !important;
 }
-.bg-footer .logo-text-footer .text-gold {
-  color: #BFA573;
+.bg-footer .col-12.col-md-4 .d-flex.flex-column .logo-text-footer .text-gold {
+  color: #bfa573;
 }
-.bg-footer .btn-contact-form {
+.bg-footer .col-12.col-md-4 .d-flex.flex-column .btn-contact-form {
   background: #000;
   color: #fff !important;
   border: none;
@@ -13079,21 +13085,24 @@ p {
   padding: 0.75rem 5rem;
   transition: all 0.3s ease;
   margin-top: 0.5rem;
-  box-shadow: 0px 4px 6px 0px #FFF;
+  box-shadow: 0px 4px 6px 0px #fff;
 }
-.bg-footer .btn-contact-form:hover {
+.bg-footer .col-12.col-md-4 .d-flex.flex-column .btn-contact-form:hover {
   background: #1a1a1a;
   transform: translateY(-2px);
-  box-shadow: 0px 4px 10px 3px #FFF;
+  box-shadow: 0px 4px 10px 3px #fff;
 }
 .bg-footer .list {
-  border-left: 2px solid #BFA573;
+  border-left: 2px solid #bfa573;
   padding-left: 2rem;
   display: flex;
   align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  max-width: fit-content;
 }
 .bg-footer .list .footer-link {
-  color: #FFF !important;
+  color: #fff !important;
   font-family: "Noto Serif", serif;
   font-size: 16px;
   font-style: normal;
@@ -13105,17 +13114,15 @@ p {
   text-decoration-thickness: auto;
   text-underline-offset: auto;
   text-underline-position: from-font;
-  text-transform: capitalize;
+  text-transform: uppercase;
   padding: 0.25rem 0;
-  transition: all 0.3s ease;
 }
 .bg-footer .list .footer-link .d-flex.flex-column {
   width: 100%;
   align-items: flex-start;
 }
 .bg-footer .list .footer-link:hover {
-  color: #BFA573 !important;
-  padding-left: 0.5rem;
+  color: #bfa573 !important;
 }
 @media (max-width: 768px) {
   .bg-footer .list {
@@ -13129,9 +13136,28 @@ p {
   }
 }
 .bg-footer .border-hr-footer {
-  border-top: 2px solid #BFA573;
-  opacity: 0.5;
+  border-top: 2px solid #bfa573;
+  opacity: 1;
   margin: 2rem auto;
+}
+.bg-footer .footer-list li {
+  position: relative;
+  padding-left: 1.5rem;
+  list-style-type: none;
+  text-align: justify;
+  font-size: 14px;
+}
+.bg-footer .footer-list li strong {
+  text-transform: uppercase;
+  display: inline;
+  margin-bottom: 0.5rem;
+}
+.bg-footer .footer-list li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: #fff;
+  font-size: 1.2rem;
 }
 .bg-footer .address .row {
   display: flex;
@@ -13153,7 +13179,7 @@ p {
   padding-left: 1.65rem;
 }
 .bg-footer .address .row > .col-md-4:last-child .footer-link {
-  color: #FFF;
+  color: #fff;
   text-decoration: underline;
   margin: 0;
   padding: 0;
@@ -13173,7 +13199,7 @@ p {
 }
 .bg-footer .address .row > .col-md-4:last-child .mif-link .mif-text {
   text-align: right;
-  color: #D1B06B;
+  color: #d1b06b;
   font-family: "Markazi Text";
   font-size: 12px;
   font-style: normal;
@@ -13198,7 +13224,7 @@ p {
   margin-bottom: 0.25rem;
 }
 .bg-footer .address .row .text-gold {
-  color: #BFA573 !important;
+  color: #bfa573 !important;
   text-decoration: none;
   font-size: 0.875rem;
   transition: opacity 0.3s ease;
