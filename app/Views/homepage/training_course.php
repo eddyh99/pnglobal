@@ -68,3 +68,23 @@
         </div>
     </div>
 </section>
+
+<section class="aspiring-entrepreneurs">
+    <div class="container">
+        <h2 class="section-title text-center mb-5">Training for Aspiring Entrepreneurs</h2>
+        <div class="row align-items-center">
+            <!-- Left Column - Image -->
+            <div class="col-12 col-lg-6">
+                <img src="<?= BASE_URL ?>assets/img/ic_training_aspiring.png" alt="Training Aspiring" class="img-fluid">
+            </div>
+
+            <!-- Right Column - Text Content -->
+            <div class="col-12 col-lg-6">
+                <h3 class="section-subtitle">Growth Opportunities</h3>
+                <p class="section-description">
+                    At P.N. Global, we are dedicated to providing entrepreneurial training programs designed to equip aspiring entrepreneurs with the skills needed to successfully start and manage an activity. Our programs offer a wide range of content that covers all the crucial aspects of entrepreneurship, from business management basics to advanced market strategies. Through a practical and results-oriented approach, We help our participants to develop the skills necessary to navigate with confidence and competence the complex landscape of global affairs.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>

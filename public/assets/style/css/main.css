@@ -17538,6 +17538,48 @@ input:-moz-placeholder {
   line-height: 25px;
 }
 
+.aspiring-entrepreneurs {
+  padding: 50px 0;
+  background: #fff;
+}
+.aspiring-entrepreneurs .section-title {
+  color: rgba(56, 55, 52, 0.82);
+  font-family: "Noto Serif", serif;
+  font-size: 30px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 40px;
+  text-align: center;
+  margin: 0 auto 1rem;
+  width: fit-content;
+}
+.aspiring-entrepreneurs .section-title:after {
+  content: "";
+  display: block;
+  width: calc(100% + 30px);
+  height: 3px;
+  background: #bfa573;
+  margin: 20px -15px;
+}
+.aspiring-entrepreneurs .section-subtitle {
+  color: #1e1e1e;
+  font-family: "Noto Serif", serif;
+  font-size: 25px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 30px;
+  text-transform: capitalize;
+  margin-bottom: 2rem;
+}
+.aspiring-entrepreneurs .section-description {
+  color: #000;
+  font-family: "Noto Serif", serif;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 30px;
+}
+
 /*----------------------------------------------------------
     File Name  : _navbar.scss
     Desc       : File ini merupakan styling untuk 
