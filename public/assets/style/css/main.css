@@ -13109,6 +13109,13 @@ p {
   display: flex;
   flex-direction: column;
 }
+.bg-footer .address .row > .col-md-4:last-child {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
 .bg-footer .address .row > .col-md-4:last-child .d-flex.gap-4 {
   margin-top: auto;
   padding-left: 1.65rem;
@@ -13121,6 +13128,26 @@ p {
 }
 .bg-footer .address .row > .col-md-4:last-child .footer-link:hover {
   padding-left: 0;
+}
+.bg-footer .address .row > .col-md-4:last-child .mif-link {
+  display: block;
+  text-align: right;
+  margin-top: 2rem;
+  margin-left: auto;
+  padding-right: 1rem;
+}
+.bg-footer .address .row > .col-md-4:last-child .mif-link img {
+  max-width: 150px;
+}
+.bg-footer .address .row > .col-md-4:last-child .mif-link .mif-text {
+  text-align: right;
+  color: #D1B06B;
+  font-family: "Markazi Text";
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  text-transform: capitalize;
 }
 .bg-footer .address .row p {
   font-size: 0.875rem;
@@ -13167,17 +13194,17 @@ p {
   }
 }
 .bg-footer .mif-link {
-  text-decoration: none;
-  text-align: center;
+  display: block;
+  text-align: right;
+  margin-top: 2rem;
+  margin-left: auto;
+  padding-right: 1rem;
+}
+.bg-footer .mif-link img {
+  max-width: 150px;
 }
 .bg-footer .mif-link .mif-text {
-  color: #D1B06B;
-  font-family: "Markazi Text", serif;
-  font-size: 12px;
-  font-style: normal;
-  font-weight: 600;
-  line-height: normal;
-  text-transform: capitalize;
+  text-align: right;
 }
 @media (max-width: 992px) {
   .bg-footer .logo-footer img {

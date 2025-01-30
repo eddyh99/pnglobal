@@ -283,15 +283,15 @@
                                 <a href="#" class="footer-link">Terms & Conditions</a>
                                 <a href="#" class="footer-link">Privacy Policy</a>
                             </div>
+                            <a href="https://moneyindustrialfactory.io" target="_blank" class="mif-link">
+                                <img class='img-fluid' src='<?= BASE_URL ?>assets/img/powered-mif.png' alt='img'>
+                                <p class="mif-text mt-2 mb-0">Money Industrial Factory</p>
+                            </a>
                         </div>
                     </div>
 
                 </div>
                 <div class="col-10 mx-auto d-flex flex-column align-items-center">
-                    <a href="https://moneyindustrialfactory.io" target="_blank" class="mif-link">
-                        <img class='img-fluid' src='<?= BASE_URL ?>assets/img/powered-mif.png' alt='img'>
-                        <p class="mif-text mt-2 mb-0">Money Industrial Factory</p>
-                    </a>
                 </div>
             </div>
         </div>
