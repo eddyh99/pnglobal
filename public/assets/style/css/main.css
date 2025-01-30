@@ -13632,11 +13632,15 @@ p {
   margin-bottom: 1rem;
 }
 .newsletter .newsletter-content .mt-4 .col-md-6:last-child .button-wrapper {
-  text-align: center;
+  display: flex;
+  justify-content: center;
+  width: 100%;
   padding-left: 46px;
   padding-right: 126px;
 }
-.newsletter .newsletter-content .mt-4 .col-md-6:last-child .btn.custom-btn {
+.newsletter .newsletter-content .mt-4 .col-md-6:last-child .button-wrapper .btn.custom-btn {
+  margin: 35px auto;
+  width: auto;
   background: #BDA069;
   box-shadow: 0px 4px 15px 10px #FFF;
   color: #000;
@@ -13644,18 +13648,6 @@ p {
   font-size: 20px;
   font-weight: 700;
   line-height: 25px;
-  padding: 8px 25px;
-  margin: 35px 0;
-  border: none;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 70px;
-  text-align: center;
-  white-space: normal;
-}
-.newsletter .newsletter-content .mt-4 .col-md-6:last-child .btn.custom-btn:hover {
-  background: rgb(181.2083333333, 148.7847222222, 87.2916666667);
 }
 
 /*----------------------------------------------------------
