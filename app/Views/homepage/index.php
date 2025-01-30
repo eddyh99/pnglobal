@@ -81,9 +81,9 @@
 <section class="newsletter position-relative container-fluid p-0">
     <!-- Background with image -->
     <div class="newsletter-bg">
-        <img src="<?php echo BASE_URL; ?>assets/img/bg-newsletter.webp"
-            alt="Newsletter Background"
-            class="img-fluid">
+        <video autoplay loop muted playsinline class="img-fluid">
+            <source src="<?php echo BASE_URL; ?>assets/vid/bg-newsletter.mp4" type="video/mp4">
+        </video>
     </div>
 
     <!-- Content section -->

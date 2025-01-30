@@ -329,40 +329,43 @@
 .newsletter {
     position: relative;
     width: 100%;
-    height: 150vh;
-    overflow: hidden;
+     min-height: 100vh;
+    overflow: visible;
 
     .newsletter-bg {
         position: absolute;
         width: 100%;
-        height: 100vh;
+        height: 100%;
 
         &::after {
             content: '';
             position: absolute;
             top: 0;
             left: 0;
-            width: 100vh;
+            width: 100%;
             height: 100vh;
             z-index: 1;
         }
 
-        img {
+        video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
             position: absolute;
             top: 0;
             left: 0;
-            width: 100%;
-            height: 150vh;
-            object-fit: cover;
+            z-index: -1;
         }
     }
 
     .newsletter-content {
-        position: absolute;
+        position: relative;
         inset: 0;
         z-index: 2;
         display: flex;
         flex-direction: column;
+        min-height: 100vh; // Tambahkan ini
+        padding-bottom: 10rem; // Tambahkan padding bawah
 
         header {
             width: 100%;
