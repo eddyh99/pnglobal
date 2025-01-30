@@ -54,8 +54,23 @@
                     <li class="nav-item me-0 me-xl-4 <?= (current_url() === BASE_URL('index.php/homepage/hotdeals')) ? 'active' : '' ?>">
                         <a class="nav-link" translate="no" aria-current="page" href="<?= BASE_URL ?>homepage/hotdeals">HOT <br> DEAL</a>
                     </li>
-                    <li class="nav-item me-0 me-xl-2">
-                        <a class="nav-link" aria-current="page" href="<?= BASE_URL ?>?type=productservice">SERVICES <br> INFORMATION</a>
+                    <li class="nav-item dropdown me-0 me-xl-2">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            SERVICES <br> INFORMATION
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="<?= BASE_URL ?>homepage/service?service=<?= base64_encode('satoshi_signal') ?>">SATOSHI SIGNAL</a></li>
+                            <li><a class="dropdown-item" href="<?= BASE_URL ?>homepage/service?service=<?= base64_encode('lux_btc_brokers') ?>">Lux BTC Brokers </a></li>
+                            <li><a class="dropdown-item" href="<?= BASE_URL ?>homepage/service?service=<?= base64_encode('btc_elite_management') ?>">BTC Elite Management</a></li>
+                            <li><a class="dropdown-item" href="<?= BASE_URL ?>homepage/service?service=<?= base64_encode('crypto_consulting') ?>">CRYPTO CONSULTING</a></li>
+                            <li><a class="dropdown-item" href="<?= BASE_URL ?>homepage/service?service=<?= base64_encode('passive_incoming') ?>">PASSIVE INCOMING</a></li>
+                            <li><a class="dropdown-item" href="<?= BASE_URL ?>homepage/service?service=<?= base64_encode('portfolio_creation') ?>">PORTFOLIO CREATION</a></li>
+                            <li><a class="dropdown-item" href="<?= BASE_URL ?>homepage/service?service=<?= base64_encode('accumulation_plan') ?>">ACCUMULATION PLAN</a></li>
+                            <li><a class="dropdown-item" href="<?= BASE_URL ?>homepage/service?service=<?= base64_encode('wealth_consulting') ?>">WEALTH CONSULTING</a></li>
+                            <li><a class="dropdown-item" href="<?= BASE_URL ?>homepage/service?service=<?= base64_encode('fund_relocation') ?>">FUND RELOCATION</a></li>
+                            <li><a class="dropdown-item" href="<?= BASE_URL ?>homepage/service?service=<?= base64_encode('tax_reduction') ?>">TAX REDUCTION</a></li>
+                            <li><a class="dropdown-item" href="<?= BASE_URL ?>homepage/service?service=<?= base64_encode('capital_protection') ?>">CAPITAL PROTECTION</a></li>
+                        </ul>
                     </li>
                     <li class="nav-item me-0 me-xl-2">
                         <a class="nav-link" aria-current="page" href="<?= BASE_URL ?>?type=training">TRAINING <br> COURSES</a>

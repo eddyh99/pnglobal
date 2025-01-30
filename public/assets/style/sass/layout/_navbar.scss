@@ -66,11 +66,71 @@
                     text-align: center;
         
                     &:hover {
-                        font-weight: 700;
-                        text-decoration: underline;
+                        color: #BDA069;
                     }
                 }
             }
+
+        .dropdown {
+            position: relative;
+            &:hover {
+                .dropdown-menu {
+                    display: block;
+                    margin-top: 0;
+                    opacity: 1;
+                    visibility: visible;
+                    transform: translateX(-50%);
+                }
+            }
+        
+            .dropdown-menu {
+                position: absolute;
+                left: 50%;
+                transform: translateX(-50%);
+                text-align: center;
+                background: linear-gradient(
+                120deg,              /* Sudut miring dari kiri atas ke kanan bawah */
+                
+                /* Bagian Hitam */
+                #0B0A08 0%,         /* Warna hitam pekat mulai dari 0% */
+                #0B0A08 40%,        /* Hitam tetap mendominasi sampai 40% */
+
+                /* Transisi ke Coklat */
+                #5C5240 65%,        /* Warna coklat mulai di 65% untuk efek halus */
+
+                /* Warna Emas di Pojok Kanan Bawah */
+                #CCB78F 90%,        /* Emas mulai di 90% */
+                #CCB78F 100%        /* Emas penuh di ujung kanan bawah */
+                );
+
+                border: none;
+                text-align: center;
+                min-width: 350px;
+                width: max-content;
+                max-width: 600px;
+                visibility: hidden;
+                transition: all 0.3s ease;
+                
+                .dropdown-item {
+                    color: #D1B06B;
+                    transition: all 0.3s ease;
+                    text-transform: uppercase;
+                    text-align: center;
+                    padding: 10px 68px;
+                    white-space: nowrap;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    width: 100%;
+                    &:hover {
+                        background-color: #D1B06B;
+                        color: #0B0A08;
+                        width: 100%;
+                        font-weight: 800;
+line-height: 25px; /* 192.308% */
+                    }
+                }
+            }
+        }
         
     }
 
@@ -96,7 +156,8 @@
                 transition: all 0.3s ease;
         
                 &:hover {
-                    transform: translateY(-2px);
+                    color: #0B0A08;
+                    box-shadow: 0px 4px 4px #FFFFFF;
                 }
             }
     }

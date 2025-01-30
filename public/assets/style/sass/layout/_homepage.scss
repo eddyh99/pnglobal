@@ -88,13 +88,18 @@
             .btn-primary {
                 background-color: var.$text-primary-pnglobal;
                 box-shadow: 0px 4px 4px 0px rgba(255, 255, 255, 1);
-
+            
                 &:hover {
-                    box-shadow: 0px 8px 8px 0px rgba(255, 255, 255, 0.8);
+                    box-shadow: 0px 4px 15px 10px #FFF;
+                    
+                    .btn-text {
+                        color: var.$text-black-pnglobal !important;
+                    }
                 }
-
+            
                 .btn-text {
                     color: var.$text-white-pnglobal;
+                    transition: color 0.3s ease;
                 }
             }
 
@@ -103,11 +108,16 @@
                 box-shadow: 0px 4px 4px 0px rgba(189, 160, 105, 1);
 
                 &:hover {
-                    box-shadow: 0px 8px 8px 0px rgba(189, 160, 105, 0.8);
+                    box-shadow: 0px 4px 10px 10px #BDA069;
+                    .btn-text {
+                        color: #BDA069 !important;
+                    }
                 }
 
                 .btn-text {
                     color: var.$text-black-pnglobal;
+                        transition: color 0.3s ease;
+
                 }
             }
 
@@ -531,6 +541,10 @@
                         font-size: 20px;
                         font-weight: 700;
                         line-height: 25px;
+
+                        &:hover {
+                            background-color: #fff;
+                        }
                     }
                 }
             }
@@ -680,7 +694,8 @@
 
         &:hover {
             transform: translateY(-2px);
-            box-shadow: 0px 6px 40px 10px #FFF;
+            box-shadow: 0px 4px 35px 8px #F7941D;
+            color: #FFF;
         }
     }
 
@@ -792,7 +807,7 @@
             text-transform: uppercase;
             border-radius: 5px;
             background: #BFA573;
-            box-shadow: 0px 4px 4px 0px #E8D9BD;
+            box-shadow: 0px 4px 6px 0px rgba(255, 255, 255, 0.90);            
             border: none;
             padding: 3px 20px;
             cursor: pointer;
@@ -800,7 +815,8 @@
 
             &:hover {
                 transform: translateY(-2px);
-                box-shadow: 0px 6px 6px 0px #E8D9BD;
+                box-shadow: 0px 4px 10px 3px #E8D9BD;
+                background-color: #fff;
             }
         }
     }
@@ -1077,6 +1093,14 @@
                 .card-title {
                     color: #FFF;
                 }
+
+                &:hover {
+                    box-shadow: 0px 4px 20px 10px #BDA069;
+
+                    .card-title {
+                        color: #D1B06B;
+                    }
+                }
             }
             
             &.light-card {
@@ -1085,6 +1109,14 @@
                 
                 .card-title {
                     color: #000;
+                }
+
+                &:hover {
+                    box-shadow: 0px 4px 20px 10px #FFF;
+
+                    .card-title {
+                        color: #FFF;
+                    }
                 }
             }
             
@@ -1188,6 +1220,11 @@
         border: none;
         padding: 15px 30px;
         cursor: pointer;
+
+        &:hover {
+            box-shadow: 0px 4px 10px 3px #FFF;
+            color: #fff;
+        }
     }
 
     .logo-big {
