@@ -13563,7 +13563,7 @@ p {
   position: relative;
   width: 100%;
   min-height: 100vh;
-  overflow: visible;
+  overflow-x: hidden;
 }
 .newsletter .newsletter-bg {
   position: absolute;
@@ -13733,6 +13733,7 @@ p {
   position: relative;
   background-color: #1E1E1E;
   padding: 0;
+  margin: 0;
   min-height: 100vh;
   overflow: visible;
 }
@@ -13756,18 +13757,21 @@ p {
   position: relative;
   z-index: 2;
   top: 0;
+  max-width: 100% !important;
+  padding: 0 !important;
+  margin: 0 !important;
 }
 .earning-section .title-wrapper {
   background-color: rgba(0, 0, 0, 0.7);
-  margin-left: calc(-50vw + 50%);
-  margin-right: calc(-50vw + 50%);
+  width: 100%;
   padding: 20px 0 80px;
   position: relative;
   z-index: 1;
   margin-bottom: 0;
 }
 .earning-section .title-wrapper .inner-wrapper {
-  max-width: 983px;
+  width: 100%;
+  max-width: 1200px;
   margin: 0 auto;
   padding: 0 15px;
 }
