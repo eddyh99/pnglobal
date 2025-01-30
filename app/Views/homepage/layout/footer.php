@@ -165,38 +165,42 @@
     <?php }   ?>
 
     <!-- Start of Contact Form -->
-    <!-- <section class="bg-footer">
+    <section class="bg-footer">
         <div class="container">
             <div class="row">
-                <div class="col-12 text-link d-flex flex-column flex-md-row align-items-center justify-content-between">
-                    <div class="d-flex justify-content-center align-items-center">
-                        <a href="<?= BASE_URL ?>" class="logo-footer">
-                            <img src="<?= BASE_URL ?>assets/img/logo.png" alt="img">
-                            <p class="logo-text-footer f-noto">
-                                <span class="line-animation">
-                                    ASSET
-                                </span>
-                                <span class="line-animation" style="color: #BFA573;">
-                                    MANAGEMENT
-                                </span>
-                            </p>
+                <!-- Kolom Kiri - Logo -->
+                <div class="col-12 col-md-4 d-flex justify-content-center justify-content-md-start mb-4 mb-md-0">
+                    <a href="<?= BASE_URL ?>" class="logo-footer">
+                        <img src="<?= BASE_URL ?>assets/img/logo.png" alt="PN Global Logo" class="img-fluid">
+                    </a>
+                </div>
+
+                <!-- Kolom Tengah - Asset Management & Contact Form -->
+                <div class="col-12 col-md-4 text-center mb-4 mb-md-0">
+                    <div class="d-flex flex-column align-items-center">
+                        <p class="logo-text-footer f-noto">
+                            <span class="text-white">ASSET</span>
+                            <span class="text-gold">MANAGEMENT</span>
+                        </p>
+                        <a class="btn btn-contact-form text-uppercase px-4 pb-2"
+                            href="<?= BASE_URL ?>homepage/contactform?service=<?= base64_encode($title) ?>">
+                            Contact Form
                         </a>
                     </div>
-                    <div class="list mt-4 mt-md-0">
-                        <div class=" d-flex justify-content-start">
-                            <a class="btn-navbar-contactform px-0 mb-3 text-decoration-none text-uppercase" href="<?= BASE_URL ?>homepage/contactform?service=<?= base64_encode($title) ?>">Contact Form</a>
+                </div>
+
+                <!-- Kolom Kanan - List Link -->
+                <div class="col-12 col-md-4 mt-4 mt-md-0">
+                    <div class="list ps-md-4">
+                        <div class="d-flex flex-column gap-2">
+                            <a class="footer-link" href="<?= BASE_URL ?>homepage">Latest Deal</a>
+                            <a class="footer-link" href="<?= BASE_URL ?>homepage/service?service=<?= base64_encode('satoshi_signal') ?>">Services</a>
+                            <a class="footer-link" href="<?= BASE_URL ?>homepage">Training Courses</a>
+                            <a class="footer-link" href="<?= BASE_URL ?>homepage">About Pn Global</a>
                         </div>
-                        <a class="mb-3 text-uppercase" href="<?= BASE_URL ?>homepage/about">About Pn Global</a>
-                        <a class="mb-3 text-uppercase" href="<?php echo BASE_URL . "homepage/service?service=" . base64_encode("satoshi_signal") ?>">Satoshi Signal</a>
-                        <a class="my-3 text-uppercase" href="<?= BASE_URL ?>?type=productservice">Product And Services</a>
-                        <a class="my-3 text-uppercase" href="<?= BASE_URL ?>?type=training">Training</a>
-                        <a class="mt-3 text-uppercase" href="<?= BASE_URL ?>?type=service">Complementary Service</a>
-                        <a class="mt-3 text-uppercase" href="<?= BASE_URL ?>homepage/connection">Connections</a>
-                        <a class="mt-3 text-uppercase" href="<?= BASE_URL ?>homepage/privacy_policy">Privacy Policy</a>
-                        <a class="mt-3 text-uppercase" href="<?= BASE_URL ?>homepage/terms_conditions">Term & Condition</a>
                     </div>
                 </div>
-                <div class="col-8 mx-auto border-hr-footer"></div>
+                <div class="col-12 mx-auto border-hr-footer"></div>
                 <div class="col-12 my-4 d-flex justify-content-between align-items-center address">
                     <div class="row">
                         <div class="col-12 col-md-4">
@@ -217,7 +221,18 @@
                                     </svg>
                                 </span>
                                 <span class="ps-1">
-                                    <strong>International finance department:</strong> 12 Collyer Quay, Ocean Financial Centre, Singapore 049319
+                                    <strong>International finance department:</strong> Financial Centre, Singapore 049319
+                                </span>
+                            </p>
+                            <p class="f-inter text-white mb-4 d-flex">
+                                <span>
+                                    <svg width="11" height="14" viewBox="0 0 11 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M5.5 0C2.45929 0 0 2.191 0 4.9C0 8.575 5.5 14 5.5 14C5.5 14 11 8.575 11 4.9C11 2.191 8.54071 0 5.5 0ZM5.5 6.65C4.41571 6.65 3.53571 5.866 3.53571 4.9C3.53571 3.934 4.41571 3.15 5.5 3.15C6.58429 3.15 7.46429 3.934 7.46429 4.9C7.46429 5.866 6.58429 6.65 5.5 6.65Z" fill="#D1B06B" />
+                                    </svg>
+                                </span>
+                                <span class="ps-1">
+                                    <strong>International monetary departments:</strong> 12 Collyer Quay, Ocean Financial Centre, Singapore 049319
+                                    Business Location: 109 Bismarckia Way - George Town Cayman Islands
                                 </span>
                             </p>
                         </div>
@@ -239,7 +254,17 @@
                                     </svg>
                                 </span>
                                 <span class="ps-1">
-                                    <strong>Operational detachment:</strong> Benoa Square, Jl. Bypass Ngurah Rai A Kedonganan No.21, Jimbaran, Kec. Kuta, Kabupaten Badung, Bali 80361, Indonesia
+                                    <strong>Brokers stock division:</strong> 11 Wallstreet, New York, NY 10005 (USA)
+                                </span>
+                            </p>
+                            <p class="f-inter text-white mb-4 d-flex">
+                                <span>
+                                    <svg width="11" height="14" viewBox="0 0 11 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M5.5 0C2.45929 0 0 2.191 0 4.9C0 8.575 5.5 14 5.5 14C5.5 14 11 8.575 11 4.9C11 2.191 8.54071 0 5.5 0ZM5.5 6.65C4.41571 6.65 3.53571 5.866 3.53571 4.9C3.53571 3.934 4.41571 3.15 5.5 3.15C6.58429 3.15 7.46429 3.934 7.46429 4.9C7.46429 5.866 6.58429 6.65 5.5 6.65Z" fill="#D1B06B" />
+                                    </svg>
+                                </span>
+                                <span class="ps-1">
+                                    <strong>Crypto broker division:</strong> Mahe, Seychelles, Jivan’s complex, Suite 708, Global Village, Abacus, Seychelles
                                 </span>
                             </p>
                         </div>
@@ -251,42 +276,36 @@
                                     </svg>
                                 </span>
                                 <span class="ps-1">
-                                    <strong>International monetary departments:</strong> Business Location: 109 Bismarckia Way - George Town Cayman Islands
+                                    <strong>Operational detachment:</strong> Benoa Square, Jl. Bypass Ngurah Rai A Kedonganan No.21, Jimbaran, Kec. Kuta, Kabupaten Badung, Bali 80361, Indonesia
                                 </span>
                             </p>
-                            <p class="f-inter text-white mb-4 d-flex">
-                                <span>
-                                    <svg width="11" height="14" viewBox="0 0 11 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M5.5 0C2.45929 0 0 2.191 0 4.9C0 8.575 5.5 14 5.5 14C5.5 14 11 8.575 11 4.9C11 2.191 8.54071 0 5.5 0ZM5.5 6.65C4.41571 6.65 3.53571 5.866 3.53571 4.9C3.53571 3.934 4.41571 3.15 5.5 3.15C6.58429 3.15 7.46429 3.934 7.46429 4.9C7.46429 5.866 6.58429 6.65 5.5 6.65Z" fill="#D1B06B" />
-                                    </svg>
-                                </span>
-                                <span class="ps-1">
-                                    <strong>Brokers stock division:</strong> 11 Wallstreet, New York, NY 10005 (USA)
-                                </span>
-                            </p>
+                            <div class="d-flex gap-4 mt-4">
+                                <a href="#" class="footer-link">Terms & Conditions</a>
+                                <a href="#" class="footer-link">Privacy Policy</a>
+                            </div>
                         </div>
                     </div>
 
                 </div>
-                <div class="col-10 mx-auto d-flex justify-content-center">
-                    <a href="https://moneyindustrialfactory.io" target="_blank">
+                <div class="col-10 mx-auto d-flex flex-column align-items-center">
+                    <a href="https://moneyindustrialfactory.io" target="_blank" class="mif-link">
                         <img class='img-fluid' src='<?= BASE_URL ?>assets/img/powered-mif.png' alt='img'>
+                        <p class="mif-text mt-2 mb-0">Money Industrial Factory</p>
                     </a>
                 </div>
             </div>
         </div>
-    </section> -->
-    <section class="bg-footer">
+    </section>
+
+    <!-- <section class="bg-footer">
         <div class="container">
             <div class="row">
-                <!-- Left Logo -->
                 <div class="col-3">
                     <a href="<?= BASE_URL ?>" class="logo-footer">
                         <img src="<?= BASE_URL ?>assets/img/logo.png" alt="PN Global Logo">
                     </a>
                 </div>
 
-                <!-- Center Content -->
                 <div class="col-6 text-center">
                     <div class="footer-center">
                         <div class="logo-text">
@@ -297,7 +316,6 @@
                     </div>
                 </div>
 
-                <!-- Right Logo -->
                 <div class="col-3 text-end">
                     <div class="vertical-divider"></div>
                     <div class="footer-links">
@@ -308,10 +326,8 @@
                     </div>
                 </div>
 
-                <!-- Divider -->
                 <div class="col-8 mx-auto border-hr-footer"></div>
 
-                <!-- Address Section -->
                 <div class="col-12 address-section">
                     <div class="row">
                         <div class="col-12 col-md-4">
@@ -383,7 +399,6 @@
                     </div>
                 </div>
 
-                <!-- Powered By -->
                 <div class="col-10 mx-auto d-flex justify-content-center">
                     <a href="https://moneyindustrialfactory.io" target="_blank">
                         <img class='img-fluid' src='<?= BASE_URL ?>assets/img/powered-mif.png' alt='Powered by MIF'>
@@ -391,7 +406,8 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> -->
+
     <!-- End of Contact Form -->
 
     <!-- JQUERY -->
