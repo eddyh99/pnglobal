@@ -494,3 +494,151 @@
         line-height: 30px;
     }
 }
+
+.online-training {
+    position: relative;
+    min-height: 80vh;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    video {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        min-height: 773px;
+        object-fit: cover;
+        z-index: 1;
+    }
+
+    .overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 2;
+    }
+
+    .container {
+        position: relative;
+        z-index: 3;
+    }
+
+    .content-wrapper {
+        max-width: 800px;
+        margin: 0 auto;
+        text-align: center;
+        background: rgba(0, 0, 0, 0.62);
+        padding: 50px;
+        border-radius: 10px;
+    }
+
+    .section-title {
+        color: #bfa573;
+        font-family: var.$f-noto;
+        font-size: 30px;
+        font-weight: 600;
+        line-height: 40px;
+        margin-bottom: 1rem;
+
+        .title-white {
+            color: #fff;
+            text-transform: uppercase;
+        }
+
+        .title-gold {
+            color: #bda069;
+            text-transform: uppercase;
+        }
+    }
+
+    .section-subtitle {
+        color: #eccf98;
+        font-family: var.$f-noto;
+        font-size: 18px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 30px; /* 166.667% */
+        margin-bottom: 2rem;
+    }
+
+    .steps-container {
+        .step-list {
+            list-style: none;
+            counter-reset: step-counter;
+            padding-left: 0;
+
+            li {
+                counter-increment: step-counter;
+                position: relative;
+                padding-left: 40px;
+                margin-bottom: 1rem;
+
+                &:before {
+                    content: counter(step-counter);
+                    position: absolute;
+                    left: 0;
+                    top: 0;
+                    width: 25px;
+                    height: 25px;
+                    // background: #bda069;
+                    color: #fff;
+                    border-radius: 50%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    font-weight: 600;
+                }
+            }
+        }
+    }
+
+    .step-text {
+        color: #fff;
+        font-family: var.$f-noto;
+        font-size: 18px;
+        font-weight: 400;
+        line-height: 30px;
+        margin-bottom: 1rem;
+    }
+
+    .instagram-link {
+        color: #bda069;
+        text-decoration: none;
+        display: block;
+        margin-bottom: 1rem;
+        word-break: break-all;
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+
+    .button-wrapper {
+        display: flex;
+        justify-content: center;
+        margin-top: 30px;
+    }
+
+    .follow-button {
+        border-radius: 5px;
+        background: #bda069;
+        box-shadow: 0px 4px 15px 6px #fff;
+        border: none;
+        padding: 10px 30px;
+        color: #000;
+        font-family: var.$f-noto;
+        font-size: 18px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+
+        &:hover {
+            background: #fff;
+            color: #000;
+        }
+    }
+}

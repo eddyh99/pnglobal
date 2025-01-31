@@ -201,3 +201,36 @@
         </div>
     </div>
 </section>
+
+<section class="online-training">
+    <video autoplay muted loop playsinline>
+        <source src="<?= BASE_URL ?>assets/vid/bg-online-training.mp4" type="video/mp4">
+    </video>
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="content-wrapper">
+            <h2 class="section-title">
+                <span class="title-white">How to get free</span>
+                <span class="title-gold">online training</span>
+            </h2>
+            <p class="section-subtitle">Follow the simple steps below:</p>
+            <div class="steps-container">
+                <ol class="step-list">
+                    <li class="step-text">
+                        Follow this INSTAGRAM profile
+                        <a href="https://www.instagram.com/pn.global?igsh=aWEya3pxaTdlbHA3" class="instagram-link" target="_blank">
+                            https://www.instagram.com/pn.global?igsh=aWEya3pxaTdlbHA3
+                        </a>
+                    </li>
+                    <li class="step-text">Every time a new course is organised, a Reel will be published on the profiles announcing the event, just comment "FRIENDS";</li>
+                    <li class="step-text">Once you have commented, if you are selected, you will be added to the close friends list;</li>
+                    <li class="step-text">Take live lessons exclusively for close friends for free and Good Luck!</li>
+                </ol>
+
+                <div class="button-wrapper">
+                    <button class="follow-button">Follow</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

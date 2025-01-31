@@ -17878,6 +17878,134 @@ input:-moz-placeholder {
   line-height: 30px;
 }
 
+.online-training {
+  position: relative;
+  min-height: 80vh;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.online-training video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  min-height: 773px;
+  object-fit: cover;
+  z-index: 1;
+}
+.online-training .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+}
+.online-training .container {
+  position: relative;
+  z-index: 3;
+}
+.online-training .content-wrapper {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+  background: rgba(0, 0, 0, 0.62);
+  padding: 50px;
+  border-radius: 10px;
+}
+.online-training .section-title {
+  color: #bfa573;
+  font-family: "Noto Serif", serif;
+  font-size: 30px;
+  font-weight: 600;
+  line-height: 40px;
+  margin-bottom: 1rem;
+}
+.online-training .section-title .title-white {
+  color: #fff;
+  text-transform: uppercase;
+}
+.online-training .section-title .title-gold {
+  color: #bda069;
+  text-transform: uppercase;
+}
+.online-training .section-subtitle {
+  color: #eccf98;
+  font-family: "Noto Serif", serif;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 30px; /* 166.667% */
+  margin-bottom: 2rem;
+}
+.online-training .steps-container .step-list {
+  list-style: none;
+  counter-reset: step-counter;
+  padding-left: 0;
+}
+.online-training .steps-container .step-list li {
+  counter-increment: step-counter;
+  position: relative;
+  padding-left: 40px;
+  margin-bottom: 1rem;
+}
+.online-training .steps-container .step-list li:before {
+  content: counter(step-counter);
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 25px;
+  height: 25px;
+  color: #fff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+}
+.online-training .step-text {
+  color: #fff;
+  font-family: "Noto Serif", serif;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 30px;
+  margin-bottom: 1rem;
+}
+.online-training .instagram-link {
+  color: #bda069;
+  text-decoration: none;
+  display: block;
+  margin-bottom: 1rem;
+  word-break: break-all;
+}
+.online-training .instagram-link:hover {
+  text-decoration: underline;
+}
+.online-training .button-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+}
+.online-training .follow-button {
+  border-radius: 5px;
+  background: #bda069;
+  box-shadow: 0px 4px 15px 6px #fff;
+  border: none;
+  padding: 10px 30px;
+  color: #000;
+  font-family: "Noto Serif", serif;
+  font-size: 18px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.online-training .follow-button:hover {
+  background: #fff;
+  color: #000;
+}
+
 /*----------------------------------------------------------
     File Name  : _navbar.scss
     Desc       : File ini merupakan styling untuk 
