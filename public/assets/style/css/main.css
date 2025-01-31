@@ -18006,6 +18006,220 @@ input:-moz-placeholder {
   color: #000;
 }
 
+.banner-about {
+  position: relative;
+  overflow: hidden;
+}
+.banner-about .wrapper-about {
+  display: flex;
+  min-height: 100vh;
+}
+.banner-about .wrapper-about video {
+  width: 100%;
+  min-height: 100vh !important;
+  position: absolute;
+  z-index: 1;
+  object-fit: cover;
+  object-position: 50% 50%;
+}
+.banner-about .wrapper-about .banner-text-video {
+  width: 100%;
+  z-index: 2;
+  display: flex;
+  justify-content: start;
+  align-items: end;
+  margin-bottom: 4rem;
+}
+.banner-about .wrapper-about .banner-text-video .bg-text-video {
+  border-radius: 0px 5px 5px 0px;
+  padding: 1rem 3rem;
+  font-weight: 700;
+}
+.banner-about .wrapper-about .banner-text-video .bg-text-video.about {
+  background: rgba(232, 217, 189, 0.75);
+  color: #383734;
+  margin-bottom: 200px;
+}
+.banner-about .wrapper-about .banner-text-video .bg-text-video.about .about-banner {
+  color: #383734;
+  margin-left: 75px;
+  font-family: "Lato", sans-serif;
+  font-size: 28px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 35px;
+  text-transform: capitalize;
+}
+.banner-about .wrapper-about .banner-text-video .bg-text-video.about .about-banner span {
+  font-family: inherit;
+  font-weight: inherit;
+}
+
+.about-formation {
+  background-color: #f3ebdc;
+}
+.about-formation .row .wrapper-about-formation-left {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: center;
+}
+.about-formation .row .wrapper-about-formation-left h2 {
+  color: rgba(56, 55, 52, 0.82);
+  font-family: "Noto Serif", serif;
+  font-size: 30px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 30px;
+}
+.about-formation .row .wrapper-about-formation-left h2 .line-animation span {
+  font-family: inherit;
+  font-weight: inherit;
+}
+.about-formation .row .wrapper-about-formation-left h2 hr {
+  margin-top: 2rem;
+  width: 70% !important;
+  height: 3px;
+  color: #bfa573;
+  background-color: #bfa573;
+  opacity: 1;
+}
+.about-formation .row .wrapper-about-formation-right .skill-training h3 {
+  text-transform: uppercase;
+  color: #bfa573;
+  margin-bottom: 1rem;
+}
+.about-formation .row .wrapper-about-formation-right .skill-training p span {
+  font-weight: 700;
+}
+
+.about-climb {
+  background: url("../../img/bg-climb.png"), #000000;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 185vh;
+}
+@media (min-width: 1200px) {
+  .about-climb {
+    height: 150vh;
+  }
+}
+.about-climb .container {
+  height: auto;
+  min-height: 100vh;
+  padding: 4rem 0;
+}
+.about-climb .container .row .wrapper-about-climb-left {
+  height: auto;
+  display: flex;
+  align-items: flex-start;
+  margin-top: 800px;
+}
+.about-climb .container .row .wrapper-about-climb-left .wrapper-content {
+  padding-right: 30px;
+}
+.about-climb .container .row .wrapper-about-climb-left .wrapper-content p {
+  color: #ffffff;
+  line-height: 35px;
+  text-align: justify;
+}
+.about-climb .container .row .wrapper-about-climb-left .wrapper-content p span {
+  color: #bfa573;
+  margin-bottom: 10px;
+}
+.about-climb .container .row .wrapper-about-climb-right {
+  height: auto;
+  margin-top: 600px;
+}
+.about-climb .container .row .wrapper-about-climb-right .wrapper-content {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  padding-left: 30px;
+  min-height: calc(100% - 65px);
+}
+.about-climb .container .row .wrapper-about-climb-right .wrapper-content p {
+  color: #ffffff;
+  line-height: 35px;
+  text-align: justify;
+}
+.about-climb .container .row .wrapper-about-climb-right .wrapper-content p span {
+  color: #bfa573;
+}
+.about-climb .container .row .wrapper-about-climb-right .wrapper-content img {
+  margin: auto auto 65px auto;
+  display: block;
+}
+
+.bg-about-collab {
+  background-color: #ccb78f;
+}
+.bg-about-collab .about-plan img {
+  display: block;
+  width: 100%;
+  height: 95%;
+  object-fit: cover;
+  object-position: right;
+  padding-right: 3rem;
+}
+.bg-about-collab .about-plan p {
+  padding: 2rem 5rem 2rem 2rem;
+  text-align: justify;
+  line-height: 35px;
+}
+.bg-about-collab .about-plan p span {
+  font-weight: 600;
+  line-height: 30px; /* 166.667% */
+  text-transform: uppercase;
+}
+.bg-about-collab .about-vision .wrapping-video {
+  display: flex;
+  justify-content: end;
+}
+.bg-about-collab .about-vision .wrapping-video video {
+  width: 100%;
+  height: auto;
+}
+.bg-about-collab .about-vision p {
+  padding: 2rem;
+  text-align: justify;
+  line-height: 35px;
+}
+.bg-about-collab .about-vision p span {
+  font-weight: 600;
+  line-height: 30px; /* 166.667% */
+  text-transform: uppercase;
+}
+
+.legal-short-desc {
+  padding: 5rem 0;
+}
+.legal-short-desc .container .col-8 h1 {
+  color: #bfa573;
+  text-align: center;
+  font-family: "Odor Mean Chey", serif;
+  font-size: 30px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 40px; /* 133.333% */
+  text-transform: uppercase;
+}
+.legal-short-desc .container .col-8 p {
+  text-align: center;
+}
+.legal-short-desc .btn-know-team {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  text-decoration: none;
+  color: inherit;
+  transition: all 0.3s ease;
+}
+.legal-short-desc .btn-know-team:hover {
+  background: #bfa573;
+  color: #fff;
+}
+
 /*----------------------------------------------------------
     File Name  : _navbar.scss
     Desc       : File ini merupakan styling untuk 

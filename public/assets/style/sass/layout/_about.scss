@@ -1,0 +1,274 @@
+@use '../abstracts/variables' as var;
+@use '../abstracts/mixins' as mix;
+
+// Banner Section
+.banner-about {
+    position: relative;
+    overflow: hidden;
+
+    .wrapper-about {
+        display: flex;
+        min-height: 100vh;
+
+        video {
+            width: 100%;
+            min-height: 100vh !important;
+            position: absolute;
+            z-index: 1;
+            object-fit: cover;
+            object-position: 50% 50%;
+        }
+
+        .banner-text-video {
+            width: 100%;
+            z-index: 2;
+            display: flex;
+            justify-content: start;
+            align-items: end;
+            margin-bottom: 4rem;
+
+            .bg-text-video {
+                border-radius: 0px 5px 5px 0px;
+                padding: 1rem 3rem;
+                font-weight: 700;
+
+                &.about {
+                    background: rgba(232, 217, 189, 0.75);
+                    color: #383734;
+                    margin-bottom: 200px;
+
+                    .about-banner {
+                        color: #383734;
+                        margin-left: 75px;
+                        font-family: 'Lato', sans-serif;
+                        font-size: 28px;
+                        font-style: normal;
+                        font-weight: 700;
+                        line-height: 35px;
+                        text-transform: capitalize;
+
+                        span {
+                            font-family: inherit;
+                            font-weight: inherit;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+// Formation Section
+.about-formation {
+    background-color: #f3ebdc;
+
+    .row {
+        .wrapper-about-formation-left {
+            display: flex;
+            flex-direction: column;
+            align-items: start;
+            justify-content: center;
+            h2 {
+                color: rgba(56, 55, 52, 0.82);
+                font-family: 'Noto Serif', serif;
+                font-size: 30px;
+                font-style: normal;
+                font-weight: 600;
+                line-height: 30px;
+
+                .line-animation {
+                    span {
+                        font-family: inherit;
+                        font-weight: inherit;
+                    }
+                }
+                hr {
+                    margin-top: 2rem;
+                    width: 70% !important;
+                    height: 3px;
+                    color: #bfa573;
+                    background-color: #bfa573;
+                    opacity: 1;
+                }
+            }
+        }
+
+        .wrapper-about-formation-right {
+            .skill-training {
+                h3 {
+                    text-transform: uppercase;
+                    color: #bfa573;
+                    margin-bottom: 1rem;
+                }
+
+                p span {
+                    font-weight: 700;
+                }
+            }
+        }
+    }
+}
+
+// Climb Section
+.about-climb {
+    background: url('../../img/bg-climb.png'), #000000;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 185vh;
+
+    @media (min-width: 1200px) {
+        height: 150vh;
+    }
+
+    .container {
+        height: auto;
+        min-height: 100vh;
+        padding: 4rem 0;
+
+        .row {
+            .wrapper-about-climb-left {
+                height: auto;
+                display: flex;
+                align-items: flex-start;
+                margin-top: 800px; // Push content down
+
+                .wrapper-content {
+                    padding-right: 30px;
+
+                    p {
+                        color: #ffffff;
+                        line-height: 35px;
+                        text-align: justify;
+
+                        span {
+                            color: #bfa573;
+                            margin-bottom: 10px;
+                        }
+                    }
+                }
+            }
+
+            .wrapper-about-climb-right {
+                height: auto;
+                margin-top: 600px; // Pull content up relative to left
+
+                .wrapper-content {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: start;
+                    padding-left: 30px;
+                    min-height: calc(100% - 65px);
+
+                    p {
+                        color: #ffffff;
+                        line-height: 35px;
+                        text-align: justify;
+
+                        span {
+                            color: #bfa573;
+                        }
+                    }
+
+                    img {
+                        margin: auto auto 65px auto; // Center horizontally and maintain bottom spacing
+                        display: block; // Ensure centering works
+                    }
+                }
+            }
+        }
+    }
+}
+
+// Collaborative Section
+.bg-about-collab {
+    background-color: #ccb78f;
+
+    .about-plan {
+        img {
+            display: block;
+            width: 100%;
+            height: 95%;
+            object-fit: cover;
+            object-position: right;
+            padding-right: 3rem;
+        }
+
+        p {
+            padding: 2rem 5rem 2rem 2rem;
+            text-align: justify;
+            line-height: 35px;
+
+            span {
+                font-weight: 600;
+                line-height: 30px; /* 166.667% */
+                text-transform: uppercase;
+            }
+        }
+    }
+
+    .about-vision {
+        .wrapping-video {
+            display: flex;
+            justify-content: end;
+
+            video {
+                width: 100%;
+                height: auto;
+            }
+        }
+
+        p {
+            padding: 2rem;
+            text-align: justify;
+            line-height: 35px;
+
+            span {
+                font-weight: 600;
+                line-height: 30px; /* 166.667% */
+                text-transform: uppercase;
+            }
+        }
+    }
+}
+
+// Short Description Section
+.legal-short-desc {
+    padding: 5rem 0;
+
+    .container {
+        .col-8 {
+            h1 {
+                color: #bfa573;
+                text-align: center;
+                font-family: var.$f-odor;
+                font-size: 30px;
+                font-style: normal;
+                font-weight: 400;
+                line-height: 40px; /* 133.333% */
+                text-transform: uppercase;
+            }
+
+            p {
+                text-align: center;
+
+                // span {
+                //     font-weight: bold;
+                // }
+            }
+        }
+    }
+
+    .btn-know-team {
+        display: inline-block;
+        padding: 0.75rem 1.5rem;
+        text-decoration: none;
+        color: inherit;
+        transition: all 0.3s ease;
+
+        &:hover {
+            background: #bfa573;
+            color: #fff;
+        }
+    }
+}

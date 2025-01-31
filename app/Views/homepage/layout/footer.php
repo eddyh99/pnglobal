@@ -197,7 +197,7 @@
                             <a class="footer-link" href="<?= BASE_URL ?>homepage">Latest Deal</a>
                             <a class="footer-link" href="<?= BASE_URL ?>homepage/service?service=<?= base64_encode('satoshi_signal') ?>">Services</a>
                             <a class="footer-link" href="<?= BASE_URL ?>homepage">Training Courses</a>
-                            <a class="footer-link" href="<?= BASE_URL ?>homepage">About Pn Global</a>
+                            <a class="footer-link" href="<?= BASE_URL ?>homepage/about">About Pn Global</a>
                             <p></p>
                         </div>
                     </div>
