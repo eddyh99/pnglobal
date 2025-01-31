@@ -358,3 +358,139 @@
 .dark-bg-sections > * {
     margin: 0;
 }
+
+.benefits-training {
+    padding: 50px 0 60px;
+    background: #fff;
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    margin: 0;
+    overflow: visible;
+
+    .section-description {
+        color: #000;
+        font-family: var.$f-noto;
+        font-size: 18px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 30px;
+        margin-bottom: 2rem;
+
+        strong {
+            color: #bfa573;
+            font-weight: 600;
+        }
+    }
+
+    .col-12.col-lg-6 {
+        &:last-child {
+            display: flex;
+            align-items: center;
+            min-height: 100%;
+        }
+    }
+
+    .benefits-title {
+        color: #000;
+        font-family: var.$f-noto;
+        font-size: 30px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 40px;
+        margin: 0 auto 2rem;
+        text-align: left;
+        width: fit-content;
+        position: relative;
+
+        &:after {
+            content: '';
+            display: block;
+            width: calc(100% + 30px);
+            height: 3px;
+            background: #bfa573;
+            margin: 10px -15px;
+        }
+    }
+}
+
+.training-features {
+    background: #000;
+    padding: 50px 0;
+    position: relative;
+    z-index: 1;
+
+    .container {
+        .row {
+            margin: 0;
+            gap: 0;
+        }
+    }
+
+    .col-12.col-lg-6 {
+        // Fix selector syntax
+        padding: 0 30px;
+
+        &:first-child .feature-card {
+            margin-right: 0; // Align right
+            margin-left: auto;
+        }
+
+        &:last-child .feature-card {
+            margin-left: 0; // Align left
+            margin-right: auto;
+        }
+    }
+
+    .feature-card {
+        background: linear-gradient(
+            321deg,
+            #fff 7.82%,
+            #656262 24.88%,
+            #1e1e1e 47.94%
+        );
+
+        padding: 40px;
+        border-radius: 10px;
+        height: 100%;
+        max-width: 470px;
+        max-height: 554px;
+        margin: 0 auto; // Center the card
+
+        &:has(img) {
+            padding: 0;
+
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+        }
+    }
+
+    .section-title {
+        color: #bfa573;
+        font-family: var.$f-noto;
+        font-size: 25px;
+        font-weight: 600;
+        line-height: 40px;
+        margin-bottom: 1rem;
+    }
+
+    .section-subtitle {
+        color: #bfa573;
+        font-family: var.$f-noto;
+        font-size: 18px;
+        font-weight: 600;
+        line-height: 25px;
+        margin-bottom: 2rem;
+    }
+
+    .section-description {
+        color: #fff;
+        font-family: var.$f-noto;
+        font-size: 16px;
+        font-weight: 500;
+        line-height: 30px;
+    }
+}

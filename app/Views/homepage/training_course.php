@@ -155,3 +155,49 @@
         </div>
     </section>
 </div>
+
+<section class="benefits-training">
+    <div class="container">
+        <div class="row">
+            <!-- Left Column -->
+            <div class="col-12 col-lg-6">
+                <p class="section-description">
+                    <strong>Personalized approach:</strong> The training programs are tailored to the specific needs of each participant, ensuring effective and relevant learning.
+                </p>
+                <p class="section-description">
+                    <strong>Support Network:</strong> Access a global network of professionals and consultants to support your continued growth.
+                </p>
+                <p class="section-description">
+                    <strong>Continuous Feedback and Coaching:</strong> Throughout the program, you will receive constant feedback and coaching to improve your skills and address business challenges.
+                </p>
+            </div>
+            <!-- Right Column -->
+            <div class="col-12 col-lg-6">
+                <h3 class="benefits-title">Benefits of training <br>with PN Global</h3>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="training-features">
+    <div class="container">
+        <div class="row">
+            <!-- Left Column -->
+            <div class="col-12 col-lg-6">
+                <div class="feature-card">
+                    <h3 class="section-title">Why Choose Our Courses</h3>
+                    <h4 class="section-subtitle">Technical Training, Practical Approach</h4>
+                    <p class="section-description">
+                        Our courses are designed by industry experts with years of practical experience in Blockchain, Bitcoin Mining, and cryptocurrencies. We offer comprehensive training that combines advanced theory with practical exercises, allowing you to gain skills that are immediately applicable in the real world. Whether you are a beginner or an experienced professional, our courses will provide you with the tools needed to succeed in a rapidly evolving market.
+                    </p>
+                </div>
+            </div>
+            <!-- Right Column -->
+            <div class="col-12 col-lg-6">
+                <div class="feature-card">
+                    <img src="<?= BASE_URL ?>assets/img/ic_bitcoin_cat.png" alt="Bitcoin Cat" class="img-fluid">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
