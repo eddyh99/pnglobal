@@ -126,4 +126,27 @@
             </div>
         </div>
     </section>
+
+    <section class="opportunities-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-6">
+                    <img src="<?= BASE_URL ?>assets/img/ic_opportunities.png" alt="Opportunities" class="opportunities-image">
+                </div>
+                <div class="col-6">
+                    <div class="opportunities-content">
+                        <h2>Don't Miss Out on Opportunities!</h2>
+                        <h3>Maximize your Bitcoin holdings with LUX BTC BROKERs</h3>
+                        <p class="main-text">By connecting your Binance wallet via API, you'll allow our expert brokers to operate securely on your behalf – buying and selling at the right time, while you maintain full control over your assets.</p>
+                        <p class="sub-text"><span class="highlight">Ready to Grow Your Bitcoin?</span> <br> Activate Lux BTC Broker and experience strategic portfolio growth without lifting a finger. Let the experts work for you – your profits are just one click away!</p>
+                        <div class="button-wrapper">
+                            <div class="btn-primary">
+                                <div class="btn-text">Connect to LUX BTC brokers Today</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 </div>
