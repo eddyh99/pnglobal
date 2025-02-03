@@ -1,0 +1,116 @@
+@use '../abstracts/variables' as var;
+@use '../abstracts/mixins' as mix;
+
+.page-wrapper {
+    background-color: #000;
+}
+
+.banner-btcelite {
+    position: relative;
+    overflow: hidden;
+
+    .wrapper-banner-btcelite {
+        display: flex;
+        min-height: 100vh !important;
+
+        video {
+            @include mix.video-banner-center;
+        }
+
+        .logo-banner {
+            @include mix.flex-tengah-vertical;
+            z-index: 2;
+            text-align: center;
+            width: 100%;
+
+            .text-wrapper {
+                background: rgba(0, 0, 0, 0.71);
+                padding: 2rem;
+                width: 100%;
+                border-radius: 5px;
+
+                .logo-text-banner {
+                    text-transform: uppercase;
+                    letter-spacing: 3px;
+                    margin-bottom: 11px;
+                    font-size: 16px;
+                    font-weight: 700;
+                    text-align: center;
+                    color: #fff;
+
+                    .goal-text {
+                        font-family: var.$f-odor;
+                        font-size: 40px;
+                        font-style: normal;
+                        font-weight: 400;
+                        line-height: 50px;
+                        text-transform: uppercase;
+
+                        .elite {
+                            color: #bda069;
+                            display: inline;
+                            font-size: inherit;
+                            font-style: inherit;
+                            font-weight: inherit;
+                            line-height: inherit;
+                        }
+
+                        .management {
+                            color: #fff;
+                            display: inline;
+                            font-size: inherit;
+                            font-style: inherit;
+                            font-weight: inherit;
+                            line-height: inherit;
+                        }
+                    }
+                }
+
+                .discover-text {
+                    color: #fff;
+                    font-family: var.$f-noto;
+                    font-size: 22px;
+                    font-weight: 600;
+                    line-height: 144.687%;
+                    text-align: center;
+                    margin-top: 1rem;
+                }
+            }
+
+            .button-wrapper {
+                display: flex;
+                justify-content: center;
+                margin-top: 2rem;
+
+                .btn-primary {
+                    background: #bda069;
+                    box-shadow: 0px 4px 4px rgba(255, 255, 255, 0.9);
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    width: 311px;
+                    height: 85px;
+                    border-radius: 5px;
+                    transition: all 0.3s ease;
+
+                    &:hover {
+                        transform: translateY(-5px);
+                        background: #fff;
+                        box-shadow: 0px 4px 20px 10px #fff;
+                    }
+
+                    .btn-text {
+                        color: #000;
+                        font-family: var.$f-noto;
+                        font-size: 18px;
+                        font-weight: 700;
+                        line-height: 25px;
+                        text-transform: uppercase;
+                        text-align: center;
+                        padding: 0.5rem;
+                    }
+                }
+            }
+        }
+    }
+}

@@ -18224,69 +18224,125 @@ input:-moz-placeholder {
   background-color: #000;
 }
 
-.banner-homepage .wrapper-banner-homepage video {
+.banner-luxbtc {
+  position: relative;
+  overflow: hidden;
+}
+.banner-luxbtc .wrapper-banner-luxbtc {
+  display: flex;
+  min-height: 100vh !important;
+}
+.banner-luxbtc .wrapper-banner-luxbtc video {
+  width: 100%;
+  min-height: 100vh !important;
+  position: absolute;
+  z-index: 1;
+  object-fit: cover;
+  object-position: 50% 50%;
   filter: brightness(2);
 }
-.banner-homepage .wrapper-banner-homepage .logo-banner .text-wrapper {
+.banner-luxbtc .wrapper-banner-luxbtc .logo-banner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  z-index: 2;
+  text-align: center;
+  width: 100%;
+}
+.banner-luxbtc .wrapper-banner-luxbtc .logo-banner .text-wrapper {
   background: rgba(0, 0, 0, 0.71);
   padding: 2rem;
+  width: 100%;
+  border-radius: 5px;
 }
-.banner-homepage .wrapper-banner-homepage .logo-banner .text-wrapper .logo-text-banner .goal-text {
-  margin-bottom: 1rem;
-}
-.banner-homepage .wrapper-banner-homepage .logo-banner .text-wrapper .logo-text-banner .goal-text .lux {
-  color: #bda069;
-  font-family: "Odor Mean Chey", serif;
-  font-size: 40px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 50px;
+.banner-luxbtc .wrapper-banner-luxbtc .logo-banner .text-wrapper .logo-text-banner {
   text-transform: uppercase;
-  display: inline;
-}
-.banner-homepage .wrapper-banner-homepage .logo-banner .text-wrapper .logo-text-banner .goal-text .brokers {
+  margin-bottom: 11px;
+  font-size: 16px;
+  font-weight: 700;
+  text-align: center;
   color: #fff;
+}
+@media (min-width: 768px) {
+  .banner-luxbtc .wrapper-banner-luxbtc .logo-banner .text-wrapper .logo-text-banner {
+    font-size: 20px;
+  }
+}
+@media (min-width: 1024px) {
+  .banner-luxbtc .wrapper-banner-luxbtc .logo-banner .text-wrapper .logo-text-banner {
+    font-size: 30px;
+  }
+}
+@media (min-width: 1200px) {
+  .banner-luxbtc .wrapper-banner-luxbtc .logo-banner .text-wrapper .logo-text-banner {
+    padding: 0rem 3rem;
+    font-size: 40px;
+  }
+}
+.banner-luxbtc .wrapper-banner-luxbtc .logo-banner .text-wrapper .logo-text-banner .goal-text {
   font-family: "Odor Mean Chey", serif;
   font-size: 40px;
   font-style: normal;
   font-weight: 400;
-  line-height: 50px;
+  line-height: 50px; /* 125% */
   text-transform: uppercase;
-  display: inline;
 }
-.banner-homepage .wrapper-banner-homepage .logo-banner .text-wrapper .discover-text {
+.banner-luxbtc .wrapper-banner-luxbtc .logo-banner .text-wrapper .logo-text-banner .goal-text .lux {
+  color: #bda069;
+  display: inline;
+  font-size: inherit;
+  font-style: inherit;
+  font-weight: inherit;
+  line-height: inherit;
+}
+.banner-luxbtc .wrapper-banner-luxbtc .logo-banner .text-wrapper .logo-text-banner .goal-text .brokers {
+  color: #fff;
+  display: inline;
+  font-size: inherit;
+  font-style: inherit;
+  font-weight: inherit;
+  line-height: inherit;
+}
+.banner-luxbtc .wrapper-banner-luxbtc .logo-banner .text-wrapper .discover-text {
   color: #fff;
   font-family: "Noto Serif", serif;
   font-size: 22px;
   font-style: normal;
   font-weight: 600;
-  line-height: 144.687%;
+  line-height: 144.687%; /* 31.831px */
   text-align: center;
   margin-top: 1rem;
 }
-.banner-homepage .wrapper-banner-homepage .logo-banner .button-wrapper {
+.banner-luxbtc .wrapper-banner-luxbtc .logo-banner .button-wrapper {
+  display: flex;
   justify-content: center;
   margin-top: 2rem;
 }
-.banner-homepage .wrapper-banner-homepage .logo-banner .button-wrapper .btn-primary {
+.banner-luxbtc .wrapper-banner-luxbtc .logo-banner .button-wrapper .btn-primary {
   background: #bda069;
   box-shadow: 0px 4px 4px rgba(255, 255, 255, 0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 311px;
+  height: 84px;
+  border-radius: 5px;
 }
-.banner-homepage .wrapper-banner-homepage .logo-banner .button-wrapper .btn-primary .btn-text {
+.banner-luxbtc .wrapper-banner-luxbtc .logo-banner .button-wrapper .btn-primary:hover {
+  transform: translateY(-5px);
+  background: #fff;
+  box-shadow: 0px 4px 20px 10px #fff;
+}
+.banner-luxbtc .wrapper-banner-luxbtc .logo-banner .button-wrapper .btn-primary .btn-text {
   color: #000;
   font-family: "Noto Serif", serif;
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 600;
+  font-size: 18px;
+  font-weight: 700;
   line-height: 25px;
   text-transform: uppercase;
   text-align: center;
-}
-.banner-homepage .wrapper-banner-homepage .logo-banner .button-wrapper .btn-primary:hover {
-  transform: translateY(-5px);
-  border-radius: 5px;
-  background: #fff;
-  box-shadow: 0px 4px 20px 10px #fff;
+  padding: 0.5rem;
 }
 
 .exclusive-trading {
@@ -18691,6 +18747,115 @@ input:-moz-placeholder {
   transform: translateY(-5px);
   background: #fff;
   box-shadow: 0px 4px 15px 0px #fff;
+}
+
+.page-wrapper {
+  background-color: #000;
+}
+
+.banner-btcelite {
+  position: relative;
+  overflow: hidden;
+}
+.banner-btcelite .wrapper-banner-btcelite {
+  display: flex;
+  min-height: 100vh !important;
+}
+.banner-btcelite .wrapper-banner-btcelite video {
+  width: 100%;
+  min-height: 100vh !important;
+  position: absolute;
+  z-index: 1;
+  object-fit: cover;
+  object-position: 50% 50%;
+}
+.banner-btcelite .wrapper-banner-btcelite .logo-banner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  z-index: 2;
+  text-align: center;
+  width: 100%;
+}
+.banner-btcelite .wrapper-banner-btcelite .logo-banner .text-wrapper {
+  background: rgba(0, 0, 0, 0.71);
+  padding: 2rem;
+  width: 100%;
+  border-radius: 5px;
+}
+.banner-btcelite .wrapper-banner-btcelite .logo-banner .text-wrapper .logo-text-banner {
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  margin-bottom: 11px;
+  font-size: 16px;
+  font-weight: 700;
+  text-align: center;
+  color: #fff;
+}
+.banner-btcelite .wrapper-banner-btcelite .logo-banner .text-wrapper .logo-text-banner .goal-text {
+  font-family: "Odor Mean Chey", serif;
+  font-size: 40px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 50px;
+  text-transform: uppercase;
+}
+.banner-btcelite .wrapper-banner-btcelite .logo-banner .text-wrapper .logo-text-banner .goal-text .elite {
+  color: #bda069;
+  display: inline;
+  font-size: inherit;
+  font-style: inherit;
+  font-weight: inherit;
+  line-height: inherit;
+}
+.banner-btcelite .wrapper-banner-btcelite .logo-banner .text-wrapper .logo-text-banner .goal-text .management {
+  color: #fff;
+  display: inline;
+  font-size: inherit;
+  font-style: inherit;
+  font-weight: inherit;
+  line-height: inherit;
+}
+.banner-btcelite .wrapper-banner-btcelite .logo-banner .text-wrapper .discover-text {
+  color: #fff;
+  font-family: "Noto Serif", serif;
+  font-size: 22px;
+  font-weight: 600;
+  line-height: 144.687%;
+  text-align: center;
+  margin-top: 1rem;
+}
+.banner-btcelite .wrapper-banner-btcelite .logo-banner .button-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+}
+.banner-btcelite .wrapper-banner-btcelite .logo-banner .button-wrapper .btn-primary {
+  background: #bda069;
+  box-shadow: 0px 4px 4px rgba(255, 255, 255, 0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 311px;
+  height: 85px;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+}
+.banner-btcelite .wrapper-banner-btcelite .logo-banner .button-wrapper .btn-primary:hover {
+  transform: translateY(-5px);
+  background: #fff;
+  box-shadow: 0px 4px 20px 10px #fff;
+}
+.banner-btcelite .wrapper-banner-btcelite .logo-banner .button-wrapper .btn-primary .btn-text {
+  color: #000;
+  font-family: "Noto Serif", serif;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 25px;
+  text-transform: uppercase;
+  text-align: center;
+  padding: 0.5rem;
 }
 
 /*----------------------------------------------------------

@@ -5,85 +5,122 @@
     background-color: #000;
 }
 
-.banner-homepage {
-    .wrapper-banner-homepage {
+.banner-luxbtc {
+    position: relative;
+    overflow: hidden;
+
+    .wrapper-banner-luxbtc {
+        display: flex;
+        min-height: 100vh !important;
+
         video {
-            filter: brightness(2); // Increase video brightness
+            @include mix.video-banner-center;
+            filter: brightness(2);
         }
 
         .logo-banner {
+            @include mix.flex-tengah-vertical;
+            z-index: 2;
+            text-align: center;
+            width: 100%;
+
             .text-wrapper {
                 background: rgba(0, 0, 0, 0.71);
                 padding: 2rem;
+                width: 100%;
+                border-radius: 5px;
 
                 .logo-text-banner {
-                    .goal-text {
-                        margin-bottom: 1rem;
+                    text-transform: uppercase;
+                    margin-bottom: 11px;
+                    font-size: 16px;
+                    font-weight: 700;
+                    text-align: center;
+                    color: #fff;
 
-                        // LUX BTC BROKERS styling
+                    @include mix.md {
+                        font-size: 20px;
+                    }
+
+                    @include mix.xl {
+                        font-size: 30px;
+                    }
+
+                    @include mix.xl2 {
+                        padding: 0rem 3rem;
+                        font-size: 40px;
+                    }
+
+                    .goal-text {
+                        font-family: var.$f-odor;
+                        font-size: 40px;
+                        font-style: normal;
+                        font-weight: 400;
+                        line-height: 50px; /* 125% */
+                        text-transform: uppercase;
+
                         .lux {
                             color: #bda069;
-                            font-family: var.$f-odor;
-                            font-size: 40px;
-                            font-style: normal;
-                            font-weight: 400;
-                            line-height: 50px;
-                            text-transform: uppercase;
                             display: inline;
+                            font-size: inherit;
+                            font-style: inherit;
+                            font-weight: inherit;
+                            line-height: inherit;
                         }
 
-                        // BTC BROKERS part
                         .brokers {
                             color: #fff;
-                            font-family: var.$f-odor;
-                            font-size: 40px;
-                            font-style: normal;
-                            font-weight: 400;
-                            line-height: 50px;
-                            text-transform: uppercase;
                             display: inline;
+                            font-size: inherit;
+                            font-style: inherit;
+                            font-weight: inherit;
+                            line-height: inherit;
                         }
                     }
                 }
 
-                // Subtitle text
                 .discover-text {
                     color: #fff;
                     font-family: var.$f-noto;
                     font-size: 22px;
                     font-style: normal;
                     font-weight: 600;
-                    line-height: 144.687%;
+                    line-height: 144.687%; /* 31.831px */
                     text-align: center;
                     margin-top: 1rem;
                 }
             }
 
-            // Single button styling
             .button-wrapper {
+                display: flex;
                 justify-content: center;
                 margin-top: 2rem;
 
                 .btn-primary {
                     background: #bda069;
                     box-shadow: 0px 4px 4px rgba(255, 255, 255, 0.9);
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    width: 311px;
+                    height: 84px;
+                    border-radius: 5px;
+
+                    &:hover {
+                        transform: translateY(-5px);
+                        background: #fff;
+                        box-shadow: 0px 4px 20px 10px #fff;
+                    }
 
                     .btn-text {
                         color: #000;
                         font-family: var.$f-noto;
-                        font-size: 16px;
-                        font-style: normal;
-                        font-weight: 600;
+                        font-size: 18px;
+                        font-weight: 700;
                         line-height: 25px;
                         text-transform: uppercase;
                         text-align: center;
-                    }
-
-                    &:hover {
-                        transform: translateY(-5px);
-                        border-radius: 5px;
-                        background: #fff;
-                        box-shadow: 0px 4px 20px 10px #fff;
+                        padding: 0.5rem;
                     }
                 }
             }

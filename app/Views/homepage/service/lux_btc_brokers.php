@@ -1,7 +1,7 @@
 <div class="page-wrapper">
     <!-- Start of Banner -->
-    <div class="banner-homepage">
-        <div class="wrapper-banner-homepage">
+    <div class="banner-luxbtc">
+        <div class="wrapper-banner-luxbtc">
             <video autoplay="" preload="" muted="" loop="" playsinline="">
                 <source src="<?= BASE_URL ?>assets/vid/bg-lux-btc.mp4" type="video/webm">
             </video>
