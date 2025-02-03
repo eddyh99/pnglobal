@@ -111,6 +111,22 @@ class Homepage extends BaseController
                 'extragsap' => 'homepage/gsap/gsap_satoshi',
                 'flag'      => 'satoshi'
             ];
+        } else if ($service == "lux_btc_brokers") {
+            $mdata = [
+                'title'     => 'Lux BTC Brokers - ' . NAMETITLE,
+                'content'   => 'homepage/service/lux_btc_brokers',
+                'extra'     => 'homepage/js/_js_index',
+                'extragsap' => 'homepage/gsap/gsap_luxbtc',
+                'flag'      => 'luxbtc'
+            ];
+        } else if ($service == "btc_elite_management") {
+            $mdata = [
+                'title'     => 'BTC Elite Management - ' . NAMETITLE,
+                'content'   => 'homepage/service/btc_elite_management',
+                'extra'     => 'homepage/js/_js_index',
+                'extragsap' => 'homepage/gsap/gsap_btc_elite_management',
+                'flag'      => 'btcelitemanagement'
+            ];
         } else {
             $mdata = [
                 'title'     => 'Service Finance Advice Assets And Investment - ' . NAMETITLE,
