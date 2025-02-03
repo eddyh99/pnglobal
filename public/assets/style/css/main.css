@@ -19045,6 +19045,59 @@ input:-moz-placeholder {
   margin-bottom: 30px;
 }
 
+.freedom-section {
+  position: relative;
+  margin-top: 80px;
+  width: 100%;
+  background: radial-gradient(120.33% 374.93% at 90% 0%, #000 0%, #454242 63.84%, #adadad 97.98%);
+  padding: 55px 0;
+}
+.freedom-section .container .row {
+  display: flex;
+  align-items: center;
+}
+.freedom-section .container .row h2 {
+  color: #bda069;
+  font-family: "Noto Serif", serif;
+  font-size: 25px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 40px;
+  text-transform: uppercase;
+}
+.freedom-section .container .row h2:after {
+  content: "";
+  display: block;
+  width: 350px;
+  height: 2px;
+  background: #bda069;
+  margin-top: 20px;
+}
+.freedom-section .container .row .col-2 img {
+  width: 100%;
+  height: auto;
+}
+.freedom-section .container .row .col-5:last-of-type {
+  padding: 0 40px;
+}
+.freedom-section .container .row .col-5:last-of-type h3 {
+  color: #bda069;
+  font-family: "Noto Serif", serif;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 800;
+  line-height: 30px;
+  margin-bottom: 20px;
+}
+.freedom-section .container .row .col-5:last-of-type .description {
+  color: #fff;
+  font-family: "Noto Serif", serif;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 30px;
+}
+
 /*----------------------------------------------------------
     File Name  : _navbar.scss
     Desc       : File ini merupakan styling untuk 

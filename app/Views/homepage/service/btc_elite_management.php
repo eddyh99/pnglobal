@@ -84,4 +84,21 @@
             </div>
         </div>
     </section>
+
+    <section class="freedom-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-2">
+                    <img src="<?= BASE_URL ?>assets/img/ic_total_freedom.png" alt="Total Freedom">
+                </div>
+                <div class="col-5">
+                    <h2>Flexible and Secure <br> Management</h2>
+                </div>
+                <div class="col-5">
+                    <h3>Total Freedom and Autonomy</h3>
+                    <p class="description">Even with active wallet management, you can access your funds at any time. There are no restrictions or constraints, your capital is always available for withdrawals or further investments.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 </div>
