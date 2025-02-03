@@ -18220,6 +18220,140 @@ input:-moz-placeholder {
   color: #fff;
 }
 
+.page-wrapper {
+  background-color: #000;
+}
+
+.banner-homepage .wrapper-banner-homepage video {
+  filter: brightness(2);
+}
+.banner-homepage .wrapper-banner-homepage .logo-banner .text-wrapper {
+  background: rgba(0, 0, 0, 0.71);
+  padding: 2rem;
+}
+.banner-homepage .wrapper-banner-homepage .logo-banner .text-wrapper .logo-text-banner .goal-text {
+  margin-bottom: 1rem;
+}
+.banner-homepage .wrapper-banner-homepage .logo-banner .text-wrapper .logo-text-banner .goal-text .lux {
+  color: #bda069;
+  font-family: "Odor Mean Chey", serif;
+  font-size: 40px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 50px;
+  text-transform: uppercase;
+  display: inline;
+}
+.banner-homepage .wrapper-banner-homepage .logo-banner .text-wrapper .logo-text-banner .goal-text .brokers {
+  color: #fff;
+  font-family: "Odor Mean Chey", serif;
+  font-size: 40px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 50px;
+  text-transform: uppercase;
+  display: inline;
+}
+.banner-homepage .wrapper-banner-homepage .logo-banner .text-wrapper .discover-text {
+  color: #fff;
+  font-family: "Noto Serif", serif;
+  font-size: 22px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 144.687%;
+  text-align: center;
+  margin-top: 1rem;
+}
+.banner-homepage .wrapper-banner-homepage .logo-banner .button-wrapper {
+  justify-content: center;
+  margin-top: 2rem;
+}
+.banner-homepage .wrapper-banner-homepage .logo-banner .button-wrapper .btn-primary {
+  background: #bda069;
+  box-shadow: 0px 4px 4px rgba(255, 255, 255, 0.9);
+}
+.banner-homepage .wrapper-banner-homepage .logo-banner .button-wrapper .btn-primary .btn-text {
+  color: #000;
+  font-family: "Noto Serif", serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 25px;
+  text-transform: uppercase;
+  text-align: center;
+}
+.banner-homepage .wrapper-banner-homepage .logo-banner .button-wrapper .btn-primary:hover {
+  transform: translateY(-5px);
+  border-radius: 5px;
+  background: #fff;
+  box-shadow: 0px 4px 20px 10px #fff;
+}
+
+.exclusive-trading {
+  position: relative;
+  padding: 44px 0;
+  background-color: #000;
+}
+.exclusive-trading::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(rgba(189, 160, 105, 0.1), rgba(0, 0, 0, 0.9));
+  z-index: 1;
+}
+.exclusive-trading .container {
+  position: relative;
+  z-index: 2;
+}
+.exclusive-trading .container .row {
+  align-items: center;
+}
+.exclusive-trading .container .row h2 {
+  color: #bda069;
+  font-family: "Odor Mean Chey", serif;
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  font-size: 25px;
+  font-style: normal;
+  font-weight: 800;
+  line-height: 40px; /* 160% */
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+.exclusive-trading .container .row .main-desc {
+  color: #fff;
+  font-family: "Noto Serif", serif;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 30px;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  max-width: 715px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.exclusive-trading .container .row .sub-desc {
+  color: #fff;
+  font-family: "Noto Serif", serif;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 30px; /* 150% */
+  text-align: center;
+}
+.exclusive-trading .container .row .exclusive-icon {
+  width: 100%;
+  min-width: 150px;
+  display: block;
+  margin: 0 auto;
+  position: relative;
+  margin-top: -50px;
+}
+
 /*----------------------------------------------------------
     File Name  : _navbar.scss
     Desc       : File ini merupakan styling untuk 
