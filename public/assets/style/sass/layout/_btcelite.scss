@@ -410,3 +410,81 @@
         }
     }
 }
+
+.start-growing-section {
+    position: relative;
+    margin-top: 80px;
+    width: 100%;
+    padding: 55px 0;
+    background: radial-gradient(
+        120.33% 374.93% at 0% 100%,
+        #bda069 0%,
+        #bda069 25%,
+        #514734 45%,
+        #76684c 65%,
+        rgba(0, 0, 0, 0.6) 85%,
+        #000 100%
+    );
+    .container {
+        .row {
+            display: flex;
+            align-items: center;
+
+            .col-6:first-child {
+                img {
+                    width: 100%;
+                    height: auto;
+                }
+            }
+
+            .col-6:last-child {
+                padding: 0 40px;
+
+                h2 {
+                    color: #bda069;
+                    font-family: var.$f-noto;
+                    font-size: 25px;
+                    font-style: normal;
+                    font-weight: 700;
+                    line-height: 40px;
+                    text-transform: uppercase;
+                    margin-bottom: 20px;
+                }
+
+                .description {
+                    color: #fff;
+                    font-family: var.$f-noto;
+                    font-size: 18px;
+                    font-style: normal;
+                    font-weight: 500;
+                    line-height: 30px;
+                    margin-bottom: 30px;
+                }
+
+                .btn-activate {
+                    display: inline-block;
+                    max-width: 245.963px;
+                    background: #bda069;
+                    border-radius: 5px;
+                    color: #000;
+                    text-decoration: none;
+                    text-align: center;
+                    font-family: var.$f-noto;
+                    font-size: 18px;
+                    font-style: normal;
+                    font-weight: 600;
+                    line-height: 25px;
+                    text-transform: uppercase;
+                    padding: 20px 0;
+                    transition: all 0.3s ease;
+
+                    &:hover {
+                        background: #fff;
+                        box-shadow: 0px 4px 15px 0px #fff;
+                        color: #000;
+                    }
+                }
+            }
+        }
+    }
+}

@@ -101,4 +101,19 @@
             </div>
         </div>
     </section>
+
+    <section class="start-growing-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-6">
+                    <img src="<?= BASE_URL ?>assets/img/ic_star_growing.png" alt="Start Growing" class="growing-image">
+                </div>
+                <div class="col-6">
+                    <h2>Start Growing Today</h2>
+                    <p class="description">Entrust your wallet management to professionals. With BTC Elite Management, you maintain full control over your assets and ensure continuous growth.</p>
+                    <a href="#" class="btn-activate">Activate BTC Elite Management Now!</a>
+                </div>
+            </div>
+        </div>
+    </section>
 </div>
