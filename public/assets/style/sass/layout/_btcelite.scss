@@ -114,3 +114,142 @@
         }
     }
 }
+
+.security-section {
+    position: relative;
+    background: radial-gradient(
+        circle at 18.41% 61.27%,
+        rgba(56, 55, 52, 0.82) 0%,
+        #282827 45%,
+        #9e9a94 100%
+    );
+    width: 100%;
+
+    .container {
+        padding: 4rem 0;
+
+        h2 {
+            color: #bda069;
+            text-align: center;
+            font-family: var.$f-noto;
+            font-size: 25px;
+            font-style: normal;
+            font-weight: 800;
+            line-height: 40px;
+            text-transform: uppercase;
+        }
+
+        h3 {
+            color: #fff;
+            text-align: center;
+            font-family: var.$f-noto;
+            font-size: 20px;
+            font-style: normal;
+            font-weight: 600;
+            line-height: 30px;
+            margin-bottom: 30px;
+        }
+
+        .description {
+            color: #fff;
+            text-align: center;
+            font-family: var.$f-noto;
+            font-size: 20px;
+            font-style: normal;
+            font-weight: 500;
+            line-height: 30px;
+        }
+
+        .security-image {
+            position: absolute;
+            bottom: -100px; // Adjust this value to control how far down the image extends
+            width: 380px; // Adjust size as needed
+            height: auto;
+            z-index: 2;
+        }
+    }
+}
+
+.total-security-section {
+    position: relative;
+    margin-top: 80px;
+    background: radial-gradient(
+        circle at 18.41% 76.14%,
+        #0b0a08 0%,
+        rgba(0, 0, 0, 0.2) 35%,
+        rgba(92, 82, 64, 0.45) 65%,
+        #ccb78f 100%
+    );
+    width: 100%;
+
+    .container {
+        position: relative;
+        width: 100vw; // Full viewport width
+        max-width: none; // Remove max-width constraint
+        margin: 0; // Remove default margins
+        padding: 55px 0;
+
+        .row {
+            width: 100%;
+            margin: 0;
+            gap: 30px;
+
+            @include mix.lg {
+                display: flex;
+                align-items: center;
+                position: relative;
+
+                .col-6:first-child {
+                    position: relative;
+                    margin-left: -10vw;
+                    z-index: 1;
+
+                    .security-icon {
+                        width: 100%;
+                        height: auto;
+                        margin-top: -100px;
+                        margin-bottom: -100px;
+                    }
+                }
+
+                .col-6:last-child {
+                    position: relative;
+                    z-index: 2;
+                    padding-right: 50px;
+                    padding-left: 50px;
+                    width: 50%;
+                }
+            }
+        }
+
+        h2 {
+            color: #bda069;
+            font-family: var.$f-noto;
+            font-size: 25px;
+            font-style: normal;
+            font-weight: 700;
+            line-height: 40px; /* 160% */
+            text-transform: uppercase;
+            // margin-bottom: 10px;
+        }
+
+        h3 {
+            color: #fff;
+            font-family: var.$f-noto;
+            font-size: 20px;
+            font-style: normal;
+            font-weight: 800;
+            line-height: 25px; /* 125% */
+            margin-bottom: 30px;
+        }
+
+        .description {
+            color: #fff;
+            font-family: var.$f-noto;
+            font-size: 18px;
+            font-style: normal;
+            font-weight: 500;
+            line-height: 30px; /* 166.667% */
+        }
+    }
+}
