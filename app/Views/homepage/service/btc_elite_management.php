@@ -62,4 +62,26 @@
             </div>
         </div>
     </section>
+
+    <section class="personal-broker-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <h2>A Personal Broker at Your Service</h2>
+                </div>
+            </div>
+            <div class="row align-items-center">
+                <div class="col-6">
+                    <h3>Tailored Strategies for Every Client</h3>
+                    <p class="description">Each client is assigned a personal broker who works exclusively to optimize your portfolio and achieve your financial goals. This direct management provides constant support and tailor-made strategies based on the latest market trends.</p>
+
+                    <h3>Continuous Capital Growth</h3>
+                    <p class="description">Your assigned broker works with the goal of steadily increasing your investment, operating directly in the BTC Spot market. You will benefit from strategic operations aimed at the continuous growth of your capital, aligned with your financial goals and needs.</p>
+                </div>
+                <div class="col-6">
+                    <img src="<?= BASE_URL ?>assets/img/ic_personal_broker.png" alt="Personal Broker" class="broker-image">
+                </div>
+            </div>
+        </div>
+    </section>
 </div>
