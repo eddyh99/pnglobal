@@ -94,4 +94,36 @@
             </div>
         </div>
     </section>
+
+    <!-- Benefits Section -->
+    <section class="benefits-section">
+        <div class="container">
+            <h2>Key Benefits</h2>
+            <div class="divider"></div>
+            <div class="benefits-wrapper">
+                <div class="row">
+                    <div class="col-6">
+                        <div class="benefit-item">
+                            <h3>Secure Operations</h3>
+                            <p>Brokers manage trades only; withdrawals are impossible without your personal authorization.</p>
+                        </div>
+                        <div class="benefit-item">
+                            <h3>Always in Control</h3>
+                            <p>Monitor all activities in real-time and withdraw at any moment</p>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="benefit-item">
+                            <h3>Expert-Driven Growth</h3>
+                            <p>Leverage years of BTC market expertise to boost your portfolio, risk-free.</p>
+                        </div>
+                        <div class="benefit-item">
+                            <h3>Transparent and Compliant</h3>
+                            <p>Every move is clear, compliant, and aligned with your investment goals.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 </div>
