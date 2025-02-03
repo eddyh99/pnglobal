@@ -73,4 +73,25 @@
             </div>
         </div>
     </section>
+
+    <!-- Expertise Section -->
+    <section class="expertise-section">
+        <div class="container">
+            <h2>Expertise and Professionalism at Your Service</h2>
+            <div class="divider"></div>
+            <div class="row">
+                <div class="col-6">
+                    <img src="<?= BASE_URL ?>assets/img/ic_expertise.png" alt="Expertise" class="expertise-image">
+                </div>
+                <div class="col-6">
+                    <div class="expertise-content">
+                        <p class="main-text">A dedicated team of brokers for outstanding results.</p>
+                        <p class="sub-text">By choosing PN Global, you gain access to a network of highly skilled brokers with years of experience in Bitcoin market operations. Our experts craft tailored strategies to align with your investment goals, maximizing returns while safeguarding your assets.</p>
+                        <br>
+                        <p class="sub-text">We combine in-depth market analysis with hands-on portfolio management, ensuring that every trade is executed with precision and care. This means you benefit from continuous growth without compromising the autonomy and security of your funds.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 </div>
