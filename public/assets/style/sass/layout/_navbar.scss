@@ -2,7 +2,7 @@
     File Name  : _navbar.scss
     Desc       : File ini merupakan styling untuk navbar Homepage
 
-------------------------------------------------------------*/ 
+------------------------------------------------------------*/
 
 /**
  * TABLE OF CONTENTS
@@ -11,20 +11,18 @@
  *
  */
 
-
 @use '../abstracts/variables' as var;
 @use '../abstracts/mixins' as mix;
 
-
 /*----------------------------------------------------------
 1. Navbar Homepage Start
-------------------------------------------------------------*/ 
+------------------------------------------------------------*/
 .navbar {
     // background-color: rgba(217, 217, 217, 0.15);
-    background-color: rgba(9, 9, 9, 0.75);;
+    background-color: rgba(9, 9, 9, 0.75);
     position: absolute;
     top: 0;
-    z-index: 999; 
+    z-index: 999;
     width: 100%;
 
     .logo {
@@ -33,7 +31,7 @@
     }
 
     .logo-text {
-        font-family: "Odor Mean Chey", serif;
+        font-family: 'Odor Mean Chey', serif;
         font-size: 22px;
         font-style: normal;
         font-weight: 400;
@@ -43,33 +41,31 @@
         gap: 0.5rem;
 
         .text-gold {
-            color: #BDA069;
+            color: #bda069;
         }
 
         .text-white {
-            color: #FFFFFF;
+            color: #ffffff;
         }
-    
     }
 
     .navbar-nav {
-
         @include mix.flex-tengah;
         width: 100%;
         gap: 2rem;
 
         // Regular nav items
-            .nav-item {
-                .nav-link {
-                    color: var.$text-white-pnglobal;
-                    font-size: 15px;
-                    text-align: center;
-        
-                    &:hover {
-                        color: #BDA069;
-                    }
+        .nav-item {
+            .nav-link {
+                color: var.$text-white-pnglobal;
+                font-size: 15px;
+                text-align: center;
+
+                &:hover {
+                    color: #bda069;
                 }
             }
+        }
 
         .dropdown {
             position: relative;
@@ -82,25 +78,24 @@
                     transform: translateX(-50%);
                 }
             }
-        
+
             .dropdown-menu {
                 position: absolute;
                 left: 50%;
                 transform: translateX(-50%);
                 text-align: center;
                 background: linear-gradient(
-                120deg,              /* Sudut miring dari kiri atas ke kanan bawah */
-                
-                /* Bagian Hitam */
-                #0B0A08 0%,         /* Warna hitam pekat mulai dari 0% */
-                #0B0A08 40%,        /* Hitam tetap mendominasi sampai 40% */
+                    120deg,
+                    /* Dark section */ #0b0a08 0%,
+                    #0b0a08 60%,
 
-                /* Transisi ke Coklat */
-                #5C5240 65%,        /* Warna coklat mulai di 65% untuk efek halus */
+                    // Increased dark coverage
+                    /* Brown transition */ #5c5240 80%,
 
-                /* Warna Emas di Pojok Kanan Bawah */
-                #CCB78F 90%,        /* Emas mulai di 90% */
-                #CCB78F 100%        /* Emas penuh di ujung kanan bawah */
+                    // Moved transition point
+                    /* Gold corner - reduced */ #ccb78f 95%,
+                    // Pushed gold closer to edge
+                    #ccb78f 100%
                 );
 
                 border: none;
@@ -110,9 +105,9 @@
                 max-width: 600px;
                 visibility: hidden;
                 transition: all 0.3s ease;
-                
+
                 .dropdown-item {
-                    color: #D1B06B;
+                    color: #d1b06b;
                     transition: all 0.3s ease;
                     text-transform: uppercase;
                     text-align: center;
@@ -122,16 +117,15 @@
                     text-overflow: ellipsis;
                     width: 100%;
                     &:hover {
-                        background-color: #D1B06B;
-                        color: #0B0A08;
+                        background-color: #d1b06b;
+                        color: #0b0a08;
                         width: 100%;
                         font-weight: 800;
-line-height: 25px; /* 192.308% */
+                        line-height: 25px; /* 192.308% */
                     }
                 }
             }
         }
-        
     }
 
     // New container for buttons
@@ -141,25 +135,25 @@ line-height: 25px; /* 192.308% */
         margin-left: auto;
 
         .btn-navbar-referral {
-                width: 122px;
-                height: 43px;
-                background-color: white;
-                border-radius: 5px;
-                box-shadow: 0px 4px 4px 0px rgba(189, 160, 105, 1);
-                display: flex;
-                align-items: center;
-                font-size: 13px;
-                text-decoration: none;
-                text-align: center;
-                color: var.$text-primary-pnglobal;
-                font-size: 14px;
-                transition: all 0.3s ease;
-        
-                &:hover {
-                    color: #0B0A08;
-                    box-shadow: 0px 4px 4px #FFFFFF;
-                }
+            width: 122px;
+            height: 43px;
+            background-color: white;
+            border-radius: 5px;
+            box-shadow: 0px 4px 4px 0px rgba(189, 160, 105, 1);
+            display: flex;
+            align-items: center;
+            font-size: 13px;
+            text-decoration: none;
+            text-align: center;
+            color: var.$text-primary-pnglobal;
+            font-size: 14px;
+            transition: all 0.3s ease;
+
+            &:hover {
+                color: #0b0a08;
+                box-shadow: 0px 4px 4px #ffffff;
             }
+        }
     }
 
     .navbar-toggler:focus,
@@ -168,7 +162,7 @@ line-height: 25px; /* 192.308% */
         outline: none;
         box-shadow: none;
     }
-    
+
     .openbtn {
         background: var.$text-primary-pnglobal;
         width: 45px;
@@ -177,7 +171,7 @@ line-height: 25px; /* 192.308% */
         cursor: pointer;
         position: relative;
     }
-    
+
     .openbtn span {
         position: absolute;
         background: #fff;
@@ -185,7 +179,7 @@ line-height: 25px; /* 192.308% */
         border-radius: 3px;
         right: 14px;
         height: 3px;
-        transition: all .4s;
+        transition: all 0.4s;
         &:nth-of-type(1) {
             top: 13px;
             width: 45%;
@@ -199,8 +193,8 @@ line-height: 25px; /* 192.308% */
             width: 20%;
         }
     }
-    
-    .openbtn.active span{
+
+    .openbtn.active span {
         &:nth-of-type(1) {
             width: 45%;
             top: 16px;
@@ -217,7 +211,6 @@ line-height: 25px; /* 192.308% */
             transform: translateY(-6px) rotate(135deg);
         }
     }
-    
 
     // .nav-seeservice{
     //     height: 100vh !important;
@@ -238,22 +231,20 @@ line-height: 25px; /* 192.308% */
     //     -o-transform: none ;
     //     overflow: hidden;
 
-
     //     .bg-nav-service {
     //         height: 100%;
     //         width: 100%;
     //         object-fit: cover;
     //         object-position: 0;
     //     }
-    
-        
+
     //     .link-navbar-text {
     //         font-family: "Montserrat", sans-serif;
     //         line-height: 18px;
     //         font-weight: 800;
     //         font-variant: small-caps;
     //         color: var.$text-primary-pnglobal;
-    
+
     //         &:hover {
     //             color: #FFFFFF;
     //             transform: scale(3);
@@ -264,12 +255,8 @@ line-height: 25px; /* 192.308% */
     //         }
     //     }
     // }
-
 }
 
 /*----------------------------------------------------------
 1. Navbar Homepage End
-------------------------------------------------------------*/ 
-
-
-
+------------------------------------------------------------*/

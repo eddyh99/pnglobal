@@ -46,4 +46,31 @@
         </div>
     </section>
     <!-- End of Exclusive Trading Section -->
+
+    <!-- Optimized Security Section -->
+    <section class="optimized-security">
+        <div class="container">
+            <h2>Optimized Security, Zero Risk</h2>
+            <div class="divider"></div>
+
+            <div class="row">
+                <div class="col-6">
+                    <div class="security-content">
+                        <div class="content-block">
+                            <p class="main-text">Your funds stay safe while we handle the trades.</p>
+                            <p class="sub-text">Through API integration, our brokers are authorized solely to conduct buy and sell operations, ensuring zero risk of fund withdrawals or transfers. Your assets remain secure and with trading limited to the agreed-upon amount.</p>
+                        </div>
+
+                        <div class="content-block">
+                            <p class="main-text">Manage your investments freely, with no interference.</p>
+                            <p class="sub-text">With Lux BTC Brokers, you maintain full oversight and access to your Binance wallet. You can withdraw or manage your funds at any time, ensuring total flexibility and unrestricted autonomy.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <img src="<?= BASE_URL ?>assets/img/ic_optimize.png" alt="Optimized Security" class="security-image">
+                </div>
+            </div>
+        </div>
+    </section>
 </div>
