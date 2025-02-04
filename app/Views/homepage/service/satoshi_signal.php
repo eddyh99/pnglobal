@@ -122,4 +122,24 @@
         </div>
     </div>
     <!-- End of App Features Section -->
+
+    <!-- Start of Farewell Section -->
+    <div class="farewell-section">
+        <div class="container">
+            <div class="content-wrapper">
+                <div class="text-content">
+                    <h2>Say Farewell to slow, inaccurate, <br> and confusing signals</h2>
+                    <p class="description">Enjoy the financial freedom you've always dreamed. Our reliable returns, backed by our deep market knowledge and real-time analysis, ensure your financial success.</p>
+                    <p class="highlight">Join us today and start earning consistent profits.</p>
+                    <div class="button-wrapper">
+                        <button class="profit-button">Turn your savings <br> into profits</button>
+                    </div>
+                </div>
+                <div class="image-content">
+                    <img src="<?= BASE_URL ?>assets/img/ic_say_farewell.png" alt="Say Farewell">
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End of Farewell Section -->
 </div>

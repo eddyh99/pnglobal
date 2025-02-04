@@ -19363,7 +19363,7 @@ input:-moz-placeholder {
 }
 .revolutionize-section .bottom-content .signal-card {
   width: 419px;
-  height: 224px;
+  min-height: 224px;
   flex-shrink: 0;
   border-radius: 10px;
   background: linear-gradient(315deg, #000 -3.54%, #f7f4ee 50.57%, #fff 94.71%);
@@ -19474,7 +19474,7 @@ input:-moz-placeholder {
 }
 .app-features-section .bottom-content .feature-card-content {
   width: 287px;
-  height: 221px;
+  min-height: 221px;
   flex-shrink: 0;
   border-radius: 5px;
   background: linear-gradient(133deg, rgba(189, 160, 105, 0.95) 47.58%, rgba(247, 244, 238, 0.95) 99.09%, rgba(255, 255, 255, 0.95) 106.05%);
@@ -19491,6 +19491,89 @@ input:-moz-placeholder {
   font-weight: 700;
   line-height: 144.687%;
   text-transform: capitalize;
+}
+
+.farewell-section {
+  background: #000;
+  min-height: 480px;
+  position: relative;
+  overflow: hidden;
+  padding: 100px 0 12px;
+}
+.farewell-section .container {
+  width: 100vw;
+  max-width: none;
+  margin: 0;
+  padding: 0;
+  position: relative;
+}
+.farewell-section .content-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 480px;
+  margin: 0 auto;
+  padding: 0;
+}
+.farewell-section .text-content {
+  width: 50%;
+  padding: 0 100px;
+}
+.farewell-section .text-content h2 {
+  color: #bfa573;
+  font-family: "Noto Serif", serif;
+  font-size: 35px;
+  font-weight: 600;
+  line-height: 45px;
+  text-transform: capitalize;
+  margin-bottom: 30px;
+}
+.farewell-section .text-content .description {
+  color: #fff;
+  font-family: "Noto Serif", serif;
+  font-size: 25px;
+  font-weight: 600;
+  line-height: 150%;
+  text-transform: capitalize;
+  margin-bottom: 40px;
+}
+.farewell-section .text-content .highlight {
+  color: #fff;
+  font-family: "Noto Serif", serif;
+  font-size: 25px;
+  font-weight: 700;
+  line-height: 150%;
+  text-transform: capitalize;
+  margin-bottom: 60px;
+}
+.farewell-section .text-content .button-wrapper .profit-button {
+  width: 289.966px;
+  height: 77px;
+  flex-shrink: 0;
+  border: none;
+  background: linear-gradient(95deg, #bda069 68.96%, #fff 100.93%);
+  color: #000;
+  font-family: "Noto Serif", serif;
+  font-size: 18px;
+  font-weight: 700;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.farewell-section .text-content .button-wrapper .profit-button:hover {
+  background: #fff;
+}
+.farewell-section .image-content {
+  width: 50%;
+  text-align: right;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+.farewell-section .image-content img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 /*----------------------------------------------------------
