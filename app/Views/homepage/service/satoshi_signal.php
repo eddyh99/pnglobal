@@ -21,4 +21,20 @@
         </div>
     </div>
     <!-- End of Banner -->
+
+    <!-- Start of Success Section -->
+    <div class="success-section">
+        <div class="container">
+            <h2>Enter the World of Successful Investing!</h2>
+            <p class="description">
+                With the Satoshi Signal app, you connect directly with the best PN Global brokers who analyze the market 24/7. Using our proven method, you receive precise buy and sell signals to maximize your profits without risks.
+            </p>
+            <div class="button-wrapper">
+                <button class="activate-button">
+                    Activate Now and Receive the Exclusive Discount!
+                </button>
+            </div>
+        </div>
+    </div>
+    <!-- End of Success Section -->
 </div>
