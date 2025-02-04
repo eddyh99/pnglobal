@@ -611,3 +611,142 @@
         }
     }
 }
+
+.subscription-section {
+    background-image: url('../../img/bg_subscription.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 100%;
+    min-height: 1130px;
+    position: relative;
+
+    .top-content {
+        background: rgba(0, 0, 0, 0.77);
+        padding: 60px 0;
+        width: 100%;
+
+        .container {
+            width: 100vw;
+            max-width: none;
+            margin: 0;
+            padding: 0 40px;
+            text-align: center;
+
+            h2 {
+                color: #bda069;
+                font-family: var.$f-noto;
+                font-size: 30px;
+                font-weight: 700;
+                line-height: 40px;
+                text-transform: capitalize;
+                margin-bottom: 30px;
+                max-width: 1200px;
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .description {
+                color: #fff;
+                font-family: var.$f-noto;
+                font-size: 18px;
+                font-weight: 600;
+                line-height: 30px;
+                max-width: 1200px;
+                margin-left: auto;
+                margin-right: auto;
+            }
+        }
+    }
+
+    .bottom-content {
+        padding: 60px 0;
+        position: relative;
+        overflow: visible;
+
+        .container {
+            width: 100vw;
+            max-width: none;
+            margin: 0;
+            padding: 0;
+            position: relative;
+        }
+
+        .card-columns {
+            display: flex;
+            justify-content: space-between;
+            max-width: 1200px;
+            margin: 0 auto;
+            gap: 40px;
+            position: relative;
+        }
+
+        .column {
+            display: flex;
+            flex-direction: column;
+            gap: 250px;
+            position: relative;
+
+            &.left-column {
+                margin-right: -100px; // Overlap to right
+                z-index: 2;
+            }
+
+            &.right-column {
+                margin-left: -100px; // Overlap to left
+                margin-top: 270px; // Stagger effect
+                z-index: 1;
+            }
+        }
+        .subscription-card {
+            width: 667px;
+            height: auto;
+            flex-shrink: 0;
+            background: linear-gradient(
+                100deg,
+                #000 42.66%,
+                #070707 65.96%,
+                #151515 77.78%,
+                #666 92.21%
+            );
+            // background: red;
+            border-radius: 5px;
+            padding: 30px;
+
+            .card-list {
+                padding-left: 20px;
+
+                li {
+                    list-style-type: disc;
+                    color: #bda069;
+
+                    &.title {
+                        color: #bda069;
+                        font-size: 22px;
+                        font-weight: 600;
+                        line-height: 30px;
+                    }
+
+                    &.note {
+                        color: #fff;
+                        font-size: 18px;
+                        font-weight: 400;
+                        line-height: 30px;
+
+                        &::marker {
+                            color: #bda069; /* Warna bullet gold */
+                        }
+                    }
+                }
+            }
+
+            .card-text {
+                color: #fff;
+                font-size: 20px;
+                font-weight: 600;
+                line-height: 30px;
+                padding: 15px 0 15px 20px;
+            }
+        }
+    }
+}

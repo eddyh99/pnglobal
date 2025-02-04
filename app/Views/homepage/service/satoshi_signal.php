@@ -184,4 +184,76 @@
         </div>
     </div>
     <!-- End of Referral Section -->
+
+    <!-- Start of Subscription Section -->
+    <div class="subscription-section">
+        <div class="top-content">
+            <div class="container">
+                <h2>Earn More Than $240 for Each Subscription with the Referral Program!</h2>
+                <p class="description">Maximize Your Profits with Our Incredible two level Referral Program!<br>
+                    Every time a friend subscribes to one of our plans or make one of his friends to subscribe you <br> automatically earn a recurring commission:</p>
+            </div>
+        </div>
+        <div class="bottom-content">
+            <div class="container">
+                <div class="card-columns">
+                    <div class="column left-column">
+                        <div class="subscription-card">
+                            <ul class="card-list">
+                                <li class="title">$20 for Each Monthly Renewal:</li>
+                            </ul>
+                            <p class="card-text">For every month that the user registered through your referral renews his subscription, you receive $20 without any effort.</p>
+                            <ul class="card-list">
+                                <li class="note">(Available via web and app)</li>
+                            </ul>
+                        </div>
+                        <div class="subscription-card">
+                            <ul class="card-list">
+                                <li class="title">$120 for Semi-Annual Plans:</li>
+                            </ul>
+                            <p class="card-text">
+                                For a 6-month subscription, receive $120 immediately and another $120 for every semi-annual renewal.
+                            </p>
+                            <ul class="card-list">
+                                <li class="note">(Available only via web)</li>
+                            </ul>
+                        </div>
+                        <div class="subscription-card">
+                            <ul class="card-list">
+                                <li class="title">$5 for every sign-up and renewal month:</li>
+                            </ul>
+                            <p class="card-text">
+                                you will receive an additional 5 USD for each monthly registration or renewal that occurs from users registered through the referral link of someone registered through your referral link.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="column right-column">
+                        <div class="subscription-card">
+                            <ul class="card-list">
+                                <li class="title">$60 for Quarterly Plans:</li>
+                            </ul>
+                            <p class="card-text">
+                                If a friend chooses a 3-month plan, you earn $60 immediately and another $60 for each quarterly renewal.
+                            </p>
+                            <ul class="card-list">
+                                <li class="note">(Available via web and app)</li>
+                            </ul>
+                        </div>
+                        <div class="subscription-card">
+                            <ul class="card-list">
+                                <li class="title">$240 for Annual Plans:</li>
+                            </ul>
+                            <p class="card-text">
+                                If a friend chooses the annual plan, you get $240 immediately and another $240 for every annual renewal!
+                            </p>
+                            <ul class="card-list">
+                                <li class="note">(Available only via web)</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End of Subscription Section -->
 </div>
