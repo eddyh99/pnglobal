@@ -19867,6 +19867,133 @@ input:-moz-placeholder {
   text-transform: uppercase;
 }
 
+.payout-section {
+  background: #fff;
+}
+.payout-section .top-content {
+  padding: 30px 0 0;
+}
+.payout-section .top-content .container {
+  width: 100vw;
+  max-width: none;
+  margin: 0;
+  padding: 0 40px;
+  text-align: center;
+}
+.payout-section .top-content .container h2 {
+  color: #000;
+  font-family: "Noto Serif", serif;
+  font-size: 25px;
+  font-weight: 800;
+  line-height: 30px;
+  margin-bottom: 30px;
+}
+.payout-section .top-content .container .payout-list {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 40px;
+  list-style: none;
+}
+.payout-section .top-content .container .payout-list li {
+  color: #000;
+  font-family: "Noto Serif", serif;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 30px;
+  margin-bottom: 10px;
+  padding-left: 20px;
+  position: relative;
+  list-style-type: disc;
+  margin-left: 20px;
+  text-align: justify;
+}
+.payout-section .bottom-content {
+  padding: 20px 0 30px;
+}
+.payout-section .bottom-content .container {
+  width: 100vw;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+.payout-section .bottom-content .content-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 auto;
+  padding: 0;
+}
+.payout-section .bottom-content .text-content {
+  width: 50%;
+  padding-right: 40px;
+}
+.payout-section .bottom-content .text-content h3 {
+  color: #bda069;
+  font-family: "Noto Serif", serif;
+  font-size: 22px;
+  font-weight: 800;
+  line-height: 30px;
+  margin-bottom: 20px;
+}
+.payout-section .bottom-content .text-content .description {
+  color: #000;
+  font-family: "Noto Serif", serif;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 30px;
+  margin-bottom: 20px;
+}
+.payout-section .bottom-content .text-content .withdraw-list {
+  padding-left: 20px;
+}
+.payout-section .bottom-content .text-content .withdraw-list li {
+  list-style: disc;
+  color: #000;
+  font-family: "Noto Serif", serif;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 45px;
+  margin-bottom: 5px;
+}
+.payout-section .bottom-content .text-content .withdraw-list li strong {
+  font-weight: 900;
+}
+.payout-section .bottom-content .image-content {
+  width: 50%;
+  max-height: 400px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  padding-right: 20px;
+}
+.payout-section .bottom-content .image-content img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+.payout-section .opportunity-content {
+  background: rgba(0, 0, 0, 0.78);
+  width: 100%;
+  margin: 25px 0 50px;
+  padding: 40px 0;
+}
+.payout-section .opportunity-content .container {
+  width: 100vw;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+.payout-section .opportunity-content .opportunity-text {
+  color: #fff;
+  text-align: center;
+  font-family: "Noto Serif", serif;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
 /*----------------------------------------------------------
     File Name  : _navbar.scss
     Desc       : File ini merupakan styling untuk 

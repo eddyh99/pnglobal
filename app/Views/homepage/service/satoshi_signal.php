@@ -273,4 +273,46 @@
         </div>
     </div>
     <!-- End of Sharing Section -->
+
+    <!-- Start of Payout Section -->
+    <div class="payout-section">
+        <div class="top-content">
+            <div class="container">
+                <h2>Payout Timing</h2>
+                <ul class="payout-list">
+                    <li>Your commissions will be credited on the 15th of the second month following the subscriptions with your referral link.<br>(Ex.:All activations made between September 1st and 30th will be credited to your referral balance on November 15th).</li>
+                    <li>You can easily track your earnings and referral balance directly from the dashboard on our website.</li>
+                </ul>
+            </div>
+        </div>
+        <div class="bottom-content">
+            <div class="container">
+                <div class="content-wrapper">
+                    <div class="text-content">
+                        <h3>Choose How to Withdraw Your Earnings</h3>
+                        <p class="description">
+                            To ensure maximum convenience and flexibility, you can withdraw your earnings through various, secure and fast methods directly from the website dashboard:
+                        </p>
+                        <ul class="withdraw-list">
+                            <li><strong>Domestic Bank Transfer</strong> to American bank accounts.</li>
+                            <li><strong>International Bank Transfer</strong> to any global account.</li>
+                            <li><strong>Cryptocurrency in USDT (TRC20)</strong> for quick and secure transfers.</li>
+                        </ul>
+                        <p class="note">⚠️ Transfer fees will be charged to the user withdrawing the balance.</p>
+                    </div>
+                    <div class="image-content">
+                        <img src="<?= BASE_URL ?>assets/img/ic_payout.png" alt="Payout">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="opportunity-content">
+            <div class="container">
+                <p class="opportunity-text">
+                    This is the perfect opportunity to build a passive income network and take advantage of a system that rewards your desire to share! Start now and watch your referral balance grow month after month!
+                </p>
+            </div>
+        </div>
+    </div>
+    <!-- End of Payout Section -->
 </div>

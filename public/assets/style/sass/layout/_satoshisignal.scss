@@ -837,3 +837,149 @@
         }
     }
 }
+
+.payout-section {
+    background: #fff;
+    .top-content {
+        padding: 30px 0 0;
+
+        .container {
+            width: 100vw;
+            max-width: none;
+            margin: 0;
+            padding: 0 40px;
+            text-align: center;
+
+            h2 {
+                color: #000;
+                font-family: var.$f-noto;
+                font-size: 25px;
+                font-weight: 800;
+                line-height: 30px;
+                margin-bottom: 30px;
+            }
+
+            .payout-list {
+                max-width: 1200px;
+                margin: 0 auto;
+                padding: 0 40px;
+                list-style: none;
+
+                li {
+                    color: #000;
+                    font-family: var.$f-noto;
+                    font-size: 18px;
+                    font-weight: 600;
+                    line-height: 30px;
+                    margin-bottom: 10px;
+                    padding-left: 20px;
+                    position: relative;
+                    list-style-type: disc;
+                    margin-left: 20px;
+                    text-align: justify;
+                }
+            }
+        }
+    }
+
+    .bottom-content {
+        padding: 20px 0 30px;
+
+        .container {
+            width: 100vw;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 40px;
+        }
+
+        .content-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 0 auto;
+            padding: 0;
+        }
+
+        .text-content {
+            width: 50%;
+            padding-right: 40px;
+
+            h3 {
+                color: #bda069;
+                font-family: var.$f-noto;
+                font-size: 22px;
+                font-weight: 800;
+                line-height: 30px;
+                margin-bottom: 20px;
+            }
+
+            .description {
+                color: #000;
+                font-family: var.$f-noto;
+                font-size: 18px;
+                font-weight: 600;
+                line-height: 30px;
+                margin-bottom: 20px;
+            }
+
+            .withdraw-list {
+                padding-left: 20px;
+
+                li {
+                    list-style: disc;
+
+                    color: #000;
+                    font-family: var.$f-noto;
+                    font-size: 18px;
+                    font-weight: 400;
+                    line-height: 45px;
+                    margin-bottom: 5px;
+
+                    strong {
+                        font-weight: 900; // Bold text
+                    }
+                }
+            }
+        }
+
+        .image-content {
+            width: 50%;
+            max-height: 400px;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            padding-right: 20px;
+
+            img {
+                width: 100%;
+                height: auto;
+                object-fit: contain;
+            }
+        }
+    }
+
+    .opportunity-content {
+        background: rgba(0, 0, 0, 0.78);
+        width: 100%;
+        margin: 25px 0 50px;
+        padding: 40px 0;
+
+        .container {
+            width: 100vw;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 40px;
+        }
+
+        .opportunity-text {
+            color: #fff;
+            text-align: center;
+            font-family: var.$f-noto;
+            font-size: 20px;
+            font-weight: 600;
+            line-height: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+    }
+}
