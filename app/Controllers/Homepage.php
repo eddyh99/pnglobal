@@ -160,6 +160,14 @@ class Homepage extends BaseController
                 'extragsap' => 'homepage/gsap/gsap_btc_elite_management',
                 'flag'      => 'btcelitemanagement'
             ];
+        } else if ($service == "crypto_consulting") {
+            $mdata = [
+                'title'     => 'Crypto Consulting - ' . NAMETITLE,
+                'content'   => 'homepage/service/crypto_consulting',
+                'extra'     => 'homepage/js/_js_index',
+                'extragsap' => 'homepage/gsap/gsap_crypto_consulting',
+                'flag'      => 'cryptoconsulting'
+            ];
         } else {
             $mdata = [
                 'title'     => 'Service Finance Advice Assets And Investment - ' . NAMETITLE,

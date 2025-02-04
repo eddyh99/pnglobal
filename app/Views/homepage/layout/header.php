@@ -52,7 +52,7 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item me-0 me-xl-4 <?= (current_url() === BASE_URL('index.php/homepage/hotdeals')) ? 'active' : '' ?>">
-                        <a class="nav-link" translate="no" aria-current="page" href="<?= BASE_URL ?>homepage/hotdeals">HOT <br> DEAL</a>
+                        <a class="nav-link" translate="no" aria-current="page" href="<?= BASE_URL ?>homepage/service?service=<?= base64_encode('satoshi_signal') ?>">HOT <br> DEAL</a>
                     </li>
                     <li class="nav-item dropdown me-0 me-xl-2">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
