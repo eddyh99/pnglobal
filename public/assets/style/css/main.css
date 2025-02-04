@@ -19576,6 +19576,105 @@ input:-moz-placeholder {
   object-fit: cover;
 }
 
+.referral-section .top-content {
+  background: #000;
+  min-height: 400px;
+  padding: 60px 0;
+}
+.referral-section .top-content .container {
+  width: 100vw;
+  max-width: none;
+  margin: 0;
+  padding: 0;
+}
+.referral-section .top-content .container h2 {
+  text-align: center;
+  font-family: "Noto Serif", serif;
+  font-size: 35px;
+  font-weight: 600;
+  line-height: 40px;
+  text-transform: uppercase;
+  margin: 0 auto 40px;
+}
+.referral-section .top-content .container h2 .highlight {
+  color: #bda069;
+}
+.referral-section .top-content .container h2 .white {
+  color: #fff;
+}
+.referral-section .top-content .container .row {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin: 0 auto;
+  padding: 0 40px;
+  position: relative;
+}
+.referral-section .top-content .container .referral-card {
+  width: calc(50% - 10px);
+  min-height: 400px;
+  padding: 50px 100px 40px 60px;
+  margin-bottom: -300px;
+  z-index: 2;
+}
+.referral-section .top-content .container .referral-card h3 {
+  color: #000;
+  font-family: "Noto Serif", serif;
+  font-size: 20px;
+  font-weight: 900;
+  line-height: 30px;
+  margin-bottom: 20px;
+}
+.referral-section .top-content .container .referral-card .card-text {
+  font-family: "Noto Serif", serif;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 30px;
+  text-align: justify;
+}
+.referral-section .top-content .container .referral-card .card-text .highlight {
+  font-weight: 800;
+}
+.referral-section .top-content .container .referral-card.left-card {
+  background: #fff;
+}
+.referral-section .top-content .container .referral-card.right-card {
+  background: #323232;
+}
+.referral-section .top-content .container .referral-card.right-card h3,
+.referral-section .top-content .container .referral-card.right-card .card-text {
+  color: #fff;
+}
+.referral-section .bottom-content {
+  min-height: 400px;
+  background: linear-gradient(133deg, #bda069 47.58%, #f7f4ee 99.09%, #fff 106.05%);
+  padding-top: 200px;
+}
+.referral-section .bottom-content .container {
+  width: 100vw;
+  max-width: none;
+  margin: 0;
+  padding: 20px 0;
+}
+.referral-section .bottom-content .warning-list {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 40px;
+  list-style: none;
+}
+.referral-section .bottom-content .warning-list li {
+  list-style-type: disc;
+  margin-left: 20px;
+  padding-left: 20px;
+  position: relative;
+  margin-bottom: 20px;
+  color: #000;
+  font-family: "Noto Serif", serif;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 30px;
+}
+
 /*----------------------------------------------------------
     File Name  : _navbar.scss
     Desc       : File ini merupakan styling untuk 

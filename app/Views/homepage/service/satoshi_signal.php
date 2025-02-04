@@ -142,4 +142,46 @@
         </div>
     </div>
     <!-- End of Farewell Section -->
+
+    <!-- Start of Referral Section -->
+    <div class="referral-section">
+        <div class="top-content">
+            <div class="container">
+                <h2>
+                    <span class="highlight">Boost Your Profits Even More with</span><br>
+                    <span class="white">the Referral Program</span>
+                </h2>
+                <div class="row">
+                    <div class="referral-card left-card">
+                        <h3>Referrals and Automatic Discounts for <br>PN Global Users</h3>
+                        <p class="card-text">
+                            When you register through PN Global, <span class="highlight">your referral code is automatically included</span>, and you'll benefit from discounted prices without having to request them. This means that by activating the service through PN Global, you immediately get the maximum advantage: an exclusive discount on your subscription and a referral code ready to share to increase your earnings.
+                        </p>
+                    </div>
+                    <div class="referral-card right-card">
+                        <h3>Share and Grow Your Capital</h3>
+                        <p class="card-text">
+                            With the default referral code included, you can start earning right away. Each person who signs up through your referral will allow you to receive an extra commission. It's the perfect opportunity to grow your capital effortlessly while continuing to follow Satoshi Signal winning strategies.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="bottom-content">
+            <div class="container">
+                <ul class="warning-list">
+                    <li>
+                        ⚠️ <span>By activating your account directly from the website, you can easily use it on both Apple and Android devices. The platform is optimized to provide a seamless experience on both operating systems.</span>
+                    </li>
+                    <li>
+                        ⚠️ <span>Your account can be used on only one device at a time, ensuring security and controlled access.</span>
+                    </li>
+                    <li>
+                        ⚠️ <span>Automatic Referral: By signing up from PN Global, you get the default referral to earn even more</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- End of Referral Section -->
 </div>
