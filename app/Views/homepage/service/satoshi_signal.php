@@ -330,4 +330,36 @@
         </div>
     </div>
     <!-- End of Binance Section -->
+
+    <!-- Start of Formula Section -->
+    <div class="formula-section">
+        <div class="top-content">
+            <div class="container">
+                <h2>Unveil the pn global Brokers' <br> "Secret Formula"</h2>
+                <p class="description">
+                    Our formula is more than just a strategy: <br> it's a complete system that will guide you step by step to success.
+                </p>
+            </div>
+        </div>
+
+        <div class="bottom-content">
+            <div class="container">
+                <div class="content-wrapper">
+                    <div class="text-content">
+                        <h3>Want to access the same strategies used by our professional brokers?</h3>
+                        <p class="description">
+                            Our Secret Formula, developed by PN Global expert brokers, provides you with all the tools you need to achieve extraordinary results. Without the need to study complex financial theories, you can maximize the potential of our app and start earning right away.
+                        </p>
+                        <button class="discover-button">
+                            DISCOVER OUR <br> "SECRET FORMULA"
+                        </button>
+                    </div>
+                    <div class="image-content">
+                        <img src="<?= BASE_URL ?>assets/img/ic_unveil.png" alt="Unveil">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End of Formula Section -->
 </div>

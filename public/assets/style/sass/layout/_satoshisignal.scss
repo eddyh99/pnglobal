@@ -1063,3 +1063,113 @@
         }
     }
 }
+
+.formula-section {
+    .top-content {
+        padding: 60px 0;
+        background: #000;
+
+        .container {
+            width: 100vw;
+            max-width: none;
+            margin: 0;
+            padding: 0 40px;
+            text-align: center;
+
+            h2 {
+                color: #bd9f69;
+                font-family: var.$f-noto;
+                font-size: 40px;
+                font-weight: 900;
+                line-height: 144.687%;
+                text-transform: uppercase;
+                margin-bottom: 30px;
+            }
+
+            .description {
+                color: #fff;
+                font-family: var.$f-noto;
+                font-size: 25px;
+                font-weight: 600;
+                line-height: 140%;
+                text-transform: capitalize;
+                max-width: 1200px;
+                margin: 0 auto;
+            }
+        }
+    }
+
+    .bottom-content {
+        background: #000;
+        padding: 0 0 60px;
+
+        .container {
+            width: 100vw;
+            max-width: none;
+            margin: 0;
+            padding: 0 40px;
+        }
+
+        .content-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .text-content {
+            width: 50%;
+            padding-right: 40px;
+
+            h3 {
+                color: #bda069;
+                font-family: var.$f-noto;
+                font-size: 25px;
+                font-weight: 700;
+                line-height: 150%;
+                font-variant: all-small-caps;
+                margin-bottom: 30px;
+            }
+
+            .description {
+                color: #fff;
+                font-family: var.$f-noto;
+                font-size: 20px;
+                font-weight: 600;
+                line-height: 40px;
+                text-transform: capitalize;
+                margin-bottom: 40px;
+            }
+
+            .discover-button {
+                border: none;
+                border-radius: 5px;
+                background: #bda069;
+                box-shadow: 0px 4px 30px 10px #fff;
+                color: #000;
+                font-family: var.$f-noto;
+                font-size: 18px;
+                font-weight: 700;
+                padding: 15px 30px;
+                cursor: pointer;
+                transition: all 0.3s ease;
+
+                &:hover {
+                    background: #fff;
+                    box-shadow: 0px 4px 35px 20px #bda069;
+                }
+            }
+        }
+
+        .image-content {
+            width: 50%;
+            text-align: right;
+
+            img {
+                max-width: 100%;
+                height: auto;
+            }
+        }
+    }
+}
