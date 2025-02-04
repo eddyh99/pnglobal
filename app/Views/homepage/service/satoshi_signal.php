@@ -200,7 +200,7 @@
                     <div class="column left-column">
                         <div class="subscription-card">
                             <ul class="card-list">
-                                <li class="title">$20 for Each Monthly Renewal:</li>
+                                <li class="title"><span translate="no">$20</span> for Each Monthly Renewal:</li>
                             </ul>
                             <p class="card-text">For every month that the user registered through your referral renews his subscription, you receive $20 without any effort.</p>
                             <ul class="card-list">
@@ -209,7 +209,7 @@
                         </div>
                         <div class="subscription-card">
                             <ul class="card-list">
-                                <li class="title">$120 for Semi-Annual Plans:</li>
+                                <li class="title"><span translate="no">$120</span> for Semi-Annual Plans:</li>
                             </ul>
                             <p class="card-text">
                                 For a 6-month subscription, receive $120 immediately and another $120 for every semi-annual renewal.
@@ -220,7 +220,7 @@
                         </div>
                         <div class="subscription-card">
                             <ul class="card-list">
-                                <li class="title">$5 for every sign-up and renewal month:</li>
+                                <li class="title"><span translate="no">$5</span> for every sign-up and renewal month:</li>
                             </ul>
                             <p class="card-text">
                                 you will receive an additional 5 USD for each monthly registration or renewal that occurs from users registered through the referral link of someone registered through your referral link.
@@ -230,7 +230,7 @@
                     <div class="column right-column">
                         <div class="subscription-card">
                             <ul class="card-list">
-                                <li class="title">$60 for Quarterly Plans:</li>
+                                <li class="title"><span translate="no">$60</span> for Quarterly Plans:</li>
                             </ul>
                             <p class="card-text">
                                 If a friend chooses a 3-month plan, you earn $60 immediately and another $60 for each quarterly renewal.
@@ -241,7 +241,7 @@
                         </div>
                         <div class="subscription-card">
                             <ul class="card-list">
-                                <li class="title">$240 for Annual Plans:</li>
+                                <li class="title"><span translate="no">$240</span> for Annual Plans:</li>
                             </ul>
                             <p class="card-text">
                                 If a friend chooses the annual plan, you get $240 immediately and another $240 for every annual renewal!
@@ -256,4 +256,21 @@
         </div>
     </div>
     <!-- End of Subscription Section -->
+
+    <!-- Start of Sharing Section -->
+    <div class="sharing-section">
+        <div class="container">
+            <div class="sharing-content">
+                <h2>Sharing Our Service Has Never Been So Rewarding!</h2>
+                <p class="description">
+                    The more people you involve, the more you earn passively, month after month, year after year.
+                    Invite your friends now and start building an automatic and continuous income!
+                </p>
+                <button class="share-button">
+                    Earn Now!<br>Click Here to Start
+                </button>
+            </div>
+        </div>
+    </div>
+    <!-- End of Sharing Section -->
 </div>
