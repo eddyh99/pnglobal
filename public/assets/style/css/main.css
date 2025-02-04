@@ -20102,18 +20102,18 @@ input:-moz-placeholder {
   width: 100vw;
   max-width: none;
   margin: 0;
-  padding: 0 40px;
+  padding: 0;
+  position: relative;
 }
 .formula-section .bottom-content .content-wrapper {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  max-width: 1200px;
-  margin: 0 auto;
 }
 .formula-section .bottom-content .text-content {
   width: 50%;
-  padding-right: 40px;
+  padding-left: 100px;
+  padding-right: 50px;
 }
 .formula-section .bottom-content .text-content h3 {
   color: #bda069;
@@ -20131,7 +20131,7 @@ input:-moz-placeholder {
   font-weight: 600;
   line-height: 40px;
   text-transform: capitalize;
-  margin-bottom: 40px;
+  margin-bottom: 60px;
 }
 .formula-section .bottom-content .text-content .discover-button {
   border: none;
@@ -20151,12 +20151,17 @@ input:-moz-placeholder {
   box-shadow: 0px 4px 35px 20px #bda069;
 }
 .formula-section .bottom-content .image-content {
+  position: relative;
+  right: 0;
+  height: 100%;
+  display: flex;
   width: 50%;
-  text-align: right;
+  align-items: center;
 }
 .formula-section .bottom-content .image-content img {
-  max-width: 100%;
+  width: 100%;
   height: auto;
+  object-fit: contain;
 }
 
 /*----------------------------------------------------------
