@@ -19158,6 +19158,90 @@ input:-moz-placeholder {
   color: #000;
 }
 
+.page-wrapper {
+  background-color: #000;
+}
+
+.banner-satoshi {
+  position: relative;
+  overflow: hidden;
+}
+.banner-satoshi .wrapper-banner-satoshi {
+  display: flex;
+  min-height: 100vh !important;
+}
+.banner-satoshi .wrapper-banner-satoshi video {
+  width: 100%;
+  min-height: 100vh !important;
+  position: absolute;
+  z-index: 1;
+  object-fit: cover;
+  object-position: 50% 50%;
+  filter: brightness(0.7);
+}
+.banner-satoshi .wrapper-banner-satoshi .logo-banner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  z-index: 2;
+  text-align: center;
+  width: 100%;
+}
+.banner-satoshi .wrapper-banner-satoshi .logo-banner .text-wrapper {
+  background: rgba(0, 0, 0, 0.71);
+  padding: 2rem;
+  width: 100%;
+  border-radius: 5px;
+}
+.banner-satoshi .wrapper-banner-satoshi .logo-banner .text-wrapper .logo-text-banner {
+  color: #fff;
+  text-transform: uppercase;
+  margin-bottom: 11px;
+  font-size: 16px;
+  font-weight: 700;
+  text-align: center;
+}
+@media (min-width: 768px) {
+  .banner-satoshi .wrapper-banner-satoshi .logo-banner .text-wrapper .logo-text-banner {
+    font-size: 20px;
+  }
+}
+@media (min-width: 1024px) {
+  .banner-satoshi .wrapper-banner-satoshi .logo-banner .text-wrapper .logo-text-banner {
+    font-size: 30px;
+  }
+}
+@media (min-width: 1200px) {
+  .banner-satoshi .wrapper-banner-satoshi .logo-banner .text-wrapper .logo-text-banner {
+    padding: 0rem 3rem;
+    font-size: 40px;
+  }
+}
+.banner-satoshi .wrapper-banner-satoshi .logo-banner .text-wrapper .logo-text-banner .goal-text {
+  color: #bda069;
+  text-align: center;
+  font-family: "Noto Serif", serif;
+  font-size: 35px;
+  font-style: normal;
+  font-weight: 800;
+  line-height: 45px; /* 128.571% */
+  text-transform: uppercase;
+}
+.banner-satoshi .wrapper-banner-satoshi .logo-banner .text-wrapper .discover-text {
+  color: #fff;
+  font-family: "Noto Serif", serif;
+  font-size: 25px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 150%; /* 37.5px */
+  text-align: center;
+  margin-top: 1rem;
+  max-width: 980px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 /*----------------------------------------------------------
     File Name  : _navbar.scss
     Desc       : File ini merupakan styling untuk 
