@@ -315,4 +315,19 @@
         </div>
     </div>
     <!-- End of Payout Section -->
+
+    <!-- Start of Binance Section -->
+    <div class="binance-section">
+        <div class="container">
+            <h2>We prefer and we suggest <span class="highlight">Binance</span></h2>
+            <p class="description">Our brokers operate exclusively on <span class="highlight">Binance</span>, using a strategy focused on the <span class="highlight">BTC/USDT</span> pair.</p>
+            <p class="link-text">
+                If you don't have yet a binance account <a href="#" class="click-link">click here</a>
+            </p>
+            <p class="warning-text">
+                ⚠️ If you use another cryptocurrency exchange, you will have to calculate your own fees and the pairs <span class="highlight">BTC/USDT</span> could have different prices and the minimum and the maximum registered can be different from <span class="highlight">Binance</span> exchange.
+            </p>
+        </div>
+    </div>
+    <!-- End of Binance Section -->
 </div>

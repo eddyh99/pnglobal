@@ -19869,6 +19869,7 @@ input:-moz-placeholder {
 
 .payout-section {
   background: #fff;
+  padding-bottom: 50px;
 }
 .payout-section .top-content {
   padding: 30px 0 0;
@@ -19974,7 +19975,7 @@ input:-moz-placeholder {
 .payout-section .opportunity-content {
   background: rgba(0, 0, 0, 0.78);
   width: 100%;
-  margin: 25px 0 50px;
+  margin: 25px 0;
   padding: 40px 0;
 }
 .payout-section .opportunity-content .container {
@@ -19992,6 +19993,75 @@ input:-moz-placeholder {
   line-height: 30px;
   max-width: 1200px;
   margin: 0 auto;
+}
+
+.binance-section {
+  background-image: url("../../img/bg_binance.png");
+  background-size: contain;
+  background-position: center 10px;
+  background-repeat: no-repeat;
+  min-height: 450px;
+  padding: 60px;
+  display: flex;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.binance-section .container {
+  width: 100vw;
+  max-width: none;
+  margin: 0;
+  padding: 0 40px;
+  text-align: center;
+}
+.binance-section .container h2 {
+  color: #fff;
+  font-family: "Noto Serif", serif;
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 22px;
+  text-transform: uppercase;
+  margin-bottom: 30px;
+}
+.binance-section .container h2 .highlight {
+  color: #ffe440;
+}
+.binance-section .container .description {
+  color: #fff;
+  font-family: "Noto Serif", serif;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 30px;
+  margin-bottom: 20px;
+}
+.binance-section .container .description .highlight {
+  color: #ffe440;
+}
+.binance-section .container .link-text {
+  color: #fff;
+  font-family: "Noto Serif", serif;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 35px;
+  margin-bottom: 20px;
+}
+.binance-section .container .link-text .click-link {
+  color: #ffe440;
+  font-weight: 700;
+  text-decoration: underline;
+  cursor: pointer;
+}
+.binance-section .container .warning-text {
+  color: #fff;
+  font-family: "Noto Serif", serif;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 25px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.binance-section .container .warning-text .highlight {
+  color: #ffe440;
 }
 
 /*----------------------------------------------------------
