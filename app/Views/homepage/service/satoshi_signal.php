@@ -84,4 +84,42 @@
         </div>
     </div>
     <!-- End of Revolutionize Section -->
+
+    <!-- Start of App Features Section -->
+    <div class="app-features-section">
+        <div class="top-content">
+            <div class="container">
+                <h2 class="main-title">Tired of guessing the market?</h2>
+                <h3 class="sub-title">Our app provides you with:</h3>
+            </div>
+        </div>
+
+        <div class="bottom-content">
+            <div class="container">
+                <div class="row top-row">
+                    <div class="feature-card-title">
+                        <h3>Precision Timing</h3>
+                    </div>
+                    <div class="feature-card-title">
+                        <h3>Consistent <br> Profitability</h3>
+                    </div>
+                    <div class="feature-card-title">
+                        <h3>Guaranteed <br> and safe RETURNS</h3>
+                    </div>
+                </div>
+                <div class="row bottom-row">
+                    <div class="feature-card-content">
+                        <p>Our experts provide precise buy and sell signals, ensuring you capitalize on market opportunities and minimize risk</p>
+                    </div>
+                    <div class="feature-card-content">
+                        <p>With our 24/7 market analysis, you can generate steady income.</p>
+                    </div>
+                    <div class="feature-card-content">
+                        <p>Thanks to our in-depth knowledge of the market and real-time analyses, our clients obtain certain and safe profits.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End of App Features Section -->
 </div>
