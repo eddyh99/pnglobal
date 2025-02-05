@@ -46,4 +46,63 @@
             </div>
         </div>
     </section>
+
+    <section class="service-cards">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12 col-lg-6">
+                    <div class="service-card">
+                        <div class="card-content">
+                            <div class="icon-wrapper">
+                                <img src="<?= BASE_URL ?>assets/img/ic_portfolio_analysis.png" alt="Portfolio Analysis" class="card-icon">
+                            </div>
+                            <div class="title-container">
+                                <h3 class="card-title">Portfolio Analysis and Optimization</h3>
+                                <div class="card-divider"></div>
+                            </div>
+                            <p class="card-description">
+                                If you already own cryptocurrencies, the consultant will analyze your portfolio in detail. Together, you will assess the strengths and weaknesses of your digital assets, evaluating key factors such as:
+                            </p>
+                            <ul class="feature-list primary">
+                                <li>Stability and Growth Potential</li>
+                                <li>Associated Risks</li>
+                                <li>Market Adoption Levels</li>
+                            </ul>
+                            <p class="card-description">
+                                Following this analysis, you will receive tailored recommendations to optimize your wallet, aiming to enhance performance and ensure greater security. This includes:
+                            </p>
+                            <ul class="feature-list secondary">
+                                <li>Diversifying assets</li>
+                                <li>Identifying long-term opportunities</li>
+                                <li>Implementing risk mitigation strategies</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-lg-6">
+                    <div class="service-card">
+                        <div class="card-content">
+                            <div class="icon-wrapper">
+                                <img src="<?= BASE_URL ?>assets/img/ic_secure_custody.png" alt="Secure Custody" class="card-icon">
+                            </div>
+                            <div class="title-container">
+                                <h3 class="card-title">Secure Custody and Compliance</h3>
+                                <div class="card-divider"></div>
+                            </div>
+                            <p class="card-description">
+                                The consultant will assist you in selecting the safest custody solutions for your cryptocurrencies. Various options, such as centralized and decentralized exchanges, and wallet types—hardware, software, and paper—will be reviewed. Each solution will be presented with a clear outline of its:
+                            </p>
+                            <ul class="feature-list primary">
+                                <li>Advantages and Disadvantages</li>
+                                <li>Security Features</li>
+                            </ul>
+                            <p class="card-description">
+                                A detailed analysis of the applicable regulatory and tax framework will also be provided, focusing on your personal situation and tax residence to ensure full compliance with current legislation.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 </div>

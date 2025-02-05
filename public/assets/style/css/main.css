@@ -20299,6 +20299,105 @@ input:-moz-placeholder {
   line-height: 30px;
 }
 
+.service-cards {
+  padding: 50px 70px 100px;
+}
+.service-cards .service-card {
+  background: linear-gradient(to bottom right, rgba(56, 55, 52, 0.49) 0%, rgba(40, 40, 39, 0.6) 50%, rgba(158, 154, 148, 0.6) 100%);
+  border-radius: 10px;
+  padding: 40px 100px;
+  height: 100%;
+  min-height: 300px;
+}
+.service-cards .service-card .card-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+.service-cards .service-card .icon-wrapper {
+  margin-bottom: 25px;
+}
+.service-cards .service-card .icon-wrapper .card-icon {
+  max-height: 105px;
+  width: auto;
+}
+.service-cards .service-card .title-container {
+  position: relative;
+  width: fit-content;
+  margin-bottom: 40px;
+}
+.service-cards .service-card .title-container .card-title {
+  color: #d1b06b;
+  font-family: "Noto Serif", serif;
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 35px;
+  text-transform: uppercase;
+  margin-bottom: 15px;
+}
+.service-cards .service-card .title-container .card-divider {
+  position: absolute;
+  left: 10%;
+  width: 80%;
+  height: 3px;
+  background: #bda069;
+}
+.service-cards .service-card .title-container .card-divider {
+  background: #bda069;
+  height: 3px;
+  width: 80%;
+}
+.service-cards .service-card .card-description {
+  color: #fff;
+  font-family: "Noto Serif", serif;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 28px;
+  margin-bottom: 20px;
+  text-align: left;
+}
+.service-cards .service-card .feature-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 20px 0;
+  width: 100%;
+  text-align: left;
+}
+.service-cards .service-card .feature-list li {
+  position: relative;
+  padding-left: 20px;
+  margin-bottom: 10px;
+}
+.service-cards .service-card .feature-list li:before {
+  content: "•";
+  position: absolute;
+  left: 0;
+}
+.service-cards .service-card .feature-list.primary li {
+  color: #d1b06b;
+  font-family: "Noto Serif", serif;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 35px;
+}
+.service-cards .service-card .feature-list.secondary li {
+  color: #bda069;
+  font-family: "Noto Serif", serif;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 35px;
+  text-align: justify;
+}
+@media (min-width: 992px) {
+  .service-cards .row {
+    margin: 0 -35px;
+  }
+  .service-cards .col-lg-6 {
+    padding: 0 35px;
+  }
+}
+
 /*----------------------------------------------------------
     File Name  : _navbar.scss
     Desc       : File ini merupakan styling untuk 
