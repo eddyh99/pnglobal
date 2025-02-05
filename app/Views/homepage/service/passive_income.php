@@ -119,4 +119,25 @@
             </div>
         </div>
     </section>
+
+    <section class="collateral-section">
+        <div class="container-fluid">
+            <div class="row align-items-center">
+                <div class="col-3"></div>
+                <div class="col-6 text-center">
+                    <h2 class="collateral-title">Invest once, earn always</h2>
+                    <p class="collateral-description">
+                        Regardless of your investment experience, we handle every detail for you, leaving you free to focus on your personal and professional goals. <br>
+                        Choose Passive Income for a more secure and peaceful financial future, trusting our experience and professionalism.
+                    </p>
+                    <button class="collateral-btn">
+                        Secure<br>your future
+                    </button>
+                </div>
+                <div class="col-3 text-center">
+                    <img src="<?= BASE_URL ?>assets/img/ic_invest_one.png" alt="Invest One" class="collateral-image">
+                </div>
+            </div>
+        </div>
+    </section>
 </div>

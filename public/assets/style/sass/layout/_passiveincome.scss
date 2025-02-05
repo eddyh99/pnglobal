@@ -243,7 +243,7 @@
         border-radius: 10px;
         padding: 3rem 2rem;
         margin-bottom: 2rem;
-        min-height: 200px;
+        min-height: 270px;
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -270,5 +270,64 @@
             text-transform: capitalize;
             margin-bottom: 0;
         }
+    }
+}
+
+.collateral-section {
+    position: relative;
+    padding: 40px 0;
+    background: radial-gradient(circle at top center, #0b0a08 0%, #161513 100%);
+
+    .collateral-title {
+        color: #d1b06b;
+        text-align: center;
+        font-family: var.$f-noto;
+        font-size: 25px;
+        font-weight: 800;
+        line-height: 40px; /* 160% */
+        text-transform: uppercase;
+        margin-bottom: 1.5rem;
+    }
+
+    .collateral-description {
+        color: #fff;
+        text-align: center;
+        font-family: var.$f-noto;
+        font-size: 18px;
+        font-weight: 600;
+        line-height: 30px; /* 166.667% */
+        margin-bottom: 2rem;
+    }
+
+    .collateral-btn {
+        border: none;
+        border-radius: 5px;
+        background: #d1b06b;
+        color: #161513;
+        font-family: var.$f-noto;
+        padding: 0.75rem 3rem;
+        cursor: pointer;
+        color: #000;
+        text-align: center;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 25px; /* 156.25% */
+        text-transform: uppercase;
+        transition: background 0.3s ease, box-shadow 0.3s ease;
+
+        &:hover {
+            background: #fff;
+            box-shadow: 0px 4px 15px 0px #fff;
+        }
+    }
+
+    .collateral-image {
+        max-width: 100%;
+        height: auto;
+        display: block;
+        margin: 0;
+        position: relative;
+        top: -150px;
     }
 }
