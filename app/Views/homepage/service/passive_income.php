@@ -1,4 +1,4 @@
-<div class="page-wrapper passive-page">
+<div class="page-wrapper">
     <section class="passive-income">
         <div class="container-fluid p-0">
             <div class="row g-0">
@@ -32,6 +32,36 @@
                 </div>
                 <div class="col-3 position-relative">
                     <img src="<?= BASE_URL ?>assets/img/ic_transform_assets.png" alt="Transform Assets" class="transform-image">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="choose-section">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12">
+                    <h2 class="choose-title">Why Choose Passive Income?</h2>
+                </div>
+            </div>
+            <div class="row mt-5">
+                <div class="col-12 col-md-4">
+                    <div class="choose-card">
+                        <h3>Financial Freedom</h3>
+                        <p>Build a more secure and independent future.</p>
+                    </div>
+                </div>
+                <div class="col-12 col-md-4">
+                    <div class="choose-card">
+                        <h3>Diversification</h3>
+                        <p>Reduce risk through a mix of diversified investments.</p>
+                    </div>
+                </div>
+                <div class="col-12 col-md-4">
+                    <div class="choose-card">
+                        <h3>Long-Term Growth</h3>
+                        <p>Achieve your long-term financial goals.</p>
+                    </div>
                 </div>
             </div>
         </div>

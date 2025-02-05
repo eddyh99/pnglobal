@@ -135,3 +135,55 @@
         transform: translateY(50px);
     }
 }
+
+.choose-section {
+    position: relative;
+    padding: 50px 200px;
+
+    .choose-title {
+        color: #bda069;
+        text-align: center;
+        font-family: var.$f-noto;
+        font-size: 25px;
+        font-weight: 700;
+        line-height: 25px;
+    }
+
+    .choose-card {
+        background: linear-gradient(
+            to bottom right,
+            #161513 0%,
+            #161513 60%,
+            #ccb78f 100%
+        );
+        border-radius: 10px;
+        height: 100%;
+        min-height: 200px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 1rem;
+        padding: 0 50px;
+
+        h3 {
+            color: #d1b06b;
+            text-align: center;
+            font-family: var.$f-noto;
+            font-size: 20px;
+            font-weight: 700;
+            line-height: 30px;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+        }
+
+        p {
+            color: #fff;
+            text-align: center;
+            font-family: var.$f-noto;
+            font-size: 18px;
+            font-weight: 500;
+            line-height: 30px;
+        }
+    }
+}
