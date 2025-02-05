@@ -20467,6 +20467,71 @@ input:-moz-placeholder {
   line-height: 30px;
 }
 
+.knowledge-section {
+  padding: 80px 0;
+  background-image: url("../../img/bg_knowledge.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.knowledge-section .content-wrapper {
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+}
+.knowledge-section .section-title {
+  color: #bda069;
+  font-family: "Noto Serif", serif;
+  font-size: 25px;
+  font-weight: 700;
+  line-height: 35px;
+  text-transform: uppercase;
+  margin-bottom: 30px;
+}
+.knowledge-section .main-description {
+  color: #fff;
+  font-family: "Noto Serif", serif;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 30px;
+  margin-bottom: 40px;
+}
+.knowledge-section .subtitle {
+  color: #bda069;
+  font-family: "Noto Serif", serif;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 45px;
+  text-transform: capitalize;
+  margin-bottom: 20px;
+}
+.knowledge-section .sub-description {
+  color: #fff;
+  font-family: "Noto Serif", serif;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 30px;
+  margin-bottom: 40px;
+}
+.knowledge-section .cta-button {
+  color: #000;
+  font-family: "Noto Serif", serif;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 25px;
+  text-transform: uppercase;
+  background: #d1b06b;
+  border: none;
+  border-radius: 5px;
+  padding: 15px 30px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.knowledge-section .cta-button:hover {
+  background: #fff;
+  box-shadow: 0px 4px 15px 0px #fff;
+}
+
 /*----------------------------------------------------------
     File Name  : _navbar.scss
     Desc       : File ini merupakan styling untuk 

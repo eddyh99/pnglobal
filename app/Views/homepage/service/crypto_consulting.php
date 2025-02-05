@@ -155,4 +155,27 @@
             </div>
         </div>
     </section>
+
+    <section class="knowledge-section">
+        <div class="container">
+            <div class="content-wrapper">
+                <h2 class="section-title">Knowledge That Empowers You</h2>
+
+                <p class="main-description">
+                    Our service doesn't stop at consultancy, we empower you to make informed decisions.
+                    By promoting knowledge and independence, we help you developing the skills necessary to confidently navigate the cryptocurrency market.
+                </p>
+
+                <h3 class="subtitle">Unlock the Full Potential of Your Crypto Assets</h3>
+
+                <p class="sub-description">
+                    Maximize returns and reduce risk with our expert guidance.
+                </p>
+
+                <button class="cta-button">
+                    Secure and Grow <br> Your Digital Assets
+                </button>
+            </div>
+        </div>
+    </section>
 </div>
