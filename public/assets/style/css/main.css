@@ -20398,6 +20398,75 @@ input:-moz-placeholder {
   }
 }
 
+.starting-section {
+  padding: 60px 0;
+  position: relative;
+  overflow: visible;
+  background: radial-gradient(circle farthest-corner at top left, #000 0%, #454242 60%, #adadad 100%);
+}
+.starting-section .top-content {
+  text-align: center;
+  margin-bottom: 50px;
+  position: relative;
+}
+.starting-section .middle-content {
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+  position: relative;
+  z-index: 2;
+}
+.starting-section .middle-content .description {
+  color: #fff;
+  font-family: "Noto Serif", serif;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 30px;
+}
+.starting-section .middle-content .description span {
+  font-weight: 700;
+}
+.starting-section .section-title {
+  color: #bfa573;
+  font-family: "Noto Serif", serif;
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 40px;
+  text-transform: uppercase;
+  position: relative;
+  z-index: 2;
+}
+.starting-section .floating-image {
+  position: relative;
+  text-align: right;
+  margin-top: -120px;
+}
+.starting-section .floating-image img {
+  max-width: 300px;
+  height: auto;
+}
+.starting-section .content-row {
+  margin-top: 50px;
+}
+.starting-section .content-block {
+  margin-bottom: 30px;
+}
+.starting-section .content-block .content-title {
+  color: #d1b06b;
+  font-family: "Noto Serif", serif;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 25px;
+  margin-bottom: 20px;
+}
+.starting-section .content-block .content-description {
+  color: #fff;
+  font-family: "Noto Serif", serif;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 30px;
+}
+
 /*----------------------------------------------------------
     File Name  : _navbar.scss
     Desc       : File ini merupakan styling untuk 

@@ -105,4 +105,54 @@
             </div>
         </div>
     </section>
+
+    <section class="starting-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-2">
+                </div>
+                <div class="col-12 col-lg-8">
+                    <div class="top-content">
+                        <h2 class="section-title">
+                            Starting from Scratch? <br>
+                            We've Got You Covered
+                        </h2>
+                    </div>
+                </div>
+                <div class="col-lg-2">
+                    <div class="floating-image">
+                        <img src="<?= BASE_URL ?>assets/img/ic_starting_scratch.png" alt="Starting Scratch">
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <div class="middle-content">
+                        <p class="description">
+                            For those new to the cryptocurrency world, our consultants offer comprehensive support to help you get started. You will receive an introduction to major cryptocurrencies such as: <span>Bitcoin, Ethereum, Stablecoins</span>.<br>
+                            We'll explain how they work, the blockchain technologies behind them, and the opportunities they offer.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="row content-row">
+                <div class="col-12 col-lg-6">
+                    <div class="content-block">
+                        <h3 class="content-title">Explore Emerging Crypto Markets with Confidence</h3>
+                        <p class="content-description">
+                            Furthermore, you will gain access to in-depth analyses of emerging cryptocurrencies, with assessments of their potential and the innovative technologies driving them. The consultant will help you understand market dynamics, equipping you with tools to evaluate new opportunities independently and avoid potential scams or risky investments.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-12 col-lg-6">
+                    <div class="content-block">
+                        <h3 class="content-title">Optimize Your Trading and Custody Choices</h3>
+                        <p class="content-description">
+                            In addition, the most reliable trading platforms, exchanges, and wallets will be reviewed, with guidance on selecting those that best align with your needs. Practical recommendations will be offered for managing your future activities, from purchase and sale decisions to the long-term saving of your cryptocurrencies.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 </div>

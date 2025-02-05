@@ -282,3 +282,88 @@
         }
     }
 }
+
+.starting-section {
+    padding: 60px 0;
+    position: relative;
+    overflow: visible;
+    background: radial-gradient(
+        circle farthest-corner at top left,
+        #000 0%,
+        #454242 60%,
+        #adadad 100%
+    );
+
+    .top-content {
+        text-align: center;
+        margin-bottom: 50px;
+        position: relative;
+    }
+
+    .middle-content {
+        max-width: 900px;
+        margin: 0 auto;
+        text-align: center;
+        position: relative;
+        z-index: 2;
+
+        .description {
+            color: #fff;
+            font-family: var.$f-noto;
+            font-size: 20px;
+            font-weight: 500;
+            line-height: 30px;
+
+            span {
+                font-weight: 700;
+            }
+        }
+    }
+
+    .section-title {
+        color: #bfa573;
+        font-family: var.$f-noto;
+        font-size: 30px;
+        font-weight: 700;
+        line-height: 40px;
+        text-transform: uppercase;
+        position: relative;
+        z-index: 2;
+    }
+
+    .floating-image {
+        position: relative;
+        text-align: right;
+        margin-top: -120px;
+
+        img {
+            max-width: 300px;
+            height: auto;
+        }
+    }
+
+    .content-row {
+        margin-top: 50px;
+    }
+
+    .content-block {
+        margin-bottom: 30px;
+
+        .content-title {
+            color: #d1b06b;
+            font-family: var.$f-noto;
+            font-size: 20px;
+            font-weight: 600;
+            line-height: 25px;
+            margin-bottom: 20px;
+        }
+
+        .content-description {
+            color: #fff;
+            font-family: var.$f-noto;
+            font-size: 20px;
+            font-weight: 500;
+            line-height: 30px;
+        }
+    }
+}
