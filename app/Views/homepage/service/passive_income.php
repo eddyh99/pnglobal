@@ -21,4 +21,19 @@
             </div>
         </div>
     </section>
+
+    <section class="transform-section">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-3"></div>
+                <div class="col-6">
+                    <h2 class="transform-title">Transform your assets into a steady stream of income</h2>
+                    <p class="transform-description">With PN Global's Passive Income service, you can transform your assets into a reliable and consistent source of income without the need for active management.<br>Our team of experts identifies the most promising investment opportunities in the market and crafts customized strategies designed to maximize returns while minimizing risk.</p>
+                </div>
+                <div class="col-3 position-relative">
+                    <img src="<?= BASE_URL ?>assets/img/ic_transform_assets.png" alt="Transform Assets" class="transform-image">
+                </div>
+            </div>
+        </div>
+    </section>
 </div>

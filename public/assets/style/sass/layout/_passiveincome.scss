@@ -94,3 +94,44 @@
         }
     }
 }
+
+.transform-section {
+    position: relative;
+    padding: 100px 0;
+    background: radial-gradient(
+        circle farthest-corner at top left,
+        #0b0a08 0%,
+        #0b0a08 50%,
+        #ccb78f 100%
+    );
+    overflow: visible;
+
+    .transform-title {
+        color: #d1b06b;
+        text-align: center;
+        font-family: var.$f-noto;
+        font-size: 25px;
+        font-weight: 800;
+        line-height: 40px;
+        text-transform: uppercase;
+        margin-bottom: 2rem;
+    }
+
+    .transform-description {
+        color: #fff;
+        text-align: center;
+        font-family: var.$f-noto;
+        font-size: 20px;
+        font-weight: 500;
+        line-height: 30px;
+    }
+
+    .transform-image {
+        position: absolute;
+        max-width: 100%;
+        height: auto;
+        bottom: -200px;
+        left: -100px;
+        transform: translateY(50px);
+    }
+}
