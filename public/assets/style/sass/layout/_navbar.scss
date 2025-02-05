@@ -86,15 +86,10 @@
                 text-align: center;
                 background: linear-gradient(
                     120deg,
-                    /* Dark section */ #0b0a08 0%,
+                    #0b0a08 0%,
                     #0b0a08 60%,
-
-                    // Increased dark coverage
-                    /* Brown transition */ #5c5240 80%,
-
-                    // Moved transition point
-                    /* Gold corner - reduced */ #ccb78f 95%,
-                    // Pushed gold closer to edge
+                    #5c5240 80%,
+                    #ccb78f 95%,
                     #ccb78f 100%
                 );
 

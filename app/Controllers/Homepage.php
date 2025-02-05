@@ -59,57 +59,90 @@ class Homepage extends BaseController
     {
         $service = base64_decode($_GET['service']);
 
-        if ($service == "finance_advice_investment") {
+        // if ($service == "finance_advice_investment") {
+        //     $mdata = [
+        //         'title'     => 'Service Finance Advice Assets And Investment - ' . NAMETITLE,
+        //         'content'   => 'homepage/service/finance',
+        //         'extra'     => 'homepage/js/_js_index',
+        //         'extragsap' => 'homepage/gsap/gsap_finance',
+        //     ];
+        // } else if ($service == "strategic_optimization") {
+        //     $mdata = [
+        //         'title'     => 'Service Strategic And Tax Optimization - ' . NAMETITLE,
+        //         'content'   => 'homepage/service/strategic',
+        //         'extra'     => 'homepage/js/_js_index',
+        //         'extragsap' => 'homepage/gsap/gsap_strategic'
+        //     ];
+        // } else if ($service == "international_expansion_management") {
+        //     $mdata = [
+        //         'title'     => 'Service International Expansion And Management - ' . NAMETITLE,
+        //         'content'   => 'homepage/service/international',
+        //         'extra'     => 'homepage/js/_js_index',
+        //         'extragsap' => 'homepage/gsap/gsap_international'
+        //     ];
+        // } else if ($service == "legal_tax_accounting") {
+        //     $mdata = [
+        //         'title'     => 'Legal, Tax, And Accounting Advice - ' . NAMETITLE,
+        //         'content'   => 'homepage/service/legal',
+        //         'extra'     => 'homepage/js/_js_index',
+        //         'extragsap' => 'homepage/gsap/gsap_legal'
+        //     ];
+        // } else if ($service == "professional_enterpreneurial_training") {
+        //     $mdata = [
+        //         'title'     => 'Service Professional Enterpreneurial Training - ' . NAMETITLE,
+        //         'content'   => 'homepage/service/training',
+        //         'extra'     => 'homepage/js/_js_index',
+        //         'extragsap' => 'homepage/gsap/gsap_training',
+        //         'flag'      => 'blockchain'
+        //     ];
+        // } else if ($service == "blockchain_mining_bitcoin_training") {
+        //     $mdata = [
+        //         'title'     => 'Advanced Training on Blockchain, Mining and Bitcoin - ' . NAMETITLE,
+        //         'content'   => 'homepage/service/blockchain',
+        //         'extra'     => 'homepage/js/_js_index',
+        //         'extragsap' => 'homepage/gsap/gsap_blockchain',
+        //         'flag'      => 'blockchain'
+        //     ];
+        // } else if ($service == "satoshi_signal") {
+        //     $mdata = [
+        //         'title'     => 'Bitcoin Trading Guidance for Buy/Sell Decisions - ' . NAMETITLE,
+        //         'content'   => 'homepage/service/satoshi',
+        //         'extra'     => 'homepage/js/_js_index',
+        //         'extragsap' => 'homepage/gsap/gsap_satoshi',
+        //         'flag'      => 'satoshi'
+        //     ];
+        // } else if ($service == "lux_btc_brokers") {
+        //     $mdata = [
+        //         'title'     => 'Lux BTC Brokers - ' . NAMETITLE,
+        //         'content'   => 'homepage/service/lux_btc_brokers',
+        //         'extra'     => 'homepage/js/_js_index',
+        //         'extragsap' => 'homepage/gsap/gsap_luxbtc',
+        //         'flag'      => 'luxbtc'
+        //     ];
+        // } else if ($service == "btc_elite_management") {
+        //     $mdata = [
+        //         'title'     => 'BTC Elite Management - ' . NAMETITLE,
+        //         'content'   => 'homepage/service/btc_elite_management',
+        //         'extra'     => 'homepage/js/_js_index',
+        //         'extragsap' => 'homepage/gsap/gsap_btc_elite_management',
+        //         'flag'      => 'btcelitemanagement'
+        //     ];
+        // } else {
+        //     $mdata = [
+        //         'title'     => 'Service Finance Advice Assets And Investment - ' . NAMETITLE,
+        //         'content'   => 'homepage/service/finance',
+        //         'extra'     => 'homepage/js/_js_index',
+        //         'extragsap' => 'homepage/gsap/gsap_finance'
+        //     ];
+        // }
+
+        if ($service == "satoshi_signal") {
             $mdata = [
-                'title'     => 'Service Finance Advice Assets And Investment - ' . NAMETITLE,
-                'content'   => 'homepage/service/finance',
+                'title'     => 'Satoshi Signal - ' . NAMETITLE,
+                'content'   => 'homepage/service/satoshi_signal',
                 'extra'     => 'homepage/js/_js_index',
-                'extragsap' => 'homepage/gsap/gsap_finance',
-            ];
-        } else if ($service == "strategic_optimization") {
-            $mdata = [
-                'title'     => 'Service Strategic And Tax Optimization - ' . NAMETITLE,
-                'content'   => 'homepage/service/strategic',
-                'extra'     => 'homepage/js/_js_index',
-                'extragsap' => 'homepage/gsap/gsap_strategic'
-            ];
-        } else if ($service == "international_expansion_management") {
-            $mdata = [
-                'title'     => 'Service International Expansion And Management - ' . NAMETITLE,
-                'content'   => 'homepage/service/international',
-                'extra'     => 'homepage/js/_js_index',
-                'extragsap' => 'homepage/gsap/gsap_international'
-            ];
-        } else if ($service == "legal_tax_accounting") {
-            $mdata = [
-                'title'     => 'Legal, Tax, And Accounting Advice - ' . NAMETITLE,
-                'content'   => 'homepage/service/legal',
-                'extra'     => 'homepage/js/_js_index',
-                'extragsap' => 'homepage/gsap/gsap_legal'
-            ];
-        } else if ($service == "professional_enterpreneurial_training") {
-            $mdata = [
-                'title'     => 'Service Professional Enterpreneurial Training - ' . NAMETITLE,
-                'content'   => 'homepage/service/training',
-                'extra'     => 'homepage/js/_js_index',
-                'extragsap' => 'homepage/gsap/gsap_training',
-                'flag'      => 'blockchain'
-            ];
-        } else if ($service == "blockchain_mining_bitcoin_training") {
-            $mdata = [
-                'title'     => 'Advanced Training on Blockchain, Mining and Bitcoin - ' . NAMETITLE,
-                'content'   => 'homepage/service/blockchain',
-                'extra'     => 'homepage/js/_js_index',
-                'extragsap' => 'homepage/gsap/gsap_blockchain',
-                'flag'      => 'blockchain'
-            ];
-        } else if ($service == "satoshi_signal") {
-            $mdata = [
-                'title'     => 'Bitcoin Trading Guidance for Buy/Sell Decisions - ' . NAMETITLE,
-                'content'   => 'homepage/service/satoshi',
-                'extra'     => 'homepage/js/_js_index',
-                'extragsap' => 'homepage/gsap/gsap_satoshi',
-                'flag'      => 'satoshi'
+                'extragsap' => 'homepage/gsap/gsap_satoshi_signal',
+                'flag'      => 'satoshisignal'
             ];
         } else if ($service == "lux_btc_brokers") {
             $mdata = [
@@ -127,6 +160,14 @@ class Homepage extends BaseController
                 'extragsap' => 'homepage/gsap/gsap_btc_elite_management',
                 'flag'      => 'btcelitemanagement'
             ];
+        } else if ($service == "crypto_consulting") {
+            $mdata = [
+                'title'     => 'Crypto Consulting - ' . NAMETITLE,
+                'content'   => 'homepage/service/crypto_consulting',
+                'extra'     => 'homepage/js/_js_index',
+                'extragsap' => 'homepage/gsap/gsap_crypto_consulting',
+                'flag'      => 'cryptoconsulting'
+            ];
         } else {
             $mdata = [
                 'title'     => 'Service Finance Advice Assets And Investment - ' . NAMETITLE,
@@ -135,7 +176,6 @@ class Homepage extends BaseController
                 'extragsap' => 'homepage/gsap/gsap_finance'
             ];
         }
-
         return view('homepage/layout/wrapper', $mdata);
     }
 

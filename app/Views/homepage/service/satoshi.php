@@ -1,7 +1,6 @@
-
 <!-- Start of Banner -->
 <div class="banner-service satoshi-banner">
-    <div class="wrapper-service" >
+    <div class="wrapper-service">
         <video autoplay="" preload="" muted="" loop="" playsinline="">
             <source src="<?= BASE_URL ?>assets/vid/banner-signal.webm" type="video/webm">
         </video>
@@ -14,12 +13,12 @@
             </h1>
             <div class="button-download">
                 <div id="g-icondownloadtop" class="top">
-                    <a href="https://play.google.com/store/apps/details?id=com.pnglobalinternational.satoshi"  target="_blank"><img class="btn-download" src="<?= BASE_URL ?>assets/img/playstore-download.png" alt="download playstore"></a>
+                    <a href="https://play.google.com/store/apps/details?id=com.pnglobalinternational.satoshi" target="_blank"><img class="btn-download" src="<?= BASE_URL ?>assets/img/playstore-download.png" alt="download playstore"></a>
                     <img class="btn-download" src="<?= BASE_URL ?>assets/img/ios-download.png" alt="download app store">
                 </div>
                 <div id="g-icondownloadbottom" class="bottom">
                     <img class="btn-download" src="<?= BASE_URL ?>assets/img/window-download.png" alt="download windows store">
-                    <a href="<?= BASE_URL ?>apk/satoshi-signal.apk"  target="_blank"><img class="btn-download" src="<?= BASE_URL ?>assets/img/apk-download.png" alt="download APK"></a>
+                    <a href="<?= BASE_URL ?>apk/satoshi-signal.apk" target="_blank"><img class="btn-download" src="<?= BASE_URL ?>assets/img/apk-download.png" alt="download APK"></a>
                 </div>
             </div>
         </div>
@@ -60,18 +59,18 @@
                     Maximize Profits with Reliable <br>
                     and Timely Signals from Our Brokers
                 </h2>
-                <p class="mt-4 ">  
+                <p class="mt-4 ">
                     Our application is not the classic signals room but inside it you will see the information shared by our brokers so you can decide to buy or sell following the best in the field, Our brokers provide timely and accurate information to help you make informed investment decisions. We guarantee our customers the most reliable and up-to-date information. Our method, perfected over the years, allows you to trade profitably without risk in the spot purchase and sale of bitcoin.
                 </p>
             </div>
         </div>
-        <img class="el-satoshi-3 d-none d-lg-block" src="<?= BASE_URL?>assets/img/el-3.png" alt="element 1">
-        <img class="el-satoshi-4 d-none d-lg-block" src="<?= BASE_URL?>assets/img/el-4.png" alt="element 2">
+        <img class="el-satoshi-3 d-none d-lg-block" src="<?= BASE_URL ?>assets/img/el-3.png" alt="element 1">
+        <img class="el-satoshi-4 d-none d-lg-block" src="<?= BASE_URL ?>assets/img/el-4.png" alt="element 2">
     </div>
 </section>
 <!-- End of Short Desc -->
 
-<section  class="service-homepage">
+<section class="service-homepage">
     <div class="wrapper-big-title">
         <h1 class="fw-bold text-uppercase">
             earn by promoting Satoshi Signal
@@ -90,11 +89,11 @@
                 <h4 class="">
                     Diving Your Capital
                 </h4>
-                <p class="mt-4 ">  
+                <p class="mt-4 ">
                     <!-- The USDT capital you have on cryptocurrency exchanges should be divided into four equal parts. This strategy is designed to reduce risk and maximize profitability. By following Satoshi Signals, you will buy and sell according to a precise order that helps you effectively manage your portfolio and optimize profits. <br>
                     Our brokers operate exclusively on the <strong> Binance platform, </strong> using a strategy that takes into account the buy and sell prices of the <strong> USDT/BTC </strong> pair and the platform’s fees. This ensures that each trade is optimized to provide you with the maximum advantage. -->
 
-                    The <span translate='no'> USDT </span> capital you have on cryptocurrency exchanges should be divided into four equal parts. This strategy is designed to reduce risk and maximize profitability. By following <span translate='no'> Satoshi Signal </span>, you will buy and sell according to a precise order that helps you effectively manage your portfolio and optimize profits. 
+                    The <span translate='no'> USDT </span> capital you have on cryptocurrency exchanges should be divided into four equal parts. This strategy is designed to reduce risk and maximize profitability. By following <span translate='no'> Satoshi Signal </span>, you will buy and sell according to a precise order that helps you effectively manage your portfolio and optimize profits.
                     Our brokers operate exclusively on the <strong> Binance platform </strong>, using a strategy that takes into account the buy and sell prices of the <strong> BTC/USDT </strong> pair and the platform’s fees. This ensures that each trade is optimized to provide you with the maximum advantage.
                 </p>
                 <div class="d-flex justify-content-center align-items-center">
@@ -119,7 +118,7 @@
                         <h4 class=" order-1 order-md-0">
                             BUY SIGNAL
                         </h4>
-                        <img class="img-fluid order-0 order-md-1" src="<?= BASE_URL?>assets/img/logo-satoshi.png" alt="logo">
+                        <img class="img-fluid order-0 order-md-1" src="<?= BASE_URL ?>assets/img/logo-satoshi.png" alt="logo">
                     </div>
                     <div class="button-buy ">
                         <h4>
@@ -139,8 +138,8 @@
                                     </h4>
                                 </div>
                                 <div class="card-body">Start by purchasing the first quarter of your capital.</div>
-                                <img class="blink-white" src="<?= BASE_URL?>assets/img/blink-white.png" alt="blink">
-                                <img class="blink-gold" src="<?= BASE_URL?>assets/img/blink-gold.png" alt="blink">
+                                <img class="blink-white" src="<?= BASE_URL ?>assets/img/blink-white.png" alt="blink">
+                                <img class="blink-gold" src="<?= BASE_URL ?>assets/img/blink-gold.png" alt="blink">
                             </div>
                         </li>
                         <li>
@@ -151,8 +150,8 @@
                                     </h4>
                                 </div>
                                 <div class="card-body">Purchasing the second quarter of your capital.</div>
-                                <img class="blink-white" src="<?= BASE_URL?>assets/img/blink-white.png" alt="blink">
-                                <img class="blink-gold" src="<?= BASE_URL?>assets/img/blink-gold.png" alt="blink">
+                                <img class="blink-white" src="<?= BASE_URL ?>assets/img/blink-white.png" alt="blink">
+                                <img class="blink-gold" src="<?= BASE_URL ?>assets/img/blink-gold.png" alt="blink">
                             </div>
                         </li>
                         <li>
@@ -163,8 +162,8 @@
                                     </h4>
                                 </div>
                                 <div class="card-body">Purchasing the second third of your capital.</div>
-                                <img class="blink-white" src="<?= BASE_URL?>assets/img/blink-white.png" alt="blink">
-                                <img class="blink-gold" src="<?= BASE_URL?>assets/img/blink-gold.png" alt="blink">
+                                <img class="blink-white" src="<?= BASE_URL ?>assets/img/blink-white.png" alt="blink">
+                                <img class="blink-gold" src="<?= BASE_URL ?>assets/img/blink-gold.png" alt="blink">
                             </div>
                         </li>
                         <li>
@@ -175,8 +174,8 @@
                                     </h4>
                                 </div>
                                 <div class="card-body">Complate the purchase with the final quarter of your capital.</div>
-                                <img class="blink-white" src="<?= BASE_URL?>assets/img/blink-white.png" alt="blink">
-                                <img class="blink-gold" src="<?= BASE_URL?>assets/img/blink-gold.png" alt="blink">
+                                <img class="blink-white" src="<?= BASE_URL ?>assets/img/blink-white.png" alt="blink">
+                                <img class="blink-gold" src="<?= BASE_URL ?>assets/img/blink-gold.png" alt="blink">
                             </div>
                         </li>
                     </ul>
@@ -184,7 +183,7 @@
             </div>
             <div class="col-12 col-md-5 col-lg-4 order-0 order-md-2 desc">
                 <div class="wrapper-desc d-flex justify-content-center align-items-center">
-                    <p class="">In <span translate='no'> Satoshi Signals </span> system, the execution order of operations is crucial to ensure effective and safe portfolio management. For  buying, it is necessary to strictly follow the <span translate='no'> ABCD </span> order.</p>
+                    <p class="">In <span translate='no'> Satoshi Signals </span> system, the execution order of operations is crucial to ensure effective and safe portfolio management. For buying, it is necessary to strictly follow the <span translate='no'> ABCD </span> order.</p>
                 </div>
             </div>
         </div>
@@ -196,23 +195,23 @@
             <div>
                 <svg width="69" height="71" viewBox="0 0 69 71" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <mask id="mask0_821_5622" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="0" y="0" width="69" height="71">
-                    <path d="M0 0.0488281H69V70.6888H0V0.0488281Z" fill="white"/>
+                        <path d="M0 0.0488281H69V70.6888H0V0.0488281Z" fill="white" />
                     </mask>
                     <g mask="url(#mask0_821_5622)">
-                    <path d="M34.1547 0.150391L34.8594 5.35273L35.7191 10.533L37.0368 15.6249L37.7626 20.8273L39.6933 26.0296L43.3998 30.1061L48.4734 31.9163L53.4553 32.6815L58.3808 33.7485L63.3205 34.7492L68.3658 35.772L63.2993 36.6698L58.402 37.8839L53.3848 38.4578L48.424 39.3555L43.5971 41.7396L39.9963 45.7205L37.8683 50.7315L36.769 55.8603L35.8741 61.0332L35.2047 66.2502L34.1547 71.1729L33.3162 66.2061L32.5411 61.0111L30.6103 50.6947L28.4681 45.6101L24.9096 41.4232L19.8502 39.5101L14.9176 38.4725L9.91452 37.8103L4.97488 36.8022L0 35.7647L4.96783 34.7051L9.93566 33.8589L14.8471 32.6815L19.8502 32.0487L24.6207 29.6646L28.602 26.0149L30.6314 20.842L31.5545 15.6765L32.5622 10.5256L33.4007 5.34537L34.1547 0.150391Z" fill="#C5A571"/>
+                        <path d="M34.1547 0.150391L34.8594 5.35273L35.7191 10.533L37.0368 15.6249L37.7626 20.8273L39.6933 26.0296L43.3998 30.1061L48.4734 31.9163L53.4553 32.6815L58.3808 33.7485L63.3205 34.7492L68.3658 35.772L63.2993 36.6698L58.402 37.8839L53.3848 38.4578L48.424 39.3555L43.5971 41.7396L39.9963 45.7205L37.8683 50.7315L36.769 55.8603L35.8741 61.0332L35.2047 66.2502L34.1547 71.1729L33.3162 66.2061L32.5411 61.0111L30.6103 50.6947L28.4681 45.6101L24.9096 41.4232L19.8502 39.5101L14.9176 38.4725L9.91452 37.8103L4.97488 36.8022L0 35.7647L4.96783 34.7051L9.93566 33.8589L14.8471 32.6815L19.8502 32.0487L24.6207 29.6646L28.602 26.0149L30.6314 20.842L31.5545 15.6765L32.5622 10.5256L33.4007 5.34537L34.1547 0.150391Z" fill="#C5A571" />
                     </g>
                 </svg>
             </div>
             <p class=" text-center">
-                The same order must be followed during the selling phase. You cannot sell an operation bought with the BUY A signal without first selling those bought with BUY B, C, and D. 
+                The same order must be followed during the selling phase. You cannot sell an operation bought with the BUY A signal without first selling those bought with BUY B, C, and D.
             </p>
             <div>
                 <svg width="69" height="71" viewBox="0 0 69 71" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <mask id="mask0_821_5622" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="0" y="0" width="69" height="71">
-                    <path d="M0 0.0488281H69V70.6888H0V0.0488281Z" fill="white"/>
+                        <path d="M0 0.0488281H69V70.6888H0V0.0488281Z" fill="white" />
                     </mask>
                     <g mask="url(#mask0_821_5622)">
-                    <path d="M34.1547 0.150391L34.8594 5.35273L35.7191 10.533L37.0368 15.6249L37.7626 20.8273L39.6933 26.0296L43.3998 30.1061L48.4734 31.9163L53.4553 32.6815L58.3808 33.7485L63.3205 34.7492L68.3658 35.772L63.2993 36.6698L58.402 37.8839L53.3848 38.4578L48.424 39.3555L43.5971 41.7396L39.9963 45.7205L37.8683 50.7315L36.769 55.8603L35.8741 61.0332L35.2047 66.2502L34.1547 71.1729L33.3162 66.2061L32.5411 61.0111L30.6103 50.6947L28.4681 45.6101L24.9096 41.4232L19.8502 39.5101L14.9176 38.4725L9.91452 37.8103L4.97488 36.8022L0 35.7647L4.96783 34.7051L9.93566 33.8589L14.8471 32.6815L19.8502 32.0487L24.6207 29.6646L28.602 26.0149L30.6314 20.842L31.5545 15.6765L32.5622 10.5256L33.4007 5.34537L34.1547 0.150391Z" fill="#C5A571"/>
+                        <path d="M34.1547 0.150391L34.8594 5.35273L35.7191 10.533L37.0368 15.6249L37.7626 20.8273L39.6933 26.0296L43.3998 30.1061L48.4734 31.9163L53.4553 32.6815L58.3808 33.7485L63.3205 34.7492L68.3658 35.772L63.2993 36.6698L58.402 37.8839L53.3848 38.4578L48.424 39.3555L43.5971 41.7396L39.9963 45.7205L37.8683 50.7315L36.769 55.8603L35.8741 61.0332L35.2047 66.2502L34.1547 71.1729L33.3162 66.2061L32.5411 61.0111L30.6103 50.6947L28.4681 45.6101L24.9096 41.4232L19.8502 39.5101L14.9176 38.4725L9.91452 37.8103L4.97488 36.8022L0 35.7647L4.96783 34.7051L9.93566 33.8589L14.8471 32.6815L19.8502 32.0487L24.6207 29.6646L28.602 26.0149L30.6314 20.842L31.5545 15.6765L32.5622 10.5256L33.4007 5.34537L34.1547 0.150391Z" fill="#C5A571" />
                     </g>
                 </svg>
             </div>
@@ -234,7 +233,7 @@
                         <h4 class=" order-1 order-md-0">
                             SIGNLE SELLS SIGNALS
                         </h4>
-                        <img class="img-fluid order-0 order-md-1" src="<?= BASE_URL?>assets/img/logo-satoshi.png" alt="logo">
+                        <img class="img-fluid order-0 order-md-1" src="<?= BASE_URL ?>assets/img/logo-satoshi.png" alt="logo">
                     </div>
                     <div class="button-sell ">
                         <h4>
@@ -254,8 +253,8 @@
                                     </h4>
                                 </div>
                                 <div class="card-body">Sell the operation bought with BUY <span translate='no'> D </span></div>
-                                <img class="blink-white" src="<?= BASE_URL?>assets/img/blink-white.png" alt="blink">
-                                <img class="blink-gold" src="<?= BASE_URL?>assets/img/blink-gold.png" alt="blink">
+                                <img class="blink-white" src="<?= BASE_URL ?>assets/img/blink-white.png" alt="blink">
+                                <img class="blink-gold" src="<?= BASE_URL ?>assets/img/blink-gold.png" alt="blink">
                             </div>
                         </li>
                         <li>
@@ -266,8 +265,8 @@
                                     </h4>
                                 </div>
                                 <div class="card-body">Sell the operation bought with BUY <span translate='no'> C </span></div>
-                                <img class="blink-white" src="<?= BASE_URL?>assets/img/blink-white.png" alt="blink">
-                                <img class="blink-gold" src="<?= BASE_URL?>assets/img/blink-gold.png" alt="blink">
+                                <img class="blink-white" src="<?= BASE_URL ?>assets/img/blink-white.png" alt="blink">
+                                <img class="blink-gold" src="<?= BASE_URL ?>assets/img/blink-gold.png" alt="blink">
                             </div>
                         </li>
                         <li>
@@ -278,8 +277,8 @@
                                     </h4>
                                 </div>
                                 <div class="card-body">Sell the operation bought with BUY <span translate='no'> B </span></div>
-                                <img class="blink-white" src="<?= BASE_URL?>assets/img/blink-white.png" alt="blink">
-                                <img class="blink-gold" src="<?= BASE_URL?>assets/img/blink-gold.png" alt="blink">
+                                <img class="blink-white" src="<?= BASE_URL ?>assets/img/blink-white.png" alt="blink">
+                                <img class="blink-gold" src="<?= BASE_URL ?>assets/img/blink-gold.png" alt="blink">
                             </div>
                         </li>
                         <li>
@@ -290,15 +289,15 @@
                                     </h4>
                                 </div>
                                 <div class="card-body">Sell the operation bought with BUY <span translate='no'> A </span></div>
-                                <img class="blink-white" src="<?= BASE_URL?>assets/img/blink-white.png" alt="blink">
-                                <img class="blink-gold" src="<?= BASE_URL?>assets/img/blink-gold.png" alt="blink">
+                                <img class="blink-white" src="<?= BASE_URL ?>assets/img/blink-white.png" alt="blink">
+                                <img class="blink-gold" src="<?= BASE_URL ?>assets/img/blink-gold.png" alt="blink">
                             </div>
                         </li>
                     </ul>
                 </div>
             </div>
-          
-           
+
+
         </div>
     </div>
 </section>
@@ -312,7 +311,7 @@
                         <h4 class=" order-1 order-md-0">
                             COMBINE <span> MULTIPLE </span> SALES
                         </h4>
-                        <img class="img-fluid order-0 order-md-1" src="<?= BASE_URL?>assets/img/logo-satoshi.png" alt="logo">
+                        <img class="img-fluid order-0 order-md-1" src="<?= BASE_URL ?>assets/img/logo-satoshi.png" alt="logo">
                     </div>
                     <div class="button-buy ">
                         <h4>
@@ -334,8 +333,8 @@
                                     </h4>
                                 </div>
                                 <div class="card-body">Sell all operations <span translate='no'> (D, C, B, A) </span> in one operation</div>
-                                <img class="blink-white" src="<?= BASE_URL?>assets/img/blink-white.png" alt="blink">
-                                <img class="blink-gold" src="<?= BASE_URL?>assets/img/blink-gold.png" alt="blink">
+                                <img class="blink-white" src="<?= BASE_URL ?>assets/img/blink-white.png" alt="blink">
+                                <img class="blink-gold" src="<?= BASE_URL ?>assets/img/blink-gold.png" alt="blink">
                             </div>
                         </li>
                         <li>
@@ -346,8 +345,8 @@
                                     </h4>
                                 </div>
                                 <div class="card-body">Sell the operations associated with BUY <span translate='no'>D, C, B</span> signals</div>
-                                <img class="blink-white" src="<?= BASE_URL?>assets/img/blink-white.png" alt="blink">
-                                <img class="blink-gold" src="<?= BASE_URL?>assets/img/blink-gold.png" alt="blink">
+                                <img class="blink-white" src="<?= BASE_URL ?>assets/img/blink-white.png" alt="blink">
+                                <img class="blink-gold" src="<?= BASE_URL ?>assets/img/blink-gold.png" alt="blink">
                             </div>
                         </li>
                         <li>
@@ -358,8 +357,8 @@
                                     </h4>
                                 </div>
                                 <div class="card-body">Sell the operations associated with BUY <span translate='no'> D </span> and <span translate='no'> C </span> signals</div>
-                                <img class="blink-white" src="<?= BASE_URL?>assets/img/blink-white.png" alt="blink">
-                                <img class="blink-gold" src="<?= BASE_URL?>assets/img/blink-gold.png" alt="blink">
+                                <img class="blink-white" src="<?= BASE_URL ?>assets/img/blink-white.png" alt="blink">
+                                <img class="blink-gold" src="<?= BASE_URL ?>assets/img/blink-gold.png" alt="blink">
                             </div>
                         </li>
                         <li>
@@ -370,8 +369,8 @@
                                     </h4>
                                 </div>
                                 <div class="card-body">Sell the operations associated with BUY <span translate='no'> A </span> and <span translate='no'> B </span> signals (only if D and C have already been sold)</div>
-                                <img class="blink-white" src="<?= BASE_URL?>assets/img/blink-white.png" alt="blink">
-                                <img class="blink-gold" src="<?= BASE_URL?>assets/img/blink-gold.png" alt="blink">
+                                <img class="blink-white" src="<?= BASE_URL ?>assets/img/blink-white.png" alt="blink">
+                                <img class="blink-gold" src="<?= BASE_URL ?>assets/img/blink-gold.png" alt="blink">
                             </div>
                         </li>
                     </ul>
@@ -398,14 +397,14 @@
                 <p>
                     If you have executed a multiple sale, for example, selling D and C with SELL DC, the next buy signal will start from BUY C, not BUY A or BUY B. This is because in the Satoshi Signals system, the execution order must always be respected. So, if you have sold operations D and C, the next cycle of purchases will resume from C and proceed in order up to D.
                 </p>
-                <h5 >
+                <h5>
                     This mediation approach allows you to maintain a well-structured portfolio and avoid unnecessary risks, ensuring that each operation is managed logically and disciplined; eliminating the risk of loss.
                 </h5>
             </div>
         </div>
     </div>
-    <img class="el-left d-none d-md-block" src="<?= BASE_URL?>assets/img/el-6.png" alt="element">
-    <img class="el-right d-none d-md-block" src="<?= BASE_URL?>assets/img/el-5.png" alt="element">
+    <img class="el-left d-none d-md-block" src="<?= BASE_URL ?>assets/img/el-6.png" alt="element">
+    <img class="el-right d-none d-md-block" src="<?= BASE_URL ?>assets/img/el-5.png" alt="element">
 </section>
 <!-- End of Mediation System -->
 
@@ -454,17 +453,17 @@
             <div class="row">
                 <div class="col-11 mx-auto">
                     <h5>
-                       <span style="color: #FF3A44;"> N.B: </span> If you use another cryptocurrency exchange, you will have to calculate your own fees and the pairs usdt/btc could have different prices and the minimum and the maximum registered can be different from Binance exchange. 
+                        <span style="color: #FF3A44;"> N.B: </span> If you use another cryptocurrency exchange, you will have to calculate your own fees and the pairs usdt/btc could have different prices and the minimum and the maximum registered can be different from Binance exchange.
                     </h5>
                     <h5>
-                        We prefer and we suggest Binance 
+                        We prefer and we suggest Binance
                         <span>
                             <a href="https://accounts.binance.info/register?ref=38492683">
                                 <img class="img-small-binance" src="<?= BASE_URL ?>assets/img/logo-binance.png" alt="logo">
                             </a>
                         </span>
                     </h5>
-                </div>      
+                </div>
             </div>
         </div>
     </div>
@@ -497,7 +496,7 @@
 
     <div class="wrapper-big-title">
         <h2 class="">
-        Why Choose Our Application
+            Why Choose Our Application
         </h2>
     </div>
 
@@ -508,22 +507,22 @@
                     <p class="title">
                         Expert Consulting
                     </p>
-                    <p class="text"> 
+                    <p class="text">
                         Our team of experienced brokers is dedicated to sharing with you the Bitcoin brokerage operations. Our method has been refined over years of practice to ensure zero risk and maximum profit.
                     </p>
-                    <img class="bitcoin" src="<?= BASE_URL?>assets/img/el-1.png" alt="element">
-                </div>                
+                    <img class="bitcoin" src="<?= BASE_URL ?>assets/img/el-1.png" alt="element">
+                </div>
             </div>
             <div class="col-12 col-lg-6 d-flex justify-content-md-center justify-content-lg-start">
                 <div class="uptodate whitie">
                     <p class="title">
                         Up-to-Date Information
                     </p>
-                    <p class="text"> 
+                    <p class="text">
                         Stay one step ahead of the market with our expert brokers. We continuously monitor market conditions to provide you with the most up-to-date information.
                     </p>
-                    <img class="bitcoin" src="<?= BASE_URL?>assets/img/el-1.png" alt="element">
-                </div>                
+                    <img class="bitcoin" src="<?= BASE_URL ?>assets/img/el-1.png" alt="element">
+                </div>
             </div>
         </div>
         <div class="row mt-5">
@@ -532,11 +531,11 @@
                     <p class="title">
                         A Proven Strategy for Confident Trading
                     </p>
-                    <p class="text"> 
-                       <span translate='no'> Satoshi Signal </span> offers a structured and disciplined approach to Bitcoin brokerage, designed to maximize profits while minimizing risks. Our app provides real-time signals from our brokers, ensuring you are always informed of the exact prices at which to buy and sell. By following our precise methodology and waiting for Bitcoin to reach the specified prices, you can confidently navigate the volatile cryptocurrency market with a strategy that prioritizes both accuracy and profitability.
+                    <p class="text">
+                        <span translate='no'> Satoshi Signal </span> offers a structured and disciplined approach to Bitcoin brokerage, designed to maximize profits while minimizing risks. Our app provides real-time signals from our brokers, ensuring you are always informed of the exact prices at which to buy and sell. By following our precise methodology and waiting for Bitcoin to reach the specified prices, you can confidently navigate the volatile cryptocurrency market with a strategy that prioritizes both accuracy and profitability.
                     </p>
-                    <img class="bitcoin" src="<?= BASE_URL?>assets/img/el-1.png" alt="element">
-                </div>   
+                    <img class="bitcoin" src="<?= BASE_URL ?>assets/img/el-1.png" alt="element">
+                </div>
             </div>
         </div>
     </div>
@@ -552,17 +551,17 @@
                     How to Use the App
                 </h1>
                 <p class="mt-4">
-                   <span translate='no'> Satoshi Signals </span> is designed to provide you with reliable and timely information from our Bitcoin market brokers. After downloading the app, confirm that you understand the system to access all the features. Register your account, enter the referral code if applicable, and activate the chosen subscription that automatically renews. Once subscribed, you will receive real-time notifications and messages with decisions from our brokers. Follow the information to buy and sell at the right time, maximizing profits with minimal risk. Remember to keep the notifications turned on so you never miss an opportunity.
+                    <span translate='no'> Satoshi Signals </span> is designed to provide you with reliable and timely information from our Bitcoin market brokers. After downloading the app, confirm that you understand the system to access all the features. Register your account, enter the referral code if applicable, and activate the chosen subscription that automatically renews. Once subscribed, you will receive real-time notifications and messages with decisions from our brokers. Follow the information to buy and sell at the right time, maximizing profits with minimal risk. Remember to keep the notifications turned on so you never miss an opportunity.
                 </p>
                 <div id="g-icondownloadfooter" class="button-download">
-                    <a href="https://play.google.com/store/apps/details?id=com.pnglobalinternational.satoshi"  target="_blank"><img class="btn-download my-2" src="<?= BASE_URL ?>assets/img/playstore-download.png" alt="download playstore"></a>
+                    <a href="https://play.google.com/store/apps/details?id=com.pnglobalinternational.satoshi" target="_blank"><img class="btn-download my-2" src="<?= BASE_URL ?>assets/img/playstore-download.png" alt="download playstore"></a>
                     <img class="btn-download my-2" src="<?= BASE_URL ?>assets/img/ios-download.png" alt="download app store">
                     <img class="btn-download my-2" src="<?= BASE_URL ?>assets/img/window-download.png" alt="download windows store">
                     <a href="<?= BASE_URL ?>apk/satoshi-signal.apk" target="_blank"><img class="btn-download my-2" src="<?= BASE_URL ?>assets/img/apk-download.png" alt="download APK"></a>
                 </div>
             </div>
             <div id="g-mobilesatoshi" class="col-12 col-lg-4 order-0 order-lg-1">
-                <img class="img-fluid line-animation" src="<?= BASE_URL?>assets/img/logo-satoshi.png" alt="mobile satoshi">
+                <img class="img-fluid line-animation" src="<?= BASE_URL ?>assets/img/logo-satoshi.png" alt="mobile satoshi">
             </div>
         </div>
     </div>
@@ -571,7 +570,7 @@
 
 <!-- Start of video mobile satoshi -->
 <div class="banner-satoshi">
-    <div class="wrapper-satoshi" >
+    <div class="wrapper-satoshi">
         <video autoplay="" preload="" muted="" loop="" playsinline="">
             <source src="<?= BASE_URL ?>assets/vid/satoshi-video-footer.mp4" type="video/mp4">
         </video>
@@ -580,15 +579,15 @@
 <!-- End of video mobile satoshi -->
 
 
-<?php if(!empty(session('successPayment'))) { ?>
+<?php if (!empty(session('successPayment'))) { ?>
     <div class="modal fade" id="loadingcontent" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-        <div class="modal-dialog modal-lg modal-dialog-centered" >
+        <div class="modal-dialog modal-lg modal-dialog-centered">
             <div class="modal-content" style="height: 50vh;">
                 <div class="modal-body h-100" style="background-color: #C5A571;">
                     <div class="h-100 d-flex flex-column align-items-center justify-content-center">
                         <h2 class="text-center text-capitalize">Payment Success</h2>
                         <h5 class="text-center text-capitalize mt-2">
-                            <?= session('successPayment')?>
+                            <?= session('successPayment') ?>
                         </h5>
                     </div>
                 </div>

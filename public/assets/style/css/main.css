@@ -19158,6 +19158,1093 @@ input:-moz-placeholder {
   color: #000;
 }
 
+.page-wrapper {
+  background-color: #000;
+}
+
+.banner-satoshi {
+  position: relative;
+  overflow: hidden;
+}
+.banner-satoshi .wrapper-banner-satoshi {
+  display: flex;
+  min-height: 100vh !important;
+}
+.banner-satoshi .wrapper-banner-satoshi video {
+  width: 100%;
+  min-height: 100vh !important;
+  position: absolute;
+  z-index: 1;
+  object-fit: cover;
+  object-position: 50% 50%;
+  filter: brightness(0.7);
+}
+.banner-satoshi .wrapper-banner-satoshi .logo-banner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  z-index: 2;
+  text-align: center;
+  width: 100%;
+}
+.banner-satoshi .wrapper-banner-satoshi .logo-banner .text-wrapper {
+  background: rgba(0, 0, 0, 0.71);
+  padding: 2rem;
+  width: 100%;
+  border-radius: 5px;
+}
+.banner-satoshi .wrapper-banner-satoshi .logo-banner .text-wrapper .logo-text-banner {
+  color: #fff;
+  text-transform: uppercase;
+  margin-bottom: 11px;
+  font-size: 16px;
+  font-weight: 700;
+  text-align: center;
+}
+@media (min-width: 768px) {
+  .banner-satoshi .wrapper-banner-satoshi .logo-banner .text-wrapper .logo-text-banner {
+    font-size: 20px;
+  }
+}
+@media (min-width: 1024px) {
+  .banner-satoshi .wrapper-banner-satoshi .logo-banner .text-wrapper .logo-text-banner {
+    font-size: 30px;
+  }
+}
+@media (min-width: 1200px) {
+  .banner-satoshi .wrapper-banner-satoshi .logo-banner .text-wrapper .logo-text-banner {
+    padding: 0rem 3rem;
+    font-size: 40px;
+  }
+}
+.banner-satoshi .wrapper-banner-satoshi .logo-banner .text-wrapper .logo-text-banner .goal-text {
+  color: #bda069;
+  text-align: center;
+  font-family: "Noto Serif", serif;
+  font-size: 35px;
+  font-style: normal;
+  font-weight: 800;
+  line-height: 45px; /* 128.571% */
+  text-transform: uppercase;
+}
+.banner-satoshi .wrapper-banner-satoshi .logo-banner .text-wrapper .discover-text {
+  color: #fff;
+  font-family: "Noto Serif", serif;
+  font-size: 25px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 150%; /* 37.5px */
+  text-align: center;
+  margin-top: 1rem;
+  max-width: 980px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.success-section {
+  padding: 60px 0;
+  background-color: #fff;
+}
+.success-section .container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 15px;
+  text-align: center;
+}
+.success-section .container h2 {
+  color: #000;
+  font-family: "Noto Serif", serif;
+  font-size: 30px;
+  font-weight: 800;
+  line-height: 30px;
+  margin-bottom: 30px;
+}
+.success-section .container .description {
+  color: #000;
+  font-family: "Noto Serif", serif;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 30px;
+  max-width: 1030px;
+  margin: 0 auto 50px;
+}
+.success-section .container .button-wrapper {
+  display: flex;
+  justify-content: center;
+}
+.success-section .container .button-wrapper .activate-button {
+  width: 334px;
+  height: 64px;
+  border: none;
+  border-radius: 5px;
+  background: #bda069;
+  color: #000;
+  font-family: "Noto Serif", serif;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 30px;
+  text-transform: uppercase;
+  cursor: pointer;
+  padding: 0 20px;
+  transition: all 0.3s ease;
+}
+.success-section .container .button-wrapper .activate-button:hover {
+  background: #000;
+  color: #bda069;
+  font-size: 19px;
+  font-weight: 700;
+  box-shadow: 0px 4px 15px 5px #bda069;
+}
+
+.revolutionize-section .top-content {
+  background-color: #000;
+  padding: 60px 0;
+}
+.revolutionize-section .top-content .container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+.revolutionize-section .top-content .container h2 {
+  color: #bda069;
+  text-align: center;
+  font-family: "Noto Serif", serif;
+  font-size: 35px;
+  font-weight: 600;
+  line-height: 144.687%;
+  text-transform: uppercase;
+  margin-bottom: 30px;
+}
+.revolutionize-section .top-content .container .description {
+  color: #fff;
+  text-align: center;
+  font-family: "Noto Serif", serif;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 35px;
+  margin: 0 auto;
+}
+.revolutionize-section .top-content .container .description .highlight {
+  color: #fff;
+  font-family: "Noto Serif", serif;
+  font-size: 20px;
+  font-weight: 800;
+  line-height: 35px;
+}
+.revolutionize-section .bottom-content {
+  background-image: url("../../img/bg_satoshi_165.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 600px;
+  position: relative;
+  padding: 60px 0;
+}
+.revolutionize-section .bottom-content .container {
+  position: relative;
+  z-index: 2;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+.revolutionize-section .bottom-content .container .row {
+  display: flex;
+  justify-content: space-around;
+  gap: 20px;
+  padding: 0 120px;
+  margin-bottom: 40px;
+}
+.revolutionize-section .bottom-content .container .row.top-row {
+  justify-content: space-between;
+}
+.revolutionize-section .bottom-content .container .row.bottom-row {
+  justify-content: center;
+}
+.revolutionize-section .bottom-content .signal-card {
+  width: 419px;
+  min-height: 224px;
+  flex-shrink: 0;
+  border-radius: 10px;
+  background: linear-gradient(315deg, #000 -3.54%, #f7f4ee 50.57%, #fff 94.71%);
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.revolutionize-section .bottom-content .signal-card .card-title {
+  background: conic-gradient(from 45deg, #000 0deg, #666 90deg, #000 180deg, #666 270deg, #000 360deg);
+  padding: 15px;
+  margin-bottom: 20px;
+  width: 100%;
+  min-height: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.revolutionize-section .bottom-content .signal-card .card-title h3 {
+  color: #bda069;
+  text-align: center;
+  font-family: "Noto Serif", serif;
+  font-size: 18px;
+  font-weight: 900;
+  line-height: 144.687%;
+  text-transform: uppercase;
+}
+.revolutionize-section .bottom-content .signal-card .card-text {
+  color: #000;
+  font-family: "Noto Serif", serif;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 25px;
+  text-align: left;
+}
+
+.app-features-section .top-content {
+  background-color: #000;
+  padding: 60px 0;
+}
+.app-features-section .top-content .container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 15px;
+  text-align: center;
+}
+.app-features-section .top-content .container .main-title {
+  color: #bda069;
+  font-family: "Noto Serif", serif;
+  font-size: 40px;
+  font-weight: 900;
+  line-height: 144.687%;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+.app-features-section .top-content .container .sub-title {
+  color: #fff;
+  font-family: "Noto Serif", serif;
+  font-size: 40px;
+  font-weight: 900;
+  line-height: 144.687%;
+  text-transform: uppercase;
+}
+.app-features-section .bottom-content {
+  background-image: url("../../img/bg_app_provides.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 600px;
+  position: relative;
+  padding: 60px 0;
+  display: flex;
+  align-items: center;
+}
+.app-features-section .bottom-content .container {
+  position: relative;
+  z-index: 2;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.app-features-section .bottom-content .row {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  margin-bottom: 20px;
+}
+.app-features-section .bottom-content .feature-card-title {
+  width: 286.966px;
+  height: 70px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: conic-gradient(from 45deg, #000 0deg, #666 90deg, #000 180deg, #666 270deg, #000 360deg);
+}
+.app-features-section .bottom-content .feature-card-title h3 {
+  color: #eccf98;
+  text-align: center;
+  font-family: "Noto Serif", serif;
+  font-size: 20px;
+  font-weight: 900;
+  line-height: 144.687%;
+  text-transform: uppercase;
+}
+.app-features-section .bottom-content .feature-card-content {
+  width: 287px;
+  min-height: 221px;
+  flex-shrink: 0;
+  border-radius: 5px;
+  background: linear-gradient(133deg, rgba(189, 160, 105, 0.95) 47.58%, rgba(247, 244, 238, 0.95) 99.09%, rgba(255, 255, 255, 0.95) 106.05%);
+  display: flex;
+  align-items: center;
+  padding: 20px;
+  align-items: flex-start;
+}
+.app-features-section .bottom-content .feature-card-content p {
+  color: #000;
+  text-align: center;
+  font-family: "Noto Serif", serif;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 144.687%;
+  text-transform: capitalize;
+}
+
+.farewell-section {
+  background: #000;
+  min-height: 480px;
+  position: relative;
+  overflow: hidden;
+  padding: 100px 0 12px;
+}
+.farewell-section .container {
+  width: 100vw;
+  max-width: none;
+  margin: 0;
+  padding: 0;
+  position: relative;
+}
+.farewell-section .content-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 480px;
+  margin: 0 auto;
+  padding: 0;
+}
+.farewell-section .text-content {
+  width: 50%;
+  padding: 0 100px;
+}
+.farewell-section .text-content h2 {
+  color: #bfa573;
+  font-family: "Noto Serif", serif;
+  font-size: 35px;
+  font-weight: 600;
+  line-height: 45px;
+  text-transform: capitalize;
+  margin-bottom: 30px;
+}
+.farewell-section .text-content .description {
+  color: #fff;
+  font-family: "Noto Serif", serif;
+  font-size: 25px;
+  font-weight: 600;
+  line-height: 150%;
+  text-transform: capitalize;
+  margin-bottom: 40px;
+}
+.farewell-section .text-content .highlight {
+  color: #fff;
+  font-family: "Noto Serif", serif;
+  font-size: 25px;
+  font-weight: 700;
+  line-height: 150%;
+  text-transform: capitalize;
+  margin-bottom: 60px;
+}
+.farewell-section .text-content .button-wrapper .profit-button {
+  width: 289.966px;
+  height: 77px;
+  flex-shrink: 0;
+  border: none;
+  background: linear-gradient(95deg, #bda069 68.96%, #fff 100.93%);
+  color: #000;
+  font-family: "Noto Serif", serif;
+  font-size: 18px;
+  font-weight: 700;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.farewell-section .text-content .button-wrapper .profit-button:hover {
+  background: #fff;
+}
+.farewell-section .image-content {
+  width: 50%;
+  text-align: right;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+.farewell-section .image-content img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.referral-section .top-content {
+  background: #000;
+  min-height: 400px;
+  padding: 60px 0;
+}
+.referral-section .top-content .container {
+  width: 100vw;
+  max-width: none;
+  margin: 0;
+  padding: 0;
+}
+.referral-section .top-content .container h2 {
+  text-align: center;
+  font-family: "Noto Serif", serif;
+  font-size: 35px;
+  font-weight: 600;
+  line-height: 40px;
+  text-transform: uppercase;
+  margin: 0 auto 40px;
+}
+.referral-section .top-content .container h2 .highlight {
+  color: #bda069;
+}
+.referral-section .top-content .container h2 .white {
+  color: #fff;
+}
+.referral-section .top-content .container .row {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin: 0 auto;
+  padding: 0 40px;
+  position: relative;
+}
+.referral-section .top-content .container .referral-card {
+  width: calc(50% - 10px);
+  min-height: 400px;
+  padding: 50px 100px 40px 60px;
+  margin-bottom: -300px;
+  z-index: 2;
+}
+.referral-section .top-content .container .referral-card h3 {
+  color: #000;
+  font-family: "Noto Serif", serif;
+  font-size: 20px;
+  font-weight: 900;
+  line-height: 30px;
+  margin-bottom: 20px;
+}
+.referral-section .top-content .container .referral-card .card-text {
+  font-family: "Noto Serif", serif;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 30px;
+  text-align: justify;
+}
+.referral-section .top-content .container .referral-card .card-text .highlight {
+  font-weight: 800;
+}
+.referral-section .top-content .container .referral-card.left-card {
+  background: #fff;
+}
+.referral-section .top-content .container .referral-card.right-card {
+  background: #323232;
+}
+.referral-section .top-content .container .referral-card.right-card h3,
+.referral-section .top-content .container .referral-card.right-card .card-text {
+  color: #fff;
+}
+.referral-section .bottom-content {
+  min-height: 400px;
+  background: linear-gradient(133deg, #bda069 47.58%, #f7f4ee 99.09%, #fff 106.05%);
+  padding-top: 200px;
+}
+.referral-section .bottom-content .container {
+  width: 100vw;
+  max-width: none;
+  margin: 0;
+  padding: 20px 0;
+}
+.referral-section .bottom-content .warning-list {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 40px;
+  list-style: none;
+}
+.referral-section .bottom-content .warning-list li {
+  list-style-type: disc;
+  margin-left: 20px;
+  padding-left: 20px;
+  position: relative;
+  margin-bottom: 20px;
+  color: #000;
+  font-family: "Noto Serif", serif;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 30px;
+}
+
+.subscription-section {
+  background-image: url("../../img/bg_subscription.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 100%;
+  min-height: 1130px;
+  position: relative;
+  z-index: 1;
+}
+.subscription-section .top-content {
+  background: rgba(0, 0, 0, 0.77);
+  padding: 60px 0;
+  width: 100%;
+}
+.subscription-section .top-content .container {
+  width: 100vw;
+  max-width: none;
+  margin: 0;
+  padding: 0 40px;
+  text-align: center;
+}
+.subscription-section .top-content .container h2 {
+  color: #bda069;
+  font-family: "Noto Serif", serif;
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 40px;
+  text-transform: capitalize;
+  margin-bottom: 30px;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.subscription-section .top-content .container .description {
+  color: #fff;
+  font-family: "Noto Serif", serif;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 30px;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.subscription-section .bottom-content {
+  padding: 60px 0;
+  position: relative;
+  overflow: visible;
+}
+.subscription-section .bottom-content .container {
+  width: 100vw;
+  max-width: none;
+  margin: 0;
+  padding: 0;
+  position: relative;
+}
+.subscription-section .bottom-content .card-columns {
+  display: flex;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+  gap: 40px;
+  position: relative;
+}
+.subscription-section .bottom-content .column {
+  display: flex;
+  flex-direction: column;
+  gap: 250px;
+  position: relative;
+}
+.subscription-section .bottom-content .column.left-column {
+  margin-right: -100px;
+  z-index: 2;
+}
+.subscription-section .bottom-content .column.right-column {
+  margin-left: -100px;
+  margin-top: 270px;
+  z-index: 1;
+}
+.subscription-section .bottom-content .subscription-card {
+  width: 667px;
+  height: auto;
+  flex-shrink: 0;
+  background: linear-gradient(100deg, #000 42.66%, #070707 65.96%, #151515 77.78%, #666 92.21%);
+  border-radius: 5px;
+  padding: 30px;
+}
+.subscription-section .bottom-content .subscription-card .card-list {
+  padding-left: 20px;
+}
+.subscription-section .bottom-content .subscription-card .card-list li {
+  list-style-type: disc;
+  color: #bda069;
+}
+.subscription-section .bottom-content .subscription-card .card-list li.title {
+  color: #bda069;
+  font-size: 22px;
+  font-weight: 600;
+  line-height: 30px;
+}
+.subscription-section .bottom-content .subscription-card .card-list li.note {
+  color: #fff;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 30px;
+}
+.subscription-section .bottom-content .subscription-card .card-list li.note::marker {
+  color: #bda069; /* Warna bullet gold */
+}
+.subscription-section .bottom-content .subscription-card .card-text {
+  color: #fff;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 30px;
+  padding: 15px 0 15px 20px;
+}
+
+.sharing-section {
+  min-height: 300px;
+  margin-top: -50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px 0;
+  z-index: 2;
+}
+.sharing-section .container {
+  width: 100vw;
+  max-width: none;
+  padding: 0 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.sharing-section .sharing-content {
+  width: 898px;
+  height: 275px;
+  flex-shrink: 0;
+  border-radius: 10px;
+  background: linear-gradient(133deg, #bda069 47.58%, #f7f4ee 99.09%, #fff 106.05%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 20px;
+  z-index: 2;
+}
+.sharing-section .sharing-content h2 {
+  color: #000;
+  font-family: "Noto Serif", serif;
+  font-size: 25px;
+  font-weight: 800;
+  line-height: 30px;
+  margin-bottom: 20px;
+}
+.sharing-section .sharing-content .description {
+  color: #000;
+  font-family: "Noto Serif", serif;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 30px;
+  padding: 0 20px;
+  margin-bottom: 20px;
+}
+.sharing-section .sharing-content .share-button {
+  border: none;
+  border-radius: 5px;
+  background: #000;
+  color: #fff;
+  padding: 10px 20px;
+  cursor: pointer;
+  box-shadow: 0px 4px 10px 0px rgba(56, 55, 52, 0.88);
+  font-family: "Noto Serif", serif;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 30px;
+  min-width: 334px;
+  text-transform: uppercase;
+}
+.sharing-section .sharing-content .share-button:hover {
+  border-radius: 5px;
+  background: #000;
+  box-shadow: 0px 4px 10px 10px #fff;
+  color: #c4a46f;
+  font-family: "Noto Serif";
+  font-size: 19px;
+  font-weight: 700;
+  line-height: 30px;
+  text-transform: uppercase;
+}
+
+.payout-section {
+  background: #fff;
+  padding-bottom: 50px;
+}
+.payout-section .top-content {
+  padding: 30px 0 0;
+}
+.payout-section .top-content .container {
+  width: 100vw;
+  max-width: none;
+  margin: 0;
+  padding: 0 40px;
+  text-align: center;
+}
+.payout-section .top-content .container h2 {
+  color: #000;
+  font-family: "Noto Serif", serif;
+  font-size: 25px;
+  font-weight: 800;
+  line-height: 30px;
+  margin-bottom: 30px;
+}
+.payout-section .top-content .container .payout-list {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 40px;
+  list-style: none;
+}
+.payout-section .top-content .container .payout-list li {
+  color: #000;
+  font-family: "Noto Serif", serif;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 30px;
+  margin-bottom: 10px;
+  padding-left: 20px;
+  position: relative;
+  list-style-type: disc;
+  margin-left: 20px;
+  text-align: justify;
+}
+.payout-section .bottom-content {
+  padding: 20px 0 30px;
+}
+.payout-section .bottom-content .container {
+  width: 100vw;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+.payout-section .bottom-content .content-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 auto;
+  padding: 0;
+}
+.payout-section .bottom-content .text-content {
+  width: 50%;
+  padding-right: 40px;
+}
+.payout-section .bottom-content .text-content h3 {
+  color: #bda069;
+  font-family: "Noto Serif", serif;
+  font-size: 22px;
+  font-weight: 800;
+  line-height: 30px;
+  margin-bottom: 20px;
+}
+.payout-section .bottom-content .text-content .description {
+  color: #000;
+  font-family: "Noto Serif", serif;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 30px;
+  margin-bottom: 20px;
+}
+.payout-section .bottom-content .text-content .withdraw-list {
+  padding-left: 20px;
+}
+.payout-section .bottom-content .text-content .withdraw-list li {
+  list-style: disc;
+  color: #000;
+  font-family: "Noto Serif", serif;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 45px;
+  margin-bottom: 5px;
+}
+.payout-section .bottom-content .text-content .withdraw-list li strong {
+  font-weight: 900;
+}
+.payout-section .bottom-content .image-content {
+  width: 50%;
+  max-height: 400px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  padding-right: 20px;
+}
+.payout-section .bottom-content .image-content img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+.payout-section .opportunity-content {
+  background: rgba(0, 0, 0, 0.78);
+  width: 100%;
+  margin: 25px 0;
+  padding: 40px 0;
+}
+.payout-section .opportunity-content .container {
+  width: 100vw;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+.payout-section .opportunity-content .opportunity-text {
+  color: #fff;
+  text-align: center;
+  font-family: "Noto Serif", serif;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.binance-section {
+  background-image: url("../../img/bg_binance.png");
+  background-size: contain;
+  background-position: center 10px;
+  background-repeat: no-repeat;
+  min-height: 450px;
+  padding: 60px;
+  display: flex;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.binance-section .container {
+  width: 100vw;
+  max-width: none;
+  margin: 0;
+  padding: 0 40px;
+  text-align: center;
+}
+.binance-section .container h2 {
+  color: #fff;
+  font-family: "Noto Serif", serif;
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 22px;
+  text-transform: uppercase;
+  margin-bottom: 30px;
+}
+.binance-section .container h2 .highlight {
+  color: #ffe440;
+}
+.binance-section .container .description {
+  color: #fff;
+  font-family: "Noto Serif", serif;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 30px;
+  margin-bottom: 20px;
+}
+.binance-section .container .description .highlight {
+  color: #ffe440;
+}
+.binance-section .container .link-text {
+  color: #fff;
+  font-family: "Noto Serif", serif;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 35px;
+  margin-bottom: 20px;
+}
+.binance-section .container .link-text .click-link {
+  color: #ffe440;
+  font-weight: 700;
+  text-decoration: underline;
+  cursor: pointer;
+}
+.binance-section .container .warning-text {
+  color: #fff;
+  font-family: "Noto Serif", serif;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 25px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.binance-section .container .warning-text .highlight {
+  color: #ffe440;
+}
+
+.formula-section .top-content {
+  padding: 60px 0;
+  background: #000;
+}
+.formula-section .top-content .container {
+  width: 100vw;
+  max-width: none;
+  margin: 0;
+  padding: 0 40px;
+  text-align: center;
+}
+.formula-section .top-content .container h2 {
+  color: #bd9f69;
+  font-family: "Noto Serif", serif;
+  font-size: 40px;
+  font-weight: 900;
+  line-height: 144.687%;
+  text-transform: uppercase;
+  margin-bottom: 30px;
+}
+.formula-section .top-content .container .description {
+  color: #fff;
+  font-family: "Noto Serif", serif;
+  font-size: 25px;
+  font-weight: 600;
+  line-height: 140%;
+  text-transform: capitalize;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.formula-section .bottom-content {
+  background: #000;
+  padding: 0 0 60px;
+}
+.formula-section .bottom-content .container {
+  width: 100vw;
+  max-width: none;
+  margin: 0;
+  padding: 0;
+  position: relative;
+}
+.formula-section .bottom-content .content-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.formula-section .bottom-content .text-content {
+  width: 50%;
+  padding-left: 100px;
+  padding-right: 50px;
+}
+.formula-section .bottom-content .text-content h3 {
+  color: #bda069;
+  font-family: "Noto Serif", serif;
+  font-size: 25px;
+  font-weight: 700;
+  line-height: 150%;
+  font-variant: all-small-caps;
+  margin-bottom: 30px;
+}
+.formula-section .bottom-content .text-content .description {
+  color: #fff;
+  font-family: "Noto Serif", serif;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 40px;
+  text-transform: capitalize;
+  margin-bottom: 60px;
+}
+.formula-section .bottom-content .text-content .discover-button {
+  border: none;
+  border-radius: 5px;
+  background: #bda069;
+  box-shadow: 0px 4px 30px 10px #fff;
+  color: #000;
+  font-family: "Noto Serif", serif;
+  font-size: 18px;
+  font-weight: 700;
+  padding: 15px 30px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.formula-section .bottom-content .text-content .discover-button:hover {
+  background: #fff;
+  box-shadow: 0px 4px 35px 20px #bda069;
+}
+.formula-section .bottom-content .image-content {
+  position: relative;
+  right: 0;
+  height: 100%;
+  display: flex;
+  width: 50%;
+  align-items: center;
+}
+.formula-section .bottom-content .image-content img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+.page-wrapper {
+  background-color: #000;
+}
+
+.crypto-consulting {
+  position: relative;
+  overflow: hidden;
+  padding-top: 80px;
+}
+.crypto-consulting .container-fluid .row .bg-crypto-consulting {
+  height: 100%;
+  position: relative;
+}
+.crypto-consulting .container-fluid .row .bg-crypto-consulting img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.crypto-consulting .container-fluid .row .consulting-content {
+  padding: 4rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.crypto-consulting .container-fluid .row .consulting-content .title {
+  color: #d1b06b;
+  font-family: "Noto Serif", serif;
+  font-size: 35px;
+  font-weight: 800;
+  line-height: 25px;
+  text-transform: uppercase;
+  margin-bottom: 2rem;
+}
+.crypto-consulting .container-fluid .row .consulting-content .subtitle {
+  color: #bfa573;
+  font-family: "Noto Serif", serif;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 35px;
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
+}
+.crypto-consulting .container-fluid .row .consulting-content .description {
+  color: #fff;
+  font-family: "Noto Serif", serif;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 30px;
+  margin-bottom: 2rem;
+}
+.crypto-consulting .container-fluid .row .consulting-content .cta-button {
+  color: #000;
+  font-family: "Noto Serif", serif;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 25px;
+  text-transform: uppercase;
+  text-decoration: underline;
+  background: #bfa573;
+  border-radius: 5px;
+  box-shadow: 0px 4px 4px 0px #e8d9bd;
+  padding: 1rem 3rem;
+  border: none;
+  width: fit-content;
+  transition: all 0.3s ease;
+}
+.crypto-consulting .container-fluid .row .consulting-content .cta-button:hover {
+  background: #d1b06b;
+  box-shadow: 0px 4px 8px 0px #e8d9bd;
+}
+@media (min-width: 768px) {
+  .crypto-consulting .consulting-content {
+    padding: 3rem !important;
+  }
+}
+@media (min-width: 992px) {
+  .crypto-consulting .consulting-content {
+    padding: 4rem !important;
+  }
+}
+
 /*----------------------------------------------------------
     File Name  : _navbar.scss
     Desc       : File ini merupakan styling untuk 
