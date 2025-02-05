@@ -21,4 +21,29 @@
             </div>
         </div>
     </section>
+
+    <section class="advisor-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-12 col-lg-3">
+                    <div class="title-wrapper">
+                        <h2 class="advisor-title">
+                            Your Personal <br>
+                            Crypto Advisor
+                        </h2>
+                        <div class="divider"></div>
+                    </div>
+                </div>
+                <div class="col-12 col-lg-3">
+                    <img src="<?= BASE_URL ?>assets/img/ic_crypto_advisor.png" alt="Crypto Advisor" class="advisor-icon">
+                </div>
+                <div class="col-12 col-lg-6">
+                    <h3 class="content-title">Your Dedicated Crypto Expert</h3>
+                    <p class="content-description">
+                        You will be assigned one of our expert consultants, who will become your personal point of reference. This professional will guide you step by step, offering continuous support and providing clear, prompt answers to any questions or concerns. Our goal is to build trust and transparency, allowing you to approach the cryptocurrency world with confidence and awareness.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
 </div>

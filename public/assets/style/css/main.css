@@ -20245,6 +20245,60 @@ input:-moz-placeholder {
   }
 }
 
+.advisor-section {
+  margin-top: 80px;
+  background: linear-gradient(91deg, rgba(0, 0, 0, 0.88) 6.66%, rgba(107, 105, 100, 0.88) 85.96%, rgba(158, 154, 148, 0.88) 100%);
+  padding: 60px 0;
+}
+.advisor-section .row {
+  min-height: 300px;
+}
+.advisor-section .col-lg-3 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+.advisor-section .title-wrapper {
+  width: fit-content;
+}
+.advisor-section .title-wrapper .advisor-title {
+  color: #fff;
+  font-family: "Noto Serif", serif;
+  font-size: 25px;
+  font-weight: 700;
+  line-height: 35px;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+.advisor-section .title-wrapper .divider {
+  background: #bda069;
+  height: 3px;
+  width: 100%;
+}
+.advisor-section .advisor-icon {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+.advisor-section .content-title {
+  color: #bda069;
+  font-family: "Noto Serif", serif;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 25px;
+  margin-bottom: 20px;
+}
+.advisor-section .content-description {
+  color: #fff;
+  font-family: "Noto Serif", serif;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 30px;
+}
+
 /*----------------------------------------------------------
     File Name  : _navbar.scss
     Desc       : File ini merupakan styling untuk 
