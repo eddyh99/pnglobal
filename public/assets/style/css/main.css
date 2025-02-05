@@ -12742,6 +12742,9 @@ p {
   z-index: 999;
   width: 100%;
 }
+.navbar.navbar-dark-full {
+  background-color: #000 !important;
+}
 .navbar .logo {
   height: 50px;
   width: auto;
@@ -20231,8 +20234,8 @@ input:-moz-placeholder {
   transition: all 0.3s ease;
 }
 .crypto-consulting .container-fluid .row .consulting-content .cta-button:hover {
-  background: #d1b06b;
-  box-shadow: 0px 4px 8px 0px #e8d9bd;
+  background: #fff;
+  box-shadow: 0px 4px 15px 0px #fff;
 }
 @media (min-width: 768px) {
   .crypto-consulting .consulting-content {
@@ -20243,6 +20246,573 @@ input:-moz-placeholder {
   .crypto-consulting .consulting-content {
     padding: 4rem !important;
   }
+}
+
+.advisor-section {
+  margin-top: 80px;
+  background: linear-gradient(91deg, rgba(0, 0, 0, 0.88) 6.66%, rgba(107, 105, 100, 0.88) 85.96%, rgba(158, 154, 148, 0.88) 100%);
+  padding: 60px 0;
+}
+.advisor-section .row {
+  min-height: 300px;
+}
+.advisor-section .col-lg-3 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+.advisor-section .title-wrapper {
+  width: fit-content;
+}
+.advisor-section .title-wrapper .advisor-title {
+  color: #fff;
+  font-family: "Noto Serif", serif;
+  font-size: 25px;
+  font-weight: 700;
+  line-height: 35px;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+.advisor-section .title-wrapper .divider {
+  background: #bda069;
+  height: 3px;
+  width: 100%;
+}
+.advisor-section .advisor-icon {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+.advisor-section .content-title {
+  color: #bda069;
+  font-family: "Noto Serif", serif;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 25px;
+  margin-bottom: 20px;
+}
+.advisor-section .content-description {
+  color: #fff;
+  font-family: "Noto Serif", serif;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 30px;
+}
+
+.service-cards-consulting {
+  padding: 50px 70px 100px;
+}
+.service-cards-consulting .service-card {
+  background: linear-gradient(to bottom right, rgba(56, 55, 52, 0.49) 0%, rgba(40, 40, 39, 0.6) 50%, rgba(158, 154, 148, 0.6) 100%);
+  border-radius: 10px;
+  padding: 40px 100px;
+  height: 100%;
+  min-height: 300px;
+}
+.service-cards-consulting .service-card .card-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+.service-cards-consulting .service-card .icon-wrapper {
+  margin-bottom: 25px;
+}
+.service-cards-consulting .service-card .icon-wrapper .card-icon {
+  max-height: 105px;
+  width: auto;
+}
+.service-cards-consulting .service-card .title-container {
+  position: relative;
+  width: fit-content;
+  margin-bottom: 40px;
+}
+.service-cards-consulting .service-card .title-container .card-title {
+  color: #d1b06b;
+  font-family: "Noto Serif", serif;
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 35px;
+  text-transform: uppercase;
+  margin-bottom: 15px;
+}
+.service-cards-consulting .service-card .title-container .card-divider {
+  position: absolute;
+  left: 10%;
+  width: 80%;
+  height: 3px;
+  background: #bda069;
+}
+.service-cards-consulting .service-card .title-container .card-divider {
+  background: #bda069;
+  height: 3px;
+  width: 80%;
+}
+.service-cards-consulting .service-card .card-description {
+  color: #fff;
+  font-family: "Noto Serif", serif;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 28px;
+  margin-bottom: 20px;
+  text-align: left;
+}
+.service-cards-consulting .service-card .feature-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 20px 0;
+  width: 100%;
+  text-align: left;
+}
+.service-cards-consulting .service-card .feature-list li {
+  position: relative;
+  padding-left: 20px;
+  margin-bottom: 10px;
+}
+.service-cards-consulting .service-card .feature-list li:before {
+  content: "•";
+  position: absolute;
+  left: 0;
+}
+.service-cards-consulting .service-card .feature-list.primary li {
+  color: #d1b06b;
+  font-family: "Noto Serif", serif;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 35px;
+}
+.service-cards-consulting .service-card .feature-list.secondary li {
+  color: #bda069;
+  font-family: "Noto Serif", serif;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 35px;
+  text-align: justify;
+}
+@media (min-width: 992px) {
+  .service-cards-consulting .row {
+    margin: 0 -35px;
+  }
+  .service-cards-consulting .col-lg-6 {
+    padding: 0 35px;
+  }
+}
+
+.starting-section {
+  padding: 60px 0;
+  position: relative;
+  overflow: visible;
+  background: radial-gradient(circle farthest-corner at top left, #000 0%, #454242 60%, #adadad 100%);
+}
+.starting-section .top-content {
+  text-align: center;
+  margin-bottom: 50px;
+  position: relative;
+}
+.starting-section .middle-content {
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+  position: relative;
+  z-index: 2;
+}
+.starting-section .middle-content .description {
+  color: #fff;
+  font-family: "Noto Serif", serif;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 30px;
+}
+.starting-section .middle-content .description span {
+  font-weight: 700;
+}
+.starting-section .section-title {
+  color: #bfa573;
+  font-family: "Noto Serif", serif;
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 40px;
+  text-transform: uppercase;
+  position: relative;
+  z-index: 2;
+}
+.starting-section .floating-image {
+  position: relative;
+  text-align: right;
+  margin-top: -120px;
+}
+.starting-section .floating-image img {
+  max-width: 300px;
+  height: auto;
+}
+.starting-section .content-row {
+  margin-top: 50px;
+}
+.starting-section .content-block {
+  margin-bottom: 30px;
+}
+.starting-section .content-block .content-title {
+  color: #d1b06b;
+  font-family: "Noto Serif", serif;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 25px;
+  margin-bottom: 20px;
+}
+.starting-section .content-block .content-description {
+  color: #fff;
+  font-family: "Noto Serif", serif;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 30px;
+}
+
+.knowledge-section {
+  padding: 80px 0;
+  background-image: url("../../img/bg_knowledge.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.knowledge-section .content-wrapper {
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+}
+.knowledge-section .section-title {
+  color: #bda069;
+  font-family: "Noto Serif", serif;
+  font-size: 25px;
+  font-weight: 700;
+  line-height: 35px;
+  text-transform: uppercase;
+  margin-bottom: 30px;
+}
+.knowledge-section .main-description {
+  color: #fff;
+  font-family: "Noto Serif", serif;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 30px;
+  margin-bottom: 40px;
+}
+.knowledge-section .subtitle {
+  color: #bda069;
+  font-family: "Noto Serif", serif;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 45px;
+  text-transform: capitalize;
+  margin-bottom: 20px;
+}
+.knowledge-section .sub-description {
+  color: #fff;
+  font-family: "Noto Serif", serif;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 30px;
+  margin-bottom: 40px;
+}
+.knowledge-section .cta-button {
+  color: #000;
+  font-family: "Noto Serif", serif;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 25px;
+  text-transform: uppercase;
+  background: #d1b06b;
+  border: none;
+  border-radius: 5px;
+  padding: 15px 30px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.knowledge-section .cta-button:hover {
+  background: #fff;
+  box-shadow: 0px 4px 15px 0px #fff;
+}
+
+.passive-income {
+  background-color: #bda069;
+  position: relative;
+  overflow: hidden;
+  padding: 77px 0;
+  margin-top: 0;
+}
+.passive-income .container-fluid .row .bg-passive-income {
+  height: 100%;
+  position: relative;
+}
+.passive-income .container-fluid .row .bg-passive-income img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.passive-income .container-fluid .row .passive-content {
+  padding: 4rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.passive-income .container-fluid .row .passive-content .title {
+  color: #fff;
+  font-family: "Noto Serif", serif;
+  font-size: 30px;
+  font-weight: 800;
+  line-height: 25px;
+  text-transform: uppercase;
+  margin-bottom: 2rem;
+}
+.passive-income .container-fluid .row .passive-content .subtitle {
+  color: #fff;
+  font-family: "Noto Serif", serif;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 35px;
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
+}
+.passive-income .container-fluid .row .passive-content .description {
+  color: #000;
+  font-family: "Noto Serif", serif;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 30px;
+  margin-bottom: 2rem;
+}
+.passive-income .container-fluid .row .passive-content .cta-button {
+  color: #fff;
+  font-family: "Noto Serif", serif;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 25px;
+  text-transform: uppercase;
+  text-decoration: underline;
+  background: #000;
+  border-radius: 5px;
+  box-shadow: 0px 4px 4px 0px rgba(56, 55, 52, 0.88);
+  padding: 1rem 3rem;
+  border: none;
+  width: fit-content;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+.passive-income .container-fluid .row .passive-content .cta-button:hover {
+  background: #fff;
+  box-shadow: 0px 4px 15px 0px #fff;
+  color: #000;
+}
+@media (min-width: 768px) {
+  .passive-income .passive-content {
+    padding: 3rem !important;
+  }
+}
+@media (min-width: 992px) {
+  .passive-income .passive-content {
+    padding: 4rem !important;
+  }
+}
+
+.transform-section {
+  position: relative;
+  padding: 100px 0;
+  background: radial-gradient(circle farthest-corner at top left, #0b0a08 0%, #0b0a08 50%, #ccb78f 100%);
+  overflow: visible;
+}
+.transform-section .transform-title {
+  color: #d1b06b;
+  text-align: center;
+  font-family: "Noto Serif", serif;
+  font-size: 25px;
+  font-weight: 800;
+  line-height: 40px;
+  text-transform: uppercase;
+  margin-bottom: 2rem;
+}
+.transform-section .transform-description {
+  color: #fff;
+  text-align: center;
+  font-family: "Noto Serif", serif;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 30px;
+}
+.transform-section .transform-image {
+  position: absolute;
+  max-width: 100%;
+  height: auto;
+  bottom: -200px;
+  left: -100px;
+  transform: translateY(50px);
+}
+
+.choose-section {
+  position: relative;
+  padding: 50px 200px;
+}
+.choose-section .choose-title {
+  color: #bda069;
+  text-align: center;
+  font-family: "Noto Serif", serif;
+  font-size: 25px;
+  font-weight: 700;
+  line-height: 25px;
+}
+.choose-section .choose-card {
+  background: linear-gradient(to bottom right, #161513 0%, #161513 60%, #ccb78f 100%);
+  border-radius: 10px;
+  height: 100%;
+  min-height: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 1rem;
+  padding: 0 50px;
+}
+.choose-section .choose-card h3 {
+  color: #d1b06b;
+  text-align: center;
+  font-family: "Noto Serif", serif;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 30px;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+.choose-section .choose-card p {
+  color: #fff;
+  text-align: center;
+  font-family: "Noto Serif", serif;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 30px;
+}
+
+.invest-section {
+  position: relative;
+  padding: 50px 0;
+}
+.invest-section .invest-title {
+  color: #d1b06b;
+  text-align: center;
+  font-family: "Noto Serif", serif;
+  font-size: 25px;
+  font-weight: 800;
+  line-height: 40px;
+  text-transform: uppercase;
+}
+.invest-section .invest-description {
+  color: #fff;
+  text-align: center;
+  font-family: "Noto Serif", serif;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 35px;
+  max-width: 1200px;
+  margin: 0;
+}
+.invest-section .invest-image {
+  position: absolute;
+  max-width: 100%;
+  height: auto;
+}
+.invest-section .invest-content {
+  padding: 2rem;
+}
+
+.investment-section {
+  position: relative;
+  padding: 100px 0;
+  background: radial-gradient(circle farthest-corner at top left, #0b0a08 0%, #0b0a08 50%, #ccb78f 100%);
+}
+.investment-section .investment-card {
+  background: linear-gradient(97deg, rgba(0, 0, 0, 0.88) 9.22%, rgba(28, 28, 27, 0.88) 51.53%, rgba(56, 55, 53, 0.88) 93.41%);
+  border-radius: 10px;
+  padding: 3rem 2rem;
+  margin-bottom: 2rem;
+  min-height: 270px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.investment-section .investment-card h3 {
+  color: #eccf98;
+  text-align: center;
+  font-family: "Noto Serif", serif;
+  font-size: 20px;
+  font-weight: 900;
+  line-height: 140%;
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
+}
+.investment-section .investment-card p {
+  color: #fff;
+  text-align: center;
+  font-family: "Noto Serif", serif;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 144.687%;
+  text-transform: capitalize;
+  margin-bottom: 0;
+}
+
+.collateral-section {
+  position: relative;
+  padding: 40px 0;
+  background: radial-gradient(circle at top center, #0b0a08 0%, #161513 100%);
+}
+.collateral-section .collateral-title {
+  color: #d1b06b;
+  text-align: center;
+  font-family: "Noto Serif", serif;
+  font-size: 25px;
+  font-weight: 800;
+  line-height: 40px; /* 160% */
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
+}
+.collateral-section .collateral-description {
+  color: #fff;
+  text-align: center;
+  font-family: "Noto Serif", serif;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 30px; /* 166.667% */
+  margin-bottom: 2rem;
+}
+.collateral-section .collateral-btn {
+  border: none;
+  border-radius: 5px;
+  background: #d1b06b;
+  color: #161513;
+  font-family: "Noto Serif", serif;
+  padding: 0.75rem 3rem;
+  cursor: pointer;
+  color: #000;
+  text-align: center;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 25px; /* 156.25% */
+  text-transform: uppercase;
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+}
+.collateral-section .collateral-btn:hover {
+  background: #fff;
+  box-shadow: 0px 4px 15px 0px #fff;
+}
+.collateral-section .collateral-image {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 0;
+  position: relative;
+  top: -150px;
 }
 
 /*----------------------------------------------------------

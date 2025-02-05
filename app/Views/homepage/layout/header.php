@@ -33,7 +33,7 @@
 
 <body>
     <!-- Start of Navbar -->
-    <nav class="navbar navbar-expand-xxl <?= @$navoption ? 'position-relative' : '' ?>">
+    <nav class="navbar navbar-expand-xxl <?= @$navoption ? 'position-relative' : '' ?> <?= (@$darkNav) ? 'navbar-dark-full' : '' ?>">
         <div class="container">
             <a class="navbar-logo d-flex align-items-center gap-3" href="<?= BASE_URL ?>">
                 <img class="logo" src="<?= BASE_URL ?>assets/img/logo-big.png" alt="logo pnglobal">
@@ -63,7 +63,7 @@
                             <li><a class="dropdown-item" href="<?= BASE_URL ?>homepage/service?service=<?= base64_encode('lux_btc_brokers') ?>">Lux BTC Brokers </a></li>
                             <li><a class="dropdown-item" href="<?= BASE_URL ?>homepage/service?service=<?= base64_encode('btc_elite_management') ?>">BTC Elite Management</a></li>
                             <li><a class="dropdown-item" href="<?= BASE_URL ?>homepage/service?service=<?= base64_encode('crypto_consulting') ?>">CRYPTO CONSULTING</a></li>
-                            <li><a class="dropdown-item" href="<?= BASE_URL ?>homepage/service?service=<?= base64_encode('passive_incoming') ?>">PASSIVE INCOMING</a></li>
+                            <li><a class="dropdown-item" href="<?= BASE_URL ?>homepage/service?service=<?= base64_encode('passive_income') ?>">PASSIVE INCOMING</a></li>
                             <li><a class="dropdown-item" href="<?= BASE_URL ?>homepage/service?service=<?= base64_encode('portfolio_creation') ?>">PORTFOLIO CREATION</a></li>
                             <li><a class="dropdown-item" href="<?= BASE_URL ?>homepage/service?service=<?= base64_encode('accumulation_plan') ?>">ACCUMULATION PLAN</a></li>
                             <li><a class="dropdown-item" href="<?= BASE_URL ?>homepage/service?service=<?= base64_encode('wealth_consulting') ?>">WEALTH CONSULTING</a></li>
