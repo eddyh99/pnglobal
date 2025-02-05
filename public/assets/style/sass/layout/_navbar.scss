@@ -25,6 +25,10 @@
     z-index: 999;
     width: 100%;
 
+    &.navbar-dark-full {
+        background-color: #000 !important;
+    }
+
     .logo {
         height: 50px;
         width: auto;

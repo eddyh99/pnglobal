@@ -47,7 +47,7 @@
         </div>
     </section>
 
-    <section class="service-cards">
+    <section class="service-cards-consulting">
         <div class="container-fluid">
             <div class="row">
                 <div class="col-12 col-lg-6">

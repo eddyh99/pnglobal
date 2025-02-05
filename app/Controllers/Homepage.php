@@ -168,6 +168,15 @@ class Homepage extends BaseController
                 'extragsap' => 'homepage/gsap/gsap_crypto_consulting',
                 'flag'      => 'cryptoconsulting'
             ];
+        } else if ($service == "passive_income") {
+            $mdata = [
+                'title'     => 'Passive Income - ' . NAMETITLE,
+                'content'   => 'homepage/service/passive_income',
+                'extra'     => 'homepage/js/_js_index',
+                'extragsap' => 'homepage/gsap/gsap_passive_income',
+                'flag'      => 'passiveincome',
+                'darkNav'   => true
+            ];
         } else {
             $mdata = [
                 'title'     => 'Service Finance Advice Assets And Investment - ' . NAMETITLE,
