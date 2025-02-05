@@ -90,4 +90,33 @@
             </div>
         </div>
     </section>
+
+    <section class="investment-section">
+        <div class="container">
+            <!-- Top Content -->
+            <div class="row justify-content-center mb-5">
+                <div class="col-12 col-md-5">
+                    <div class="investment-card">
+                        <h3>Traditional and Alternative Investments</h3>
+                        <p>From mutual funds to real estate, we create a perfect blend to suit your needs.</p>
+                    </div>
+                </div>
+                <div class="col-12 col-md-5">
+                    <div class="investment-card">
+                        <h3>Digital Assets</h3>
+                        <p>Take advantage of the potential of cryptocurrencies and other innovative instruments.</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Bottom Content -->
+            <div class="row justify-content-center">
+                <div class="col-12 col-md-5">
+                    <div class="investment-card">
+                        <h3>Diversified Investments</h3>
+                        <p>Spread your risk across a variety of assets.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 </div>
