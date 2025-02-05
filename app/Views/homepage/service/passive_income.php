@@ -66,4 +66,28 @@
             </div>
         </div>
     </section>
+
+    <section class="invest-section">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12">
+                    <h2 class="invest-title">Invest in Your Dreams</h2>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-2 position-relative">
+                    <img src="<?= BASE_URL ?>assets/img/ic_invest_dreams.png" alt="Invest Dreams" class="invest-image">
+                </div>
+                <div class="col-8">
+                    <div class="invest-content">
+                        <p class="invest-description">
+                            A tailored investment to match your dreams. With Passive Income and our innovative strategies, transform your savings into personalized growth opportunities.
+                            <br>Our approach combines advanced market analysis, efficient tax management, and constant performance monitoring to guarantee sustainable returns over time.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-2"></div>
+            </div>
+        </div>
+    </section>
 </div>

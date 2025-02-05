@@ -187,3 +187,39 @@
         }
     }
 }
+
+.invest-section {
+    position: relative;
+    padding: 50px 0;
+
+    .invest-title {
+        color: #d1b06b;
+        text-align: center;
+        font-family: var.$f-noto;
+        font-size: 25px;
+        font-weight: 800;
+        line-height: 40px;
+        text-transform: uppercase;
+    }
+
+    .invest-description {
+        color: #fff;
+        text-align: center;
+        font-family: var.$f-noto;
+        font-size: 18px;
+        font-weight: 500;
+        line-height: 35px;
+        max-width: 1200px;
+        margin: 0;
+    }
+
+    .invest-image {
+        position: absolute;
+        max-width: 100%;
+        height: auto;
+    }
+
+    .invest-content {
+        padding: 2rem;
+    }
+}
