@@ -35,4 +35,35 @@
             </p>
         </div>
     </section>
+
+    <section class="why-choose-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4">
+                    <div class="why-choose-content">
+                        <h2 class="why-title">
+                            Why Choose <br>
+                            Accumulation Plans
+                        </h2>
+                        <div class="divider"></div>
+                        <img src="<?= BASE_URL ?>assets/img/ic_why_accumulation_plans.png" alt="Why Accumulation Plans" class="why-image">
+                    </div>
+                </div>
+                <div class="col-lg-8">
+                    <div class="benefits-content">
+                        <p class="benefits-description">
+                            The Systematic Investment Plan allows you to invest a predetermined amount periodically, benefiting from the power of consistent saving and reducing the impact of market fluctuations.
+                            This approach is ideal for:
+                        </p>
+                        <ul class="benefits-list">
+                            <li>Building capital for your future projects;</li>
+                            <li>Ensuring stability for your investments through regular contributions;</li>
+                            <li>Diversifying your portfolio over the long term;</li>
+                            <li>Planning a more stable financial future by integrating income or savings for key moments in your life.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 </div>

@@ -21252,6 +21252,66 @@ input:-moz-placeholder {
   margin: 0 auto;
 }
 
+.why-choose-section {
+  padding: 4rem 0;
+  background: linear-gradient(to top left, rgba(158, 154, 148, 0.6) 0%, rgba(56, 55, 52, 0.6) 50%, rgba(0, 0, 0, 0.8) 100%);
+}
+.why-choose-section .why-choose-content .why-title {
+  color: #d1b06b;
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  font-family: "Noto Serif", serif;
+  font-size: 25px;
+  font-weight: 800;
+  line-height: 40px;
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
+}
+.why-choose-section .why-choose-content .divider {
+  height: 3px;
+  background: #bda069;
+  width: 70%;
+  margin-bottom: 2rem;
+}
+.why-choose-section .why-choose-content .why-image {
+  width: 100%;
+  height: auto;
+  max-width: 280px;
+}
+.why-choose-section .benefits-content .benefits-description {
+  color: #fff;
+  font-family: "Noto Serif", serif;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 28px;
+  margin-bottom: 1.5rem;
+}
+.why-choose-section .benefits-content .benefits-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.why-choose-section .benefits-content .benefits-list li {
+  color: #d1b06b;
+  font-family: "Noto Serif", serif;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 35px;
+  position: relative;
+  padding-left: 20px;
+  margin-bottom: 30px;
+}
+.why-choose-section .benefits-content .benefits-list li:before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 8px;
+  height: 8px;
+  background-color: #d1b06b;
+  border-radius: 50%;
+}
+
 /*----------------------------------------------------------
     File Name  : _navbar.scss
     Desc       : File ini merupakan styling untuk 
