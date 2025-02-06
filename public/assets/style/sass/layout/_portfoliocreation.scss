@@ -135,3 +135,109 @@
         }
     }
 }
+
+.tailored-section {
+    padding: 4rem 0;
+
+    .container {
+        position: relative;
+        // max-width: 1140px;
+        margin: 0 auto;
+    }
+
+    .tailored-card {
+        background: linear-gradient(
+            135deg,
+            rgba(0, 0, 0, 0.8) 0%,
+            rgba(56, 55, 52, 0.7) 70%,
+            rgba(158, 154, 148, 0.6) 100%
+        );
+        padding: 3rem;
+        border-radius: 10px;
+        position: relative;
+        overflow: visible;
+        min-height: 300px;
+
+        .tailored-icon {
+            position: absolute;
+            top: -150px;
+            left: -100px;
+            min-width: 215px;
+            height: auto;
+            z-index: 1;
+        }
+
+        .row {
+            display: flex;
+            align-items: center; // pastikan anak-anaknya memenuhi tinggi full dari row
+        }
+
+        .col-lg-4 {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            height: 100%;
+            text-align: center;
+        }
+
+        .tailored-title {
+            color: #d1b06b;
+            font-family: var.$f-noto;
+            font-size: 22px;
+            font-weight: 700;
+            line-height: 40px;
+            text-transform: uppercase;
+            margin-bottom: 1.5rem;
+        }
+
+        .divider {
+            height: 3px;
+            background: #bda069;
+            width: 80%;
+            margin: 0 auto 2rem;
+        }
+
+        .bullet-points {
+            .bullet-item {
+                margin-bottom: 1.5rem;
+
+                &:last-child {
+                    margin-bottom: 0;
+                }
+
+                .bullet-title {
+                    color: #bda069;
+                    font-family: var.$f-noto;
+                    font-size: 20px;
+                    font-weight: 600;
+                    line-height: 35px;
+                    text-align: justify;
+                    margin-bottom: 0.5rem;
+                    position: relative;
+                    padding-left: 20px;
+
+                    &::before {
+                        content: '';
+                        position: absolute;
+                        left: 0;
+                        top: 50%;
+                        transform: translateY(-50%);
+                        width: 8px;
+                        height: 8px;
+                        background-color: #bda069;
+                        border-radius: 50%;
+                    }
+                }
+
+                .bullet-desc {
+                    color: #fff;
+                    font-family: var.$f-noto;
+                    font-size: 18px;
+                    font-weight: 500;
+                    line-height: 28px;
+                    margin-bottom: 0;
+                }
+            }
+        }
+    }
+}

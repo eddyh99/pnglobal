@@ -32,4 +32,46 @@
             </div>
         </div>
     </section>
+
+    <section class="tailored-section">
+        <div class="container">
+            <div class="tailored-card">
+                <img src="<?= BASE_URL ?>assets/img/ic_tailored.png" alt="Tailored Icon" class="tailored-icon">
+
+                <div class="row">
+                    <div class="col-lg-4">
+                        <h2 class="tailored-title">
+                            tailored, diversified, and <br>
+                            high-performing portfolio
+                        </h2>
+                        <div class="divider"></div>
+                    </div>
+
+                    <div class="col-lg-8">
+                        <div class="bullet-points">
+                            <div class="bullet-item">
+                                <h3 class="bullet-title">In-depth Analysis</h3>
+                                <p class="bullet-desc">We start with a thorough evaluation of your financial situation, preferences, and growth expectations.</p>
+                            </div>
+
+                            <div class="bullet-item">
+                                <h3 class="bullet-title">Strategic Asset Selection</h3>
+                                <p class="bullet-desc">We propose a strategic combination of assets, including traditional instruments, cryptocurrencies, alternative investments, and other market opportunities.</p>
+                            </div>
+
+                            <div class="bullet-item">
+                                <h3 class="bullet-title">Intelligent Diversification</h3>
+                                <p class="bullet-desc">We propose a strategic combination of assets, including traditional instruments, cryptocurrencies, alternative investments, and other market opportunities.</p>
+                            </div>
+
+                            <div class="bullet-item">
+                                <h3 class="bullet-title">Tax Optimization</h3>
+                                <p class="bullet-desc">We pay close attention to tax management to maximize your net profits.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 </div>
