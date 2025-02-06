@@ -20901,6 +20901,37 @@ input:-moz-placeholder {
   }
 }
 
+.profile-priority {
+  background: linear-gradient(45deg, #171716 85%, #76684c 88%, #ccb78f 90%), linear-gradient(225deg, #171716 85%, #76684c 88%, #ccb78f 90%);
+  padding: 4rem 0;
+  background-blend-mode: screen;
+}
+.profile-priority .container {
+  text-align: center;
+}
+.profile-priority .container .profile-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+.profile-priority .container .profile-content .profile-title {
+  color: #d1b06b;
+  font-family: "Noto Serif", serif;
+  font-size: 25px;
+  font-style: normal;
+  font-weight: 800;
+  line-height: 40px;
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
+}
+.profile-priority .container .profile-content .profile-description {
+  color: #fff;
+  font-family: "Noto Serif", serif;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 30px;
+}
+
 /*----------------------------------------------------------
     File Name  : _navbar.scss
     Desc       : File ini merupakan styling untuk 

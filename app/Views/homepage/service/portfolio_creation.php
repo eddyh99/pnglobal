@@ -21,4 +21,15 @@
             </div>
         </div>
     </section>
+
+    <section class="profile-priority">
+        <div class="container">
+            <div class="profile-content">
+                <h2 class="profile-title">Your profile, our priority</h2>
+                <p class="profile-description">
+                    PN Global's Portfolio Creation service is designed for those looking to build a high-performing and personalized investment portfolio from scratch. Our team of experts guides you through every step of the process, analyzing your needs, risk profile, and financial goals to create a tailored investment strategy. A well-structured portfolio is essential for achieving high returns and managing risk effectively.
+                </p>
+            </div>
+        </div>
+    </section>
 </div>
