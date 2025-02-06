@@ -24,16 +24,13 @@
             .bg-accumulation {
                 flex: 0 0 50%;
                 position: relative;
-                padding: 100px 0 !important;
-                // margin: 0;
-                margin-top: 50px;
-                margin-bottom: 50px;
+                margin: 0;
 
                 img {
                     width: 100%;
                     height: auto;
-                    object-fit: contain;
-                    // display: block;
+                    object-fit: cover;
+                    display: block;
                 }
             }
 
@@ -281,8 +278,9 @@
 
 .prosperity-section {
     margin: 75px 0 0;
+    padding: 50px 0;
     background: radial-gradient(
-        circle at top right,
+        circle at top left,
         #ccb78f 0%,
         rgba(92, 82, 64, 0.45) 40%,
         rgba(0, 0, 0, 0.2) 70%,
