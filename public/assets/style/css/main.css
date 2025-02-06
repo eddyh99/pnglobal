@@ -21312,6 +21312,42 @@ input:-moz-placeholder {
   border-radius: 50%;
 }
 
+.transparency-section {
+  padding: 4rem 0;
+  background: radial-gradient(circle at bottom right, #ccb78f 0%, rgba(92, 82, 64, 0.45) 40%, rgba(0, 0, 0, 0.2) 70%, #0b0a08 100%);
+}
+.transparency-section .transparency-content {
+  padding-right: 2rem;
+}
+.transparency-section .transparency-content .transparency-title {
+  color: #d1b06b;
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  font-family: "Noto Serif", serif;
+  font-size: 20px;
+  font-weight: 800;
+  line-height: 30px;
+  text-transform: uppercase;
+  margin-bottom: 2rem;
+}
+.transparency-section .transparency-content .transparency-description p {
+  color: #fff;
+  font-family: "Noto Serif", serif;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 28px;
+  margin-bottom: 1.5rem;
+}
+.transparency-section .transparency-content .transparency-description p:last-child {
+  margin-bottom: 0;
+}
+.transparency-section .transparency-image {
+  text-align: center;
+}
+.transparency-section .transparency-image img {
+  max-width: 100%;
+  height: auto;
+}
+
 /*----------------------------------------------------------
     File Name  : _navbar.scss
     Desc       : File ini merupakan styling untuk 

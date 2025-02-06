@@ -66,4 +66,28 @@
             </div>
         </div>
     </section>
+
+    <section class="transparency-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <div class="transparency-content">
+                        <h2 class="transparency-title">
+                            Transparency, personalization, <br>
+                            and innovative tools at your service
+                        </h2>
+                        <div class="transparency-description">
+                            <p>We offer transparent and customized solutions, guiding you, step by step. in building your financial future.</p>
+                            <p>Trust us for innovative tools that allow you to manage your investments easily and securely.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="transparency-image">
+                        <img src="<?= BASE_URL ?>assets/img/ic_transparency.png" alt="Transparency" class="img-fluid">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 </div>
