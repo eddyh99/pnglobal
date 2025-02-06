@@ -1,4 +1,4 @@
-<div class="page-wrapper">
+<div class="page-wrapper accumulation-wrapper">
     <section class="accumulation-plans">
         <div class="container-fluid p-0">
             <div class="row g-0">
@@ -85,6 +85,29 @@
                 <div class="col-lg-6">
                     <div class="transparency-image">
                         <img src="<?= BASE_URL ?>assets/img/ic_transparency.png" alt="Transparency" class="img-fluid">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="prosperity-section">
+        <div class="container-fluid p-0">
+            <div class="row g-0">
+                <div class="col-lg-6">
+                    <div class="prosperity-image">
+                        <img src="<?= BASE_URL ?>assets/img/ic_prosperity_2.png" alt="Prosperity" class="img-fluid">
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="prosperity-content">
+                        <h2 class="prosperity-title">Plant the seeds of prosperity.</h2>
+                        <h3 class="prosperity-subtitle">Start planning your tomorrow today!</h3>
+                        <p class="prosperity-description">Don't miss out on the opportunity to grow your wealth steadily. Open your account today and take control of your financial future.</p>
+                        <button class="prosperity-button">
+                            Ready to Prosper? <br>
+                            Let's Begin.
+                        </button>
                     </div>
                 </div>
             </div>

@@ -21134,6 +21134,10 @@ input:-moz-placeholder {
   box-shadow: 0px 4px 15px 0px #fff;
 }
 
+.accumulation-wrapper {
+  padding-bottom: 75px;
+}
+
 .accumulation-plans {
   background-color: #bda069;
   position: relative;
@@ -21141,19 +21145,26 @@ input:-moz-placeholder {
   padding: 77px 0 0;
   margin-top: 0;
 }
+.accumulation-plans .container-fluid {
+  width: 100%;
+  max-width: none;
+}
 .accumulation-plans .container-fluid .row {
+  width: 100%;
   display: flex;
   align-items: center;
 }
 .accumulation-plans .container-fluid .row .bg-accumulation {
   flex: 0 0 50%;
-  height: 100%;
   position: relative;
+  padding: 100px 0 !important;
+  margin-top: 50px;
+  margin-bottom: 50px;
 }
 .accumulation-plans .container-fluid .row .bg-accumulation img {
   width: 100%;
-  height: 100%;
-  object-fit: cover;
+  height: auto;
+  object-fit: contain;
 }
 .accumulation-plans .container-fluid .row .accumulation-content {
   flex: 0 0 50%;
@@ -21346,6 +21357,67 @@ input:-moz-placeholder {
 .transparency-section .transparency-image img {
   max-width: 100%;
   height: auto;
+}
+
+.prosperity-section {
+  margin: 75px 0 0;
+  background: radial-gradient(circle at top right, #ccb78f 0%, rgba(92, 82, 64, 0.45) 40%, rgba(0, 0, 0, 0.2) 70%, #0b0a08 100%);
+}
+.prosperity-section .prosperity-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.prosperity-section .prosperity-content {
+  padding: 4rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+}
+.prosperity-section .prosperity-content .prosperity-title {
+  color: #bda069;
+  font-family: "Noto Serif", serif;
+  font-size: 29px;
+  font-weight: 600;
+  line-height: 30px;
+  text-transform: capitalize;
+  margin-bottom: 1.5rem;
+}
+.prosperity-section .prosperity-content .prosperity-subtitle {
+  color: #fff;
+  font-family: "Noto Serif", serif;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 30px;
+  margin-bottom: 1rem;
+}
+.prosperity-section .prosperity-content .prosperity-description {
+  color: #fff;
+  font-family: "Noto Serif", serif;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 30px;
+  margin-bottom: 2rem;
+}
+.prosperity-section .prosperity-content .prosperity-button {
+  color: #000;
+  font-family: "Noto Serif", serif;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 25px;
+  text-transform: uppercase;
+  text-align: center;
+  background: #d1b06b;
+  border-radius: 5px;
+  padding: 1rem 2rem;
+  border: none;
+  width: fit-content;
+  transition: all 0.3s ease;
+}
+.prosperity-section .prosperity-content .prosperity-button:hover {
+  background: #fff;
+  box-shadow: 0px 4px 15px 0px #fff;
 }
 
 /*----------------------------------------------------------
