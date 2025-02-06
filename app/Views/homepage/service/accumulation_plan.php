@@ -21,4 +21,18 @@
             </div>
         </div>
     </section>
+
+    <section class="systematic-section">
+        <div class="container">
+            <h2 class="systematic-title">
+                Systematic Investment Plan: <br>
+                Build Your Future with Confidence
+            </h2>
+            <p class="systematic-description">
+                Our Systematic Investment Plan offers a compound interest rate of 3% per year, paid out monthly, to help you to maximize your capital growth in a stable and efficient manner over time.
+                <br><br>
+                This strategic and responsible choice ensures peace of mind for your financial future. Our Fixed-Rate Savings Plan is designed for those who want to build wealth over time, consistently and flexibly, adapting to your personal needs and goals.
+            </p>
+        </div>
+    </section>
 </div>
