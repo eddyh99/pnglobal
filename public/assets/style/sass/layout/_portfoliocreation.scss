@@ -11,22 +11,21 @@
     .container-fluid {
         .row {
             display: flex; // Add this
-            align-items: stretch; // Add this
-
+            align-items: center; // Add this
             .bg-portfolio {
                 flex: 0 0 50%;
+
                 height: 100%;
 
                 img {
                     width: 100%;
                     height: 100%;
                     object-fit: cover;
-                    display: block;
                 }
             }
 
             .portfolio-content {
-                padding: 4rem;
+                padding: 0 4rem;
                 display: flex;
                 flex-direction: column;
                 justify-content: center;
@@ -96,7 +95,7 @@
 
     @include mix.lg {
         .portfolio-content {
-            padding: 4rem !important;
+            padding: 0 4rem !important;
         }
     }
 }
