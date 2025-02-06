@@ -177,6 +177,14 @@ class Homepage extends BaseController
                 'flag'      => 'passiveincome',
                 'darkNav'   => true
             ];
+        } else if ($service == "portfolio_creation") {
+            $mdata = [
+                'title'     => 'Portfolio Creation - ' . NAMETITLE,
+                'content'   => 'homepage/service/portfolio_creation',
+                'extra'     => 'homepage/js/_js_index',
+                'extragsap' => 'homepage/gsap/gsap_portfolio_creation',
+                'flag'      => 'portfolio'
+            ];
         } else {
             $mdata = [
                 'title'     => 'Service Finance Advice Assets And Investment - ' . NAMETITLE,
