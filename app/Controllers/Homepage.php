@@ -185,6 +185,15 @@ class Homepage extends BaseController
                 'extragsap' => 'homepage/gsap/gsap_portfolio_creation',
                 'flag'      => 'portfolio'
             ];
+        } else if ($service == "accumulation_plan") {
+            $mdata = [
+                'title'     => 'Accumulation Plan - ' . NAMETITLE,
+                'content'   => 'homepage/service/accumulation_plan',
+                'extra'     => 'homepage/js/_js_index',
+                'extragsap' => 'homepage/gsap/gsap_accumulation_plan',
+                'flag'      => 'accumulation',
+                'darkNav'   => true
+            ];
         } else {
             $mdata = [
                 'title'     => 'Service Finance Advice Assets And Investment - ' . NAMETITLE,
