@@ -21018,6 +21018,55 @@ input:-moz-placeholder {
   margin-bottom: 0;
 }
 
+.future-section {
+  padding: 4rem 0;
+  background: radial-gradient(ellipse farthest-corner at bottom right, #adadad 0%, #454242 60%, #000 100%);
+}
+.future-section .future-content {
+  padding-right: 2rem;
+}
+.future-section .future-content .future-title {
+  color: #d1b06b;
+  font-family: "Noto Serif", serif;
+  font-size: 20px;
+  font-weight: 800;
+  line-height: 35px;
+  text-transform: capitalize;
+  margin-bottom: 1.5rem;
+}
+.future-section .future-content .future-description {
+  color: #fff;
+  font-family: "Noto Serif", serif;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 28px;
+}
+.future-section .keeps-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+.future-section .keeps-content .keeps-title {
+  color: #d1b06b;
+  font-family: "Noto Serif", serif;
+  font-size: 25px;
+  font-weight: 800;
+  line-height: 35px;
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
+}
+.future-section .keeps-content .divider {
+  height: 3px;
+  background: #bda069;
+  width: 60%;
+  margin-bottom: 2rem;
+}
+.future-section .keeps-content .keeps-image {
+  max-width: 280px;
+  height: auto;
+}
+
 /*----------------------------------------------------------
     File Name  : _navbar.scss
     Desc       : File ini merupakan styling untuk 

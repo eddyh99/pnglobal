@@ -74,4 +74,30 @@
             </div>
         </div>
     </section>
+
+    <section class="future-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="future-content">
+                        <h2 class="future-title">Build the Future You Deserve</h2>
+                        <p class="future-description">
+                            Our goal is to create a portfolio that not only aligns with your objectives but also gives you the confidence of investing wisely and strategically.<br><br>
+                            With a constant focus on the market and the most innovative financial instruments, your portfolio will always be optimized to meet future challenges and seize opportunities.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="keeps-content">
+                        <h2 class="keeps-title">
+                            A portfolio that always <br>
+                            keeps up with the times
+                        </h2>
+                        <div class="divider"></div>
+                        <img src="<?= BASE_URL ?>assets/img/ic_portfolio_keeps_up.png" alt="Portfolio Keeps Up" class="keeps-image">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 </div>
