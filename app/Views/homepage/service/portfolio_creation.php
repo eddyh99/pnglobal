@@ -100,4 +100,28 @@
             </div>
         </div>
     </section>
+
+    <section class="custom-portfolio-section">
+        <div class="container-fluid">
+            <div class="row p-0">
+                <div class="col-lg-6 p-0">
+                    <div class="custom-portfolio-image">
+                        <img src="<?= BASE_URL ?>assets/img/ic_custom_portfolio.png" alt="Custom Portfolio">
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="custom-portfolio-content">
+                        <h2 class="custom-title">Create your custom portfolio</h2>
+                        <p class="custom-description">
+                            Your portfolio isn't a one-size-fits-all product, it's a tailored suit. Together, we'll select the financial instruments best suited to your goals, with maximum flexibility and transparency.
+                        </p>
+                        <p class="custom-highlight">
+                            A unique portfolio, built around your goals.
+                        </p>
+                        <button class="custom-button">Customize now</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 </div>
