@@ -21361,7 +21361,7 @@ input:-moz-placeholder {
 .prosperity-section {
   margin: 75px 0 0;
   padding: 50px 0;
-  background: radial-gradient(circle at top left, #ccb78f 0%, rgba(92, 82, 64, 0.45) 40%, rgba(0, 0, 0, 0.2) 70%, #0b0a08 100%);
+  background: radial-gradient(circle at top right, #0b0a08 0%, #0b0a08 5%, rgba(0, 0, 0, 0.2) 20%, rgba(92, 82, 64, 0.3) 30%, #ccb78f 100%);
 }
 .prosperity-section .prosperity-image img {
   width: 100%;
