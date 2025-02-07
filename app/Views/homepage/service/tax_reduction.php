@@ -121,4 +121,42 @@
             </div>
         </div>
     </section>
+
+    <section class="increased-net-worth-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <!-- Left Column with Image -->
+                <div class="col-12 col-lg-6">
+                    <div class="inw-image">
+                        <img src="<?= BASE_URL ?>assets/img/ic_increased_net_worth.png" alt="Increased Net Worth" class="img-fluid">
+                    </div>
+                </div>
+
+                <!-- Right Column with Content -->
+                <div class="col-12 col-lg-6">
+                    <div class="inw-content">
+                        <ul class="inw-list">
+                            <li class="list-title">Increased Net Worth</li>
+                        </ul>
+                        <p class="inw-description">Maximize your after-tax income.</p>
+
+                        <ul class="inw-list">
+                            <li class="list-title">Peace of Mind</li>
+                        </ul>
+                        <p class="inw-description">Avoid unexpected tax liabilities.</p>
+
+                        <ul class="inw-list">
+                            <li class="list-title">Expert Guidance</li>
+                        </ul>
+                        <p class="inw-description">Tailored strategies for your unique financial situation.</p>
+
+                        <ul class="inw-list">
+                            <li class="list-title">Global Reach</li>
+                        </ul>
+                        <p class="inw-description">Services for both domestic and international clients.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 </div>

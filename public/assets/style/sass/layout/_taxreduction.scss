@@ -237,3 +237,52 @@
         }
     }
 }
+
+.increased-net-worth-section {
+    background: #000;
+    padding: 4rem 0;
+
+    .inw-image {
+        text-align: center;
+        margin-bottom: 2rem;
+
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+    }
+
+    .inw-content {
+        .inw-list {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 0.5rem;
+
+            .list-title {
+                color: #bda069;
+                font-family: var.$f-noto;
+                font-size: 20px;
+                font-weight: 700;
+                line-height: 35px;
+                text-transform: uppercase;
+
+                &:before {
+                    content: '•';
+                    color: #bda069;
+                    display: inline-block;
+                    width: 1em;
+                    margin-left: -1em;
+                }
+            }
+        }
+
+        .inw-description {
+            color: #fff;
+            font-family: var.$f-noto;
+            font-size: 18px;
+            font-weight: 500;
+            line-height: 28px;
+            margin-bottom: 1.5rem;
+        }
+    }
+}
