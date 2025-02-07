@@ -21686,6 +21686,77 @@ input:-moz-placeholder {
   line-height: 30px;
 }
 
+.complex-regulations-section {
+  background: #000;
+  padding: 4rem 0;
+}
+.complex-regulations-section .cr-title {
+  color: #bda069;
+  text-align: center;
+  font-family: "Noto Serif", serif;
+  font-size: 29px;
+  font-weight: 600;
+  line-height: 30px;
+  text-transform: capitalize;
+  margin-bottom: 0.5rem;
+}
+.complex-regulations-section .cr-subtitle {
+  color: #fff;
+  text-align: center;
+  font-family: "Noto Serif", serif;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 30px;
+  margin-bottom: 3rem;
+}
+.complex-regulations-section .cr-content {
+  padding: 2rem 6rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+}
+.complex-regulations-section .cr-content .cr-description {
+  color: #fff;
+  font-family: "Noto Serif", serif;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 30px;
+  margin-bottom: 1.5rem;
+}
+.complex-regulations-section .cr-content .cr-description:last-of-type {
+  margin-bottom: 4rem;
+}
+.complex-regulations-section .cr-content .cr-button {
+  color: #000;
+  text-align: center;
+  font-family: "Noto Serif", serif;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 25px;
+  text-transform: uppercase;
+  background: #d1b06b;
+  border-radius: 5px;
+  padding: 1rem 3rem;
+  border: none;
+  width: fit-content;
+  transition: all 0.3s ease;
+}
+.complex-regulations-section .cr-content .cr-button:hover {
+  background: #fff;
+  box-shadow: 0px 4px 15px 0px #fff;
+}
+.complex-regulations-section .cr-image {
+  height: 100%;
+  padding-right: 5rem;
+}
+.complex-regulations-section .cr-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
 /*----------------------------------------------------------
     File Name  : _navbar.scss
     Desc       : File ini merupakan styling untuk 

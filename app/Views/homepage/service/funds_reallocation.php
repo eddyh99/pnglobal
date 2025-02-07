@@ -149,4 +149,37 @@
             </div>
         </div>
     </section>
+
+    <section class="complex-regulations-section">
+        <!-- Top Content -->
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center">
+                    <h2 class="cr-title">Don't let complex regulations hinder your financial goals.</h2>
+                    <p class="cr-subtitle">Safeguard your wealth with a secure and reliable solution.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bottom Content -->
+        <div class="container-fluid p-0">
+            <div class="row g-0">
+                <div class="col-lg-6">
+                    <div class="cr-content">
+                        <p class="cr-description">Want peace of mind about your investments?</p>
+                        <p class="cr-description">Reallocate your funds transparently and in compliance with international regulations. Start your journey towards more secure wealth management today.</p>
+                        <button class="cr-button">
+                            Reallocate your <br>
+                            funds securely
+                        </button>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="cr-image">
+                        <img src="<?= BASE_URL ?>assets/img/ic_complex_regulations.png" alt="Complex Regulations" class="img-fluid">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 </div>
