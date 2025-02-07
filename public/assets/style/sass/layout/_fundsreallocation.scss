@@ -1,0 +1,100 @@
+@use '../abstracts/variables' as var;
+@use '../abstracts/mixins' as mix;
+
+.funds-reallocation {
+    background-color: #bda069;
+    position: relative;
+    overflow: hidden;
+    padding-top: 77px;
+    margin-top: 0;
+
+    .container-fluid {
+        width: 100%;
+        max-width: none;
+        padding: 0;
+
+        .row {
+            width: 100%;
+            display: flex;
+            align-items: center;
+
+            .fr-image {
+                flex: 0 0 50%;
+                margin: 0;
+
+                img {
+                    width: 100%;
+                    height: auto;
+                    object-fit: cover;
+                    display: block;
+                }
+            }
+
+            .fr-content {
+                flex: 0 0 50%;
+                padding: 4rem;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+
+                .fr-title {
+                    color: #fff;
+                    font-family: var.$f-noto;
+                    font-size: 30px;
+                    font-style: normal;
+                    font-weight: 800;
+                    line-height: 25px;
+                    text-transform: uppercase;
+                    margin-bottom: 1rem;
+                }
+
+                .fr-subtitle {
+                    color: #fff;
+                    font-family: var.$f-noto;
+                    font-size: 20px;
+                    font-style: normal;
+                    font-weight: 700;
+                    line-height: 35px;
+                    text-transform: uppercase;
+                    margin-bottom: 1.5rem;
+                }
+
+                .fr-description {
+                    color: #000;
+                    font-family: var.$f-noto;
+                    font-size: 20px;
+                    font-style: normal;
+                    font-weight: 500;
+                    line-height: 30px;
+                    margin-bottom: 2rem;
+                }
+
+                .fr-button {
+                    color: #fff;
+                    text-align: center;
+                    font-family: var.$f-noto;
+                    font-size: 16px;
+                    font-style: normal;
+                    font-weight: 600;
+                    line-height: 25px;
+                    text-decoration-line: underline;
+                    text-decoration-style: solid;
+                    text-transform: uppercase;
+                    background: #000;
+                    border-radius: 5px;
+                    box-shadow: 0px 4px 4px 0px rgba(56, 55, 52, 0.88);
+                    padding: 1rem 3rem;
+                    border: none;
+                    width: fit-content;
+                    transition: all 0.3s ease;
+
+                    &:hover {
+                        background: #fff;
+                        box-shadow: 0px 4px 15px 0px #fff;
+                        color: #000;
+                    }
+                }
+            }
+        }
+    }
+}

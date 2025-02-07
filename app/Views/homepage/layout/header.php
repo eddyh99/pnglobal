@@ -67,7 +67,7 @@
                             <li><a class="dropdown-item" href="<?= BASE_URL ?>homepage/service?service=<?= base64_encode('portfolio_creation') ?>">PORTFOLIO CREATION</a></li>
                             <li><a class="dropdown-item" href="<?= BASE_URL ?>homepage/service?service=<?= base64_encode('accumulation_plan') ?>">ACCUMULATION PLAN</a></li>
                             <li><a class="dropdown-item" href="<?= BASE_URL ?>homepage/service?service=<?= base64_encode('wealth_consulting') ?>">WEALTH CONSULTING</a></li>
-                            <li><a class="dropdown-item" href="<?= BASE_URL ?>homepage/service?service=<?= base64_encode('fund_relocation') ?>">FUND RELOCATION</a></li>
+                            <li><a class="dropdown-item" href="<?= BASE_URL ?>homepage/service?service=<?= base64_encode('funds_reallocation') ?>">FUNDS REALLOCATION</a></li>
                             <li><a class="dropdown-item" href="<?= BASE_URL ?>homepage/service?service=<?= base64_encode('tax_reduction') ?>">TAX REDUCTION</a></li>
                             <li><a class="dropdown-item" href="<?= BASE_URL ?>homepage/service?service=<?= base64_encode('capital_protection') ?>">CAPITAL PROTECTION</a></li>
                         </ul>

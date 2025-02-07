@@ -21420,6 +21420,94 @@ input:-moz-placeholder {
   box-shadow: 0px 4px 15px 0px #fff;
 }
 
+.funds-reallocation {
+  background-color: #bda069;
+  position: relative;
+  overflow: hidden;
+  padding-top: 77px;
+  margin-top: 0;
+}
+.funds-reallocation .container-fluid {
+  width: 100%;
+  max-width: none;
+  padding: 0;
+}
+.funds-reallocation .container-fluid .row {
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+.funds-reallocation .container-fluid .row .fr-image {
+  flex: 0 0 50%;
+  margin: 0;
+}
+.funds-reallocation .container-fluid .row .fr-image img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  display: block;
+}
+.funds-reallocation .container-fluid .row .fr-content {
+  flex: 0 0 50%;
+  padding: 4rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.funds-reallocation .container-fluid .row .fr-content .fr-title {
+  color: #fff;
+  font-family: "Noto Serif", serif;
+  font-size: 30px;
+  font-style: normal;
+  font-weight: 800;
+  line-height: 25px;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+.funds-reallocation .container-fluid .row .fr-content .fr-subtitle {
+  color: #fff;
+  font-family: "Noto Serif", serif;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 35px;
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
+}
+.funds-reallocation .container-fluid .row .fr-content .fr-description {
+  color: #000;
+  font-family: "Noto Serif", serif;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 30px;
+  margin-bottom: 2rem;
+}
+.funds-reallocation .container-fluid .row .fr-content .fr-button {
+  color: #fff;
+  text-align: center;
+  font-family: "Noto Serif", serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 25px;
+  text-decoration-line: underline;
+  text-decoration-style: solid;
+  text-transform: uppercase;
+  background: #000;
+  border-radius: 5px;
+  box-shadow: 0px 4px 4px 0px rgba(56, 55, 52, 0.88);
+  padding: 1rem 3rem;
+  border: none;
+  width: fit-content;
+  transition: all 0.3s ease;
+}
+.funds-reallocation .container-fluid .row .fr-content .fr-button:hover {
+  background: #fff;
+  box-shadow: 0px 4px 15px 0px #fff;
+  color: #000;
+}
+
 /*----------------------------------------------------------
     File Name  : _navbar.scss
     Desc       : File ini merupakan styling untuk 
