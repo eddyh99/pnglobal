@@ -184,3 +184,56 @@
         }
     }
 }
+
+.benefits-section {
+    background: radial-gradient(
+        circle at top right,
+        #0b0a08 0%,
+        rgba(92, 82, 64, 0.45) 20%,
+        #8a795a 100%
+    );
+    // padding: 2rem 0;
+
+    .benefits-content {
+        // padding: 2rem 4rem;
+
+        .benefits-title {
+            color: #bda069;
+            font-family: var.$f-noto;
+            font-size: 25px;
+            font-weight: 800;
+            line-height: 40px;
+            text-transform: uppercase;
+            margin-bottom: 1.5rem;
+            text-align: left;
+        }
+
+        .benefits-description {
+            color: #fff;
+            font-family: var.$f-noto;
+            font-size: 18px;
+            font-weight: 600;
+            line-height: 30px;
+            margin-bottom: 1.5rem;
+        }
+    }
+
+    .benefits-image {
+        position: relative;
+        overflow: visible;
+        height: 100px; // Adjust as needed
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        img {
+            position: absolute;
+            width: 70%;
+            height: auto;
+            object-fit: cover;
+            top: -100px;
+            right: 10%;
+            // transform: translateX(-50%);
+        }
+    }
+}

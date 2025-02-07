@@ -95,4 +95,30 @@
             </div>
         </div>
     </section>
+
+    <section class="benefits-section">
+        <div class="container">
+            <div class="row g-0 align-items-center">
+                <!-- Left Column with Text Content -->
+                <div class="col-12 col-lg-6">
+                    <div class="benefits-content">
+                        <h2 class="benefits-title">The Benefits of Tax Reduction</h2>
+                        <p class="benefits-description">
+                            Effective tax management is crucial for preserving and growing your wealth. Our proactive approach allows you to plan ahead, avoiding unexpected tax surprises and ensuring your investments reach their full potential.
+                        </p>
+                        <p class="benefits-description">
+                            With PN Global's Tax Reduction service, you can optimize your tax burden and maximize your investment returns, relying on a team of qualified and experienced experts.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Right Column with Image -->
+                <div class="col-12 col-lg-6">
+                    <div class="benefits-image">
+                        <img src="<?= BASE_URL ?>assets/img/ic_benefits_tax_red.png" alt="Tax Reduction Benefits" class="img-fluid">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 </div>

@@ -22138,6 +22138,44 @@ input:-moz-placeholder {
   margin: 0 auto;
 }
 
+.benefits-section {
+  background: radial-gradient(circle at top right, #0b0a08 0%, rgba(92, 82, 64, 0.45) 20%, #8a795a 100%);
+}
+.benefits-section .benefits-content .benefits-title {
+  color: #bda069;
+  font-family: "Noto Serif", serif;
+  font-size: 25px;
+  font-weight: 800;
+  line-height: 40px;
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
+  text-align: left;
+}
+.benefits-section .benefits-content .benefits-description {
+  color: #fff;
+  font-family: "Noto Serif", serif;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 30px;
+  margin-bottom: 1.5rem;
+}
+.benefits-section .benefits-image {
+  position: relative;
+  overflow: visible;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.benefits-section .benefits-image img {
+  position: absolute;
+  width: 70%;
+  height: auto;
+  object-fit: cover;
+  top: -100px;
+  right: 10%;
+}
+
 /*----------------------------------------------------------
     File Name  : _navbar.scss
     Desc       : File ini merupakan styling untuk 
