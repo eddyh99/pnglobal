@@ -177,6 +177,32 @@ class Homepage extends BaseController
                 'flag'      => 'passiveincome',
                 'darkNav'   => true
             ];
+        } else if ($service == "portfolio_creation") {
+            $mdata = [
+                'title'     => 'Portfolio Creation - ' . NAMETITLE,
+                'content'   => 'homepage/service/portfolio_creation',
+                'extra'     => 'homepage/js/_js_index',
+                'extragsap' => 'homepage/gsap/gsap_portfolio_creation',
+                'flag'      => 'portfolio'
+            ];
+        } else if ($service == "accumulation_plan") {
+            $mdata = [
+                'title'     => 'Accumulation Plan - ' . NAMETITLE,
+                'content'   => 'homepage/service/accumulation_plan',
+                'extra'     => 'homepage/js/_js_index',
+                'extragsap' => 'homepage/gsap/gsap_accumulation_plan',
+                'flag'      => 'accumulation',
+                'darkNav'   => true
+            ];
+        } else if ($service == "funds_reallocation") {
+            $mdata = [
+                'title'     => 'Funds Reallocation - ' . NAMETITLE,
+                'content'   => 'homepage/service/funds_reallocation',
+                'extra'     => 'homepage/js/_js_index',
+                'extragsap' => 'homepage/gsap/gsap_funds_reallocation',
+                'flag'      => 'funds',
+                'darkNav'   => true
+            ];
         } else {
             $mdata = [
                 'title'     => 'Service Finance Advice Assets And Investment - ' . NAMETITLE,

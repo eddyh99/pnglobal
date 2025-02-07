@@ -1,0 +1,356 @@
+@use '../abstracts/variables' as var;
+@use '../abstracts/mixins' as mix;
+
+.accumulation-wrapper {
+    padding-bottom: 75px;
+}
+
+.accumulation-plans {
+    background-color: #bda069;
+    position: relative;
+    overflow: hidden;
+    padding: 77px 0 0;
+    margin-top: 0;
+
+    .container-fluid {
+        width: 100%;
+        max-width: none;
+
+        .row {
+            width: 100%;
+            display: flex;
+            align-items: center;
+
+            .bg-accumulation {
+                flex: 0 0 50%;
+                position: relative;
+                margin: 0;
+
+                img {
+                    width: 100%;
+                    height: auto;
+                    object-fit: cover;
+                    display: block;
+                }
+            }
+
+            .accumulation-content {
+                flex: 0 0 50%;
+                padding: 4rem;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+
+                .title {
+                    color: #fff;
+                    font-family: var.$f-noto;
+                    font-size: 30px;
+                    font-weight: 800;
+                    line-height: 25px;
+                    text-transform: uppercase;
+                    margin-bottom: 1rem;
+                }
+
+                .subtitle {
+                    color: #fff;
+                    font-family: var.$f-noto;
+                    font-size: 20px;
+                    font-weight: 700;
+                    line-height: 35px;
+                    text-transform: uppercase;
+                    margin-bottom: 1.5rem;
+                }
+
+                .description {
+                    color: #000;
+                    font-family: var.$f-noto;
+                    font-size: 20px;
+                    font-weight: 500;
+                    line-height: 30px;
+                    margin-bottom: 2rem;
+                }
+
+                .cta-button {
+                    color: #fff;
+                    font-family: var.$f-noto;
+                    font-size: 16px;
+                    font-weight: 600;
+                    line-height: 25px;
+                    text-transform: uppercase;
+                    text-decoration: underline;
+                    background: #000;
+                    border-radius: 5px;
+                    box-shadow: 0px 4px 4px 0px rgba(56, 55, 52, 0.88);
+                    padding: 1rem 3rem;
+                    border: none;
+                    width: fit-content;
+                    text-align: center;
+                    transition: all 0.3s ease;
+
+                    &:hover {
+                        background: #fff;
+                        box-shadow: 0px 4px 15px 0px #fff;
+                        color: #000;
+                    }
+                }
+            }
+        }
+    }
+
+    @include mix.md {
+        .accumulation-content {
+            padding: 3rem !important;
+        }
+    }
+
+    @include mix.lg {
+        .accumulation-content {
+            padding: 4rem !important;
+        }
+    }
+}
+
+.systematic-section {
+    background: #000;
+    padding: 4rem 0;
+
+    .container {
+        max-width: 1140px;
+        margin: 0 auto;
+        text-align: center;
+    }
+
+    .systematic-title {
+        color: #d1b06b;
+        text-align: center;
+        text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+        font-family: var.$f-noto;
+        font-size: 25px;
+        font-weight: 800;
+        line-height: 40px;
+        text-transform: uppercase;
+        margin-bottom: 2rem;
+    }
+
+    .systematic-description {
+        color: #fff;
+        text-align: center;
+        font-family: var.$f-noto;
+        font-size: 20px;
+        font-weight: 500;
+        line-height: 30px;
+        max-width: 1000px;
+        margin: 0 auto;
+    }
+}
+
+.why-choose-section {
+    padding: 4rem 0;
+    // background: radial-gradient(
+    //     circle at bottom right,
+    //     rgba(158, 154, 148, 0.6) 0%,
+    //     rgba(56, 55, 52, 0.6) 50%,
+    //     rgba(0, 0, 0, 0.8) 100%
+    // );
+    background: linear-gradient(
+        to top left,
+        rgba(158, 154, 148, 0.6) 0%,
+        rgba(56, 55, 52, 0.6) 50%,
+        rgba(0, 0, 0, 0.8) 100%
+    );
+
+    .why-choose-content {
+        .why-title {
+            color: #d1b06b;
+            text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+            font-family: var.$f-noto;
+            font-size: 25px;
+            font-weight: 800;
+            line-height: 40px;
+            text-transform: uppercase;
+            margin-bottom: 1.5rem;
+        }
+
+        .divider {
+            height: 3px;
+            background: #bda069;
+            width: 70%;
+            margin-bottom: 2rem;
+        }
+
+        .why-image {
+            width: 100%;
+            height: auto;
+            max-width: 280px;
+        }
+    }
+
+    .benefits-content {
+        .benefits-description {
+            color: #fff;
+            font-family: var.$f-noto;
+            font-size: 18px;
+            font-weight: 500;
+            line-height: 28px;
+            margin-bottom: 1.5rem;
+        }
+
+        .benefits-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+
+            li {
+                color: #d1b06b;
+                font-family: var.$f-noto;
+                font-size: 18px;
+                font-weight: 600;
+                line-height: 35px;
+                position: relative;
+                padding-left: 20px;
+                margin-bottom: 30px;
+
+                &:before {
+                    content: '';
+                    position: absolute;
+                    left: 0;
+                    top: 50%;
+                    transform: translateY(-50%);
+                    width: 8px;
+                    height: 8px;
+                    background-color: #d1b06b;
+                    border-radius: 50%;
+                }
+            }
+        }
+    }
+}
+
+.transparency-section {
+    padding: 4rem 0;
+    background: radial-gradient(
+        circle at bottom right,
+        #ccb78f 0%,
+        rgba(92, 82, 64, 0.45) 40%,
+        rgba(0, 0, 0, 0.2) 70%,
+        #0b0a08 100%
+    );
+
+    .transparency-content {
+        padding-right: 2rem;
+
+        .transparency-title {
+            color: #d1b06b;
+            text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+            font-family: var.$f-noto;
+            font-size: 20px;
+            font-weight: 800;
+            line-height: 30px;
+            text-transform: uppercase;
+            margin-bottom: 2rem;
+        }
+
+        .transparency-description {
+            p {
+                color: #fff;
+                font-family: var.$f-noto;
+                font-size: 18px;
+                font-weight: 500;
+                line-height: 28px;
+                margin-bottom: 1.5rem;
+
+                &:last-child {
+                    margin-bottom: 0;
+                }
+            }
+        }
+    }
+
+    .transparency-image {
+        text-align: center;
+
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+    }
+}
+
+.prosperity-section {
+    margin: 75px 0 0;
+    padding: 50px 0;
+    background: radial-gradient(
+        circle at top right,
+        #0b0a08 0%,
+        #0b0a08 5%,
+        // Black area reduced to 5%
+        rgba(0, 0, 0, 0.2) 20%,
+        rgba(92, 82, 64, 0.3) 30%,
+        #ccb78f 100% // Gold now covers more area
+    );
+
+    .prosperity-image {
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+
+    .prosperity-content {
+        padding: 4rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        height: 100%;
+
+        .prosperity-title {
+            color: #bda069;
+            font-family: var.$f-noto;
+            font-size: 29px;
+            font-weight: 600;
+            line-height: 30px;
+            text-transform: capitalize;
+            margin-bottom: 1.5rem;
+        }
+
+        .prosperity-subtitle {
+            color: #fff;
+            font-family: var.$f-noto;
+            font-size: 18px;
+            font-weight: 700;
+            line-height: 30px;
+            margin-bottom: 1rem;
+        }
+
+        .prosperity-description {
+            color: #fff;
+            font-family: var.$f-noto;
+            font-size: 18px;
+            font-weight: 600;
+            line-height: 30px;
+            margin-bottom: 2rem;
+        }
+
+        .prosperity-button {
+            color: #000;
+            font-family: var.$f-noto;
+            font-size: 18px;
+            font-weight: 600;
+            line-height: 25px;
+            text-transform: uppercase;
+            text-align: center;
+            background: #d1b06b;
+            border-radius: 5px;
+            padding: 1rem 2rem;
+            border: none;
+            width: fit-content;
+            transition: all 0.3s ease;
+
+            &:hover {
+                background: #fff;
+                box-shadow: 0px 4px 15px 0px #fff;
+            }
+        }
+    }
+}
