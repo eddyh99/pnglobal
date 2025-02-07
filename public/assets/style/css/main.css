@@ -22356,6 +22356,90 @@ input:-moz-placeholder {
   box-shadow: 0px 4px 15px 0px #fff;
 }
 
+.secure-future-section {
+  background: #000;
+  padding: 4rem 0;
+}
+.secure-future-section .sf-title {
+  color: #d1b06b;
+  text-align: center;
+  font-family: "Noto Serif", serif;
+  font-size: 25px;
+  font-weight: 800;
+  line-height: 40px;
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
+}
+.secure-future-section .sf-description {
+  color: #fff;
+  text-align: center;
+  font-family: "Noto Serif", serif;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 30px;
+  margin-bottom: 3rem;
+}
+.secure-future-section .sf-left-content {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.secure-future-section .sf-left-content .sf-subtitle {
+  color: #d1b06b;
+  font-family: "Noto Serif", serif;
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 40px;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+.secure-future-section .sf-left-content .sf-divider {
+  width: 30%;
+  height: 3px;
+  background: #bda069;
+  margin-bottom: 2rem;
+}
+.secure-future-section .sf-left-content img {
+  min-height: 240px;
+  width: auto;
+  object-fit: contain;
+}
+.secure-future-section .row:last-child {
+  background: radial-gradient(circle at top left, #000 0%, #514734 40%, #76684c 70%, #bda069 100%);
+  padding: 2rem;
+  margin: 0;
+}
+.secure-future-section .sf-list {
+  list-style: none;
+  padding: 0;
+}
+.secure-future-section .sf-list li {
+  color: #bda069;
+  font-family: "Noto Serif", serif;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 35px;
+  text-transform: capitalize;
+  margin-bottom: 0.5rem;
+}
+.secure-future-section .sf-list li:before {
+  content: "•";
+  color: #bda069;
+  display: inline-block;
+  width: 1em;
+  margin-left: -1em;
+}
+.secure-future-section .sf-list .sf-list-description {
+  color: #fff;
+  font-family: "Noto Serif", serif;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 28px;
+  text-transform: none;
+  margin-bottom: 1.5rem;
+}
+
 /*----------------------------------------------------------
     File Name  : _navbar.scss
     Desc       : File ini merupakan styling untuk 
