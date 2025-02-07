@@ -22092,6 +22092,52 @@ input:-moz-placeholder {
   margin: 0 auto;
 }
 
+.key-services-section {
+  background: #000;
+  padding: 4rem 0;
+}
+.key-services-section .ks-title {
+  color: #bda069;
+  text-align: center;
+  font-family: "Noto Serif", serif;
+  font-size: 25px;
+  font-weight: 800;
+  line-height: 40px;
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
+}
+.key-services-section .divider {
+  height: 3px;
+  background: #fff;
+  width: 20%;
+  margin: 0 auto 3rem;
+}
+.key-services-section .service-card {
+  background: linear-gradient(to bottom right, #0b0a08 0%, rgba(92, 82, 64, 0.45) 50%, #ccb78f 100%);
+  padding: 2rem;
+  border-radius: 10px;
+}
+.key-services-section .service-card .card-title {
+  color: #bda069;
+  text-align: left;
+  font-family: "Noto Serif", serif;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 35px;
+  margin-bottom: 1rem;
+}
+.key-services-section .service-card .card-description {
+  color: #fff;
+  font-family: "Noto Serif", serif;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 28px;
+}
+.key-services-section .row:last-child .service-card {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
 /*----------------------------------------------------------
     File Name  : _navbar.scss
     Desc       : File ini merupakan styling untuk 

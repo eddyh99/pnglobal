@@ -38,4 +38,61 @@
             </div>
         </div>
     </section>
+
+    <section class="key-services-section">
+        <div class="container">
+            <!-- Top Content -->
+            <div class="row">
+                <div class="col-12 text-center">
+                    <h2 class="ks-title">Key Services <br> for Tax Optimization</h2>
+                    <div class="divider"></div>
+                </div>
+            </div>
+
+            <!-- Cards Grid -->
+            <div class="row g-4">
+                <!-- Card 1 -->
+                <div class="col-md-6">
+                    <div class="service-card">
+                        <h3 class="card-title">Personalized Tax Planning</h3>
+                        <p class="card-description">We delve into your portfolio and financial structure to identify tax-saving opportunities.</p>
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="col-md-6">
+                    <div class="service-card">
+                        <h3 class="card-title">Investment Optimization</h3>
+                        <p class="card-description">We assist you in selecting financially advantageous investment vehicles and instruments, such as tax-advantaged funds, trusts, or cryptocurrencies with favorable tax regimes.</p>
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="col-md-6">
+                    <div class="service-card">
+                        <h3 class="card-title">Strategic Asset Restructuring</h3>
+                        <p class="card-description">We support you in reallocating funds and assets to jurisdictions or sectors with more efficient tax regimes, always in compliance with local and international regulations.</p>
+                    </div>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="col-md-6">
+                    <div class="service-card">
+                        <h3 class="card-title">Deduction and Benefit Consultation</h3>
+                        <p class="card-description">We pay close attention to tax management to maximize your net profits.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 5 (Full Width) -->
+            <div class="row">
+                <div class="col-12">
+                    <div class="service-card">
+                        <h3 class="card-title">International Tax Implications Management</h3>
+                        <p class="card-description">If you have investments or activities in multiple countries, we provide advice to minimize double taxation and ensure compliant and advantageous tax management.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 </div>
