@@ -211,6 +211,14 @@ class Homepage extends BaseController
                 'extragsap' => 'homepage/gsap/gsap_wealth_consulting',
                 'flag'      => 'wealth'
             ];
+        } else if ($service == "tax_reduction") {
+            $mdata = [
+                'title'     => 'Tax Reduction - ' . NAMETITLE,
+                'content'   => 'homepage/service/tax_reduction',
+                'extra'     => 'homepage/js/_js_index',
+                'extragsap' => 'homepage/gsap/gsap_tax_reduction',
+                'flag'      => 'tax'
+            ];
         } else {
             $mdata = [
                 'title'     => 'Service Finance Advice Assets And Investment - ' . NAMETITLE,
