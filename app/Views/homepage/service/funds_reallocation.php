@@ -57,4 +57,54 @@
             </div>
         </div>
     </section>
+
+    <section class="how-it-works-section">
+        <div class="container">
+            <!-- Top Content -->
+            <div class="row">
+                <div class="col-12 text-center">
+                    <h2 class="hiw-title">How our fund reallocation service works</h2>
+                    <p class="hiw-description">
+                        Our fund reallocation process is designed to ensure maximum security and transparency.<br>
+                        Here's how it works:
+                    </p>
+                </div>
+            </div>
+
+            <!-- Cards Grid -->
+            <div class="row g-4">
+                <!-- Card 1 -->
+                <div class="col-md-6">
+                    <div class="process-card">
+                        <h3 class="card-title">1. Evaluation of your needs</h3>
+                        <p class="card-description">We will start by analyzing your financial needs and long-term goals to determine the most suitable reallocation strategy for you.</p>
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="col-md-6">
+                    <div class="process-card">
+                        <h3 class="card-title">2. Selection of banking partners</h3>
+                        <p class="card-description">We will rely on trusted and experienced banking partners to ensure maximum security and speed of transactions.</p>
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="col-md-6">
+                    <div class="process-card">
+                        <h3 class="card-title">3. Issuance of a credit</h3>
+                        <p class="card-description">Instead of a traditional international bank transfer, we will issue a credit to the receiving institution. This credit will be offset between the banks involved, ensuring a legal and traceable transaction.</p>
+                    </div>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="col-md-6">
+                    <div class="process-card">
+                        <h3 class="card-title">4. Monitoring and assistance</h3>
+                        <p class="card-description">We will provide you with assistance and support throughout the entire reallocation process, ensuring that everything goes according to plan.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 </div>
