@@ -107,4 +107,46 @@
             </div>
         </div>
     </section>
+
+    <section class="advantages-section">
+        <div class="container">
+            <!-- Top Content -->
+            <div class="row">
+                <div class="col-12 text-center">
+                    <h2 class="adv-title">The advantages of fund <br> reallocation with PN Global</h2>
+                    <div class="divider"></div>
+                    <p class="adv-subtitle">Choosing PN Global for your fund reallocation offers numerous advantages:</p>
+                </div>
+            </div>
+
+            <!-- Bottom Content -->
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <div class="adv-image">
+                        <img src="<?= BASE_URL ?>assets/img/ic_advantages_fund.png" alt="Advantages" class="img-fluid">
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <ul class="advantages-list">
+                        <li>
+                            <span class="list-title">Security:</span>
+                            <span class="list-desc">We guarantee maximum security for your transactions thanks to our collaboration with trusted banking partners.</span>
+                        </li>
+                        <li>
+                            <span class="list-title">Legality:</span>
+                            <span class="list-desc">Our reallocation process is compliant with current regulations, ensuring maximum peace of mind.</span>
+                        </li>
+                        <li>
+                            <span class="list-title">Speed:</span>
+                            <span class="list-desc">Our transactions are fast and efficient, allowing you to achieve your financial goals in a short time.</span>
+                        </li>
+                        <li>
+                            <span class="list-title">Experience:</span>
+                            <span class="list-desc">Our team of experts has extensive experience in international fund reallocation, guaranteeing you a high-quality service.</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
 </div>

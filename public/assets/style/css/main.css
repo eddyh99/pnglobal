@@ -21614,6 +21614,78 @@ input:-moz-placeholder {
   margin-bottom: 0;
 }
 
+.advantages-section {
+  background: linear-gradient(130deg, rgba(18, 18, 18, 0.88) 5.98%, rgba(28, 28, 27, 0.88) 79.85%, rgba(255, 255, 255, 0.88) 104.42%);
+  padding: 2rem 0;
+}
+.advantages-section .adv-title {
+  color: #d1b06b;
+  text-align: center;
+  font-family: "Noto Serif", serif;
+  font-size: 25px;
+  font-weight: 700;
+  line-height: 40px;
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
+}
+.advantages-section .divider {
+  height: 3px;
+  background: #bda069;
+  width: 30%;
+  margin: 0 auto 1.5rem;
+}
+.advantages-section .adv-subtitle {
+  color: #fff;
+  text-align: center;
+  font-family: "Noto Serif", serif;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 30px;
+  margin-bottom: 3rem;
+}
+.advantages-section .adv-image {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+.advantages-section .adv-image img {
+  max-width: 100%;
+  height: auto;
+}
+.advantages-section .advantages-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.advantages-section .advantages-list li {
+  position: relative;
+  padding-left: 20px;
+  margin-bottom: 1.5rem;
+}
+.advantages-section .advantages-list li:before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 12px;
+  width: 8px;
+  height: 8px;
+  background-color: #d1b06b;
+  border-radius: 50%;
+}
+.advantages-section .advantages-list li .list-title {
+  color: #d1b06b;
+  font-family: "Noto Serif", serif;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 30px;
+}
+.advantages-section .advantages-list li .list-desc {
+  color: #fff;
+  font-family: "Noto Serif", serif;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 30px;
+}
+
 /*----------------------------------------------------------
     File Name  : _navbar.scss
     Desc       : File ini merupakan styling untuk 
