@@ -22067,6 +22067,31 @@ input:-moz-placeholder {
   box-shadow: 0px 4px 15px 0px #fff;
 }
 
+.optimize-finances-section {
+  background: linear-gradient(to bottom left, #0b0a08 0%, rgba(92, 82, 64, 0.45) 50%, #ccb78f 100%);
+  padding: 4rem 0;
+}
+.optimize-finances-section .of-title {
+  color: #d1b06b;
+  text-align: center;
+  font-family: "Noto Serif", serif;
+  font-size: 25px;
+  font-weight: 800;
+  line-height: 40px;
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
+}
+.optimize-finances-section .of-description {
+  color: #fff;
+  text-align: center;
+  font-family: "Noto Serif", serif;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 30px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
 /*----------------------------------------------------------
     File Name  : _navbar.scss
     Desc       : File ini merupakan styling untuk 

@@ -25,4 +25,17 @@
             </div>
         </div>
     </section>
+
+    <section class="optimize-finances-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center">
+                    <h2 class="of-title">Optimize Your Finances, Minimize Your Tax Burden</h2>
+                    <p class="of-description">
+                        PN Global's Tax Reduction service is designed to streamline your tax management and maximize your net returns. Through a comprehensive analysis of your financial situation and the applicable tax regulations, our team will tailor strategies to minimize the tax impact on your investments and assets.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
 </div>
