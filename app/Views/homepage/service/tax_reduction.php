@@ -159,4 +159,33 @@
             </div>
         </div>
     </section>
+
+    <section class="say-goodbye-section">
+        <div class="container-fluid p-0">
+            <div class="row g-0 align-items-center">
+                <!-- Left Column with Content -->
+                <div class="col-12 col-lg-6">
+                    <div class="sg-content">
+                        <h2 class="sg-title">Ready to say goodbye to tax worries?</h2>
+                        <p class="sg-description">
+                            Rely on our expertise to optimize your tax burden and free up valuable resources for your goals. Contact us today for a personalized consultation.
+                        </p>
+                        <p class="sg-description">
+                            Contact us today and discover how to simplify your tax life.
+                        </p>
+                        <button class="sg-button">
+                            Reduce your <br> tax burden
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Right Column with Image -->
+                <div class="col-12 col-lg-6">
+                    <div class="sg-image">
+                        <img src="<?= BASE_URL ?>assets/img/ic_say_goodbye.png" alt="Say Goodbye" class="img-fluid">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 </div>

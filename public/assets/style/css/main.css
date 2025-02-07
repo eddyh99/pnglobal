@@ -22217,6 +22217,61 @@ input:-moz-placeholder {
   margin-bottom: 1.5rem;
 }
 
+.say-goodbye-section {
+  background: radial-gradient(circle at bottom left, #0b0a08 0%, rgba(92, 82, 64, 0.45) 40%, #a89773 100%);
+}
+.say-goodbye-section .sg-content {
+  padding: 4rem 6rem 4rem 4rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.say-goodbye-section .sg-content .sg-title {
+  color: #bda069;
+  font-family: "Noto Serif", serif;
+  font-size: 25px;
+  font-weight: 800;
+  line-height: 40px;
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
+}
+.say-goodbye-section .sg-content .sg-description {
+  color: #fff;
+  font-family: "Noto Serif", serif;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 30px;
+  margin-bottom: 1.5rem;
+}
+.say-goodbye-section .sg-content .sg-button {
+  color: #000;
+  text-align: center;
+  font-family: "Noto Serif", serif;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 30px;
+  text-transform: uppercase;
+  background: #d1b06b;
+  border-radius: 5px;
+  padding: 1rem 3rem;
+  border: none;
+  width: fit-content;
+  transition: all 0.3s ease;
+}
+.say-goodbye-section .sg-content .sg-button:hover {
+  background: #fff;
+  box-shadow: 0px 4px 15px 0px #fff;
+}
+.say-goodbye-section .sg-image {
+  height: 100%;
+}
+.say-goodbye-section .sg-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
 /*----------------------------------------------------------
     File Name  : _navbar.scss
     Desc       : File ini merupakan styling untuk 
