@@ -203,6 +203,14 @@ class Homepage extends BaseController
                 'flag'      => 'funds',
                 'darkNav'   => true
             ];
+        } else if ($service == "wealth_consulting") {
+            $mdata = [
+                'title'     => 'Wealth Consulting - ' . NAMETITLE,
+                'content'   => 'homepage/service/wealth_consulting',
+                'extra'     => 'homepage/js/_js_index',
+                'extragsap' => 'homepage/gsap/gsap_wealth_consulting',
+                'flag'      => 'wealth'
+            ];
         } else {
             $mdata = [
                 'title'     => 'Service Finance Advice Assets And Investment - ' . NAMETITLE,
