@@ -21911,6 +21911,79 @@ input:-moz-placeholder {
   margin-bottom: 0;
 }
 
+.partnership-section {
+  margin-top: 50px;
+  background: radial-gradient(circle at bottom right, #bda069 0%, #76684c 15%, #514734 30%, #000 60%);
+}
+.partnership-section .row {
+  min-height: 600px;
+}
+.partnership-section .partnership-image {
+  padding: 50px 0;
+  height: 100%;
+}
+.partnership-section .partnership-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.partnership-section .partnership-content {
+  padding: 4rem 10rem 4rem 4rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+}
+.partnership-section .partnership-content .partnership-title {
+  color: #bda069;
+  font-family: "Noto Serif", serif;
+  font-size: 25px;
+  font-weight: 800;
+  line-height: 40px;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+.partnership-section .partnership-content .partnership-subtitle {
+  color: #bda069;
+  font-family: "Noto Serif", serif;
+  font-size: 20px;
+  font-weight: 800;
+  line-height: 40px;
+  text-transform: capitalize;
+  margin-bottom: 1.5rem;
+}
+.partnership-section .partnership-content .partnership-description {
+  color: #fff;
+  font-family: "Noto Serif", serif;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 30px;
+  margin-bottom: 1.5rem;
+}
+.partnership-section .partnership-content .partnership-description:last-of-type {
+  margin-bottom: 2rem;
+}
+.partnership-section .partnership-content .partnership-button {
+  color: #000;
+  text-align: center;
+  font-family: "Noto Serif", serif;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 30px;
+  text-transform: uppercase;
+  background: #d1b06b;
+  border-radius: 5px;
+  padding: 1rem 3rem;
+  border: none;
+  width: fit-content;
+  transition: all 0.3s ease;
+}
+.partnership-section .partnership-content .partnership-button:hover {
+  background: #fff;
+  box-shadow: 0px 4px 15px 0px #fff;
+}
+
 /*----------------------------------------------------------
     File Name  : _navbar.scss
     Desc       : File ini merupakan styling untuk 

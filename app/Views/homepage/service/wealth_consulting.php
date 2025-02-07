@@ -94,4 +94,34 @@
             </div>
         </div>
     </section>
+
+    <section class="partnership-section">
+        <div class="container-fluid p-0">
+            <div class="row g-0">
+                <!-- Left Column with Image -->
+                <div class="col-12 col-lg-6">
+                    <div class="partnership-image">
+                        <img src="<?= BASE_URL ?>assets/img/ic_partnership_prosperity.png" alt="Partnership Prosperity" class="img-fluid">
+                    </div>
+                </div>
+
+                <!-- Right Column with Content -->
+                <div class="col-12 col-lg-6">
+                    <div class="partnership-content">
+                        <h2 class="partnership-title">A Partnership for Prosperity</h2>
+                        <h3 class="partnership-subtitle">Building a secure financial future together.</h3>
+                        <p class="partnership-description">
+                            Our commitment to you is ongoing. We provide personalized advice that adapts to your evolving needs and market conditions. Whether you're building wealth, diversifying your investments, or planning for retirement, PN Global LLC offers the expertise and experience to guide you every step of the way.
+                        </p>
+                        <p class="partnership-description">
+                            Let our experts to help you to achieve your financial dreams. Schedule a consultation today.
+                        </p>
+                        <button class="partnership-button">
+                            BUILD YOUR <br> STRATEGY TODAY
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 </div>
