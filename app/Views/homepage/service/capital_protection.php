@@ -136,4 +136,29 @@
             </div>
         </div>
     </section>
+
+    <section class="legacy-protection-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <!-- Left Column with Image -->
+                <div class="col-12 col-lg-6">
+                    <div class="lp-image">
+                        <img src="<?= BASE_URL ?>assets/img/ic_our_wealth_your_legacy.png" alt="Our Wealth Your Legacy" class="img-fluid">
+                    </div>
+                </div>
+
+                <!-- Right Column with Content -->
+                <div class="col-12 col-lg-6">
+                    <div class="lp-content">
+                        <h2 class="lp-title">Our wealth is your legacy. <br> Protect it for generations to come</h2>
+                        <p class="lp-description">Our expert team will develop a customized plan to safeguard your assets.</p>
+                        <p class="lp-description">Take the first step towards a secure financial future.</p>
+                        <button class="lp-button">
+                            start to protect <br> your future now
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 </div>
