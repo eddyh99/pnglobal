@@ -194,6 +194,15 @@ class Homepage extends BaseController
                 'flag'      => 'accumulation',
                 'darkNav'   => true
             ];
+        } else if ($service == "funds_reallocation") {
+            $mdata = [
+                'title'     => 'Funds Reallocation - ' . NAMETITLE,
+                'content'   => 'homepage/service/funds_reallocation',
+                'extra'     => 'homepage/js/_js_index',
+                'extragsap' => 'homepage/gsap/gsap_funds_reallocation',
+                'flag'      => 'funds',
+                'darkNav'   => true
+            ];
         } else {
             $mdata = [
                 'title'     => 'Service Finance Advice Assets And Investment - ' . NAMETITLE,
