@@ -196,3 +196,61 @@
         }
     }
 }
+
+.protection-plan-section {
+    background: radial-gradient(
+        circle at bottom right,
+        rgba(158, 154, 148, 0.6) 0%,
+        rgba(40, 40, 39, 0.6) 40%,
+        rgba(56, 55, 52, 0.49) 100%
+    );
+    padding: 4rem 0;
+
+    .pp-title-content {
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        .pp-title {
+            color: #bda069;
+            font-family: var.$f-noto;
+            font-size: 25px;
+            font-weight: 800;
+            line-height: 40px;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+        }
+
+        .pp-divider {
+            width: 80%;
+            height: 3px;
+            background: #bda069;
+            margin-bottom: 2rem;
+        }
+    }
+
+    .pp-image {
+        text-align: center;
+
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+    }
+
+    .pp-content {
+        .pp-description {
+            color: #fff;
+            font-family: var.$f-noto;
+            font-size: 18px;
+            font-weight: 500;
+            line-height: 30px;
+            margin-bottom: 1.5rem;
+
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
+    }
+}

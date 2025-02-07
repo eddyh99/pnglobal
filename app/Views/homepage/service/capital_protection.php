@@ -70,4 +70,37 @@
             </div>
         </div>
     </section>
+
+    <section class="protection-plan-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <!-- Left Text Column -->
+                <div class="col-3">
+                    <div class="pp-title-content">
+                        <h2 class="pp-title">Your Personalized <br> Protection Plan</h2>
+                        <div class="pp-divider"></div>
+                    </div>
+                </div>
+
+                <!-- Middle Image Column -->
+                <div class="col-3">
+                    <div class="pp-image">
+                        <img src="<?= BASE_URL ?>assets/img/ic_protection_plan.png" alt="Protection Plan" class="img-fluid">
+                    </div>
+                </div>
+
+                <!-- Right Content Column -->
+                <div class="col-6">
+                    <div class="pp-content">
+                        <p class="pp-description">
+                            In today's uncertain world, unforeseen events can jeopardize your financial stability. Whether it's a divorce, inheritance, or economic crisis, proper estate planning is crucial.
+                        </p>
+                        <p class="pp-description">
+                            At PN Global LLC, we offer comprehensive capital protection solutions. Our experienced team will develop a customized strategy that aligns with your goals and risk tolerance.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 </div>

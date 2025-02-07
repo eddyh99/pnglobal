@@ -22440,6 +22440,50 @@ input:-moz-placeholder {
   margin-bottom: 1.5rem;
 }
 
+.protection-plan-section {
+  background: radial-gradient(circle at bottom right, rgba(158, 154, 148, 0.6) 0%, rgba(40, 40, 39, 0.6) 40%, rgba(56, 55, 52, 0.49) 100%);
+  padding: 4rem 0;
+}
+.protection-plan-section .pp-title-content {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.protection-plan-section .pp-title-content .pp-title {
+  color: #bda069;
+  font-family: "Noto Serif", serif;
+  font-size: 25px;
+  font-weight: 800;
+  line-height: 40px;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+.protection-plan-section .pp-title-content .pp-divider {
+  width: 80%;
+  height: 3px;
+  background: #bda069;
+  margin-bottom: 2rem;
+}
+.protection-plan-section .pp-image {
+  text-align: center;
+}
+.protection-plan-section .pp-image img {
+  max-width: 100%;
+  height: auto;
+}
+.protection-plan-section .pp-content .pp-description {
+  color: #fff;
+  font-family: "Noto Serif", serif;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 30px;
+  margin-bottom: 1.5rem;
+}
+.protection-plan-section .pp-content .pp-description:last-child {
+  margin-bottom: 0;
+}
+
 /*----------------------------------------------------------
     File Name  : _navbar.scss
     Desc       : File ini merupakan styling untuk 
