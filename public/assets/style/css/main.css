@@ -21091,7 +21091,7 @@ input:-moz-placeholder {
 }
 .custom-portfolio-section .container-fluid .custom-portfolio-content .custom-title {
   color: #d1b06b;
-  font-family: "Noto Serif";
+  font-family: "Noto Serif", serif;
   font-size: 25px;
   font-weight: 800;
   line-height: 40px;
@@ -21100,7 +21100,7 @@ input:-moz-placeholder {
 }
 .custom-portfolio-section .container-fluid .custom-portfolio-content .custom-description {
   color: #fff;
-  font-family: "Noto Serif";
+  font-family: "Noto Serif", serif;
   font-size: 18px;
   font-weight: 600;
   line-height: 30px;
@@ -21108,7 +21108,7 @@ input:-moz-placeholder {
 }
 .custom-portfolio-section .container-fluid .custom-portfolio-content .custom-highlight {
   color: #fff;
-  font-family: "Noto Serif";
+  font-family: "Noto Serif", serif;
   font-size: 20px;
   font-weight: 600;
   line-height: 30px;
@@ -21120,7 +21120,7 @@ input:-moz-placeholder {
   background: #d1b06b;
   color: #000;
   text-align: center;
-  font-family: "Noto Serif";
+  font-family: "Noto Serif", serif;
   font-size: 18px;
   font-weight: 600;
   line-height: 30px;
@@ -21839,6 +21839,76 @@ input:-moz-placeholder {
 .wealth-consulting .container-fluid .row .wc-content .wc-button:hover {
   background: #fff;
   box-shadow: 0px 4px 15px 0px #fff;
+}
+
+.personalized-path-section {
+  background: linear-gradient(135deg, #171716 85%, #76684c 88%, #ccb78f 90%), linear-gradient(315deg, #171716 85%, #76684c 88%, #ccb78f 90%);
+  background-blend-mode: screen;
+  padding: 4rem 0;
+}
+.personalized-path-section .pp-title {
+  color: #d1b06b;
+  text-align: center;
+  font-family: "Noto Serif", serif;
+  font-size: 25px;
+  font-weight: 800;
+  line-height: 40px;
+  text-transform: uppercase;
+  margin-bottom: 2rem;
+}
+.personalized-path-section .pp-description {
+  color: #fff;
+  text-align: center;
+  font-family: "Noto Serif", serif;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 30px;
+  margin-bottom: 1.5rem;
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.personalized-path-section .pp-subtitle {
+  color: #fff;
+  text-align: center;
+  font-family: "Noto Serif", serif;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 30px;
+  margin-bottom: 3rem;
+}
+.personalized-path-section .service-card {
+  background: radial-gradient(circle at bottom right, #ccb78f 0%, rgba(92, 82, 64, 0.45) 40%, rgba(0, 0, 0, 0.2) 70%, #0b0a08 100%);
+  padding: 3rem;
+  height: 100%;
+  border-radius: 10px;
+  text-align: center;
+}
+.personalized-path-section .service-card .card-title {
+  color: #d1b06b;
+  text-align: center;
+  font-family: "Noto Serif", serif;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 30px;
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
+}
+.personalized-path-section .service-card .card-image {
+  margin: 1.5rem 0;
+}
+.personalized-path-section .service-card .card-image img {
+  max-width: 100px;
+  height: auto;
+}
+.personalized-path-section .service-card .card-description {
+  color: #fff;
+  text-align: center;
+  font-family: "Noto Serif", serif;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 30px;
+  margin-bottom: 0;
 }
 
 /*----------------------------------------------------------

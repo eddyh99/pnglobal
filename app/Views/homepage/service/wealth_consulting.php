@@ -24,4 +24,74 @@
             </div>
         </div>
     </section>
+
+    <section class="personalized-path-section">
+        <div class="container">
+            <!-- Top Content -->
+            <div class="row">
+                <div class="col-12 text-center">
+                    <h2 class="pp-title">Your personalized path to financial prosperity</h2>
+                    <p class="pp-description">
+                        PN Global's Wealth Consulting Secure the service is designed for those seeking a strategic and personalized approach to manage their wealth. Our holistic approach considers every aspect of your financial life, ensuring your assets are protected and optimized for growth.
+                    </p>
+                    <p class="pp-subtitle">With our Wealth Consulting Secure, we offer:</p>
+                </div>
+            </div>
+
+            <!-- Cards Grid -->
+            <div class="row g-4">
+                <!-- Card 1 -->
+                <div class="col-md-6">
+                    <div class="service-card">
+                        <h3 class="card-title">Comprehensive wealth analysis</h3>
+                        <div class="card-image">
+                            <img src="<?= BASE_URL ?>assets/img/ic_comprehensive_wealth.png" alt="Comprehensive Wealth Analysis">
+                        </div>
+                        <p class="card-description">
+                            We conduct a deep dive into your financial landscape, identifying potential risks and opportunities.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="col-md-6">
+                    <div class="service-card">
+                        <h3 class="card-title">Succession planning</h3>
+                        <div class="card-image">
+                            <img src="<?= BASE_URL ?>assets/img/ic_succesion_planning.png" alt="Succession Planning">
+                        </div>
+                        <p class="card-description">
+                            We help you secure your family's financial future by developing comprehensive estate plans.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="col-md-6">
+                    <div class="service-card">
+                        <h3 class="card-title">Tax and legal optimization</h3>
+                        <div class="card-image">
+                            <img src="<?= BASE_URL ?>assets/img/ic_tax_fee.png" alt="Tax and Legal Optimization">
+                        </div>
+                        <p class="card-description">
+                            Our experts create customized plans to grow your wealth sustainably while minimizing exposure to market fluctuations.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="col-md-6">
+                    <div class="service-card">
+                        <h3 class="card-title">Tailored growth strategies</h3>
+                        <div class="card-image">
+                            <img src="<?= BASE_URL ?>assets/img/ic_tailoerd_growth.png" alt="Tailored Growth Strategies">
+                        </div>
+                        <p class="card-description">
+                            Our experts create customized plans to grow your wealth sustainably while minimizing exposure to market fluctuations.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 </div>

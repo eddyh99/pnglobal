@@ -327,7 +327,7 @@
 
             .custom-title {
                 color: #d1b06b;
-                font-family: 'Noto Serif';
+                font-family: var.$f-noto;
                 font-size: 25px;
                 font-weight: 800;
                 line-height: 40px;
@@ -337,7 +337,7 @@
 
             .custom-description {
                 color: #fff;
-                font-family: 'Noto Serif';
+                font-family: var.$f-noto;
                 font-size: 18px;
                 font-weight: 600;
                 line-height: 30px;
@@ -346,7 +346,7 @@
 
             .custom-highlight {
                 color: #fff;
-                font-family: 'Noto Serif';
+                font-family: var.$f-noto;
                 font-size: 20px;
                 font-weight: 600;
                 line-height: 30px;
@@ -359,7 +359,7 @@
                 background: #d1b06b;
                 color: #000;
                 text-align: center;
-                font-family: 'Noto Serif';
+                font-family: var.$f-noto;
                 font-size: 18px;
                 font-weight: 600;
                 line-height: 30px;
