@@ -25,4 +25,36 @@
             </div>
         </div>
     </section>
+
+    <section class="funds-solution-section">
+        <div class="container-fluid p-0">
+            <!-- Top Row: Headings -->
+            <div class="row top-row text-center">
+                <div class="col-12">
+                    <h1 class="fs-title">FundS reallocation</h1>
+                    <h2 class="fs-subtitle">The smart solution for international money transfer.</h2>
+                </div>
+            </div>
+            <!-- Bottom Row: Content and Image -->
+            <div class="row bottom-row align-items-center">
+                <!-- Left Column: Text Content -->
+                <div class="col-12 col-lg-6">
+                    <div class="fs-content">
+                        <p>
+                            In a world where regulations on international bank transfers are becoming increasingly stringent and restrictive, PN Global offers an innovative and reliable solution for reallocating your funds.
+                        </p>
+                        <p>
+                            Thanks to our collaboration with primary banking partners, we can transfer your assets from one jurisdiction to another in a simple, secure, and legal manner.
+                        </p>
+                    </div>
+                </div>
+                <!-- Right Column: Image -->
+                <div class="col-12 col-lg-6">
+                    <div class="fs-image">
+                        <img src="<?= BASE_URL ?>assets/img/ic_smart_solution.png" alt="Smart Solution" class="img-fluid">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 </div>
