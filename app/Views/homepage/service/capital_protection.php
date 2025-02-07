@@ -103,4 +103,37 @@
             </div>
         </div>
     </section>
+
+    <section class="capital-benefits-section">
+        <div class="container">
+            <!-- Top Row with 2 Cards -->
+            <div class="row g-4">
+                <!-- Left Card -->
+                <div class="col-md-6">
+                    <div class="benefit-card">
+                        <h3 class="card-title">Minimized Risk</h3>
+                        <p class="card-description">Our strategies are designed to protect your assets from potential threats.</p>
+                    </div>
+                </div>
+
+                <!-- Right Card -->
+                <div class="col-md-6">
+                    <div class="benefit-card">
+                        <h3 class="card-title">Long-Term Security</h3>
+                        <p class="card-description">Enjoy peace of mind knowing your wealth is safeguarded.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bottom Row with 1 Card -->
+            <div class="row mt-4">
+                <div class="col-md-6 mx-auto">
+                    <div class="benefit-card">
+                        <h3 class="card-title">Proactive Planning</h3>
+                        <p class="card-description">Keep your Financial Future under control.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 </div>

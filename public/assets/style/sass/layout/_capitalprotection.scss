@@ -254,3 +254,43 @@
         }
     }
 }
+
+.capital-benefits-section {
+    background: #000;
+    padding: 4rem 0;
+
+    .benefit-card {
+        background: linear-gradient(
+            120deg,
+            rgba(28, 28, 27, 0.88) 9.22%,
+            rgba(40, 40, 39, 0.88) 58.45%,
+            rgba(255, 255, 255, 0.88) 93.41%
+        );
+        padding: 2rem;
+        border-radius: 10px;
+        height: 100%;
+        min-height: 170px;
+
+        .card-title {
+            color: #bda069;
+            text-align: center;
+            font-family: var.$f-noto;
+            font-size: 20px;
+            font-weight: 900;
+            line-height: 140%;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+        }
+
+        .card-description {
+            color: #fff;
+            text-align: center;
+            font-family: var.$f-noto;
+            font-size: 20px;
+            font-weight: 600;
+            line-height: 144.687%;
+            text-transform: capitalize;
+            margin-bottom: 0;
+        }
+    }
+}
