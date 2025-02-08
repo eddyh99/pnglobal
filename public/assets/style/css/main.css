@@ -21091,7 +21091,7 @@ input:-moz-placeholder {
 }
 .custom-portfolio-section .container-fluid .custom-portfolio-content .custom-title {
   color: #d1b06b;
-  font-family: "Noto Serif";
+  font-family: "Noto Serif", serif;
   font-size: 25px;
   font-weight: 800;
   line-height: 40px;
@@ -21100,7 +21100,7 @@ input:-moz-placeholder {
 }
 .custom-portfolio-section .container-fluid .custom-portfolio-content .custom-description {
   color: #fff;
-  font-family: "Noto Serif";
+  font-family: "Noto Serif", serif;
   font-size: 18px;
   font-weight: 600;
   line-height: 30px;
@@ -21108,7 +21108,7 @@ input:-moz-placeholder {
 }
 .custom-portfolio-section .container-fluid .custom-portfolio-content .custom-highlight {
   color: #fff;
-  font-family: "Noto Serif";
+  font-family: "Noto Serif", serif;
   font-size: 20px;
   font-weight: 600;
   line-height: 30px;
@@ -21120,7 +21120,7 @@ input:-moz-placeholder {
   background: #d1b06b;
   color: #000;
   text-align: center;
-  font-family: "Noto Serif";
+  font-family: "Noto Serif", serif;
   font-size: 18px;
   font-weight: 600;
   line-height: 30px;
@@ -21566,6 +21566,1008 @@ input:-moz-placeholder {
   height: auto;
   object-fit: cover;
   display: block;
+}
+
+.how-it-works-section {
+  background: #000;
+  padding: 4rem 0;
+}
+.how-it-works-section .hiw-title {
+  color: #bda069;
+  text-align: center;
+  font-family: "Noto Serif", serif;
+  font-size: 25px;
+  font-weight: 700;
+  line-height: 25px;
+  margin-bottom: 1.5rem;
+}
+.how-it-works-section .hiw-description {
+  color: #fff;
+  text-align: center;
+  font-family: "Noto Serif", serif;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 30px;
+  margin-bottom: 3rem;
+}
+.how-it-works-section .process-card {
+  background: linear-gradient(to bottom right, #1a1917 0%, #1a1917 50%, #5c5240 80%, #ccb78f 100%);
+  padding: 3rem;
+  height: 100%;
+  border-radius: 10px;
+}
+.how-it-works-section .process-card .card-title {
+  color: #d1b06b;
+  font-family: "Noto Serif", serif;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 30px;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+.how-it-works-section .process-card .card-description {
+  color: #fff;
+  font-family: "Noto Serif", serif;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 30px;
+  margin-bottom: 0;
+}
+
+.advantages-section {
+  background: linear-gradient(130deg, rgba(18, 18, 18, 0.88) 5.98%, rgba(28, 28, 27, 0.88) 79.85%, rgba(255, 255, 255, 0.88) 104.42%);
+  padding: 2rem 0;
+}
+.advantages-section .adv-title {
+  color: #d1b06b;
+  text-align: center;
+  font-family: "Noto Serif", serif;
+  font-size: 25px;
+  font-weight: 700;
+  line-height: 40px;
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
+}
+.advantages-section .divider {
+  height: 3px;
+  background: #bda069;
+  width: 30%;
+  margin: 0 auto 1.5rem;
+}
+.advantages-section .adv-subtitle {
+  color: #fff;
+  text-align: center;
+  font-family: "Noto Serif", serif;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 30px;
+  margin-bottom: 3rem;
+}
+.advantages-section .adv-image {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+.advantages-section .adv-image img {
+  max-width: 100%;
+  height: auto;
+}
+.advantages-section .advantages-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.advantages-section .advantages-list li {
+  position: relative;
+  padding-left: 20px;
+  margin-bottom: 1.5rem;
+}
+.advantages-section .advantages-list li:before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 12px;
+  width: 8px;
+  height: 8px;
+  background-color: #d1b06b;
+  border-radius: 50%;
+}
+.advantages-section .advantages-list li .list-title {
+  color: #d1b06b;
+  font-family: "Noto Serif", serif;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 30px;
+}
+.advantages-section .advantages-list li .list-desc {
+  color: #fff;
+  font-family: "Noto Serif", serif;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 30px;
+}
+
+.complex-regulations-section {
+  background: #000;
+  padding: 4rem 0;
+}
+.complex-regulations-section .cr-title {
+  color: #bda069;
+  text-align: center;
+  font-family: "Noto Serif", serif;
+  font-size: 29px;
+  font-weight: 600;
+  line-height: 30px;
+  text-transform: capitalize;
+  margin-bottom: 0.5rem;
+}
+.complex-regulations-section .cr-subtitle {
+  color: #fff;
+  text-align: center;
+  font-family: "Noto Serif", serif;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 30px;
+  margin-bottom: 3rem;
+}
+.complex-regulations-section .cr-content {
+  padding: 2rem 6rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+}
+.complex-regulations-section .cr-content .cr-description {
+  color: #fff;
+  font-family: "Noto Serif", serif;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 30px;
+  margin-bottom: 1.5rem;
+}
+.complex-regulations-section .cr-content .cr-description:last-of-type {
+  margin-bottom: 4rem;
+}
+.complex-regulations-section .cr-content .cr-button {
+  color: #000;
+  text-align: center;
+  font-family: "Noto Serif", serif;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 25px;
+  text-transform: uppercase;
+  background: #d1b06b;
+  border-radius: 5px;
+  padding: 1rem 3rem;
+  border: none;
+  width: fit-content;
+  transition: all 0.3s ease;
+}
+.complex-regulations-section .cr-content .cr-button:hover {
+  background: #fff;
+  box-shadow: 0px 4px 15px 0px #fff;
+}
+.complex-regulations-section .cr-image {
+  height: 100%;
+  padding-right: 5rem;
+}
+.complex-regulations-section .cr-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.wealth-consulting {
+  background-color: #000;
+  position: relative;
+  overflow: hidden;
+  padding-top: 77px;
+  margin-top: 0;
+}
+.wealth-consulting .container-fluid {
+  width: 100%;
+  max-width: none;
+  padding: 0;
+}
+.wealth-consulting .container-fluid .row {
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+.wealth-consulting .container-fluid .row .wc-image {
+  flex: 0 0 50%;
+  margin: 0;
+}
+.wealth-consulting .container-fluid .row .wc-image img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  display: block;
+}
+.wealth-consulting .container-fluid .row .wc-content {
+  flex: 0 0 50%;
+  padding: 4rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.wealth-consulting .container-fluid .row .wc-content .wc-title {
+  color: #bda069;
+  font-family: "Noto Serif", serif;
+  font-size: 30px;
+  font-weight: 800;
+  line-height: 25px;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+.wealth-consulting .container-fluid .row .wc-content .wc-subtitle {
+  color: #bfa573;
+  font-family: "Noto Serif", serif;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 35px;
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
+}
+.wealth-consulting .container-fluid .row .wc-content .wc-description {
+  color: #fff;
+  font-family: "Noto Serif", serif;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 30px;
+  margin-bottom: 2rem;
+}
+.wealth-consulting .container-fluid .row .wc-content .wc-button {
+  color: #000;
+  text-align: center;
+  font-family: "Noto Serif", serif;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 25px;
+  text-decoration-line: underline;
+  text-decoration-style: solid;
+  text-decoration-skip: none;
+  text-transform: uppercase;
+  background: #bfa573;
+  border-radius: 5px;
+  box-shadow: 0px 4px 4px 0px #e8d9bd;
+  padding: 1rem 3rem;
+  border: none;
+  width: fit-content;
+  transition: all 0.3s ease;
+}
+.wealth-consulting .container-fluid .row .wc-content .wc-button:hover {
+  background: #fff;
+  box-shadow: 0px 4px 15px 0px #fff;
+}
+
+.personalized-path-section {
+  background: linear-gradient(135deg, #171716 85%, #76684c 88%, #ccb78f 90%), linear-gradient(315deg, #171716 85%, #76684c 88%, #ccb78f 90%);
+  background-blend-mode: screen;
+  padding: 4rem 0;
+}
+.personalized-path-section .pp-title {
+  color: #d1b06b;
+  text-align: center;
+  font-family: "Noto Serif", serif;
+  font-size: 25px;
+  font-weight: 800;
+  line-height: 40px;
+  text-transform: uppercase;
+  margin-bottom: 2rem;
+}
+.personalized-path-section .pp-description {
+  color: #fff;
+  text-align: center;
+  font-family: "Noto Serif", serif;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 30px;
+  margin-bottom: 1.5rem;
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.personalized-path-section .pp-subtitle {
+  color: #fff;
+  text-align: center;
+  font-family: "Noto Serif", serif;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 30px;
+  margin-bottom: 3rem;
+}
+.personalized-path-section .service-card {
+  background: radial-gradient(circle at bottom right, #ccb78f 0%, rgba(92, 82, 64, 0.45) 40%, rgba(0, 0, 0, 0.2) 70%, #0b0a08 100%);
+  padding: 3rem;
+  height: 100%;
+  border-radius: 10px;
+  text-align: center;
+}
+.personalized-path-section .service-card .card-title {
+  color: #d1b06b;
+  text-align: center;
+  font-family: "Noto Serif", serif;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 30px;
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
+}
+.personalized-path-section .service-card .card-image {
+  margin: 1.5rem 0;
+}
+.personalized-path-section .service-card .card-image img {
+  max-width: 100px;
+  height: auto;
+}
+.personalized-path-section .service-card .card-description {
+  color: #fff;
+  text-align: center;
+  font-family: "Noto Serif", serif;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 30px;
+  margin-bottom: 0;
+}
+
+.partnership-section {
+  margin-top: 50px;
+  background: radial-gradient(circle at bottom right, #bda069 0%, #76684c 15%, #514734 30%, #000 60%);
+}
+.partnership-section .row {
+  min-height: 600px;
+}
+.partnership-section .partnership-image {
+  padding: 50px 0;
+  height: 100%;
+}
+.partnership-section .partnership-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.partnership-section .partnership-content {
+  padding: 4rem 10rem 4rem 4rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+}
+.partnership-section .partnership-content .partnership-title {
+  color: #bda069;
+  font-family: "Noto Serif", serif;
+  font-size: 25px;
+  font-weight: 800;
+  line-height: 40px;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+.partnership-section .partnership-content .partnership-subtitle {
+  color: #bda069;
+  font-family: "Noto Serif", serif;
+  font-size: 20px;
+  font-weight: 800;
+  line-height: 40px;
+  text-transform: capitalize;
+  margin-bottom: 1.5rem;
+}
+.partnership-section .partnership-content .partnership-description {
+  color: #fff;
+  font-family: "Noto Serif", serif;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 30px;
+  margin-bottom: 1.5rem;
+}
+.partnership-section .partnership-content .partnership-description:last-of-type {
+  margin-bottom: 2rem;
+}
+.partnership-section .partnership-content .partnership-button {
+  color: #000;
+  text-align: center;
+  font-family: "Noto Serif", serif;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 30px;
+  text-transform: uppercase;
+  background: #d1b06b;
+  border-radius: 5px;
+  padding: 1rem 3rem;
+  border: none;
+  width: fit-content;
+  transition: all 0.3s ease;
+}
+.partnership-section .partnership-content .partnership-button:hover {
+  background: #fff;
+  box-shadow: 0px 4px 15px 0px #fff;
+}
+
+.tax-reduction {
+  background-color: #000;
+  position: relative;
+  overflow: hidden;
+  padding-top: 77px;
+  margin-top: 0;
+}
+.tax-reduction .container-fluid {
+  width: 100%;
+  max-width: none;
+  padding: 0;
+}
+.tax-reduction .container-fluid .row {
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+.tax-reduction .container-fluid .row .tr-image {
+  flex: 0 0 50%;
+  margin: 0;
+}
+.tax-reduction .container-fluid .row .tr-image img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  display: block;
+}
+.tax-reduction .container-fluid .row .tr-content {
+  flex: 0 0 50%;
+  padding: 4rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.tax-reduction .container-fluid .row .tr-content .tr-title {
+  color: #bda069;
+  font-family: "Noto Serif", serif;
+  font-size: 30px;
+  font-weight: 800;
+  line-height: 25px;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+.tax-reduction .container-fluid .row .tr-content .tr-subtitle {
+  color: #bfa573;
+  font-family: "Noto Serif", serif;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 35px;
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
+}
+.tax-reduction .container-fluid .row .tr-content .tr-description {
+  color: #fff;
+  font-family: "Noto Serif", serif;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 30px;
+  margin-bottom: 2rem;
+}
+.tax-reduction .container-fluid .row .tr-content .tr-button {
+  color: #000;
+  text-align: center;
+  font-family: "Noto Serif", serif;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 25px;
+  text-decoration-line: underline;
+  text-decoration-style: solid;
+  text-transform: uppercase;
+  background: #bfa573;
+  border-radius: 5px;
+  box-shadow: 0px 4px 4px 0px #e8d9bd;
+  padding: 1rem 3rem;
+  border: none;
+  width: fit-content;
+  transition: all 0.3s ease;
+}
+.tax-reduction .container-fluid .row .tr-content .tr-button:hover {
+  background: #fff;
+  box-shadow: 0px 4px 15px 0px #fff;
+}
+
+.optimize-finances-section {
+  background: linear-gradient(to bottom left, #0b0a08 0%, rgba(92, 82, 64, 0.45) 50%, #ccb78f 100%);
+  padding: 4rem 0;
+}
+.optimize-finances-section .of-title {
+  color: #d1b06b;
+  text-align: center;
+  font-family: "Noto Serif", serif;
+  font-size: 25px;
+  font-weight: 800;
+  line-height: 40px;
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
+}
+.optimize-finances-section .of-description {
+  color: #fff;
+  text-align: center;
+  font-family: "Noto Serif", serif;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 30px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.key-services-section {
+  background: #000;
+  padding: 4rem 0;
+}
+.key-services-section .ks-title {
+  color: #bda069;
+  text-align: center;
+  font-family: "Noto Serif", serif;
+  font-size: 25px;
+  font-weight: 800;
+  line-height: 40px;
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
+}
+.key-services-section .divider {
+  height: 3px;
+  background: #fff;
+  width: 20%;
+  margin: 0 auto 3rem;
+}
+.key-services-section .service-card {
+  background: linear-gradient(to bottom right, #0b0a08 0%, rgba(92, 82, 64, 0.45) 50%, #ccb78f 100%);
+  padding: 2rem;
+  border-radius: 10px;
+}
+.key-services-section .service-card .card-title {
+  color: #bda069;
+  text-align: left;
+  font-family: "Noto Serif", serif;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 35px;
+  margin-bottom: 1rem;
+}
+.key-services-section .service-card .card-description {
+  color: #fff;
+  font-family: "Noto Serif", serif;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 28px;
+}
+.key-services-section .row:last-child .service-card {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.benefits-section {
+  background: radial-gradient(circle at top right, #0b0a08 0%, rgba(92, 82, 64, 0.45) 20%, #8a795a 100%);
+}
+.benefits-section .benefits-content .benefits-title {
+  color: #bda069;
+  font-family: "Noto Serif", serif;
+  font-size: 25px;
+  font-weight: 800;
+  line-height: 40px;
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
+  text-align: left;
+}
+.benefits-section .benefits-content .benefits-description {
+  color: #fff;
+  font-family: "Noto Serif", serif;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 30px;
+  margin-bottom: 1.5rem;
+}
+.benefits-section .benefits-image {
+  position: relative;
+  overflow: visible;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.benefits-section .benefits-image img {
+  position: absolute;
+  width: 70%;
+  height: auto;
+  object-fit: cover;
+  top: -100px;
+  right: 10%;
+}
+
+.increased-net-worth-section {
+  background: #000;
+  padding: 4rem 0;
+}
+.increased-net-worth-section .inw-image {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+.increased-net-worth-section .inw-image img {
+  max-width: 100%;
+  height: auto;
+}
+.increased-net-worth-section .inw-content .inw-list {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 0.5rem;
+}
+.increased-net-worth-section .inw-content .inw-list .list-title {
+  color: #bda069;
+  font-family: "Noto Serif", serif;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 35px;
+  text-transform: uppercase;
+}
+.increased-net-worth-section .inw-content .inw-list .list-title:before {
+  content: "•";
+  color: #bda069;
+  display: inline-block;
+  width: 1em;
+  margin-left: -1em;
+}
+.increased-net-worth-section .inw-content .inw-description {
+  color: #fff;
+  font-family: "Noto Serif", serif;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 28px;
+  margin-bottom: 1.5rem;
+}
+
+.say-goodbye-section {
+  background: radial-gradient(circle at bottom left, #0b0a08 0%, rgba(92, 82, 64, 0.45) 40%, #a89773 100%);
+}
+.say-goodbye-section .sg-content {
+  padding: 4rem 6rem 4rem 4rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.say-goodbye-section .sg-content .sg-title {
+  color: #bda069;
+  font-family: "Noto Serif", serif;
+  font-size: 25px;
+  font-weight: 800;
+  line-height: 40px;
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
+}
+.say-goodbye-section .sg-content .sg-description {
+  color: #fff;
+  font-family: "Noto Serif", serif;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 30px;
+  margin-bottom: 1.5rem;
+}
+.say-goodbye-section .sg-content .sg-button {
+  color: #000;
+  text-align: center;
+  font-family: "Noto Serif", serif;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 30px;
+  text-transform: uppercase;
+  background: #d1b06b;
+  border-radius: 5px;
+  padding: 1rem 3rem;
+  border: none;
+  width: fit-content;
+  transition: all 0.3s ease;
+}
+.say-goodbye-section .sg-content .sg-button:hover {
+  background: #fff;
+  box-shadow: 0px 4px 15px 0px #fff;
+}
+.say-goodbye-section .sg-image {
+  height: 100%;
+}
+.say-goodbye-section .sg-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.capital-protection {
+  background-color: #bda069;
+  position: relative;
+  overflow: hidden;
+  padding-top: 77px;
+  margin-top: 0;
+}
+.capital-protection .container-fluid {
+  width: 100%;
+  max-width: none;
+  padding: 0;
+}
+.capital-protection .container-fluid .row {
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+.capital-protection .container-fluid .row .cp-image {
+  flex: 0 0 50%;
+  margin: 0;
+}
+.capital-protection .container-fluid .row .cp-image img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  display: block;
+}
+.capital-protection .container-fluid .row .cp-content {
+  flex: 0 0 50%;
+  padding: 4rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.capital-protection .container-fluid .row .cp-content .cp-title {
+  color: #fff;
+  font-family: "Noto Serif", serif;
+  font-size: 30px;
+  font-weight: 800;
+  line-height: 25px;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+.capital-protection .container-fluid .row .cp-content .cp-subtitle {
+  color: #fff;
+  font-family: "Noto Serif", serif;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 35px;
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
+}
+.capital-protection .container-fluid .row .cp-content .cp-description {
+  color: #000;
+  font-family: "Noto Serif", serif;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 30px;
+  margin-bottom: 2rem;
+}
+.capital-protection .container-fluid .row .cp-content .cp-button {
+  color: #fff;
+  text-align: center;
+  font-family: "Noto Serif", serif;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 25px;
+  text-decoration-line: underline;
+  text-decoration-style: solid;
+  text-transform: uppercase;
+  border-radius: 5px;
+  background: #000;
+  box-shadow: 0px 4px 4px 0px rgba(56, 55, 52, 0.88);
+  padding: 1rem 3rem;
+  border: none;
+  width: fit-content;
+  transition: all 0.3s ease;
+}
+.capital-protection .container-fluid .row .cp-content .cp-button:hover {
+  color: #000;
+  background: #fff;
+  box-shadow: 0px 4px 15px 0px #fff;
+}
+
+.secure-future-section {
+  background: #000;
+  padding: 4rem 0;
+}
+.secure-future-section .sf-title {
+  color: #d1b06b;
+  text-align: center;
+  font-family: "Noto Serif", serif;
+  font-size: 25px;
+  font-weight: 800;
+  line-height: 40px;
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
+}
+.secure-future-section .sf-description {
+  color: #fff;
+  text-align: center;
+  font-family: "Noto Serif", serif;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 30px;
+  margin-bottom: 3rem;
+}
+.secure-future-section .sf-left-content {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.secure-future-section .sf-left-content .sf-subtitle {
+  color: #d1b06b;
+  font-family: "Noto Serif", serif;
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 40px;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+.secure-future-section .sf-left-content .sf-divider {
+  width: 30%;
+  height: 3px;
+  background: #bda069;
+  margin-bottom: 2rem;
+}
+.secure-future-section .sf-left-content img {
+  min-height: 240px;
+  width: auto;
+  object-fit: contain;
+}
+.secure-future-section .row:last-child {
+  background: radial-gradient(circle at top left, #000 0%, #514734 40%, #76684c 70%, #bda069 100%);
+  padding: 2rem;
+  margin: 0;
+}
+.secure-future-section .sf-list {
+  list-style: none;
+  padding: 0;
+}
+.secure-future-section .sf-list li {
+  color: #bda069;
+  font-family: "Noto Serif", serif;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 35px;
+  text-transform: capitalize;
+  margin-bottom: 0.5rem;
+}
+.secure-future-section .sf-list li:before {
+  content: "•";
+  color: #bda069;
+  display: inline-block;
+  width: 1em;
+  margin-left: -1em;
+}
+.secure-future-section .sf-list .sf-list-description {
+  color: #fff;
+  font-family: "Noto Serif", serif;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 28px;
+  text-transform: none;
+  margin-bottom: 1.5rem;
+}
+
+.protection-plan-section {
+  background: radial-gradient(circle at bottom right, rgba(158, 154, 148, 0.6) 0%, rgba(40, 40, 39, 0.6) 40%, rgba(56, 55, 52, 0.49) 100%);
+  padding: 4rem 0;
+}
+.protection-plan-section .pp-title-content {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.protection-plan-section .pp-title-content .pp-title {
+  color: #bda069;
+  font-family: "Noto Serif", serif;
+  font-size: 25px;
+  font-weight: 800;
+  line-height: 40px;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+.protection-plan-section .pp-title-content .pp-divider {
+  width: 80%;
+  height: 3px;
+  background: #bda069;
+  margin-bottom: 2rem;
+}
+.protection-plan-section .pp-image {
+  text-align: center;
+}
+.protection-plan-section .pp-image img {
+  max-width: 100%;
+  height: auto;
+}
+.protection-plan-section .pp-content .pp-description {
+  color: #fff;
+  font-family: "Noto Serif", serif;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 30px;
+  margin-bottom: 1.5rem;
+}
+.protection-plan-section .pp-content .pp-description:last-child {
+  margin-bottom: 0;
+}
+
+.capital-benefits-section {
+  background: #000;
+  padding: 4rem 0;
+}
+.capital-benefits-section .benefit-card {
+  background: linear-gradient(120deg, rgba(28, 28, 27, 0.88) 9.22%, rgba(40, 40, 39, 0.88) 58.45%, rgba(255, 255, 255, 0.88) 93.41%);
+  padding: 2rem;
+  border-radius: 10px;
+  height: 100%;
+  min-height: 170px;
+}
+.capital-benefits-section .benefit-card .card-title {
+  color: #bda069;
+  text-align: center;
+  font-family: "Noto Serif", serif;
+  font-size: 20px;
+  font-weight: 900;
+  line-height: 140%;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+.capital-benefits-section .benefit-card .card-description {
+  color: #fff;
+  text-align: center;
+  font-family: "Noto Serif", serif;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 144.687%;
+  text-transform: capitalize;
+  margin-bottom: 0;
+}
+
+.legacy-protection-section {
+  background: radial-gradient(circle at top left, #bda069 0%, #76684c 20%, #514734 50%, #000 100%);
+  min-height: 500px;
+}
+.legacy-protection-section .row {
+  height: 100%;
+}
+.legacy-protection-section .lp-image {
+  height: 100%;
+}
+.legacy-protection-section .lp-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.legacy-protection-section .lp-content {
+  padding: 2rem;
+}
+.legacy-protection-section .lp-content .lp-title {
+  color: #bda069;
+  font-family: "Noto Serif", serif;
+  font-size: 20px;
+  font-weight: 900;
+  line-height: 144.687%;
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
+}
+.legacy-protection-section .lp-content .lp-description {
+  color: #fff;
+  font-family: "Noto Serif", serif;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 30px;
+  margin-bottom: 1.5rem;
+}
+.legacy-protection-section .lp-content .lp-button {
+  color: #000;
+  text-align: center;
+  font-family: "Noto Serif", serif;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 25px;
+  text-transform: uppercase;
+  background: #d1b06b;
+  border-radius: 5px;
+  padding: 1rem 3rem;
+  border: none;
+  width: fit-content;
+  transition: all 0.3s ease;
+}
+.legacy-protection-section .lp-content .lp-button:hover {
+  background: #fff;
 }
 
 /*----------------------------------------------------------

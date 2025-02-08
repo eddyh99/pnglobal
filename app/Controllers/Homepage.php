@@ -203,6 +203,31 @@ class Homepage extends BaseController
                 'flag'      => 'funds',
                 'darkNav'   => true
             ];
+        } else if ($service == "wealth_consulting") {
+            $mdata = [
+                'title'     => 'Wealth Consulting - ' . NAMETITLE,
+                'content'   => 'homepage/service/wealth_consulting',
+                'extra'     => 'homepage/js/_js_index',
+                'extragsap' => 'homepage/gsap/gsap_wealth_consulting',
+                'flag'      => 'wealth'
+            ];
+        } else if ($service == "tax_reduction") {
+            $mdata = [
+                'title'     => 'Tax Reduction - ' . NAMETITLE,
+                'content'   => 'homepage/service/tax_reduction',
+                'extra'     => 'homepage/js/_js_index',
+                'extragsap' => 'homepage/gsap/gsap_tax_reduction',
+                'flag'      => 'tax'
+            ];
+        } else if ($service == "capital_protection") {
+            $mdata = [
+                'title'     => 'Capital Protection - ' . NAMETITLE,
+                'content'   => 'homepage/service/capital_protection',
+                'extra'     => 'homepage/js/_js_index',
+                'extragsap' => 'homepage/gsap/gsap_capital_protection',
+                'flag'      => 'capital',
+                'darkNav'   => true
+            ];
         } else {
             $mdata = [
                 'title'     => 'Service Finance Advice Assets And Investment - ' . NAMETITLE,

@@ -57,4 +57,129 @@
             </div>
         </div>
     </section>
+
+    <section class="how-it-works-section">
+        <div class="container">
+            <!-- Top Content -->
+            <div class="row">
+                <div class="col-12 text-center">
+                    <h2 class="hiw-title">How our fund reallocation service works</h2>
+                    <p class="hiw-description">
+                        Our fund reallocation process is designed to ensure maximum security and transparency.<br>
+                        Here's how it works:
+                    </p>
+                </div>
+            </div>
+
+            <!-- Cards Grid -->
+            <div class="row g-4">
+                <!-- Card 1 -->
+                <div class="col-md-6">
+                    <div class="process-card">
+                        <h3 class="card-title">1. Evaluation of your needs</h3>
+                        <p class="card-description">We will start by analyzing your financial needs and long-term goals to determine the most suitable reallocation strategy for you.</p>
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="col-md-6">
+                    <div class="process-card">
+                        <h3 class="card-title">2. Selection of banking partners</h3>
+                        <p class="card-description">We will rely on trusted and experienced banking partners to ensure maximum security and speed of transactions.</p>
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="col-md-6">
+                    <div class="process-card">
+                        <h3 class="card-title">3. Issuance of a credit</h3>
+                        <p class="card-description">Instead of a traditional international bank transfer, we will issue a credit to the receiving institution. This credit will be offset between the banks involved, ensuring a legal and traceable transaction.</p>
+                    </div>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="col-md-6">
+                    <div class="process-card">
+                        <h3 class="card-title">4. Monitoring and assistance</h3>
+                        <p class="card-description">We will provide you with assistance and support throughout the entire reallocation process, ensuring that everything goes according to plan.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="advantages-section">
+        <div class="container">
+            <!-- Top Content -->
+            <div class="row">
+                <div class="col-12 text-center">
+                    <h2 class="adv-title">The advantages of fund <br> reallocation with PN Global</h2>
+                    <div class="divider"></div>
+                    <p class="adv-subtitle">Choosing PN Global for your fund reallocation offers numerous advantages:</p>
+                </div>
+            </div>
+
+            <!-- Bottom Content -->
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <div class="adv-image">
+                        <img src="<?= BASE_URL ?>assets/img/ic_advantages_fund.png" alt="Advantages" class="img-fluid">
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <ul class="advantages-list">
+                        <li>
+                            <span class="list-title">Security:</span>
+                            <span class="list-desc">We guarantee maximum security for your transactions thanks to our collaboration with trusted banking partners.</span>
+                        </li>
+                        <li>
+                            <span class="list-title">Legality:</span>
+                            <span class="list-desc">Our reallocation process is compliant with current regulations, ensuring maximum peace of mind.</span>
+                        </li>
+                        <li>
+                            <span class="list-title">Speed:</span>
+                            <span class="list-desc">Our transactions are fast and efficient, allowing you to achieve your financial goals in a short time.</span>
+                        </li>
+                        <li>
+                            <span class="list-title">Experience:</span>
+                            <span class="list-desc">Our team of experts has extensive experience in international fund reallocation, guaranteeing you a high-quality service.</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="complex-regulations-section">
+        <!-- Top Content -->
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center">
+                    <h2 class="cr-title">Don't let complex regulations hinder your financial goals.</h2>
+                    <p class="cr-subtitle">Safeguard your wealth with a secure and reliable solution.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bottom Content -->
+        <div class="container-fluid p-0">
+            <div class="row g-0">
+                <div class="col-lg-6">
+                    <div class="cr-content">
+                        <p class="cr-description">Want peace of mind about your investments?</p>
+                        <p class="cr-description">Reallocate your funds transparently and in compliance with international regulations. Start your journey towards more secure wealth management today.</p>
+                        <button class="cr-button">
+                            Reallocate your <br>
+                            funds securely
+                        </button>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="cr-image">
+                        <img src="<?= BASE_URL ?>assets/img/ic_complex_regulations.png" alt="Complex Regulations" class="img-fluid">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 </div>
