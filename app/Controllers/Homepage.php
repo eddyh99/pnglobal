@@ -507,7 +507,7 @@ class Homepage extends BaseController
         $mdata = [
             'title'     => 'Contact Success - ' . NAMETITLE,
             'content'   => 'homepage/contact/contact_success',
-
+            'darkNav'   => true
         ];
 
         return view('homepage/layout/wrapper-contactus', $mdata);
@@ -516,7 +516,6 @@ class Homepage extends BaseController
     // Contact Booking Consultant
     public function bookingconsultation()
     {
-
         $service = base64_decode($_GET['service']);
         $service = explode('-', $service);
         $subject = $service[0];
@@ -525,7 +524,8 @@ class Homepage extends BaseController
             'title'     => 'Booking Consultant - ' . NAMETITLE,
             'content'   => 'homepage/contact/bookingconsultation',
             'extra'     => 'homepage/contact/js/_js_bookingconsultation',
-            'subject'   => $subject
+            'subject'   => $subject,
+            'darkNav'   => true
         ];
 
         return view('homepage/layout/wrapper-contactus', $mdata);
@@ -738,7 +738,6 @@ class Homepage extends BaseController
     // Contact Form Normaly
     public function contactform()
     {
-
         $service = base64_decode($_GET['service']);
         $service = explode('-', $service);
         $subject = $service[0];
@@ -747,7 +746,8 @@ class Homepage extends BaseController
             'title'     => 'Contact Form - ' . NAMETITLE,
             'content'   => 'homepage/contact/contactform',
             'extra'     => 'homepage/contact/js/_js_contactform',
-            'subject'   => $subject
+            'subject'   => $subject,
+            'darkNav'   => true
         ];
 
         return view('homepage/layout/wrapper-contactus', $mdata);
@@ -813,7 +813,8 @@ class Homepage extends BaseController
         $mdata = [
             'title'     => 'Contact Form Referral- ' . NAMETITLE,
             'content'   => 'homepage/contact/contactreferral',
-            'extra'     => 'homepage/contact/js/_js_contactreferral'
+            'extra'     => 'homepage/contact/js/_js_contactreferral',
+            'darkNav'   => true
         ];
 
         return view('homepage/layout/wrapper-contactus', $mdata);
