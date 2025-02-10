@@ -516,7 +516,8 @@ class Homepage extends BaseController
     // Contact Booking Consultant
     public function bookingconsultation()
     {
-        $service = base64_decode($_GET['service']);
+        // Check if service parameter exists, if not set default value
+        $service = isset($_GET['service']) ? base64_decode($_GET['service']) : 'general-consultation';
         $service = explode('-', $service);
         $subject = $service[0];
 
@@ -550,7 +551,6 @@ class Homepage extends BaseController
 
     public function booking_summary()
     {
-
         // Validation Field
         $rules = $this->validate([
             'fname'     => [
@@ -587,10 +587,17 @@ class Homepage extends BaseController
             ],
         ]);
 
+        // Get original service parameter if exists
+        $original_service = $this->request->getVar('original_service');
+        $redirect_url = BASE_URL . 'homepage/bookingconsultation';
+        if (!empty($original_service)) {
+            $redirect_url .= '?service=' . $original_service;
+        }
+
         // Checking Validation
         if (!$rules) {
             session()->setFlashdata('failed', $this->validation->listErrors());
-            return redirect()->to(BASE_URL . 'homepage/bookingconsultation')->withInput();
+            return redirect()->to($redirect_url)->withInput();
         }
 
         // Filter EMAIL
@@ -600,6 +607,7 @@ class Homepage extends BaseController
             array_push($newEmail, filter_var($dt, FILTER_VALIDATE_EMAIL));
         }
 
+        /* Temporarily disabled referral process
         $tempreferral = trim(htmlspecialchars($this->request->getVar('referral')));
         $_SESSION["referral"] = null;
         $referral = null;
@@ -608,10 +616,10 @@ class Homepage extends BaseController
             $url = URLAPI . "/v1/member/get_byreferral?refcode=" . $tempreferral;
             $resultReff = satoshiAdmin($url)->result;
 
-
             $referral = ($resultReff->code == 200) ? $tempreferral : null;
             $_SESSION["referral"] = ($resultReff->code == 200) ? $resultReff->message->id : null;
         }
+        */
 
         // Initial Data
         $mdata = [
@@ -623,9 +631,8 @@ class Homepage extends BaseController
             'description'   => htmlspecialchars($this->request->getVar('desc')),
             'email'         => $newEmail,
             'subject'       => htmlspecialchars($this->request->getVar('subject')),
-            'referral'      => $referral
+            'referral'      => null // Temporarily disabled referral
         ];
-
 
         $this->session->set('client', $mdata);
 
@@ -644,11 +651,18 @@ class Homepage extends BaseController
         // Stripe secret key
         \Stripe\Stripe::setApiKey(SECRET_KEY);
         $paymentMethodId = $_POST['payment_method_id'];
+        
+        /* Temporarily disabled referral amount check
         if (!empty($_SESSION["referral"])) {
             $amount = 25000; // Replace with the actual amount in cents (e.g., $50.00 = 5000)
         } else {
             $amount = 35000;
         }
+        */
+        
+        // Set fixed amount while referral is disabled
+        $amount = 35000;
+        
         $currency = 'eur'; // Replace with your desired currency
 
         try {
@@ -669,12 +683,13 @@ class Homepage extends BaseController
                 // If the payment was successful, proceed with creating the calendar event
                 if ($confirmedPaymentIntent->status === 'succeeded') {
                     // Call API
-
                     $mdata = array(
                         "email"     => $_SESSION['client']['email'][0],
                         "amount"    => $amount / 100,
-                        "referral"  => empty($_SESSION["referral"]) ? null : $_SESSION["referral"]
+                        "referral"  => null // Temporarily disabled referral
                     );
+                    
+                    // Call API to record booking
                     $url = URLAPI . "/auth/bookconsultation";
                     $resultReff = satoshiAdmin($url, json_encode($mdata))->result;
 
@@ -711,15 +726,14 @@ class Homepage extends BaseController
                     ];
 
                     try {
-                        //$this->googleCalendarService->createEvent($calendarId, $eventData);
+                        $this->googleCalendarService->createEvent($calendarId, $eventData);
 
                         // Subject
                         $subject = NAMETITLE . ' - Booking Consultation ' . $_SESSION['client']['subject'] . ' | ' . $_SESSION['client']['fname'];
 
-
                         // Assign SESSION client
                         $mdata = $_SESSION['client'];
-                        //sendmail_booking($subject, $mdata);
+                        sendmail_booking($subject, $mdata);
 
                     } catch (\RuntimeException $e) {
                         session()->setFlashdata('failed', 'Failed to booking schedule: ' . $e->getMessage());

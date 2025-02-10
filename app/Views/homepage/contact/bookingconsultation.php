@@ -1,4 +1,4 @@
-<div class="contact wrapper" style="margin-top: 96px;">
+<div class="contact wrapper" style="margin-top: 77px;">
     <div class="row">
         <div class="col-5 d-none d-lg-block bg-contact-wrap position-relative">
             <div class="bg-contact d-flex flex-column justify-content-between align-items-center">
@@ -46,6 +46,7 @@
             </div>
             <form id="formbooking" action="<?= BASE_URL ?>homepage/booking_summary" method="POST">
                 <input type="hidden" name="subject" value="<?= $subject?>">
+                <input type="hidden" name="original_service" value="<?= isset($_GET['service']) ? $_GET['service'] : '' ?>">
                 <div class="img-fluid wrapper-field">
                     <h1 class="fw-bold f-cormorant">Booking Consultation</h1>
                     <p class="me-0 pe-0 me-md-5 pe-md-5">
@@ -111,11 +112,13 @@
                             <select name="schedule" class="form-control schedule-select2 img-fluid" id="schedule">
                             </select>
                         </div>     
+                        <!-- Temporarily disabled referral section
                         <div class="mt-5 f-poppins">
                             <label class="label-email" for="referral">Referral Code</label> <br>
                             <input id="referral" class="inp-email mt-1 img-fluid" name="referral" type="text" placeholder="Enter referral code (optional)"> <br>
                             <small>Without Referral : 350 EUR, With Referral : 250 EUR</small>
                         </div>          
+                        -->
                         <div class="mt-5 f-poppins">
                             <button type="submit" class="btn btn-footer-contactform">CONFIRM</button>
                         </div>
