@@ -13484,7 +13484,7 @@ p {
 /*----------------------------------------------------------
 2. Future Start
 ------------------------------------------------------------*/
-.future-heading {
+.homepage-future-heading {
   color: #BFA573;
   text-align: center;
   font-family: "Noto Serif", serif;
@@ -13495,7 +13495,7 @@ p {
   text-transform: uppercase;
 }
 
-.future-text {
+.homepage-future-text {
   color: #000;
   text-align: center;
   font-family: "Noto Serif", serif;
@@ -13505,7 +13505,7 @@ p {
   line-height: 25px;
 }
 
-.future-cta {
+.homepage-future-cta {
   color: #000;
   text-align: center;
   font-family: "Noto Serif", serif;
@@ -13518,7 +13518,7 @@ p {
 }
 
 /*----------------------------------------------------------
-2. Future End End
+2. Future End
 ------------------------------------------------------------*/
 /*----------------------------------------------------------
 3. Why Choose Start

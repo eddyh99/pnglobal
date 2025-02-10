@@ -32,25 +32,25 @@
 </div>
 <!-- End of Banner -->
 
-<!-- Start of Future Section -->
-<section class="content future-section text-center">
+<!-- Start of Homepage Future Section -->
+<section class="content homepage-future-section text-center">
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-12 col-lg-8">
-                <h2 class="future-heading" data-aos="fade-down">Future Without Limits</h2>
+                <h2 class="homepage-future-heading" data-aos="fade-down">Future Without Limits</h2>
 
-                <p class="future-text mt-4" data-aos="fade-up">
+                <p class="homepage-future-text mt-4" data-aos="fade-up">
                     With our personalized consulting, you can increase your earnings, pay fewer taxes, and protect your capital from unnecessary risks.
                 </p>
 
             </div>
-            <p class="future-cta mt-4 mx-auto" data-aos="fade-up">
+            <p class="homepage-future-cta mt-4 mx-auto" data-aos="fade-up">
                 Join us for a personalized strategy that guides you to success, wherever you are in the world.
             </p>
         </div>
     </div>
 </section>
-<!-- End of Future Section -->
+<!-- End of Homepage Future Section -->
 
 <!-- Start Of Why Choose -->
 <section class="why-choose">
@@ -214,7 +214,7 @@
                             </div>
                             <div class="col-9">
                                 <h3 class="service-title">portfolio creation</h3>
-                                <p class="service-description">TOGETHER WE CREATE A stock PORTFOLIO THAT MEETS YOUR RETURN AND RISK NEEDs.</p>
+                                <p class="service-description">TOGETHER WE CREATE A stock PORTFOLIO THAT MEETS YOUR RETURN AND RISK NEs.</p>
                                 <button class="service-btn">Build Your <br> Perfect Portfolio</button>
                             </div>
                         </div>
