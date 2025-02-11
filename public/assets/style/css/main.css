@@ -16054,8 +16054,10 @@ p {
 
 .satoshi-register {
   background-color: #141312;
-  margin-top: 2rem;
   padding: 4rem 0rem;
+}
+.satoshi-register h1 {
+  color: #BFA573;
 }
 .satoshi-register .bg-satoshi-register {
   background-color: #BFA573;

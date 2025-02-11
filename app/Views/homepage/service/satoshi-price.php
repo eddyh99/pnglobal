@@ -214,18 +214,13 @@
 <!-- End of Pricing -->
 
 <!-- Start of Register Form -->
-<section  class="service-homepage">
-    <div class="wrapper-big-title">
-        <h1 class="fw-bold text-uppercase">
-            REGISTER FORM
-        </h1>
-    </div>
-</section>
-
 <section id="register" class="satoshi-register">
     <div class="container">
         <div class="row">
             <div class="col-10 mx-auto">
+                <h1 class="fw-bold text-uppercase text-center mb-5">
+                    REGISTER FORM
+                </h1>
                 <?php if(!empty(session('failed'))) { ?>
                     <div class="alert alert-danger alert-dismissible fade show" role="alert">
                         <strong>
@@ -255,10 +250,12 @@
                         </div>
                         <i class="icon-pass-login fa-solid fa-eye" id="togglePassword2"></i>
                     </div>
+                    <!-- Temporarily disabled referral code input
                     <div class="register-form mt-3">
                         <label for="referral" class="fw-semibold">Referral Code</label>
                         <input type="text" id="referral" class="form-control" name="reff">
                     </div>
+                    -->
                 </div>
                 <div class="d-flex justify-content-center mt-4">
                     <button type="submit" class="btn btn-satoshi-price-register">SIGN UP</button>
