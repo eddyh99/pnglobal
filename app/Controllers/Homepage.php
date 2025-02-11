@@ -298,20 +298,20 @@ class Homepage extends BaseController
         $mdata['referral'] = empty($reff) ? null : $reff;
         */
         
-        $mdata['referral'] = null; // Set referral to null while feature is disabled
+        // $mdata['referral'] = null; // Set referral to null while feature is disabled
         
         // Call Endpoin Register
-        $url = URLAPI . "/auth/register";
-        $result = satoshiAdmin($url, json_encode($mdata))->result;
+        // $url = URLAPI . "/auth/register";
+        // $result = satoshiAdmin($url, json_encode($mdata))->result;
 
-        if ($result->code != '201') {
-            session()->setFlashdata('failed', $result->message);
-            return redirect()->to(BASE_URL . 'homepage/satoshi_price#register')->withInput();
-        } else {
-            $subject = "Activation Account - " . SATOSHITITLE;
-            sendmail_satoshi($mdata['email'], $subject,  emailtemplate_activation_account($result->message->token, $mdata['email']));
-            return redirect()->to(BASE_URL . 'homepage/satoshi_active_account/' . base64_encode($mdata['email']));
-        }
+        // if ($result->code != '201') {
+        //     session()->setFlashdata('failed', $result->message);
+        //     return redirect()->to(BASE_URL . 'homepage/satoshi_price#register')->withInput();
+        // } else {
+        //     $subject = "Activation Account - " . SATOSHITITLE;
+        //     sendmail_satoshi($mdata['email'], $subject,  emailtemplate_activation_account($result->message->token, $mdata['email']));
+        //     return redirect()->to(BASE_URL . 'homepage/satoshi_active_account/' . base64_encode($mdata['email']));
+        // }
     }
 
     public function satoshi_active_account($email)

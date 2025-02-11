@@ -7,15 +7,18 @@ class Dashboard extends BaseController
 {
     public function __construct()
     {
+        /* Temporarily disabled login check for layout development
         $session = session();
         if(!$session->has('logged_user')){
             header("Location: ". BASE_URL . 'godmode/auth/signin');
             exit();
         }
+        */
     }
     
     public function index()
     {
+        /* Temporarily disabled API calls for layout development
         // Call Endpoin total_member
         $url = URLAPI . "/v1/member/total_member";
         $resultTotalMember = satoshiAdmin($url)->result->message;
@@ -35,8 +38,14 @@ class Dashboard extends BaseController
         // Call Endpoin total Signal
         $url = URLAPI . "/v1/member/total_signal";
         $resultSignal = satoshiAdmin($url)->result->message;
+        */
 
-
+        // Temporary dummy data for layout development
+        $resultTotalMember = 100;
+        $resultFreemember = 50;
+        $resultReferral = 25;
+        $resultMessage = 75;
+        $resultSignal = 30;
         
         $mdata = [
             'title'     => 'Dashboard - ' . SATOSHITITLE,
