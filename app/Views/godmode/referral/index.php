@@ -17,6 +17,10 @@
                                             <input type="email" name="email" class="form-control" >
                                         </div>
                                         <div class="wrapper-addreferral">
+                                            <label for="referral">Upline Referral</label>
+                                            <input type="text" name="upline" class="form-control" >
+                                        </div>
+                                        <div class="wrapper-addreferral">
                                             <label for="referral">Referral Code</label>
                                             <input type="text" name="refcode" class="form-control" >
                                         </div>
@@ -37,10 +41,8 @@
                         <tr>
                             <th>EMAIL</th>
                             <th>REFERRAL CODE</th>
-                            <th>TOTAL REFERRAL</th>
-                            <th>UNPAID SUBSCRIPTIONS</th>
+                            <th>REFERRAL</th>
                             <th>UNPAID COMMISSION</th>
-                            <th>UNPAID COMMISSION PREVIOUS MONTH</th>
                             <th>DETAIL</th>
                         </tr>
                     </thead>
@@ -97,5 +99,4 @@
         }, 100);
     <?php }?>
 </script>
-
 
