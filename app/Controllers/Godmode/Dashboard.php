@@ -46,6 +46,7 @@ class Dashboard extends BaseController
         $resultReferral = 25;
         $resultMessage = 75;
         $resultSignal = 30;
+        $resultSubscriber = 100;
         
         $mdata = [
             'title'     => 'Dashboard - ' . SATOSHITITLE,
@@ -57,6 +58,7 @@ class Dashboard extends BaseController
             'referral' => $resultReferral,
             'message' => $resultMessage,
             'signal' => $resultSignal,
+            'subscriber' => $resultSubscriber,
         ];
 
         return view('godmode/layout/admin_wrapper', $mdata);
@@ -69,8 +71,8 @@ class Dashboard extends BaseController
         $finaltype = base64_decode($type);
         
         // Call Get Memeber By Email
-        $url = URLAPI . "/auth/getmember_byemail?email=".base64_decode($email);
-        $resultMember = satoshiAdmin($url)->result->message;
+        // $url = URLAPI . "/auth/getmember_byemail?email=".base64_decode($email);
+        // $resultMember = satoshiAdmin($url)->result->message;
 
         // echo '<pre>'.print_r($resultMember,true).'</pre>';
         // die;
@@ -96,12 +98,12 @@ class Dashboard extends BaseController
         $finaltype = base64_decode($type);
         
         // Call Get Memeber By Email
-        $url = URLAPI . "/auth/getmember_byemail?email=".base64_decode($email);
-        $resultMember = satoshiAdmin($url)->result->message;
+        // $url = URLAPI . "/auth/getmember_byemail?email=".base64_decode($email);
+        // $resultMember = satoshiAdmin($url)->result->message;
 
         // Call Get Detail Referral
-        $url = URLAPI . "/v1/member/detailreferral?id=".$resultMember->id;
-        $resultReferral = satoshiAdmin($url)->result->message;
+        // $url = URLAPI . "/v1/member/detailreferral?id=".$resultMember->id;
+        // $resultReferral = satoshiAdmin($url)->result->message;
 
 
         $mdata = [
@@ -127,9 +129,9 @@ class Dashboard extends BaseController
         ];
 
         // Proccess Endpoin API
-        $url = URLAPI . "/v1/member/paid_referral?id=".$mdata['id']."&is_paid=".$mdata['type'];
-        $response = satoshiAdmin($url, json_encode($mdata));
-        $result = $response->result;
+        // $url = URLAPI . "/v1/member/paid_referral?id=".$mdata['id']."&is_paid=".$mdata['type'];
+        // $response = satoshiAdmin($url, json_encode($mdata));
+        // $result = $response->result;
         
         if($result->code != '200') {
             session()->setFlashdata('failed', "Something Wrong, Please Try Again!");
@@ -144,5 +146,34 @@ class Dashboard extends BaseController
             return redirect()->to(BASE_URL . 'godmode/dashboard/detailreferral/'.$type.'/'.$email);
         }    
         
+    }
+
+    public function deletemember($email){
+        $email  = base64_decode($email);
+
+        // $url = URLAPI . "/v1/member/delete_member?email=".$email;
+        // $response = satoshiAdmin($url);
+        // $result = $response->result;
+        if($result->code != '200') {
+            session()->setFlashdata('failed', "Something Wrong, Please Try Again!");
+            return redirect()->to(BASE_URL . 'godmode/dashboard');
+        }else{
+            session()->setFlashdata('success', "Success Disabled Member");
+            return redirect()->to(BASE_URL . 'godmode/dashboard');
+        }
+    }
+    
+     public function get_downline($id){
+        // Call Endpoin Get Referral Member
+        // $url = URLAPI . "/v1/referral/getDownline?id=".$id;
+        // $result = satoshiAdmin($url)->result->message;
+        // echo json_encode($result);
+    }
+    
+    public function getlevel_downline($id,$level){
+        // Call Endpoin Get Referral Member
+        // $url = URLAPI . "/v1/referral/getlevel_downline?id=".$id."&level=".$level;
+        // $result = satoshiAdmin($url)->result->message;
+        // echo json_encode($result);
     }
 }
