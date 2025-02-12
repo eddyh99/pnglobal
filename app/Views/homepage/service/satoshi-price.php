@@ -219,18 +219,18 @@
         <div class="row">
             <div class="col-10 mx-auto">
                 <h1 class="fw-bold text-uppercase text-center mb-5">
-                    REGISTER FORM
+                    PN global REGISTER FORM
                 </h1>
-                <?php if(!empty(session('failed'))) { ?>
+                <?php if (!empty(session('failed'))) { ?>
                     <div class="alert alert-danger alert-dismissible fade show" role="alert">
                         <strong>
-                            <?= session('failed')?>
+                            <?= session('failed') ?>
                         </strong>
                         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                     </div>
                 <?php } ?>
             </div>
-            <form id="satoshi-register-form" action="<?= BASE_URL?>homepage/register_process" method="post">
+            <form id="satoshi-register-form" action="<?= BASE_URL ?>homepage/register_process" method="post">
                 <div class="col-10 mx-auto bg-satoshi-register">
                     <div class="register-form">
                         <label for="email" class="fw-semibold">Email</label>
@@ -258,7 +258,7 @@
                     -->
                 </div>
                 <div class="d-flex justify-content-center mt-4">
-                    <button type="submit" class="btn btn-satoshi-price-register">SIGN UP</button>
+                    <button type="submit" class="btn btn-satoshi-price-register">SIGNUP</button>
                 </div>
             </form>
         </div>
@@ -270,15 +270,13 @@
 <div class="modal fade" id="loadingcontent" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
-        <div class="modal-body">
-            <div class="d-flex justify-content-center">
-                <div class="spinner-border" role="status">
-                    <span class="visually-hidden">Loading...</span>
+            <div class="modal-body">
+                <div class="d-flex justify-content-center">
+                    <div class="spinner-border" role="status">
+                        <span class="visually-hidden">Loading...</span>
+                    </div>
                 </div>
             </div>
         </div>
-        </div>
     </div>
 </div>
-
-
