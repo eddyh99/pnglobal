@@ -13309,6 +13309,10 @@ p {
  * 7. Account Deletion
  *
  */
+.page-wrapper-homepage {
+  background-color: #000;
+}
+
 /*----------------------------------------------------------
 1. Banner Homepage Start
 ------------------------------------------------------------*/
@@ -13484,6 +13488,10 @@ p {
 /*----------------------------------------------------------
 2. Future Start
 ------------------------------------------------------------*/
+.homepage-future-section {
+  background-color: #fff;
+}
+
 .homepage-future-heading {
   color: #BFA573;
   text-align: center;
@@ -13905,7 +13913,6 @@ p {
   margin: 0;
   padding-bottom: 30px;
   background: linear-gradient(321deg, #000 6.14%, #101010 22.77%, #313131 43.59%, #000 65.77%, #111 87.49%);
-  box-shadow: 0px 4px 15px 0px #d9d9d9;
 }
 .service-homepage .container {
   padding: 0 28px;
@@ -14038,12 +14045,32 @@ p {
 /*----------------------------------------------------------
 7. Who We Are Start
 ------------------------------------------------------------*/
+.who-we-are {
+  margin-top: 100px;
+}
 .who-we-are .container {
   background: linear-gradient(135deg, #000 0%, #1a1a1a 40%, #2d2d2d 60%, #4a4a4a 80%, #5f5f5f 100%);
   padding-top: 50px;
   padding-bottom: 50px;
   max-width: 100%;
   margin: 0;
+}
+.who-we-are .section-title-bg {
+  width: 100vw;
+  height: 250px;
+  padding: 30px 0;
+  background: url("../../img/bg-who-we-are.png") no-repeat center center;
+  background-size: cover;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.1);
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 20px;
 }
 .who-we-are .section-title {
   color: #000;
@@ -14053,9 +14080,10 @@ p {
   font-style: normal;
   font-weight: 800;
   line-height: 40px;
+  text-align: center;
   text-transform: uppercase;
   margin: 0;
-  padding: 20px 0;
+  margin-top: 20px;
 }
 .who-we-are .who-image {
   position: relative;
@@ -14116,7 +14144,7 @@ p {
 ------------------------------------------------------------*/
 .quotes {
   position: relative;
-  padding: 120px 0;
+  padding: 150px 0;
 }
 .quotes .quotes-bg {
   position: absolute;
