@@ -184,13 +184,15 @@
 
 <!-- Start of Service -->
 <section class="service-homepage">
-    <h2 class="section-title">Our Services</h2>
-    <div class="container">
+    <div class="section-title-bg">
+        <h2 class="section-title">Our Services</h2>
+    </div>
+    <div class="container-fluid">
         <div class="row">
             <!-- Left Column -->
             <div class="col-12 col-lg-6">
                 <div class="service-cards">
-                    <div class="service-card">
+                    <!-- <div class="service-card">
                         <div class="row">
                             <div class="col-3">
                                 <div class="service-image">
@@ -203,12 +205,12 @@
                                 <button class="service-btn">Activate Instant <br> Brokerage Signals</button>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
                     <div class="service-card">
                         <div class="row">
                             <div class="col-3">
                                 <div class="service-image">
-                                    <img src="assets/img/ic_btc_elite_management.webp" alt="BTC Elite Management">
+                                    <img src="assets/img/ic_btc_elite_with_bg.png" alt="BTC Elite Management">
                                 </div>
                             </div>
                             <div class="col-9">
@@ -222,7 +224,7 @@
                         <div class="row">
                             <div class="col-3">
                                 <div class="service-image">
-                                    <img src="assets/img/ic_passive.webp" alt="Passive Income">
+                                    <img src="assets/img/ic_passive_income_with_bg.png" alt="Passive Income">
                                 </div>
                             </div>
                             <div class="col-9">
@@ -236,7 +238,7 @@
                         <div class="row">
                             <div class="col-3">
                                 <div class="service-image">
-                                    <img src="assets/img/ic_portfolio.webp" alt="portfolio creation">
+                                    <img src="assets/img/ic_portfolio_creation_with_bg.png" alt="portfolio creation">
                                 </div>
                             </div>
                             <div class="col-9">
@@ -250,7 +252,7 @@
                         <div class="row">
                             <div class="col-3">
                                 <div class="service-image">
-                                    <img src="assets/img/ic_wealth.webp" alt=" Wealth Consulting">
+                                    <img src="assets/img/ic_wealth_consulting_with_bg.png" alt=" Wealth Consulting">
                                 </div>
                             </div>
                             <div class="col-9">
@@ -264,7 +266,7 @@
                         <div class="row">
                             <div class="col-3">
                                 <div class="service-image">
-                                    <img src="assets/img/ic_tax.webp" alt="Tax Reduction">
+                                    <img src="assets/img/ic_tax_reduction_with_bg.png" alt="Tax Reduction">
                                 </div>
                             </div>
                             <div class="col-9">
@@ -280,7 +282,7 @@
             <!-- Right Column -->
             <div class="col-12 col-lg-6">
                 <div class="service-cards">
-                    <div class="service-card">
+                    <!-- <div class="service-card">
                         <div class="row">
                             <div class="col-3">
                                 <div class="service-image">
@@ -293,12 +295,12 @@
                                 <button class="service-btn">Connect API and Let <br> Brokers Operate</button>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
                     <div class="service-card">
                         <div class="row">
                             <div class="col-3">
                                 <div class="service-image">
-                                    <img src="assets/img/ic_crypto.webp" alt="Crypto Consulting">
+                                    <img src="assets/img/ic_crypto_consulting_with_bg.png" alt="Crypto Consulting">
                                 </div>
                             </div>
                             <div class="col-9">
@@ -313,7 +315,7 @@
                         <div class="row">
                             <div class="col-3">
                                 <div class="service-image">
-                                    <img src="assets/img/ic_accumulation.webp" alt=" Accumulation Plans">
+                                    <img src="assets/img/ic_accumulation_plan_with_bg.png" alt=" Accumulation Plans">
                                 </div>
                             </div>
                             <div class="col-9">
@@ -327,7 +329,7 @@
                         <div class="row">
                             <div class="col-3">
                                 <div class="service-image">
-                                    <img src="assets/img/ic_funds.webp" alt="Funds Reallocation">
+                                    <img src="assets/img/ic_funds_reallocation_with_bg.png" alt="Funds Reallocation">
                                 </div>
                             </div>
                             <div class="col-9">
@@ -341,7 +343,7 @@
                         <div class="row">
                             <div class="col-3">
                                 <div class="service-image">
-                                    <img src="assets/img/ic_protection.webp" alt="Capital Protection">
+                                    <img src="assets/img/ic_capital_protection_with_bg.png" alt="Capital Protection">
                                 </div>
                             </div>
                             <div class="col-9">
