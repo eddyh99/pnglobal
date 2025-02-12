@@ -88,12 +88,14 @@
 
     <!-- Content section -->
     <div class="newsletter-content text-center text-white">
-        <header>
-            <h1>Something Big and Sensational is About to Arrive!</h1>
-            <p class="lead">Are You Ready For A Once-In-A-Lifetime Opportunity?<br>
-                <span class="text-white">Get ready to be amazed!</span>
-            </p>
-        </header>
+        <div class="bg-title-something-big">
+            <header>
+                <h1>Something Big and Sensational is About to Arrive!</h1>
+                <p class="lead">Are You Ready For A Once-In-A-Lifetime Opportunity?<br>
+                    <span class="text-white">Get ready to be amazed!</span>
+                </p>
+            </header>
+        </div>
 
         <section class="newsletter-text">
             <div class="row">
