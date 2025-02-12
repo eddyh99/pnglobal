@@ -1,5 +1,5 @@
 <!-- Start of Satoshi Price -->
-<section id="bg-satoshi-price">
+<!-- <section id="bg-satoshi-price">
     <div class="container">
         <div class="row">
             <div class="col-8">
@@ -10,11 +10,11 @@
             </div>
         </div>
     </div>
-</section>
+</section> -->
 <!-- End of Satoshi Price -->
 
 <!-- Start of Pricing -->
-<section  class="service-homepage">
+<!-- <section  class="service-homepage">
     <div class="wrapper-big-title">
         <h1 class="fw-bold text-uppercase">
             Pricing
@@ -210,32 +210,27 @@
             REGISTER
         </a>
     </div>
-</section>
+</section> -->
 <!-- End of Pricing -->
 
 <!-- Start of Register Form -->
-<section  class="service-homepage">
-    <div class="wrapper-big-title">
-        <h1 class="fw-bold text-uppercase">
-            REGISTER FORM
-        </h1>
-    </div>
-</section>
-
 <section id="register" class="satoshi-register">
     <div class="container">
         <div class="row">
             <div class="col-10 mx-auto">
-                <?php if(!empty(session('failed'))) { ?>
+                <h1 class="fw-bold text-uppercase text-center mb-5">
+                    PN global REGISTER FORM
+                </h1>
+                <?php if (!empty(session('failed'))) { ?>
                     <div class="alert alert-danger alert-dismissible fade show" role="alert">
                         <strong>
-                            <?= session('failed')?>
+                            <?= session('failed') ?>
                         </strong>
                         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                     </div>
                 <?php } ?>
             </div>
-            <form id="satoshi-register-form" action="<?= BASE_URL?>homepage/register_process" method="post">
+            <form id="satoshi-register-form" action="<?= BASE_URL ?>homepage/register_process" method="post">
                 <div class="col-10 mx-auto bg-satoshi-register">
                     <div class="register-form">
                         <label for="email" class="fw-semibold">Email</label>
@@ -255,13 +250,15 @@
                         </div>
                         <i class="icon-pass-login fa-solid fa-eye" id="togglePassword2"></i>
                     </div>
+                    <!-- Temporarily disabled referral code input
                     <div class="register-form mt-3">
                         <label for="referral" class="fw-semibold">Referral Code</label>
                         <input type="text" id="referral" class="form-control" name="reff">
                     </div>
+                    -->
                 </div>
                 <div class="d-flex justify-content-center mt-4">
-                    <button type="submit" class="btn btn-satoshi-price-register">SIGN UP</button>
+                    <button type="submit" class="btn btn-satoshi-price-register">SIGNUP</button>
                 </div>
             </form>
         </div>
@@ -273,15 +270,13 @@
 <div class="modal fade" id="loadingcontent" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
-        <div class="modal-body">
-            <div class="d-flex justify-content-center">
-                <div class="spinner-border" role="status">
-                    <span class="visually-hidden">Loading...</span>
+            <div class="modal-body">
+                <div class="d-flex justify-content-center">
+                    <div class="spinner-border" role="status">
+                        <span class="visually-hidden">Loading...</span>
+                    </div>
                 </div>
             </div>
         </div>
-        </div>
     </div>
 </div>
-
-

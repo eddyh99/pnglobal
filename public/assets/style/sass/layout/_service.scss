@@ -2,7 +2,7 @@
     File Name  : _service.scss
     Desc       : File ini merupakan styling untuk seluruh service
 
-------------------------------------------------------------*/ 
+------------------------------------------------------------*/
 
 /**
  * TABLE OF CONTENTS
@@ -19,12 +19,12 @@
  *
  */
 
- @use '../abstracts/variables' as var;
- @use '../abstracts/mixins' as mix;
- 
+@use '../abstracts/variables' as var;
+@use '../abstracts/mixins' as mix;
+
 /*----------------------------------------------------------
 1. Banner All Service Start
-------------------------------------------------------------*/ 
+------------------------------------------------------------*/
 .banner-service {
     position: relative;
     overflow: hidden;
@@ -42,7 +42,6 @@
             @include mix.video-banner-center;
         }
 
-
         .download-video {
             z-index: 2;
             position: absolute;
@@ -59,7 +58,6 @@
             .button-download {
                 @include mix.flex-tengah;
                 flex-direction: column;
-        
 
                 .top {
                     margin-top: 0.5rem;
@@ -88,7 +86,6 @@
                     @include mix.xl2 {
                         width: 210px;
                     }
-                    
                 }
             }
         }
@@ -102,14 +99,14 @@
             margin-bottom: 4rem;
 
             .bg-text-video {
-                border-radius: 0px 5px 5px 0px ;
-                -webkit-border-radius: 0px 5px 5px 0px ;
-                -moz-border-radius: 0px 5px 5px 0px ;
-                -ms-border-radius: 0px 5px 5px 0px ;
-                -o-border-radius: 0px 5px 5px 0px ;
+                border-radius: 0px 5px 5px 0px;
+                -webkit-border-radius: 0px 5px 5px 0px;
+                -moz-border-radius: 0px 5px 5px 0px;
+                -ms-border-radius: 0px 5px 5px 0px;
+                -o-border-radius: 0px 5px 5px 0px;
                 padding: 1rem 3rem;
                 font-weight: 700;
-                
+
                 &.finance {
                     background: rgba(56, 55, 52, 0.82);
                     color: var.$text-primary-pnglobal;
@@ -133,7 +130,7 @@
                 }
 
                 &.training {
-                    background: rgba(191, 165, 115, 0.80);
+                    background: rgba(191, 165, 115, 0.8);
                     color: var.$text-black-pnglobal;
                 }
 
@@ -151,24 +148,22 @@
                 }
 
                 &.connection {
-                    background: #D7D7D7;
+                    background: #d7d7d7;
                     color: var.$text-black-100-pnglobal;
                     padding: 1.5rem 3rem !important;
                 }
-
-            }   
+            }
         }
     }
 }
 
 /*----------------------------------------------------------
 1. Banner All Service End
-------------------------------------------------------------*/ 
-
+------------------------------------------------------------*/
 
 /*----------------------------------------------------------
 2. General Service Start
-------------------------------------------------------------*/ 
+------------------------------------------------------------*/
 .service {
     overflow-x: hidden;
     margin-bottom: 4rem;
@@ -176,15 +171,14 @@
     .box-service {
         border-radius: 10px;
         padding: 2rem;
-        
+
         @include mix.md {
             padding: 4rem;
         }
 
-
         &.right {
             margin-left: 5rem;
-            
+
             @include mix.xl2 {
                 margin-left: 6rem;
             }
@@ -195,9 +189,8 @@
         }
 
         &.left {
-
             margin-right: 5rem;
-            
+
             @include mix.xl2 {
                 margin-right: 6rem;
             }
@@ -214,7 +207,7 @@
             @include mix.lg {
                 margin-top: 8rem;
             }
-            
+
             .box-content {
                 background-color: var.$bg-box-100-pnglobal;
                 border-radius: 10px;
@@ -223,12 +216,12 @@
                 @include mix.xl2 {
                     padding: 3rem;
                 }
-                
+
                 .box-content-title {
                     color: var.$text-primary-pnglobal;
                     text-transform: uppercase;
                 }
-                
+
                 .box-content-subtitle {
                     color: var.$text-white-pnglobal;
                     font-weight: 300;
@@ -241,12 +234,11 @@
                     line-height: 30px;
                     text-align: justify;
                     padding-right: 0;
-                    
+
                     @include mix.md {
                         padding-right: 4rem;
                     }
                 }
-
             }
         }
 
@@ -259,7 +251,6 @@
                 border-radius: 10px;
                 padding: 1.5rem;
 
-                
                 @include mix.xl2 {
                     padding: 3rem;
                 }
@@ -270,7 +261,7 @@
 
                 .box-content-subtitle {
                     margin-top: 1rem;
-                    color: var.$text-secondary-pnglobal
+                    color: var.$text-secondary-pnglobal;
                 }
 
                 .box-content-text {
@@ -279,7 +270,7 @@
                     line-height: 30px;
                     text-align: justify;
                     padding-right: 0;
-                    
+
                     @include mix.md {
                         padding-right: 4rem;
                     }
@@ -296,7 +287,7 @@
             .wrapping-title {
                 @include mix.flex-tengah-vertical;
                 align-items: start;
-                
+
                 @include mix.lg {
                     align-items: center;
                 }
@@ -319,7 +310,7 @@
             .box-content {
                 .box-content-subtitle {
                     padding: 0rem 0rem;
-                    
+
                     @include mix.xl2 {
                         padding: 0rem 3rem;
                     }
@@ -328,14 +319,13 @@
                 .box-content-text {
                     line-height: 25px;
                     padding: 1rem 0rem 0rem 0rem;
-                    
+
                     @include mix.xl2 {
                         padding: 2rem 3rem 2rem 3rem;
                     }
                 }
             }
         }
-
 
         &.brown-strategic {
             background-color: var.$bg-box-brown-pnglobal;
@@ -346,7 +336,7 @@
             .wrapping-title {
                 @include mix.flex-tengah-vertical;
                 align-items: start;
-                
+
                 @include mix.lg {
                     align-items: center;
                 }
@@ -395,7 +385,7 @@
             .wrapping-title {
                 @include mix.flex-tengah-vertical;
                 align-items: start;
-                
+
                 @include mix.lg {
                     align-items: center;
                 }
@@ -436,7 +426,7 @@
                 }
             }
         }
-     
+
         &.black-international {
             background-color: var.$bg-black-pnglobal;
             margin-top: 0rem;
@@ -446,7 +436,7 @@
             .wrapping-title {
                 @include mix.flex-tengah-vertical;
                 align-items: start;
-                
+
                 @include mix.lg {
                     align-items: center;
                 }
@@ -455,7 +445,7 @@
                     color: var.$text-white-pnglobal;
                     text-transform: uppercase;
                     text-align: start;
-                    
+
                     @include mix.lg {
                         text-align: end;
                     }
@@ -507,7 +497,7 @@
             .wrapping-title {
                 @include mix.flex-tengah-vertical;
                 align-items: start;
-                
+
                 @include mix.lg {
                     align-items: center;
                 }
@@ -549,7 +539,6 @@
             }
         }
 
-        
         &.brown-legal {
             background-color: var.$bg-box-500-pnglobal;
             margin-top: 0rem;
@@ -560,13 +549,12 @@
                 @include mix.flex-tengah-vertical;
                 justify-content: start;
                 align-items: start;
-                margin-top: 1rem;    
-                
+                margin-top: 1rem;
+
                 @include mix.lg {
                     align-items: center;
-                    margin-top: 5rem;    
+                    margin-top: 5rem;
                 }
-                
 
                 .box-content-title {
                     color: var.$text-white-pnglobal;
@@ -592,7 +580,6 @@
                     color: var.$text-white-pnglobal;
                     text-align: start;
 
-
                     @include mix.xl2 {
                         padding: 1rem 2rem 0rem 5rem;
                     }
@@ -605,19 +592,17 @@
             }
         }
 
-             
         &.gold-legal {
             background-color: var.$bg-box-700-pnglobal;
             margin-top: 0rem;
             border-radius: 0px 10px 10px 0px;
             padding: 2rem !important;
 
-
             .wrapping-title {
                 @include mix.flex-tengah-vertical;
                 align-items: start;
 
-                @include mix.lg{
+                @include mix.lg {
                     align-items: center;
                 }
 
@@ -625,7 +610,7 @@
                     color: var.$text-white-pnglobal;
                     text-transform: uppercase;
                     text-align: start;
-                    
+
                     @include mix.lg {
                         text-align: end;
                     }
@@ -669,7 +654,7 @@
             .wrapping-title {
                 @include mix.flex-tengah-vertical;
                 align-items: start;
-                
+
                 @include mix.lg {
                     align-items: center;
                 }
@@ -690,7 +675,6 @@
             }
 
             .box-content {
-
                 .box-content-text {
                     line-height: 25px;
                     padding: 1rem 0rem 0rem 0rem;
@@ -709,7 +693,7 @@
         }
 
         &.gold-training {
-            background-color: #BFA573F0;
+            background-color: #bfa573f0;
             margin-top: 2rem;
             border-radius: 0px;
             padding: 2rem;
@@ -717,7 +701,7 @@
             .wrapping-title {
                 @include mix.flex-tengah-vertical;
                 align-items: start;
-                
+
                 @include mix.lg {
                     align-items: center;
                 }
@@ -738,7 +722,6 @@
             }
 
             .box-content {
-
                 .box-content-text {
                     line-height: 25px;
                     padding: 0.3rem 0rem 0rem 0rem;
@@ -766,12 +749,11 @@
                 flex-direction: column;
                 justify-content: start;
                 align-items: start;
-                margin-top: 0rem;     
-                
+                margin-top: 0rem;
+
                 @include mix.lg {
                     align-items: center;
                 }
-                
 
                 .box-content-title {
                     color: var.$text-primary-pnglobal;
@@ -794,7 +776,7 @@
                 .box-content-subtitle {
                     padding: 0rem 0rem;
                     color: var.$text-primary-pnglobal;
-                    
+
                     @include mix.xl2 {
                         padding: 0rem 3rem;
                     }
@@ -805,7 +787,6 @@
                     padding: 1rem 0rem 0rem 0rem;
                     color: var.$text-white-pnglobal;
                     text-align: start;
-
 
                     @include mix.xl2 {
                         padding: 1rem 3rem 0rem 3rem;
@@ -819,13 +800,12 @@
             }
         }
 
-
         &.gold-blockchain {
             background-color: var.$bg-primary-pnglobal;
             border-radius: 0px;
             padding: 2rem !important;
             margin-top: 23rem;
-            
+
             @include mix.md {
                 margin-top: 23rem;
             }
@@ -839,8 +819,8 @@
                 flex-direction: column;
                 justify-content: start;
                 align-items: start;
-                margin-top: 0rem;   
-                
+                margin-top: 0rem;
+
                 @include mix.lg {
                     align-items: end;
                 }
@@ -866,7 +846,7 @@
                 .box-content-subtitle {
                     padding: 0rem 0rem;
                     color: var.$text-white-pnglobal;
-                    
+
                     @include mix.xl2 {
                         padding: 0rem 3rem;
                     }
@@ -877,7 +857,6 @@
                     padding: 1rem 0rem 0rem 0rem;
                     color: var.$text-black-pnglobal;
                     text-align: start;
-
 
                     @include mix.xl2 {
                         padding: 2rem 3rem 0rem 3rem;
@@ -891,12 +870,11 @@
             }
         }
 
-
         .wrapping-img {
             display: flex;
             justify-content: end;
             padding-left: 2rem;
-            
+
             img {
                 width: 100%;
                 object-fit: cover;
@@ -912,7 +890,7 @@
         width: 100%;
 
         .img-plane-dollar {
-            &:nth-child(1){
+            &:nth-child(1) {
                 max-width: 100%;
                 height: auto;
                 position: absolute;
@@ -923,7 +901,7 @@
                 }
             }
 
-            &:nth-child(2){
+            &:nth-child(2) {
                 max-width: 100%;
                 height: auto;
                 position: relative;
@@ -932,7 +910,7 @@
         }
 
         .img-expansion-international {
-            &:nth-child(1){
+            &:nth-child(1) {
                 max-width: 100%;
                 height: auto;
                 position: absolute;
@@ -943,7 +921,7 @@
                 }
             }
 
-            &:nth-child(2){
+            &:nth-child(2) {
                 max-width: 100%;
                 height: auto;
                 position: relative;
@@ -952,7 +930,7 @@
         }
 
         .img-visa-international {
-            &:nth-child(1){
+            &:nth-child(1) {
                 max-width: 100%;
                 height: auto;
                 position: absolute;
@@ -963,7 +941,7 @@
                 }
             }
 
-            &:nth-child(2){
+            &:nth-child(2) {
                 max-width: 100%;
                 height: auto;
                 position: relative;
@@ -971,8 +949,8 @@
             }
         }
 
-        .img-legal-advice{
-            &:nth-child(1){
+        .img-legal-advice {
+            &:nth-child(1) {
                 max-width: 100%;
                 height: auto;
                 position: absolute;
@@ -983,20 +961,20 @@
                 }
             }
 
-            &:nth-child(2){
+            &:nth-child(2) {
                 max-width: 100%;
                 height: 17rem;
                 position: relative;
                 opacity: 0;
-                
+
                 @include mix.lg {
                     height: 8rem;
                 }
             }
         }
 
-        .img-tax-advice{
-            &:nth-child(1){
+        .img-tax-advice {
+            &:nth-child(1) {
                 max-width: 100%;
                 height: auto;
                 position: absolute;
@@ -1007,7 +985,7 @@
                 }
             }
 
-            &:nth-child(2){
+            &:nth-child(2) {
                 max-width: 100%;
                 height: auto;
                 position: relative;
@@ -1016,7 +994,7 @@
         }
 
         .img-blockchain-design {
-            &:nth-child(1){
+            &:nth-child(1) {
                 max-width: 100%;
                 height: auto;
                 position: absolute;
@@ -1033,7 +1011,7 @@
                 }
             }
 
-            &:nth-child(2){
+            &:nth-child(2) {
                 max-width: 100%;
                 height: auto;
                 position: relative;
@@ -1042,7 +1020,7 @@
         }
 
         .img-blockchain-mining {
-            &:nth-child(1){
+            &:nth-child(1) {
                 max-width: 100%;
                 height: auto;
                 position: absolute;
@@ -1059,7 +1037,7 @@
                 }
             }
 
-            &:nth-child(2){
+            &:nth-child(2) {
                 max-width: 100%;
                 height: auto;
                 position: relative;
@@ -1073,17 +1051,16 @@
     &:hover {
         // box-shadow: 0px 4px 20px 0px #F5BF25;
         // -webkit-filter: drop-shadow(0px 4px 20px 0px   #F5BF25);
-        filter: drop-shadow( 0px 4px 20px#F5BF25);
+        filter: drop-shadow(0px 4px 20px#F5BF25);
     }
 }
 /*----------------------------------------------------------
 2. General Service End
-------------------------------------------------------------*/ 
-
+------------------------------------------------------------*/
 
 /*----------------------------------------------------------
 3. Finance Advice Start
-------------------------------------------------------------*/ 
+------------------------------------------------------------*/
 #finance-ourconsulting {
     overflow: hidden;
     // .line-animation {
@@ -1101,7 +1078,6 @@
 
         p {
             line-height: 35px;
-
         }
     }
 
@@ -1156,40 +1132,37 @@
                 @include mix.lg {
                     top: -3rem;
                 }
-            
+
                 @include mix.xl2 {
                     top: -6rem;
                 }
-            
+
                 @include mix.xl3 {
                     top: -8rem;
                 }
             }
-
         }
 
         .wrap-text-service-one {
-            margin: 2rem 0;  
+            margin: 2rem 0;
 
             @include mix.lg {
                 margin: 0 1rem;
             }
-            
+
             .text-service-one {
                 line-height: 35px;
             }
         }
     }
-    
 }
 /*----------------------------------------------------------
 3. Finance Advice End
-------------------------------------------------------------*/ 
-
+------------------------------------------------------------*/
 
 /*----------------------------------------------------------
 4. Strategic Tax Start
-------------------------------------------------------------*/ 
+------------------------------------------------------------*/
 .strategic-for-corproat {
     background-color: var.$bg-box-300-pnglobal;
 
@@ -1200,7 +1173,7 @@
         background-repeat: no-repeat;
         background-size: cover;
         height: 20rem;
-        
+
         @include mix.lg {
             height: auto;
         }
@@ -1212,7 +1185,7 @@
             color: var.$text-primary-pnglobal;
             padding: 2rem 0rem 0rem 0rem;
             text-align: center;
-            
+
             @include mix.md {
                 text-align: start;
                 padding: 2rem 3rem 0rem 3rem;
@@ -1227,7 +1200,7 @@
         .box-content-subtitle {
             padding: 1rem 0rem 0rem 0rem;
             text-align: center;
-            
+
             @include mix.md {
                 text-align: start;
                 padding: 0.5rem 3rem 0rem 3rem;
@@ -1238,11 +1211,10 @@
             line-height: 30px;
             text-align: center;
             padding: 2rem 0rem 0rem 0rem;
-            
+
             @include mix.md {
                 text-align: start;
                 padding: 1.5rem 3rem 0rem 3rem;
-
             }
         }
     }
@@ -1259,12 +1231,11 @@
         background-repeat: no-repeat;
         background-size: cover;
         height: 20rem;
-        
+
         @include mix.lg {
             height: auto;
         }
     }
-
 
     .wrapper-box-content {
         display: flex;
@@ -1280,7 +1251,7 @@
             text-transform: uppercase;
             padding: 2rem 0rem 0rem 0rem;
             text-align: center;
-            
+
             @include mix.md {
                 text-align: start;
                 padding: 2rem 3rem 0rem 3rem;
@@ -1296,7 +1267,7 @@
             color: var.$text-white-pnglobal;
             padding: 1rem 0rem 0rem 0rem;
             text-align: center;
-            
+
             @include mix.md {
                 text-align: start;
                 padding: 0.5rem 3rem 0rem 3rem;
@@ -1308,49 +1279,47 @@
             color: var.$text-white-pnglobal;
             text-align: center;
             padding: 2rem 0rem 0rem 0rem;
-            
+
             @include mix.md {
                 text-align: start;
                 padding: 1.5rem 3rem 0rem 3rem;
-
             }
         }
     }
 }
 /*----------------------------------------------------------
 4. Strategic Tax End
-------------------------------------------------------------*/ 
-
+------------------------------------------------------------*/
 
 /*----------------------------------------------------------
 5. Legal Start
-------------------------------------------------------------*/ 
+------------------------------------------------------------*/
 .legal-short-desc {
     overflow: hidden;
     h1 {
         color: var.$text-primary-pnglobal;
         text-align: center;
         // clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
-        
+
         // .line-animation {
         //     @include mix.animation-reveal;
         // }
     }
-    
+
     h3 {
         margin-top: 1rem;
         text-align: center;
         // clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
-        
+
         // .line-animation {
         //     @include mix.animation-reveal;
         // }
     }
-    
+
     p {
         text-align: center;
         // clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
-    
+
         // .line-animation {
         //     @include mix.animation-reveal;
         // }
@@ -1358,7 +1327,7 @@
 }
 
 .legal-hand {
-    background: url('../../img/bg-hand.jpg'), #DED1C0;
+    background: url('../../img/bg-hand.jpg'), #ded1c0;
     background-position: center top;
     background-repeat: no-repeat;
     background-size: cover;
@@ -1393,7 +1362,7 @@
     margin-top: 5rem;
     overflow: hidden;
 
-    .wrapper-left{
+    .wrapper-left {
         display: flex;
         justify-content: end;
 
@@ -1406,7 +1375,7 @@
             right: -0.5rem;
         }
     }
-    
+
     .wrapper-right {
         video {
             position: relative;
@@ -1421,12 +1390,11 @@
 }
 /*----------------------------------------------------------
 5. Legal End
-------------------------------------------------------------*/ 
-
+------------------------------------------------------------*/
 
 /*----------------------------------------------------------
 6. Training Start
-------------------------------------------------------------*/ 
+------------------------------------------------------------*/
 .advance-training {
     background-color: var.$bg-black-pnglobal;
     margin: 0;
@@ -1435,7 +1403,7 @@
         color: var.$text-primary-pnglobal;
         margin-top: 3rem;
         // clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
-        
+
         // .line-animation {
         //     @include mix.animation-reveal;
         // }
@@ -1445,7 +1413,7 @@
         margin-top: 1rem;
         color: var.$text-white-pnglobal;
         // clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
-        
+
         // .line-animation {
         //     @include mix.animation-reveal;
         // }
@@ -1457,14 +1425,13 @@
         line-height: 35px;
         padding-bottom: 3rem;
         // clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
-        
+
         // .line-animation {
         //     @include mix.animation-reveal;
         // }
     }
 
     #g-advancetrainingimg {
-
         // clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
         // .line-animation {
         //     display: inline-block;
@@ -1494,10 +1461,8 @@
             background-color: var.$text-primary-pnglobal;
             opacity: 1;
         }
-        
     }
 }
-
 
 .training-grow {
     position: relative;
@@ -1518,29 +1483,27 @@
         }
 
         .wrap-text-grow-one {
-            margin: 4rem 0;  
-            padding: 1rem;  
+            margin: 4rem 0;
+            padding: 1rem;
 
             @include mix.lg {
                 margin: 0 1rem;
             }
-            
+
             .text-grow-one {
                 line-height: 35px;
                 margin-top: 2rem;
             }
         }
     }
-    
 }
 /*----------------------------------------------------------
 6. Training End
-------------------------------------------------------------*/ 
-
+------------------------------------------------------------*/
 
 /*----------------------------------------------------------
 7. Blockchain Start
-------------------------------------------------------------*/ 
+------------------------------------------------------------*/
 .blockchain-short-desc {
     // overflow-x: hidden;
     padding-top: 1rem;
@@ -1559,7 +1522,7 @@
             display: block;
         }
     }
-    
+
     .el-blockchain-2 {
         display: none;
         position: absolute;
@@ -1571,7 +1534,7 @@
             display: block;
         }
     }
-    
+
     .container {
         position: relative;
 
@@ -1579,20 +1542,18 @@
             color: var.$text-primary-pnglobal;
             text-align: center;
         }
-        
+
         p {
             text-align: center;
             padding-bottom: 3rem;
         }
-    
-      
     }
 }
 
 .blockchain-from-basic {
     background-color: var.$bg-box-600-pnglobal;
     margin-top: 20rem;
-    
+
     @include mix.md {
         margin-top: 22rem;
     }
@@ -1608,7 +1569,7 @@
         background-size: cover;
         height: 25rem;
         border-radius: 10px;
-        
+
         @include mix.lg {
             height: auto;
         }
@@ -1623,7 +1584,7 @@
             color: var.$text-white-pnglobal;
             padding: 2rem 0rem 0rem 0rem;
             text-align: center;
-            
+
             @include mix.md {
                 text-align: start;
                 padding: 2rem 3rem 0rem 3rem;
@@ -1639,7 +1600,7 @@
             padding: 1rem 0rem 0rem 0rem;
             text-align: center;
             color: var.$text-primary-pnglobal;
-            
+
             @include mix.md {
                 text-align: start;
                 padding: 1rem 3rem 0rem 3rem;
@@ -1651,11 +1612,10 @@
             text-align: center;
             padding: 2rem 0rem 0rem 0rem;
             color: var.$text-white-pnglobal;
-            
+
             @include mix.md {
                 text-align: start;
                 padding: 3rem 3rem 0rem 3rem;
-
             }
         }
     }
@@ -1670,20 +1630,20 @@
             padding: 4rem;
             height: 100%;
             border-radius: 10px;
-    
-            h3,h5 {
+
+            h3,
+            h5 {
                 color: var.$text-primary-pnglobal;
             }
-    
+
             p {
                 margin-top: 3rem;
                 color: var.$text-white-pnglobal;
                 line-height: 25px;
             }
         }
-
     }
-    
+
     .wrapper-cat {
         padding: 2rem;
         .bg-cat {
@@ -1693,7 +1653,7 @@
             background-size: cover;
             border-radius: 10px;
             height: 600px;
-            
+
             @include mix.lg {
                 height: 100%;
             }
@@ -1703,15 +1663,15 @@
 
 /*----------------------------------------------------------
 7. Blockchain End
-------------------------------------------------------------*/ 
+------------------------------------------------------------*/
 
 /*----------------------------------------------------------
 8. Satoshi Start
-------------------------------------------------------------*/ 
+------------------------------------------------------------*/
 .satoshi-banner {
     #g-text-downloadapp {
         // clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
-        
+
         // .line-animation {
         //     @include mix.animation-reveal;
         // }
@@ -1726,18 +1686,18 @@
     width: 100%;
     height: 100vh;
 
-    .wrapper-big-title{
+    .wrapper-big-title {
         padding-top: 3rem;
 
         .big-title {
             background-color: #000000;
-            color: #BFA573;
+            color: #bfa573;
             padding: 2rem;
-    
+
             h1 {
                 text-align: center;
                 font-size: 24px;
-                
+
                 @include mix.md {
                     font-size: 30px;
                 }
@@ -1751,14 +1711,18 @@
         @include mix.flex-tengah;
 
         .btn-join-now {
-            background-color: #252C32;
-            border: 1px solid #A8771A;
+            background-color: #252c32;
+            border: 1px solid #a8771a;
             padding: 1rem 3rem;
             border-radius: 9999999px;
 
             h1 {
-
-                background: linear-gradient(92deg, #A8771A 0%, #EEE4A0 48.28%, #A8771A 95.07%);
+                background: linear-gradient(
+                    92deg,
+                    #a8771a 0%,
+                    #eee4a0 48.28%,
+                    #a8771a 95.07%
+                );
                 background-clip: text;
                 -webkit-background-clip: text;
                 -webkit-text-fill-color: transparent;
@@ -1770,7 +1734,6 @@
             }
         }
     }
-
 }
 
 #bg-satoshi-price {
@@ -1784,7 +1747,7 @@
 }
 
 .satoshi-pricing {
-    background-color: #201E1D;
+    background-color: #201e1d;
     margin-top: 2rem;
     padding: 4rem 0rem;
 
@@ -1798,55 +1761,54 @@
             width: 0%;
             padding: 0.3rem;
             display: none;
-            
+
             @include mix.lg {
                 width: 16%;
                 display: block;
             }
 
             .wrapper {
-                background-color: #201E1D;
+                background-color: #201e1d;
                 border-radius: 10px;
-                
+
                 .header {
                     text-align: center;
                     padding: 0.7rem 0.7rem 0rem 0.7rem;
                     @include mix.flex-tengah;
                     justify-content: space-around;
                     height: 4rem;
- 
                 }
-                
+
                 .el-line {
                     width: 100%;
-                    svg{
+                    svg {
                         width: 100%;
                     }
                 }
 
                 .body-content {
                     padding: 1rem 0rem;
-                    .list{
+                    .list {
                         .text {
-                           background-color: #6F6969; 
-                           color: #FFFFFF;
-                           margin-bottom: 0.5rem;
-                           padding: 0.5rem;
-                           text-align: center;
-                           border-radius: 5px;
-                           height: 3rem;
-                           font-size: 14px;
-                           line-height: 2rem;
+                            background-color: #6f6969;
+                            color: #ffffff;
+                            margin-bottom: 0.5rem;
+                            padding: 0.5rem;
+                            text-align: center;
+                            border-radius: 5px;
+                            height: 3rem;
+                            font-size: 14px;
+                            line-height: 2rem;
                         }
                     }
                 }
             }
         }
-        
+
         .col-card {
             width: 95%;
             padding: 0.3rem;
-            
+
             @include mix.sm {
                 width: 50%;
             }
@@ -1856,13 +1818,13 @@
             }
 
             .wrapper {
-                background-color: #BFA573;
-                border-radius: 10px;    
+                background-color: #bfa573;
+                border-radius: 10px;
                 .header {
                     height: 4rem;
                     text-align: center;
                     padding: 0.7rem 0.7rem 0rem 0.7rem;
-                   @include mix.flex-tengah;
+                    @include mix.flex-tengah;
 
                     img {
                         height: 3rem;
@@ -1877,75 +1839,76 @@
                             font-size: 24px;
                             line-height: 20px;
                         }
-                        
+
                         .referral {
                             line-height: 20px;
-                             text-align: end;
-                             font-size: 20px;
-                             color: #CB161D;
-                             -webkit-text-stroke: 0.5px #fff;
-                         }
+                            text-align: end;
+                            font-size: 20px;
+                            color: #cb161d;
+                            -webkit-text-stroke: 0.5px #fff;
+                        }
                     }
                 }
 
                 .el-line {
                     width: 100%;
-                    svg{
+                    svg {
                         width: 100%;
                     }
                 }
 
                 .body-content {
                     padding: 1rem;
-                    .list{
+                    .list {
                         .text {
-                           background-color: #1E1E1E; 
-                           color: #FFFFFF;
-                           margin-bottom: 0.5rem;
-                           padding: 0.5rem;
-                           text-align: center;
-                           border-radius: 5px;
-                           height: 3rem;
-                           line-height: 2rem;
+                            background-color: #1e1e1e;
+                            color: #ffffff;
+                            margin-bottom: 0.5rem;
+                            padding: 0.5rem;
+                            text-align: center;
+                            border-radius: 5px;
+                            height: 3rem;
+                            line-height: 2rem;
                         }
                     }
                 }
 
                 &.use-referral {
-                    background-color: #ECCF98;
+                    background-color: #eccf98;
 
                     .header {
                         justify-content: space-around;
-                        
                     }
 
                     .body-content {
-                        .list{
+                        .list {
                             .text {
-                               background-color: #D49A1D; 
+                                background-color: #d49a1d;
                             }
                         }
                     }
                 }
-
             }
         }
     }
 }
 
 .satoshi-register {
-    background-color: #141312;
-    margin-top: 2rem;
+    background-color: #272626;
     padding: 4rem 0rem;
 
+    h1 {
+        color: #bfa573;
+    }
+
     .bg-satoshi-register {
-        background-color: #BFA573;
+        background-color: #bfa573;
         border-radius: 10px;
         padding: 4rem;
 
         .register-form {
             .form-control {
-                background-color: #FFFFFF;
+                background-color: #ffffff;
             }
         }
 
@@ -1958,7 +1921,17 @@
                 bottom: 10px;
             }
         }
+    }
 
+    .btn-satoshi-price-register {
+        padding: 20px 30px;
+        color: #000;
+        font-family: 'Noto Serif';
+        font-size: 24px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 25px; /* 104.167% */
+        text-transform: capitalize;
     }
 }
 
@@ -1968,11 +1941,11 @@
             input {
                 width: 80px !important;
                 height: 80px !important;
-                background-color: #D9D9D9 !important;
+                background-color: #d9d9d9 !important;
 
                 &:focus {
                     box-shadow: none;
-                    border: 3px solid #C5A571;
+                    border: 3px solid #c5a571;
                 }
             }
         }
@@ -1994,7 +1967,7 @@
     background-color: var.$bg-box-200-pnglobal;
     padding-top: 3rem;
     position: relative;
-    
+
     .container {
         position: relative;
 
@@ -2003,20 +1976,20 @@
             text-align: center;
             font-weight: 600;
         }
-        
+
         p {
             text-align: center;
             padding-bottom: 3rem;
             line-height: 30px;
         }
-    
+
         .el-satoshi-3 {
             position: absolute;
             bottom: 0rem;
             left: 0rem;
             z-index: 2;
         }
-        
+
         .el-satoshi-4 {
             position: absolute;
             bottom: 0;
@@ -2024,14 +1997,13 @@
         }
     }
 
-    
     &.method {
-        background-color: #FFFFFF;
+        background-color: #ffffff;
         padding-top: 1rem;
 
         .container {
             position: relative;
-            
+
             h4 {
                 padding-top: 0.5rem;
                 text-align: center;
@@ -2048,7 +2020,6 @@
 }
 
 .satoshi-buy-sell {
-    
     &.buy {
         background-color: var.$bg-black-pnglobal;
         padding: 4rem 0rem;
@@ -2056,40 +2027,42 @@
 
         .title {
             padding: 1rem;
-            
+
             @include mix.md {
                 padding: 2rem;
             }
 
-
             .wrapping-box {
                 width: 16rem;
-                
-                @include mix.md{
+
+                @include mix.md {
                     width: 7rem;
                 }
 
                 .box-buy {
                     width: auto;
                     border-radius: 8px;
-                    background: linear-gradient(180deg, #B48B3D 0%, #BFA573 100%);
+                    background: linear-gradient(
+                        180deg,
+                        #b48b3d 0%,
+                        #bfa573 100%
+                    );
                     padding: 1rem;
                     @include mix.flex-tengah-vertical;
                     @include mix.md {
                         border-radius: 25px;
                     }
 
-                    
                     h4 {
                         text-align: center;
                         color: var.$text-black-pnglobal;
                         font-weight: 700;
                     }
-    
+
                     img {
                         width: 50px;
                         margin-top: 0rem;
-                        
+
                         @include mix.md {
                             margin-top: 1rem;
                         }
@@ -2109,7 +2082,6 @@
                     @include mix.md {
                         display: block;
                     }
-
                 }
             }
         }
@@ -2130,19 +2102,23 @@
                         margin-top: 1.5rem;
 
                         &::before {
-                            content: ''; 
-                            position: absolute; 
-                            left: -3rem; 
+                            content: '';
+                            position: absolute;
+                            left: -3rem;
                             font-size: 1.2em;
-                            top: 50%; 
-                            transform: translateY(-50%); 
-                            background: linear-gradient(180deg, #B48B3D 0%, #BFA573 100%); 
-                            -webkit-background-clip: text; 
+                            top: 50%;
+                            transform: translateY(-50%);
+                            background: linear-gradient(
+                                180deg,
+                                #b48b3d 0%,
+                                #bfa573 100%
+                            );
+                            -webkit-background-clip: text;
                             background-clip: text;
                             color: transparent;
-                            
+
                             @include mix.md {
-                                content: '\2022'; 
+                                content: '\2022';
                             }
                         }
 
@@ -2161,35 +2137,34 @@
                             @include mix.lg {
                                 width: 240px;
                             }
-                            
+
                             @include mix.xl2 {
                                 width: 300px;
                             }
 
-
-                            
                             .card-header {
-                                background: linear-gradient(90deg, #B48B3D 0%, var.$text-primary-pnglobal 100%); 
+                                background: linear-gradient(
+                                    90deg,
+                                    #b48b3d 0%,
+                                    var.$text-primary-pnglobal 100%
+                                );
                                 color: var.$text-black-pnglobal;
                                 padding: 6px;
                                 border-radius: 15px 15px 0px 0px;
                                 text-align: center;
-                                
+
                                 h4 {
                                     font-size: 19px !important;
                                     font-weight: 800;
                                 }
-
                             }
-                            
+
                             .card-body {
                                 padding: 20px;
                                 text-align: center;
-                                font-size:  14px !important;
+                                font-size: 14px !important;
                                 color: var.$text-black-pnglobal;
                                 font-weight: 600;
-
-
                             }
 
                             .blink-white {
@@ -2206,14 +2181,12 @@
                         }
                     }
                 }
-
             }
-            
         }
 
         .desc {
             padding: 2rem;
-            
+
             @include mix.md {
                 padding: 0.5rem;
             }
@@ -2221,11 +2194,11 @@
             @include mix.lg {
                 padding: 0rem;
             }
-            
+
             @include mix.xl2 {
                 padding: 2rem;
             }
-            
+
             .wrapper-desc {
                 width: 100%;
                 height: 220px;
@@ -2244,7 +2217,7 @@
                     padding: 0rem 1.5rem;
                     text-align: center;
                     font-size: 12px;
-                    
+
                     @include mix.xs {
                         font-size: 14px;
                     }
@@ -2252,12 +2225,11 @@
                     @include mix.md {
                         font-size: 13px;
                     }
-                    
+
                     @include mix.lg {
                         font-size: 16px;
                     }
                 }
-
             }
         }
     }
@@ -2268,16 +2240,15 @@
 
         .title {
             padding: 1rem;
-            
+
             @include mix.md {
                 padding: 2rem;
             }
 
-
             .wrapping-box {
                 width: 16rem;
-                
-                @include mix.md{
+
+                @include mix.md {
                     width: 10rem;
                 }
 
@@ -2291,17 +2262,16 @@
                         border-radius: 25px;
                     }
 
-                    
                     h4 {
                         text-align: center;
                         color: var.$text-primary-pnglobal;
                         font-weight: 700;
                     }
-    
+
                     img {
                         width: 50px;
                         margin-top: 0rem;
-                        
+
                         @include mix.md {
                             margin-top: 1rem;
                         }
@@ -2311,7 +2281,11 @@
                 .button-sell {
                     width: auto;
                     color: var.$text-black-pnglobal;
-                    background: linear-gradient(180deg, #B48B3D 0%, #BFA573 100%);
+                    background: linear-gradient(
+                        180deg,
+                        #b48b3d 0%,
+                        #bfa573 100%
+                    );
                     padding: 0.5rem;
                     text-align: center;
                     margin-top: 0.3rem;
@@ -2321,7 +2295,6 @@
                     @include mix.md {
                         display: block;
                     }
-
                 }
             }
         }
@@ -2342,19 +2315,23 @@
                         margin-top: 1.5rem;
 
                         &::before {
-                            content: ''; 
-                            position: absolute; 
-                            left: -3rem; 
+                            content: '';
+                            position: absolute;
+                            left: -3rem;
                             font-size: 1.2em;
-                            top: 50%; 
-                            transform: translateY(-50%); 
-                            background: linear-gradient(180deg, #000000 0%, #000000 100%); 
-                            -webkit-background-clip: text; 
+                            top: 50%;
+                            transform: translateY(-50%);
+                            background: linear-gradient(
+                                180deg,
+                                #000000 0%,
+                                #000000 100%
+                            );
+                            -webkit-background-clip: text;
                             background-clip: text;
                             color: transparent;
-                            
+
                             @include mix.md {
-                                content: '\2022'; 
+                                content: '\2022';
                             }
                         }
 
@@ -2373,20 +2350,18 @@
                             @include mix.lg {
                                 width: 240px;
                             }
-                            
+
                             @include mix.xl2 {
                                 width: 300px;
                             }
 
-
-                            
                             .card-header {
-                                background: #000000; 
+                                background: #000000;
                                 color: var.$text-primary-pnglobal;
                                 padding: 6px;
                                 border-radius: 15px 15px 0px 0px;
                                 text-align: center;
-                                
+
                                 h4 {
                                     font-size: 19px !important;
                                     font-weight: 800;
@@ -2395,17 +2370,14 @@
                                         color: var.$text-white-pnglobal;
                                     }
                                 }
-
                             }
-                            
+
                             .card-body {
                                 padding: 20px;
                                 text-align: center;
-                                font-size:  14px !important;
+                                font-size: 14px !important;
                                 color: var.$text-black-pnglobal;
                                 font-weight: 600;
-
-
                             }
 
                             .blink-white {
@@ -2422,14 +2394,12 @@
                         }
                     }
                 }
-
             }
-            
         }
 
         .desc {
             padding: 2rem;
-            
+
             @include mix.md {
                 padding: 0.5rem;
             }
@@ -2437,11 +2407,11 @@
             @include mix.lg {
                 padding: 0rem;
             }
-            
+
             @include mix.xl2 {
                 padding: 2rem;
             }
-            
+
             .wrapper-desc {
                 width: 100%;
                 height: 220px;
@@ -2460,7 +2430,7 @@
                     padding: 0rem 1.5rem;
                     text-align: center;
                     font-size: 12px;
-                    
+
                     @include mix.xs {
                         font-size: 14px;
                     }
@@ -2468,12 +2438,11 @@
                     @include mix.md {
                         font-size: 13px;
                     }
-                    
+
                     @include mix.lg {
                         font-size: 16px;
                     }
                 }
-
             }
         }
     }
@@ -2485,23 +2454,26 @@
 
         .title {
             padding: 1rem;
-            
+
             @include mix.md {
                 padding: 2rem;
             }
 
-
             .wrapping-box {
                 width: 16rem;
-                
-                @include mix.md{
+
+                @include mix.md {
                     width: 10rem;
                 }
 
                 .box-multiple {
                     width: auto;
                     border-radius: 8px;
-                    background: linear-gradient(180deg, #383734 0%, #383734 100%);
+                    background: linear-gradient(
+                        180deg,
+                        #383734 0%,
+                        #383734 100%
+                    );
                     padding: 1rem;
 
                     @include mix.flex-tengah-vertical;
@@ -2509,21 +2481,20 @@
                         border-radius: 25px;
                     }
 
-                    
                     h4 {
                         text-align: center;
                         color: var.$text-white-pnglobal;
                         font-weight: 700;
-                        
+
                         span {
                             color: var.$text-primary-pnglobal;
                         }
                     }
-    
+
                     img {
                         width: 50px;
                         margin-top: 0rem;
-                        
+
                         @include mix.md {
                             margin-top: 1rem;
                         }
@@ -2543,7 +2514,6 @@
                     @include mix.md {
                         display: block;
                     }
-
                 }
             }
         }
@@ -2564,19 +2534,23 @@
                         margin-top: 1.5rem;
 
                         &::before {
-                            content: ''; 
-                            position: absolute; 
-                            left: -3rem; 
+                            content: '';
+                            position: absolute;
+                            left: -3rem;
                             font-size: 1.2em;
-                            top: 50%; 
-                            transform: translateY(-50%); 
-                            background: linear-gradient(180deg, #000000 0%, #000000 100%); 
-                            -webkit-background-clip: text; 
+                            top: 50%;
+                            transform: translateY(-50%);
+                            background: linear-gradient(
+                                180deg,
+                                #000000 0%,
+                                #000000 100%
+                            );
+                            -webkit-background-clip: text;
                             background-clip: text;
                             color: transparent;
-                            
+
                             @include mix.md {
-                                content: '\2022'; 
+                                content: '\2022';
                             }
                         }
 
@@ -2595,35 +2569,34 @@
                             @include mix.lg {
                                 width: 240px;
                             }
-                            
+
                             @include mix.xl2 {
                                 width: 300px;
                             }
 
-
-                            
                             .card-header {
-                                background: linear-gradient(90deg, #383734 0%, #9A9A9A 100%); 
+                                background: linear-gradient(
+                                    90deg,
+                                    #383734 0%,
+                                    #9a9a9a 100%
+                                );
                                 color: var.$text-primary-pnglobal;
                                 padding: 6px;
                                 border-radius: 15px 15px 0px 0px;
                                 text-align: center;
-                                
+
                                 h4 {
                                     font-size: 19px !important;
                                     font-weight: 800;
                                 }
-
                             }
-                            
+
                             .card-body {
                                 padding: 20px;
                                 text-align: center;
-                                font-size:  14px !important;
+                                font-size: 14px !important;
                                 color: var.$text-black-pnglobal;
                                 font-weight: 600;
-
-
                             }
 
                             .blink-white {
@@ -2640,14 +2613,12 @@
                         }
                     }
                 }
-
             }
-            
         }
 
         .desc {
             padding: 2rem;
-            
+
             @include mix.md {
                 padding: 0.5rem;
             }
@@ -2655,11 +2626,11 @@
             @include mix.lg {
                 padding: 0rem;
             }
-            
+
             @include mix.xl2 {
                 padding: 2rem;
             }
-            
+
             .wrapper-desc {
                 width: 100%;
                 height: 220px;
@@ -2678,7 +2649,7 @@
                     padding: 0rem 1.5rem;
                     text-align: center;
                     font-size: 12px;
-                    
+
                     @include mix.xs {
                         font-size: 14px;
                     }
@@ -2686,12 +2657,11 @@
                     @include mix.md {
                         font-size: 13px;
                     }
-                    
+
                     @include mix.lg {
                         font-size: 16px;
                     }
                 }
-
             }
         }
     }
@@ -2703,8 +2673,6 @@
         font-weight: 700;
     }
 }
-
-
 
 .mediation-satoshi {
     margin-top: 2rem;
@@ -2777,28 +2745,27 @@
                 height: auto;
             }
 
-
             .wrap-text-timeline {
-                // margin: 4rem 0;  
+                // margin: 4rem 0;
                 padding: 2rem;
-                
+
                 @include mix.lg {
-                    padding: 2rem 0rem 0rem 4rem;  
+                    padding: 2rem 0rem 0rem 4rem;
                 }
 
                 h3 {
                     text-align: center;
-                    
+
                     @include mix.lg {
                         text-align: start;
                     }
                 }
-                
+
                 .text-timeline {
                     line-height: 35px;
                     padding-bottom: 3rem;
                     text-align: center;
-                    
+
                     @include mix.lg {
                         text-align: start;
                     }
@@ -2824,31 +2791,29 @@
                 height: auto;
             }
 
-
             .wrap-text-commision {
-                // margin: 4rem 0;  
+                // margin: 4rem 0;
                 padding: 2rem;
-         
-                
+
                 @include mix.lg {
-                    padding: 4rem 7rem 0rem 7rem;  
+                    padding: 4rem 7rem 0rem 7rem;
                 }
 
                 h3 {
                     text-align: center;
-                    color: #FFFFFF;
-                    
+                    color: #ffffff;
+
                     @include mix.lg {
                         text-align: start;
                     }
                 }
-                
+
                 .text-commision {
-                    color: #FFFFFF;
+                    color: #ffffff;
                     line-height: 35px;
                     padding-bottom: 3rem;
                     text-align: center;
-                    
+
                     @include mix.lg {
                         text-align: start;
                     }
@@ -2871,7 +2836,7 @@
             background-repeat: no-repeat;
             background-size: cover;
             height: 300px;
-            
+
             @include mix.md {
                 height: auto;
             }
@@ -2891,7 +2856,6 @@
                     margin-bottom: 2rem;
                 }
             }
-
         }
     }
 
@@ -2907,7 +2871,7 @@
 
         .whitie {
             border-radius: 20px;
-            background: rgba(255, 255, 255, 0.90);
+            background: rgba(255, 255, 255, 0.9);
             padding: 2rem;
             margin-top: 5rem;
             position: relative;
@@ -2927,7 +2891,7 @@
         .bg-expert {
             width: 250px;
             margin-right: 4rem;
-            
+
             @include mix.md {
                 width: 550px;
             }
@@ -2941,7 +2905,6 @@
                 position: absolute;
                 bottom: -2rem;
                 right: -2rem;
-
             }
         }
 
@@ -2961,11 +2924,9 @@
                 position: absolute;
                 top: -2rem;
                 right: -2rem;
-
             }
         }
 
-        
         .strategy {
             width: 650px;
 
@@ -2975,10 +2936,9 @@
                 position: absolute;
                 bottom: -2rem;
                 right: 10rem;
-
             }
         }
-        
+
         // .bg-expert {
 
         // }
@@ -2986,7 +2946,7 @@
 }
 
 .satoshi-useapp {
-    background-color: #F0EADE;
+    background-color: #f0eade;
     padding-top: 2rem;
 
     .left-side {
@@ -2995,7 +2955,7 @@
             margin-top: 3rem;
             text-align: justify;
             padding-right: 2rem;
-            
+
             @include mix.lg {
                 padding-right: 10rem;
             }
@@ -3014,9 +2974,7 @@
         }
     }
 
-    
     #g-mobilesatoshi {
-        
         // clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
         // .line-animation {
         //     display: inline-block;
@@ -3050,29 +3008,25 @@
             width: 100%;
             object-fit: contain;
         }
-
     }
 }
 
-
 /*----------------------------------------------------------
 8. Satoshi End
-------------------------------------------------------------*/ 
+------------------------------------------------------------*/
 
 /*----------------------------------------------------------
 9. Connection Start
-------------------------------------------------------------*/ 
+------------------------------------------------------------*/
 .united-connections {
-
     .left-side {
         padding: 2rem;
-        
+
         @include mix.lg {
             padding: 0rem 3rem;
         }
 
         p {
-
             text-align: justify;
         }
     }
@@ -3094,12 +3048,11 @@
     }
 }
 
-#partner-connections {  
-
+#partner-connections {
     .cayman-wrapper {
         margin-top: 2rem;
         padding: 2rem 0rem;
-        background-color: #AFBEA8C9;
+        background-color: #afbea8c9;
         .cayman-logo {
             @include mix.flex-tengah;
             margin-bottom: 2rem;
@@ -3111,15 +3064,15 @@
         .cayman-text {
             .title {
                 text-transform: uppercase;
-                color: #01471F;
+                color: #01471f;
                 font-weight: 700;
             }
 
             .desc {
                 text-align: justify;
-                color: #383734D1;
+                color: #383734d1;
                 padding-right: 0rem;
-                
+
                 @include mix.lg {
                     padding-right: 6rem;
                 }
@@ -3129,7 +3082,7 @@
 
     .mif-wrapper {
         padding: 2rem 0rem;
-        background-color: #FFFFFF;
+        background-color: #ffffff;
         .mif-logo {
             @include mix.flex-tengah;
             margin-bottom: 2rem;
@@ -3148,7 +3101,7 @@
 
             .desc {
                 text-align: justify;
-                color: #383734D1;
+                color: #383734d1;
                 padding-left: 0rem;
 
                 @include mix.lg {
@@ -3160,7 +3113,7 @@
 
     .gp-wrapper {
         padding: 2rem 0rem;
-        background-color: #E8DDDC87;
+        background-color: #e8dddc87;
         .gp-logo {
             @include mix.flex-tengah;
             margin-bottom: 2rem;
@@ -3178,9 +3131,9 @@
 
             .desc {
                 text-align: justify;
-                color: #383734D1;
+                color: #383734d1;
                 padding-right: 0rem;
-                
+
                 @include mix.lg {
                     padding-right: 6rem;
                 }
@@ -3190,4 +3143,4 @@
 }
 /*----------------------------------------------------------
 9. Connection End
-------------------------------------------------------------*/ 
+------------------------------------------------------------*/

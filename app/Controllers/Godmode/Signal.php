@@ -8,18 +8,54 @@ class Signal extends BaseController
 {
     public function __construct()
     {
-        $session = session();
-        if(!$session->has('logged_user')){
-            header("Location: ". BASE_URL . 'godmode/auth/signin');
-            exit();
-        }
+        // $session = session();
+        // if(!$session->has('logged_user')){
+        //     header("Location: ". BASE_URL . 'godmode/auth/signin');
+        //     exit();
+        // }
+        // if ($_SESSION["logged_user"]->role=='member'){
+        //     header('HTTP/1.0 403 Forbidden');
+        //     exit();
+        // }
     }
     
     public function index()
     {
         // Call Endpoin read signal
-        $url = URLAPI . "/v1/signal/readsignal";
-        $result = satoshiAdmin($url)->result->message;
+        // $url = URLAPI . "/v1/signal/readsignal";
+        // $result = satoshiAdmin($url)->result->message;
+
+        // Data dummy untuk testing
+        $result = [
+            (object)[
+                'id' => 1,
+                'type' => 'Buy A',
+                'entry_price' => '50000',
+                'pair_id' => 1,
+                'created_at' => date('Y-m-d H:i:s')
+            ],
+            (object)[
+                'id' => 2,
+                'type' => 'Buy B',
+                'entry_price' => '51000',
+                'pair_id' => 2,
+                'created_at' => date('Y-m-d H:i:s')
+            ],
+            (object)[
+                'id' => 3,
+                'type' => 'Buy C',
+                'entry_price' => '52000',
+                'pair_id' => 3,
+                'created_at' => date('Y-m-d H:i:s')
+            ],
+            (object)[
+                'id' => 4,
+                'type' => 'Buy D',
+                'entry_price' => '49000',
+                'pair_id' => 4,
+                'created_at' => date('Y-m-d H:i:s')
+            ]
+        ];
 
         // Initial Array Buy A, Buy B, and Buy C
         $buy_a = array();
@@ -63,11 +99,21 @@ class Signal extends BaseController
             }
         }
 
-
-
         // Call Endpoin read history all signal
-        $url = URLAPI . "/v1/signal/readhistory";
-        $resultActive = satoshiAdmin($url)->result->message;
+        // $url = URLAPI . "/v1/signal/readhistory";
+        // $resultActive = satoshiAdmin($url)->result->message;
+
+        // Data dummy untuk history
+        $resultActive = [
+            (object)[
+                'id' => 1,
+                'type' => 'Buy A',
+                'entry_price' => '50000',
+                'pair_id' => 1,
+                'created_at' => date('Y-m-d H:i:s'),
+                'update_at' => date('Y-m-d H:i:s')
+            ]
+        ];
 
         // initialitation variable dengan tipe data array
         $newarray = [];
@@ -75,7 +121,6 @@ class Signal extends BaseController
  
         // Looping for grouping per period, pembatas field is Buy A again
         foreach($resultActive as $key => $dt){
-
             $temp = (object) [
                 'id' => $dt->id,
                 'type' => $dt->type,
@@ -129,6 +174,10 @@ class Signal extends BaseController
         // echo '<pre>'.print_r($buy_d,true).'</pre>';
         // die;
 
+        // $order = 'Buy A';  // Default value untuk testing
+        // $lastdate = date('Y-m-d H:i:s');  // Default value untuk testing
+        // $temp_price = '50000';  // Default value untuk testing
+
         $mdata = [
             'title'     => 'Signal - ' . SATOSHITITLE,
             'content'   => 'godmode/signal/index',
@@ -176,10 +225,10 @@ class Signal extends BaseController
         $mdata['entry'] = str_replace(',', '', $mdata['entry']);
         
         // Proccess Call Endpoin API
-        $url = URLAPI . "/v1/signal/sendsignal";
-        $response = satoshiAdmin($url, json_encode($mdata));
-        $result = $response->result;
-        echo json_encode($result);
+        // $url = URLAPI . "/v1/signal/sendsignal";
+        // $response = satoshiAdmin($url, json_encode($mdata));
+        // $result = $response->result;
+        // echo json_encode($result);
     }
 
     public function sellsignal()
@@ -214,8 +263,8 @@ class Signal extends BaseController
 
         // Looping Check Condition Sell Signal
         // Call Endpoin read signal
-        $url = URLAPI . "/v1/signal/readsignal";
-        $readsignal = satoshiAdmin($url)->result->message;
+        // $url = URLAPI . "/v1/signal/readsignal";
+        // $readsignal = satoshiAdmin($url)->result->message;
 
         // Initial Alpabhet
         $alphabet = ['A', 'B', 'C', 'D'];
@@ -309,8 +358,37 @@ class Signal extends BaseController
     public function list_history_order()
     {
         // Call Endpoin List History Order
-        $url = URLAPI . "/v1/signal/readhistory";
-        $result = satoshiAdmin($url)->result->message;
-        echo json_encode($result);
+        // $url = URLAPI . "/v1/signal/readhistory";
+        // $result = satoshiAdmin($url)->result->message;
+        // echo json_encode($result);
+    }
+
+    public function deletesignal()
+    {
+        $signal_id = htmlspecialchars($this->request->getVar('signal_id'));
+        // $url = URLAPI . "/v1/signal/cancelsignal?id=".$signal_id;
+        // $result = satoshiAdmin($url)->result->message;
+        if($result->code != '200') {
+            session()->setFlashdata('failed', $result->message);
+            return redirect()->to(BASE_URL . 'godmode/signal');
+        }else{
+            session()->setFlashdata('success', $result->message);
+            return redirect()->to(BASE_URL . 'godmode/signal');
+        }
+    }
+    
+    public function cancel_sell()
+    {
+        $signal_id  = htmlspecialchars($_GET['id']);
+        $pair_id    = htmlspecialchars($_GET['pair_id']);
+        // $url = URLAPI . "/v1/signal/cancel_sell?id=".$signal_id."&pair_id=".$pair_id;
+        // $result = satoshiAdmin($url)->result->message;
+        if($result->code != '200') {
+            session()->setFlashdata('failed', $result->message);
+            return redirect()->to(BASE_URL . 'godmode/signal');
+        }else{
+            session()->setFlashdata('success', $result->message);
+            return redirect()->to(BASE_URL . 'godmode/signal');
+        }
     }
 }

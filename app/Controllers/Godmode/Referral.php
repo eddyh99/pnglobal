@@ -6,6 +6,20 @@ use App\Controllers\BaseController;
 
 class Referral extends BaseController
 {
+    public function __construct()
+    {
+        // $session = session();
+        // if(!$session->has('logged_user')){
+        //     header("Location: ". BASE_URL . 'godmode/auth/signin');
+        //     exit();
+        // }
+        // if ($_SESSION["logged_user"]->role!='admin'){
+        //     header('HTTP/1.0 403 Forbidden');
+        //     exit();
+        // }
+        
+    }
+
     public function index()
     {
         $mdata = [
@@ -41,21 +55,9 @@ class Referral extends BaseController
         // Init Data
         $mdata = [
             'email'     => htmlspecialchars($this->request->getVar('email')),
-            'refcode'     => htmlspecialchars($this->request->getVar('refcode')),
+            'refcode'   => htmlspecialchars($this->request->getVar('refcode')),
+            'upline'    => htmlspecialchars($this->request->getVar('upline')),
         ];
-
-        // Proccess Endpoin API
-        $url = URLAPI . "/v1/member/create_referral";
-        $response = satoshiAdmin($url, json_encode($mdata));
-        $result = $response->result;
-        
-        if($result->code != '201') {
-            session()->setFlashdata('failed', $result->message);
-            return redirect()->to(BASE_URL . 'godmode/referral');
-        }else{
-            session()->setFlashdata('success', $result->message);
-            return redirect()->to(BASE_URL . 'godmode/referral');
-        }
     }
 
     public function detailreferral($type, $email)
@@ -64,12 +66,12 @@ class Referral extends BaseController
         $finaltype = base64_decode($type);
                 
         // Call Get Memeber By Email
-        $url = URLAPI . "/auth/getmember_byemail?email=".base64_decode($email);
-        $resultMember = satoshiAdmin($url)->result->message;
+        // $url = URLAPI . "/auth/getmember_byemail?email=".base64_decode($email);
+        // $resultMember = satoshiAdmin($url)->result->message;
 
         // Call Get Detail Referral
-        $url = URLAPI . "/v1/member/detailreferral?id=".$resultMember->id;
-        $resultReferral = satoshiAdmin($url)->result->message;
+        // $url = URLAPI . "/v1/member/detailreferral?id=".$resultMember->id;
+        // $resultReferral = satoshiAdmin($url)->result->message;
 
         $mdata = [
             'title'     => 'Detail Member - ' . SATOSHITITLE,
@@ -92,25 +94,21 @@ class Referral extends BaseController
             'id'    => htmlspecialchars($this->request->getVar('id')),
             'type'  => htmlspecialchars($this->request->getVar('type')),
         ];
-
-        // Proccess Endpoin API
-        $url = URLAPI . "/v1/member/paid_referral?id=".$mdata['id']."&is_paid=".$mdata['type'];
-        $response = satoshiAdmin($url, json_encode($mdata));
-        $result = $response->result;
-        
-        if($result->code != '200') {
-            session()->setFlashdata('failed', "Something Wrong, Please Try Again!");
-            return redirect()->to(BASE_URL . 'godmode/referral/detailreferral/'.$type.'/'.$email);
-        }else{
-
-            if($mdata['type'] == 'yes'){
-                session()->setFlashdata('success', "Successfully paid transaction");
-            }else{
-                session()->setFlashdata('success', "Successfully cancel transaction");
-            }
-            return redirect()->to(BASE_URL . 'godmode/referral/detailreferral/'.$type.'/'.$email);
-        }    
         
     }
     
+    public function cancelreferral($email){
+        $email  = base64_decode($email);
+
+        // $url = URLAPI . "/v1/referral/cancel_referral?email=".$email;
+        // $response = satoshiAdmin($url);
+        // $result = $response->result;
+        // if($result->code != '200') {
+        //     session()->setFlashdata('failed', "Something Wrong, Please Try Again!");
+        //     return redirect()->to(BASE_URL . 'godmode/referral/detailreferral/' . base64_encode($email));
+        // }else{
+        //     session()->setFlashdata('success', "Success Cancelled");
+        //     return redirect()->to(BASE_URL . 'godmode/dashboard/detailmember/'.base64_encode('totalmember').'/'. base64_encode($email));
+        // }    
+    }
 }

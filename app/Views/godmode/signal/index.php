@@ -1,4 +1,29 @@
-
+<?php if(!empty(session('failed'))) { ?>
+<div class="alert alert-danger fade show position-absolute" style="top: 1rem; right: 1rem; width: 30%; z-index: 99999;" role="alert">
+    <div class="iq-alert-icon">
+        <i class="ri-information-line"></i>
+    </div>
+    <div class="iq-alert-text text-black">
+        <?= session('failed')?>
+    </div>
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <i class="ri-close-line text-black"></i>
+    </button>
+</div>
+<?php }?>
+<?php if(!empty(session('success'))) { ?>
+<div class="alert alert-success fade show position-absolute" style="top: 1rem; right: 1rem; width: 30%; z-index: 99999;" role="alert">
+    <div class="iq-alert-icon">
+        <i class="ri-information-line"></i>
+    </div>
+    <div class="iq-alert-text text-black">
+        <?= session('success')?>
+    </div>
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <i class="ri-close-line text-black"></i>
+    </button>
+</div>
+<?php }?>
 
 <!-- Page Content  -->
 <div class="content-page mb-5">
@@ -43,7 +68,11 @@
                                                             name="price" 
                                                             readonly>
                                                     </div>
-                                                    <button id="send-buy-a" disabled class="btn btn-primary">Send</button>
+                                                    <button id="send-buy-a" disabled class="btn btn-primary">Send</button>&nbsp;&nbsp;
+                                                    <form action="<?=BASE_URL?>godmode/signal/deletesignal" method="POST">
+                                                        <input type="hidden" name="signal_id" value="<?=@$buy_a['id']?>">
+                                                        <button id="cancel-buy-a" class="btn btn-danger"  <?php echo (!empty($buy_b) || !empty($buy_c) || !empty($buy_d) ? "disabled" : "" )?>>Cancel</button>
+                                                    </form>
                                                 <?php } else {?>
                                                     <!-- Jika BUY A belum send signal -->
                                                     <div class="inside-buy">
@@ -57,7 +86,8 @@
                                                             class="price-input"  
                                                             name="price">
                                                     </div>
-                                                    <button id="send-buy-a" class="btn btn-primary">Send</button>
+                                                    <button id="send-buy-a" class="btn btn-primary">Send</button>&nbsp;&nbsp;
+                                                    <button id="cancel-buy-a" disabled class="btn btn-danger">Cancel</button>
                                                 <?php } ?>
                                             </div>
                                         </div>
@@ -78,13 +108,19 @@
                                                             name="price"
                                                         >
                                                     </div>
-                                                    <button id="send-buy-b" class="btn btn-primary">Send</button>
+                                                    <button id="send-buy-b" class="btn btn-primary">Send</button>&nbsp;&nbsp;
+                                                    <button id="cancel-buy-b" disabled class="btn btn-danger">Cancel</button>
                                                 <?php } else {?>
                                                     <!-- Jika Buy B sudah send signal -->
                                                     <div class="inside-buy">
                                                         <div class="buy-title d-flex justify-content-between align-items-end">
                                                             <span class="buy-text">BUY - B</span>
-                                                            <span id="buy-date-b" class="buy-date"><?= @$buy_b['created_at']?></span>
+                                                            <span id="buy-date-b" class="buy-date">
+                                                                <?php
+                                                                    $newDate = date('d/m/Y H:i', strtotime(@$buy_b['created_at']));
+                                                                    echo $newDate;
+                                                                ?>
+                                                            </span>
                                                         </div>
                                                         <input 
                                                             id="buy-b"
@@ -94,7 +130,11 @@
                                                             value="<?= @$buy_b['entry_price']?>"
                                                             readonly>
                                                     </div>
-                                                    <button id="send-buy-b" disabled class="btn btn-primary">Send</button>
+                                                    <button id="send-buy-b" disabled class="btn btn-primary">Send</button>&nbsp;&nbsp;
+                                                    <form action="<?=BASE_URL?>godmode/signal/deletesignal" method="POST">
+                                                        <input type="hidden" name="signal_id" value="<?=@$buy_b['id']?>">
+                                                        <button type="submit" id="cancel-buy-b" class="btn btn-danger" <?php echo (!empty($buy_c) || !empty($buy_d) || empty($buy_a) ? "disabled" : "" )?>>Cancel</button>
+                                                    </form>
                                                 <?php } ?>
                                             </div>
                                         </div>
@@ -106,7 +146,7 @@
                                                     <div class="inside-buy">
                                                         <div class="buy-title d-flex justify-content-between align-items-end">
                                                             <span class="buy-text">BUY - C</span>
-                                                            <span id="buy-date-" class="buy-date"></span>
+                                                            <span id="buy-date-c" class="buy-date"></span>
                                                         </div>
                                                         <input 
                                                             id="buy-c"
@@ -114,13 +154,19 @@
                                                             class="price-input" 
                                                             name="price">
                                                     </div>
-                                                    <button id="send-buy-c" class="btn btn-primary">Send</button>
+                                                    <button id="send-buy-c" class="btn btn-primary">Send</button>&nbsp;&nbsp;
+                                                    <button id="cancel-buy-c" disabled class="btn btn-danger">Cancel</button>
                                                 <?php } else {?>
                                                     <!-- Jika Buy C sudah send signal -->
                                                     <div class="inside-buy">
                                                         <div class="buy-title d-flex justify-content-between align-items-end">
                                                             <span class="buy-text">BUY - C</span>
-                                                            <span id="buy-date-c" class="buy-date"><?= @$buy_c['created_at']?></span>
+                                                            <span id="buy-date-c" class="buy-date">
+                                                                <?php
+                                                                    $newDate = date('d/m/Y H:i', strtotime(@$buy_c['created_at']));
+                                                                    echo $newDate;
+                                                                ?>
+                                                            </span>
                                                         </div>
                                                         <input 
                                                             id="buy-c"
@@ -130,7 +176,11 @@
                                                             value="<?= @$buy_c['entry_price']?>"
                                                             readonly>
                                                     </div>
-                                                    <button id="send-buy-c" disabled class="btn btn-primary">Send</button>
+                                                    <button id="send-buy-c" disabled class="btn btn-primary">Send</button>&nbsp;&nbsp;
+                                                    <form action="<?=BASE_URL?>godmode/signal/deletesignal" method="POST">
+                                                        <input type="hidden" name="signal_id" value="<?=@$buy_c['id']?>">
+                                                        <button type="submit" id="cancel-buy-c" class="btn btn-danger" <?php echo (!empty($buy_d) || empty($buy_b) ? "disabled" : "" )?>>Cancel</button>
+                                                    <form>
                                                 <?php } ?>
                                             </div>
                                         </div>
@@ -151,12 +201,19 @@
                                                             name="price">
                                                     </div>
                                                     <button id="send-buy-d" class="btn btn-primary">Send</button>
+                                                    &nbsp;&nbsp;
+                                                    <button type="submit" id="cancel-buy-d" disabled class="btn btn-danger">Cancel</button>
                                                 <?php } else {?>
                                                     <!-- Jika Buy D sudah send signal -->
                                                     <div class="inside-buy">
                                                         <div class="buy-title d-flex justify-content-between align-items-end">
                                                             <span class="buy-text">BUY - D</span>
-                                                            <span id="buy-date-d" class="buy-date"><?= @$buy_d['created_at']?></span>
+                                                            <span id="buy-date-d" class="buy-date">
+                                                                <?php
+                                                                    $newDate = date('d/m/Y H:i', strtotime(@$buy_d['created_at']));
+                                                                    echo $newDate;
+                                                                ?>
+                                                            </span>
                                                         </div>
                                                         <input 
                                                             id="buy-d"
@@ -166,7 +223,11 @@
                                                             value="<?= @$buy_d['entry_price']?>"
                                                             readonly>
                                                     </div>
-                                                    <button id="send-buy-d" disabled class="btn btn-primary">Send</button>
+                                                    <button id="send-buy-d" disabled class="btn btn-primary">Send</button>&nbsp;&nbsp;
+                                                    <form action="<?=BASE_URL?>godmode/signal/deletesignal" method="POST">
+                                                        <input type="hidden" name="signal_id" value="<?=@$buy_d['id']?>">
+                                                        <button type="submit" id="cancel-buy-d" class="btn btn-danger" <?php echo (empty($buy_d) ? "disabled" : "" )?>>Cancel</button>
+                                                    </form>
                                                 <?php } ?>
                                             </div>
                                         </div>
@@ -324,6 +385,7 @@
                             <th>PRICE</th>
                             <th>DATE</th>
                             <th>TIME</th>
+                            <th>ACTION</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -365,4 +427,3 @@
         }, 100);
     <?php }?>
 </script>
-

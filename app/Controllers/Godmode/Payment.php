@@ -1,0 +1,80 @@
+<?php
+
+namespace App\Controllers\Godmode;
+
+use App\Controllers\BaseController;
+
+class Payment extends BaseController
+{
+    public function __construct()
+    {
+        // $session = session();
+        // if(!$session->has('logged_user')){
+        //     header("Location: ". BASE_URL . 'godmode/auth/signin');
+        //     exit();
+        // }
+        // if ($_SESSION["logged_user"]->role!='admin'){
+        //     header('HTTP/1.0 403 Forbidden');
+        //     exit();
+        // }
+        
+    }
+    
+    public function index()
+    {
+        $mdata = [
+            'title'     => 'Payment - ' . SATOSHITITLE,
+            'content'   => 'godmode/payment/index',
+            'extra'     => 'godmode/payment/js/_js_index',
+            'active_payment'    => 'active active-menu'
+        ];
+
+        return view('godmode/layout/admin_wrapper', $mdata);
+    }
+    
+    public function get_requestpayment(){
+        // Call Endpoin Get Total Member
+        
+    }
+
+    public function detailpayment($id,$email)
+    {
+        // Call Get Detail Request
+        // $url = URLAPI . "/v1/payment/detailpayment?email=".base64_decode($email)."&id=".$id;
+        // $resultPayment = satoshiAdmin($url)->result->message;
+        $resultPayment = [];
+
+        $mdata = [
+            'title'     => 'Detail Member - ' . SATOSHITITLE,
+            'content'   => 'godmode/payment/detail_payment',
+            'extra'     => 'godmode/payment/js/_js_detailpayment',
+            'active_payment'  => 'active',
+            'payment'    => $resultPayment,
+        ];
+
+        return view('godmode/layout/admin_wrapper', $mdata);
+    }
+
+    public function payment_process()
+    {
+        // Init Data
+        $mdata = [
+            'member_id'    => htmlspecialchars($this->request->getVar('member_id')),
+            'reqid'  => htmlspecialchars($this->request->getVar('reqid')),
+        ];
+
+        
+        
+    }
+    
+    public function sendbonus(){
+        // Init Data
+        $mdata = [
+            'email'    => htmlspecialchars($this->request->getVar('email')),
+            'amount'  => htmlspecialchars($this->request->getVar('amount')),
+        ];
+        
+            
+    }
+    
+}

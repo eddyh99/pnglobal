@@ -18,11 +18,12 @@ class GoogleCalendarService
     public function __construct()
     {
         $this->client = new Google_Client();
-        $this->client->setApplicationName('Your Application Name');
+        $this->client->setApplicationName('PN Global Booking System');
         $this->client->setScopes(Google_Service_Calendar::CALENDAR);
         $this->client->setAuthConfig(WRITEPATH . 'google/credentials.json');
         $this->client->setAccessType('offline');
-        $this->client->setRedirectUri('http://localhost/clean/oauth2callback'); // Ensure this matches your redirect URI
+        $this->client->setPrompt('consent');
+        $this->client->setRedirectUri(BASE_URL . 'oauth2callback');
 
         // Load previously authorized token from a file, if it exists.
         $tokenPath = WRITEPATH . 'google/token.json';
@@ -35,12 +36,12 @@ class GoogleCalendarService
         if ($this->client->isAccessTokenExpired()) {
             if ($this->client->getRefreshToken()) {
                 $this->client->fetchAccessTokenWithRefreshToken($this->client->getRefreshToken());
+                file_put_contents($tokenPath, json_encode($this->client->getAccessToken()));
             } else {
-                // Obtain a new token
-                // You may need to redirect to the authorization URL and obtain a new token
-                // This part is application-specific and might require user interaction
+                // Token sudah expired dan tidak ada refresh token
+                log_message('error', 'Google Calendar token expired and no refresh token available');
+                throw new \RuntimeException('Google Calendar authentication failed. Please re-authenticate.');
             }
-            file_put_contents($tokenPath, json_encode($this->client->getAccessToken()));
         }
 
         $this->calendarService = new Google_Service_Calendar($this->client);

@@ -15,26 +15,8 @@
         "columns": [
             { data: 'email'},
             { data: 'refcode'},
-            { data: 'total_referral'},
-            { data: 'total_unpaid_subscriptions'},
-            { 
-                data: null, 
-                "mRender": function(data, type, full, meta) {
-                    if(full.total_unpaid_commission == null){
-                        return 0;
-                    }
-                    return parseInt(full.total_unpaid_commission) + " EUR";
-                } 
-            },
-            { 
-                data: null, 
-                "mRender": function(data, type, full, meta) {
-                    if(full.total_unpaid_commission_previous_month == null){
-                        return 0;
-                    }
-                    return parseInt(full.total_unpaid_commission_previous_month) + " EUR";
-                } 
-            },
+            { data: 'downline'},
+            { data: 'unpaid_commission'},
             { 
                 data: null, 
                 "mRender": function(data, type, full, meta) {

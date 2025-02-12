@@ -30,9 +30,9 @@
                 With the Satoshi Signal app, you connect directly with the best PN Global brokers who analyze the market 24/7. Using our proven method, you receive precise buy and sell signals to maximize your profits without risks.
             </p>
             <div class="button-wrapper">
-                <button class="activate-button">
+                <a href="<?= BASE_URL ?>homepage/satoshi_price#register" class="activate-button">
                     Activate Now and Receive the Exclusive Discount!
-                </button>
+                </a>
             </div>
         </div>
     </div>
@@ -132,7 +132,9 @@
                     <p class="description">Enjoy the financial freedom you've always dreamed. Our reliable returns, backed by our deep market knowledge and real-time analysis, ensure your financial success.</p>
                     <p class="highlight">Join us today and start earning consistent profits.</p>
                     <div class="button-wrapper">
-                        <button class="profit-button">Turn your savings <br> into profits</button>
+                        <a href="<?= BASE_URL ?>homepage/satoshi_price#register" class="profit-button">
+                            Turn your savings <br> into profits
+                        </a>
                     </div>
                 </div>
                 <div class="image-content">
@@ -266,9 +268,9 @@
                     The more people you involve, the more you earn passively, month after month, year after year.
                     Invite your friends now and start building an automatic and continuous income!
                 </p>
-                <button class="share-button">
+                <a href="<?= BASE_URL ?>homepage/satoshi_price#register" class="share-button">
                     Earn Now!<br>Click Here to Start
-                </button>
+                </a>
             </div>
         </div>
     </div>
@@ -350,9 +352,9 @@
                         <p class="description">
                             Our Secret Formula, developed by PN Global expert brokers, provides you with all the tools you need to achieve extraordinary results. Without the need to study complex financial theories, you can maximize the potential of our app and start earning right away.
                         </p>
-                        <button class="discover-button">
+                        <a href="<?= BASE_URL ?>homepage/satoshi_price#register" class="discover-button">
                             DISCOVER OUR <br> "SECRET FORMULA"
-                        </button>
+                        </a>
                     </div>
                     <div class="image-content">
                         <img src="<?= BASE_URL ?>assets/img/ic_unveil.png" alt="Unveil">

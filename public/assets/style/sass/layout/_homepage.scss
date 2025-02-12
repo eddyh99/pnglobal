@@ -21,6 +21,10 @@
 @use '../abstracts/mixins' as mix;
 // @use '../abstracts/animations' as anim;
 
+.page-wrapper-homepage {
+    background-color: #000;
+}
+
 /*----------------------------------------------------------
 1. Banner Homepage Start
 ------------------------------------------------------------*/
@@ -215,8 +219,11 @@
 /*----------------------------------------------------------
 2. Future Start
 ------------------------------------------------------------*/
+.homepage-future-section {
+    background-color: #fff;
+}
 
-.future-heading {
+.homepage-future-heading {
     color: var.$text-primary-pnglobal;
     text-align: center;
     font-family: var.$f-noto;
@@ -227,7 +234,7 @@
     text-transform: uppercase;
 }
 
-.future-text {
+.homepage-future-text {
     color: #000;
     text-align: center;
     font-family: var.$f-noto;
@@ -237,7 +244,7 @@
     line-height: 25px;
 }
 
-.future-cta {
+.homepage-future-cta {
     color: #000;
     text-align: center;
     font-family: var.$f-noto;
@@ -247,11 +254,10 @@
     line-height: 25px;
     padding: 0 15px;
     margin: 0 auto;
-    // max-width: fit-content;
 }
 
 /*----------------------------------------------------------
-2. Future End End
+2. Future End
 ------------------------------------------------------------*/
 
 /*----------------------------------------------------------
@@ -372,9 +378,16 @@
         min-height: 100vh; // Tambahkan ini
         padding-bottom: 10rem; // Tambahkan padding bawah
 
+        .bg-title-something-big {
+            background: url('../../img/bg-title-something-big.PNG') no-repeat
+                center center;
+            background-size: cover;
+            padding: 2rem;
+        }
+
         header {
             width: 100%;
-            background-color: #bda069b0;
+            // background-color: #bda069b0;
             padding: 1rem;
             text-align: center;
             text-transform: uppercase;
@@ -560,20 +573,54 @@
 /*----------------------------------------------------------
 5. Earning Section Start
 ------------------------------------------------------------*/
+// Style untuk section title yang terpisah
+.earning-title {
+    background-color: var.$bg-black-pnglobal; // atau warna lain sesuai desain
+    padding: 20px 0;
+    .container {
+        position: relative;
+        z-index: 2;
+    }
+    .title-wrapper {
+        background-color: transparent;
+        text-align: center;
+        .title {
+            color: #bda069;
+            font-family: var.$f-odor;
+            font-size: 40px;
+            font-weight: 400;
+            line-height: 50px;
+            text-transform: uppercase;
+            margin: 0 auto;
+            max-width: 800px;
+        }
+        .subtitle {
+            color: #fff;
+            font-family: var.$f-noto;
+            font-size: 20px;
+            font-weight: 600;
+            line-height: 144.687%;
+            margin: 10px auto 0;
+            max-width: 700px;
+        }
+    }
+}
+
+// Ubah .earning-section agar tidak lagi mengandung title-wrapper
 .earning-section {
     position: relative;
     background-color: var.$bg-black-pnglobal;
     padding: 0;
     margin: 0;
-    min-height: 100vh; // Changed from fixed height≈
-    overflow: visible; // Prevent image overflow
+    min-height: 100vh;
+    overflow: visible;
 
     .earning-bg {
         position: absolute;
-        top: 0;
+        top: 0; // video mulai dari atas section
         left: 0;
         width: 100%;
-        height: 100%;
+        height: 100%; // video memenuhi keseluruhan section
 
         video {
             width: 100%;
@@ -589,94 +636,50 @@
     .container {
         position: relative;
         z-index: 2;
-        top: 0;
-        max-width: 100% !important;
-        padding: 0 !important;
-        margin: 0 !important;
+        width: 100%;
+        padding: 100px 115px 0; // 100px atas, 115px kiri dan kanan
+        margin: 0 auto;
     }
 
-    .title-wrapper {
-        background-color: rgba(0, 0, 0, 0.7);
-        width: 100%;
-        padding: 20px 0 80px;
+    .cards-container {
         position: relative;
-        z-index: 1;
-        margin-bottom: 0;
+        z-index: 2;
+        width: 100%;
+        margin: 0 auto;
+        padding: 25px;
+        background: none;
 
-        .inner-wrapper {
-            width: 100%;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 15px;
+        .custom-card {
+            border: 1px solid #000;
+            background: rgba(0, 0, 0, 0.76);
+            box-shadow: 0px 4px 20px 10px #fff;
+            overflow: hidden;
+            padding: 3rem;
+            margin-bottom: 1rem;
+            min-height: 450px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
         }
 
-        .title {
-            color: #fff;
-            text-align: center;
-            font-family: var.$f-odor;
-            font-size: 40px;
-            font-weight: 400;
-            line-height: 50px;
-            text-transform: uppercase;
-            margin: 0 auto;
-            max-width: 800px;
-
-            .highlight {
-                color: #bfa573;
-            }
+        .divider {
+            width: 80%;
+            height: 4px;
+            background: #e98c1b;
+            box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+            margin: 1rem 0;
+            align-self: flex-start;
         }
 
-        .subtitle {
+        .card-text {
             color: #fff;
-            text-align: center;
-            font-family: var.$f-noto;
-            font-size: 20px;
+            font-family: 'Noto Serif', serif;
+            font-size: 22px;
+            font-style: normal;
             font-weight: 600;
             line-height: 144.687%;
-            margin: 10px auto 0;
-            max-width: 700px;
         }
-    }
-
-    .highlight-title {
-        color: #c5a571;
-        text-align: center;
-        font-family: var.$f-noto;
-        font-size: 25px;
-        font-weight: 900;
-        line-height: 35px;
-        text-transform: uppercase;
-        margin-bottom: 2rem;
-    }
-
-    .description {
-        color: #fff;
-        text-align: center;
-        font-family: var.$f-noto;
-        font-size: 18px;
-        font-weight: 600;
-        line-height: 30px;
-        margin-bottom: 2rem;
-    }
-
-    .content-gradient-wrapper {
-        background: linear-gradient(
-            90deg,
-            rgba(0, 0, 0, 0.9) 57.83%,
-            #fff 154.12%
-        );
-        position: relative;
-        z-index: 2;
-        width: fit-content;
-        margin: -50px auto 0;
-        padding: 25px;
-        position: relative;
-        z-index: 2;
-    }
-
-    .content-wrapper {
-        max-width: 620px;
-        margin: 0 auto;
     }
 
     .button-wrapper {
@@ -720,8 +723,14 @@
     position: relative;
     margin: 0;
     padding-bottom: 30px;
-    background-color: #000;
-
+    background: linear-gradient(
+        321deg,
+        #000 6.14%,
+        #101010 22.77%,
+        #313131 43.59%,
+        #000 65.77%,
+        #111 87.49%
+    );
     .container {
         padding: 0 28px;
 
@@ -731,12 +740,26 @@
     }
 
     .col-12.col-lg-6 {
+        padding: 0 100px;
         &:last-child {
             .service-cards {
-                height: 100%;
-                justify-content: center;
+                justify-content: flex-start;
             }
         }
+    }
+
+    .section-title-bg {
+        width: 100vw;
+        height: 200px;
+        padding: 30px 0;
+        background: url('../../img/bg-our-service.png') no-repeat center center;
+        background-size: cover;
+        box-shadow: 0 4px 4px rgba(0, 0, 0, 0.1);
+        position: relative;
+        left: 50%;
+        right: 50%;
+        margin-left: -50vw;
+        margin-right: -50vw;
     }
 
     .section-title {
@@ -751,40 +774,51 @@
         line-height: 40px;
         text-transform: uppercase;
         margin: 0;
-        padding: 20px 0;
-        background-color: #fff;
-        width: 100%;
-        margin-bottom: 40px;
-        box-shadow: 0 4px 4px rgba(0, 0, 0, 0.1);
     }
 
     .service-cards {
         display: flex;
         flex-direction: column;
-        gap: 24px;
+        gap: 50px;
+        margin-top: 50px;
     }
 
     .service-card {
         border-radius: 5px;
-        border: 1px solid #bfa573;
-        background: radial-gradient(
-            circle at right,
-            #656565 0%,
-            #000 50%,
-            #000 100%
+        // border: #fff solid 1px;
+        background: linear-gradient(
+            259deg,
+            rgba(101, 101, 101, 0.75) 6.7%,
+            #000 57.93%
         );
         padding: 24px;
         min-height: 200px;
+        position: relative;
+
+        .row {
+            .col-3 {
+                width: auto;
+            }
+            .col-9 {
+                width: calc(100% - 80px);
+            }
+        }
 
         .service-image {
-            height: 100%;
-            width: 100%;
+            position: absolute;
+            top: -20px; // sesuaikan nilai ini sesuai kebutuhan
+            left: -20px; // sesuaikan nilai ini sesuai kebutuhan
+            width: 60px; // ukuran badge, bisa disesuaikan
+            height: 60px;
+            overflow: visible;
+            border-radius: 50%; // membentuk badge bundar
             display: flex;
             align-items: center;
+            justify-content: center;
 
             img {
-                max-width: 110px;
-                max-height: 129px;
+                max-width: 70px;
+                max-height: 70px;
                 object-fit: contain;
             }
         }
@@ -856,6 +890,8 @@
 7. Who We Are Start
 ------------------------------------------------------------*/
 .who-we-are {
+    margin-top: 100px;
+
     .container {
         background: linear-gradient(
             135deg,
@@ -871,6 +907,25 @@
         margin: 0;
     }
 
+    .section-title-bg {
+        width: 100vw;
+        height: 250px;
+        padding: 30px 0;
+        background: url('../../img/bg-who-we-are.png') no-repeat center center;
+        background-size: cover;
+        box-shadow: 0 4px 4px rgba(0, 0, 0, 0.1);
+        position: relative;
+        left: 50%;
+        right: 50%;
+        margin-left: -50vw;
+        margin-right: -50vw;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding-bottom: 20px;
+    }
+
     .section-title {
         color: #000;
         text-align: center;
@@ -879,9 +934,10 @@
         font-style: normal;
         font-weight: 800;
         line-height: 40px;
+        text-align: center;
         text-transform: uppercase;
         margin: 0;
-        padding: 20px 0;
+        margin-top: 20px;
     }
 
     .who-image {
@@ -953,7 +1009,7 @@
 ------------------------------------------------------------*/
 .quotes {
     position: relative;
-    padding: 120px 0;
+    padding: 150px 0;
 
     .quotes-bg {
         position: absolute;
@@ -1265,3 +1321,76 @@
 /*----------------------------------------------------------
 10. First Step End
 ------------------------------------------------------------*/
+
+.newsletter-card-section {
+    background: #000;
+    padding: 50px 0;
+
+    .container {
+        margin: 0 auto;
+        padding: 0 15px;
+    }
+    .newsletter-card {
+        background: #fff;
+        padding: 30px;
+        min-height: 350px;
+        border-radius: 5px;
+        text-align: center;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+        .card-title {
+            color: #000;
+            font-family: var.$f-noto;
+            font-size: 32px;
+            font-style: normal;
+            font-weight: 800;
+            line-height: 30px; /* 93.75% */
+            margin-bottom: 20px;
+        }
+
+        .card-description {
+            color: #000;
+            font-family: var.$f-noto;
+            font-size: 20px;
+            font-style: normal;
+            font-weight: 800;
+            line-height: 30px; /* 150% */
+            margin-bottom: 30px;
+        }
+
+        .newsletter-form {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+
+            input {
+                border: none;
+                padding: 10px;
+                border-radius: 5px;
+                background: #d4d0d0;
+                font-family: var.$f-noto;
+                font-size: 16px;
+                width: 60%;
+                min-height: 50px;
+            }
+
+            button {
+                border: none;
+                border-radius: 5px;
+                background: #bfa573;
+                color: #000;
+                font-family: var.$f-noto;
+                font-size: 20px;
+                font-style: normal;
+                font-weight: 400;
+                line-height: 30px; /* 150% */
+                padding: 10px 20px;
+                cursor: pointer;
+            }
+        }
+    }
+}

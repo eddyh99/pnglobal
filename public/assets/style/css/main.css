@@ -13309,6 +13309,10 @@ p {
  * 7. Account Deletion
  *
  */
+.page-wrapper-homepage {
+  background-color: #000;
+}
+
 /*----------------------------------------------------------
 1. Banner Homepage Start
 ------------------------------------------------------------*/
@@ -13484,7 +13488,11 @@ p {
 /*----------------------------------------------------------
 2. Future Start
 ------------------------------------------------------------*/
-.future-heading {
+.homepage-future-section {
+  background-color: #fff;
+}
+
+.homepage-future-heading {
   color: #BFA573;
   text-align: center;
   font-family: "Noto Serif", serif;
@@ -13495,7 +13503,7 @@ p {
   text-transform: uppercase;
 }
 
-.future-text {
+.homepage-future-text {
   color: #000;
   text-align: center;
   font-family: "Noto Serif", serif;
@@ -13505,7 +13513,7 @@ p {
   line-height: 25px;
 }
 
-.future-cta {
+.homepage-future-cta {
   color: #000;
   text-align: center;
   font-family: "Noto Serif", serif;
@@ -13518,7 +13526,7 @@ p {
 }
 
 /*----------------------------------------------------------
-2. Future End End
+2. Future End
 ------------------------------------------------------------*/
 /*----------------------------------------------------------
 3. Why Choose Start
@@ -13627,9 +13635,13 @@ p {
   min-height: 100vh;
   padding-bottom: 10rem;
 }
+.newsletter .newsletter-content .bg-title-something-big {
+  background: url("../../img/bg-title-something-big.PNG") no-repeat center center;
+  background-size: cover;
+  padding: 2rem;
+}
 .newsletter .newsletter-content header {
   width: 100%;
-  background-color: rgba(189, 160, 105, 0.6901960784);
   padding: 1rem;
   text-align: center;
   text-transform: uppercase;
@@ -13762,6 +13774,38 @@ p {
 /*----------------------------------------------------------
 5. Earning Section Start
 ------------------------------------------------------------*/
+.earning-title {
+  background-color: #1E1E1E;
+  padding: 20px 0;
+}
+.earning-title .container {
+  position: relative;
+  z-index: 2;
+}
+.earning-title .title-wrapper {
+  background-color: transparent;
+  text-align: center;
+}
+.earning-title .title-wrapper .title {
+  color: #bda069;
+  font-family: "Odor Mean Chey", serif;
+  font-size: 40px;
+  font-weight: 400;
+  line-height: 50px;
+  text-transform: uppercase;
+  margin: 0 auto;
+  max-width: 800px;
+}
+.earning-title .title-wrapper .subtitle {
+  color: #fff;
+  font-family: "Noto Serif", serif;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 144.687%;
+  margin: 10px auto 0;
+  max-width: 700px;
+}
+
 .earning-section {
   position: relative;
   background-color: #1E1E1E;
@@ -13789,81 +13833,46 @@ p {
 .earning-section .container {
   position: relative;
   z-index: 2;
-  top: 0;
-  max-width: 100% !important;
-  padding: 0 !important;
-  margin: 0 !important;
-}
-.earning-section .title-wrapper {
-  background-color: rgba(0, 0, 0, 0.7);
   width: 100%;
-  padding: 20px 0 80px;
+  padding: 100px 115px 0;
+  margin: 0 auto;
+}
+.earning-section .cards-container {
   position: relative;
-  z-index: 1;
-  margin-bottom: 0;
-}
-.earning-section .title-wrapper .inner-wrapper {
+  z-index: 2;
   width: 100%;
-  max-width: 1200px;
   margin: 0 auto;
-  padding: 0 15px;
+  padding: 25px;
+  background: none;
 }
-.earning-section .title-wrapper .title {
+.earning-section .cards-container .custom-card {
+  border: 1px solid #000;
+  background: rgba(0, 0, 0, 0.76);
+  box-shadow: 0px 4px 20px 10px #fff;
+  overflow: hidden;
+  padding: 3rem;
+  margin-bottom: 1rem;
+  min-height: 450px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.earning-section .cards-container .divider {
+  width: 80%;
+  height: 4px;
+  background: #e98c1b;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  margin: 1rem 0;
+  align-self: flex-start;
+}
+.earning-section .cards-container .card-text {
   color: #fff;
-  text-align: center;
-  font-family: "Odor Mean Chey", serif;
-  font-size: 40px;
-  font-weight: 400;
-  line-height: 50px;
-  text-transform: uppercase;
-  margin: 0 auto;
-  max-width: 800px;
-}
-.earning-section .title-wrapper .title .highlight {
-  color: #bfa573;
-}
-.earning-section .title-wrapper .subtitle {
-  color: #fff;
-  text-align: center;
   font-family: "Noto Serif", serif;
-  font-size: 20px;
+  font-size: 22px;
+  font-style: normal;
   font-weight: 600;
   line-height: 144.687%;
-  margin: 10px auto 0;
-  max-width: 700px;
-}
-.earning-section .highlight-title {
-  color: #c5a571;
-  text-align: center;
-  font-family: "Noto Serif", serif;
-  font-size: 25px;
-  font-weight: 900;
-  line-height: 35px;
-  text-transform: uppercase;
-  margin-bottom: 2rem;
-}
-.earning-section .description {
-  color: #fff;
-  text-align: center;
-  font-family: "Noto Serif", serif;
-  font-size: 18px;
-  font-weight: 600;
-  line-height: 30px;
-  margin-bottom: 2rem;
-}
-.earning-section .content-gradient-wrapper {
-  background: linear-gradient(90deg, rgba(0, 0, 0, 0.9) 57.83%, #fff 154.12%);
-  position: relative;
-  z-index: 2;
-  width: fit-content;
-  margin: -50px auto 0;
-  padding: 25px;
-  position: relative;
-  z-index: 2;
-}
-.earning-section .content-wrapper {
-  max-width: 620px;
-  margin: 0 auto;
 }
 .earning-section .button-wrapper {
   display: flex;
@@ -13903,7 +13912,7 @@ p {
   position: relative;
   margin: 0;
   padding-bottom: 30px;
-  background-color: #000;
+  background: linear-gradient(321deg, #000 6.14%, #101010 22.77%, #313131 43.59%, #000 65.77%, #111 87.49%);
 }
 .service-homepage .container {
   padding: 0 28px;
@@ -13911,9 +13920,24 @@ p {
 .service-homepage .container .row {
   margin: 0 -12px;
 }
+.service-homepage .col-12.col-lg-6 {
+  padding: 0 100px;
+}
 .service-homepage .col-12.col-lg-6:last-child .service-cards {
-  height: 100%;
-  justify-content: center;
+  justify-content: flex-start;
+}
+.service-homepage .section-title-bg {
+  width: 100vw;
+  height: 200px;
+  padding: 30px 0;
+  background: url("../../img/bg-our-service.png") no-repeat center center;
+  background-size: cover;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.1);
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
 }
 .service-homepage .section-title {
   position: relative;
@@ -13927,33 +13951,41 @@ p {
   line-height: 40px;
   text-transform: uppercase;
   margin: 0;
-  padding: 20px 0;
-  background-color: #fff;
-  width: 100%;
-  margin-bottom: 40px;
-  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.1);
 }
 .service-homepage .service-cards {
   display: flex;
   flex-direction: column;
-  gap: 24px;
+  gap: 50px;
+  margin-top: 50px;
 }
 .service-homepage .service-card {
   border-radius: 5px;
-  border: 1px solid #bfa573;
-  background: radial-gradient(circle at right, #656565 0%, #000 50%, #000 100%);
+  background: linear-gradient(259deg, rgba(101, 101, 101, 0.75) 6.7%, #000 57.93%);
   padding: 24px;
   min-height: 200px;
+  position: relative;
+}
+.service-homepage .service-card .row .col-3 {
+  width: auto;
+}
+.service-homepage .service-card .row .col-9 {
+  width: calc(100% - 80px);
 }
 .service-homepage .service-card .service-image {
-  height: 100%;
-  width: 100%;
+  position: absolute;
+  top: -20px;
+  left: -20px;
+  width: 60px;
+  height: 60px;
+  overflow: visible;
+  border-radius: 50%;
   display: flex;
   align-items: center;
+  justify-content: center;
 }
 .service-homepage .service-card .service-image img {
-  max-width: 110px;
-  max-height: 129px;
+  max-width: 70px;
+  max-height: 70px;
   object-fit: contain;
 }
 .service-homepage .service-card .service-title {
@@ -14013,12 +14045,32 @@ p {
 /*----------------------------------------------------------
 7. Who We Are Start
 ------------------------------------------------------------*/
+.who-we-are {
+  margin-top: 100px;
+}
 .who-we-are .container {
   background: linear-gradient(135deg, #000 0%, #1a1a1a 40%, #2d2d2d 60%, #4a4a4a 80%, #5f5f5f 100%);
   padding-top: 50px;
   padding-bottom: 50px;
   max-width: 100%;
   margin: 0;
+}
+.who-we-are .section-title-bg {
+  width: 100vw;
+  height: 250px;
+  padding: 30px 0;
+  background: url("../../img/bg-who-we-are.png") no-repeat center center;
+  background-size: cover;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.1);
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 20px;
 }
 .who-we-are .section-title {
   color: #000;
@@ -14028,9 +14080,10 @@ p {
   font-style: normal;
   font-weight: 800;
   line-height: 40px;
+  text-align: center;
   text-transform: uppercase;
   margin: 0;
-  padding: 20px 0;
+  margin-top: 20px;
 }
 .who-we-are .who-image {
   position: relative;
@@ -14091,7 +14144,7 @@ p {
 ------------------------------------------------------------*/
 .quotes {
   position: relative;
-  padding: 120px 0;
+  padding: 150px 0;
 }
 .quotes .quotes-bg {
   position: absolute;
@@ -14368,6 +14421,73 @@ p {
 /*----------------------------------------------------------
 10. First Step End
 ------------------------------------------------------------*/
+.newsletter-card-section {
+  background: #000;
+  padding: 50px 0;
+}
+.newsletter-card-section .container {
+  margin: 0 auto;
+  padding: 0 15px;
+}
+.newsletter-card-section .newsletter-card {
+  background: #fff;
+  padding: 30px;
+  min-height: 350px;
+  border-radius: 5px;
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.newsletter-card-section .newsletter-card .card-title {
+  color: #000;
+  font-family: "Noto Serif", serif;
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 800;
+  line-height: 30px; /* 93.75% */
+  margin-bottom: 20px;
+}
+.newsletter-card-section .newsletter-card .card-description {
+  color: #000;
+  font-family: "Noto Serif", serif;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 800;
+  line-height: 30px; /* 150% */
+  margin-bottom: 30px;
+}
+.newsletter-card-section .newsletter-card .newsletter-form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+.newsletter-card-section .newsletter-card .newsletter-form input {
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  background: #d4d0d0;
+  font-family: "Noto Serif", serif;
+  font-size: 16px;
+  width: 60%;
+  min-height: 50px;
+}
+.newsletter-card-section .newsletter-card .newsletter-form button {
+  border: none;
+  border-radius: 5px;
+  background: #bfa573;
+  color: #000;
+  font-family: "Noto Serif", serif;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 30px; /* 150% */
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
 /*----------------------------------------------------------
     File Name  : _service.scss
     Desc       : File ini merupakan styling untuk seluruh service
@@ -14500,7 +14620,7 @@ p {
   font-weight: 700;
 }
 .banner-service .wrapper-service .banner-text-video .bg-text-video.connection {
-  background: #D7D7D7;
+  background: #d7d7d7;
   color: #383734;
   padding: 1.5rem 3rem !important;
 }
@@ -15586,7 +15706,7 @@ p {
 }
 
 .legal-hand {
-  background: url("../../img/bg-hand.jpg"), #DED1C0;
+  background: url("../../img/bg-hand.jpg"), #ded1c0;
   background-position: center top;
   background-repeat: no-repeat;
   background-size: cover;
@@ -15831,7 +15951,8 @@ p {
   height: 100%;
   border-radius: 10px;
 }
-.blockchain-why .wrapper-why .box-why h3, .blockchain-why .wrapper-why .box-why h5 {
+.blockchain-why .wrapper-why .box-why h3,
+.blockchain-why .wrapper-why .box-why h5 {
   color: #BFA573;
 }
 .blockchain-why .wrapper-why .box-why p {
@@ -15875,7 +15996,7 @@ p {
 }
 #bg-satoshi-join .wrapper-big-title .big-title {
   background-color: #000000;
-  color: #BFA573;
+  color: #bfa573;
   padding: 2rem;
 }
 #bg-satoshi-join .wrapper-big-title .big-title h1 {
@@ -15895,13 +16016,13 @@ p {
   align-items: center;
 }
 #bg-satoshi-join .wrapper-join-now .btn-join-now {
-  background-color: #252C32;
-  border: 1px solid #A8771A;
+  background-color: #252c32;
+  border: 1px solid #a8771a;
   padding: 1rem 3rem;
   border-radius: 9999999px;
 }
 #bg-satoshi-join .wrapper-join-now .btn-join-now h1 {
-  background: linear-gradient(92deg, #A8771A 0%, #EEE4A0 48.28%, #A8771A 95.07%);
+  background: linear-gradient(92deg, #a8771a 0%, #eee4a0 48.28%, #a8771a 95.07%);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -15924,7 +16045,7 @@ p {
 }
 
 .satoshi-pricing {
-  background-color: #201E1D;
+  background-color: #201e1d;
   margin-top: 2rem;
   padding: 4rem 0rem;
 }
@@ -15946,7 +16067,7 @@ p {
   }
 }
 .satoshi-pricing .row-satoshi-pricing .col-duration .wrapper {
-  background-color: #201E1D;
+  background-color: #201e1d;
   border-radius: 10px;
 }
 .satoshi-pricing .row-satoshi-pricing .col-duration .wrapper .header {
@@ -15968,8 +16089,8 @@ p {
   padding: 1rem 0rem;
 }
 .satoshi-pricing .row-satoshi-pricing .col-duration .wrapper .body-content .list .text {
-  background-color: #6F6969;
-  color: #FFFFFF;
+  background-color: #6f6969;
+  color: #ffffff;
   margin-bottom: 0.5rem;
   padding: 0.5rem;
   text-align: center;
@@ -15993,7 +16114,7 @@ p {
   }
 }
 .satoshi-pricing .row-satoshi-pricing .col-card .wrapper {
-  background-color: #BFA573;
+  background-color: #bfa573;
   border-radius: 10px;
 }
 .satoshi-pricing .row-satoshi-pricing .col-card .wrapper .header {
@@ -16020,7 +16141,7 @@ p {
   line-height: 20px;
   text-align: end;
   font-size: 20px;
-  color: #CB161D;
+  color: #cb161d;
   -webkit-text-stroke: 0.5px #fff;
 }
 .satoshi-pricing .row-satoshi-pricing .col-card .wrapper .el-line {
@@ -16033,8 +16154,8 @@ p {
   padding: 1rem;
 }
 .satoshi-pricing .row-satoshi-pricing .col-card .wrapper .body-content .list .text {
-  background-color: #1E1E1E;
-  color: #FFFFFF;
+  background-color: #1e1e1e;
+  color: #ffffff;
   margin-bottom: 0.5rem;
   padding: 0.5rem;
   text-align: center;
@@ -16043,27 +16164,29 @@ p {
   line-height: 2rem;
 }
 .satoshi-pricing .row-satoshi-pricing .col-card .wrapper.use-referral {
-  background-color: #ECCF98;
+  background-color: #eccf98;
 }
 .satoshi-pricing .row-satoshi-pricing .col-card .wrapper.use-referral .header {
   justify-content: space-around;
 }
 .satoshi-pricing .row-satoshi-pricing .col-card .wrapper.use-referral .body-content .list .text {
-  background-color: #D49A1D;
+  background-color: #d49a1d;
 }
 
 .satoshi-register {
-  background-color: #141312;
-  margin-top: 2rem;
+  background-color: #272626;
   padding: 4rem 0rem;
 }
+.satoshi-register h1 {
+  color: #bfa573;
+}
 .satoshi-register .bg-satoshi-register {
-  background-color: #BFA573;
+  background-color: #bfa573;
   border-radius: 10px;
   padding: 4rem;
 }
 .satoshi-register .bg-satoshi-register .register-form .form-control {
-  background-color: #FFFFFF;
+  background-color: #ffffff;
 }
 .satoshi-register .bg-satoshi-register .form-group-pass .icon-pass-login {
   font-size: 18px;
@@ -16072,15 +16195,25 @@ p {
   right: 20px;
   bottom: 10px;
 }
+.satoshi-register .btn-satoshi-price-register {
+  padding: 20px 30px;
+  color: #000;
+  font-family: "Noto Serif";
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 25px; /* 104.167% */
+  text-transform: capitalize;
+}
 
 .satoshi-activation .otp-area .inputs input {
   width: 80px !important;
   height: 80px !important;
-  background-color: #D9D9D9 !important;
+  background-color: #d9d9d9 !important;
 }
 .satoshi-activation .otp-area .inputs input:focus {
   box-shadow: none;
-  border: 3px solid #C5A571;
+  border: 3px solid #c5a571;
 }
 
 .satoshi-register-payment {
@@ -16123,7 +16256,7 @@ p {
   right: 0;
 }
 .satoshi-short-desc.method {
-  background-color: #FFFFFF;
+  background-color: #ffffff;
   padding-top: 1rem;
 }
 .satoshi-short-desc.method .container {
@@ -16164,7 +16297,7 @@ p {
 .satoshi-buy-sell.buy .title .wrapping-box .box-buy {
   width: auto;
   border-radius: 8px;
-  background: linear-gradient(180deg, #B48B3D 0%, #BFA573 100%);
+  background: linear-gradient(180deg, #b48b3d 0%, #bfa573 100%);
   padding: 1rem;
   display: flex;
   justify-content: center;
@@ -16226,7 +16359,7 @@ p {
   font-size: 1.2em;
   top: 50%;
   transform: translateY(-50%);
-  background: linear-gradient(180deg, #B48B3D 0%, #BFA573 100%);
+  background: linear-gradient(180deg, #b48b3d 0%, #bfa573 100%);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -16260,7 +16393,7 @@ p {
   }
 }
 .satoshi-buy-sell.buy .instruction .card-container ul li .card .card-header {
-  background: linear-gradient(90deg, #B48B3D 0%, #BFA573 100%);
+  background: linear-gradient(90deg, #b48b3d 0%, #BFA573 100%);
   color: #1E1E1E;
   padding: 6px;
   border-radius: 15px 15px 0px 0px;
@@ -16392,7 +16525,7 @@ p {
 .satoshi-buy-sell.sell .title .wrapping-box .button-sell {
   width: auto;
   color: #1E1E1E;
-  background: linear-gradient(180deg, #B48B3D 0%, #BFA573 100%);
+  background: linear-gradient(180deg, #b48b3d 0%, #bfa573 100%);
   padding: 0.5rem;
   text-align: center;
   margin-top: 0.3rem;
@@ -16665,7 +16798,7 @@ p {
   }
 }
 .satoshi-buy-sell.multiple .instruction .card-container ul li .card .card-header {
-  background: linear-gradient(90deg, #383734 0%, #9A9A9A 100%);
+  background: linear-gradient(90deg, #383734 0%, #9a9a9a 100%);
   color: #BFA573;
   padding: 6px;
   border-radius: 15px 15px 0px 0px;
@@ -16863,7 +16996,7 @@ p {
 }
 .satoshi-profit .commision .row .wrap-text-commision h3 {
   text-align: center;
-  color: #FFFFFF;
+  color: #ffffff;
 }
 @media (min-width: 992px) {
   .satoshi-profit .commision .row .wrap-text-commision h3 {
@@ -16871,7 +17004,7 @@ p {
   }
 }
 .satoshi-profit .commision .row .wrap-text-commision .text-commision {
-  color: #FFFFFF;
+  color: #ffffff;
   line-height: 35px;
   padding-bottom: 3rem;
   text-align: center;
@@ -16991,7 +17124,7 @@ p {
 }
 
 .satoshi-useapp {
-  background-color: #F0EADE;
+  background-color: #f0eade;
   padding-top: 2rem;
 }
 .satoshi-useapp .left-side {
@@ -17079,7 +17212,7 @@ p {
 }
 #partner-connections .cayman-wrapper .cayman-text .title {
   text-transform: uppercase;
-  color: #01471F;
+  color: #01471f;
   font-weight: 700;
 }
 #partner-connections .cayman-wrapper .cayman-text .desc {
@@ -17094,7 +17227,7 @@ p {
 }
 #partner-connections .mif-wrapper {
   padding: 2rem 0rem;
-  background-color: #FFFFFF;
+  background-color: #ffffff;
 }
 #partner-connections .mif-wrapper .mif-logo {
   display: flex;

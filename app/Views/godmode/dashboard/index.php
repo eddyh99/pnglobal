@@ -1,5 +1,4 @@
-
-<?php if(!empty(session('failed'))) { ?>
+<?php if(!empty(session('success'))) { ?>
 <div class="alert alert-success fade show position-absolute" style="top: 1rem; right: 1rem; width: 30%; z-index: 99999;" role="alert">
     <div class="iq-alert-icon">
         <i class="ri-information-line"></i>
@@ -63,15 +62,15 @@
                             </div>
                         </div>
                     </a>
-                    <a href="<?= BASE_URL?>godmode/dashboard?type=<?=base64_encode("referral_member")?>" class="statistics">
+                    <a href="<?= BASE_URL?>godmode/subscriber" class="statistics">
                         <div class="iq-card">
                             <div class="iq-card-body">
                                 <div class="d-flex flex-column justify-content-center align-items-start">
                                     <div>
-                                        <h5 class="text-black">Referral</h5>
+                                        <h5 class="text-black">Subscriber</h5>
                                     </div>
                                     <div class="mt-3 w-100 d-flex justify-content-end">
-                                        <h1 class="text-black fw-bold"><?= @$referral?></h1>
+                                        <h1 class="text-black fw-bold"><?= @$subscriber?></h1>
                                     </div>
                                 </div>
                                 <div class="<?= ((base64_decode(@$_GET["type"]) == "referral_member") ? "active" : "disable" )?>"></div>
@@ -117,9 +116,12 @@
                         <thead class="thead_totalmember">
                             <tr>
                                 <th>EMAIL</th>
-                                <th>REGISTRATION DATE</th>
+                                <th>REF CODE</th>
+                                <th>REG. DATE</th>
                                 <th>STATUS</th>
-                                <th>SUBSCTIPTION</th>
+                                <th>SUBSCRIPTION</th>
+                                <th>REFERRAL</th>
+                                <th>UNPAID</th>
                                 <th>DETAIL</th>
                             </tr>
                         </thead>
@@ -135,6 +137,7 @@
                             <tr>
                                 <th>EMAIL</th>
                                 <th>REGISTRATION DATE</th>
+                                <th>END DATE</th>
                                 <th>STATUS</th>
                                 <th>DETAIL</th>
                             </tr>

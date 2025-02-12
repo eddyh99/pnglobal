@@ -1,6 +1,11 @@
 <script>
+window.setTimeout(function() {
+    $(".alert").fadeTo(500, 0).slideUp(500, function(){
+        $(this).remove(); 
+    });
+}, 5000);
     $(document).ready(function(){
-
+        
         // Buy A when the button is clicked
         $('#send-buy-a').click(function(e){
             // for not refresh
@@ -42,6 +47,7 @@
                         // Add attribute input and button buy for disabled
                         $("#buy-a").attr('disabled', true);
                         $("#send-buy-a").attr('disabled', true);
+                        $('#cancel-buy-a').removeAttr('disabled');
                         $("#buy-date-a").text('<?= date('d/m/y | H:i')?>');
                         
                         // remove attribute input and button sell for enabled
@@ -140,6 +146,7 @@
                         // Add attribute input and button buy for disabled
                         $("#buy-b").attr('disabled', true);
                         $("#send-buy-b").attr('disabled', true);
+                        $('#cancel-buy-b').removeAttr('disabled');
                         $("#buy-date-b").text('<?= date('d/m/y | H:i')?>');
 
                         // remove attribute input and button sell for enabled
@@ -233,10 +240,13 @@
 
                         // Change last instructor
                         $(".last-insturctions").text("Buy C");
+                        $('#cancel-buy-a').attr('disabled', true);
+                        $('#cancel-buy-b').attr('disabled', true);
 
                         // Add attribute input and button buy for disabled
                         $("#buy-c").attr('disabled', true);
                         $("#send-buy-c").attr('disabled', true);
+                        $('#cancel-buy-c').removeAttr('disabled');
                         $("#buy-date-c").text('<?= date('d/m/y | H:i')?>');
 
                         // remove attribute input and button sell for enabled
@@ -330,9 +340,14 @@
                         // Change last instructor
                         $(".last-insturctions").text("Buy D");
 
+                        $('#cancel-buy-a').attr('disabled', true);
+                        $('#cancel-buy-b').attr('disabled', true);
+                        $('#cancel-buy-c').attr('disabled', true);
+
                         // Add attribute input and button buy for disabled
                         $("#buy-d").attr('disabled', true);
                         $("#send-buy-d").attr('disabled', true);
+                        $('#cancel-buy-d').removeAttr('disabled');
                         $("#buy-date-d").text('<?= date('d/m/y | H:i')?>');
 
                         // remove attribute input and button sell for enabled
@@ -385,7 +400,14 @@
                 "url": "<?= BASE_URL ?>godmode/signal/list_history_order",
                 "type": "POST",
                 "dataSrc":function (data){
-                    return data;							
+                    let firstSellIndex = null;
+                    data.forEach((row, index) => {
+                        if (firstSellIndex === null && row.type.toLowerCase().split(" ")[0] === "sell") {
+                            firstSellIndex = index; // Store the first occurrence of "Sell"
+                        }
+                        row.isFirstSell = (index === firstSellIndex); // Add a new key to track
+                    });
+                    return data;						
                 }
             },
             "columns": [
@@ -427,6 +449,17 @@
                             return hours + ':' + minutes;
                         }
                         return data;
+                    } 
+                },
+                { 
+                   data: null, 
+                   "mRender": function(data, type, full, meta) {
+                       // Only show button for first "Sell" row
+                        if (full.isFirstSell) {
+                            return '<a href="<?=BASE_URL?>godmode/signal/cancel_sell?id=' + full.id + '&pair_id=' + full.pair_id + 
+                                   '" class="btn btn-sm btn-danger">Cancel</a>';
+                        }
+                        return ''; // Empty for other rows
                     } 
                 },
                 
