@@ -91,7 +91,7 @@
         <div class="bg-title-something-big">
             <header>
                 <h1>Something Big and Sensational is About to Arrive!</h1>
-                <p class="lead">Are You Ready For A Once-In-A-Lifetime Opportunity?<br>
+                <p class="lead">Are you ready for a once-in-a-lifetime opportunity available to just a few?<br>
                     <span class="text-white">Get ready to be amazed!</span>
                 </p>
             </header>

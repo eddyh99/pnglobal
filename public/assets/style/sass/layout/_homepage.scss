@@ -259,7 +259,7 @@
 .why-choose {
     background-color: #000;
     overflow: hidden;
-    padding: 55px 0;
+    padding: 55px 0 150px 0;
 
     .row {
         margin: 0;
@@ -371,9 +371,16 @@
         min-height: 100vh; // Tambahkan ini
         padding-bottom: 10rem; // Tambahkan padding bawah
 
+        .bg-title-something-big {
+            background: url('../../img/bg-title-something-big.PNG') no-repeat
+                center center;
+            background-size: cover;
+            padding: 2rem;
+        }
+
         header {
             width: 100%;
-            background-color: #bda069b0;
+            // background-color: #bda069b0;
             padding: 1rem;
             text-align: center;
             text-transform: uppercase;

@@ -13526,7 +13526,7 @@ p {
 .why-choose {
   background-color: #000;
   overflow: hidden;
-  padding: 55px 0;
+  padding: 55px 0 150px 0;
 }
 .why-choose .row {
   margin: 0;
@@ -13627,9 +13627,13 @@ p {
   min-height: 100vh;
   padding-bottom: 10rem;
 }
+.newsletter .newsletter-content .bg-title-something-big {
+  background: url("../../img/bg-title-something-big.PNG") no-repeat center center;
+  background-size: cover;
+  padding: 2rem;
+}
 .newsletter .newsletter-content header {
   width: 100%;
-  background-color: rgba(189, 160, 105, 0.6901960784);
   padding: 1rem;
   text-align: center;
   text-transform: uppercase;
