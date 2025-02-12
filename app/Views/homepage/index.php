@@ -452,4 +452,19 @@
             </div>
         </div>
     </section>
+
+    <section class="newsletter-card-section">
+        <div class="container">
+            <div class="newsletter-card">
+                <h2 class="card-title">NEWSLETTER</h2>
+                <p class="card-description">
+                    Sign up for our newsletter and become a member of this exclusive community.
+                </p>
+                <form class="newsletter-form">
+                    <input type="email" placeholder="Enter your email">
+                    <button type="submit">SUBSCRIBE</button>
+                </form>
+            </div>
+        </div>
+    </section>
 </div>
