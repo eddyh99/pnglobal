@@ -131,6 +131,19 @@
 
 
 <!-- Start of Earning -->
+<!-- Section Title (dipisah dari background video) -->
+<section class="earning-title">
+    <div class="container">
+        <div class="title-wrapper">
+            <h2 class="title">
+                Want to Profit from Bitcoin Without ANY Stress?
+            </h2>
+            <p class="subtitle">Satoshi Signal Earn with the Power of Our Expert Brokers</p>
+        </div>
+    </div>
+</section>
+
+<!-- Start of Earning Section (hanya card & button dengan background video) -->
 <section class="content earning-section">
     <div class="earning-bg">
         <video autoplay loop muted playsinline>
@@ -138,19 +151,31 @@
         </video>
     </div>
     <div class="container">
-        <div class="title-wrapper">
-            <h2 class="title">
-                <span class="highlight">Satoshi Signal</span> Earn with the Power of Our Expert Brokers
-            </h2>
-            <p class="subtitle">Accurate buy and sell signals to maximize your profits, risk-free. <br> Rely on PN Global brokers and our exclusive app for guaranteed results</p>
-        </div>
-        <div class="content-gradient-wrapper">
-            <div class="content-wrapper">
-                <h3 class="highlight-title">Want to Profit from Bitcoin Without ANY Stress?</h3>
-                <p class="description">With Satoshi Signal, you are connected to our brokers who work 24/7 to provide infallible buy and sell signals. We do the hard work; you collect the profits. No more uncertainties: maximize your gains with a proven and zero risk strategy.</p>
-                <div class="button-wrapper">
-                    <button class="cta">Activate Satoshi Signal and Start Earning Now!</button>
+        <!-- Pembungkus baru khusus untuk Card dan Button -->
+        <div class="cards-container">
+            <div class="row">
+                <!-- Card Kiri -->
+                <div class="col-md-6">
+                    <div class="custom-card">
+                        <div class="divider"></div>
+                        <p class="card-text">
+                            Accurate buy and sell signals to maximize your profits, risk-free. Rely on PN Global brokers and our exclusive app for guaranteed results
+                        </p>
+                    </div>
                 </div>
+                <!-- Card Kanan -->
+                <div class="col-md-6">
+                    <div class="custom-card">
+                        <p class="card-text">
+                            With Satoshi Signal, you are connected to our brokers who work 24/7 to provide infallible buy and sell signals. We do the hard work; you collect the profits. No more uncertainties: maximize your gains with a proven and zero risk strategy.
+                        </p>
+                        <div class="divider"></div>
+                    </div>
+                </div>
+            </div>
+            <!-- Button di bawah card, posisinya di tengah -->
+            <div class="button-wrapper">
+                <button class="cta">Activate Satoshi Signal and Start Earning Now!</button>
             </div>
         </div>
     </div>

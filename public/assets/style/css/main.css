@@ -13766,6 +13766,38 @@ p {
 /*----------------------------------------------------------
 5. Earning Section Start
 ------------------------------------------------------------*/
+.earning-title {
+  background-color: #1E1E1E;
+  padding: 20px 0;
+}
+.earning-title .container {
+  position: relative;
+  z-index: 2;
+}
+.earning-title .title-wrapper {
+  background-color: transparent;
+  text-align: center;
+}
+.earning-title .title-wrapper .title {
+  color: #bda069;
+  font-family: "Odor Mean Chey", serif;
+  font-size: 40px;
+  font-weight: 400;
+  line-height: 50px;
+  text-transform: uppercase;
+  margin: 0 auto;
+  max-width: 800px;
+}
+.earning-title .title-wrapper .subtitle {
+  color: #fff;
+  font-family: "Noto Serif", serif;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 144.687%;
+  margin: 10px auto 0;
+  max-width: 700px;
+}
+
 .earning-section {
   position: relative;
   background-color: #1E1E1E;
@@ -13793,81 +13825,46 @@ p {
 .earning-section .container {
   position: relative;
   z-index: 2;
-  top: 0;
-  max-width: 100% !important;
-  padding: 0 !important;
-  margin: 0 !important;
-}
-.earning-section .title-wrapper {
-  background-color: rgba(0, 0, 0, 0.7);
   width: 100%;
-  padding: 20px 0 80px;
+  padding: 100px 115px 0;
+  margin: 0 auto;
+}
+.earning-section .cards-container {
   position: relative;
-  z-index: 1;
-  margin-bottom: 0;
-}
-.earning-section .title-wrapper .inner-wrapper {
+  z-index: 2;
   width: 100%;
-  max-width: 1200px;
   margin: 0 auto;
-  padding: 0 15px;
+  padding: 25px;
+  background: none;
 }
-.earning-section .title-wrapper .title {
+.earning-section .cards-container .custom-card {
+  border: 1px solid #000;
+  background: rgba(0, 0, 0, 0.76);
+  box-shadow: 0px 4px 20px 10px #fff;
+  overflow: hidden;
+  padding: 3rem;
+  margin-bottom: 1rem;
+  min-height: 450px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.earning-section .cards-container .divider {
+  width: 80%;
+  height: 4px;
+  background: #e98c1b;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  margin: 1rem 0;
+  align-self: flex-start;
+}
+.earning-section .cards-container .card-text {
   color: #fff;
-  text-align: center;
-  font-family: "Odor Mean Chey", serif;
-  font-size: 40px;
-  font-weight: 400;
-  line-height: 50px;
-  text-transform: uppercase;
-  margin: 0 auto;
-  max-width: 800px;
-}
-.earning-section .title-wrapper .title .highlight {
-  color: #bfa573;
-}
-.earning-section .title-wrapper .subtitle {
-  color: #fff;
-  text-align: center;
   font-family: "Noto Serif", serif;
-  font-size: 20px;
+  font-size: 22px;
+  font-style: normal;
   font-weight: 600;
   line-height: 144.687%;
-  margin: 10px auto 0;
-  max-width: 700px;
-}
-.earning-section .highlight-title {
-  color: #c5a571;
-  text-align: center;
-  font-family: "Noto Serif", serif;
-  font-size: 25px;
-  font-weight: 900;
-  line-height: 35px;
-  text-transform: uppercase;
-  margin-bottom: 2rem;
-}
-.earning-section .description {
-  color: #fff;
-  text-align: center;
-  font-family: "Noto Serif", serif;
-  font-size: 18px;
-  font-weight: 600;
-  line-height: 30px;
-  margin-bottom: 2rem;
-}
-.earning-section .content-gradient-wrapper {
-  background: linear-gradient(90deg, rgba(0, 0, 0, 0.9) 57.83%, #fff 154.12%);
-  position: relative;
-  z-index: 2;
-  width: fit-content;
-  margin: -50px auto 0;
-  padding: 25px;
-  position: relative;
-  z-index: 2;
-}
-.earning-section .content-wrapper {
-  max-width: 620px;
-  margin: 0 auto;
 }
 .earning-section .button-wrapper {
   display: flex;
