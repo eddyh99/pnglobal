@@ -247,6 +247,7 @@ class Homepage extends BaseController
             'content'   => 'homepage/service/satoshi-price',
             'extra'     => 'homepage/service/js/_js_satoshi_price',
             'navoption' => true,
+            'darkNav'   => true,
         ];
 
         return view('homepage/layout/wrapper', $mdata);
@@ -297,9 +298,9 @@ class Homepage extends BaseController
 
         $mdata['referral'] = empty($reff) ? null : $reff;
         */
-        
+
         // $mdata['referral'] = null; // Set referral to null while feature is disabled
-        
+
         // Call Endpoin Register
         // $url = URLAPI . "/auth/register";
         // $result = satoshiAdmin($url, json_encode($mdata))->result;
@@ -656,7 +657,7 @@ class Homepage extends BaseController
         // Stripe secret key
         \Stripe\Stripe::setApiKey(SECRET_KEY);
         $paymentMethodId = $_POST['payment_method_id'];
-        
+
         /* Temporarily disabled referral amount check
         if (!empty($_SESSION["referral"])) {
             $amount = 25000; // Replace with the actual amount in cents (e.g., $50.00 = 5000)
@@ -664,10 +665,10 @@ class Homepage extends BaseController
             $amount = 35000;
         }
         */
-        
+
         // Set fixed amount while referral is disabled
         $amount = 35000;
-        
+
         $currency = 'eur'; // Replace with your desired currency
 
         try {
@@ -693,7 +694,7 @@ class Homepage extends BaseController
                         "amount"    => $amount / 100,
                         "referral"  => null // Temporarily disabled referral
                     );
-                    
+
                     // Call API to record booking
                     $url = URLAPI . "/auth/bookconsultation";
                     $resultReff = satoshiAdmin($url, json_encode($mdata))->result;
@@ -739,7 +740,6 @@ class Homepage extends BaseController
                         // Assign SESSION client
                         $mdata = $_SESSION['client'];
                         sendmail_booking($subject, $mdata);
-
                     } catch (\RuntimeException $e) {
                         session()->setFlashdata('failed', 'Failed to booking schedule: ' . $e->getMessage());
                         header("Location: " . BASE_URL . 'homepage/bookingconsultation');
