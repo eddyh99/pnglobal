@@ -1,7 +1,7 @@
 <?php
-if (isset($footer) && $footer === false) {
-    return;
-}
+// if (isset($footer) && $footer === false) {
+//     return;
+// }
 ?>
 
 <?php if (@$flag == 'training' || @$flag == 'comingsoon') { ?>

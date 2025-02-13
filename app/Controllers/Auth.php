@@ -209,7 +209,7 @@ class Auth extends BaseController
 			'content'   => 'homepage/service/satoshi-otp',
 			'extra'     => 'homepage/service/js/_js_satoshi_otp',
 			'emailuser' => $email,
-			'footer'    => false,
+			// 'footer'    => false,
 			'darkNav'   => true
 		];
 

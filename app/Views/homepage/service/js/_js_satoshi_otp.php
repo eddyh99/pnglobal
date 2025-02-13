@@ -26,11 +26,14 @@
 
         $("#satoshi-otp-form").on("submit", function(e) {
             e.preventDefault();
+            console.log("asd");
             let otp = $("#first").val() + $("#second").val() + $("#third").val() + $("#fourth").val();
             let formData = {
-                email: "admbprjayakerti01@gmail.com",
+                email: "<?= base64_decode($emailuser) ?>",
                 otp: otp
             };
+
+            // return alert("asd");
 
             console.log(formData);
 
@@ -59,7 +62,6 @@
                         `)
 
                     }
-
 
                 },
                 error: function(jqXHR, textStatus, errorThrown) {
