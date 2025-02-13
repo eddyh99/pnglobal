@@ -1,371 +1,262 @@
-<?php
-// if (isset($footer) && $footer === false) {
-//     return;
-// }
-?>
+<?php if (!isset($footer) || $footer !== false): ?>
 
-<?php if (@$flag == 'training' || @$flag == 'comingsoon') { ?>
-    <!-- Start of Contact Form -->
-    <section class="bg-trainingform">
-        <div class="wrapper-trainingform">
-            <div class="row position-relative">
-                <div class="col-12 col-lg-6 ps-0 ps-lg-5">
-                    <h2 class="">
-                        Join our Professional Training Programs
-                    </h2>
-                    <p class="f-inter">
-                        <span translate='no'> PN Global </span> invites you to join our training programs to become experienced and competent entrepreneurs. Contact us today to find out how we can help you build a successful future in the global landscape.
-                    </p>
-                    <a href="<?= BASE_URL ?>homepage/contactform?service=<?= base64_encode($title) ?>" class="btn-footer-contactform">Contact Form</a>
+    <?php if (@$flag == 'training' || @$flag == 'comingsoon') { ?>
+        <!-- Start of Contact Form -->
+        <section class="bg-trainingform">
+            <div class="wrapper-trainingform">
+                <div class="row position-relative">
+                    <div class="col-12 col-lg-6 ps-0 ps-lg-5">
+                        <h2 class="">
+                            Join our Professional Training Programs
+                        </h2>
+                        <p class="f-inter">
+                            <span translate='no'> PN Global </span> invites you to join our training programs to become experienced and competent entrepreneurs. Contact us today to find out how we can help you build a successful future in the global landscape.
+                        </p>
+                        <a href="<?= BASE_URL ?>homepage/contactform?service=<?= base64_encode($title) ?>" class="btn-footer-contactform">Contact Form</a>
+                    </div>
+                    <div class="d-none d-lg-flex col-6 video-trainingform">
+                        <video autoplay="" preload="" muted="" loop="" playsinline="">
+                            <source src="<?= BASE_URL ?>assets/vid/training-footer.webm" type="video/webm">
+                        </video>
+                    </div>
+                    <img class="img-gear-footer" src="<?= BASE_URL ?>assets/img/logo.png" alt="logo pn global">
                 </div>
-                <div class="d-none d-lg-flex col-6 video-trainingform">
-                    <video autoplay="" preload="" muted="" loop="" playsinline="">
-                        <source src="<?= BASE_URL ?>assets/vid/training-footer.webm" type="video/webm">
-                    </video>
-                </div>
-                <img class="img-gear-footer" src="<?= BASE_URL ?>assets/img/logo.png" alt="logo pn global">
             </div>
-        </div>
-    </section>
-    <!-- End of Contact Form -->
-<?php } else if (@$flag == 'blockchain') { ?>
-    <!-- Start of Contact Form -->
-    <section class="bg-trainingform blockchain">
-        <div class="wrapper-trainingform">
-            <div class="row">
-                <div class="col-12 col-lg-6 ps-0 ps-lg-5 py-5">
-                    <h2 class="">
-                        Enroll Now
-                    </h2>
-                    <h5 class="">
-                        How to get free online training
-                    </h5>
-                    <h5 class="fw-bold">
-                        Follow the simple steps below:
-                    </h5>
-                    <div class="mt-4">
-                        <ol>
-                            <li class="mt-3">Follow this INSTAGRAM profile: <a href="https://www.instagram.com/principe.nerini_official/" class="fw-bold d-inline">https://www.instagram.com/ principe.nerini_official/</a> </li>
-                            <li class="mt-3">
-                                Every time a new course is organised, a Reel will be published on the profiles announcing the event, just comment "FRIENDS";
-                            </li>
-                            <li class="mt-3">
-                                Once you have commented, if you are selected, you will be added to the close friends list;
-                            </li>
-                            <li class="mt-3">
-                                Take live lessons exclusively for close friends for free and Good Luck!
-                            </li>
-                        </ol>
+        </section>
+        <!-- End of Contact Form -->
+    <?php } else if (@$flag == 'blockchain') { ?>
+        <!-- Start of Contact Form -->
+        <section class="bg-trainingform blockchain">
+            <div class="wrapper-trainingform">
+                <div class="row">
+                    <div class="col-12 col-lg-6 ps-0 ps-lg-5 py-5">
+                        <h2 class="">
+                            Enroll Now
+                        </h2>
+                        <h5 class="">
+                            How to get free online training
+                        </h5>
+                        <h5 class="fw-bold">
+                            Follow the simple steps below:
+                        </h5>
+                        <div class="mt-4">
+                            <ol>
+                                <li class="mt-3">Follow this INSTAGRAM profile: <a href="https://www.instagram.com/principe.nerini_official/" class="fw-bold d-inline">https://www.instagram.com/ principe.nerini_official/</a> </li>
+                                <li class="mt-3">
+                                    Every time a new course is organised, a Reel will be published on the profiles announcing the event, just comment "FRIENDS";
+                                </li>
+                                <li class="mt-3">
+                                    Once you have commented, if you are selected, you will be added to the close friends list;
+                                </li>
+                                <li class="mt-3">
+                                    Take live lessons exclusively for close friends for free and Good Luck!
+                                </li>
+                            </ol>
+                        </div>
+                    </div>
+                    <div class="d-none d-lg-flex align-items-center col-6 video-trainingform">
+                        <video autoplay="" preload="" muted="" loop="" playsinline="">
+                            <source src="<?= BASE_URL ?>assets/vid/footer-blockchain.webm" type="video/webm">
+                        </video>
                     </div>
                 </div>
-                <div class="d-none d-lg-flex align-items-center col-6 video-trainingform">
-                    <video autoplay="" preload="" muted="" loop="" playsinline="">
-                        <source src="<?= BASE_URL ?>assets/vid/footer-blockchain.webm" type="video/webm">
-                    </video>
-                </div>
             </div>
-        </div>
-    </section>
-    <!-- End of Contact Form -->
-    <!-- Start of Contact Form -->
-    <section class="bg-contactform">
-        <div class="container">
-            <div class="row">
-                <div class="col-12 col-md-8 left-side">
-                    <h2 id="g-getintouch" class="">
-                        Get in touch with <span translate='no'> PN Global </span>
-                    </h2>
-                    <h4 id="g-subgetintouch" class="f-noto">
-                        We are Here to Assist You in Every Step of Your Growth and Development Journey
-                    </h4>
-                    <p id="g-textgetintouch" class="f-noto">
-                        If you would like more information about our services or would like to discuss your specific needs with one of our experts, please contact us. Our team of financial consultants, lawyers and accountants is at your disposal to offer you personalized support and timely responses. We are ready to assist you with the utmost professionalism and competence.
-                    </p>
-                    <a href="<?= BASE_URL ?>homepage/bookingconsultation?service=<?= base64_encode($title) ?>" class="btn-footer-contactform">Book a Consultation</a>
-
-                </div>
-                <div class="d-none d-md-flex col-4 logo-contactform">
-                    <img class="img-fluid" style="width: 200px;" src="<?= BASE_URL ?>assets/img/logo.png" alt="img">
-                    <p class="logo-text-contactform f-noto">
-                        <span class="line-animation">
-                            ASSET
-                        </span>
-                        <br>
-                        <span class="line-animation" style="color: #BFA573;">
-                            MANAGEMENT
-                        </span>
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- End of Contact Form -->
-
-<?php } else if (@$flag == 'satoshi') { ?>
-    <!-- Start of Contact Form -->
-    <section class="bg-contactform">
-        <div class="container">
-            <div class="row">
-                <div class="col-12 col-md-8 left-side">
-                    <h2 id="g-getintouch" class="">
-                        Get in touch with <span translate='no'> PN Global </span>
-                    </h2>
-                    <h4 id="g-subgetintouch" class="f-noto">
-                        We are Here to Assist You in Every Step of Your Growth and Development Journey
-                    </h4>
-                    <p id="g-textgetintouch" class="f-noto">
-                        If you would like more information about our services or would like to discuss your specific needs with one of our experts, please contact us. Our team of financial consultants, lawyers and accountants is at your disposal to offer you personalized support and timely responses. We are ready to assist you with the utmost professionalism and competence.
-                    </p>
-                    <a href="<?= BASE_URL ?>homepage/bookingconsultation?service=<?= base64_encode($title) ?>" class="btn-footer-contactform">Book a Consultation</a>
-
-                </div>
-                <div class="d-none d-md-flex col-4 logo-contactform">
-                    <img class="img-fluid" style="width: 200px;" src="<?= BASE_URL ?>assets/img/logo.png" alt="img">
-                    <p class="logo-text-contactform f-noto">
-                        <span class="line-animation">
-                            ASSET
-                        </span>
-                        <br>
-                        <span class="line-animation" style="color: #BFA573;">
-                            MANAGEMENT
-                        </span>
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- End of Contact Form -->
-<?php } else {  ?>
-    <!-- Start of Contact Form -->
-    <section class="bg-contactform">
-        <div class="container">
-            <div class="row">
-                <div class="col-12 col-md-8 left-side">
-                    <h2 id="g-getintouch" class="">
-                        Get in touch with <span translate='no'> PN Global </span>
-                    </h2>
-                    <h4 id="g-subgetintouch" class="f-noto">
-                        We are Here to Assist You in Every Step of Your Growth and Development Journey
-                        </h3>
+        </section>
+        <!-- End of Contact Form -->
+        <!-- Start of Contact Form -->
+        <section class="bg-contactform">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 col-md-8 left-side">
+                        <h2 id="g-getintouch" class="">
+                            Get in touch with <span translate='no'> PN Global </span>
+                        </h2>
+                        <h4 id="g-subgetintouch" class="f-noto">
+                            We are Here to Assist You in Every Step of Your Growth and Development Journey
+                        </h4>
                         <p id="g-textgetintouch" class="f-noto">
                             If you would like more information about our services or would like to discuss your specific needs with one of our experts, please contact us. Our team of financial consultants, lawyers and accountants is at your disposal to offer you personalized support and timely responses. We are ready to assist you with the utmost professionalism and competence.
                         </p>
                         <a href="<?= BASE_URL ?>homepage/bookingconsultation?service=<?= base64_encode($title) ?>" class="btn-footer-contactform">Book a Consultation</a>
 
+                    </div>
+                    <div class="d-none d-md-flex col-4 logo-contactform">
+                        <img class="img-fluid" style="width: 200px;" src="<?= BASE_URL ?>assets/img/logo.png" alt="img">
+                        <p class="logo-text-contactform f-noto">
+                            <span class="line-animation">
+                                ASSET
+                            </span>
+                            <br>
+                            <span class="line-animation" style="color: #BFA573;">
+                                MANAGEMENT
+                            </span>
+                        </p>
+                    </div>
                 </div>
-                <a class="d-none d-md-flex col-4 logo-contactform" href="<?= BASE_URL ?>">
-                    <img class="img-fluid" style="width: 179px;" src="<?= BASE_URL ?>assets/img/logo.png" alt="img">
-                    <p class="logo-text-contactform f-noto">
-                        <span class="line-animation" translate="no" style="color: #BFA573;">
-                            ASSET
-                        </span>
-                        <span class="line-animation text-white" translate="no">
-                            MENAGEMENT
-                        </span>
-                    </p>
-                </a>
             </div>
-        </div>
-    </section>
-    <!-- End of Contact Form -->
-<?php }   ?>
+        </section>
+        <!-- End of Contact Form -->
 
-<!-- Start of Contact Form -->
-<section class="bg-footer">
-    <div class="container">
-        <div class="row">
-            <!-- Kolom Kiri - Logo -->
-            <div class="col-12 col-md-4 d-flex justify-content-center justify-content-md-start mb-4 mb-md-0">
-                <a href="<?= BASE_URL ?>" class="logo-footer">
-                    <img src="<?= BASE_URL ?>assets/img/logo.png" alt="PN Global Logo" class="img-fluid">
-                </a>
+    <?php } else if (@$flag == 'satoshi') { ?>
+        <!-- Start of Contact Form -->
+        <section class="bg-contactform">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 col-md-8 left-side">
+                        <h2 id="g-getintouch" class="">
+                            Get in touch with <span translate='no'> PN Global </span>
+                        </h2>
+                        <h4 id="g-subgetintouch" class="f-noto">
+                            We are Here to Assist You in Every Step of Your Growth and Development Journey
+                        </h4>
+                        <p id="g-textgetintouch" class="f-noto">
+                            If you would like more information about our services or would like to discuss your specific needs with one of our experts, please contact us. Our team of financial consultants, lawyers and accountants is at your disposal to offer you personalized support and timely responses. We are ready to assist you with the utmost professionalism and competence.
+                        </p>
+                        <a href="<?= BASE_URL ?>homepage/bookingconsultation?service=<?= base64_encode($title) ?>" class="btn-footer-contactform">Book a Consultation</a>
+
+                    </div>
+                    <div class="d-none d-md-flex col-4 logo-contactform">
+                        <img class="img-fluid" style="width: 200px;" src="<?= BASE_URL ?>assets/img/logo.png" alt="img">
+                        <p class="logo-text-contactform f-noto">
+                            <span class="line-animation">
+                                ASSET
+                            </span>
+                            <br>
+                            <span class="line-animation" style="color: #BFA573;">
+                                MANAGEMENT
+                            </span>
+                        </p>
+                    </div>
+                </div>
             </div>
+        </section>
+        <!-- End of Contact Form -->
+    <?php } else {  ?>
+        <!-- Start of Contact Form -->
+        <section class="bg-contactform">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 col-md-8 left-side">
+                        <h2 id="g-getintouch" class="">
+                            Get in touch with <span translate='no'> PN Global </span>
+                        </h2>
+                        <h4 id="g-subgetintouch" class="f-noto">
+                            We are Here to Assist You in Every Step of Your Growth and Development Journey
+                            </h3>
+                            <p id="g-textgetintouch" class="f-noto">
+                                If you would like more information about our services or would like to discuss your specific needs with one of our experts, please contact us. Our team of financial consultants, lawyers and accountants is at your disposal to offer you personalized support and timely responses. We are ready to assist you with the utmost professionalism and competence.
+                            </p>
+                            <a href="<?= BASE_URL ?>homepage/bookingconsultation?service=<?= base64_encode($title) ?>" class="btn-footer-contactform">Book a Consultation</a>
 
-            <!-- Kolom Tengah - Asset Management & Contact Form -->
-            <div class="col-12 col-md-4 text-center mb-4 mb-md-0">
-                <div class="d-flex flex-column align-items-center">
-                    <p class="logo-text-footer f-noto">
-                        <span class="text-gold" translate="no">ASSET</span>
-                        <span class="text-white" translate="no">MENAGEMENT</span>
-                    </p>
-                    <a class="btn btn-contact-form text-uppercase px-4 pb-2"
-                        href="<?= BASE_URL ?>homepage/contactform?service=<?= base64_encode($title) ?>">
-                        Contact Form
+                    </div>
+                    <a class="d-none d-md-flex col-4 logo-contactform" href="<?= BASE_URL ?>">
+                        <img class="img-fluid" style="width: 179px;" src="<?= BASE_URL ?>assets/img/logo.png" alt="img">
+                        <p class="logo-text-contactform f-noto">
+                            <span class="line-animation" translate="no" style="color: #BFA573;">
+                                ASSET
+                            </span>
+                            <span class="line-animation text-white" translate="no">
+                                MENAGEMENT
+                            </span>
+                        </p>
                     </a>
                 </div>
             </div>
+        </section>
+        <!-- End of Contact Form -->
+    <?php }   ?>
 
-            <!-- Kolom Kanan - List Link -->
-            <div class="col-12 col-md-4 mt-4 mt-md-0">
-                <div class="list ps-md-4">
-                    <div class="d-flex flex-column gap-2">
-                        <p></p>
-                        <a class="footer-link" href="<?= BASE_URL ?>homepage">Hot Deal</a>
-                        <a class="footer-link" href="<?= BASE_URL ?>homepage/service?service=<?= base64_encode('satoshi_signal') ?>">Services Information</a>
-                        <a class="footer-link" href="<?= BASE_URL ?>homepage">Training Courses</a>
-                        <a class="footer-link" href="<?= BASE_URL ?>homepage/about">About Pn Global</a>
-                        <p></p>
-                    </div>
+    <!-- Start of Contact Form -->
+    <section class="bg-footer">
+        <div class="container">
+            <div class="row">
+                <!-- Kolom Kiri - Logo -->
+                <div class="col-12 col-md-4 d-flex justify-content-center justify-content-md-start mb-4 mb-md-0">
+                    <a href="<?= BASE_URL ?>" class="logo-footer">
+                        <img src="<?= BASE_URL ?>assets/img/logo.png" alt="PN Global Logo" class="img-fluid">
+                    </a>
                 </div>
-            </div>
-            <div class="col-12 mx-auto border-hr-footer"></div>
-            <div class="col-12 my-4 d-flex justify-content-between align-items-center address">
-                <div class="row">
-                    <div class="col-12 col-md-4">
-                        <ul class="list-unstyled footer-list">
-                            <li class="mb-4">
-                                <strong>Company incorporation:</strong> 16192 Coastal Highway, Lewes Delaware 19958 (USA)
-                            </li>
-                            <li class="mb-4">
-                                <strong>International finance department:</strong> Financial Centre, Singapore 049319
-                            </li>
-                            <li class="mb-4">
-                                <strong>International monetary departments:</strong> 109 Bismarckia Way - George Town Cayman Islands (Business Location)
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="col-12 col-md-4">
-                        <ul class="list-unstyled footer-list">
-                            <li class="mb-4">
-                                <strong>Head quarter:</strong> 46 street, 247W Platinum Tower, New York,NY 10036 (USA)
-                            </li>
-                            <li class="mb-4">
-                                <strong>Brokers stock division:</strong> 11 Wallstreet, New York, NY 10005 (USA)
-                            </li>
-                            <li class="mb-4">
-                                <strong>Crypto broker division:</strong> Mahe, Seychelles, Jivan's complex, Suite 708, Global Village, Abacus, Seychelles
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="col-12 col-md-4">
-                        <ul class="list-unstyled footer-list">
-                            <li class="mb-4">
-                                <strong>Operational detachment:</strong> Benoa Square, Jl. Bypass Ngurah Rai A Kedonganan No.21, Jimbaran, Kec. Kuta, Kabupaten Badung, Bali 80361, Indonesia
-                            </li>
-                        </ul>
-                        <div class="d-flex gap-4 mt-4">
-                            <a href="#" class="footer-link">Terms & Conditions</a>
-                            <a href="#" class="footer-link">Privacy Policy</a>
-                        </div>
-                        <a href="https://moneyindustrialfactory.io" target="_blank" class="mif-link">
-                            <img class='img-fluid' src='<?= BASE_URL ?>assets/img/powered-mif.png' alt='img'>
-                            <p class="mif-text mt-2 mb-0">Money Industrial Factory</p>
+
+                <!-- Kolom Tengah - Asset Management & Contact Form -->
+                <div class="col-12 col-md-4 text-center mb-4 mb-md-0">
+                    <div class="d-flex flex-column align-items-center">
+                        <p class="logo-text-footer f-noto">
+                            <span class="text-gold" translate="no">ASSET</span>
+                            <span class="text-white" translate="no">MENAGEMENT</span>
+                        </p>
+                        <a class="btn btn-contact-form text-uppercase px-4 pb-2"
+                            href="<?= BASE_URL ?>homepage/contactform?service=<?= base64_encode($title) ?>">
+                            Contact Form
                         </a>
                     </div>
                 </div>
 
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- <section class="bg-footer">
-        <div class="container">
-            <div class="row">
-                <div class="col-3">
-                    <a href="<?= BASE_URL ?>" class="logo-footer">
-                        <img src="<?= BASE_URL ?>assets/img/logo.png" alt="PN Global Logo">
-                    </a>
-                </div>
-
-                <div class="col-6 text-center">
-                    <div class="footer-center">
-                        <div class="logo-text">
-                            <span class="asset">ASSET</span>
-                            <span class="management">MANAGEMENT</span>
+                <!-- Kolom Kanan - List Link -->
+                <div class="col-12 col-md-4 mt-4 mt-md-0">
+                    <div class="list ps-md-4">
+                        <div class="d-flex flex-column gap-2">
+                            <p></p>
+                            <a class="footer-link" href="<?= BASE_URL ?>homepage">Hot Deal</a>
+                            <a class="footer-link" href="<?= BASE_URL ?>homepage/service?service=<?= base64_encode('satoshi_signal') ?>">Services Information</a>
+                            <a class="footer-link" href="<?= BASE_URL ?>homepage">Training Courses</a>
+                            <a class="footer-link" href="<?= BASE_URL ?>homepage/about">About Pn Global</a>
+                            <p></p>
                         </div>
-                        <a href="<?= BASE_URL ?>homepage/contactform" class="btn-contact">Contact Form</a>
                     </div>
                 </div>
-
-                <div class="col-3 text-end">
-                    <div class="vertical-divider"></div>
-                    <div class="footer-links">
-                        <a href="<?= BASE_URL ?>latest-deals">Latest Deals</a>
-                        <a href="<?= BASE_URL ?>services">Services</a>
-                        <a href="<?= BASE_URL ?>training-courses">Training Courses</a>
-                        <a href="<?= BASE_URL ?>homepage/about">About <span translate="no">PN Global</span></a>
-                    </div>
-                </div>
-
-                <div class="col-8 mx-auto border-hr-footer"></div>
-
-                <div class="col-12 address-section">
+                <div class="col-12 mx-auto border-hr-footer"></div>
+                <div class="col-12 my-4 d-flex justify-content-between align-items-center address">
                     <div class="row">
                         <div class="col-12 col-md-4">
-                            <p class="f-inter text-white mb-4 d-flex">
-                                <span>
-                                    <svg width="11" height="14" viewBox="0 0 11 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M5.5 0C2.45929 0 0 2.191 0 4.9C0 8.575 5.5 14 5.5 14C5.5 14 11 8.575 11 4.9C11 2.191 8.54071 0 5.5 0ZM5.5 6.65C4.41571 6.65 3.53571 5.866 3.53571 4.9C3.53571 3.934 4.41571 3.15 5.5 3.15C6.58429 3.15 7.46429 3.934 7.46429 4.9C7.46429 5.866 6.58429 6.65 5.5 6.65Z" fill="#D1B06B" />
-                                    </svg>
-                                </span>
-                                <span class="ps-1">
+                            <ul class="list-unstyled footer-list">
+                                <li class="mb-4">
                                     <strong>Company incorporation:</strong> 16192 Coastal Highway, Lewes Delaware 19958 (USA)
-                                </span>
-                            </p>
-                            <p class="f-inter text-white mb-4 d-flex">
-                                <span>
-                                    <svg width="11" height="14" viewBox="0 0 11 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M5.5 0C2.45929 0 0 2.191 0 4.9C0 8.575 5.5 14 5.5 14C5.5 14 11 8.575 11 4.9C11 2.191 8.54071 0 5.5 0ZM5.5 6.65C4.41571 6.65 3.53571 5.866 3.53571 4.9C3.53571 3.934 4.41571 3.15 5.5 3.15C6.58429 3.15 7.46429 3.934 7.46429 4.9C7.46429 5.866 6.58429 6.65 5.5 6.65Z" fill="#D1B06B" />
-                                    </svg>
-                                </span>
-                                <span class="ps-1">
-                                    <strong>International finance department:</strong> 12 Collyer Quay, Ocean Financial Centre, Singapore 049319
-                                </span>
-                            </p>
+                                </li>
+                                <li class="mb-4">
+                                    <strong>International finance department:</strong> Financial Centre, Singapore 049319
+                                </li>
+                                <li class="mb-4">
+                                    <strong>International monetary departments:</strong> 109 Bismarckia Way - George Town Cayman Islands (Business Location)
+                                </li>
+                            </ul>
                         </div>
                         <div class="col-12 col-md-4">
-                            <p class="f-inter text-white mb-4 d-flex">
-                                <span>
-                                    <svg width="11" height="14" viewBox="0 0 11 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M5.5 0C2.45929 0 0 2.191 0 4.9C0 8.575 5.5 14 5.5 14C5.5 14 11 8.575 11 4.9C11 2.191 8.54071 0 5.5 0ZM5.5 6.65C4.41571 6.65 3.53571 5.866 3.53571 4.9C3.53571 3.934 4.41571 3.15 5.5 3.15C6.58429 3.15 7.46429 3.934 7.46429 4.9C7.46429 5.866 6.58429 6.65 5.5 6.65Z" fill="#D1B06B" />
-                                    </svg>
-                                </span>
-                                <span class="ps-1">
+                            <ul class="list-unstyled footer-list">
+                                <li class="mb-4">
                                     <strong>Head quarter:</strong> 46 street, 247W Platinum Tower, New York,NY 10036 (USA)
-                                </span>
-                            </p>
-                            <p class="f-inter text-white mb-4 d-flex">
-                                <span>
-                                    <svg width="11" height="14" viewBox="0 0 11 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M5.5 0C2.45929 0 0 2.191 0 4.9C0 8.575 5.5 14 5.5 14C5.5 14 11 8.575 11 4.9C11 2.191 8.54071 0 5.5 0ZM5.5 6.65C4.41571 6.65 3.53571 5.866 3.53571 4.9C3.53571 3.934 4.41571 3.15 5.5 3.15C6.58429 3.15 7.46429 3.934 7.46429 4.9C7.46429 5.866 6.58429 6.65 5.5 6.65Z" fill="#D1B06B" />
-                                    </svg>
-                                </span>
-                                <span class="ps-1">
-                                    <strong>Operational detachment:</strong> Benoa Square, Jl. Bypass Ngurah Rai A Kedonganan No.21, Jimbaran, Kec. Kuta, Kabupaten Badung, Bali 80361, Indonesia
-                                </span>
-                            </p>
+                                </li>
+                                <li class="mb-4">
+                                    <strong>Brokers stock division:</strong> 11 Wallstreet, New York, NY 10005 (USA)
+                                </li>
+                                <li class="mb-4">
+                                    <strong>Crypto broker division:</strong> Mahe, Seychelles, Jivan's complex, Suite 708, Global Village, Abacus, Seychelles
+                                </li>
+                            </ul>
                         </div>
                         <div class="col-12 col-md-4">
-                            <p class="f-inter text-white mb-4 d-flex">
-                                <span>
-                                    <svg width="11" height="14" viewBox="0 0 11 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M5.5 0C2.45929 0 0 2.191 0 4.9C0 8.575 5.5 14 5.5 14C5.5 14 11 8.575 11 4.9C11 2.191 8.54071 0 5.5 0ZM5.5 6.65C4.41571 6.65 3.53571 5.866 3.53571 4.9C3.53571 3.934 4.41571 3.15 5.5 3.15C6.58429 3.15 7.46429 3.934 7.46429 4.9C7.46429 5.866 6.58429 6.65 5.5 6.65Z" fill="#D1B06B" />
-                                    </svg>
-                                </span>
-                                <span class="ps-1">
-                                    <strong>International monetary departments:</strong> Business Location: 109 Bismarckia Way - George Town Cayman Islands
-                                </span>
-                            </p>
-                            <p class="f-inter text-white mb-4 d-flex">
-                                <span>
-                                    <svg width="11" height="14" viewBox="0 0 11 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M5.5 0C2.45929 0 0 2.191 0 4.9C0 8.575 5.5 14 5.5 14C5.5 14 11 8.575 11 4.9C11 2.191 8.54071 0 5.5 0ZM5.5 6.65C4.41571 6.65 3.53571 5.866 3.53571 4.9C3.53571 3.934 4.41571 3.15 5.5 3.15C6.58429 3.15 7.46429 3.934 7.46429 4.9C7.46429 5.866 6.58429 6.65 5.5 6.65Z" fill="#D1B06B" />
-                                    </svg>
-                                </span>
-                                <span class="ps-1">
-                                    <strong>Brokers stock division:</strong> 11 Wallstreet, New York, NY 10005 (USA)
-                                </span>
-                            </p>
+                            <ul class="list-unstyled footer-list">
+                                <li class="mb-4">
+                                    <strong>Operational detachment:</strong> Benoa Square, Jl. Bypass Ngurah Rai A Kedonganan No.21, Jimbaran, Kec. Kuta, Kabupaten Badung, Bali 80361, Indonesia
+                                </li>
+                            </ul>
+                            <div class="d-flex gap-4 mt-4">
+                                <a href="#" class="footer-link">Terms & Conditions</a>
+                                <a href="#" class="footer-link">Privacy Policy</a>
+                            </div>
+                            <a href="https://moneyindustrialfactory.io" target="_blank" class="mif-link">
+                                <img class='img-fluid' src='<?= BASE_URL ?>assets/img/powered-mif.png' alt='img'>
+                                <p class="mif-text mt-2 mb-0">Money Industrial Factory</p>
+                            </a>
                         </div>
                     </div>
-                </div>
 
+                </div>
             </div>
         </div>
-    </section> -->
+    </section>
 
-<!-- End of Contact Form -->
+<?php endif; ?>
+
 
 <!-- JQUERY -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
