@@ -382,6 +382,21 @@ class Homepage extends BaseController
     //     echo json_encode($result);
     // }
 
+    public function set_capital_investment()
+    {
+        $mdata = [
+            'title'     => 'Set Capital Investment - ' . NAMETITLE,
+            'content'   => 'homepage/service/set_capital_investment',
+            'extra'     => 'homepage/service/js/_js_set_capital_investment',
+            // 'navoption' => true,
+            // 'darkNav'   => true,
+            'footer'    => false,
+            'nav'       => false,
+        ];
+
+        return view('homepage/layout/wrapper', $mdata);
+    }
+
 
     public function satoshi_register_payment($email)
     {

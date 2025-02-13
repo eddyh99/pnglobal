@@ -33,6 +33,7 @@
             };
 
             console.log(formData);
+
             $.ajax({
                 url: '<?= BASE_URL ?>auth/process_otp',
                 type: 'POST',
@@ -45,7 +46,7 @@
                     if (result.code == "200") {
                         $('#loadingcontent').modal('show');
                         setTimeout(() => {
-                            window.location.href = '<?= BASE_URL ?>homepage/satoshi_register_payment/<?= base64_encode($emailuser) ?>';
+                            window.location.href = '<?= BASE_URL ?>homepage/set_capital_investment/<?= base64_encode($emailuser) ?>';
                         }, 3000);
                     } else {
                         $(".show-failed").append(`

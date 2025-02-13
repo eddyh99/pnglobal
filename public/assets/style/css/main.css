@@ -22742,6 +22742,83 @@ input:-moz-placeholder {
   background: #fff;
 }
 
+.investment-capital {
+  margin: 0 auto;
+  padding: 20px;
+  background: #272626;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.investment-capital .container {
+  max-width: 850px;
+}
+.investment-capital .investment-title {
+  color: #bda069;
+  text-align: center;
+  font-family: "Noto Serif", serif;
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 25px;
+  text-transform: uppercase;
+  margin-bottom: 30px;
+}
+.investment-capital .investment-description,
+.investment-capital .payment-description {
+  color: #fff;
+  text-align: center;
+  font-family: "Noto Serif", serif;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 25px;
+  margin-bottom: 10px;
+}
+.investment-capital input.investment-input,
+.investment-capital input.payment-input {
+  display: block;
+  max-width: 450px;
+  padding: 10px;
+  margin: 0 auto 15px;
+  font-family: "Noto Serif", serif;
+  font-size: 24px;
+  font-weight: bold;
+  text-align: center;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f0f0f0;
+}
+.investment-capital .confirm-button {
+  display: block;
+  width: 200px;
+  padding: 10px 0;
+  margin: 15px auto;
+  text-align: center;
+  color: #000;
+  font-family: "Noto Serif", serif;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 25px;
+  text-transform: capitalize;
+  border: none;
+  border-radius: 10px;
+  background: #bda069;
+  cursor: pointer;
+}
+.investment-capital .investment-note {
+  color: #fff;
+  font-family: "Noto Serif", serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 25px;
+  margin-top: 20px;
+}
+
 /*----------------------------------------------------------
     File Name  : _navbar.scss
     Desc       : File ini merupakan styling untuk 
