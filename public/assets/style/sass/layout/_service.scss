@@ -1935,6 +1935,25 @@
     }
 }
 
+.satoshi-activation-title {
+    margin-top: 77px;
+
+    .wrapper-big-title {
+        background: #272626;
+        padding: 2rem 0;
+        h1 {
+            color: #bda069;
+            text-align: center;
+            font-family: 'Noto Serif', serif;
+            font-size: 40px;
+            font-style: normal;
+            font-weight: 800;
+            line-height: 25px;
+            text-transform: uppercase;
+        }
+    }
+}
+
 .satoshi-activation {
     .otp-area {
         .inputs {

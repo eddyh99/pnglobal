@@ -208,7 +208,9 @@ class Auth extends BaseController
 			'title'     => 'Active Account - Satoshi Signal',
 			'content'   => 'homepage/service/satoshi-otp',
 			'extra'     => 'homepage/service/js/_js_satoshi_otp',
-			'emailuser' => $email
+			'emailuser' => $email,
+			'footer'    => false,
+			'darkNav'   => true
 		];
 
 		return view('homepage/layout/wrapper', $mdata);
