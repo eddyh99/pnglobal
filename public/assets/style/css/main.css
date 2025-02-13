@@ -14555,6 +14555,16 @@ p {
 }
 .banner-service .wrapper-service .download-video .button-download .top {
   margin-top: 0.5rem;
+  /* clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%); */
+  /* .btn-download {
+       @include mix.animation-reveal;
+  } */
+}
+.banner-service .wrapper-service .download-video .button-download .bottom {
+  /* clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%); */
+  /* .btn-download {
+       @include mix.animation-reveal;
+  } */
 }
 .banner-service .wrapper-service .download-video .button-download .btn-download {
   padding: 0.5rem;
@@ -15466,7 +15476,7 @@ p {
 }
 
 .img-small-binance:hover {
-  filter: drop-shadow(0px 4px 20px #F5BF25);
+  filter: drop-shadow(0px 4px 20px #f5bf25);
 }
 
 /*----------------------------------------------------------
@@ -15983,6 +15993,14 @@ p {
 /*----------------------------------------------------------
 8. Satoshi Start
 ------------------------------------------------------------*/
+.main-section-otp {
+  /* Styling untuk section OTP wrapper */
+  background-color: #272626;
+  height: 100vh;
+  overflow: hidden;
+  bottom: 0;
+}
+
 #bg-satoshi-join {
   background: url("../../img/bg-satoshi-join.png");
   background-position: center center;
@@ -16224,10 +16242,13 @@ p {
   text-transform: uppercase;
 }
 
+.satoshi-activation {
+  background-color: #d9d9d9;
+}
 .satoshi-activation .otp-area .inputs input {
   width: 80px !important;
   height: 80px !important;
-  background-color: #d9d9d9 !important;
+  background-color: #aaa6a6 !important;
 }
 .satoshi-activation .otp-area .inputs input:focus {
   box-shadow: none;

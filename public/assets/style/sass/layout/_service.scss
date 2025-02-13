@@ -61,19 +61,19 @@
 
                 .top {
                     margin-top: 0.5rem;
-                    // clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+                    /* clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%); */
 
-                    // .btn-download {
-                    //      @include mix.animation-reveal;
-                    // }
+                    /* .btn-download {
+                         @include mix.animation-reveal;
+                    } */
                 }
 
                 .bottom {
-                    // clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+                    /* clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%); */
 
-                    // .btn-download {
-                    //      @include mix.animation-reveal;
-                    // }
+                    /* .btn-download {
+                         @include mix.animation-reveal;
+                    } */
                 }
                 .btn-download {
                     padding: 0.5rem;
@@ -123,7 +123,6 @@
                 }
 
                 &.legal {
-                    // background: rgba(47, 26, 7, 0.82);
                     background: rgba(106, 98, 91, 0.86);
                     color: var.$text-secondary-100-pnglobal;
                     padding: 2rem 3rem;
@@ -1051,7 +1050,7 @@
     &:hover {
         // box-shadow: 0px 4px 20px 0px #F5BF25;
         // -webkit-filter: drop-shadow(0px 4px 20px 0px   #F5BF25);
-        filter: drop-shadow(0px 4px 20px#F5BF25);
+        filter: drop-shadow(0px 4px 20px #f5bf25);
     }
 }
 /*----------------------------------------------------------
@@ -1668,10 +1667,17 @@
 /*----------------------------------------------------------
 8. Satoshi Start
 ------------------------------------------------------------*/
+.main-section-otp {
+    /* Styling untuk section OTP wrapper */
+    background-color: #272626;
+    height: 100vh;
+    overflow: hidden;
+    bottom: 0;
+}
+
 .satoshi-banner {
     #g-text-downloadapp {
         // clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
-
         // .line-animation {
         //     @include mix.animation-reveal;
         // }
@@ -1955,12 +1961,13 @@
 }
 
 .satoshi-activation {
+    background-color: #d9d9d9;
     .otp-area {
         .inputs {
             input {
                 width: 80px !important;
                 height: 80px !important;
-                background-color: #d9d9d9 !important;
+                background-color: #aaa6a6 !important;
 
                 &:focus {
                     box-shadow: none;
