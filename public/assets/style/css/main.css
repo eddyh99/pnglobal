@@ -22780,7 +22780,6 @@ input:-moz-placeholder {
 .investment-capital input.investment-input,
 .investment-capital input.payment-input {
   display: block;
-  max-width: 450px;
   padding: 10px;
   margin: 0 auto 15px;
   font-family: "Noto Serif", serif;
@@ -22790,6 +22789,22 @@ input:-moz-placeholder {
   border: 1px solid #ccc;
   border-radius: 5px;
   background-color: #f0f0f0;
+}
+.investment-capital .input-group {
+  gap: 3px;
+}
+.investment-capital .input-group .btn {
+  padding: 10px 20px;
+  font-size: 24px;
+  font-weight: bold;
+  border: 1px solid #bda069;
+  border-radius: 5px;
+  background-color: #bda069;
+  margin: 0;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .investment-capital .confirm-button {
   display: block;

@@ -10,7 +10,15 @@
                 <div class="investment-description">
                     The amount of capital you want to use.
                 </div>
-                <input type="number" class="investment-input form-control" placeholder="Enter your capital" required />
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <button class="btn btn-outline-secondary" type="button" id="decrease">-</button>
+                    </div>
+                    <input type="number" class="investment-input form-control" id="capital-input" placeholder="Enter your capital" value="0" min="0" step="2000" required>
+                    <div class="input-group-append">
+                        <button class="btn btn-outline-secondary" type="button" id="increase">+</button>
+                    </div>
+                </div>
             </div>
         </div>
         <div class="row">
@@ -34,5 +42,27 @@
             </div>
         </div>
     </div>
-    </div>
 </section>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const capitalInput = document.getElementById('capital-input');
+
+        document.getElementById('increase').addEventListener('click', function() {
+            let value = parseInt(capitalInput.value) || 0;
+            capitalInput.value = value + 2000;
+            // console.log("increase");
+        });
+
+        document.getElementById('decrease').addEventListener('click', function() {
+            let value = parseInt(capitalInput.value) || 0;
+            if (value >= 2000) {
+                capitalInput.value = value - 2000;
+            }
+        });
+
+        capitalInput.addEventListener('change', function() {
+            let value = parseInt(capitalInput.value) || 0;
+            capitalInput.value = Math.round(value / 2000) * 2000;
+        });
+    });
+</script>
