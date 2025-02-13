@@ -94,18 +94,19 @@ define('EVENT_PRIORITY_NORMAL', 100);
 define('EVENT_PRIORITY_HIGH', 10);
 
 if ($_SERVER['HTTP_HOST'] == 'localhost') {
-    $addurl = '/'.'pnglobal/'; 
-}else{
-    $addurl = '/'; 
+    $addurl = '/' . 'pnglobal/';
+} else {
+    $addurl = '/';
 }
 
-$protocol = isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] != 'off' ? 'https://'.$_SERVER['HTTP_HOST'].$addurl : 'http://'.$_SERVER['HTTP_HOST'].$addurl;
-defined('BASE_URL') || define('BASE_URL',$protocol);
+$protocol = isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] != 'off' ? 'https://' . $_SERVER['HTTP_HOST'] . $addurl : 'http://' . $_SERVER['HTTP_HOST'] . $addurl;
+defined('BASE_URL') || define('BASE_URL', $protocol);
 
 
 define("NAMETITLE", 'PN Global');
 define("SATOSHITITLE", 'Satoshi Signal');
-define("URLAPI", 'https://api.pnglobalinternational.com');
+// define("URLAPI", 'https://api.pnglobalinternational.com');
+define("URLAPI", 'https://api2-sandbox.pnglobalinternational.com');
 define("FEEMEETING", 'EUR 150');
 define("IDGTAG", 'G-Y7SBM0618C');
 
