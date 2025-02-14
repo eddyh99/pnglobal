@@ -1,0 +1,32 @@
+/* _login.scss */
+
+// Styles untuk elemen forgot password
+.forgot-password {
+    text-align: right;
+    font-family: 'Numans', sans-serif;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 50px;
+    text-transform: capitalize;
+    color: #000;
+
+    a {
+        color: #000;
+        text-decoration: none;
+    }
+}
+
+// Styles untuk elemen register
+.register-section {
+    text-align: center;
+    font-family: 'Numans', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 20px;
+    color: #000;
+
+    a {
+        color: #3d33fd;
+        text-decoration: none;
+    }
+}

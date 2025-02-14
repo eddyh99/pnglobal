@@ -245,6 +245,46 @@ class Homepage extends BaseController
         return view('homepage/layout/wrapper', $mdata);
     }
 
+    public function signin()
+    {
+        $rules = $this->validate([
+            'email'     => [
+                'label'     => 'Email',
+                'rules'     => 'required|valid_email'
+            ],
+            'password'     => [
+                'label'     => 'Password',
+                'rules'     => 'required'
+            ],
+        ]);
+
+        // Checking Validation
+        if (!$rules) {
+            session()->setFlashdata('failed', $this->validation->listErrors());
+            return redirect()->to(BASE_URL . 'member/auth/login')->withInput();
+        }
+
+        // Initial Data
+        $mdata = [
+            'email'     => htmlspecialchars($this->request->getVar('email')),
+            'password'  => htmlspecialchars($this->request->getVar('password')),
+        ];
+
+        // Password Encrypt
+        $mdata['password'] = sha1($mdata['password']);
+
+        // Proccess Endpoin API
+        $url = URLAPI . "/auth/login";
+        $response = satoshiAdmin($url, json_encode($mdata));
+        $result = $response->result;
+        if ($result->code == 200) {
+            return redirect()->to(BASE_URL . 'member/auth/pricing?email=' . $mdata["email"]);
+        } else {
+            session()->setFlashdata('failed', $result->message);
+            return redirect()->to(BASE_URL . 'member/auth/login');
+        }
+    }
+
 
     public function satoshi_price()
     {

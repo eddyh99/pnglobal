@@ -22866,6 +22866,34 @@ input:-moz-placeholder {
   margin-top: 20px;
 }
 
+/* _login.scss */
+.forgot-password {
+  text-align: right;
+  font-family: "Numans", sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 50px;
+  text-transform: capitalize;
+  color: #000;
+}
+.forgot-password a {
+  color: #000;
+  text-decoration: none;
+}
+
+.register-section {
+  text-align: center;
+  font-family: "Numans", sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+  color: #000;
+}
+.register-section a {
+  color: #3d33fd;
+  text-decoration: none;
+}
+
 /*----------------------------------------------------------
     File Name  : _navbar.scss
     Desc       : File ini merupakan styling untuk 

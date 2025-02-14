@@ -7,6 +7,12 @@ use App\Controllers\BaseController;
 class Auth extends BaseController
 {
 
+	protected $validation;
+	public function __construct()
+	{
+		$this->validation = \Config\Services::validation();
+	}
+
 	public function register()
 	{
 		$mdata = [
@@ -74,6 +80,8 @@ class Auth extends BaseController
 			return redirect()->to(BASE_URL . 'member/auth/register');
 		}
 	}
+
+
 
 	public function pricing()
 	{

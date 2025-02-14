@@ -32,7 +32,7 @@
                 <div class="sign-in-from w-100 m-auto">
                     <h1 class="mb-3 text-center text-black">Sign in</h1>
                     <p class="text-center text-dark">Enter your email address and password to access Referral Panel.</p>
-                    <form action="<?= BASE_URL ?>referral/auth/auth_proccess" method="POST" class="mt-4">
+                    <form action="<?= BASE_URL ?>auth/postLogin" method="POST" class="mt-4">
                         <div class="form-group">
                             <label for="exampleInputEmail2">Email address</label>
                             <input type="email" class="form-control mb-0" name="email" id="exampleInputEmail2" placeholder="Enter email">
@@ -44,8 +44,14 @@
                             </div>
                             <i class="icon-pass-login las la-eye" id="togglePassword"></i>
                         </div>
+                        <div class="forgot-password text-right">
+                            <a href="<?= BASE_URL ?>member/auth/forgot_password" class="text-black">Forgot Password</a>
+                        </div>
                         <div class="sign-info">
                             <button type="submit" class="btn btn-primary mb-2">Sign in</button>
+                        </div>
+                        <div class="register-section text-center pt-5">
+                            Dont have an account? <a href="<?= BASE_URL ?>homepage/satoshi_price#register" style="color: #3D33FD; text-decoration: none;">REGISTER</a>
                         </div>
                     </form>
                 </div>
