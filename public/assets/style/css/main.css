@@ -13615,7 +13615,7 @@ p {
   left: 0;
   width: 100%;
   height: 100vh;
-  z-index: 1;
+  z-index: 2;
 }
 .newsletter .newsletter-bg video {
   width: 100%;
@@ -13624,7 +13624,7 @@ p {
   position: absolute;
   top: 0;
   left: 0;
-  z-index: -1;
+  z-index: 1;
 }
 .newsletter .newsletter-content {
   position: relative;
@@ -13636,7 +13636,7 @@ p {
   padding-bottom: 10rem;
 }
 .newsletter .newsletter-content .bg-title-something-big {
-  background: url("../../img/bg-title-something-big.PNG") no-repeat center center;
+  background: url("../../img/bg-title-something-big.png") no-repeat center center;
   background-size: cover;
   padding: 2rem;
 }
@@ -13756,6 +13756,10 @@ p {
 .newsletter .newsletter-content .mt-4 .col-md-6:last-child .button-wrapper .btn.custom-btn {
   margin: 35px auto;
   width: auto;
+  min-width: 350px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   background: #bda069;
   box-shadow: 0px 4px 15px 10px #fff;
   color: #000;
@@ -14017,12 +14021,15 @@ p {
   text-transform: uppercase;
   border-radius: 5px;
   background: #bfa573;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   box-shadow: 0px 4px 6px 0px rgba(255, 255, 255, 0.9);
   border: none;
   padding: 3px 20px;
   cursor: pointer;
   transition: all 0.3s ease;
-  min-width: 206px;
+  min-width: 300px;
   min-height: 45px;
 }
 .service-homepage .service-card .service-btn:hover {
@@ -18500,7 +18507,7 @@ input:-moz-placeholder {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 311px;
+  min-width: 350px;
   height: 84px;
   border-radius: 5px;
 }

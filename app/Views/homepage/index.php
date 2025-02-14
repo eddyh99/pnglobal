@@ -421,13 +421,13 @@
         <div class="container">
             <div class="cards-wrapper">
                 <div class="card dark-card">
-                    <div class="card-content">
+                    <div class="card-content text-center">
                         <h3 class="card-title">Free Basic Online<br>Training Program</h3>
                         <img src="<?php echo BASE_URL; ?>assets/img/free-training.png" alt="Free Training" class="card-image">
                     </div>
                 </div>
                 <div class="card light-card">
-                    <div class="card-content">
+                    <div class="card-content text-center">
                         <h3 class="card-title">Campus for<br>Advanced Training</h3>
                         <img src="<?php echo BASE_URL; ?>assets/img/advanced-training.png" alt="Advanced Training" class="card-image">
                     </div>
