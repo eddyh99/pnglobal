@@ -20359,7 +20359,12 @@ input:-moz-placeholder {
 .crypto-consulting {
   position: relative;
   overflow: hidden;
-  padding-top: 80px;
+  padding-top: 77px;
+}
+.crypto-consulting .container-fluid .row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .crypto-consulting .container-fluid .row .bg-crypto-consulting {
   height: 100%;
@@ -20375,6 +20380,7 @@ input:-moz-placeholder {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  height: 100%;
 }
 .crypto-consulting .container-fluid .row .consulting-content .title {
   color: #d1b06b;
@@ -20434,7 +20440,6 @@ input:-moz-placeholder {
 }
 
 .advisor-section {
-  margin-top: 80px;
   background: linear-gradient(91deg, rgba(0, 0, 0, 0.88) 6.66%, rgba(107, 105, 100, 0.88) 85.96%, rgba(158, 154, 148, 0.88) 100%);
   padding: 60px 0;
 }
@@ -20724,8 +20729,13 @@ input:-moz-placeholder {
   background-color: #bda069;
   position: relative;
   overflow: hidden;
-  padding: 77px 0;
+  padding: 77px 0 0;
   margin-top: 0;
+}
+.passive-income .container-fluid .row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .passive-income .container-fluid .row .bg-passive-income {
   height: 100%;
@@ -20741,6 +20751,7 @@ input:-moz-placeholder {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  height: 100%;
 }
 .passive-income .container-fluid .row .passive-content .title {
   color: #fff;
