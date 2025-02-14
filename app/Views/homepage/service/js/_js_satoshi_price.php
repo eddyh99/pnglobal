@@ -1,7 +1,7 @@
 <script>
     $(document).ready(function() {
         $('#togglePassword').on('click', function() {
-            
+
             const passwordField = $('#password');
             const passwordFieldType = passwordField.attr('type');
 
@@ -16,7 +16,7 @@
         })
 
         $('#togglePassword2').on('click', function() {
-            
+
             const passwordField = $('#password2');
             const passwordFieldType = passwordField.attr('type');
 
@@ -31,7 +31,16 @@
         })
     })
 
+    document.addEventListener("DOMContentLoaded", function() {
+        var tzElement = document.getElementById("timezone");
+        if (tzElement) {
+            tzElement.value = Intl.DateTimeFormat().resolvedOptions().timeZone;
+        }
+    });
+
+
+
     $("#satoshi-register-form").on("submit", function(e) {
-      $('#loadingcontent').modal('show'); 
+        $('#loadingcontent').modal('show');
     });
 </script>

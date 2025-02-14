@@ -272,4 +272,53 @@ class Auth extends BaseController
 
 		return view('widget/layout/wrapper', $mdata);
 	}
+
+	public function resend_token()
+	{
+		$email = $this->request->getPost('email');
+		$email = urldecode($email);
+
+		if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+			return $this->response->setJSON([
+				'code'    => 400,
+				'service' => 'auth',
+				'error'   => 'Invalid email',
+				'message' => 'Email tidak valid.'
+			]);
+		}
+
+		$url = URLAPI . "/auth/resend_token";
+		$apiResponse = satoshiAdmin($url, json_encode(['email' => $email]));
+
+		// Maka penyesuaian akses harus dilakukan sesuai struktur tersebut.
+		$result = $apiResponse->result;
+
+		// Cek apakah OTP berada di level langsung dari $result atau di dalam $result->message
+		if (isset($result->otp)) {
+			$otp = $result->otp;
+		} elseif (isset($result->message->otp)) {
+			$otp = $result->message->otp;
+		} else {
+			return $this->response->setJSON([
+				'code'    => 500,
+				'service' => 'auth',
+				'error'   => 'OTP not found in API response',
+				'message' => 'Gagal mengambil OTP dari API.'
+			]);
+		}
+
+		$subject = "Activation Account - " . SATOSHITITLE;
+		sendmail_satoshi($email, $subject, emailtemplate_resend_token($otp, $email));
+
+		// Proses pengiriman email jika diperlukan, dsb.
+		return $this->response->setJSON([
+			'code'    => 200,
+			'service' => 'auth',
+			'error'   => null,
+			'message' => [
+				'text' => 'Your token has been resent via email',
+				'otp'  => $otp
+			]
+		]);
+	}
 }

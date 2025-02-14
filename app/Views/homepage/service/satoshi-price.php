@@ -39,14 +39,7 @@
                         <label for="timezone" class="fw-semibold">Timezone</label>
                         <input type="text" id="timezone" class="form-control" name="timezone" readonly value="<?= set_value('timezone') ?>">
                     </div>
-                    <script>
-                        document.addEventListener("DOMContentLoaded", function() {
-                            var tzElement = document.getElementById("timezone");
-                            if (tzElement) {
-                                tzElement.value = Intl.DateTimeFormat().resolvedOptions().timeZone;
-                            }
-                        });
-                    </script>
+
                     <!-- Temporarily disabled referral code input
                     <div class="register-form mt-3">
                         <label for="referral" class="fw-semibold">Referral Code</label>
