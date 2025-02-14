@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?= $title?></title>
+    <title><?= $title ?></title>
 
     <!-- Favicons -->
     <link href="<?= BASE_URL ?>assets/img/logo.png" rel="icon">
@@ -20,7 +21,7 @@
 
     <!-- Telephone Code -->
     <link href="<?= BASE_URL ?>assets/libs/intl-tel-input-master/build/css/intlTelInput.css" rel="stylesheet">
-    
+
     <!-- Bootstrap -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/livecanvas-team/ninjabootstrap/dist/css/bootstrap.min.css" media="all">
 
@@ -33,6 +34,7 @@
 
 
 </head>
+
 <body style="background-color: #000000;">
     <div class="container">
         <div class="app-widget">

@@ -1,3 +1,5 @@
+<?php if (!isset($footer) || $footer !== false): ?>
+
     <?php if (@$flag == 'training' || @$flag == 'comingsoon') { ?>
         <!-- Start of Contact Form -->
         <section class="bg-trainingform">
@@ -253,164 +255,54 @@
         </div>
     </section>
 
-    <!-- <section class="bg-footer">
-        <div class="container">
-            <div class="row">
-                <div class="col-3">
-                    <a href="<?= BASE_URL ?>" class="logo-footer">
-                        <img src="<?= BASE_URL ?>assets/img/logo.png" alt="PN Global Logo">
-                    </a>
-                </div>
+<?php endif; ?>
 
-                <div class="col-6 text-center">
-                    <div class="footer-center">
-                        <div class="logo-text">
-                            <span class="asset">ASSET</span>
-                            <span class="management">MANAGEMENT</span>
-                        </div>
-                        <a href="<?= BASE_URL ?>homepage/contactform" class="btn-contact">Contact Form</a>
-                    </div>
-                </div>
 
-                <div class="col-3 text-end">
-                    <div class="vertical-divider"></div>
-                    <div class="footer-links">
-                        <a href="<?= BASE_URL ?>latest-deals">Latest Deals</a>
-                        <a href="<?= BASE_URL ?>services">Services</a>
-                        <a href="<?= BASE_URL ?>training-courses">Training Courses</a>
-                        <a href="<?= BASE_URL ?>homepage/about">About <span translate="no">PN Global</span></a>
-                    </div>
-                </div>
+<!-- JQUERY -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.4.3/js/foundation.min.js"></script>
 
-                <div class="col-8 mx-auto border-hr-footer"></div>
+<!-- GSAP -->
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+<script src="https://unpkg.com/split-type"></script>
 
-                <div class="col-12 address-section">
-                    <div class="row">
-                        <div class="col-12 col-md-4">
-                            <p class="f-inter text-white mb-4 d-flex">
-                                <span>
-                                    <svg width="11" height="14" viewBox="0 0 11 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M5.5 0C2.45929 0 0 2.191 0 4.9C0 8.575 5.5 14 5.5 14C5.5 14 11 8.575 11 4.9C11 2.191 8.54071 0 5.5 0ZM5.5 6.65C4.41571 6.65 3.53571 5.866 3.53571 4.9C3.53571 3.934 4.41571 3.15 5.5 3.15C6.58429 3.15 7.46429 3.934 7.46429 4.9C7.46429 5.866 6.58429 6.65 5.5 6.65Z" fill="#D1B06B" />
-                                    </svg>
-                                </span>
-                                <span class="ps-1">
-                                    <strong>Company incorporation:</strong> 16192 Coastal Highway, Lewes Delaware 19958 (USA)
-                                </span>
-                            </p>
-                            <p class="f-inter text-white mb-4 d-flex">
-                                <span>
-                                    <svg width="11" height="14" viewBox="0 0 11 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M5.5 0C2.45929 0 0 2.191 0 4.9C0 8.575 5.5 14 5.5 14C5.5 14 11 8.575 11 4.9C11 2.191 8.54071 0 5.5 0ZM5.5 6.65C4.41571 6.65 3.53571 5.866 3.53571 4.9C3.53571 3.934 4.41571 3.15 5.5 3.15C6.58429 3.15 7.46429 3.934 7.46429 4.9C7.46429 5.866 6.58429 6.65 5.5 6.65Z" fill="#D1B06B" />
-                                    </svg>
-                                </span>
-                                <span class="ps-1">
-                                    <strong>International finance department:</strong> 12 Collyer Quay, Ocean Financial Centre, Singapore 049319
-                                </span>
-                            </p>
-                        </div>
-                        <div class="col-12 col-md-4">
-                            <p class="f-inter text-white mb-4 d-flex">
-                                <span>
-                                    <svg width="11" height="14" viewBox="0 0 11 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M5.5 0C2.45929 0 0 2.191 0 4.9C0 8.575 5.5 14 5.5 14C5.5 14 11 8.575 11 4.9C11 2.191 8.54071 0 5.5 0ZM5.5 6.65C4.41571 6.65 3.53571 5.866 3.53571 4.9C3.53571 3.934 4.41571 3.15 5.5 3.15C6.58429 3.15 7.46429 3.934 7.46429 4.9C7.46429 5.866 6.58429 6.65 5.5 6.65Z" fill="#D1B06B" />
-                                    </svg>
-                                </span>
-                                <span class="ps-1">
-                                    <strong>Head quarter:</strong> 46 street, 247W Platinum Tower, New York,NY 10036 (USA)
-                                </span>
-                            </p>
-                            <p class="f-inter text-white mb-4 d-flex">
-                                <span>
-                                    <svg width="11" height="14" viewBox="0 0 11 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M5.5 0C2.45929 0 0 2.191 0 4.9C0 8.575 5.5 14 5.5 14C5.5 14 11 8.575 11 4.9C11 2.191 8.54071 0 5.5 0ZM5.5 6.65C4.41571 6.65 3.53571 5.866 3.53571 4.9C3.53571 3.934 4.41571 3.15 5.5 3.15C6.58429 3.15 7.46429 3.934 7.46429 4.9C7.46429 5.866 6.58429 6.65 5.5 6.65Z" fill="#D1B06B" />
-                                    </svg>
-                                </span>
-                                <span class="ps-1">
-                                    <strong>Operational detachment:</strong> Benoa Square, Jl. Bypass Ngurah Rai A Kedonganan No.21, Jimbaran, Kec. Kuta, Kabupaten Badung, Bali 80361, Indonesia
-                                </span>
-                            </p>
-                        </div>
-                        <div class="col-12 col-md-4">
-                            <p class="f-inter text-white mb-4 d-flex">
-                                <span>
-                                    <svg width="11" height="14" viewBox="0 0 11 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M5.5 0C2.45929 0 0 2.191 0 4.9C0 8.575 5.5 14 5.5 14C5.5 14 11 8.575 11 4.9C11 2.191 8.54071 0 5.5 0ZM5.5 6.65C4.41571 6.65 3.53571 5.866 3.53571 4.9C3.53571 3.934 4.41571 3.15 5.5 3.15C6.58429 3.15 7.46429 3.934 7.46429 4.9C7.46429 5.866 6.58429 6.65 5.5 6.65Z" fill="#D1B06B" />
-                                    </svg>
-                                </span>
-                                <span class="ps-1">
-                                    <strong>International monetary departments:</strong> Business Location: 109 Bismarckia Way - George Town Cayman Islands
-                                </span>
-                            </p>
-                            <p class="f-inter text-white mb-4 d-flex">
-                                <span>
-                                    <svg width="11" height="14" viewBox="0 0 11 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M5.5 0C2.45929 0 0 2.191 0 4.9C0 8.575 5.5 14 5.5 14C5.5 14 11 8.575 11 4.9C11 2.191 8.54071 0 5.5 0ZM5.5 6.65C4.41571 6.65 3.53571 5.866 3.53571 4.9C3.53571 3.934 4.41571 3.15 5.5 3.15C6.58429 3.15 7.46429 3.934 7.46429 4.9C7.46429 5.866 6.58429 6.65 5.5 6.65Z" fill="#D1B06B" />
-                                    </svg>
-                                </span>
-                                <span class="ps-1">
-                                    <strong>Brokers stock division:</strong> 11 Wallstreet, New York, NY 10005 (USA)
-                                </span>
-                            </p>
-                        </div>
-                    </div>
-                </div>
+<!-- Telephone Code -->
+<script src="<?= BASE_URL ?>assets/libs/intl-tel-input-master/build/js/intlTelInput.js"></script>
 
-                <div class="col-10 mx-auto d-flex justify-content-center">
-                    <a href="https://moneyindustrialfactory.io" target="_blank">
-                        <img class='img-fluid' src='<?= BASE_URL ?>assets/img/powered-mif.png' alt='Powered by MIF'>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section> -->
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=<?= IDGTAG ?>"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
 
-    <!-- End of Contact Form -->
-
-    <!-- JQUERY -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.4.3/js/foundation.min.js"></script>
-
-    <!-- GSAP -->
-    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
-    <script src="https://unpkg.com/split-type"></script>
-
-    <!-- Telephone Code -->
-    <script src="<?= BASE_URL ?>assets/libs/intl-tel-input-master/build/js/intlTelInput.js"></script>
-
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=<?= IDGTAG ?>"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-
-        function gtag() {
-            dataLayer.push(arguments);
-        }
-        gtag('js', new Date());
-
-        gtag('config', '<?= IDGTAG ?>');
-    </script>
-
-    <!-- Custom General Javascript -->
-    <script src="<?= BASE_URL ?>assets/js/script.js"></script>
-    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-    <script>
-        AOS.init();
-    </script>
-
-    <?php
-    if (@isset($extra)) {
-        echo view(@$extra);
+    function gtag() {
+        dataLayer.push(arguments);
     }
-    ?>
+    gtag('js', new Date());
 
-    <?php
-    if (@isset($extragsap)) {
-        echo view(@$extragsap);
-    }
-    ?>
+    gtag('config', '<?= IDGTAG ?>');
+</script>
 
-    </body>
+<!-- Custom General Javascript -->
+<script src="<?= BASE_URL ?>assets/js/script.js"></script>
+<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script>
+    AOS.init();
+</script>
 
-    </html>
+<?php
+if (@isset($extra)) {
+    echo view(@$extra);
+}
+?>
+
+<?php
+if (@isset($extragsap)) {
+    echo view(@$extragsap);
+}
+?>
+
+</body>
+
+</html>

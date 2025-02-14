@@ -15,12 +15,23 @@
   padding: 0;
 }
 
-.h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   margin: 0;
 }
 
 a {
-  color: #FFFFFF;
+  color: #ffffff;
   text-decoration: none;
 }
 
@@ -32,8 +43,8 @@ a {
   color: #000000;
   box-shadow: none;
   border-radius: 5px;
-  border: 1px solid #FFF;
-  background: #BFA573;
+  border: 1px solid #fff;
+  background: #bfa573;
   width: 10rem;
   height: 2.2rem;
 }
@@ -42,13 +53,13 @@ a {
   margin-top: 4rem;
 }
 .subs .title-top .title {
-  color: #FFFFFF;
+  color: #ffffff;
   font-weight: 400;
   font-size: 32px;
 }
 .subs .title-top .desc {
   font-size: 14px;
-  color: #FFFFFF;
+  color: #ffffff;
   font-weight: 400;
 }
 .subs .list-subs {
@@ -59,7 +70,7 @@ a {
   padding: 1rem;
 }
 .subs .list-subs .card {
-  background-color: #BFA573;
+  background-color: #bfa573;
   border-radius: var(--card-radius);
   position: relative;
   border: none;
@@ -112,7 +123,7 @@ a {
   transition: border-color 0.2s ease-out;
 }
 .plan-details .plan-header {
-  background-color: #B48B3D;
+  background-color: #b48b3d;
   border-radius: 0.5em 0.5em 0em 0em;
   padding: 0.5em 0.7rem;
 }
@@ -120,7 +131,7 @@ a {
   background-color: #4d4d4d;
 }
 .plan-details .plan-header .plan-title {
-  color: #FFFFFF;
+  color: #ffffff;
   font-size: 20px;
   margin-left: 2.5rem;
 }
@@ -182,7 +193,7 @@ a {
 }
 
 .dash-signal-preview {
-  border: 2px solid #B48B3D;
+  border: 2px solid #b48b3d;
   border-radius: 10px;
   height: 100%;
 }
@@ -192,7 +203,7 @@ a {
   flex-direction: column;
 }
 .dash-signal-preview .dash-referral label {
-  color: #FFFFFF;
+  color: #ffffff;
   font-size: 14px;
 }
 .dash-signal-preview .dash-referral .btn-primary {
@@ -200,33 +211,33 @@ a {
 }
 .dash-signal-preview .title-signal-preview {
   padding: 1rem;
-  border-bottom: 2px solid #B48B3D;
+  border-bottom: 2px solid #b48b3d;
 }
 .dash-signal-preview .title-signal-preview h4 {
-  color: #FFFFFF;
+  color: #ffffff;
 }
 .dash-signal-preview .main-signal-preview .date {
   padding: 0.5rem;
 }
 .dash-signal-preview .main-signal-preview .insturctions .instructions-title {
-  color: #FFFFFF;
+  color: #ffffff;
   font-size: 14px;
   text-transform: uppercase;
   margin-bottom: 0.5rem;
 }
 .dash-signal-preview .main-signal-preview .insturctions .box-insturctions {
-  background-color: #0E7304;
+  background-color: #0e7304;
   padding: 0.8rem 1rem;
   width: 15rem;
   border-radius: 5px;
 }
 .dash-signal-preview .main-signal-preview .insturctions .box-insturctions h4 {
-  color: #BFA573;
+  color: #bfa573;
   font-weight: 700;
   font-size: 20px;
 }
 .dash-signal-preview .main-signal-preview .insturctions .box-insturctions span {
-  color: #BFA573;
+  color: #bfa573;
   font-weight: 600;
   font-size: 10px;
 }
@@ -239,12 +250,12 @@ a {
 }
 .dash-signal-preview .main-signal-preview .signal-preview .all-buy .wrapper-buy .buy .buy-title .buy-text {
   font-size: 12px;
-  color: #FFFFFF;
+  color: #ffffff;
   font-weight: 600;
 }
 .dash-signal-preview .main-signal-preview .signal-preview .all-buy .wrapper-buy .buy .buy-title .buy-date {
   font-size: 8px;
-  color: #FFFFFF;
+  color: #ffffff;
   font-weight: 400;
 }
 .dash-signal-preview .main-signal-preview .signal-preview .all-sell .wrapper-sell .sell {
@@ -252,12 +263,12 @@ a {
 }
 .dash-signal-preview .main-signal-preview .signal-preview .all-sell .wrapper-sell .sell .sell-title .sell-text {
   font-size: 12px;
-  color: #FFFFFF;
+  color: #ffffff;
   font-weight: 600;
 }
 .dash-signal-preview .main-signal-preview .signal-preview .all-sell .wrapper-sell .sell .sell-title .sell-date {
   font-size: 8px;
-  color: #FFFFFF;
+  color: #ffffff;
   font-weight: 400;
 }
 
@@ -274,7 +285,7 @@ a {
 }
 
 .wrapper-period .td-period {
-  background-color: #B48B3D !important;
+  background-color: #b48b3d !important;
   height: 3rem;
   display: flex;
   flex-direction: column;
@@ -297,19 +308,19 @@ a {
   margin-top: 1rem;
 }
 .subs-success .title-top .title {
-  color: #FFFFFF;
+  color: #ffffff;
   font-weight: 400;
   font-size: 18px;
 }
 .subs-success .title-top .desc {
   font-size: 13px;
-  color: #FFFFFF;
+  color: #ffffff;
   font-weight: 400;
   line-height: 24px;
 }
 
 .table {
-  color: #FFFFFF;
+  color: #ffffff;
 }
 
 .table thead th {
@@ -317,7 +328,7 @@ a {
 }
 
 .table td {
-  border-top: 1px solid #BFA573;
+  border-top: 1px solid #bfa573;
 }
 
 .table th {
@@ -325,12 +336,13 @@ a {
 }
 
 #table_message_wrapper {
-  border: 2px solid #BFA573;
+  border: 2px solid #bfa573;
   border-radius: 4px;
   padding: 6px;
 }
 
-#table_message_filter, #table_message_length {
+#table_message_filter,
+#table_message_length {
   display: none;
 }
 
@@ -342,17 +354,18 @@ a {
   padding: 0.2rem;
 }
 
-#table_message_paginate, #table_message_info {
+#table_message_paginate,
+#table_message_info {
   padding: 1rem;
-  color: #FFFFFF;
+  color: #ffffff;
 }
 
 .wrapper-detailmessage {
-  border: 2px solid #BFA573;
+  border: 2px solid #bfa573;
   border-radius: 10px;
 }
 .wrapper-detailmessage .header-detailmessage {
-  border-bottom: 2px solid #BFA573;
+  border-bottom: 2px solid #bfa573;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -360,18 +373,18 @@ a {
 }
 .wrapper-detailmessage .header-detailmessage h1 {
   font-size: 14px;
-  color: #FFFFFF;
+  color: #ffffff;
 }
 .wrapper-detailmessage .header-detailmessage span {
   font-size: 12px;
-  color: #FFFFFF;
+  color: #ffffff;
 }
 .wrapper-detailmessage .body-detailmessage {
   padding: 0.8rem;
 }
 .wrapper-detailmessage .body-detailmessage p {
   font-size: 12px;
-  color: #FFFFFF !important;
+  color: #ffffff !important;
 }
 
 .upgrade-plan {
@@ -385,4 +398,6 @@ a {
   position: absolute;
   top: 5px;
   right: 5px;
-}/*# sourceMappingURL=widget.css.map */
+}
+
+/*# sourceMappingURL=widget.css.map */

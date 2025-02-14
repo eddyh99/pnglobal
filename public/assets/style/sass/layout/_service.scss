@@ -61,19 +61,19 @@
 
                 .top {
                     margin-top: 0.5rem;
-                    // clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+                    /* clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%); */
 
-                    // .btn-download {
-                    //      @include mix.animation-reveal;
-                    // }
+                    /* .btn-download {
+                         @include mix.animation-reveal;
+                    } */
                 }
 
                 .bottom {
-                    // clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+                    /* clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%); */
 
-                    // .btn-download {
-                    //      @include mix.animation-reveal;
-                    // }
+                    /* .btn-download {
+                         @include mix.animation-reveal;
+                    } */
                 }
                 .btn-download {
                     padding: 0.5rem;
@@ -123,7 +123,6 @@
                 }
 
                 &.legal {
-                    // background: rgba(47, 26, 7, 0.82);
                     background: rgba(106, 98, 91, 0.86);
                     color: var.$text-secondary-100-pnglobal;
                     padding: 2rem 3rem;
@@ -1071,7 +1070,6 @@
 .win-finance {
     overflow: hidden !important;
     background-color: var.$bg-primary-200-pnglobal;
-
     #g-financeconsultingtext {
         @include mix.flex-kiri;
         margin-top: 3rem;
@@ -1668,10 +1666,17 @@
 /*----------------------------------------------------------
 8. Satoshi Start
 ------------------------------------------------------------*/
+.main-section-otp {
+    /* Styling untuk section OTP wrapper */
+    background-color: #272626;
+    height: 100vh;
+    overflow: hidden;
+    bottom: 0;
+}
+
 .satoshi-banner {
     #g-text-downloadapp {
         // clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
-
         // .line-animation {
         //     @include mix.animation-reveal;
         // }
@@ -1935,13 +1940,33 @@
     }
 }
 
+.satoshi-activation-title {
+    margin-top: 77px;
+
+    .wrapper-big-title {
+        background: #272626;
+        padding: 2rem 0;
+        h1 {
+            color: #bda069;
+            text-align: center;
+            font-family: 'Noto Serif', serif;
+            font-size: 40px;
+            font-style: normal;
+            font-weight: 800;
+            line-height: 25px;
+            text-transform: uppercase;
+        }
+    }
+}
+
 .satoshi-activation {
+    background-color: #d9d9d9;
     .otp-area {
         .inputs {
             input {
                 width: 80px !important;
                 height: 80px !important;
-                background-color: #d9d9d9 !important;
+                background-color: #aaa6a6 !important;
 
                 &:focus {
                     box-shadow: none;
