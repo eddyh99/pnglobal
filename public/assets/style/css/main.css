@@ -16008,6 +16008,14 @@ p {
   bottom: 0;
 }
 
+.main-section-register {
+  /* Styling untuk section OTP wrapper */
+  background-color: #272626;
+  height: 100vh;
+  overflow: hidden;
+  bottom: 0;
+}
+
 #bg-satoshi-join {
   background: url("../../img/bg-satoshi-join.png");
   background-position: center center;
