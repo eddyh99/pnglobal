@@ -20246,6 +20246,9 @@ input:-moz-placeholder {
   color: #ffe440;
 }
 
+.formula-section {
+  overflow: hidden;
+}
 .formula-section .top-content {
   padding: 60px 0;
   background: #000;
@@ -20315,7 +20318,7 @@ input:-moz-placeholder {
   text-transform: capitalize;
   margin-bottom: 60px;
 }
-.formula-section .bottom-content .text-content .discover-button {
+.formula-section .bottom-content .text-content .discover-our-secret-formula-button {
   border: none;
   border-radius: 5px;
   background: #bda069;
@@ -20328,7 +20331,7 @@ input:-moz-placeholder {
   cursor: pointer;
   transition: all 0.3s ease;
 }
-.formula-section .bottom-content .text-content .discover-button:hover {
+.formula-section .bottom-content .text-content .discover-our-secret-formula-button:hover {
   background: #fff;
   box-shadow: 0px 4px 35px 20px #bda069;
 }

@@ -1065,6 +1065,7 @@
 }
 
 .formula-section {
+    overflow: hidden;
     .top-content {
         padding: 60px 0;
         background: #000;
@@ -1144,7 +1145,7 @@
                 margin-bottom: 60px;
             }
 
-            .discover-button {
+            .discover-our-secret-formula-button {
                 border: none;
                 border-radius: 5px;
                 background: #bda069;

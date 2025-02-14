@@ -345,14 +345,14 @@
         </div>
 
         <div class="bottom-content">
-            <div class="container">
+            <div class="container-fluid">
                 <div class="content-wrapper">
                     <div class="text-content">
                         <h3>Want to access the same strategies used by our professional brokers?</h3>
                         <p class="description">
                             Our Secret Formula, developed by PN Global expert brokers, provides you with all the tools you need to achieve extraordinary results. Without the need to study complex financial theories, you can maximize the potential of our app and start earning right away.
                         </p>
-                        <a href="<?= BASE_URL ?>homepage/satoshi_price#register" class="discover-button">
+                        <a href="<?= BASE_URL ?>homepage/satoshi_price#register" class="btn discover-our-secret-formula-button">
                             DISCOVER OUR <br> "SECRET FORMULA"
                         </a>
                     </div>
