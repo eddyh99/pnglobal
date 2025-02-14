@@ -268,7 +268,7 @@
                 font-size: 20px;
                 font-weight: 500;
                 line-height: 25px;
-                text-align: left;
+                text-align: center;
             }
         }
     }
@@ -465,6 +465,9 @@
                 text-transform: uppercase;
                 cursor: pointer;
                 transition: all 0.3s ease;
+                display: flex;
+                align-items: center;
+                justify-content: center;
 
                 &:hover {
                     background: #fff;
@@ -705,10 +708,10 @@
             flex-shrink: 0;
             background: linear-gradient(
                 100deg,
-                #000 42.66%,
-                #070707 65.96%,
-                #151515 77.78%,
-                #666 92.21%
+                rgba(0, 0, 0, 0.7) 42.66%,
+                rgba(7, 7, 7, 0.6) 65.96%,
+                rgba(21, 21, 21, 0.5) 77.78%,
+                rgba(102, 102, 102, 0.4) 92.21%
             );
             // background: red;
             border-radius: 5px;

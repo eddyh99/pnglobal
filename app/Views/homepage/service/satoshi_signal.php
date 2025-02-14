@@ -132,7 +132,7 @@
                     <p class="description">Enjoy the financial freedom you've always dreamed. Our reliable returns, backed by our deep market knowledge and real-time analysis, ensure your financial success.</p>
                     <p class="highlight">Join us today and start earning consistent profits.</p>
                     <div class="button-wrapper">
-                        <a href="<?= BASE_URL ?>homepage/satoshi_price#register" class="profit-button">
+                        <a href="<?= BASE_URL ?>homepage/satoshi_price#register" class="btn profit-button">
                             Turn your savings <br> into profits
                         </a>
                     </div>
