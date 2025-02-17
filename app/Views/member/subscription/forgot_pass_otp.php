@@ -1,9 +1,9 @@
     <section class="forgot-pass-otp">
-        <div class="container">
-            <div class="row">
-                <div class="col-10 mx-auto">
+        <div class="container-fluid p-0 m-0">
+            <div class="row p-0 m-0">
+                <div class="col-12 p-0 m-0">
                     <div class="d-flex flex-column justify-content-center align-items-center">
-                        <div class="position-relative otp-area">
+                        <div class="position-relative otp-area w-100">
                             <?php if (!empty(session('failed'))) { ?>
                                 <div class="alert alert-danger alert-dismissible fade show" role="alert">
                                     <strong>
@@ -12,8 +12,8 @@
                                     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                                 </div>
                             <?php } ?>
-                            <form id="forgot-pass-otp-form" method="POST" class="p-2 text-center">
-                                <h5>We have sent an activation code to your email.</h5>
+                            <form id="satoshi-otp-form" method="POST" class="p-3 text-center">
+                                <h5>Check Your Email To Get OTP</h5>
                                 <br>
                                 <div id="otp" class="inputs d-flex flex-row justify-content-center mt-2">
                                     <input class="m-2 text-center form-control rounded" type="text" id="first" name="first" maxlength="1" />
@@ -23,10 +23,10 @@
                                 </div>
                                 <h6>Enter the activation code in the column provided.</h6>
                                 <div class="mt-4">
-                                    <button id="validateBtn" type="submit" class="btn btn-forgot-otp fs-6">CONFIRM</button>
+                                    <button id="validateBtn" type="submit" class="btn btn-satoshi-price-register fs-6">CONFIRM</button>
                                 </div>
                                 <p class="my-5">
-                                    <span id="resendotp" class="text-primary" style="cursor: pointer;">Resend</span> activated code
+                                    <span id="resendotp" class="text-primary" style="cursor: pointer;">Resend</span> OTP
                                 </p>
                             </form>
                         </div>

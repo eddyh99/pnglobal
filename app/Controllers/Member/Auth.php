@@ -345,12 +345,15 @@ class Auth extends BaseController
 		sendmail_satoshi($email, $subject, $message);
 	}
 
-	public function forgot_pass_otp()
+	public function forgot_pass_otp($emailuser)
 	{
+		$emailuser = urldecode($emailuser);
+
 		$mdata = [
 			'title'     => 'Forgot Password - Satoshi Signal',
 			'content'   => 'member/subscription/forgot_pass_otp',
-			'extra'     => 'member/subscription/js/_js_forgot_password',
+			'extra'     => 'member/subscription/js/_js_forgot_pass_otp',
+			'emailuser' => $emailuser
 		];
 
 		return view('member/layout/login_wrapper', $mdata);
