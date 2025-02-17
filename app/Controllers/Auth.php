@@ -351,9 +351,10 @@ class Auth extends BaseController
 		$mdata['password'] = sha1($mdata['password']);
 
 		// Proccess Endpoin API
-		$url = URLAPI . "/auth/login";
+		$url = URLAPI . "/auth/signin";
 		$response = satoshiAdmin($url, json_encode($mdata));
 		$result = $response->result;
+
 		if ($result->code == 200) {
 			return redirect()->to(BASE_URL . 'member/auth/pricing?email=' . $mdata["email"]);
 		} else {

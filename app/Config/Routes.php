@@ -8,4 +8,3 @@ use CodeIgniter\Router\RouteCollection;
 
 // HOMEPAGE
 $routes->get('/', 'Homepage::index');
-   
