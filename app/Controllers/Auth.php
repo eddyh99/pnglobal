@@ -123,16 +123,61 @@ class Auth extends BaseController
 		$email = urldecode($email);
 		$subject = "Satoshi Signal - Reset Password";
 
-		// Call Endpoin Member
+		// Call Endpoint Member
 		$url = URLAPI . "/auth/resend_token";
-		$resultMember = satoshiAdmin($url)->result->message;
+		$apiResponse = satoshiAdmin($url, json_encode(['email' => $email]));
 
-		$token = $resultMember->otp;
+		// Pastikan $apiResponse adalah objek
+		if (!is_object($apiResponse)) {
+			return $this->response->setJSON([
+				'code'    => 500,
+				'service' => 'auth',
+				'error'   => 'Invalid response',
+				'message' => 'Response dari API tidak valid.'
+			]);
+		}
 
+		$result = $apiResponse->result;
+
+		// Cek apakah $result adalah objek dan memiliki properti yang diharapkan
+		if (is_object($result)) {
+			if (isset($result->message)) {
+				// Jika ada pesan, ambil token dari dalam pesan
+				$token = $result->message->otp ?? null; // Menggunakan null coalescing operator
+			} else {
+				return $this->response->setJSON([
+					'code'    => 500,
+					'service' => 'auth',
+					'error'   => 'Unexpected response format',
+					'message' => 'Tidak ada pesan dalam respons.'
+				]);
+			}
+		} else {
+			// Jika $result adalah string, tangani dengan benar
+			if (is_string($result)) {
+				return $this->response->setJSON([
+					'code'    => 500,
+					'service' => 'auth',
+					'error'   => 'Unexpected response format',
+					'message' => $result // Mengembalikan string sebagai pesan
+				]);
+			}
+
+			return $this->response->setJSON([
+				'code'    => 500,
+				'service' => 'auth',
+				'error'   => 'Invalid response format',
+				'message' => 'Gagal mengambil OTP dari API.'
+			]);
+		}
+
+		// Kirim email dengan token
 		sendmail_satoshi($email, $subject, emailtemplate_forgot_password($token, $email));
 
-		session()->setFlashdata('success', $resultMember->message);
-		return redirect()->to(BASE_URL . 'member/auth/forgot_pass_otp?email=' . $email);
+		return $this->response->setJSON([
+			'code'    => 200,
+			'message' => 'Email berhasil dikirim'
+		]);
 	}
 
 	public function activate_member($email = null)

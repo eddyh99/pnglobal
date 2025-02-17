@@ -13,13 +13,14 @@
         };
         console.log(payload);
 
+
         $.ajax({
             url: '<?= BASE_URL ?>auth/send_resetpassword',
             type: "POST",
             data: payload,
             success: function(response) {
                 if (response.code === 200) {
-                    $(".alert").html('<div class="alert alert-success">' + response.message.text + '</div>');
+                    window.location.href = '<?= BASE_URL ?>member/auth/forgot_pass_otp/' + btoa(email);
                 } else {
                     $(".alert").html('<div class="alert alert-danger">' + response.message + '</div>');
                 }

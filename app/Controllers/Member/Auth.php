@@ -347,12 +347,10 @@ class Auth extends BaseController
 
 	public function forgot_pass_otp()
 	{
-		$email = @$_GET['email'];
 		$mdata = [
 			'title'     => 'Forgot Password - Satoshi Signal',
 			'content'   => 'member/subscription/forgot_pass_otp',
 			'extra'     => 'member/subscription/js/_js_forgot_password',
-			'email'     => $email
 		];
 
 		return view('member/layout/login_wrapper', $mdata);
