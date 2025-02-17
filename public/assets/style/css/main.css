@@ -13615,7 +13615,7 @@ p {
   left: 0;
   width: 100%;
   height: 100vh;
-  z-index: 1;
+  z-index: 2;
 }
 .newsletter .newsletter-bg video {
   width: 100%;
@@ -13624,7 +13624,7 @@ p {
   position: absolute;
   top: 0;
   left: 0;
-  z-index: -1;
+  z-index: 1;
 }
 .newsletter .newsletter-content {
   position: relative;
@@ -13636,7 +13636,7 @@ p {
   padding-bottom: 10rem;
 }
 .newsletter .newsletter-content .bg-title-something-big {
-  background: url("../../img/bg-title-something-big.PNG") no-repeat center center;
+  background: url("../../img/bg-title-something-big.png") no-repeat center center;
   background-size: cover;
   padding: 2rem;
 }
@@ -13756,6 +13756,10 @@ p {
 .newsletter .newsletter-content .mt-4 .col-md-6:last-child .button-wrapper .btn.custom-btn {
   margin: 35px auto;
   width: auto;
+  min-width: 350px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   background: #bda069;
   box-shadow: 0px 4px 15px 10px #fff;
   color: #000;
@@ -14017,12 +14021,15 @@ p {
   text-transform: uppercase;
   border-radius: 5px;
   background: #bfa573;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   box-shadow: 0px 4px 6px 0px rgba(255, 255, 255, 0.9);
   border: none;
   padding: 3px 20px;
   cursor: pointer;
   transition: all 0.3s ease;
-  min-width: 206px;
+  min-width: 300px;
   min-height: 45px;
 }
 .service-homepage .service-card .service-btn:hover {
@@ -15994,6 +16001,14 @@ p {
 8. Satoshi Start
 ------------------------------------------------------------*/
 .main-section-otp {
+  /* Styling untuk section OTP wrapper */
+  background-color: #272626;
+  height: 100vh;
+  overflow: hidden;
+  bottom: 0;
+}
+
+.main-section-register {
   /* Styling untuk section OTP wrapper */
   background-color: #272626;
   height: 100vh;
@@ -18500,7 +18515,7 @@ input:-moz-placeholder {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 311px;
+  min-width: 350px;
   height: 84px;
   border-radius: 5px;
 }
@@ -19573,7 +19588,7 @@ input:-moz-placeholder {
   font-size: 20px;
   font-weight: 500;
   line-height: 25px;
-  text-align: left;
+  text-align: center;
 }
 
 .app-features-section .top-content {
@@ -19734,6 +19749,9 @@ input:-moz-placeholder {
   text-transform: uppercase;
   cursor: pointer;
   transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .farewell-section .text-content .button-wrapper .profit-button:hover {
   background: #fff;
@@ -19933,7 +19951,7 @@ input:-moz-placeholder {
   width: 667px;
   height: auto;
   flex-shrink: 0;
-  background: linear-gradient(100deg, #000 42.66%, #070707 65.96%, #151515 77.78%, #666 92.21%);
+  background: linear-gradient(100deg, rgba(0, 0, 0, 0.7) 42.66%, rgba(7, 7, 7, 0.6) 65.96%, rgba(21, 21, 21, 0.5) 77.78%, rgba(102, 102, 102, 0.4) 92.21%);
   border-radius: 5px;
   padding: 30px;
 }
@@ -20239,6 +20257,9 @@ input:-moz-placeholder {
   color: #ffe440;
 }
 
+.formula-section {
+  overflow: hidden;
+}
 .formula-section .top-content {
   padding: 60px 0;
   background: #000;
@@ -20308,7 +20329,7 @@ input:-moz-placeholder {
   text-transform: capitalize;
   margin-bottom: 60px;
 }
-.formula-section .bottom-content .text-content .discover-button {
+.formula-section .bottom-content .text-content .discover-our-secret-formula-button {
   border: none;
   border-radius: 5px;
   background: #bda069;
@@ -20321,7 +20342,7 @@ input:-moz-placeholder {
   cursor: pointer;
   transition: all 0.3s ease;
 }
-.formula-section .bottom-content .text-content .discover-button:hover {
+.formula-section .bottom-content .text-content .discover-our-secret-formula-button:hover {
   background: #fff;
   box-shadow: 0px 4px 35px 20px #bda069;
 }
@@ -20346,7 +20367,12 @@ input:-moz-placeholder {
 .crypto-consulting {
   position: relative;
   overflow: hidden;
-  padding-top: 80px;
+  padding-top: 77px;
+}
+.crypto-consulting .container-fluid .row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .crypto-consulting .container-fluid .row .bg-crypto-consulting {
   height: 100%;
@@ -20362,6 +20388,7 @@ input:-moz-placeholder {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  height: 100%;
 }
 .crypto-consulting .container-fluid .row .consulting-content .title {
   color: #d1b06b;
@@ -20421,7 +20448,6 @@ input:-moz-placeholder {
 }
 
 .advisor-section {
-  margin-top: 80px;
   background: linear-gradient(91deg, rgba(0, 0, 0, 0.88) 6.66%, rgba(107, 105, 100, 0.88) 85.96%, rgba(158, 154, 148, 0.88) 100%);
   padding: 60px 0;
 }
@@ -20711,8 +20737,13 @@ input:-moz-placeholder {
   background-color: #bda069;
   position: relative;
   overflow: hidden;
-  padding: 77px 0;
+  padding: 77px 0 0;
   margin-top: 0;
+}
+.passive-income .container-fluid .row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .passive-income .container-fluid .row .bg-passive-income {
   height: 100%;
@@ -20728,6 +20759,7 @@ input:-moz-placeholder {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  height: 100%;
 }
 .passive-income .container-fluid .row .passive-content .title {
   color: #fff;
@@ -22832,6 +22864,34 @@ input:-moz-placeholder {
   font-weight: 500;
   line-height: 25px;
   margin-top: 20px;
+}
+
+/* _login.scss */
+.forgot-password {
+  text-align: right;
+  font-family: "Numans", sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 50px;
+  text-transform: capitalize;
+  color: #000;
+}
+.forgot-password a {
+  color: #000;
+  text-decoration: none;
+}
+
+.register-section {
+  text-align: center;
+  font-family: "Numans", sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+  color: #000;
+}
+.register-section a {
+  color: #3d33fd;
+  text-decoration: none;
 }
 
 /*----------------------------------------------------------

@@ -245,6 +245,46 @@ class Homepage extends BaseController
         return view('homepage/layout/wrapper', $mdata);
     }
 
+    public function signin()
+    {
+        $rules = $this->validate([
+            'email'     => [
+                'label'     => 'Email',
+                'rules'     => 'required|valid_email'
+            ],
+            'password'     => [
+                'label'     => 'Password',
+                'rules'     => 'required'
+            ],
+        ]);
+
+        // Checking Validation
+        if (!$rules) {
+            session()->setFlashdata('failed', $this->validation->listErrors());
+            return redirect()->to(BASE_URL . 'member/auth/login')->withInput();
+        }
+
+        // Initial Data
+        $mdata = [
+            'email'     => htmlspecialchars($this->request->getVar('email')),
+            'password'  => htmlspecialchars($this->request->getVar('password')),
+        ];
+
+        // Password Encrypt
+        $mdata['password'] = sha1($mdata['password']);
+
+        // Proccess Endpoin API
+        $url = URLAPI . "/auth/login";
+        $response = satoshiAdmin($url, json_encode($mdata));
+        $result = $response->result;
+        if ($result->code == 200) {
+            return redirect()->to(BASE_URL . 'member/auth/pricing?email=' . $mdata["email"]);
+        } else {
+            session()->setFlashdata('failed', $result->message);
+            return redirect()->to(BASE_URL . 'member/auth/login');
+        }
+    }
+
 
     public function satoshi_price()
     {
@@ -254,6 +294,7 @@ class Homepage extends BaseController
             'extra'     => 'homepage/service/js/_js_satoshi_price',
             'navoption' => true,
             'darkNav'   => true,
+            'footer'    => false,
         ];
 
         return view('homepage/layout/wrapper', $mdata);
@@ -291,13 +332,15 @@ class Homepage extends BaseController
         $mdata = [
             'email'         => htmlspecialchars($this->request->getVar('email')),
             'password'      => sha1(htmlspecialchars($this->request->getVar('pass'))),
-            'ipaddress'     => htmlspecialchars($this->request->getIPAddress()),
             'timezone'      => htmlspecialchars($this->request->getVar('timezone')),
+            'ip_address'     => htmlspecialchars($this->request->getIPAddress()),
         ];
+
 
         $url = URLAPI . "/auth/register";
         $result = satoshiAdmin($url, json_encode($mdata))->result;
 
+        // Check if the result code is not 201
         if ($result->code != '201') {
             session()->setFlashdata('failed', $result->message);
             return redirect()->to(BASE_URL . 'homepage/satoshi_price#register')->withInput();
@@ -306,8 +349,6 @@ class Homepage extends BaseController
             sendmail_satoshi($mdata['email'], $subject,  emailtemplate_activation_account($result->message->otp, $mdata['email']));
             return redirect()->to(BASE_URL . 'auth/activate_member/' . base64_encode($mdata['email']));
         }
-
-        // return redirect()->to(BASE_URL . 'auth/activate_member/' . base64_encode($mdata['email']));
     }
 
     // public function satoshi_active_account($email)

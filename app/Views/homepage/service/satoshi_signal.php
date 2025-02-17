@@ -132,7 +132,7 @@
                     <p class="description">Enjoy the financial freedom you've always dreamed. Our reliable returns, backed by our deep market knowledge and real-time analysis, ensure your financial success.</p>
                     <p class="highlight">Join us today and start earning consistent profits.</p>
                     <div class="button-wrapper">
-                        <a href="<?= BASE_URL ?>homepage/satoshi_price#register" class="profit-button">
+                        <a href="<?= BASE_URL ?>homepage/satoshi_price#register" class="btn profit-button">
                             Turn your savings <br> into profits
                         </a>
                     </div>
@@ -345,14 +345,14 @@
         </div>
 
         <div class="bottom-content">
-            <div class="container">
+            <div class="container-fluid">
                 <div class="content-wrapper">
                     <div class="text-content">
                         <h3>Want to access the same strategies used by our professional brokers?</h3>
                         <p class="description">
                             Our Secret Formula, developed by PN Global expert brokers, provides you with all the tools you need to achieve extraordinary results. Without the need to study complex financial theories, you can maximize the potential of our app and start earning right away.
                         </p>
-                        <a href="<?= BASE_URL ?>homepage/satoshi_price#register" class="discover-button">
+                        <a href="<?= BASE_URL ?>homepage/satoshi_price#register" class="btn discover-our-secret-formula-button">
                             DISCOVER OUR <br> "SECRET FORMULA"
                         </a>
                     </div>

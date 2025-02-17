@@ -77,5 +77,30 @@
                 }
             })
         });
+
+        $("#resendotp").on("click", function(e) {
+            e.preventDefault();
+            var emailAddress = "<?= base64_decode($emailuser) ?>";
+            let formData = {
+                email: emailAddress
+            };
+            console.log("Email yang dikirim untuk resend OTP: " + emailAddress);
+            $.ajax({
+                url: '<?= BASE_URL ?>auth/resend_token',
+                type: 'POST',
+                data: formData,
+                success: function(response) {
+                    console.log(response);
+                    if (response.code == "200") {
+                        alert("Kode telah berhasil dikirim ulang ke email Anda.");
+                    } else {
+                        alert("Resend gagal: " + response.message);
+                    }
+                },
+                error: function() {
+                    alert("Terjadi kesalahan, silahkan coba lagi.");
+                }
+            });
+        });
     })
 </script>

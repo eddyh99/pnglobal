@@ -5,11 +5,15 @@
     background-color: #bda069;
     position: relative;
     overflow: hidden;
-    padding: 77px 0;
+    padding: 77px 0 0;
     margin-top: 0;
 
     .container-fluid {
         .row {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
             .bg-passive-income {
                 height: 100%;
                 position: relative;
@@ -26,7 +30,7 @@
                 display: flex;
                 flex-direction: column;
                 justify-content: center;
-
+                height: 100%;
                 .title {
                     color: #fff;
                     font-family: var.$f-noto;
