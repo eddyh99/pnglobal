@@ -12773,7 +12773,7 @@ p {
   gap: 2rem;
 }
 .navbar .navbar-nav .nav-item .nav-link {
-  color: #FFFFFF;
+  color: #ffffff;
   font-size: 15px;
   text-align: center;
 }
@@ -12838,7 +12838,7 @@ p {
   font-size: 13px;
   text-decoration: none;
   text-align: center;
-  color: #BFA573;
+  color: #bfa573;
   font-size: 14px;
   transition: all 0.3s ease;
 }
@@ -12853,7 +12853,7 @@ p {
   box-shadow: none;
 }
 .navbar .openbtn {
-  background: #BFA573;
+  background: #bfa573;
   width: 45px;
   height: 45px;
   border-radius: 5px;
@@ -12919,7 +12919,7 @@ p {
   background-color: rgba(30, 30, 30, 0.85);
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
   padding: 3rem 0px;
-  color: #FFFFFF;
+  color: #ffffff;
   position: relative;
   bottom: 0;
   width: 100%;
@@ -12934,7 +12934,7 @@ p {
   }
 }
 .bg-contactform .left-side #g-getintouch {
-  color: #BFA573;
+  color: #bfa573;
   font-size: 30px;
   font-style: normal;
   font-weight: 600;
@@ -12978,10 +12978,10 @@ p {
   padding-left: 3rem;
 }
 .bg-trainingform .wrapper-trainingform h2 {
-  color: #BFA573;
+  color: #bfa573;
 }
 .bg-trainingform .wrapper-trainingform p {
-  color: #FFFFFF;
+  color: #ffffff;
   line-height: 30px;
   padding: 2rem 2rem 2rem 0rem;
 }
@@ -13017,7 +13017,7 @@ p {
   }
 }
 .bg-trainingform.blockchain {
-  background-color: #CCB78F !important;
+  background-color: #ccb78f !important;
 }
 .bg-trainingform.blockchain .wrapper-trainingform {
   padding-top: 0;
@@ -13025,7 +13025,7 @@ p {
 .bg-trainingform.blockchain .wrapper-trainingform h2,
 .bg-trainingform.blockchain .wrapper-trainingform h5,
 .bg-trainingform.blockchain .wrapper-trainingform p {
-  color: #1E1E1E;
+  color: #1e1e1e;
 }
 .bg-trainingform.blockchain .wrapper-trainingform h5 {
   margin-top: 1rem;
@@ -13383,21 +13383,21 @@ p {
   padding: 0.5rem;
 }
 .banner-homepage .wrapper-banner-homepage .logo-banner .btn-primary {
-  background-color: #BFA573;
+  background-color: #bfa573;
   box-shadow: 0px 4px 4px 0px rgb(255, 255, 255);
 }
 .banner-homepage .wrapper-banner-homepage .logo-banner .btn-primary:hover {
   box-shadow: 0px 4px 15px 10px #fff;
 }
 .banner-homepage .wrapper-banner-homepage .logo-banner .btn-primary:hover .btn-text {
-  color: #1E1E1E !important;
+  color: #1e1e1e !important;
 }
 .banner-homepage .wrapper-banner-homepage .logo-banner .btn-primary .btn-text {
-  color: #FFFFFF;
+  color: #ffffff;
   transition: color 0.3s ease;
 }
 .banner-homepage .wrapper-banner-homepage .logo-banner .btn-secondary {
-  background-color: #FFFFFF;
+  background-color: #ffffff;
   box-shadow: 0px 4px 4px 0px rgb(189, 160, 105);
 }
 .banner-homepage .wrapper-banner-homepage .logo-banner .btn-secondary:hover {
@@ -13407,7 +13407,7 @@ p {
   color: #bda069 !important;
 }
 .banner-homepage .wrapper-banner-homepage .logo-banner .btn-secondary .btn-text {
-  color: #1E1E1E;
+  color: #1e1e1e;
   transition: color 0.3s ease;
 }
 .banner-homepage .wrapper-banner-homepage .logo-banner .text-wrapper {
@@ -13418,7 +13418,7 @@ p {
 }
 .banner-homepage .wrapper-banner-homepage .logo-banner .text-wrapper .discover-text {
   font-family: "Noto Serif", serif;
-  color: #FFFFFF;
+  color: #ffffff;
   font-size: 22px;
   font-weight: 600;
   line-height: loose;
@@ -13432,7 +13432,7 @@ p {
   font-size: 16px;
   font-weight: 700;
   text-align: center;
-  color: #FFFFFF;
+  color: #ffffff;
 }
 @media (min-width: 768px) {
   .banner-homepage .wrapper-banner-homepage .logo-banner .logo-text-banner {
@@ -13458,7 +13458,7 @@ p {
   line-height: 50px;
   font-size: 25px;
   letter-spacing: 0;
-  color: #FFFFFF;
+  color: #ffffff;
 }
 @media (min-width: 768px) {
   .banner-homepage .wrapper-banner-homepage .logo-banner .logo-text-banner .goal-text {
@@ -13471,7 +13471,7 @@ p {
   }
 }
 .banner-homepage .wrapper-banner-homepage .logo-banner .logo-text-banner .goal-text span {
-  color: #BFA573;
+  color: #bfa573;
   display: block;
 }
 .banner-homepage .wrapper-banner-homepage .logo-banner .logo-text-banner-teamwork {
@@ -13493,7 +13493,7 @@ p {
 }
 
 .homepage-future-heading {
-  color: #BFA573;
+  color: #bfa573;
   text-align: center;
   font-family: "Noto Serif", serif;
   font-size: 30px;
@@ -13779,7 +13779,7 @@ p {
 5. Earning Section Start
 ------------------------------------------------------------*/
 .earning-title {
-  background-color: #1E1E1E;
+  background-color: #1e1e1e;
   padding: 20px 0;
 }
 .earning-title .container {
@@ -13812,7 +13812,7 @@ p {
 
 .earning-section {
   position: relative;
-  background-color: #1E1E1E;
+  background-color: #1e1e1e;
   padding: 0;
   margin: 0;
   min-height: 100vh;
@@ -14551,7 +14551,7 @@ p {
   width: 100%;
 }
 .banner-service .wrapper-service .download-video h1 {
-  color: #FFFFFF;
+  color: #ffffff;
   text-align: center;
 }
 .banner-service .wrapper-service .download-video .button-download {
@@ -14606,31 +14606,31 @@ p {
 }
 .banner-service .wrapper-service .banner-text-video .bg-text-video.finance {
   background: rgba(56, 55, 52, 0.82);
-  color: #BFA573;
+  color: #bfa573;
 }
 .banner-service .wrapper-service .banner-text-video .bg-text-video.strategic {
   background: rgba(106, 98, 91, 0.86);
-  color: #E8D9BD;
+  color: #e8d9bd;
 }
 .banner-service .wrapper-service .banner-text-video .bg-text-video.international {
   background: rgba(149, 125, 76, 0.81);
-  color: #FFFFFF;
+  color: #ffffff;
 }
 .banner-service .wrapper-service .banner-text-video .bg-text-video.legal {
   background: rgba(106, 98, 91, 0.86);
-  color: #E8D9BD;
+  color: #e8d9bd;
   padding: 2rem 3rem;
 }
 .banner-service .wrapper-service .banner-text-video .bg-text-video.training {
   background: rgba(191, 165, 115, 0.8);
-  color: #1E1E1E;
+  color: #1e1e1e;
 }
 .banner-service .wrapper-service .banner-text-video .bg-text-video.blockchain {
-  background: #1E1E1E;
-  color: #FFFFFF;
+  background: #1e1e1e;
+  color: #ffffff;
 }
 .banner-service .wrapper-service .banner-text-video .bg-text-video.satoshi {
-  background: #CCB78F;
+  background: #ccb78f;
   color: #383734;
 }
 .banner-service .wrapper-service .banner-text-video .bg-text-video.satoshi h2 {
@@ -14688,7 +14688,7 @@ p {
   }
 }
 .service .box-service.black {
-  background-color: #1E1E1E;
+  background-color: #1e1e1e;
   margin-top: 0rem;
 }
 @media (min-width: 992px) {
@@ -14707,16 +14707,16 @@ p {
   }
 }
 .service .box-service.black .box-content .box-content-title {
-  color: #BFA573;
+  color: #bfa573;
   text-transform: uppercase;
 }
 .service .box-service.black .box-content .box-content-subtitle {
-  color: #FFFFFF;
+  color: #ffffff;
   font-weight: 300;
   margin-top: 1rem;
 }
 .service .box-service.black .box-content .box-content-text {
-  color: #FFFFFF;
+  color: #ffffff;
   margin-top: 1rem;
   line-height: 30px;
   text-align: justify;
@@ -14728,7 +14728,7 @@ p {
   }
 }
 .service .box-service.gold {
-  background-color: #BFA573;
+  background-color: #bfa573;
   margin-top: 2rem;
 }
 .service .box-service.gold .box-content {
@@ -14746,10 +14746,10 @@ p {
 }
 .service .box-service.gold .box-content .box-content-subtitle {
   margin-top: 1rem;
-  color: #6A625B;
+  color: #6a625b;
 }
 .service .box-service.gold .box-content .box-content-text {
-  color: #6A625B;
+  color: #6a625b;
   margin-top: 1rem;
   line-height: 30px;
   text-align: justify;
@@ -14761,7 +14761,7 @@ p {
   }
 }
 .service .box-service.brownis {
-  background-color: #B2A291;
+  background-color: #b2a291;
   border-radius: 0px 10px 10px 0px;
   margin-top: 2.5rem;
   padding: 2rem;
@@ -14779,15 +14779,15 @@ p {
   }
 }
 .service .box-service.brownis .wrapping-title .box-content-title {
-  color: #FFFFFF;
+  color: #ffffff;
   text-transform: uppercase;
 }
 .service .box-service.brownis .wrapping-title .box-content-title hr {
   margin-top: 2rem;
   width: 70% !important;
   height: 3px;
-  color: #6A625B;
-  background-color: #6A625B;
+  color: #6a625b;
+  background-color: #6a625b;
   opacity: 1;
 }
 .service .box-service.brownis .box-content .box-content-subtitle {
@@ -14808,7 +14808,7 @@ p {
   }
 }
 .service .box-service.brown-strategic {
-  background-color: #AB8D6D;
+  background-color: #ab8d6d;
   margin-top: 1rem;
   border-radius: 0px 10px 10px 0px;
   padding: 2rem 2rem 4rem 2rem;
@@ -14826,15 +14826,15 @@ p {
   }
 }
 .service .box-service.brown-strategic .wrapping-title .box-content-title {
-  color: #FFFFFF;
+  color: #ffffff;
   text-transform: uppercase;
 }
 .service .box-service.brown-strategic .wrapping-title .box-content-title hr {
   margin-top: 2rem;
   width: 80% !important;
   height: 3px;
-  color: #BFA573;
-  background-color: #BFA573;
+  color: #bfa573;
+  background-color: #bfa573;
   opacity: 1;
 }
 .service .box-service.brown-strategic .box-content .box-content-subtitle {
@@ -14855,7 +14855,7 @@ p {
   }
 }
 .service .box-service.gold-international {
-  background-color: #BFA573;
+  background-color: #bfa573;
   margin-top: 2rem;
   border-radius: 0px 10px 10px 0px;
   padding: 2rem 2rem 4rem 2rem;
@@ -14873,20 +14873,20 @@ p {
   }
 }
 .service .box-service.gold-international .wrapping-title .box-content-title {
-  color: #FFFFFF;
+  color: #ffffff;
   text-transform: uppercase;
 }
 .service .box-service.gold-international .wrapping-title .box-content-title hr {
   margin-top: 1rem;
   width: 80% !important;
   height: 3px;
-  color: #1E1E1E;
-  background-color: #1E1E1E;
+  color: #1e1e1e;
+  background-color: #1e1e1e;
   opacity: 1;
 }
 .service .box-service.gold-international .box-content .box-content-subtitle {
   padding: 0rem 0rem;
-  color: #FFFFFF;
+  color: #ffffff;
 }
 @media (min-width: 1200px) {
   .service .box-service.gold-international .box-content .box-content-subtitle {
@@ -14896,7 +14896,7 @@ p {
 .service .box-service.gold-international .box-content .box-content-text {
   line-height: 25px;
   padding: 1rem 0rem 0rem 0rem;
-  color: #FFFFFF;
+  color: #ffffff;
 }
 @media (min-width: 1200px) {
   .service .box-service.gold-international .box-content .box-content-text {
@@ -14904,7 +14904,7 @@ p {
   }
 }
 .service .box-service.black-international {
-  background-color: #1E1E1E;
+  background-color: #1e1e1e;
   margin-top: 0rem;
   border-radius: 10px 0px 0px 10px;
   padding: 3rem 2rem 4rem 0rem;
@@ -14922,7 +14922,7 @@ p {
   }
 }
 .service .box-service.black-international .wrapping-title .box-content-title {
-  color: #FFFFFF;
+  color: #ffffff;
   text-transform: uppercase;
   text-align: start;
 }
@@ -14935,8 +14935,8 @@ p {
   margin-top: 1rem;
   width: 80% !important;
   height: 3px;
-  color: #BFA573;
-  background-color: #BFA573;
+  color: #bfa573;
+  background-color: #bfa573;
   opacity: 1;
   margin-left: 0;
 }
@@ -14947,7 +14947,7 @@ p {
 }
 .service .box-service.black-international .box-content .box-content-subtitle {
   padding: 0rem 0rem;
-  color: #FFFFFF;
+  color: #ffffff;
 }
 @media (min-width: 1200px) {
   .service .box-service.black-international .box-content .box-content-subtitle {
@@ -14957,7 +14957,7 @@ p {
 .service .box-service.black-international .box-content .box-content-text {
   line-height: 25px;
   padding: 1rem 0rem 0rem 0rem;
-  color: #FFFFFF;
+  color: #ffffff;
 }
 @media (min-width: 1200px) {
   .service .box-service.black-international .box-content .box-content-text {
@@ -14965,7 +14965,7 @@ p {
   }
 }
 .service .box-service.brownis-international {
-  background-color: #B2A291;
+  background-color: #b2a291;
   margin-top: 0rem;
   border-radius: 0px 10px 10px 0px;
   padding: 2rem 2rem 4rem 2rem;
@@ -14983,20 +14983,20 @@ p {
   }
 }
 .service .box-service.brownis-international .wrapping-title .box-content-title {
-  color: #FFFFFF;
+  color: #ffffff;
   text-transform: uppercase;
 }
 .service .box-service.brownis-international .wrapping-title .box-content-title hr {
   margin-top: 1rem;
   width: 80% !important;
   height: 3px;
-  color: #1E1E1E;
-  background-color: #1E1E1E;
+  color: #1e1e1e;
+  background-color: #1e1e1e;
   opacity: 1;
 }
 .service .box-service.brownis-international .box-content .box-content-subtitle {
   padding: 0rem 0rem;
-  color: #FFFFFF;
+  color: #ffffff;
 }
 @media (min-width: 1200px) {
   .service .box-service.brownis-international .box-content .box-content-subtitle {
@@ -15006,7 +15006,7 @@ p {
 .service .box-service.brownis-international .box-content .box-content-text {
   line-height: 25px;
   padding: 1rem 0rem 0rem 0rem;
-  color: #FFFFFF;
+  color: #ffffff;
 }
 @media (min-width: 1200px) {
   .service .box-service.brownis-international .box-content .box-content-text {
@@ -15014,7 +15014,7 @@ p {
   }
 }
 .service .box-service.brown-legal {
-  background-color: #7C6553;
+  background-color: #7c6553;
   margin-top: 0rem;
   border-radius: 10px 0px 0px 10px;
   padding: 1rem !important;
@@ -15035,7 +15035,7 @@ p {
   }
 }
 .service .box-service.brown-legal .wrapping-title .box-content-title {
-  color: #FFFFFF;
+  color: #ffffff;
   text-transform: uppercase;
   text-align: start;
 }
@@ -15043,15 +15043,15 @@ p {
   margin-top: 1rem;
   width: 140% !important;
   height: 3px;
-  color: #BFA573;
-  background-color: #BFA573;
+  color: #bfa573;
+  background-color: #bfa573;
   opacity: 1;
   margin-left: 0;
 }
 .service .box-service.brown-legal .box-content .box-content-text {
   line-height: 25px;
   padding: 1rem 0rem 0rem 0rem;
-  color: #FFFFFF;
+  color: #ffffff;
   text-align: start;
 }
 @media (min-width: 1200px) {
@@ -15061,10 +15061,10 @@ p {
 }
 .service .box-service.brown-legal .box-content .box-content-text span {
   font-weight: bold;
-  color: #BFA573;
+  color: #bfa573;
 }
 .service .box-service.gold-legal {
-  background-color: #AE9A72;
+  background-color: #ae9a72;
   margin-top: 0rem;
   border-radius: 0px 10px 10px 0px;
   padding: 2rem !important;
@@ -15082,7 +15082,7 @@ p {
   }
 }
 .service .box-service.gold-legal .wrapping-title .box-content-title {
-  color: #FFFFFF;
+  color: #ffffff;
   text-transform: uppercase;
   text-align: start;
 }
@@ -15095,15 +15095,15 @@ p {
   margin-top: 1rem;
   width: 120% !important;
   height: 3px;
-  color: #A0714A;
-  background-color: #A0714A;
+  color: #a0714a;
+  background-color: #a0714a;
   opacity: 1;
   margin-left: 0;
 }
 .service .box-service.gold-legal .box-content .box-content-text {
   line-height: 25px;
   padding: 1rem 0rem 0rem 0rem;
-  color: #FFFFFF;
+  color: #ffffff;
 }
 @media (min-width: 1200px) {
   .service .box-service.gold-legal .box-content .box-content-text {
@@ -15112,10 +15112,10 @@ p {
 }
 .service .box-service.gold-legal .box-content .box-content-text span {
   font-weight: bold;
-  color: #A0714A;
+  color: #a0714a;
 }
 .service .box-service.black-training {
-  background-color: #42413F;
+  background-color: #42413f;
   margin-top: 2rem;
   border-radius: 0px;
   padding: 1rem;
@@ -15133,21 +15133,21 @@ p {
   }
 }
 .service .box-service.black-training .wrapping-title .box-content-title {
-  color: #FFFFFF;
+  color: #ffffff;
   text-transform: uppercase;
 }
 .service .box-service.black-training .wrapping-title .box-content-title hr {
   margin-top: 1rem;
   width: 120% !important;
   height: 3px;
-  color: #BFA573;
-  background-color: #BFA573;
+  color: #bfa573;
+  background-color: #bfa573;
   opacity: 1;
 }
 .service .box-service.black-training .box-content .box-content-text {
   line-height: 25px;
   padding: 1rem 0rem 0rem 0rem;
-  color: #FFFFFF;
+  color: #ffffff;
 }
 @media (min-width: 1200px) {
   .service .box-service.black-training .box-content .box-content-text {
@@ -15155,7 +15155,7 @@ p {
   }
 }
 .service .box-service.black-training .box-content .box-content-text span {
-  color: #BFA573;
+  color: #bfa573;
   font-weight: 700;
 }
 .service .box-service.gold-training {
@@ -15177,21 +15177,21 @@ p {
   }
 }
 .service .box-service.gold-training .wrapping-title .box-content-title {
-  color: #FFFFFF;
+  color: #ffffff;
   text-transform: uppercase;
 }
 .service .box-service.gold-training .wrapping-title .box-content-title hr {
   margin-top: 1rem;
   width: 100% !important;
   height: 3px;
-  color: #7C6553;
-  background-color: #7C6553;
+  color: #7c6553;
+  background-color: #7c6553;
   opacity: 1;
 }
 .service .box-service.gold-training .box-content .box-content-text {
   line-height: 25px;
   padding: 0.3rem 0rem 0rem 0rem;
-  color: #FFFFFF;
+  color: #ffffff;
 }
 @media (min-width: 1200px) {
   .service .box-service.gold-training .box-content .box-content-text {
@@ -15199,11 +15199,11 @@ p {
   }
 }
 .service .box-service.gold-training .box-content .box-content-text span {
-  color: #7C6553;
+  color: #7c6553;
   font-weight: 700;
 }
 .service .box-service.black-blockchain {
-  background-color: #1E1E1E;
+  background-color: #1e1e1e;
   border-radius: 0px;
   padding: 2rem;
 }
@@ -15220,7 +15220,7 @@ p {
   }
 }
 .service .box-service.black-blockchain .wrapping-title .box-content-title {
-  color: #BFA573;
+  color: #bfa573;
   text-align: start;
   line-height: 40px;
 }
@@ -15228,14 +15228,14 @@ p {
   margin-top: 1rem;
   width: 100% !important;
   height: 3px;
-  color: #BFA573;
-  background-color: #BFA573;
+  color: #bfa573;
+  background-color: #bfa573;
   opacity: 1;
   margin-left: 0;
 }
 .service .box-service.black-blockchain .box-content .box-content-subtitle {
   padding: 0rem 0rem;
-  color: #BFA573;
+  color: #bfa573;
 }
 @media (min-width: 1200px) {
   .service .box-service.black-blockchain .box-content .box-content-subtitle {
@@ -15245,7 +15245,7 @@ p {
 .service .box-service.black-blockchain .box-content .box-content-text {
   line-height: 25px;
   padding: 1rem 0rem 0rem 0rem;
-  color: #FFFFFF;
+  color: #ffffff;
   text-align: start;
 }
 @media (min-width: 1200px) {
@@ -15255,10 +15255,10 @@ p {
 }
 .service .box-service.black-blockchain .box-content .box-content-text span {
   font-weight: bold;
-  color: #BFA573;
+  color: #bfa573;
 }
 .service .box-service.gold-blockchain {
-  background-color: #BFA573;
+  background-color: #bfa573;
   border-radius: 0px;
   padding: 2rem !important;
   margin-top: 23rem;
@@ -15286,7 +15286,7 @@ p {
   }
 }
 .service .box-service.gold-blockchain .wrapping-title .box-content-title {
-  color: #1E1E1E;
+  color: #1e1e1e;
   text-transform: uppercase;
   text-align: center;
 }
@@ -15294,14 +15294,14 @@ p {
   margin-top: 1rem;
   width: 100% !important;
   height: 3px;
-  color: #FFFFFF;
-  background-color: #FFFFFF;
+  color: #ffffff;
+  background-color: #ffffff;
   opacity: 1;
   margin-left: 0;
 }
 .service .box-service.gold-blockchain .box-content .box-content-subtitle {
   padding: 0rem 0rem;
-  color: #FFFFFF;
+  color: #ffffff;
 }
 @media (min-width: 1200px) {
   .service .box-service.gold-blockchain .box-content .box-content-subtitle {
@@ -15311,7 +15311,7 @@ p {
 .service .box-service.gold-blockchain .box-content .box-content-text {
   line-height: 25px;
   padding: 1rem 0rem 0rem 0rem;
-  color: #1E1E1E;
+  color: #1e1e1e;
   text-align: start;
 }
 @media (min-width: 1200px) {
@@ -15321,7 +15321,7 @@ p {
 }
 .service .box-service.gold-blockchain .box-content .box-content-text span {
   font-weight: bold;
-  color: #BFA573;
+  color: #bfa573;
 }
 .service .box-service .wrapping-img {
   display: flex;
@@ -15498,7 +15498,7 @@ p {
 
 .win-finance {
   overflow: hidden !important;
-  background-color: #D3C19E;
+  background-color: #d3c19e;
 }
 .win-finance #g-financeconsultingtext {
   display: flex;
@@ -15579,7 +15579,7 @@ p {
 4. Strategic Tax Start
 ------------------------------------------------------------*/
 .strategic-for-corproat {
-  background-color: #E6E0D4;
+  background-color: #e6e0d4;
 }
 .strategic-for-corproat .wrapper-img {
   background-image: url("../../img/img-33.webp");
@@ -15595,7 +15595,7 @@ p {
 }
 .strategic-for-corproat .wrapper-box-content .box-content-title {
   text-transform: uppercase;
-  color: #BFA573;
+  color: #bfa573;
   padding: 2rem 0rem 0rem 0rem;
   text-align: center;
 }
@@ -15634,7 +15634,7 @@ p {
 }
 
 .international-tax-planning {
-  background-color: #8F8379;
+  background-color: #8f8379;
   margin: 3rem 0rem;
 }
 .international-tax-planning .wrapper-img {
@@ -15660,7 +15660,7 @@ p {
   }
 }
 .international-tax-planning .wrapper-box-content .box-content-title {
-  color: #E8D9BD;
+  color: #e8d9bd;
   text-transform: uppercase;
   padding: 2rem 0rem 0rem 0rem;
   text-align: center;
@@ -15678,7 +15678,7 @@ p {
   }
 }
 .international-tax-planning .wrapper-box-content .box-content-subtitle {
-  color: #FFFFFF;
+  color: #ffffff;
   padding: 1rem 0rem 0rem 0rem;
   text-align: center;
 }
@@ -15690,7 +15690,7 @@ p {
 }
 .international-tax-planning .wrapper-box-content .box-content-text {
   line-height: 30px;
-  color: #FFFFFF;
+  color: #ffffff;
   text-align: center;
   padding: 2rem 0rem 0rem 0rem;
 }
@@ -15711,7 +15711,7 @@ p {
   overflow: hidden;
 }
 .legal-short-desc h1 {
-  color: #BFA573;
+  color: #bfa573;
   text-align: center;
 }
 .legal-short-desc h3 {
@@ -15732,12 +15732,12 @@ p {
 .legal-hand .wrapper-hand h1 {
   padding-top: 4rem;
   text-align: center;
-  color: #2F1A07;
+  color: #2f1a07;
 }
 .legal-hand .wrapper-hand h2 {
   padding-top: 1rem;
   text-align: center;
-  color: #2F1A07;
+  color: #2f1a07;
 }
 .legal-hand .wrapper-hand p {
   text-align: center;
@@ -15761,7 +15761,7 @@ p {
   width: 100%;
   height: auto;
   border-radius: 50px 0px 0px 50px;
-  border: 3px solid #BFA573;
+  border: 3px solid #bfa573;
   right: -0.5rem;
 }
 .legal-video .wrapper-right video {
@@ -15769,7 +15769,7 @@ p {
   width: 100%;
   height: auto;
   border-radius: 0px 50px 50px 0px;
-  border: 3px solid #BFA573;
+  border: 3px solid #bfa573;
   top: -5rem;
   left: -0.5rem;
 }
@@ -15781,19 +15781,19 @@ p {
 6. Training Start
 ------------------------------------------------------------*/
 .advance-training {
-  background-color: #1E1E1E;
+  background-color: #1e1e1e;
   margin: 0;
 }
 .advance-training h2 {
-  color: #BFA573;
+  color: #bfa573;
   margin-top: 3rem;
 }
 .advance-training h4 {
   margin-top: 1rem;
-  color: #FFFFFF;
+  color: #ffffff;
 }
 .advance-training p {
-  color: #FFFFFF;
+  color: #ffffff;
   margin-top: 2rem;
   line-height: 35px;
   padding-bottom: 3rem;
@@ -15806,8 +15806,8 @@ p {
   margin-top: 1rem;
   width: 50% !important;
   height: 3px;
-  color: #BFA573;
-  background-color: #BFA573;
+  color: #bfa573;
+  background-color: #bfa573;
   opacity: 1;
 }
 
@@ -15882,7 +15882,7 @@ p {
   position: relative;
 }
 .blockchain-short-desc .container h1 {
-  color: #BFA573;
+  color: #bfa573;
   text-align: center;
 }
 .blockchain-short-desc .container p {
@@ -15891,7 +15891,7 @@ p {
 }
 
 .blockchain-from-basic {
-  background-color: #3E3E3D;
+  background-color: #3e3e3d;
   margin-top: 20rem;
 }
 @media (min-width: 768px) {
@@ -15919,7 +15919,7 @@ p {
 }
 .blockchain-from-basic .wrapper-box-content .box-content-title {
   text-transform: uppercase;
-  color: #FFFFFF;
+  color: #ffffff;
   padding: 2rem 0rem 0rem 0rem;
   text-align: center;
 }
@@ -15938,7 +15938,7 @@ p {
 .blockchain-from-basic .wrapper-box-content .box-content-subtitle {
   padding: 1rem 0rem 0rem 0rem;
   text-align: center;
-  color: #BFA573;
+  color: #bfa573;
 }
 @media (min-width: 768px) {
   .blockchain-from-basic .wrapper-box-content .box-content-subtitle {
@@ -15950,7 +15950,7 @@ p {
   line-height: 30px;
   text-align: center;
   padding: 2rem 0rem 0rem 0rem;
-  color: #FFFFFF;
+  color: #ffffff;
 }
 @media (min-width: 768px) {
   .blockchain-from-basic .wrapper-box-content .box-content-text {
@@ -15963,18 +15963,18 @@ p {
   padding: 2rem;
 }
 .blockchain-why .wrapper-why .box-why {
-  background-color: #1E1E1E;
+  background-color: #1e1e1e;
   padding: 4rem;
   height: 100%;
   border-radius: 10px;
 }
 .blockchain-why .wrapper-why .box-why h3,
 .blockchain-why .wrapper-why .box-why h5 {
-  color: #BFA573;
+  color: #bfa573;
 }
 .blockchain-why .wrapper-why .box-why p {
   margin-top: 3rem;
-  color: #FFFFFF;
+  color: #ffffff;
   line-height: 25px;
 }
 .blockchain-why .wrapper-cat {
@@ -16281,7 +16281,7 @@ p {
 }
 
 .satoshi-short-desc {
-  background-color: #B2A291;
+  background-color: #b2a291;
   padding-top: 3rem;
   position: relative;
 }
@@ -16289,7 +16289,7 @@ p {
   position: relative;
 }
 .satoshi-short-desc .container h2 {
-  color: #1E1E1E;
+  color: #1e1e1e;
   text-align: center;
   font-weight: 600;
 }
@@ -16319,7 +16319,7 @@ p {
 .satoshi-short-desc.method .container h4 {
   padding-top: 0.5rem;
   text-align: center;
-  color: #BFA573;
+  color: #bfa573;
 }
 .satoshi-short-desc.method .container p {
   line-height: 25px;
@@ -16328,7 +16328,7 @@ p {
 }
 
 .satoshi-buy-sell.buy {
-  background-color: #1E1E1E;
+  background-color: #1e1e1e;
   padding: 4rem 0rem;
   margin-top: 2rem;
 }
@@ -16365,7 +16365,7 @@ p {
 }
 .satoshi-buy-sell.buy .title .wrapping-box .box-buy h4 {
   text-align: center;
-  color: #1E1E1E;
+  color: #1e1e1e;
   font-weight: 700;
 }
 .satoshi-buy-sell.buy .title .wrapping-box .box-buy img {
@@ -16379,8 +16379,8 @@ p {
 }
 .satoshi-buy-sell.buy .title .wrapping-box .button-buy {
   width: auto;
-  color: #1E1E1E;
-  background-color: #E8D9BD;
+  color: #1e1e1e;
+  background-color: #e8d9bd;
   padding: 0.5rem;
   text-align: center;
   margin-top: 0.3rem;
@@ -16447,8 +16447,8 @@ p {
   }
 }
 .satoshi-buy-sell.buy .instruction .card-container ul li .card .card-header {
-  background: linear-gradient(90deg, #b48b3d 0%, #BFA573 100%);
-  color: #1E1E1E;
+  background: linear-gradient(90deg, #b48b3d 0%, #bfa573 100%);
+  color: #1e1e1e;
   padding: 6px;
   border-radius: 15px 15px 0px 0px;
   text-align: center;
@@ -16461,7 +16461,7 @@ p {
   padding: 20px;
   text-align: center;
   font-size: 14px !important;
-  color: #1E1E1E;
+  color: #1e1e1e;
   font-weight: 600;
 }
 .satoshi-buy-sell.buy .instruction .card-container ul li .card .blink-white {
@@ -16507,7 +16507,7 @@ p {
 }
 .satoshi-buy-sell.buy .desc .wrapper-desc p {
   width: 315px;
-  color: #FFFFFF;
+  color: #ffffff;
   padding: 0rem 1.5rem;
   text-align: center;
   font-size: 12px;
@@ -16528,7 +16528,7 @@ p {
   }
 }
 .satoshi-buy-sell.sell {
-  background-color: #E2D6BF;
+  background-color: #e2d6bf;
   padding: 4rem 0rem;
 }
 .satoshi-buy-sell.sell .title {
@@ -16564,7 +16564,7 @@ p {
 }
 .satoshi-buy-sell.sell .title .wrapping-box .box-sell h4 {
   text-align: center;
-  color: #BFA573;
+  color: #bfa573;
   font-weight: 700;
 }
 .satoshi-buy-sell.sell .title .wrapping-box .box-sell img {
@@ -16578,7 +16578,7 @@ p {
 }
 .satoshi-buy-sell.sell .title .wrapping-box .button-sell {
   width: auto;
-  color: #1E1E1E;
+  color: #1e1e1e;
   background: linear-gradient(180deg, #b48b3d 0%, #bfa573 100%);
   padding: 0.5rem;
   text-align: center;
@@ -16647,7 +16647,7 @@ p {
 }
 .satoshi-buy-sell.sell .instruction .card-container ul li .card .card-header {
   background: #000000;
-  color: #BFA573;
+  color: #bfa573;
   padding: 6px;
   border-radius: 15px 15px 0px 0px;
   text-align: center;
@@ -16657,13 +16657,13 @@ p {
   font-weight: 800;
 }
 .satoshi-buy-sell.sell .instruction .card-container ul li .card .card-header h4 span {
-  color: #FFFFFF;
+  color: #ffffff;
 }
 .satoshi-buy-sell.sell .instruction .card-container ul li .card .card-body {
   padding: 20px;
   text-align: center;
   font-size: 14px !important;
-  color: #1E1E1E;
+  color: #1e1e1e;
   font-weight: 600;
 }
 .satoshi-buy-sell.sell .instruction .card-container ul li .card .blink-white {
@@ -16709,7 +16709,7 @@ p {
 }
 .satoshi-buy-sell.sell .desc .wrapper-desc p {
   width: 315px;
-  color: #1E1E1E;
+  color: #1e1e1e;
   padding: 0rem 1.5rem;
   text-align: center;
   font-size: 12px;
@@ -16730,7 +16730,7 @@ p {
   }
 }
 .satoshi-buy-sell.multiple {
-  background-color: #E0E0E0;
+  background-color: #e0e0e0;
   padding: 4rem 0rem;
   margin-top: 2rem;
 }
@@ -16767,11 +16767,11 @@ p {
 }
 .satoshi-buy-sell.multiple .title .wrapping-box .box-multiple h4 {
   text-align: center;
-  color: #FFFFFF;
+  color: #ffffff;
   font-weight: 700;
 }
 .satoshi-buy-sell.multiple .title .wrapping-box .box-multiple h4 span {
-  color: #BFA573;
+  color: #bfa573;
 }
 .satoshi-buy-sell.multiple .title .wrapping-box .box-multiple img {
   width: 50px;
@@ -16784,8 +16784,8 @@ p {
 }
 .satoshi-buy-sell.multiple .title .wrapping-box .button-buy {
   width: auto;
-  color: #1E1E1E;
-  background-color: #BFA573;
+  color: #1e1e1e;
+  background-color: #bfa573;
   padding: 0.5rem;
   text-align: center;
   margin-top: 0.3rem;
@@ -16853,7 +16853,7 @@ p {
 }
 .satoshi-buy-sell.multiple .instruction .card-container ul li .card .card-header {
   background: linear-gradient(90deg, #383734 0%, #9a9a9a 100%);
-  color: #BFA573;
+  color: #bfa573;
   padding: 6px;
   border-radius: 15px 15px 0px 0px;
   text-align: center;
@@ -16866,7 +16866,7 @@ p {
   padding: 20px;
   text-align: center;
   font-size: 14px !important;
-  color: #1E1E1E;
+  color: #1e1e1e;
   font-weight: 600;
 }
 .satoshi-buy-sell.multiple .instruction .card-container ul li .card .blink-white {
@@ -16912,7 +16912,7 @@ p {
 }
 .satoshi-buy-sell.multiple .desc .wrapper-desc p {
   width: 315px;
-  color: #1E1E1E;
+  color: #1e1e1e;
   padding: 0rem 1.5rem;
   text-align: center;
   font-size: 12px;
@@ -16945,7 +16945,7 @@ p {
   position: relative;
 }
 .mediation-satoshi .wrapper-mediaton .mediation h2 {
-  color: #C5A571;
+  color: #c5a571;
   text-align: center;
 }
 .mediation-satoshi .wrapper-mediaton .mediation p {
@@ -16975,16 +16975,16 @@ p {
 }
 .satoshi-profit .wrapper-big-title h3 {
   text-align: center;
-  color: #FFFFFF;
+  color: #ffffff;
   padding: 1.5rem;
 }
 .satoshi-profit .wrapper-big-title h2 {
   text-align: center;
-  color: #FFFFFF;
+  color: #ffffff;
   padding: 1.5rem;
 }
 .satoshi-profit .timeline {
-  background-color: #C9B6A2;
+  background-color: #c9b6a2;
   margin: 0;
 }
 .satoshi-profit .timeline .row {
@@ -17026,7 +17026,7 @@ p {
 }
 .satoshi-profit .commision {
   position: relative;
-  background-color: #1E1E1E;
+  background-color: #1e1e1e;
   margin: 0;
 }
 .satoshi-profit .commision .row {
@@ -17069,11 +17069,11 @@ p {
   }
 }
 .satoshi-profit .commision-note {
-  background-color: #E8D9BD;
+  background-color: #e8d9bd;
   padding: 1rem;
 }
 .satoshi-profit .wrapping-satoshi-key {
-  background-color: #1E1E1E;
+  background-color: #1e1e1e;
 }
 .satoshi-profit .wrapping-satoshi-key .bg-satoshi-key {
   background-image: url("../../img/img-36.webp");
@@ -17091,11 +17091,11 @@ p {
   padding: 3rem;
 }
 .satoshi-profit .wrapping-satoshi-key .text-satoshi-key h3 {
-  color: #BFA573;
+  color: #bfa573;
   margin-bottom: 2rem;
 }
 .satoshi-profit .wrapping-satoshi-key .text-satoshi-key ul li {
-  color: #FFFFFF;
+  color: #ffffff;
   list-style: circle;
   margin-bottom: 2rem;
 }
@@ -17118,11 +17118,11 @@ p {
 }
 .satoshi-profit .bg-why-satoshi .whitie .title {
   text-align: center;
-  color: #BFA573;
+  color: #bfa573;
   font-weight: bold;
 }
 .satoshi-profit .bg-why-satoshi .whitie .text {
-  color: #1E1E1E;
+  color: #1e1e1e;
   font-weight: 600;
 }
 .satoshi-profit .bg-why-satoshi .bg-expert {
@@ -17294,7 +17294,7 @@ p {
 }
 #partner-connections .mif-wrapper .mif-text .title {
   text-transform: uppercase;
-  color: #BFA573;
+  color: #bfa573;
   font-weight: 700;
   padding-left: 6rem;
 }
@@ -17323,7 +17323,7 @@ p {
 }
 #partner-connections .gp-wrapper .gp-text .title {
   text-transform: uppercase;
-  color: #BFA573;
+  color: #bfa573;
   font-weight: 700;
 }
 #partner-connections .gp-wrapper .gp-text .desc {
@@ -17519,7 +17519,7 @@ input:-moz-placeholder {
 }
 .contact .bg-contact-wrap .bg-contact .logo {
   width: 90%;
-  color: #FFFFFF;
+  color: #ffffff;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -17534,7 +17534,7 @@ input:-moz-placeholder {
 .contact .bg-contact-wrap .bg-contact .logo .text p {
   letter-spacing: 8px;
   font-weight: 700;
-  color: #FFFFFF;
+  color: #ffffff;
   text-transform: uppercase;
   text-align: center;
   font-size: 20px;
@@ -17601,7 +17601,7 @@ input:-moz-placeholder {
   padding: 1rem 0rem;
 }
 #teamwork-preview .persona .wrapper-persona .bio .name {
-  color: #BFA573;
+  color: #bfa573;
   text-transform: uppercase;
 }
 #teamwork-preview .persona .wrapper-persona .bio .position {
@@ -17609,7 +17609,7 @@ input:-moz-placeholder {
   text-transform: uppercase;
 }
 #teamwork-preview .persona .wrapper-persona .bio .readmore {
-  color: #BFA573;
+  color: #bfa573;
 }
 #teamwork-preview .persona.one, #teamwork-preview .persona.three, #teamwork-preview .persona.five {
   background-color: #FFFFFF;
@@ -22894,6 +22894,66 @@ input:-moz-placeholder {
   text-decoration: none;
 }
 
+.forgot-password-page {
+  background-color: #f7f7f7;
+  padding: 20px 0;
+}
+.forgot-password-page #forgot-password-page-box {
+  background: #fff;
+  border-radius: 10px;
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  min-height: 480px;
+  height: 93vh;
+  margin: 15px auto;
+  box-shadow: 0px 4px 20px rgba(44, 101, 144, 0.1);
+}
+.forgot-password-page .forgot-password-container {
+  padding: 20px 30px;
+}
+.forgot-password-page .forgot-password-page-data {
+  border-radius: 15px;
+}
+.forgot-password-page .overlay-container {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 50%;
+  height: 100%;
+  overflow: hidden;
+  transition: transform 0.6s ease-in-out;
+  z-index: 100;
+}
+.forgot-password-page .overlay-container .overlay {
+  background: #000;
+  color: #fff;
+  position: relative;
+  left: -100%;
+  height: 100%;
+  width: 200%;
+  transform: translateX(0);
+  transition: transform 0.6s ease-in-out;
+}
+.forgot-password-page .overlay-container .overlay .overlay-panel {
+  position: absolute;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0 40px;
+  height: 100%;
+  width: 50%;
+  text-align: center;
+  transform: translateX(0);
+  transition: transform 0.6s ease-in-out;
+}
+.forgot-password-page .overlay-container .overlay .overlay-panel.overlay-right {
+  right: 0;
+  transform: translateX(0);
+}
+
 /*----------------------------------------------------------
     File Name  : _navbar.scss
     Desc       : File ini merupakan styling untuk 
@@ -22911,54 +22971,54 @@ input:-moz-placeholder {
 ------------------------------------------------------------*/
 .btn-navbar-contactform {
   display: block;
-  background-color: #BFA573;
-  color: #1E1E1E;
+  background-color: #bfa573;
+  color: #1e1e1e;
   padding: 0.3rem 0.5rem !important;
   border-radius: 5px;
   font-size: 13px;
   font-weight: 500;
 }
 .btn-navbar-contactform:hover {
-  background-color: #BFA573;
-  color: #1E1E1E;
+  background-color: #bfa573;
+  color: #1e1e1e;
   box-shadow: 0px 4px 4px 0px #E8D9BD;
   font-weight: 700;
 }
 
 .btn-navbar-about {
   display: block;
-  background-color: #1E1E1E;
-  color: #BFA573;
+  background-color: #1e1e1e;
+  color: #bfa573;
   padding: 0.3rem 0.5rem !important;
   border-radius: 5px;
   font-size: 13px;
   font-weight: 500;
 }
 .btn-navbar-about:hover {
-  background-color: #1E1E1E;
-  color: #BFA573;
+  background-color: #1e1e1e;
+  color: #bfa573;
   box-shadow: 0px 4px 4px 0px #E8D9BD;
   font-weight: 700;
 }
 
 .btn-navbar-referral {
   display: block;
-  background-color: #FFFFFF;
-  color: #BFA573;
+  background-color: #ffffff;
+  color: #bfa573;
   padding: 0.3rem 0.5rem !important;
   border-radius: 5px;
   font-size: 13px;
   font-weight: 500;
 }
 .btn-navbar-referral:hover {
-  background-color: #FFFFFF;
-  color: #BFA573;
+  background-color: #ffffff;
+  color: #bfa573;
   box-shadow: 0px 4px 4px 0px #E8D9BD;
   font-weight: 700;
 }
 
 .btn-flip {
-  background-color: #BFA573;
+  background-color: #bfa573;
   padding: 1rem 1.5rem;
   border-radius: 999999px;
   text-transform: uppercase;
@@ -22968,48 +23028,48 @@ input:-moz-placeholder {
 
 .btn-zoom {
   width: 100%;
-  background-color: #BFA573;
+  background-color: #bfa573;
   padding: 1rem 0.5rem;
   border-radius: 999999px;
   text-transform: uppercase;
-  color: #FFFFFF;
+  color: #ffffff;
   font-weight: 400;
   text-align: center;
 }
 
 .btn-footer-contactform {
-  background-color: #BFA573;
-  color: #1E1E1E;
+  background-color: #bfa573;
+  color: #1e1e1e;
   padding: 0.8rem 1rem !important;
   border-radius: 10px;
   font-size: 13px;
   font-weight: 500;
 }
 .btn-footer-contactform:hover {
-  background-color: #BFA573;
-  color: #FFFFFF;
+  background-color: #bfa573;
+  color: #ffffff;
   box-shadow: 0px 4px 4px 0px #E8D9BD;
   font-weight: 700;
 }
 
 .btn-footer-enrollnow {
-  background-color: #1E1E1E;
-  color: #FFFFFF;
+  background-color: #1e1e1e;
+  color: #ffffff;
   padding: 0.8rem 1rem !important;
   border-radius: 10px;
   font-size: 13px;
   font-weight: 500;
 }
 .btn-footer-enrollnow:hover {
-  background-color: #1E1E1E;
-  color: #FFFFFF;
+  background-color: #1e1e1e;
+  color: #ffffff;
   box-shadow: 0px 4px 4px 0px #E8D9BD;
   font-weight: 700;
 }
 
 .btn-know-team {
   background-color: #000000;
-  color: #BFA573;
+  color: #bfa573;
   padding: 0.8rem 3rem !important;
   border-radius: 10px;
   font-size: 16px;
@@ -23073,7 +23133,7 @@ input:-moz-placeholder {
 1. Text Color Start 
 ------------------------------------------------------------*/
 .text-primary-pnglobal {
-  color: #BFA573;
+  color: #bfa573;
 }
 
 /*----------------------------------------------------------

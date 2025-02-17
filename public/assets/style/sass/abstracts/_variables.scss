@@ -1,9 +1,9 @@
-    /*----------------------------------------------------------
+/*----------------------------------------------------------
     File Name  : _variables.scss
     Desc       : File ini merupakan file untuk membuat variable CSS 
                  yang nanti akan digunakan secara berulang-ulang
 
-------------------------------------------------------------*/ 
+------------------------------------------------------------*/
 
 /**
  * TABLE OF CONTENTS
@@ -15,72 +15,65 @@
  *
  */
 
-
 /*----------------------------------------------------------
 1. Font Family Start
-------------------------------------------------------------*/ 
+------------------------------------------------------------*/
 $f-inter: 'Inter', sans-serif !default;
 $f-odor: 'Odor Mean Chey', serif !default;
 $f-lato: 'Lato', sans-serif !default;
 $f-noto: 'Noto Serif', serif !default;
 /*----------------------------------------------------------
 1. Font Family End
-------------------------------------------------------------*/ 
-
-
-
+------------------------------------------------------------*/
 
 /*----------------------------------------------------------
 2. Color text Start
-------------------------------------------------------------*/ 
-$text-white-pnglobal: #FFFFFF !default;
-$text-primary-pnglobal: #BFA573 !default;
-$text-black-pnglobal: #1E1E1E !default;
+------------------------------------------------------------*/
+$text-white-pnglobal: #ffffff !default;
+$text-primary-pnglobal: #bfa573 !default;
+$text-black-pnglobal: #1e1e1e !default;
 $text-black-100-pnglobal: #383734 !default;
-$text-secondary-pnglobal: #6A625B !default;
-$text-secondary-100-pnglobal: #E8D9BD !default;
-$text-secondary-200-pnglobal: #A0714A !default;
-$text-hand-pnglobal: #2F1A07 !default;
+$text-secondary-pnglobal: #6a625b !default;
+$text-secondary-100-pnglobal: #e8d9bd !default;
+$text-secondary-200-pnglobal: #a0714a !default;
+$text-hand-pnglobal: #2f1a07 !default;
 /*----------------------------------------------------------
 2. Color Text End
-------------------------------------------------------------*/ 
-
+------------------------------------------------------------*/
 
 /*----------------------------------------------------------
 3. Color background Start
-------------------------------------------------------------*/ 
+------------------------------------------------------------*/
 $bg-contactform-pnglobal: rgba(30, 30, 30, 0.85);
-$bg-black-pnglobal: #1E1E1E;
-$bg-white-pnglobal: #FFFFFF;
-$bg-primary-pnglobal: #BFA573;
-$bg-primary-100-pnglobal: #CCB78F;
-$bg-primary-200-pnglobal: #D3C19E;
-$bg-primary-300-pnglobal: #C6B39F;
-$bg-primary-400-pnglobal: #C5A571;
-$bg-primary-500-pnglobal: #C9B6A2;
-$bg-primary-600-pnglobal: #E8D9BD;
-$bg-primary-700-pnglobal: #E2D6BF;
+$bg-black-pnglobal: #1e1e1e;
+$bg-white-pnglobal: #ffffff;
+$bg-primary-pnglobal: #bfa573;
+$bg-primary-100-pnglobal: #ccb78f;
+$bg-primary-200-pnglobal: #d3c19e;
+$bg-primary-300-pnglobal: #c6b39f;
+$bg-primary-400-pnglobal: #c5a571;
+$bg-primary-500-pnglobal: #c9b6a2;
+$bg-primary-600-pnglobal: #e8d9bd;
+$bg-primary-700-pnglobal: #e2d6bf;
 $bg-box-100-pnglobal: #585858;
-$bg-box-200-pnglobal: #B2A291;
-$bg-box-300-pnglobal: #E6E0D4;
-$bg-box-400-pnglobal: #8F8379;
-$bg-box-500-pnglobal: #7C6553;
-$bg-box-600-pnglobal: #3E3E3D;
-$bg-box-700-pnglobal: #AE9A72;
-$bg-box-brown-pnglobal: #AB8D6D;
-$bg-box-brown-100-pnglobal: #42413F;
-$bg-about-pnglobal: #F3EBDC;
-$bg-silver-pnglobal: #E0E0E0;
+$bg-box-200-pnglobal: #b2a291;
+$bg-box-300-pnglobal: #e6e0d4;
+$bg-box-400-pnglobal: #8f8379;
+$bg-box-500-pnglobal: #7c6553;
+$bg-box-600-pnglobal: #3e3e3d;
+$bg-box-700-pnglobal: #ae9a72;
+$bg-box-brown-pnglobal: #ab8d6d;
+$bg-box-brown-100-pnglobal: #42413f;
+$bg-about-pnglobal: #f3ebdc;
+$bg-silver-pnglobal: #e0e0e0;
 
 /*----------------------------------------------------------
 3. Color background End
-------------------------------------------------------------*/ 
-
-
+------------------------------------------------------------*/
 
 /*----------------------------------------------------------
 4. Breakpoints Start
-------------------------------------------------------------*/ 
+------------------------------------------------------------*/
 $screen-375: 375px;
 $screen-425: 425px;
 $screen-567: 567px;
@@ -95,5 +88,4 @@ $screen-1500: 1500px;
 
 /*----------------------------------------------------------
 4. Breakpoints End
-------------------------------------------------------------*/ 
-
+------------------------------------------------------------*/

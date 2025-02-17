@@ -35,6 +35,17 @@ class Auth extends BaseController
 		return view('member/layout/login_wrapper', $mdata);
 	}
 
+	public function forgot_password()
+	{
+		$mdata = [
+			'title'     => 'Reset Password - Satoshi Signal',
+			'content'   => 'member/subscription/forgot_password',
+			'extra'     => 'member/subscription/js/_js_forgot_password',
+		];
+
+		return view('member/layout/login_wrapper', $mdata);
+	}
+
 	public function signup()
 	{
 		$rules = $this->validate([
@@ -79,10 +90,6 @@ class Auth extends BaseController
 			session()->setFlashdata('failed', $result->message);
 			return redirect()->to(BASE_URL . 'member/auth/register');
 		}
-	}
-
-	public function postLogin()
-	{
 		$rules = $this->validate([
 			'email'     => [
 				'label'     => 'Email',

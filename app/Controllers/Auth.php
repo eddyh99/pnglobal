@@ -16,7 +16,6 @@ class Auth extends BaseController
 		return view('widget/layout/wrapper', $mdata);
 	}
 
-
 	public function active_account($token)
 	{
 		// Call Endpoin Active Account
@@ -356,7 +355,10 @@ class Auth extends BaseController
 		$result = $response->result;
 
 		if ($result->code == 200) {
-			return redirect()->to(BASE_URL . 'member/auth/pricing?email=' . $mdata["email"]);
+			// return redirect()->to(BASE_URL . 'member/auth/pricing?email=' . $mdata["email"]);
+			echo '<pre>';
+			var_dump($result);
+			die();
 		} else {
 			session()->setFlashdata('failed', $result->message);
 			return redirect()->to(BASE_URL . 'member/auth/login');
