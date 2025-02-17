@@ -12,16 +12,20 @@
                                     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                                 </div>
                             <?php } ?>
-                            <form id="satoshi-otp-form" method="POST" class="p-3 text-center">
+                            <form id="satoshi-otp-form" method="POST" action="<?= BASE_URL ?>member/auth/reset_password_confirmation" onsubmit="setFormData()" class="p-3 text-center">
                                 <h5>Check Your Email To Get OTP</h5>
                                 <br>
                                 <div id="otp" class="inputs d-flex flex-row justify-content-center mt-2">
-                                    <input class="m-2 text-center form-control rounded" type="text" id="first" name="first" maxlength="1" />
+                                    <input class="m-2 text-center form-control rounded" type="text" id="first" name="first" maxlength="1" autofocus />
                                     <input class="m-2 text-center form-control rounded" type="text" id="second" name="second" maxlength="1" />
                                     <input class="m-2 text-center form-control rounded" type="text" id="third" name="third" maxlength="1" />
                                     <input class="m-2 text-center form-control rounded" type="text" id="fourth" name="fourth" maxlength="1" />
                                 </div>
                                 <h6>Enter the activation code in the column provided.</h6>
+
+                                <input type="hidden" name="email" id="emailInput">
+                                <input type="hidden" name="otp" id="otpInput">
+
                                 <div class="mt-4">
                                     <button id="validateBtn" type="submit" class="btn btn-satoshi-price-register fs-6">CONFIRM</button>
                                 </div>
@@ -49,3 +53,15 @@
             </div>
         </div>
     </div>
+
+    <script>
+        function setFormData() {
+            var otp = document.getElementById('first').value +
+                document.getElementById('second').value +
+                document.getElementById('third').value +
+                document.getElementById('fourth').value;
+            document.getElementById('otpInput').value = otp;
+
+            document.getElementById('emailInput').value = "<?= base64_decode($emailuser) ?>";
+        }
+    </script>

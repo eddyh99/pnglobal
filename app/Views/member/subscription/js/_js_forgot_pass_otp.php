@@ -24,5 +24,13 @@
                 }
             });
         });
+
+        function combineOTP() {
+            var otp = document.getElementById('first').value +
+                document.getElementById('second').value +
+                document.getElementById('third').value +
+                document.getElementById('fourth').value;
+            document.getElementById('otpInput').value = otp;
+        }
     });
 </script>

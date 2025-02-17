@@ -358,4 +358,61 @@ class Auth extends BaseController
 
 		return view('member/layout/login_wrapper', $mdata);
 	}
+
+	public function reset_password_confirmation()
+	{
+		$email = $this->request->getPost('email');
+		$otp   = $this->request->getPost('otp');
+
+		if (empty($email) || empty($otp)) {
+			session()->setFlashdata('failed', 'Email atau OTP tidak ditemukan.');
+			return redirect()->to(BASE_URL . 'member/auth/forgot_pass_otp/' . base64_encode($email));
+		}
+
+		$mdata = [
+			'title' => 'Reset Password Confirmation',
+			'content' => 'member/subscription/reset_password_confirmation',
+			'extra' => 'member/subscription/js/_js_reset_password_confirmation',
+			'email' => $email,
+			'otp'   => $otp
+		];
+
+		return view('member/layout/login_wrapper', $mdata);
+	}
+
+	public function update_password()
+	{
+		$email = $this->request->getPost('email');
+		$otp   = $this->request->getPost('otp');
+		$password = $this->request->getPost('password');
+		$confirm_password = $this->request->getPost('confirm_password');
+
+		if (empty($email) || empty($otp) || empty($password) || empty($confirm_password)) {
+			session()->setFlashdata('failed', 'Email atau OTP tidak ditemukan.');
+			return redirect()->to(BASE_URL . 'member/auth/reset_password_confirmation/' . base64_encode($email));
+		}
+
+		if ($password !== $confirm_password) {
+			session()->setFlashdata('failed', 'Password tidak sama.');
+			return redirect()->to(BASE_URL . 'member/auth/reset_password_confirmation/' . base64_encode($email));
+		}
+
+		$mdata = [
+			'email' => $email,
+			'otp'   => $otp,
+			'password' => $password
+		];
+
+		$url = URLAPI . "/auth/reset_password";
+		$response = satoshiAdmin($url, json_encode($mdata));
+		$result = $response->result;
+
+		if ($result->code == 200) {
+			session()->setFlashdata('success', 'Password berhasil diubah.');
+			return redirect()->to(BASE_URL . 'member/auth/login');
+		} else {
+			session()->setFlashdata('failed', $result->message);
+			return redirect()->to(BASE_URL . 'member/auth/reset_password_confirmation/' . base64_encode($email));
+		}
+	}
 }
