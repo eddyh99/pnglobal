@@ -22894,66 +22894,6 @@ input:-moz-placeholder {
   text-decoration: none;
 }
 
-.forgot-password-page {
-  background-color: #f7f7f7;
-  padding: 20px 0;
-}
-.forgot-password-page #forgot-password-page-box {
-  background: #fff;
-  border-radius: 10px;
-  position: relative;
-  overflow: hidden;
-  width: 100%;
-  min-height: 480px;
-  height: 93vh;
-  margin: 15px auto;
-  box-shadow: 0px 4px 20px rgba(44, 101, 144, 0.1);
-}
-.forgot-password-page .forgot-password-container {
-  padding: 20px 30px;
-}
-.forgot-password-page .forgot-password-page-data {
-  border-radius: 15px;
-}
-.forgot-password-page .overlay-container {
-  position: absolute;
-  top: 0;
-  left: 50%;
-  width: 50%;
-  height: 100%;
-  overflow: hidden;
-  transition: transform 0.6s ease-in-out;
-  z-index: 100;
-}
-.forgot-password-page .overlay-container .overlay {
-  background: #000;
-  color: #fff;
-  position: relative;
-  left: -100%;
-  height: 100%;
-  width: 200%;
-  transform: translateX(0);
-  transition: transform 0.6s ease-in-out;
-}
-.forgot-password-page .overlay-container .overlay .overlay-panel {
-  position: absolute;
-  top: 0;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 0 40px;
-  height: 100%;
-  width: 50%;
-  text-align: center;
-  transform: translateX(0);
-  transition: transform 0.6s ease-in-out;
-}
-.forgot-password-page .overlay-container .overlay .overlay-panel.overlay-right {
-  right: 0;
-  transform: translateX(0);
-}
-
 /*----------------------------------------------------------
     File Name  : _navbar.scss
     Desc       : File ini merupakan styling untuk 

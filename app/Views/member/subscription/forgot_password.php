@@ -28,20 +28,20 @@
                     </button>
                 </div>
             <?php } ?>
-            <div class="sign-in-page-data">
-                <div class="sign-in-from w-100 m-auto">
+            <div class="forgot-password-page-data">
+                <div class="forgot-password-from w-100">
                     <h1 class="mb-3 text-center text-black">Reset Password</h1>
-                    <p class="text-center text-dark text-capitalize">Masukkan alamat email Anda untuk mereset password.</p>
+                    <p class="text-center text-dark text-capitalize">Enter your email address to reset your password</p>
                     <form action="<?= BASE_URL ?>auth/send_resetpassword" method="POST" class="mt-4">
                         <div class="form-group">
                             <label for="exampleInputEmail2">Email address</label>
                             <input type="email" class="form-control mb-0" name="email" id="exampleInputEmail2" placeholder="Enter email">
                         </div>
-                        <div class="sign-info">
-                            <button type="submit" class="btn btn-primary mb-2">Reset</button>
+                        <div class="forgot-password-info text-center px-10">
+                            <button type="submit" class="btn btn-primary mb-2 text-center">Reset</button>
                         </div>
                         <div class="register-section text-center pt-5">
-                            Back to <a href="<?= BASE_URL ?>auth/login" style="color: #3D33FD; text-decoration: none;">Login</a>
+                            Back to <a href="<?= BASE_URL ?>member/auth/login" style="color: #3D33FD; text-decoration: none;">Login</a>
                         </div>
                     </form>
                 </div>
