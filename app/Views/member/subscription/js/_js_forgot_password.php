@@ -5,20 +5,28 @@
         });
     }, 5000);
 
-    $(document).ready(function() {
-        $('#togglePassword').on('click', function() {
+    $("#forgotPasswordForm").on("submit", function(e) {
+        e.preventDefault();
+        var email = $("#email").val();
+        var payload = {
+            email: email
+        };
+        console.log(payload);
 
-            const passwordField = $('#password');
-            const passwordFieldType = passwordField.attr('type');
-
-            // Toggle between text and password field type
-            if (passwordFieldType === 'password') {
-                passwordField.attr('type', 'text');
-                $(this).removeClass('la-eye').addClass('la-low-vision'); // Switch icon to "eye-slash"
-            } else {
-                passwordField.attr('type', 'password');
-                $(this).removeClass('la-low-vision').addClass('la-eye'); // Switch icon back to "eye"
+        $.ajax({
+            url: '<?= BASE_URL ?>auth/send_resetpassword',
+            type: "POST",
+            data: payload,
+            success: function(response) {
+                if (response.code === 200) {
+                    $(".alert").html('<div class="alert alert-success">' + response.message.text + '</div>');
+                } else {
+                    $(".alert").html('<div class="alert alert-danger">' + response.message + '</div>');
+                }
+            },
+            error: function(xhr, status, error) {
+                $(".alert").html('<div class="alert alert-danger">Terjadi kesalahan: ' + error + '</div>');
             }
-        })
-    })
+        });
+    });
 </script>

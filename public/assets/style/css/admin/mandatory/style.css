@@ -4736,14 +4736,6 @@ Add User Page
     align-items: center;
     width: 100%;
     border-radius: 15px;
-    padding: 0 40px; /* padding horizontal */
-    color: #000; /* menetapkan warna teks menjadi hitam */
-}
-
-/* Pastikan judul dan paragraf juga berwarna hitam */
-.forgot-password-page .forgot-password-page-data h1,
-.forgot-password-page .forgot-password-page-data p {
-    color: #000;
 }
 
 /* Styling untuk overlay (jika ingin menggunakan tampilan overlay seperti di halaman login) */
@@ -4787,4 +4779,27 @@ Add User Page
 .forgot-password-page .overlay-container .overlay .overlay-panel.overlay-right {
     right: 0;
     transform: translateX(0);
+}
+
+/* Styling untuk halaman Forgot Pass OTP */
+.forgot-pass-otp {
+    background-color: #272626;
+    padding: 50px 0;
+}
+
+.forgot-pass-otp .container {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.forgot-pass-otp .otp-area {
+    background: #fff;
+    border-radius: 10px;
+    padding: 30px;
+    box-shadow: 0 4px 20px rgba(44, 101, 144, 0.1);
+}
+
+.forgot-pass-otp h5,
+.forgot-pass-otp h6 {
+    color: #000;
 }
