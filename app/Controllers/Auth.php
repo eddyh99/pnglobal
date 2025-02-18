@@ -340,8 +340,7 @@ class Auth extends BaseController
 
 		if ($result->code == 200) {
 			// Buat bearer token menggunakan sha1(email + sha1(password))
-			// $bearerToken = sha1($email . sha1($password));
-			$bearerToken = "43a2aecb8e12dfc5bf1f5c3a61fd89ac579c2e2b";
+			$bearerToken = sha1($email . sha1($password));
 
 			// Gabungkan data user dengan token
 			$loggedUser = $result->message;

@@ -3,34 +3,37 @@
     <div class="container-fluid">
         <div class="row content-body">
             <div class="col-lg-12">
-                <!-- <form action="<?= BASE_URL ?>godmode/freemember/createfree" method="POST"> -->
-                <form action="" method="">
+                <form action="<?= BASE_URL ?>godmode/freemember/createfree" method="POST">
                     <div class="send-signals">
                         <div class="title-signal-preview d-flex justify-content-between align-items-center">
                             <h4>Add Free Member</h4>
                         </div>
                         <div class="main-send-signal d-flex flex-column align-items-center justify-content-center">
-                            <div class="row w-100">
-                                <div class="form-addreferral col-8 mx-auto">
-                                    <div class="wrapper-addreferral">
-                                        <label for="email">Email</label>
-                                        <input type="email" name="email" class="form-control">
-                                    </div>
-                                    <div class="wrapper-addreferral">
-                                        <label for="referral">Upline Referral</label>
-                                        <input type="text" name="upline" class="form-control">
-                                    </div>
-                                    <div class="wrapper-addreferral">
-                                        <label for="referral">Free Member Expiration Date</label>
-                                        <input type="text" name="expired" id="expired" value="<?= date("Y-m-d") ?>" class="form-control text-white">
-                                    </div>
-                                    <div class="wrapper-addreferral d-flex justify-content-center">
-                                        <button type="submit" class="btn btn-primary">Create</button>
+                            <form action="" method="POST">
+                                <div class="row w-100">
+                                    <div class="form-addreferral col-8 mx-auto">
+                                        <div class="wrapper-addreferral">
+                                            <label for="email">Email</label>
+                                            <input type="email" name="email" class="form-control">
+                                        </div>
+                                        <div class="wrapper-addreferral">
+                                            <label for="referral">Amount</label>
+                                            <input type="number" name="amount" class="form-control">
+                                        </div>
+                                        <div class="wrapper-addreferral">
+                                            <label for="referral">Upline Referral</label>
+                                            <input type="text" name="referral" class="form-control">
+                                        </div>
+                                        <div class="wrapper-addreferral">
+                                            <label for="referral">Free Member Expiration Date</label>
+                                            <input type="text" name="expired" id="expired" value="<?= date("Y-m-d") ?>" class="form-control text-white">
+                                        </div>
+                                        <div class="wrapper-addreferral d-flex justify-content-center">
+                                            <button type="submit" class="btn btn-primary">Create</button>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                            <!-- <form action="" method="POST">
-                            </form> -->
+                            </form>
                         </div>
                     </div>
                 </form>

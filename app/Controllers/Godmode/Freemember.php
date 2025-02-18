@@ -13,14 +13,14 @@ class Freemember extends BaseController
         //     header("Location: ". BASE_URL . 'godmode/auth/signin');
         //     exit();
         // }
-        
+
         // if ($_SESSION["logged_user"]->role!='admin'){
         //     header('HTTP/1.0 403 Forbidden');
         //     exit();
         // }
 
     }
-    
+
     public function index()
     {
         $mdata = [
@@ -41,26 +41,46 @@ class Freemember extends BaseController
                 'label' => 'Email',
                 'rules' => 'required|valid_email'
             ],
-            'expired' => [
-                'label' => 'Free Member Expiration Date',
+            'amount' => [
+                'label' => 'Amount',
+                'rules' => 'required|numeric'
+            ],
+            'referral' => [
+                'label' => 'Referral',
                 'rules' => 'required'
             ],
+            'expired' => [
+                'label' => 'Free Member Expiration Date',
+                'rules' => 'required|valid_date'
+            ],
         ]);
-    
+
         // Checking Validation
         if (!$rules) {
             session()->setFlashdata('error_validation', $this->validation->listErrors());
             return redirect()->to(BASE_URL . 'godmode/freemember');
         }
-    
+
         // Init Data
         $mdata = [
             'email'   => htmlspecialchars($this->request->getVar('email')),
-            'upline'    => htmlspecialchars($this->request->getVar('upline')),
+            'amount'    => htmlspecialchars($this->request->getVar('amount')),
+            'referral' => htmlspecialchars($this->request->getVar('referral')),
             'expired' => htmlspecialchars($this->request->getVar('expired')),
         ];
-    
-        
+
+        // Proccess Endpoin API
+        $url = URLAPI . "/v1/member/add_freemember";
+        $response = satoshiAdmin($url, json_encode($mdata));
+        $result = $response->result;
+
+        if ($result->code == 201) {
+            session()->setFlashdata('success', $result->message);
+            return redirect()->to(BASE_URL . 'godmode/freemember');
+        } else {
+            session()->setFlashdata('error', $result->message);
+            return redirect()->to(BASE_URL . 'godmode/freemember');
+        }
     }
 
 
@@ -68,11 +88,11 @@ class Freemember extends BaseController
     {
 
         // Call Get Memeber By Email
-        $url = URLAPI . "/auth/getmember_byemail?email=".base64_decode($email);
+        $url = URLAPI . "/auth/getmember_byemail?email=" . base64_decode($email);
         $resultMember = satoshiAdmin($url)->result->message;
 
         // Call Get Detail Referral
-        $url = URLAPI . "/v1/member/detailreferral?id=".$resultMember->id;
+        $url = URLAPI . "/v1/member/detailreferral?id=" . $resultMember->id;
         $resultReferral = satoshiAdmin($url)->result->message;
 
         $mdata = [
@@ -88,16 +108,17 @@ class Freemember extends BaseController
         return view('godmode/layout/admin_wrapper', $mdata);
     }
 
-    public function upgrademember(){
+    public function upgrademember()
+    {
         // Init Data
         $mdata = [
             'email'    => $this->request->getVar('email'),
-            'expired'  => date_format(date_create($this->request->getVar('expired')),"Y-m-d"),
+            'expired'  => date_format(date_create($this->request->getVar('expired')), "Y-m-d"),
         ];
     }
-    
-    public function cancelfree($email){
+
+    public function cancelfree($email)
+    {
         $email  = base64_decode($email);
     }
-    
 }
