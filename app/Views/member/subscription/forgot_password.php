@@ -50,7 +50,7 @@
         <div class="overlay-container">
             <div class="overlay">
                 <div class="overlay-panel overlay-right">
-                    <a href="<?= BASE_URL ?>"><img src="<?= BASE_URL ?>assets/img/logo-satoshi.png" class="logo-signin" alt="logo"></a>
+                    <a href="<?= BASE_URL ?>"><img src="<?= BASE_URL ?>assets/img/logo.png" class="logo-signin" alt="logo"></a>
                 </div>
             </div>
         </div>
