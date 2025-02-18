@@ -24,8 +24,8 @@
     <div class="iq-sidebar-logo d-flex justify-content-between align-items-center">
         <a href="<?= BASE_URL ?>godmode/dashboard" class="header-logo">
             <div class="logo-title d-flex align-items-center">
-                <img src="<?= BASE_URL ?>assets/img/logo-satoshi.png" class="logo-sidebar-admin" alt="logo pnglobal">
-                <span class="text-white text-uppercase">SATOSHI SIGNAL</span>
+                <img src="<?= BASE_URL ?>assets/img/logo.png" class="logo-sidebar-admin" alt="logo pnglobal">
+                <span class="text-white text-uppercase">PN GLOBAL</span>
             </div>
         </a>
     </div>

@@ -355,6 +355,10 @@ class Auth extends BaseController
 			} elseif ($loggedUser->role === 'member') {
 				// Pengalihan untuk member saat ini dinonaktifkan
 				// return redirect()->to(BASE_URL . 'member/auth/pricing');
+				echo "<pre>";
+				print_r($loggedUser);
+				echo "</pre>";
+				die();
 			}
 		} else {
 			session()->setFlashdata('failed', $result->message);

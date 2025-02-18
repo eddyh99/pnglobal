@@ -516,3 +516,40 @@ function emailtemplate_forgot_password($token, $email)
 		</body>
 		</html>";
 }
+
+function emailtemplate_new_password($email)
+{
+    return "
+    <!DOCTYPE html>
+    <html lang='en'>
+    <head>
+        <meta name='color-scheme' content='light'>
+        <meta name='supported-color-schemes' content='light'>
+        <title>Reset Password - Satoshi Signal</title>
+    </head>
+    <body>
+        <div style='max-width:420px; margin:0 auto; padding:1rem;'>
+            <div style='text-align:center; padding:3rem;'>
+                <h3 style='font-weight:600; font-size:30px; color:#000;'>Reset Password</h3>
+            </div>
+            <div style='text-align:center;'>
+                <p style='font-size:14px; color:#000;'>
+                    Anda telah mengajukan permintaan untuk reset password.
+                    Silakan klik tombol di bawah ini untuk melanjutkan proses reset password:
+                </p>
+                <a href='" . BASE_URL . "member/auth/forgot_password' style='display:inline-block; padding:10px 20px; margin-top:1rem; background-color:#007BFF; color:#fff; text-decoration:none; border-radius:4px;'>
+                    Reset Password
+                </a>
+                <p style='font-size:14px; color:#000; margin-top:1rem;'>
+                    Jika tombol di atas tidak berfungsi, salin dan tempel URL berikut ke browser Anda: 
+                    <br>" . BASE_URL . "member/auth/forgot_password
+                </p>
+            </div>
+            <hr style='margin-top:2rem;'>
+            <p style='text-align:center; font-size:12px; color:#999;'>
+                Copyright © " . date('Y') . "
+            </p>
+        </div>
+    </body>
+    </html>";
+}
