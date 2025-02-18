@@ -327,6 +327,9 @@ class Auth extends BaseController
 		$email = htmlspecialchars($this->request->getVar('email'));
 		$password = htmlspecialchars($this->request->getVar('password'));
 
+		$password = trim($password);
+		$password = sha1($password);
+
 		// Buat data untuk dikirim ke API
 		$mdata = [
 			'email'    => $email,

@@ -412,7 +412,7 @@ class Auth extends BaseController
 			return redirect()->to(BASE_URL . 'member/auth/login');
 		} else {
 			session()->setFlashdata('failed', $result->message);
-			return redirect()->to(BASE_URL . 'member/auth/reset_password_confirmation/' . base64_encode($email));
+			return redirect()->to(BASE_URL . 'member/auth/login');
 		}
 	}
 }
