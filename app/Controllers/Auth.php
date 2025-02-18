@@ -324,14 +324,14 @@ class Auth extends BaseController
 			return redirect()->to(BASE_URL . 'member/auth/login')->withInput();
 		}
 
-		// Initial Data
-		$mdata = [
-			'email'     => htmlspecialchars($this->request->getVar('email')),
-			'password'  => htmlspecialchars($this->request->getVar('password')),
-		];
+		$email = htmlspecialchars($this->request->getVar('email'));
+		$password = htmlspecialchars($this->request->getVar('password'));
 
-		// Password Encrypt
-		$mdata['password'] = sha1($mdata['password']);
+		// Buat data untuk dikirim ke API
+		$mdata = [
+			'email'    => $email,
+			'password' => $password,
+		];
 
 		// Proccess Endpoin API
 		$url = URLAPI . "/auth/signin";
@@ -339,10 +339,24 @@ class Auth extends BaseController
 		$result = $response->result;
 
 		if ($result->code == 200) {
-			// return redirect()->to(BASE_URL . 'member/auth/pricing?email=' . $mdata["email"]);
-			echo '<pre>';
-			var_dump($result);
-			die();
+			// Buat bearer token menggunakan sha1(email + sha1(password))
+			// $bearerToken = sha1($email . sha1($password));
+			$bearerToken = "43a2aecb8e12dfc5bf1f5c3a61fd89ac579c2e2b";
+
+			// Gabungkan data user dengan token
+			$loggedUser = $result->message;
+			$loggedUser->token = $bearerToken;
+
+			// Simpan data ke session
+			session()->set('logged_user', $loggedUser);
+
+			// Redirect berdasarkan role
+			if ($loggedUser->role === 'admin') {
+				return redirect()->to(BASE_URL . 'godmode/dashboard');
+			} elseif ($loggedUser->role === 'member') {
+				// Pengalihan untuk member saat ini dinonaktifkan
+				// return redirect()->to(BASE_URL . 'member/auth/pricing');
+			}
 		} else {
 			session()->setFlashdata('failed', $result->message);
 			return redirect()->to(BASE_URL . 'member/auth/login');

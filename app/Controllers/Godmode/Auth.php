@@ -6,6 +6,15 @@ use App\Controllers\BaseController;
 
 class Auth extends BaseController
 {
+    protected $session;
+    protected $validation;
+
+    public function __construct()
+    {
+        $this->session = \Config\Services::session();
+        $this->validation = \Config\Services::validation();
+    }
+
     public function signin()
     {
         $mdata = [
@@ -32,7 +41,7 @@ class Auth extends BaseController
         ]);
 
         // Checking Validation
-        if(!$rules){
+        if (!$rules) {
             session()->setFlashdata('failed', $this->validation->listErrors());
             return redirect()->to(BASE_URL . 'godmode/auth/signin')->withInput();
         }
@@ -42,7 +51,7 @@ class Auth extends BaseController
             'email'         => htmlspecialchars($this->request->getVar('email')),
             'password'      => htmlspecialchars($this->request->getVar('password')),
         ];
-        
+
         // Trim Data
         $mdata['password'] = trim($mdata['password']);
 
@@ -55,15 +64,15 @@ class Auth extends BaseController
         $result = $response->result;
 
 
-        if($response->status != 200 || $result->code != 200) {
+        if ($response->status != 200 || $result->code != 200) {
             session()->setFlashdata('failed', $result->message);
             return redirect()->to(BASE_URL . 'godmode/auth/signin');
-        }else{
+        } else {
             $this->session->set('logged_user', $result->message);
             session()->setFlashdata('success', 'Welcome to admin panel');
-            if ($_SESSION["logged_user"]->role=="admin"){
+            if ($_SESSION["logged_user"]->role == "admin") {
                 return redirect()->to(BASE_URL . 'godmode/dashboard');
-            }elseif ($_SESSION["logged_user"]->role=="manager"){
+            } elseif ($_SESSION["logged_user"]->role == "manager") {
                 return redirect()->to(BASE_URL . 'godmode/signal');
             }
         }
