@@ -8,17 +8,16 @@ class Freemember extends BaseController
 {
     public function __construct()
     {
-        // $session = session();
-        // if(!$session->has('logged_user')){
-        //     header("Location: ". BASE_URL . 'godmode/auth/signin');
-        //     exit();
-        // }
+        $session = session();
+        if (!$session->has('logged_user')) {
+            header("Location: " . BASE_URL . 'member/auth/login');
+            exit();
+        }
 
-        // if ($_SESSION["logged_user"]->role!='admin'){
-        //     header('HTTP/1.0 403 Forbidden');
-        //     exit();
-        // }
-
+        if ($_SESSION["logged_user"]->role != 'admin') {
+            header('HTTP/1.0 403 Forbidden');
+            exit();
+        }
     }
 
     public function index()
