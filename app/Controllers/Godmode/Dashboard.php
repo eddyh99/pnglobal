@@ -18,6 +18,10 @@ class Dashboard extends BaseController
 
         // Mendapatkan data user yang tersimpan (sudah login)
         $loggedUser = $session->get('logged_user');
+        // echo "<pre>";
+        // print_r($loggedUser->token);
+        // echo "</pre>";
+        // die();
 
         // Pengecekan role: hanya admin yang boleh mengakses halaman ini
         if ($loggedUser->role !== 'admin') {
