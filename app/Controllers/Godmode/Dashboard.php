@@ -167,13 +167,11 @@ class Dashboard extends BaseController
     {
         $email  = base64_decode($email);
 
-        // $url = URLAPI . "/v1/member/delete_member?email=".$email;
-        // $response = satoshiAdmin($url);
-        // $result = $response->result;
+        $url = URLAPI . "/v1/member/destroy";
+        $response = satoshiAdmin($url, json_encode(['email' => $email]));
+        $result = $response->result;
 
-        $result = null;
-
-        if ($result->code != '200') {
+        if ($result->code != '201') {
             session()->setFlashdata('failed', "Something Wrong, Please Try Again!");
             return redirect()->to(BASE_URL . 'godmode/dashboard');
         } else {

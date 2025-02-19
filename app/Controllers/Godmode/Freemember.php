@@ -46,7 +46,7 @@ class Freemember extends BaseController
             ],
             'referral' => [
                 'label' => 'Referral',
-                'rules' => 'required'
+                'rules' => 'permit_empty'
             ],
             'expired' => [
                 'label' => 'Free Member Expiration Date',
@@ -67,6 +67,9 @@ class Freemember extends BaseController
             'referral' => htmlspecialchars($this->request->getVar('referral')),
             'expired' => htmlspecialchars($this->request->getVar('expired')),
         ];
+
+        // Jika referral kosong, set menjadi null
+        $referral = !empty($referral) ? htmlspecialchars($referral) : null;
 
         // Proccess Endpoin API
         $url = URLAPI . "/v1/member/add_freemember";
