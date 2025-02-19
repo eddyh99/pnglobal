@@ -79,27 +79,24 @@ class Dashboard extends BaseController
         return view('godmode/layout/admin_wrapper', $mdata);
     }
 
-    public function detailmember($type, $email)
+    public function detailmember($email)
     {
 
-        // Decode Type
-        $finaltype = base64_decode($type);
+        // Decode Email
+        $finalemail = base64_decode($email);
 
         // Call Get Memeber By Email
-        // $url = URLAPI . "/auth/getmember_byemail?email=".base64_decode($email);
-        // $resultMember = satoshiAdmin($url)->result->message;
+        $url = URLAPI . "/v1/member/get_detailmember";
+        $resultMember = satoshiAdmin($url, json_encode(['email' => $finalemail]))->result;
 
-        // echo '<pre>'.print_r($resultMember,true).'</pre>';
-        // die;
-
-        $resultMember = null;
         $mdata = [
             'title'     => 'Detail Member - ' . SATOSHITITLE,
             'content'   => 'godmode/dashboard/detail_member',
             'extra'     => 'godmode/dashboard/js/_js_detailmember',
             'member'    => $resultMember,
             'active_dash'   => 'active',
-            'type'      => $finaltype,
+            'email' => $finalemail,
+            // 'type'      => $finaltype,
         ];
 
         return view('godmode/layout/admin_wrapper', $mdata);
