@@ -106,13 +106,13 @@
 
     function disabledmember(email) {
         if (confirm("Are you sure you want to disabled this user?")) {
-            window.location.replace("<?= BASE_URL ?>godmode/dashboard/disabledmember/" + encodeURI(btoa(email)));
+            window.location.replace("<?= BASE_URL ?>godmode/dashboard/set_statusmember/" + encodeURI(btoa(email)) + "/disabled");
         }
     }
 
     function enablemember(email) {
         if (confirm("Are you sure you want to activate this user?")) {
-            window.location.replace("<?= BASE_URL ?>godmode/dashboard/enabledmember/" + encodeURI(btoa(email)));
+            window.location.replace("<?= BASE_URL ?>godmode/dashboard/set_statusmember/" + encodeURI(btoa(email)) + "/active");
         }
     }
 

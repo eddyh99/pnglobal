@@ -18,10 +18,6 @@ class Dashboard extends BaseController
 
         // Mendapatkan data user yang tersimpan (sudah login)
         $loggedUser = $session->get('logged_user');
-        // echo "<pre>";
-        // print_r($loggedUser->token);
-        // echo "</pre>";
-        // die();
 
         // Pengecekan role: hanya admin yang boleh mengakses halaman ini
         if ($loggedUser->role !== 'admin') {
@@ -33,47 +29,22 @@ class Dashboard extends BaseController
 
     public function index()
     {
-        /* Temporarily disabled API calls for layout development
-        // Call Endpoin total_member
-        $url = URLAPI . "/v1/member/total_member";
-        $resultTotalMember = satoshiAdmin($url)->result->message;
-
-        // Call Endpoin total free member
-        $url = URLAPI . "/v1/member/total_freemember";
-        $resultFreemember = satoshiAdmin($url)->result->message;
-
-        // Call Endpoin total Referral
-        $url = URLAPI . "/v1/member/total_exclusive";
-        $resultReferral = satoshiAdmin($url)->result->message;
-
-        // Call Endpoin total Message
-        $url = URLAPI . "/v1/signal/total_message";
-        $resultMessage = satoshiAdmin($url)->result->message;
-
-        // Call Endpoin total Signal
-        $url = URLAPI . "/v1/member/total_signal";
-        $resultSignal = satoshiAdmin($url)->result->message;
-        */
-
-        // Temporary dummy data for layout development
-        $resultTotalMember = 100;
-        $resultFreemember = 50;
-        $resultReferral = 25;
-        $resultMessage = 75;
-        $resultSignal = 30;
-        $resultSubscriber = 100;
+        $url = URLAPI . "/v1/member/get_membership";
+        $resultMembership = satoshiAdmin($url)->result;
+        $totalmember = $resultMembership->message->total_members ?? 0;
+        $totalfreemember = $resultMembership->message->total_free_members ?? 0;
+        $totalsubscription = $resultMembership->message->total_subscriptions ?? 0;
+        $totalsignal = $resultMembership->message->total_signals ?? 0;
 
         $mdata = [
             'title'     => 'Dashboard - ' . SATOSHITITLE,
             'content'   => 'godmode/dashboard/index',
             'extra'     => 'godmode/dashboard/js/_js_index',
             'active_dash'    => 'active',
-            'totalmember' => $resultTotalMember,
-            'freemember' => $resultFreemember,
-            'referral' => $resultReferral,
-            'message' => $resultMessage,
-            'signal' => $resultSignal,
-            'subscriber' => $resultSubscriber,
+            'totalmember' => $totalmember,
+            'freemember' => $totalfreemember,
+            'subscriber' => $totalsubscription,
+            'signal' => $totalsignal,
         ];
 
         return view('godmode/layout/admin_wrapper', $mdata);
@@ -194,5 +165,25 @@ class Dashboard extends BaseController
         // $url = URLAPI . "/v1/referral/getlevel_downline?id=".$id."&level=".$level;
         // $result = satoshiAdmin($url)->result->message;
         // echo json_encode($result);
+    }
+
+    public function set_statusMember($email, $status)
+    {
+        $url = URLAPI . "/v1/member/set_status";
+        $email = base64_decode($email);
+        $mdata = [
+            'email' => $email,
+            'status' => $status
+        ];
+        $response = satoshiAdmin($url, json_encode($mdata));
+        $result = $response->result;
+
+        if ($result->code != '200') {
+            session()->setFlashdata('failed', "Something Wrong, Please Try Again!");
+            return redirect()->to(BASE_URL . 'godmode/dashboard');
+        } else {
+            session()->setFlashdata('success', "Success Change Status Member");
+            return redirect()->to(BASE_URL . 'godmode/dashboard');
+        }
     }
 }
