@@ -16,7 +16,6 @@ class Auth extends BaseController
 		return view('widget/layout/wrapper', $mdata);
 	}
 
-
 	public function active_account($token)
 	{
 		// Call Endpoin Active Account
@@ -112,89 +111,73 @@ class Auth extends BaseController
 		sendmail_satoshi($email, $subject, $message);
 	}
 
-	public function send_resetpassword($email)
+	public function send_resetpassword()
 	{
+		$email = $this->request->getVar('email');
+
+		if (empty($email)) {
+			session()->setFlashdata('failed', 'Alamat email tidak ditemukan.');
+			return redirect()->to(BASE_URL . 'member/subscription/forgot_password');
+		}
+
 		$email = urldecode($email);
 		$subject = "Satoshi Signal - Reset Password";
 
+		// Call Endpoint Member
+		$url = URLAPI . "/auth/resend_token";
+		$apiResponse = satoshiAdmin($url, json_encode(['email' => $email]));
 
-		// Call Endpoin Member
-		$url = URLAPI . "/auth/getmember_byemail?email=" . $email;
-		$resultMember = satoshiAdmin($url)->result->message;
+		// Pastikan $apiResponse adalah objek
+		if (!is_object($apiResponse)) {
+			return $this->response->setJSON([
+				'code'    => 500,
+				'service' => 'auth',
+				'error'   => 'Invalid response',
+				'message' => 'Response dari API tidak valid.'
+			]);
+		}
 
+		$result = $apiResponse->result;
 
-		$message = "
-		<!DOCTYPE html>
-		<html lang='en'>
+		// Cek apakah $result adalah objek dan memiliki properti yang diharapkan
+		if (is_object($result)) {
+			if (isset($result->message)) {
+				// Jika ada pesan, ambil token dari dalam pesan
+				$token = $result->message->otp ?? null; // Menggunakan null coalescing operator
+			} else {
+				return $this->response->setJSON([
+					'code'    => 500,
+					'service' => 'auth',
+					'error'   => 'Unexpected response format',
+					'message' => 'Tidak ada pesan dalam respons.'
+				]);
+			}
+		} else {
+			// Jika $result adalah string, tangani dengan benar
+			if (is_string($result)) {
+				return $this->response->setJSON([
+					'code'    => 500,
+					'service' => 'auth',
+					'error'   => 'Unexpected response format',
+					'message' => $result // Mengembalikan string sebagai pesan
+				]);
+			}
 
-		<head>
-			<meta name='color-scheme' content='light'>
-			<meta name='supported-color-schemes' content='light'>
-			<title>Activation Account Satoshi Signal</title>
-		</head>
+			return $this->response->setJSON([
+				'code'    => 500,
+				'service' => 'auth',
+				'error'   => 'Invalid response format',
+				'message' => 'Gagal mengambil OTP dari API.'
+			]);
+		}
 
-		<body>
-			<div style='
-			max-width: 420px;
-			margin: 0 auto;
-			position: relative;
-			padding: 1rem;
-			'>
-				<div style='
-				text-align: center;
-				padding: 3rem;
-				'>
-					<h3 style='
-					font-weight: 600;
-					font-size: 20px;
-					line-height: 45px;
-					color: #000000;
-					margin-bottom: 1rem;
-					text-align: center;
-					'>
-						Dear, <br> " . $email . "
-					</h3>
-				</div>
+		// Kirim email dengan token
+		sendmail_satoshi($email, $subject, emailtemplate_forgot_password($token, $email));
 
-				<div style='
-				text-align: center;
-				padding-bottom: 1rem;
-				'>
-					<p style='
-					font-weight: 400;
-					font-size: 14px;
-					color: #000000;
-					'>
-						Thank you for using Satoshi Signal App. To proceed with your request, please copy token reset password below 
-					</p>
-					<h2 id='copyToken'>
-						" . $resultMember->token . "
-					</h2>
-					<p style='
-					font-weight: 400;
-					font-size: 14px;
-					color: #000000;
-					'>
-						Best regards,<br>  
-						Satoshi Signal Team
-
-					</p>
-				</div>
-				<hr>
-				<hr>
-				<p style='
-				text-align: center;
-				font-weight: 400;
-				font-size: 12px;
-				color: #999999;
-				'>
-					Copyright © " . date('Y') . "
-				</p>
-			</div>
-		</body>
-		</html>";
-
-		sendmail_satoshi($email, $subject, $message);
+		return $this->response->setJSON([
+			'code'    => 200,
+			'message' => 'Email berhasil dikirim'
+		]);
 	}
 
 	public function activate_member($email = null)
@@ -341,21 +324,45 @@ class Auth extends BaseController
 			return redirect()->to(BASE_URL . 'member/auth/login')->withInput();
 		}
 
-		// Initial Data
+		$email = htmlspecialchars($this->request->getVar('email'));
+		$password = htmlspecialchars($this->request->getVar('password'));
+
+		$password = trim($password);
+		$password = sha1($password);
+
+		// Buat data untuk dikirim ke API
 		$mdata = [
-			'email'     => htmlspecialchars($this->request->getVar('email')),
-			'password'  => htmlspecialchars($this->request->getVar('password')),
+			'email'    => $email,
+			'password' => $password,
 		];
 
-		// Password Encrypt
-		$mdata['password'] = sha1($mdata['password']);
-
 		// Proccess Endpoin API
-		$url = URLAPI . "/auth/login";
+		$url = URLAPI . "/auth/signin";
 		$response = satoshiAdmin($url, json_encode($mdata));
 		$result = $response->result;
+
 		if ($result->code == 200) {
-			return redirect()->to(BASE_URL . 'member/auth/pricing?email=' . $mdata["email"]);
+			// Buat bearer token menggunakan sha1(email + sha1(password))
+			$bearerToken = sha1($email . sha1($password));
+
+			// Gabungkan data user dengan token
+			$loggedUser = $result->message;
+			$loggedUser->token = $bearerToken;
+
+			// Simpan data ke session
+			session()->set('logged_user', $loggedUser);
+
+			// Redirect berdasarkan role
+			if ($loggedUser->role === 'admin') {
+				return redirect()->to(BASE_URL . 'godmode/dashboard');
+			} elseif ($loggedUser->role === 'member') {
+				// Pengalihan untuk member saat ini dinonaktifkan
+				// return redirect()->to(BASE_URL . 'member/auth/pricing');
+				echo "<pre>";
+				print_r($loggedUser);
+				echo "</pre>";
+				die();
+			}
 		} else {
 			session()->setFlashdata('failed', $result->message);
 			return redirect()->to(BASE_URL . 'member/auth/login');

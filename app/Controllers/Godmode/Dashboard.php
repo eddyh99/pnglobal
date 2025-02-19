@@ -1,21 +1,32 @@
 <?php
 
 namespace App\Controllers\Godmode;
+
 use App\Controllers\BaseController;
 
 class Dashboard extends BaseController
 {
     public function __construct()
     {
-        /* Temporarily disabled login check for layout development
         $session = session();
-        if(!$session->has('logged_user')){
-            header("Location: ". BASE_URL . 'godmode/auth/signin');
+
+        // Jika belum login, redirect ke halaman signin
+        if (!$session->has('logged_user')) {
+            header("Location: " . BASE_URL . 'member/auth/login');
             exit();
         }
-        */
+
+        // Mendapatkan data user yang tersimpan (sudah login)
+        $loggedUser = $session->get('logged_user');
+
+        // Pengecekan role: hanya admin yang boleh mengakses halaman ini
+        if ($loggedUser->role !== 'admin') {
+
+            header("Location: " . BASE_URL . 'member/auth/pricing');
+            exit();
+        }
     }
-    
+
     public function index()
     {
         /* Temporarily disabled API calls for layout development
@@ -47,7 +58,7 @@ class Dashboard extends BaseController
         $resultMessage = 75;
         $resultSignal = 30;
         $resultSubscriber = 100;
-        
+
         $mdata = [
             'title'     => 'Dashboard - ' . SATOSHITITLE,
             'content'   => 'godmode/dashboard/index',
@@ -69,7 +80,7 @@ class Dashboard extends BaseController
 
         // Decode Type
         $finaltype = base64_decode($type);
-        
+
         // Call Get Memeber By Email
         // $url = URLAPI . "/auth/getmember_byemail?email=".base64_decode($email);
         // $resultMember = satoshiAdmin($url)->result->message;
@@ -77,7 +88,7 @@ class Dashboard extends BaseController
         // echo '<pre>'.print_r($resultMember,true).'</pre>';
         // die;
 
-
+        $resultMember = null;
         $mdata = [
             'title'     => 'Detail Member - ' . SATOSHITITLE,
             'content'   => 'godmode/dashboard/detail_member',
@@ -93,10 +104,10 @@ class Dashboard extends BaseController
 
     public function detailreferral($type, $email)
     {
-        
+
         // Decode Type
         $finaltype = base64_decode($type);
-        
+
         // Call Get Memeber By Email
         // $url = URLAPI . "/auth/getmember_byemail?email=".base64_decode($email);
         // $resultMember = satoshiAdmin($url)->result->message;
@@ -105,6 +116,8 @@ class Dashboard extends BaseController
         // $url = URLAPI . "/v1/member/detailreferral?id=".$resultMember->id;
         // $resultReferral = satoshiAdmin($url)->result->message;
 
+        $resultMember = null;
+        $resultReferral = null;
 
         $mdata = [
             'title'     => 'Detail Member - ' . SATOSHITITLE,
@@ -132,45 +145,52 @@ class Dashboard extends BaseController
         // $url = URLAPI . "/v1/member/paid_referral?id=".$mdata['id']."&is_paid=".$mdata['type'];
         // $response = satoshiAdmin($url, json_encode($mdata));
         // $result = $response->result;
-        
-        if($result->code != '200') {
-            session()->setFlashdata('failed', "Something Wrong, Please Try Again!");
-            return redirect()->to(BASE_URL . 'godmode/dashboard/detailreferral/'.$type.'/'.$email);
-        }else{
 
-            if($mdata['type'] == 'yes'){
+        $result = null;
+
+        if ($result->code != '200') {
+            session()->setFlashdata('failed', "Something Wrong, Please Try Again!");
+            return redirect()->to(BASE_URL . 'godmode/dashboard/detailreferral/' . $type . '/' . $email);
+        } else {
+
+            if ($mdata['type'] == 'yes') {
                 session()->setFlashdata('success', "Successfully paid transaction");
-            }else{
+            } else {
                 session()->setFlashdata('success', "Successfully cancel transaction");
             }
-            return redirect()->to(BASE_URL . 'godmode/dashboard/detailreferral/'.$type.'/'.$email);
-        }    
-        
+            return redirect()->to(BASE_URL . 'godmode/dashboard/detailreferral/' . $type . '/' . $email);
+        }
     }
 
-    public function deletemember($email){
+    public function deletemember($email)
+    {
         $email  = base64_decode($email);
 
         // $url = URLAPI . "/v1/member/delete_member?email=".$email;
         // $response = satoshiAdmin($url);
         // $result = $response->result;
-        if($result->code != '200') {
+
+        $result = null;
+
+        if ($result->code != '200') {
             session()->setFlashdata('failed', "Something Wrong, Please Try Again!");
             return redirect()->to(BASE_URL . 'godmode/dashboard');
-        }else{
+        } else {
             session()->setFlashdata('success', "Success Disabled Member");
             return redirect()->to(BASE_URL . 'godmode/dashboard');
         }
     }
-    
-     public function get_downline($id){
+
+    public function get_downline($id)
+    {
         // Call Endpoin Get Referral Member
         // $url = URLAPI . "/v1/referral/getDownline?id=".$id;
         // $result = satoshiAdmin($url)->result->message;
         // echo json_encode($result);
     }
-    
-    public function getlevel_downline($id,$level){
+
+    public function getlevel_downline($id, $level)
+    {
         // Call Endpoin Get Referral Member
         // $url = URLAPI . "/v1/referral/getlevel_downline?id=".$id."&level=".$level;
         // $result = satoshiAdmin($url)->result->message;
