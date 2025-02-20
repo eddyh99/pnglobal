@@ -707,12 +707,16 @@ div.dataTables_wrapper div.dataTables_filter input {
     cursor: pointer;
 }
 
-/* Container wrapper untuk referral dan active API card */
+/* Atur container agar elemen referral card dan active API card tersusun dalam satu baris */
 .referral-container {
-    margin: 1rem 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 1rem;
 }
 
-/* Referral card di kolom kiri */
+/* Referral card dengan lebar mengikuti panjang konten */
 .referral-card {
     display: flex;
     align-items: center;
@@ -720,9 +724,10 @@ div.dataTables_wrapper div.dataTables_filter input {
     border: 2px solid #bfa573;
     border-radius: 5px;
     padding: 0.5rem 1rem;
-    /* Lebar akan mengikuti grid system (col-md-10) */
+    width: fit-content; /* Lebar hanya sepanjang kontennya */
 }
 
+/* Pengaturan untuk referral link */
 .referral-link {
     text-align: left;
 }
@@ -744,7 +749,7 @@ div.dataTables_wrapper div.dataTables_filter input {
     line-height: normal;
 }
 
-/* Active API card di kolom kanan */
+/* Active API card tetap menggunakan lebar otomatis dan berada di sisi kanan */
 .active-api-card {
     display: flex;
     align-items: center;
@@ -819,4 +824,125 @@ div.dataTables_wrapper div.dataTables_filter input {
 @media (max-width: 479px) {
 }
 @media (max-width: 359px) {
+}
+
+/* Styling untuk card baru */
+.custom-card {
+    border: 2px solid #bfa573;
+    border-radius: 10px;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    background-color: #fff;
+    height: auto;
+    flex: 1;
+}
+
+.custom-card .card-row {
+    margin-bottom: 0.5rem;
+}
+
+/* Styling untuk card sebelah kiri */
+.left-card .card-top {
+    font-family: Poppins, sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    color: #000;
+    text-align: left;
+}
+
+.left-card .card-bottom {
+    color: #000;
+    text-align: center;
+    font-family: Poppins, sans-serif;
+    font-size: 40px;
+    font-weight: 600;
+    line-height: normal;
+}
+
+/* Styling untuk card sebelah kanan */
+.right-card .card-top {
+    color: #b48b3d;
+    font-family: Poppins, sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.right-card .card-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Kolom kiri pada row bawah card kanan */
+.right-card .left-column {
+    color: #b48b3d;
+    font-family: Poppins, sans-serif;
+    font-size: 24px;
+    font-weight: 400;
+    line-height: normal;
+    display: flex;
+    align-items: center;
+}
+
+/* Kolom kanan – tombol Renew pada row bawah card kanan */
+.right-card .right-column .btn-renew {
+    border: none;
+    border-radius: 7px;
+    background: linear-gradient(90deg, #b48b3d 0%, #bfa573 100%);
+    color: #000;
+    font-family: Poppins, sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+}
+
+/* Pastikan container untuk kedua card menggunakan flex dan align tengah */
+.statistics-cards {
+    display: flex;
+    align-items: stretch;
+}
+
+.col-md-6 {
+    display: flex;
+}
+
+/* Styling untuk card kiri dengan background gradient */
+.left-card {
+    background: linear-gradient(107deg, #b48b3d 50.42%, #bfa573 100%);
+}
+
+/* Override warna teks pada card kiri agar kontras (putih) */
+.left-card .card-top,
+.left-card .card-bottom {
+    color: #000;
+}
+
+/* Optional: Styling custom untuk text selection pada card kiri */
+.left-card ::selection {
+    background: #b48b3d;
+    color: #000;
+}
+
+/* Untuk card kanan, pastikan tidak ada background khusus */
+.right-card {
+    background: transparent;
+}
+
+/* Pastikan content row di dalam right-card align middle */
+.right-card .card-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Pastikan kedua card memiliki ukuran sama menggunakan flex */
+.statistics-cards {
+    display: flex;
+    align-items: stretch;
+}
+
+.col-md-6 {
+    display: flex;
 }
