@@ -117,12 +117,12 @@
                             <tr>
                                 <th>EMAIL</th>
                                 <th>REF CODE</th>
-                                <th>REG. DATE</th>
+                                <!-- <th>REG. DATE</th> -->
                                 <th>STATUS</th>
                                 <th>SUBSCRIPTION</th>
                                 <th>REFERRAL</th>
-                                <th>UNPAID</th>
-                                <th>DETAIL</th>
+                                <th>CAPITAL</th>
+                                <th>ACTION</th>
                             </tr>
                         </thead>
                         <tbody>

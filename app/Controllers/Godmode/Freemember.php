@@ -46,7 +46,7 @@ class Freemember extends BaseController
             ],
             'referral' => [
                 'label' => 'Referral',
-                'rules' => 'required'
+                'rules' => 'permit_empty'
             ],
             'expired' => [
                 'label' => 'Free Member Expiration Date',
@@ -60,18 +60,31 @@ class Freemember extends BaseController
             return redirect()->to(BASE_URL . 'godmode/freemember');
         }
 
-        // Init Data
+        // Ambil nilai dari input
+        $email    = htmlspecialchars($this->request->getVar('email'));
+        $amount   = htmlspecialchars($this->request->getVar('amount'));
+        $referralInput = $this->request->getVar('referral');
+        $expired  = htmlspecialchars($this->request->getVar('expired'));
+
+        // Jika referral tidak diisi atau kosong, set menjadi null
+        $referral = (trim($referralInput) === '') ? null : htmlspecialchars($referralInput);
+
+        // Siapkan data yang akan dikirim
         $mdata = [
-            'email'   => htmlspecialchars($this->request->getVar('email')),
-            'amount'    => htmlspecialchars($this->request->getVar('amount')),
-            'referral' => htmlspecialchars($this->request->getVar('referral')),
-            'expired' => htmlspecialchars($this->request->getVar('expired')),
+            'email'    => $email,
+            'referral' => $referral,
+            'amount'   => $amount,
+            'expired'  => $expired,
         ];
+
+        // Jika referral kosong, set menjadi null
+        $referral = (trim($referralInput) === '') ? null : htmlspecialchars($referralInput);
 
         // Proccess Endpoin API
         $url = URLAPI . "/v1/member/add_freemember";
         $response = satoshiAdmin($url, json_encode($mdata));
         $result = $response->result;
+
 
         if ($result->code == 201) {
             // session()->setFlashdata('success', $result->message);

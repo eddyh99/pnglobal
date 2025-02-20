@@ -1,5 +1,5 @@
-.price-input:disabled{
-    background-color:#FFFFFF;
+.price-input:disabled {
+    background-color: #ffffff;
 }
 
 .logo-signin {
@@ -22,30 +22,29 @@
     width: 12rem;
     margin: 0.2rem;
     border: transparent;
-    background-color: #1A73E8;
+    background-color: #1a73e8;
     border: 2px solid #063573;
-    color: #FFFFFF;
+    color: #ffffff;
     border-radius: 5px;
 }
 
 .form-control-dark {
-    border: 2px solid #BFA573;
+    border: 2px solid #bfa573;
     background-color: transparent;
     height: 45px;
     border-radius: 5px;
     padding-left: 10px;
-    color: #FFFFFF;
-
+    color: #ffffff;
 }
 
 .dash-signal-preview {
-    border: 2px solid #B48B3D;
+    border: 2px solid #b48b3d;
     border-radius: 10px;
     height: 100%;
 }
 
 .dash-signal-preview .dash-referral label {
-    color: #FFFFFF;
+    color: #ffffff;
     font-size: 14px;
 }
 
@@ -61,71 +60,119 @@
 
 .dash-signal-preview .title-signal-preview {
     padding: 1rem;
-    border-bottom: 2px solid #B48B3D;
+    border-bottom: 2px solid #b48b3d;
 }
 
-.dash-signal-preview .title-signal-preview h4{
-    color: #FFFFFF;
+.dash-signal-preview .title-signal-preview h4 {
+    color: #ffffff;
 }
-
 
 .dash-signal-preview .main-signal-preview .date {
     padding: 0.5rem;
 }
 
 .dash-signal-preview .main-signal-preview .insturctions .instructions-title {
-    color: #FFFFFF;
+    color: #ffffff;
     font-size: 14px;
     text-transform: uppercase;
     margin-bottom: 0.5rem;
 }
 
 .dash-signal-preview .main-signal-preview .insturctions .box-insturctions {
-    background-color: #0E7304;
+    background-color: #0e7304;
     padding: 0.8rem 1rem;
     width: 20rem;
     border-radius: 5px;
 }
 
 .dash-signal-preview .main-signal-preview .insturctions .box-insturctions h4 {
-    color: #BFA573;
+    color: #bfa573;
     font-weight: 700;
     font-size: 20px;
 }
 
 .dash-signal-preview .main-signal-preview .insturctions .box-insturctions span {
-    color: #BFA573;
+    color: #bfa573;
     font-weight: 600;
     font-size: 10px;
 }
 
-.dash-signal-preview .main-signal-preview .signal-preview{
+.dash-signal-preview .main-signal-preview .signal-preview {
     width: 100%;
     margin: 2rem 0rem;
 }
 
-.dash-signal-preview .main-signal-preview .signal-preview .all-buy .wrapper-buy .buy ,
-.dash-signal-preview .main-signal-preview .signal-preview .all-sell .wrapper-sell .sell {
+.dash-signal-preview
+    .main-signal-preview
+    .signal-preview
+    .all-buy
+    .wrapper-buy
+    .buy,
+.dash-signal-preview
+    .main-signal-preview
+    .signal-preview
+    .all-sell
+    .wrapper-sell
+    .sell {
     padding: 0.5rem 2rem;
 }
 
-.dash-signal-preview .main-signal-preview .signal-preview .all-buy .wrapper-buy .buy .buy-title .buy-text,
-.dash-signal-preview .main-signal-preview .signal-preview .all-sell .wrapper-sell .sell .sell-title .sell-text {
+.dash-signal-preview
+    .main-signal-preview
+    .signal-preview
+    .all-buy
+    .wrapper-buy
+    .buy
+    .buy-title
+    .buy-text,
+.dash-signal-preview
+    .main-signal-preview
+    .signal-preview
+    .all-sell
+    .wrapper-sell
+    .sell
+    .sell-title
+    .sell-text {
     font-size: 14px;
-    color: #FFFFFF;
+    color: #ffffff;
     font-weight: 600;
 }
 
-.dash-signal-preview .main-signal-preview .signal-preview .all-buy .wrapper-buy .buy .buy-title .buy-date,
-.dash-signal-preview .main-signal-preview .signal-preview .all-sell .wrapper-sell .sell .sell-title .sell-date {
+.dash-signal-preview
+    .main-signal-preview
+    .signal-preview
+    .all-buy
+    .wrapper-buy
+    .buy
+    .buy-title
+    .buy-date,
+.dash-signal-preview
+    .main-signal-preview
+    .signal-preview
+    .all-sell
+    .wrapper-sell
+    .sell
+    .sell-title
+    .sell-date {
     font-size: 10px;
-    color: #FFFFFF;
+    color: #ffffff;
     font-weight: 400;
 }
 
-
-.dash-signal-preview .main-signal-preview .signal-preview .all-buy .wrapper-buy .buy input,
-.dash-signal-preview .main-signal-preview .signal-preview .all-sell .wrapper-sell .sell input {
+.dash-signal-preview
+    .main-signal-preview
+    .signal-preview
+    .all-buy
+    .wrapper-buy
+    .buy
+    input,
+.dash-signal-preview
+    .main-signal-preview
+    .signal-preview
+    .all-sell
+    .wrapper-sell
+    .sell
+    input {
     width: 100%;
     height: 35px;
     border-radius: 5px;
@@ -143,24 +190,24 @@
     flex-wrap: wrap;
 }
 
-.dash-statistics .statistics{
+.dash-statistics .statistics {
     width: 20%;
     padding: 0rem 1rem;
 }
 
 .send-signals {
-    border: 2px solid #B48B3D;
+    border: 2px solid #b48b3d;
     border-radius: 10px;
     height: 100%;
 }
 
 .send-signals .title-signal-preview {
     padding: 1rem;
-    border-bottom: 2px solid #B48B3D;
+    border-bottom: 2px solid #b48b3d;
 }
 
 .send-signals .main-send-signal .insturctions .instructions-title {
-    color: #FFFFFF;
+    color: #ffffff;
     font-size: 14px;
     text-transform: uppercase;
     margin: 1rem;
@@ -174,43 +221,83 @@
 }
 
 .send-signals .main-send-signal .insturctions .box-insturctions h4 {
-    color: #BFA573;
+    color: #bfa573;
     font-weight: 700;
     font-size: 20px;
 }
 
 .send-signals .main-send-signal .insturctions .box-insturctions span {
-    color: #BFA573;
+    color: #bfa573;
     font-weight: 600;
     font-size: 10px;
 }
 
-.send-signals .main-send-signal .signal-preview{
+.send-signals .main-send-signal .signal-preview {
     width: 100%;
     margin: 2rem 0rem;
 }
 
-.send-signals .main-send-signal .signal-preview .all-buy .wrapper-buy .buy ,
+.send-signals .main-send-signal .signal-preview .all-buy .wrapper-buy .buy,
 .send-signals .main-send-signal .signal-preview .all-sell .wrapper-sell .sell {
     padding: 0.5rem 2rem;
 }
 
-.send-signals .main-send-signal .signal-preview .all-buy .wrapper-buy .buy .buy-title .buy-text,
-.send-signals .main-send-signal .signal-preview .all-sell .wrapper-sell .sell .sell-title .sell-text {
+.send-signals
+    .main-send-signal
+    .signal-preview
+    .all-buy
+    .wrapper-buy
+    .buy
+    .buy-title
+    .buy-text,
+.send-signals
+    .main-send-signal
+    .signal-preview
+    .all-sell
+    .wrapper-sell
+    .sell
+    .sell-title
+    .sell-text {
     font-size: 14px;
-    color: #FFFFFF;
+    color: #ffffff;
     font-weight: 600;
 }
 
-.send-signals .main-send-signal .signal-preview .all-buy .wrapper-buy .buy .buy-title .buy-date,
-.send-signals .main-send-signal .signal-preview .all-sell .wrapper-sell .sell .sell-title .sell-date {
+.send-signals
+    .main-send-signal
+    .signal-preview
+    .all-buy
+    .wrapper-buy
+    .buy
+    .buy-title
+    .buy-date,
+.send-signals
+    .main-send-signal
+    .signal-preview
+    .all-sell
+    .wrapper-sell
+    .sell
+    .sell-title
+    .sell-date {
     font-size: 10px;
-    color: #FFFFFF;
+    color: #ffffff;
     font-weight: 400;
 }
 
-.send-signals .main-send-signal .signal-preview .all-buy .wrapper-buy .buy input,
-.send-signals .main-send-signal .signal-preview .all-sell .wrapper-sell .sell input {
+.send-signals
+    .main-send-signal
+    .signal-preview
+    .all-buy
+    .wrapper-buy
+    .buy
+    input,
+.send-signals
+    .main-send-signal
+    .signal-preview
+    .all-sell
+    .wrapper-sell
+    .sell
+    input {
     width: 100%;
     height: 35px;
     border-radius: 5px;
@@ -222,19 +309,31 @@
     margin-right: 10px;
 }
 
-.send-signals .main-send-signal .signal-preview .all-buy .wrapper-buy .buy .inside-buy,
-.send-signals .main-send-signal .signal-preview .all-sell .wrapper-sell .sell .inside-sell {
+.send-signals
+    .main-send-signal
+    .signal-preview
+    .all-buy
+    .wrapper-buy
+    .buy
+    .inside-buy,
+.send-signals
+    .main-send-signal
+    .signal-preview
+    .all-sell
+    .wrapper-sell
+    .sell
+    .inside-sell {
     width: 100%;
     margin-right: 10px;
 }
 
 .wrapper-message-email {
-    border: 2px solid #B48B3D;
+    border: 2px solid #b48b3d;
     border-radius: 0px 0px 10px 10px;
 }
 
 .btn {
-    color: #FFFFFF !important;
+    color: #ffffff !important;
 }
 
 .dropdown-menu {
@@ -242,33 +341,33 @@
 }
 
 .wrapper-message-subject {
-    border: 2px solid #B48B3D;
+    border: 2px solid #b48b3d;
     border-bottom: transparent;
 }
 
 .wrapper-message-subject .bg-subject {
     padding: 0.5rem 5rem 0.5rem 1rem;
-    background-color: #B48B3D;
-    color: #FFFFFF;
+    background-color: #b48b3d;
+    color: #ffffff;
 }
 
 .wrapper-message-subject input {
     width: 100%;
     background-color: transparent;
-    color: #FFFFFF;
+    color: #ffffff;
     padding-left: 1rem;
 }
 
 .note-editable {
-    color: #B48B3D !important;
+    color: #b48b3d !important;
 }
 
-.history-table-message{
+.history-table-message {
     margin-top: 2rem;
 }
 
 .table {
-    color: #FFFFFF;
+    color: #ffffff;
 }
 
 .table thead th {
@@ -276,7 +375,7 @@
 }
 
 .table td {
-    border-top: 1px solid #BFA573;
+    border-top: 1px solid #bfa573;
 }
 
 .table th {
@@ -284,35 +383,36 @@
 }
 
 #table_message_wrapper {
-    border: 2px solid #B48B3D;
+    border: 2px solid #b48b3d;
 }
 
-#table_message_filter, #table_message_length {
-    display:  none;
+#table_message_filter,
+#table_message_length {
+    display: none;
 }
 
 #table_message_length {
     padding: 0.5rem;
 }
 
-#table_message_length select{
+#table_message_length select {
     padding: 0.2rem;
 }
 
-#table_message_paginate,#table_message_info {
+#table_message_paginate,
+#table_message_info {
     padding: 1rem;
-    color: #FFFFFF;
+    color: #ffffff;
 }
 
-
 .dash-table-totalmember {
-    border: 2px solid #BFA573;
+    border: 2px solid #bfa573;
     /* padding: 1rem; */
     border-radius: 20px 20px 0px 0px;
 }
 
 .thead_totalmember {
-    background-color: #BFA573;
+    background-color: #bfa573;
     color: #000000;
 }
 
@@ -321,30 +421,31 @@
 }
 
 #table_totalmember_length {
-    display:  none;
+    display: none;
 }
 
 div.dataTables_wrapper div.dataTables_filter label {
-    color: #FFFFFF;
+    color: #ffffff;
 }
 
 div.dataTables_wrapper div.dataTables_filter input {
-    border: 2px solid #BFA573;
+    border: 2px solid #bfa573;
     background-color: #2a2a2a;
-    color: #FFFFFF;
+    color: #ffffff;
 }
 
 #table_totalmember_length {
     padding: 0.5rem;
 }
 
-#table_totalmember_length select{
+#table_totalmember_length select {
     padding: 0.2rem;
 }
 
-#table_totalmember_paginate,#table_totalmember_info {
+#table_totalmember_paginate,
+#table_totalmember_info {
     padding: 1rem;
-    color: #FFFFFF;
+    color: #ffffff;
 }
 
 .dataTables_scrollHeadInner {
@@ -359,7 +460,7 @@ div.dataTables_scrollHead table.dataTable {
     width: 100%;
     height: 5px;
     border-radius: 9999px;
-    background-color: #0E7304;
+    background-color: #0e7304;
 }
 
 .iq-card-body .disable {
@@ -370,13 +471,13 @@ div.dataTables_scrollHead table.dataTable {
 }
 
 .dash-table-freemember {
-    border: 2px solid #BFA573;
+    border: 2px solid #bfa573;
     /* padding: 1rem; */
     border-radius: 20px 20px 0px 0px;
 }
 
 .thead_freemember {
-    background-color: #BFA573;
+    background-color: #bfa573;
     color: #000000;
 }
 
@@ -385,30 +486,31 @@ div.dataTables_scrollHead table.dataTable {
 }
 
 #table_freemember_length {
-    display:  none;
+    display: none;
 }
 
 div.dataTables_wrapper div.dataTables_filter label {
-    color: #FFFFFF;
+    color: #ffffff;
 }
 
 div.dataTables_wrapper div.dataTables_filter input {
-    border: 2px solid #BFA573;
+    border: 2px solid #bfa573;
     background-color: #2a2a2a;
-    color: #FFFFFF;
+    color: #ffffff;
 }
 
 #table_freemember_length {
     padding: 0.5rem;
 }
 
-#table_freemember_length select{
+#table_freemember_length select {
     padding: 0.2rem;
 }
 
-#table_freemember_paginate,#table_freemember_info {
+#table_freemember_paginate,
+#table_freemember_info {
     padding: 1rem;
-    color: #FFFFFF;
+    color: #ffffff;
 }
 
 .dash-detailmember {
@@ -429,23 +531,23 @@ div.dataTables_wrapper div.dataTables_filter input {
 .dash-detailmember .header {
     grid-column: span 2;
     font-weight: bold;
-    background-color: #1E1E1E;
+    background-color: #1e1e1e;
     margin-bottom: 0.5rem;
-    color: #FFFFFF;
+    color: #ffffff;
 }
 
 .dash-detailmember .label {
     font-weight: bold;
     justify-content: flex-start;
-    color: #FFFFFF;
+    color: #ffffff;
 }
 
 .dash-detailmember .value {
     justify-content: space-between;
-    color: #FFFFFF;
+    color: #ffffff;
 }
 
-.dash-detailmember .value .upgrade-btn{
+.dash-detailmember .value .upgrade-btn {
     background-color: #d4af37;
     color: black;
     border: none;
@@ -455,7 +557,7 @@ div.dataTables_wrapper div.dataTables_filter input {
     cursor: pointer;
 }
 
-.dash-detailmember .value .upgrade-btn:disabled{
+.dash-detailmember .value .upgrade-btn:disabled {
     background-color: #575757;
     color: black;
     border: none;
@@ -474,7 +576,11 @@ div.dataTables_wrapper div.dataTables_filter input {
 }
 
 .modal-content.upgrade-member {
-    background: linear-gradient(107deg, #B48B3D 49.51%, #BFA573 100%) !important;
+    background: linear-gradient(
+        107deg,
+        #b48b3d 49.51%,
+        #bfa573 100%
+    ) !important;
 }
 
 .modal-content.upgrade-member .modal-header {
@@ -485,30 +591,30 @@ div.dataTables_wrapper div.dataTables_filter input {
     padding: 0rem 1rem !important;
 }
 
-.modal-content.upgrade-member .modal-body .btn-modal-upgrade{
+.modal-content.upgrade-member .modal-body .btn-modal-upgrade {
     border-radius: 5px;
     border: 1px solid #000;
-    background: linear-gradient(90deg, #B48B3D 0%, #BFA573 100%);
+    background: linear-gradient(90deg, #b48b3d 0%, #bfa573 100%);
     padding: 0rem 1rem;
 }
 
-.modal-content.upgrade-member .modal-body p{
+.modal-content.upgrade-member .modal-body p {
     color: #000000;
 }
 
-.modal-content.upgrade-member .modal-body h4{
+.modal-content.upgrade-member .modal-body h4 {
     color: #000000;
     font-weight: 700;
 }
 
 .dash-table-referralmember {
-    border: 2px solid #BFA573;
+    border: 2px solid #bfa573;
     /* padding: 1rem; */
     border-radius: 20px 20px 0px 0px;
 }
 
 .thead_referralmember {
-    background-color: #BFA573;
+    background-color: #bfa573;
     color: #000000;
 }
 
@@ -517,44 +623,45 @@ div.dataTables_wrapper div.dataTables_filter input {
 }
 
 #table_referralmember_length {
-    display:  none;
+    display: none;
 }
 
 #table_referralmember_length {
     padding: 0.5rem;
 }
 
-#table_referralmember_length select{
+#table_referralmember_length select {
     padding: 0.2rem;
 }
 
-#table_referralmember_paginate,#table_referralmember_info {
+#table_referralmember_paginate,
+#table_referralmember_info {
     padding: 1rem;
-    color: #FFFFFF;
+    color: #ffffff;
 }
 
 .form-addreferral {
     width: 100%;
 }
 
-.form-addreferral .wrapper-addreferral{
+.form-addreferral .wrapper-addreferral {
     width: 100%;
     margin: 2rem 0rem;
 }
 
-.form-addreferral .wrapper-addreferral label{
-    color: #FFFFFF;
+.form-addreferral .wrapper-addreferral label {
+    color: #ffffff;
 }
 
-.form-addreferral .wrapper-addreferral input{
+.form-addreferral .wrapper-addreferral input {
     width: 100%;
     border-radius: 5px;
-    border: 1px solid #BFA573;
+    border: 1px solid #bfa573;
     background: #000000;
-    color: #FFFFFF;
+    color: #ffffff;
 }
 
-.upgrade-btn{
+.upgrade-btn {
     background-color: #d4af37;
     color: black;
     border: none;
@@ -564,7 +671,7 @@ div.dataTables_wrapper div.dataTables_filter input {
     cursor: pointer;
 }
 
-.upgrade-btn[disabled]{
+.upgrade-btn[disabled] {
     background-color: #575757;
     color: black;
     border: none;
@@ -574,14 +681,14 @@ div.dataTables_wrapper div.dataTables_filter input {
     cursor: pointer;
 }
 
-.btn-danger[disabled]{
+.btn-danger[disabled] {
     background-color: #575757;
     color: black;
     border: none;
 }
 
-.cancel-btn{
-    background-color: #FF0000;
+.cancel-btn {
+    background-color: #ff0000;
     color: black;
     border: none;
     padding: 2px 20px;
@@ -590,7 +697,7 @@ div.dataTables_wrapper div.dataTables_filter input {
     cursor: pointer;
 }
 
-.cancel-btn[disabled]{
+.cancel-btn[disabled] {
     background-color: #575757;
     color: black;
     border: none;
@@ -600,31 +707,334 @@ div.dataTables_wrapper div.dataTables_filter input {
     cursor: pointer;
 }
 
+/* Atur container agar elemen referral card dan active API card tersusun dalam satu baris */
+.referral-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 1rem;
+}
 
+/* Referral card dengan lebar mengikuti panjang konten */
+.referral-card {
+    display: flex;
+    align-items: center;
+    gap: 20px; /* Jarak antara referral link dan referral-qr */
+    border: 2px solid #bfa573;
+    border-radius: 5px;
+    padding: 0.5rem 1rem;
+    width: fit-content; /* Lebar hanya sepanjang kontennya */
+}
 
+/* Pengaturan untuk referral link */
+.referral-link {
+    text-align: left;
+}
 
+/* Pengaturan elemen di dalam referral-qr */
+.referral-qr {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.referral-qr p {
+    margin: 0;
+    color: #b48b3d;
+    font-family: Inter, sans-serif;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+/* Active API card tetap menggunakan lebar otomatis dan berada di sisi kanan */
+.active-api-card {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Jarak antara tulisan dan SVG */
+    justify-content: center;
+    border-radius: 5px;
+    border: 1px solid #b48b3d;
+    background: rgba(180, 139, 61, 0.25);
+    padding: 0.5rem 1rem;
+    text-align: center;
+    /* Lebar akan mengikuti grid system (col-md-2) */
+}
 
 /* RESPONSIVE */
-@media(max-width:1699px) {}
-@media(max-width:1450px) {}
-@media(max-width:1400px) {}
-@media(min-width:1300px) {}
-@media(max-width:1399px) {}
-@media(max-width:1299px) {}
+@media (max-width: 1699px) {
+}
+@media (max-width: 1450px) {
+}
+@media (max-width: 1400px) {
+}
+@media (min-width: 1300px) {
+}
+@media (max-width: 1399px) {
+}
+@media (max-width: 1299px) {
+}
 
-@media(max-width:1199px) {
-    .dash-statistics .statistics{
+@media (max-width: 1199px) {
+    .dash-statistics .statistics {
         width: 30%;
     }
 }
 
-@media(max-width:979px) {}
-@media(max-width:991px) {}
-@media(max-width:767px) {}
-@media(max-width:580px) {
-    .dash-statistics .statistics{
+@media (max-width: 979px) {
+}
+@media (max-width: 991px) {
+}
+@media (max-width: 767px) {
+}
+@media (max-width: 580px) {
+    .dash-statistics .statistics {
         width: 50%;
     }
 }
-@media(max-width:479px) {}
-@media(max-width:359px) {}
+@media (max-width: 479px) {
+}
+@media (max-width: 359px) {
+}
+
+@media (max-width: 1399px) {
+}
+@media (max-width: 1299px) {
+}
+
+@media (max-width: 1199px) {
+    .dash-statistics .statistics {
+        width: 30%;
+    }
+}
+
+@media (max-width: 979px) {
+}
+@media (max-width: 991px) {
+}
+@media (max-width: 767px) {
+}
+@media (max-width: 580px) {
+    .dash-statistics .statistics {
+        width: 50%;
+    }
+}
+@media (max-width: 479px) {
+}
+@media (max-width: 359px) {
+}
+
+/* Styling untuk card baru */
+.custom-card {
+    border: 2px solid #bfa573;
+    border-radius: 10px;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    background-color: #fff;
+    height: auto;
+    flex: 1;
+}
+
+.custom-card .card-row {
+    margin-bottom: 0.5rem;
+}
+
+/* Styling untuk card sebelah kiri */
+.left-card .card-top {
+    font-family: Poppins, sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    color: #000;
+    text-align: left;
+}
+
+.left-card .card-bottom {
+    color: #000;
+    text-align: center;
+    font-family: Poppins, sans-serif;
+    font-size: 40px;
+    font-weight: 600;
+    line-height: normal;
+}
+
+/* Styling untuk card sebelah kanan */
+.right-card .card-top {
+    color: #b48b3d;
+    font-family: Poppins, sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.right-card .card-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Kolom kiri pada row bawah card kanan */
+.right-card .left-column {
+    color: #b48b3d;
+    font-family: Poppins, sans-serif;
+    font-size: 24px;
+    font-weight: 400;
+    line-height: normal;
+    display: flex;
+    align-items: center;
+}
+
+/* Kolom kanan – tombol Renew pada row bawah card kanan */
+.right-card .right-column .btn-renew {
+    border: none;
+    border-radius: 7px;
+    background: linear-gradient(90deg, #b48b3d 0%, #bfa573 100%);
+    color: #000;
+    font-family: Poppins, sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+}
+
+/* Pastikan container untuk kedua card menggunakan flex dan align tengah */
+.statistics-cards {
+    display: flex;
+    align-items: stretch;
+}
+
+/* Styling untuk card kiri dengan background gradient */
+.left-card {
+    background: linear-gradient(107deg, #b48b3d 50.42%, #bfa573 100%);
+}
+
+/* Override warna teks pada card kiri agar kontras (putih) */
+.left-card .card-top,
+.left-card .card-bottom {
+    color: #000;
+}
+
+/* Optional: Styling custom untuk text selection pada card kiri */
+.left-card ::selection {
+    background: #b48b3d;
+    color: #000;
+}
+
+/* Untuk card kanan, pastikan tidak ada background khusus */
+.right-card {
+    background: transparent;
+}
+
+/* Pastikan content row di dalam right-card align middle */
+.right-card .card-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Pastikan kedua card memiliki ukuran sama menggunakan flex */
+.statistics-cards {
+    display: flex;
+    align-items: stretch;
+}
+
+.col-md-6 {
+    display: flex;
+}
+
+/* Card Full Width dengan 3 row (header, detail, dan footer) – Kelas unik menggunakan prefix "binance-" */
+.binance-fullcard {
+    width: 100%;
+    border: 2px solid #bfa573;
+    border-radius: 10px;
+    margin-bottom: 1rem;
+    padding: 1rem;
+}
+
+.binance-fullcard-header {
+    font-weight: bold;
+    color: #bfa573;
+    padding: 8px 20px;
+    text-align: center;
+}
+
+/* Grid container untuk binance detail card dengan gap antar kolom dan baris */
+.binance-detailcard {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.5rem; /* Gap 1rem akan diterapkan antara label dan value serta antar row */
+    margin-top: 1rem;
+}
+
+/* Styling setiap item detail */
+.binance-detailcard > div {
+    padding: 8px 20px;
+    border: 1px solid #bfa573;
+    display: flex;
+    align-items: center;
+    margin: 0;
+}
+
+/* Atur margin khusus untuk label dan value */
+.binance-detailcard .label {
+    margin-left: 5rem;
+    margin-right: 0;
+    color: #bfa573;
+}
+
+/* Value didorong dari sisi kanan sebanyak 3rem */
+.binance-detailcard .value {
+    margin-left: 0;
+    margin-right: 5rem;
+    color: #bfa573;
+}
+
+.binance-fullcard-footer {
+    padding: 10px 20px;
+    text-align: center;
+}
+
+.binance-fullcard-footer .edit-btn {
+    background: linear-gradient(90deg, #b48b3d 0%, #bfa573 100%);
+    color: black;
+    border: none;
+    padding: 2px 20px;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.binance-fullcard-footer .edit-btn:disabled {
+    background-color: #575757;
+    color: black;
+    border: none;
+    padding: 2px 20px;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+/* Row button baru di bawah header Connect Binance API */
+.binance-button-row {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    gap: 1rem; /* Jarak antar button, bisa disesuaikan */
+    margin: 0 0 1rem 0; /* Optional: jarak atas */
+}
+
+.binance-button-row button {
+    border: 1px solid #bfa573;
+    background: transparent;
+    color: #000;
+    /* background-color: #bfa573; */
+    border-radius: 7px;
+    background: linear-gradient(90deg, #b48b3d 0%, #bfa573 100%);
+    border-radius: 5px;
+    padding: 5px 10px;
+    font-size: 16px;
+    cursor: pointer;
+}

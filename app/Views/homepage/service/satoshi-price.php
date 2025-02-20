@@ -40,13 +40,13 @@
                             <label for="timezone" class="fw-semibold">Timezone</label>
                             <input type="text" id="timezone" class="form-control" name="timezone" readonly value="<?= set_value('timezone') ?>">
                         </div>
-
-                        <!-- Temporarily disabled referral code input
-                    <div class="register-form mt-3">
-                        <label for="referral" class="fw-semibold">Referral Code</label>
-                        <input type="text" id="referral" class="form-control" name="reff">
-                    </div>
-                    -->
+                        <div class="register-form mt-3">
+                            <label for="referral" class="fw-semibold">Referral Code</label>
+                            <input type="text" id="referral" class="form-control" name="reff">
+                        </div>
+                        <div class="register-form mt-3">
+                            <input type="hidden" name="role" value="member">
+                        </div>
                     </div>
                     <div class="d-flex justify-content-center mt-4">
                         <button type="submit" class="btn btn-satoshi-price-register">SIGNUP</button>
