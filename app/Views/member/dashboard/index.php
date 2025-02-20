@@ -88,70 +88,37 @@
                         </div>
                     </div>
                 </div>
-                <div class="dash-statistics">
+            </div>
 
-                    <a href="<?= BASE_URL ?>member/dashboard" class="statistics">
-                        <div class="iq-card">
-                            <div class="iq-card-body">
-                                <div class="d-flex flex-column justify-content-center align-items-start">
-                                    <div>
-                                        <h5 class="text-black">Total Member</h5>
-                                    </div>
-                                    <div class="mt-3 w-100 d-flex justify-content-end">
-                                        <h1 class="text-black fw-bold"><?= @$totalmember ?></h1>
-                                    </div>
-                                </div>
-                                <div class="<?= ((base64_decode(@$_GET["type"]) == "free_member" || base64_decode(@$_GET["type"]) == "referral_member") ? "disable" : "active") ?>"></div>
-                            </div>
-                        </div>
-                    </a>
-                    <a href="<?= BASE_URL ?>godmode/dashboard?type=<?= base64_encode("free_member") ?>" class="statistics">
-                        <div class="iq-card">
-                            <div class="iq-card-body">
-                                <div class="d-flex flex-column justify-content-center align-items-start">
-                                    <div>
-                                        <h5 class="text-black">Free Member</h5>
-                                    </div>
-                                    <div class="mt-3 w-100 d-flex justify-content-end">
-                                        <h1 class="text-black fw-bold"><?= @$freemember ?></h1>
-                                    </div>
-                                </div>
-                                <div class="<?= ((base64_decode(@$_GET["type"]) == "free_member") ? "active" : "disable") ?>"></div>
-                            </div>
-                        </div>
-                    </a>
-                    <a href="<?= BASE_URL ?>godmode/subscriber" class="statistics">
-                        <div class="iq-card">
-                            <div class="iq-card-body">
-                                <div class="d-flex flex-column justify-content-center align-items-start">
-                                    <div>
-                                        <h5 class="text-black">Subscriber</h5>
-                                    </div>
-                                    <div class="mt-3 w-100 d-flex justify-content-end">
-                                        <h1 class="text-black fw-bold"><?= @$subscriber ?></h1>
-                                    </div>
-                                </div>
-                                <div class="<?= ((base64_decode(@$_GET["type"]) == "referral_member") ? "active" : "disable") ?>"></div>
-                            </div>
-                        </div>
-                    </a>
-                    <a href="" class="statistics">
-                        <div class="iq-card">
-                            <div class="iq-card-body">
-                                <div class="d-flex flex-column justify-content-center align-items-start">
-                                    <div>
-                                        <h5 class="text-black">Signal Sent</h5>
-                                    </div>
-                                    <div class="mt-3 w-100 d-flex justify-content-end">
-                                        <h1 class="text-black fw-bold"><?= @$signal; ?></h1>
-                                    </div>
-                                </div>
-                                <div class="disable"></div>
-                            </div>
-                        </div>
-                    </a>
+            <!-- Binace Card -->
+            <div class="binance-fullcard">
+                <div class="binance-fullcard-header">
+                    Connect Binance API
+                </div>
+                <div class="binance-detailcard">
+                    <div class="label">
+                        API Key
+                    </div>
+                    <div class="value">
+                        adsjJN945wkngsflkn
+                    </div>
+                    <div class="label">
+                        API Secret
+                    </div>
+                    <div class="value">
+                        adsjJN945wadsjJN945wkngsflkn
+                    </div>
+                </div>
+                <div class="binance-fullcard-footer">
+                    <button class="edit-btn">Edit</button>
                 </div>
             </div>
+            <!-- Tombol di luar binance-fullcard -->
+            <div class="binance-button-row">
+                <button class="get-api-btn">How to get API?</button>
+                <button class="support-btn">Contact Support</button>
+            </div>
+
             <div class="col-lg-12 dash-table-totalmember">
                 <h4 class="text-white my-3 text-uppercase fw-bold">Membership History</h4>
                 <table id="table_totalmember" class="table table-striped" style="width:100%">

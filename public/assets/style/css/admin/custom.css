@@ -904,10 +904,6 @@ div.dataTables_wrapper div.dataTables_filter input {
     align-items: stretch;
 }
 
-.col-md-6 {
-    display: flex;
-}
-
 /* Styling untuk card kiri dengan background gradient */
 .left-card {
     background: linear-gradient(107deg, #b48b3d 50.42%, #bfa573 100%);
@@ -945,4 +941,100 @@ div.dataTables_wrapper div.dataTables_filter input {
 
 .col-md-6 {
     display: flex;
+}
+
+/* Card Full Width dengan 3 row (header, detail, dan footer) – Kelas unik menggunakan prefix "binance-" */
+.binance-fullcard {
+    width: 100%;
+    border: 2px solid #bfa573;
+    border-radius: 10px;
+    margin-bottom: 1rem;
+    padding: 1rem;
+}
+
+.binance-fullcard-header {
+    font-weight: bold;
+    color: #bfa573;
+    padding: 8px 20px;
+    text-align: center;
+}
+
+/* Grid container untuk binance detail card dengan gap antar kolom dan baris */
+.binance-detailcard {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.5rem; /* Gap 1rem akan diterapkan antara label dan value serta antar row */
+    margin-top: 1rem;
+}
+
+/* Styling setiap item detail */
+.binance-detailcard > div {
+    padding: 8px 20px;
+    border: 1px solid #bfa573;
+    display: flex;
+    align-items: center;
+    margin: 0;
+}
+
+/* Atur margin khusus untuk label dan value */
+.binance-detailcard .label {
+    margin-left: 5rem;
+    margin-right: 0;
+    color: #bfa573;
+}
+
+/* Value didorong dari sisi kanan sebanyak 3rem */
+.binance-detailcard .value {
+    margin-left: 0;
+    margin-right: 5rem;
+    color: #bfa573;
+}
+
+.binance-fullcard-footer {
+    padding: 10px 20px;
+    text-align: center;
+}
+
+.binance-fullcard-footer .edit-btn {
+    background: linear-gradient(90deg, #b48b3d 0%, #bfa573 100%);
+    color: black;
+    border: none;
+    padding: 2px 20px;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.binance-fullcard-footer .edit-btn:disabled {
+    background-color: #575757;
+    color: black;
+    border: none;
+    padding: 2px 20px;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+/* Row button baru di bawah header Connect Binance API */
+.binance-button-row {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    gap: 1rem; /* Jarak antar button, bisa disesuaikan */
+    margin: 0 0 1rem 0; /* Optional: jarak atas */
+}
+
+.binance-button-row button {
+    border: 1px solid #bfa573;
+    background: transparent;
+    color: #000;
+    /* background-color: #bfa573; */
+    border-radius: 7px;
+    background: linear-gradient(90deg, #b48b3d 0%, #bfa573 100%);
+    border-radius: 5px;
+    padding: 5px 10px;
+    font-size: 16px;
+    cursor: pointer;
 }
