@@ -320,6 +320,14 @@ class Homepage extends BaseController
                 'label'     => 'Timezone',
                 'rules'     => 'required'
             ],
+            'referral'     => [
+                'label'     => 'Referral',
+                'rules'     => 'permit_empty'
+            ],
+            'role'     => [
+                'label'     => 'Role',
+                'rules'     => 'required'
+            ],
         ]);
 
         // Checking Validation
@@ -333,7 +341,9 @@ class Homepage extends BaseController
             'email'         => htmlspecialchars($this->request->getVar('email')),
             'password'      => sha1(htmlspecialchars($this->request->getVar('pass'))),
             'timezone'      => htmlspecialchars($this->request->getVar('timezone')),
-            'ip_address'     => htmlspecialchars($this->request->getIPAddress()),
+            'referral'      => htmlspecialchars($this->request->getVar('referral')),
+            'role'          => htmlspecialchars($this->request->getVar('role')),
+            'ip_address'    => htmlspecialchars($this->request->getIPAddress()),
         ];
 
 
