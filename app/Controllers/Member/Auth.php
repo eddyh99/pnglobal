@@ -8,9 +8,12 @@ class Auth extends BaseController
 {
 
 	protected $validation;
+	protected $session;
+
 	public function __construct()
 	{
 		$this->validation = \Config\Services::validation();
+		$this->session = \Config\Services::session();
 	}
 
 	public function register()
@@ -414,5 +417,11 @@ class Auth extends BaseController
 			session()->setFlashdata('failed', $result->message);
 			return redirect()->to(BASE_URL . 'member/auth/login');
 		}
+	}
+
+	public function logout()
+	{
+		$this->session->remove('logged_user');
+		return redirect()->to(BASE_URL . 'member/auth/login');
 	}
 }

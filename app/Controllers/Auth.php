@@ -357,11 +357,7 @@ class Auth extends BaseController
 				return redirect()->to(BASE_URL . 'godmode/dashboard');
 			} elseif ($loggedUser->role === 'member') {
 				// Pengalihan untuk member saat ini dinonaktifkan
-				// return redirect()->to(BASE_URL . 'member/auth/pricing');
-				echo "<pre>";
-				print_r($loggedUser);
-				echo "</pre>";
-				die();
+				return redirect()->to(BASE_URL . 'member/dashboard');
 			}
 		} else {
 			session()->setFlashdata('failed', $result->message);
