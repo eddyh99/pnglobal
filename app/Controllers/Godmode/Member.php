@@ -68,23 +68,8 @@ class Member extends BaseController
         // Call Endpoin Get Free Member
         $url = URLAPI . "/v1/member/free_member";
         $result = satoshiAdmin($url)->result;
+
         echo json_encode($result);
-
-        // $dummy = [
-        //     "code" => 200,
-        //     "service" => "member",
-        //     "error" => null,
-        //     "message" => [
-        //         [
-        //             "email" => "user99@gmail.com",
-        //             "refcode" => null,
-        //             "start_date" => "2025-02-14 06:27:15",
-        //             "end_date" => "2025-03-16 06:27:15"
-        //         ]
-        //     ]
-        // ];
-
-        // echo json_encode($dummy);
     }
 
     public function get_referralmember()

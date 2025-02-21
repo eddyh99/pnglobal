@@ -85,7 +85,6 @@ class Freemember extends BaseController
         $response = satoshiAdmin($url, json_encode($mdata));
         $result = $response->result;
 
-
         if ($result->code == 201) {
             // session()->setFlashdata('success', $result->message);
             // Kirim email ke member
