@@ -81,6 +81,6 @@ class Auth extends BaseController
     public function logout()
     {
         $this->session->remove('logged_user');
-        return redirect()->to(BASE_URL . 'member/auth/signin');
+        return redirect()->to(BASE_URL . 'member/auth/login');
     }
 }
