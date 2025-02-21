@@ -22,7 +22,6 @@ class Dashboard extends BaseController
         // Pengecekan role: hanya admin yang boleh mengakses halaman ini
         if ($loggedUser->role !== 'admin') {
 
-            header("Location: " . BASE_URL . 'member/auth/pricing');
             exit();
         }
     }

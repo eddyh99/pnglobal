@@ -167,7 +167,7 @@ class Auth extends BaseController
 				'code'    => 500,
 				'service' => 'auth',
 				'error'   => 'Invalid response format',
-				'message' => 'Gagal mengambil OTP dari API.'
+				'message' => 'Failed to get OTP from API.'
 			]);
 		}
 
@@ -286,7 +286,7 @@ class Auth extends BaseController
 				'code'    => 500,
 				'service' => 'auth',
 				'error'   => 'OTP not found in API response',
-				'message' => 'Gagal mengambil OTP dari API.'
+				'message' => 'Failed to get OTP from API.'
 			]);
 		}
 

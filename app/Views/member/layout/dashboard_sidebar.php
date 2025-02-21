@@ -73,8 +73,8 @@
                 <?php
                 // if ($_SESSION["logged_user"]->role=="admin"){
                 ?>
-                <li class="<?= @$active_free ?>">
-                    <a href="<?= BASE_URL ?>member/freemember" class="iq-waves-effect">
+                <li class="<?= @$active_withdraw ?>">
+                    <a href="<?= BASE_URL ?>member/withdraw" class="iq-waves-effect">
                         <i>
                             <svg xmlns="http://www.w3.org/2000/svg" width="33" height="30" viewBox="0 0 33 30" fill="none">
                                 <path d="M16.3636 10.9091C15.6105 10.9091 15 11.5196 15 12.2727V19.8895L13.237 18.1265C12.7045 17.5942 11.841 17.5942 11.3085 18.1265C10.776 18.6592 10.776 19.5225 11.3085 20.0551L15.3982 24.145C15.9304 24.677 16.793 24.6775 17.3257 24.1459L21.4159 20.0641C21.9484 19.5318 21.9484 18.6682 21.4159 18.1358C20.8834 17.6032 20.0201 17.6032 19.4875 18.1358L17.7273 19.8959V12.2727C17.7273 11.5196 17.1168 10.9091 16.3636 10.9091Z" fill="white" />
