@@ -1,40 +1,12 @@
-<?php if (!empty(session('success'))) { ?>
-    <div class="alert alert-success fade show position-absolute" style="top: 1rem; right: 1rem; width: 30%; z-index: 99999;" role="alert">
-        <div class="iq-alert-icon">
-            <i class="ri-information-line"></i>
-        </div>
-        <div class="iq-alert-text text-black">
-            <?= session('success') ?>
-        </div>
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-            <i class="ri-close-line text-black"></i>
-        </button>
-    </div>
-<?php } ?>
-
-<?php if (!empty(session('failed'))) { ?>
-    <div class="alert alert-danger fade show position-absolute" style="top: 1rem; right: 1rem; width: 30%; z-index: 99999;" role="alert">
-        <div class="iq-alert-icon">
-            <i class="ri-information-line"></i>
-        </div>
-        <div class="iq-alert-text text-black">
-            <?= session('failed') ?>
-        </div>
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-            <i class="ri-close-line text-black"></i>
-        </button>
-    </div>
-<?php } ?>
-
 <!-- Page Content  -->
 <div class="content-page mb-5">
     <div class="container-fluid">
         <div class="row content-body">
             <div class="col-lg-12">
-                <form action="<?= BASE_URL ?>godmode/freemember/createfree" method="POST">
+                <form action="<?= BASE_URL ?>godmode/admin/create_admin" method="POST">
                     <div class="send-signals">
                         <div class="title-signal-preview d-flex justify-content-between align-items-center">
-                            <h4>Add Free Member</h4>
+                            <h4>Add Admin</h4>
                         </div>
                         <div class="main-send-signal d-flex flex-column align-items-center justify-content-center">
                             <form action="" method="POST">
@@ -52,22 +24,23 @@
                                             <label for="role">Role</label>
                                             <div class="role-wrapper">
                                                 <div class="role-item">
-                                                    <input type="checkbox" id="role_member" name="role[]" value="member">
+                                                    <input type="radio" id="role_member" name="role" value="member">
                                                     <label for="role_member">Member</label>
                                                 </div>
                                                 <div class="role-item">
-                                                    <input type="checkbox" id="role_admin" name="role[]" value="admin">
+                                                    <input type="radio" id="role_admin" name="role" value="admin">
                                                     <label for="role_admin">Admin</label>
                                                 </div>
                                                 <div class="role-item">
-                                                    <input type="checkbox" id="role_manager" name="role[]" value="manager">
+                                                    <input type="radio" id="role_manager" name="role" value="manager">
                                                     <label for="role_manager">Manager</label>
                                                 </div>
                                                 <div class="role-item">
-                                                    <input type="checkbox" id="role_superadmin" name="role[]" value="superadmin">
-                                                    <label for="role_superadmin">Superadmin</label>
+                                                    <input type="radio" id="role_superadmin" name="role" value="superadmin">
+                                                    <label for="role_superadmin">Super Admin</label>
                                                 </div>
                                             </div>
+                                            <input type="hidden" id="timezone" class="form-control" name="timezone" readonly value="<?= set_value('timezone') ?>">
                                         </div>
                                         <div class="wrapper-addreferral d-flex justify-content-center">
                                             <button type="submit" class="btn btn-primary">Create</button>
@@ -80,14 +53,12 @@
                 </form>
             </div>
             <div class="col-lg-12 dash-table-referralmember mt-5">
-                <h4 class="text-white my-3 text-uppercase fw-bold">Free Member</h4>
+                <h4 class="text-white my-3 text-uppercase fw-bold">Admin</h4>
                 <table id="tbl_freemember" class="table table-striped" style="width:100%">
                     <thead class="thead_referralmember">
                         <tr>
                             <th>EMAIL</th>
-                            <th>REFERRAL CODE</th>
-                            <th>START DATE</th>
-                            <th>END DATE</th>
+                            <th>ROLE</th>
                             <th>ACTION</th>
                         </tr>
                     </thead>

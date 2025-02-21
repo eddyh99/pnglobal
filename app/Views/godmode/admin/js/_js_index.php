@@ -26,9 +26,9 @@
     }
 </style>
 <script>
-    $("#expired").datepicker({
-        minDate: 1,
-        dateFormat: "yy-mm-dd"
+    document.addEventListener("DOMContentLoaded", function() {
+        var userTimeZone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+        document.getElementById("timezone").value = userTimeZone;
     });
 
     $('#tbl_freemember').DataTable({
@@ -53,13 +53,7 @@
                 data: 'email',
             },
             {
-                data: 'refcode',
-            },
-            {
-                data: 'start_date',
-            },
-            {
-                data: 'end_date',
+                data: 'role',
             },
             {
                 data: null,

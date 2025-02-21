@@ -671,6 +671,13 @@ div.dataTables_wrapper div.dataTables_filter input {
     color: #ffffff;
 }
 
+.form-addreferral .wrapper-addreferral input[type='radio'] {
+    width: auto; /* Hilangkan lebar 100% */
+    margin: 0 1rem; /* Berikan margin 1rem */
+    border: none; /* Opsional: hilangkan border default */
+    background: transparent; /* Opsional: sesuaikan background jika perlu */
+}
+
 .upgrade-btn {
     background-color: #d4af37;
     color: black;
