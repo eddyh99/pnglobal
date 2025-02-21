@@ -62,11 +62,27 @@
             {
                 data: null,
                 "mRender": function(data, type, full, meta) {
-                    // Pastikan format tanggal dari API sesuai (misalnya "YYYY-MM-DD HH:mm:ss")
+                    // Jika salah satu atau kedua nilai start_date dan end_date null, tampilkan "Inactive"
+                    if (!full.start_date || !full.end_date) {
+                        return `<div>
+                                    <svg width="8" height="8" viewBox="0 0 8 8" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="8" height="8" rx="4" fill="#FF0000"/></svg>
+                                    Inactive
+                                </div>`;
+                    }
+
                     var start = moment(full.start_date, "YYYY-MM-DD HH:mm:ss");
                     var end = moment(full.end_date, "YYYY-MM-DD HH:mm:ss");
+
+                    // Jika format tanggal tidak valid, juga tampilkan "Inactive"
+                    if (!start.isValid() || !end.isValid()) {
+                        return `<div>
+                                    <svg width="8" height="8" viewBox="0 0 8 8" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="8" height="8" rx="4" fill="#FF0000"/></svg>
+                                    Inactive
+                                </div>`;
+                    }
+
                     var diffDays = end.diff(start, 'days');
-                    return diffDays + ' days';
+                    return diffDays + " days";
                 }
             },
             {
