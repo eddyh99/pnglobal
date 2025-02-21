@@ -130,3 +130,5 @@
         </div>
     </div>
 </div>
+
+<input type="hidden" id="id" value="<?= $id_member ?>">
