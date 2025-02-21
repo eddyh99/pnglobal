@@ -167,7 +167,7 @@ class Auth extends BaseController
 				'code'    => 500,
 				'service' => 'auth',
 				'error'   => 'Invalid response format',
-				'message' => 'Gagal mengambil OTP dari API.'
+				'message' => 'Failed to get OTP from API.'
 			]);
 		}
 
@@ -286,7 +286,7 @@ class Auth extends BaseController
 				'code'    => 500,
 				'service' => 'auth',
 				'error'   => 'OTP not found in API response',
-				'message' => 'Gagal mengambil OTP dari API.'
+				'message' => 'Failed to get OTP from API.'
 			]);
 		}
 
@@ -336,20 +336,21 @@ class Auth extends BaseController
 			'password' => $password,
 		];
 
+		$tempUser = (object)[
+			'email'  => htmlspecialchars($this->request->getVar('email')),
+			'passwd' => sha1($this->request->getVar('password'))
+		];
+		session()->set('logged_user', $tempUser);
+
 		// Proccess Endpoin API
 		$url = URLAPI . "/auth/signin";
 		$response = satoshiAdmin($url, json_encode($mdata));
 		$result = $response->result;
 
 		if ($result->code == 200) {
-			// Buat bearer token menggunakan sha1(email + sha1(password))
-			$bearerToken = sha1($email . sha1($password));
-
 			// Gabungkan data user dengan token
 			$loggedUser = $result->message;
-			$loggedUser->token = $bearerToken;
-
-			// Simpan data ke session
+			// Simpan data user lengkap tersebut ke session
 			session()->set('logged_user', $loggedUser);
 
 			// Redirect berdasarkan role

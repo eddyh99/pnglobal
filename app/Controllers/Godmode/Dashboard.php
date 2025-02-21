@@ -22,7 +22,6 @@ class Dashboard extends BaseController
         // Pengecekan role: hanya admin yang boleh mengakses halaman ini
         if ($loggedUser->role !== 'admin') {
 
-            header("Location: " . BASE_URL . 'member/auth/pricing');
             exit();
         }
     }
@@ -50,7 +49,7 @@ class Dashboard extends BaseController
         return view('godmode/layout/admin_wrapper', $mdata);
     }
 
-    public function detailmember($email)
+    public function detailmember($email, $id_member)
     {
 
         // Decode Email
@@ -67,6 +66,7 @@ class Dashboard extends BaseController
             'member'    => $resultMember,
             'active_dash'   => 'active',
             'email' => $finalemail,
+            'id_member' => $id_member,
             // 'type'      => $finaltype,
         ];
 
@@ -114,11 +114,10 @@ class Dashboard extends BaseController
         ];
 
         // Proccess Endpoin API
-        // $url = URLAPI . "/v1/member/paid_referral?id=".$mdata['id']."&is_paid=".$mdata['type'];
-        // $response = satoshiAdmin($url, json_encode($mdata));
-        // $result = $response->result;
+        $url = URLAPI . "/v1/member/paid_referral?id=" . $mdata['id'] . "&is_paid=" . $mdata['type'];
+        $response = satoshiAdmin($url, json_encode($mdata));
+        $result = $response->result;
 
-        $result = null;
 
         if ($result->code != '200') {
             session()->setFlashdata('failed', "Something Wrong, Please Try Again!");
@@ -151,14 +150,6 @@ class Dashboard extends BaseController
         }
     }
 
-    public function get_downline($id)
-    {
-        // Call Endpoin Get Referral Member
-        // $url = URLAPI . "/v1/referral/getDownline?id=".$id;
-        // $result = satoshiAdmin($url)->result->message;
-        // echo json_encode($result);
-    }
-
     public function getlevel_downline($id, $level)
     {
         // Call Endpoin Get Referral Member
@@ -185,5 +176,14 @@ class Dashboard extends BaseController
             session()->setFlashdata('success', "Success Change Status Member");
             return redirect()->to(BASE_URL . 'godmode/dashboard');
         }
+    }
+
+    public function get_referralmember()
+    {
+        $id_member = $this->request->getPost('id_member');
+        $url = URLAPI . "/v1/member/list_downline?id_member=" . $id_member;
+        $response = satoshiAdmin($url);
+        $result = $response->result;
+        echo json_encode($result);
     }
 }

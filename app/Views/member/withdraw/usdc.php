@@ -27,7 +27,7 @@
 <?php } ?>
 
 <!-- Page Content  -->
-<div class="content-page mb-5">
+<div class="content-page mb-5 withdraw-usdt">
     <div class="container-fluid">
         <div class="row content-body">
             <div class="col-lg-12 px-2">
@@ -70,29 +70,37 @@
                 </div>
             </div>
 
-            <div class="withdraw-options">
-                <div class="withdraw-title">Withdraw Option</div>
-                <div class="withdraw-buttons">
-                    <a href="#" class="transfer-btn">USA Local Bank Transfer</a>
-                    <a href="<?= BASE_URL ?>member/withdraw/usdt" class="transfer-btn">USDT</a>
-                    <a href="#" class="transfer-btn">International Bank Transfer</a>
-                    <a href="<?= BASE_URL ?>member/withdraw/usdc" class="transfer-btn">USDC</a>
-                </div>
-            </div>
-
-            <div class="col-lg-12 dash-table-totalmember">
-                <h4 class="text-white my-3 text-uppercase fw-bold">WITHDRAW HISTORY</h4>
-                <table id="table_totalmember" class="table table-striped" style="width:100%">
-                    <thead class="thead_totalmember">
-                        <tr>
-                            <th>DATE</th>
-                            <th>AMOUNT</th>
-                            <th>STATUS</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                    </tbody>
-                </table>
+            <div class="col-lg-12">
+                <form action="<?= BASE_URL ?>member/withdraw/payment_usdc" method="POST">
+                    <div class="send-signals">
+                        <div class="title-signal-preview d-flex justify-content-between align-items-center">
+                            <h4>Withdraw Form</h4>
+                        </div>
+                        <div class="main-send-signal d-flex flex-column align-items-center justify-content-center">
+                            <form action="" method="POST">
+                                <div class="row w-100">
+                                    <div class="form-addreferral col-8 mx-auto">
+                                        <div class="wrapper-addreferral">
+                                            <label for="amount">Amount To Withdraw</label>
+                                            <input type="number" name="amount" class="form-control">
+                                        </div>
+                                        <div class="wrapper-addreferral">
+                                            <label for="wallet_address">Wallet Address</label>
+                                            <input type="text" name="wallet_address" class="form-control">
+                                        </div>
+                                        <div class="wrapper-addreferral">
+                                            <label for="network">Network</label>
+                                            <input type="text" name="network" class="form-control">
+                                        </div>
+                                        <div class="wrapper-addreferral d-flex justify-content-center">
+                                            <button type="submit" class="btn btn-primary text-black">Confirm</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </form>
             </div>
         </div>
     </div>

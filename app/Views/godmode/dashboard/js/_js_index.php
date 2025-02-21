@@ -62,11 +62,27 @@
             {
                 data: null,
                 "mRender": function(data, type, full, meta) {
-                    // Pastikan format tanggal dari API sesuai (misalnya "YYYY-MM-DD HH:mm:ss")
+                    // Jika salah satu atau kedua nilai start_date dan end_date null, tampilkan "Inactive"
+                    if (!full.start_date || !full.end_date) {
+                        return `<div>
+                                    <svg width="8" height="8" viewBox="0 0 8 8" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="8" height="8" rx="4" fill="#FF0000"/></svg>
+                                    Inactive
+                                </div>`;
+                    }
+
                     var start = moment(full.start_date, "YYYY-MM-DD HH:mm:ss");
                     var end = moment(full.end_date, "YYYY-MM-DD HH:mm:ss");
+
+                    // Jika format tanggal tidak valid, juga tampilkan "Inactive"
+                    if (!start.isValid() || !end.isValid()) {
+                        return `<div>
+                                    <svg width="8" height="8" viewBox="0 0 8 8" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="8" height="8" rx="4" fill="#FF0000"/></svg>
+                                    Inactive
+                                </div>`;
+                    }
+
                     var diffDays = end.diff(start, 'days');
-                    return diffDays + ' days';
+                    return diffDays + " days";
                 }
             },
             {
@@ -79,7 +95,7 @@
                 data: null,
                 "mRender": function(data, type, full, meta) {
                     var btndetail = '';
-                    btndetail = `<a href="<?= BASE_URL ?>godmode/dashboard/detailmember/${encodeURI(btoa(full.email))}"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M20 3.33333V20H3.33333V3.33333H20ZM17.7778 5.55556H5.55556V17.7778H17.7778V5.55556ZM16.6667 0V2.22222L2.22219 2.22219L2.22222 16.6667H0V0H16.6667ZM15.5556 12.2222V14.4444H7.77778V12.2222H15.5556ZM15.5556 7.77778V10H7.77778V7.77778H15.5556Z" fill="#BFA573"/></svg></a>`
+                    btndetail = `<a href="<?= BASE_URL ?>godmode/dashboard/detailmember/${encodeURI(btoa(full.email))}/${full.id}"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M20 3.33333V20H3.33333V3.33333H20ZM17.7778 5.55556H5.55556V17.7778H17.7778V5.55556ZM16.6667 0V2.22222L2.22219 2.22219L2.22222 16.6667H0V0H16.6667ZM15.5556 12.2222V14.4444H7.77778V12.2222H15.5556ZM15.5556 7.77778V10H7.77778V7.77778H15.5556Z" fill="#BFA573"/></svg></a>`
 
                     // Button disable/enable
                     if (full.status == 'active') {

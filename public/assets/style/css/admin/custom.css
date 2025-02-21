@@ -191,7 +191,7 @@
 }
 
 .dash-statistics .statistics {
-    width: 20%;
+    width: 25%;
     padding: 0rem 1rem;
 }
 
@@ -640,6 +640,16 @@ div.dataTables_wrapper div.dataTables_filter input {
     color: #ffffff;
 }
 
+.wrapper-addreferral {
+    margin-bottom: 1rem;
+}
+
+.wrapper-addreferral label {
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    display: block;
+}
+
 .form-addreferral {
     width: 100%;
 }
@@ -659,6 +669,13 @@ div.dataTables_wrapper div.dataTables_filter input {
     border: 1px solid #bfa573;
     background: #000000;
     color: #ffffff;
+}
+
+.form-addreferral .wrapper-addreferral input[type='radio'] {
+    width: auto; /* Hilangkan lebar 100% */
+    margin: 0 1rem; /* Berikan margin 1rem */
+    border: none; /* Opsional: hilangkan border default */
+    background: transparent; /* Opsional: sesuaikan background jika perlu */
 }
 
 .upgrade-btn {
@@ -714,6 +731,17 @@ div.dataTables_wrapper div.dataTables_filter input {
     justify-content: space-between;
     width: 100%;
     padding: 1rem;
+}
+
+.withdraw-comission {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 1rem;
+}
+
+.withdraw-comission .custom-card {
+    min-width: 25rem;
 }
 
 /* Referral card dengan lebar mengikuti panjang konten */
@@ -1037,4 +1065,82 @@ div.dataTables_wrapper div.dataTables_filter input {
     padding: 5px 10px;
     font-size: 16px;
     cursor: pointer;
+}
+
+/* Container yang membungkus seluruh checkbox dengan border */
+.role-wrapper {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Dua kolom sama lebar */
+    gap: 1rem;
+    width: 100%;
+    padding: 1rem;
+    border: 1px solid #bfa573;
+    border-radius: 5px;
+}
+
+/* Item untuk setiap checkbox dan label, tanpa border */
+.role-item {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start; /* Pastikan checkbox tetap di sebelah kiri */
+}
+
+.role-item input[type='checkbox'] {
+    width: 2rem;
+    height: 2rem;
+    accent-color: #bfa573;
+    margin-right: 0.5rem;
+}
+
+.role-item label {
+    margin: 0;
+    font-size: 14px;
+}
+
+.withdraw-options {
+    text-align: center;
+    margin-bottom: 50px;
+    width: 100%;
+}
+
+.withdraw-title {
+    color: #fff;
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: normal;
+    text-transform: uppercase;
+    margin-bottom: 15px;
+}
+
+.withdraw-buttons {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.transfer-btn {
+    border-radius: 10px;
+    border: 2px solid #b48b3d;
+    background: linear-gradient(107deg, #b48b3d 50.42%, #bfa573 100%);
+    color: #000;
+    font-family: 'Poppins', sans-serif;
+    font-size: 24px;
+    font-weight: 600;
+    line-height: normal;
+    text-align: center;
+    padding: 10px 20px;
+    cursor: pointer;
+    min-width: 400px;
+}
+
+.withdraw-usdt .send-signals {
+    border: none !important;
+    box-shadow: none !important;
+}
+
+.withdraw-usdt .send-signals .title-signal-preview {
+    padding: 1rem;
+    justify-content: center !important;
+    border-bottom: none !important;
 }

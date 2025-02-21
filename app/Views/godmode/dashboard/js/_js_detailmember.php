@@ -21,6 +21,77 @@
         });
     }, 5000);
 
+    $('#table_referralmember').DataTable({
+        "pageLength": 100,
+        "scrollX": true,
+        "ajax": {
+            "url": "<?= BASE_URL ?>godmode/dashboard/get_referralmember",
+            "type": "POST",
+            "dataSrc": function(data) {
+                return data.message;
+                console.log(data.message);
+            },
+            "data": function(d) {
+                d.id_member = $('#id').val();
+                console.log(d.id_member);
+            },
+        },
+        "columns": [{
+                data: 'email'
+            },
+            {
+                data: null,
+                "mRender": function(data, type, full, meta) {
+                    if (full.status == 'active') {
+                        return `<div>
+                                    <svg width="8" height="8" viewBox="0 0 8 8" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="8" height="8" rx="4" fill="#0E7304"/></svg>
+                                    Active
+                                </div>`;
+                    } else if (full.status == 'new') {
+                        return `<div>
+                                    <svg width="8" height="8" viewBox="0 0 8 8" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="8" height="8" rx="4" fill="#7F7F7F"/></svg>
+                                    New
+                                </div>`;
+
+                    } else {
+                        return `<div>
+                                    <svg width="8" height="8" viewBox="0 0 8 8" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="8" height="8" rx="4" fill="#FF0000"/></svg>
+                                    Inactive
+                                </div>`;
+                    }
+                }
+            },
+            {
+                data: null,
+                "mRender": function(data, type, full, meta) {
+                    // Jika salah satu atau kedua nilai start_date dan end_date null, tampilkan "Inactive"
+                    if (!full.start_date || !full.end_date) {
+                        return `<div>
+                                    <svg width="8" height="8" viewBox="0 0 8 8" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="8" height="8" rx="4" fill="#FF0000"/></svg>
+                                    Inactive
+                                </div>`;
+                    }
+
+                    var start = moment(full.start_date, "YYYY-MM-DD HH:mm:ss");
+                    var end = moment(full.end_date, "YYYY-MM-DD HH:mm:ss");
+
+                    // Jika format tanggal tidak valid, juga tampilkan "Inactive"
+                    if (!start.isValid() || !end.isValid()) {
+                        return `<div>
+                                    <svg width="8" height="8" viewBox="0 0 8 8" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="8" height="8" rx="4" fill="#FF0000"/></svg>
+                                    Inactive
+                                </div>`;
+                    }
+
+                    var diffDays = end.diff(start, 'days');
+                    return diffDays + " days";
+                }
+            },
+
+        ],
+
+    });
+
 
     function validate() {
         return confirm("Are you sure you want to give a bonus to this user?");

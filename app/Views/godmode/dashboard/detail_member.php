@@ -62,7 +62,16 @@
                     <!-- Subscription Plan -->
                     <div class="label">Subscription Plan</div>
                     <div class="value">
-                        <?= $member->message->subscription_plan ?>
+                        <?php if (empty($member->message->subscription_plan)) { ?>
+                            <div>
+                                <svg width="8" height="8" viewBox="0 0 8 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <rect width="8" height="8" rx="4" fill="#FF0000" />
+                                </svg>
+                                Inactive
+                            </div>
+                        <?php } else { ?>
+                            <?= $member->message->subscription_plan ?>
+                        <?php } ?>
                     </div>
 
                     <!-- Subscription Status -->
@@ -74,22 +83,6 @@
                     <div class="col-lg-12 dash-table-referralmember mt-5">
                         <h4 class="text-white my-3 text-uppercase fw-bold">Referral Level 1</h4>
                         <table id="table_referralmember" class="table table-striped" style="width:100%">
-                            <thead class="thead_referralmember">
-                                <tr>
-                                    <th>EMAIL</th>
-                                    <th>STATUS</th>
-                                    <th>SUBSCRIPTION</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-                <div class="row content-body">
-                    <div class="col-lg-12 dash-table-referralmember mt-5">
-                        <h4 class="text-white my-3 text-uppercase fw-bold">Referral Level 2</h4>
-                        <table id="table_level" class="table table-striped" style="width:100%">
                             <thead class="thead_referralmember">
                                 <tr>
                                     <th>EMAIL</th>
@@ -137,3 +130,5 @@
         </div>
     </div>
 </div>
+
+<input type="hidden" id="id" value="<?= $id_member ?>">
