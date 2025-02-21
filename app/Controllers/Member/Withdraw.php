@@ -37,4 +37,28 @@ class Withdraw extends BaseController
 
         return view('member/layout/dashboard_wrapper', $mdata);
     }
+
+    public function usdt()
+    {
+        $mdata = [
+            'title' => 'Withdraw - ' . SATOSHITITLE,
+            'content' => 'member/withdraw/usdt',
+            'extra' => 'member/withdraw/js/_js_usdt',
+            'active_withdraw' => 'active',
+        ];
+
+        return view('member/layout/dashboard_wrapper', $mdata);
+    }
+
+    public function usdc()
+    {
+        $mdata = [
+            'title' => 'Withdraw - ' . SATOSHITITLE,
+            'content' => 'member/withdraw/usdc',
+            'extra' => 'member/withdraw/js/_js_usdc',
+            'active_withdraw' => 'active',
+        ];
+
+        return view('member/layout/dashboard_wrapper', $mdata);
+    }
 }

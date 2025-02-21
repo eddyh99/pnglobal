@@ -1133,3 +1133,14 @@ div.dataTables_wrapper div.dataTables_filter input {
     cursor: pointer;
     min-width: 400px;
 }
+
+.withdraw-usdt .send-signals {
+    border: none !important;
+    box-shadow: none !important;
+}
+
+.withdraw-usdt .send-signals .title-signal-preview {
+    padding: 1rem;
+    justify-content: center !important;
+    border-bottom: none !important;
+}
