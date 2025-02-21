@@ -347,8 +347,6 @@ class Auth extends BaseController
 		$response = satoshiAdmin($url, json_encode($mdata));
 		$result = $response->result;
 
-
-
 		if ($result->code == 200) {
 			// Gabungkan data user dengan token
 			$loggedUser = $result->message;

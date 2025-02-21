@@ -66,7 +66,7 @@
                         <span class="<?= (@$active_signal != null) ? 'text-black' : 'text-white' ?>">Signals</span>
                     </a>
                 </li>
-                <li class="<?= @$active_msg ?>">
+                <!-- <li class="<?= @$active_msg ?>">
                     <a href="<?= BASE_URL ?>godmode/message" class="iq-waves-effect">
                         <i>
                             <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -76,7 +76,7 @@
                         </i>
                         <span class="<?= (@$active_msg != null) ? 'text-black' : 'text-white' ?>">Message</span>
                     </a>
-                </li>
+                </li> -->
                 <?php
                 // if ($_SESSION["logged_user"]->role=="admin"){
                 ?>
