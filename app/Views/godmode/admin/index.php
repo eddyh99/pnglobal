@@ -45,16 +45,29 @@
                                             <input type="email" name="email" class="form-control">
                                         </div>
                                         <div class="wrapper-addreferral">
-                                            <label for="referral">Amount</label>
-                                            <input type="number" name="amount" class="form-control">
+                                            <label for="password">Password</label>
+                                            <input type="password" name="password" class="form-control">
                                         </div>
                                         <div class="wrapper-addreferral">
-                                            <label for="referral">Upline Referral</label>
-                                            <input type="text" name="referral" class="form-control">
-                                        </div>
-                                        <div class="wrapper-addreferral">
-                                            <label for="referral">Free Member Expiration Date</label>
-                                            <input type="text" name="expired" id="expired" value="<?= date("Y-m-d") ?>" class="form-control text-white">
+                                            <label for="role">Role</label>
+                                            <div class="role-wrapper">
+                                                <div class="role-item">
+                                                    <input type="checkbox" id="role_member" name="role[]" value="member">
+                                                    <label for="role_member">Member</label>
+                                                </div>
+                                                <div class="role-item">
+                                                    <input type="checkbox" id="role_admin" name="role[]" value="admin">
+                                                    <label for="role_admin">Admin</label>
+                                                </div>
+                                                <div class="role-item">
+                                                    <input type="checkbox" id="role_manager" name="role[]" value="manager">
+                                                    <label for="role_manager">Manager</label>
+                                                </div>
+                                                <div class="role-item">
+                                                    <input type="checkbox" id="role_superadmin" name="role[]" value="superadmin">
+                                                    <label for="role_superadmin">Superadmin</label>
+                                                </div>
+                                            </div>
                                         </div>
                                         <div class="wrapper-addreferral d-flex justify-content-center">
                                             <button type="submit" class="btn btn-primary">Create</button>

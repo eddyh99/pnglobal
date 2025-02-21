@@ -640,6 +640,16 @@ div.dataTables_wrapper div.dataTables_filter input {
     color: #ffffff;
 }
 
+.wrapper-addreferral {
+    margin-bottom: 1rem;
+}
+
+.wrapper-addreferral label {
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    display: block;
+}
+
 .form-addreferral {
     width: 100%;
 }
@@ -1037,4 +1047,34 @@ div.dataTables_wrapper div.dataTables_filter input {
     padding: 5px 10px;
     font-size: 16px;
     cursor: pointer;
+}
+
+/* Container yang membungkus seluruh checkbox dengan border */
+.role-wrapper {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Dua kolom sama lebar */
+    gap: 1rem;
+    width: 100%;
+    padding: 1rem;
+    border: 1px solid #bfa573;
+    border-radius: 5px;
+}
+
+/* Item untuk setiap checkbox dan label, tanpa border */
+.role-item {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start; /* Pastikan checkbox tetap di sebelah kiri */
+}
+
+.role-item input[type='checkbox'] {
+    width: 2rem;
+    height: 2rem;
+    accent-color: #bfa573;
+    margin-right: 0.5rem;
+}
+
+.role-item label {
+    margin: 0;
+    font-size: 14px;
 }
