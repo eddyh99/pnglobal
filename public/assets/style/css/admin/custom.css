@@ -1134,6 +1134,10 @@ div.dataTables_wrapper div.dataTables_filter input {
     min-width: 400px;
 }
 
+.transfer-btn:hover {
+    color: #000 !important;
+}
+
 .withdraw-usdt .send-signals {
     border: none !important;
     box-shadow: none !important;

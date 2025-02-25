@@ -24,20 +24,12 @@
                                             <label for="role">Role</label>
                                             <div class="role-wrapper">
                                                 <div class="role-item">
-                                                    <input type="radio" id="role_member" name="role" value="member">
-                                                    <label for="role_member">Member</label>
-                                                </div>
-                                                <div class="role-item">
                                                     <input type="radio" id="role_admin" name="role" value="admin">
                                                     <label for="role_admin">Admin</label>
                                                 </div>
                                                 <div class="role-item">
                                                     <input type="radio" id="role_manager" name="role" value="manager">
                                                     <label for="role_manager">Manager</label>
-                                                </div>
-                                                <div class="role-item">
-                                                    <input type="radio" id="role_superadmin" name="role" value="superadmin">
-                                                    <label for="role_superadmin">Super Admin</label>
                                                 </div>
                                             </div>
                                             <input type="hidden" id="timezone" class="form-control" name="timezone" readonly value="<?= set_value('timezone') ?>">
