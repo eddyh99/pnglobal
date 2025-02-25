@@ -62,6 +62,30 @@ class Withdraw extends BaseController
         return view('member/layout/dashboard_wrapper', $mdata);
     }
 
+    public function international_bank()
+    {
+        $mdata = [
+            'title' => 'Withdraw - ' . SATOSHITITLE,
+            'content' => 'member/withdraw/international_bank',
+            'extra' => 'member/withdraw/js/_js_international_bank',
+            'active_withdraw' => 'active',
+        ];
+
+        return view('member/layout/dashboard_wrapper', $mdata);
+    }
+
+    public function usa_bank()
+    {
+        $mdata = [
+            'title' => 'Withdraw - ' . SATOSHITITLE,
+            'content' => 'member/withdraw/usa_bank',
+            'extra' => 'member/withdraw/js/_js_usa_bank',
+            'active_withdraw' => 'active',
+        ];
+
+        return view('member/layout/dashboard_wrapper', $mdata);
+    }
+
     public function available_commission()
     {
         $url = URLAPI . "/v1/withdraw/available_commission";

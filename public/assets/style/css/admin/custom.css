@@ -1148,3 +1148,49 @@ div.dataTables_wrapper div.dataTables_filter input {
     justify-content: center !important;
     border-bottom: none !important;
 }
+
+/* Container untuk opsi account type gunakan flex dengan gap */
+.account-type .account-options {
+    display: flex;
+    gap: 1rem; /* Atur jarak antar opsi, bisa disesuaikan */
+}
+
+/* Setiap opsi akan menempati ruang yang sama */
+.account-type .account-option {
+    flex: 1;
+    border: 1px solid #bfa573; /* Warna gold sesuai style lainnya */
+    border-radius: 5px;
+    padding: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-sizing: border-box;
+}
+
+/* Jika ingin radio button berwarna hijau secara penuh */
+.account-type .account-option input[type='radio'] {
+    accent-color: green; /* Pastikan browser mendukung properti ini */
+}
+
+/* Contoh tambahan styling di "@custom.css" */
+.form-control#address {
+    border: 1px solid #bfa573;
+    border-radius: 5px;
+    height: 45px;
+    padding-left: 10px;
+}
+
+.address-wrapper {
+    margin: 1rem 0 !important;
+}
+
+.address-group {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.address-group .form-control {
+    flex: 1;
+    min-width: 150px;
+}
