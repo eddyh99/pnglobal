@@ -62,7 +62,7 @@
                                     Available Commission to Withdraw
                                 </div>
                                 <div class="card-row card-bottom">
-                                    $300
+                                    Loading...
                                 </div>
                             </div>
                         </div>
