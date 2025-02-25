@@ -69,13 +69,13 @@
         });
     });
 
-    $('#tbl_admin').DataTable({
+    $('#tbl_freemember').DataTable({
         "pageLength": 50,
         "scrollX": true,
         "order": false,
         "ajax": {
             "url": "<?= BASE_URL ?>godmode/admin/get_admin",
-            "type": "GET",
+            "type": "POST",
             "dataSrc": function(data) {
                 // Pastikan data.message ada dan merupakan array
                 if (data.message && Array.isArray(data.message)) {
@@ -104,7 +104,7 @@
                                 return accessArray.join(', ');
                             }
                         } catch (e) {
-                            // Jika bukan JSON valid, tampilkan apa adanya
+                            return data || 'No Access';
                         }
                     }
                     return data || 'No Access';
