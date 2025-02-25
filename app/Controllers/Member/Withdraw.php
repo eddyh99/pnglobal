@@ -61,4 +61,15 @@ class Withdraw extends BaseController
 
         return view('member/layout/dashboard_wrapper', $mdata);
     }
+
+    public function available_commission()
+    {
+        $url = URLAPI . "/v1/withdraw/available_commission";
+        $result = satoshiAdmin($url)->result->message;
+
+        return $this->response->setJSON([
+            'code' => 200,
+            'message' => $result
+        ]);
+    }
 }
