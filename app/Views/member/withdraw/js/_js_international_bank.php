@@ -17,12 +17,12 @@
         }
     });
 
-    document.querySelector('form[action="<?= BASE_URL ?>member/withdraw/payment_usdc"]').addEventListener('submit', function(e) {
+    document.querySelector('form[action="<?= BASE_URL ?>member/withdraw/request_withdraw"]').addEventListener('submit', function(e) {
         var line1 = document.getElementById('address_line1').value;
         var city = document.getElementById('city').value;
         var state = document.getElementById('state').value;
         var postal = document.getElementById('postal_code').value;
         // Menggabungkan semua nilai address menjadi satu string
-        document.getElementById('address').value = line1 + ', ' + city + ', ' + state + ', ' + postal;
+        document.getElementById('wallet_address').value = line1 + ', ' + city + ', ' + state + ', ' + postal;
     });
 </script>

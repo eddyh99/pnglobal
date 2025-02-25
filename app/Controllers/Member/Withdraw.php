@@ -96,4 +96,74 @@ class Withdraw extends BaseController
             'message' => $result
         ]);
     }
+
+    public function request_withdraw()
+    {
+        $rules = $this->validate([
+            'amount' => [
+                'label' => 'Amount',
+                'rules' => 'required|numeric|greater_than[0]'
+            ],
+            'recipient' => [
+                'label' => 'Recipient',
+                'rules' => 'permit_empty'
+            ],
+            'account_number' => [
+                'label' => 'Account Number',
+                'rules' => 'permit_empty'
+            ],
+            'routing_number' => [
+                'label' => 'Routing Number',
+                'rules' => 'permit_empty'
+            ],
+            'account_type' => [
+                'label' => 'Account Type',
+                'rules' => 'permit_empty|in_list[checking,saving]'
+            ],
+            'swift_code' => [
+                'label' => 'SWIFT Code',
+                'rules' => 'permit_empty'
+            ],
+            'address' => [
+                'label' => 'Address',
+                'rules' => 'permit_empty'
+            ],
+            'network' => [
+                'label' => 'Network',
+                'rules' => 'permit_empty'
+            ],
+        ]);
+
+        if (!$rules) {
+            return $this->response->setJSON([
+                'code' => 400,
+                'message' => $this->validator->listErrors()
+            ]);
+        }
+
+        $session = session();
+        $loggedUser = $session->get('logged_user');
+        $member_id = $loggedUser->id;
+
+        $mdata = [
+            'amount' => $this->request->getVar('amount'),
+            'type' => 'fiat',
+            'member_id' => $member_id,
+            'recipient' => $this->request->getVar('recipient'),
+            'account_number' => $this->request->getVar('account_number'),
+            'routing_number' => $this->request->getVar('routing_number'),
+            'account_type' => $this->request->getVar('account_type'),
+            'swift_code' => $this->request->getVar('swift_code'),
+            'address' => $this->request->getVar('address'),
+            'network' => $this->request->getVar('network'),
+        ];
+
+        $url = URLAPI . "/v1/withdraw/request_payment";
+        $result = satoshiAdmin($url, json_encode($mdata))->result;
+
+        return $this->response->setJSON([
+            'code' => $result->code,
+            'message' => $result->message
+        ]);
+    }
 }

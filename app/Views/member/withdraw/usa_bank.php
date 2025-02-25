@@ -71,7 +71,7 @@
             </div>
 
             <div class="col-lg-12">
-                <form action="<?= BASE_URL ?>member/withdraw/payment_usdc" method="POST">
+                <form action="<?= BASE_URL ?>member/withdraw/request_withdraw" method="POST">
                     <div class="send-signals">
                         <div class="title-signal-preview d-flex justify-content-between align-items-center">
                             <h4>Withdraw Form</h4>
@@ -85,8 +85,8 @@
                                             <input type="number" name="amount" class="form-control">
                                         </div>
                                         <div class="wrapper-addreferral">
-                                            <label for="recipient_name">Recipient Name</label>
-                                            <input type="text" name="recipient_name" class="form-control">
+                                            <label for="recipient">Recipient</label>
+                                            <input type="text" name="recipient" class="form-control">
                                         </div>
                                         <div class="wrapper-addreferral">
                                             <label for="account_number">Account Number</label>

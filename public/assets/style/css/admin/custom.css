@@ -1194,3 +1194,62 @@ div.dataTables_wrapper div.dataTables_filter input {
     flex: 1;
     min-width: 150px;
 }
+
+/* Styling untuk modal */
+.modal-content {
+    background-color: #bfa573; /* Warna latar belakang */
+    color: #000; /* Warna teks */
+    border-radius: 10px; /* Membuat sudut membulat */
+    padding: 20px; /* Memberikan padding di dalam modal */
+    text-align: center; /* Memusatkan teks */
+}
+
+.modal-header {
+    border-bottom: none; /* Menghilangkan garis bawah header */
+}
+
+.modal-title {
+    font-weight: bold; /* Membuat teks judul tebal */
+}
+
+.modal-body {
+    font-size: 16px; /* Ukuran font untuk konten modal */
+    margin: 20px 0; /* Memberikan margin atas dan bawah */
+}
+
+.close {
+    color: #000; /* Warna tombol close */
+    opacity: 1; /* Mengatur opasitas tombol close */
+}
+
+.close:hover {
+    color: #333; /* Warna tombol close saat hover */
+}
+
+.modal-body h2,
+.modal-body h5 {
+    color: #000; /* Warna teks */
+    font-family: 'Noto Sans', sans-serif; /* Pastikan font sesuai */
+}
+
+.modal-body h2 {
+    font-size: 30px;
+    font-weight: 800;
+    line-height: 30px;
+}
+
+.modal-body h5 {
+    font-size: 20px;
+    font-weight: 600;
+    margin-top: 20px;
+}
+
+.modal-dialog {
+    display: flex;
+    align-items: center;
+    min-height: 100vh; /* Memastikan modal berada di tengah secara vertikal */
+}
+
+.modal-content {
+    margin: auto; /* Memastikan modal berada di tengah secara horizontal */
+}

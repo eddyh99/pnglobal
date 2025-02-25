@@ -71,7 +71,7 @@
             </div>
 
             <div class="col-lg-12">
-                <form action="<?= BASE_URL ?>member/withdraw/payment_usdt" method="POST">
+                <form action="<?= BASE_URL ?>member/withdraw/request_withdraw" method="POST">
                     <div class="send-signals">
                         <div class="title-signal-preview d-flex justify-content-between align-items-center">
                             <h4>Withdraw Form</h4>
@@ -101,6 +101,21 @@
                         </div>
                     </div>
                 </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="modalAvailableCommission" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <!-- Pesan akan dimuat secara dinamis -->
             </div>
         </div>
     </div>

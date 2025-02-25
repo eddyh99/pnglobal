@@ -71,7 +71,7 @@
             </div>
 
             <div class="col-lg-12">
-                <form action="<?= BASE_URL ?>member/withdraw/payment_usdc" method="POST">
+                <form action="<?= BASE_URL ?>member/withdraw/request_withdraw" method="POST">
                     <div class="send-signals">
                         <div class="title-signal-preview d-flex justify-content-between align-items-center">
                             <h4>Withdraw Form</h4>
@@ -82,10 +82,10 @@
                                     <div class="wrapper-addreferral">
                                         <label for="amount">Amount To Withdraw</label>
                                         <input type="number" name="amount" class="form-control">
-                                    </div>
+                                    </div>Ka
                                     <div class="wrapper-addreferral">
-                                        <label for="recipient_name">Recipient Name</label>
-                                        <input type="text" name="recipient_name" class="form-control">
+                                        <label for="recipient">Recipient Name</label>
+                                        <input type="text" name="recipient" class="form-control">
                                     </div>
                                     <div class="wrapper-addreferral">
                                         <label for="account_number">Account Number</label>
@@ -107,7 +107,7 @@
                                         <input type="text" id="postal_code" class="form-control" placeholder="Postal Code">
                                     </div>
                                     <!-- Field tersembunyi untuk menggabungkan nilai address -->
-                                    <input type="hidden" name="address" id="address">
+                                    <input type="hidden" name="wallet_address" id="wallet_address">
                                     <div class="wrapper-addreferral d-flex justify-content-center">
                                         <button type="submit" class="btn btn-primary text-black">Confirm</button>
                                     </div>
