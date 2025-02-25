@@ -1069,8 +1069,7 @@ div.dataTables_wrapper div.dataTables_filter input {
 
 /* Container yang membungkus seluruh checkbox dengan border */
 .role-wrapper {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr); /* Dua kolom sama lebar */
+    grid-template-columns: repeat(3, 1fr); /* Dua kolom sama lebar */
     gap: 1rem;
     width: 100%;
     padding: 1rem;
@@ -1086,8 +1085,8 @@ div.dataTables_wrapper div.dataTables_filter input {
 }
 
 .role-item input[type='checkbox'] {
-    width: 2rem;
-    height: 2rem;
+    width: 1.5rem;
+    /* height: 1.5rem; */
     accent-color: #bfa573;
     margin-right: 0.5rem;
 }

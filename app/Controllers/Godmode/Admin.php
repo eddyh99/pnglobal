@@ -6,6 +6,8 @@ use App\Controllers\BaseController;
 
 class Admin extends BaseController
 {
+    protected $validation;
+
     public function __construct()
     {
         $session = session();
@@ -34,19 +36,41 @@ class Admin extends BaseController
 
     public function create_admin()
     {
+        $rules = $this->validate([
+            'email'     => [
+                'label'     => 'Email',
+                'rules'     => 'required|valid_email',
+            ],
+            'password'  => [
+                'label'     => 'Password',
+                'rules'     => 'required',
+            ],
+            'access'    => [
+                'label'     => 'Access',
+                'rules'     => 'required',
+            ],
+        ]);
+
+        if (!$rules) {
+            session()->setFlashdata('failed', $this->validation->listErrors());
+            return redirect()->to(BASE_URL . 'godmode/admin');
+        }
+
         $mdata = [
             'email'     => $this->request->getVar('email'),
             'password'  => $this->request->getVar('password'),
-            'role'      => $this->request->getVar('role'),
+            'role'      => 'admin',
             'timezone'  => $this->request->getVar('timezone'),
             'ip_address'    => $this->request->getIPAddress(),
+            'access'      => $this->request->getVar('access'),
         ];
 
         // Hash & Trim Password
         $mdata['password'] = sha1(trim($mdata['password']));
+        $json = json_encode($mdata, JSON_UNESCAPED_SLASHES);
 
-        $url = URLAPI . "/auth/register";
-        $result = satoshiAdmin($url, json_encode($mdata))->result;
+        $url = URLAPI . "/v1/member/add_admin";
+        $result = satoshiAdmin($url, $json)->result;
 
         if ($result->code == '201') {
             session()->setFlashdata('success', 'Admin created successfully');
@@ -55,5 +79,17 @@ class Admin extends BaseController
             session()->setFlashdata('failed', $result->message);
             return redirect()->to(BASE_URL . 'godmode/admin');
         }
+    }
+
+    public function get_admin()
+    {
+        $url = URLAPI . "/v1/member/get_admin";
+        $response = satoshiAdmin($url);
+        $result = $response->result;
+        $data = [
+            'code' => $result->code,
+            'message' => $result->message
+        ];
+        return json_encode($data);
     }
 }

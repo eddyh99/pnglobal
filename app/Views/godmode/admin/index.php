@@ -21,18 +21,41 @@
                                             <input type="password" name="password" class="form-control">
                                         </div>
                                         <div class="wrapper-addreferral">
-                                            <label for="role">Role</label>
+                                            <label for="access">Access</label>
                                             <div class="role-wrapper">
-                                                <div class="role-item">
-                                                    <input type="radio" id="role_admin" name="role" value="admin">
-                                                    <label for="role_admin">Admin</label>
-                                                </div>
-                                                <div class="role-item">
-                                                    <input type="radio" id="role_manager" name="role" value="manager">
-                                                    <label for="role_manager">Manager</label>
+                                                <div class="row">
+                                                    <div class="col-md-4">
+                                                        <div class="role-item">
+                                                            <input type="checkbox" id="access_dashboard" name="access[]" value="Dashboard">
+                                                            <label for="access_dashboard">Dashboard</label>
+                                                        </div>
+                                                        <div class="role-item">
+                                                            <input type="checkbox" id="access_message" name="access[]" value="Message">
+                                                            <label for="access_message">Message</label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <div class="role-item">
+                                                            <input type="checkbox" id="access_free_member" name="access[]" value="Free Member">
+                                                            <label for="access_free_member">Free Member</label>
+                                                        </div>
+                                                        <div class="role-item">
+                                                            <input type="checkbox" id="access_signal" name="access[]" value="Signal">
+                                                            <label for="access_signal">Signal</label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <div class="role-item">
+                                                            <input type="checkbox" id="access_referrals" name="access[]" value="Referral">
+                                                            <label for="access_referral">Referral</label>
+                                                        </div>
+                                                        <div class="role-item">
+                                                            <input type="checkbox" id="access_payment" name="access[]" value="Payment">
+                                                            <label for="access_payment">Payment</label>
+                                                        </div>
+                                                    </div>
                                                 </div>
                                             </div>
-                                            <input type="hidden" id="timezone" class="form-control" name="timezone" readonly value="<?= set_value('timezone') ?>">
                                         </div>
                                         <div class="wrapper-addreferral d-flex justify-content-center">
                                             <button type="submit" class="btn btn-primary">Create</button>
@@ -47,10 +70,10 @@
             <div class="col-lg-12 dash-table-referralmember mt-5">
                 <h4 class="text-white my-3 text-uppercase fw-bold">Admin</h4>
                 <table id="tbl_freemember" class="table table-striped" style="width:100%">
-                    <thead class="thead_referralmember">
+                    <thead class="thead_freemember">
                         <tr>
                             <th>EMAIL</th>
-                            <th>ROLE</th>
+                            <th>MENU ACCESS</th>
                             <th>ACTION</th>
                         </tr>
                     </thead>
