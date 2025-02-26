@@ -1681,6 +1681,7 @@ body.sidebar-main .content-page .payment-option-container {
     display: flex;
     align-items: center;
     justify-content: center;
+    margin-bottom: 10px;
 }
 
 .usdt-qr-code img {
@@ -1690,13 +1691,14 @@ body.sidebar-main .content-page .payment-option-container {
 
 .usdt-payment-details {
     width: 100%;
+    margin-top: 25px;
 }
 
 .address-label,
 .amount-label,
 .instructions-title {
-    color: #b48b3d;
-    font-family: 'Noto Serif', serif;
+    color: #fff;
+    font-family: 'Poppins', sans-serif;
     font-size: 18px;
     font-weight: 600;
     margin-bottom: 10px;
@@ -1707,62 +1709,105 @@ body.sidebar-main .content-page .payment-option-container {
     display: flex;
     align-items: center;
     position: relative;
+    width: 100%;
+}
+
+.address-value {
+    display: flex !important;
+    position: relative !important;
+    align-items: center !important;
+    gap: 10px !important; /* Jarak antara input dan tombol */
+}
+
+.amount-value {
+    display: flex;
+    align-items: center;
+    position: relative;
+    width: 100%;
 }
 
 .address-value input,
 .amount-value input {
-    background-color: #e0e0e0;
-    border: none;
+    background-color: transparent !important;
     height: 45px;
     font-size: 16px;
     font-weight: 500;
-    color: #000;
+    font-family: 'Poppins', sans-serif !important;
+    color: #fff !important;
     padding: 0 15px;
+    width: 100% !important;
     border-radius: 5px;
-    width: 100%;
+    border: 2px solid #b48b3d;
+    background: linear-gradient(
+        107deg,
+        rgba(180, 139, 61, 0.1) 50.42%,
+        rgba(191, 165, 115, 0.1) 100%
+    ) !important;
 }
 
 .copy-btn {
-    position: absolute;
-    right: 10px;
-    background: transparent;
-    border: none;
-    color: #b48b3d;
-    font-size: 20px;
-    cursor: pointer;
+    position: absolute !important; /* Mengubah kembali menjadi absolute */
+    right: -45px !important; /* Memposisikan tombol di luar form input */
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    height: 45px !important;
+    width: 45px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    background: transparent !important;
+    border: none !important;
+    color: #b48b3d !important;
+    font-size: 20px !important;
+    cursor: pointer !important;
+    z-index: 1 !important;
+}
+
+.copy-btn:hover {
+    color: #a37b2d !important;
 }
 
 .instructions-list {
-    color: #ffffff;
-    font-family: 'Noto Serif', serif;
-    font-size: 16px;
-    line-height: 1.6;
-    padding-left: 20px;
+    color: #ffffff !important;
+    font-family: 'Poppins', sans-serif !important;
+    font-size: 16px !important;
+    line-height: 1.6 !important;
+    padding-left: 0 !important;
+    list-style-type: none !important;
+    text-align: center !important;
 }
 
 .instructions-list li {
-    margin-bottom: 10px;
+    margin-bottom: 10px !important;
+    color: #ffffff !important;
 }
 
 .confirm-payment-btn {
-    background: linear-gradient(90deg, #b48b3d 0%, #bfa573 100%);
-    color: #000;
-    border: none;
-    border-radius: 10px;
-    padding: 15px 0;
-    font-size: 18px;
-    font-weight: 600;
-    font-family: 'Noto Serif', serif;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    width: 100%;
-    text-align: center;
+    background: linear-gradient(90deg, #b48b3d 0%, #bfa573 100%) !important;
+    color: #000 !important;
+    border: none !important;
+    border-radius: 10px !important;
+    padding: 15px 30px !important;
+    font-size: 24px !important;
+    font-weight: 500 !important;
+    font-family: 'Noto Serif', serif !important;
+    cursor: pointer !important;
+    transition: all 0.3s ease !important;
+    width: auto !important;
+    margin: 0 auto !important;
+    display: block !important;
+    text-align: center !important;
+    leading-trim: both !important;
+    text-edge: cap !important;
+    font-style: normal !important;
+    line-height: 25px !important; /* 104.167% */
+    text-transform: capitalize !important;
 }
 
 .confirm-payment-btn:hover {
-    background: linear-gradient(90deg, #a37b2d 0%, #af9563 100%);
-    transform: translateY(-3px);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    background: linear-gradient(90deg, #a37b2d 0%, #af9563 100%) !important;
+    transform: translateY(-3px) !important;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2) !important;
 }
 
 @media (max-width: 768px) {
@@ -1773,6 +1818,143 @@ body.sidebar-main .content-page .payment-option-container {
     .usdt-qr-code {
         width: 200px;
         height: 200px;
-        margin-bottom: 20px;
+        margin-bottom: 5px;
+    }
+
+    .usdt-payment-details {
+        margin-top: 20px;
+    }
+}
+
+/* Menambahkan class khusus untuk form-control agar tidak terpengaruh oleh styling lain */
+.usdt-wallet-address .form-control,
+.usdt-amount .form-control {
+    background-color: transparent !important;
+    background: linear-gradient(
+        107deg,
+        rgba(180, 139, 61, 0.1) 50.42%,
+        rgba(191, 165, 115, 0.1) 100%
+    ) !important;
+}
+
+/* Override untuk form-control di usdt payment */
+.usdt-payment-details .form-control {
+    background-color: transparent !important;
+    background-image: linear-gradient(
+        107deg,
+        rgba(180, 139, 61, 0.1) 50.42%,
+        rgba(191, 165, 115, 0.1) 100%
+    ) !important;
+    border: 2px solid #b48b3d !important;
+    color: #000 !important;
+    box-shadow: none !important;
+}
+
+/* Pastikan tidak ada background lain yang mengganggu */
+.usdt-payment-details input[readonly] {
+    background-color: transparent !important;
+    background-image: linear-gradient(
+        107deg,
+        rgba(180, 139, 61, 0.1) 50.42%,
+        rgba(191, 165, 115, 0.1) 100%
+    ) !important;
+}
+
+/* Styling tambahan untuk memastikan tombol copy berada di luar form input */
+.address-value {
+    display: flex !important;
+    position: relative !important;
+    align-items: center !important;
+    width: 100% !important;
+}
+
+.address-value input.form-control {
+    width: 100% !important; /* Mengembalikan lebar input menjadi 100% */
+    padding-right: 15px !important;
+}
+
+/* Styling untuk warna teks */
+.usdt-payment-details input.form-control {
+    color: #fff !important;
+}
+
+/* Styling tambahan untuk background form input */
+.usdt-payment-details input.form-control {
+    background-color: transparent !important;
+    background: linear-gradient(
+        107deg,
+        rgba(180, 139, 61, 0.1) 50.42%,
+        rgba(191, 165, 115, 0.1) 100%
+    ) !important;
+    border: 2px solid #b48b3d !important;
+    box-shadow: none !important;
+}
+
+/* Styling tambahan untuk tombol konfirmasi */
+.payment-confirmation {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    width: 100% !important;
+}
+
+.confirm-payment-btn {
+    background: linear-gradient(90deg, #b48b3d 0%, #bfa573 100%) !important;
+    color: #000 !important;
+    border: none !important;
+    border-radius: 10px !important;
+    padding: 15px 30px !important;
+    font-size: 24px !important;
+    font-weight: 500 !important;
+    font-family: 'Noto Serif', serif !important;
+    cursor: pointer !important;
+    transition: all 0.3s ease !important;
+    width: auto !important;
+    margin: 0 auto !important;
+    display: block !important;
+    text-align: center !important;
+    leading-trim: both !important;
+    text-edge: cap !important;
+    font-style: normal !important;
+    line-height: 25px !important; /* 104.167% */
+    text-transform: capitalize !important;
+}
+
+/* Styling tambahan untuk container address-value */
+.usdt-wallet-address {
+    position: relative !important;
+    margin-bottom: 15px !important;
+}
+
+.address-value {
+    display: flex !important;
+    position: relative !important;
+    align-items: center !important;
+    width: 100% !important;
+}
+
+/* Styling untuk responsive */
+@media (max-width: 768px) {
+    .copy-btn {
+        right: -35px !important; /* Mengurangi jarak pada layar kecil */
+        width: 35px !important;
+        height: 35px !important;
+        font-size: 16px !important;
+    }
+
+    .usdt-wallet-address {
+        padding-right: 35px !important; /* Memberikan ruang untuk tombol pada layar kecil */
+    }
+}
+
+@media (max-width: 480px) {
+    .copy-btn {
+        right: -30px !important; /* Mengurangi jarak lagi pada layar sangat kecil */
+        width: 30px !important;
+        height: 30px !important;
+    }
+
+    .usdt-wallet-address {
+        padding-right: 30px !important; /* Memberikan ruang untuk tombol pada layar sangat kecil */
     }
 }

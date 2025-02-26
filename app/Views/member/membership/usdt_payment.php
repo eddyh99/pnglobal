@@ -42,7 +42,7 @@
                             </div>
                             <div class="usdt-payment-details">
                                 <div class="usdt-wallet-address">
-                                    <p class="address-label">USDT Wallet Address (TRC20):</p>
+                                    <p class="address-label">PN Global USDT Wallet Address</p>
                                     <div class="address-value">
                                         <input type="text" class="form-control" value="TYQRBvjWcCY2kRLkQa1GhS9Dj1g5GZeXXX" id="wallet-address" readonly>
                                         <button class="copy-btn" onclick="copyToClipboard('wallet-address')">
@@ -51,24 +51,24 @@
                                     </div>
                                 </div>
                                 <div class="usdt-amount mt-3">
-                                    <p class="amount-label">Amount to Pay:</p>
+                                    <p class="amount-label">Network</p>
+                                    <div class="amount-value">
+                                        <input type="text" class="form-control" value="TRC20" id="network" readonly>
+                                    </div>
+                                </div>
+                                <div class="usdt-amount mt-3">
+                                    <p class="amount-label">Amount to Pay</p>
                                     <div class="amount-value">
                                         <input type="text" class="form-control" value="100 USDT" id="payment-amount" readonly>
-                                        <button class="copy-btn" onclick="copyToClipboard('payment-amount')">
-                                            <i class="ri-file-copy-line"></i>
-                                        </button>
                                     </div>
                                 </div>
                                 <div class="payment-instructions mt-4">
-                                    <p class="instructions-title">Payment Instructions:</p>
-                                    <ol class="instructions-list">
-                                        <li>Scan the QR code or copy the wallet address</li>
-                                        <li>Send the exact amount of USDT (TRC20 network)</li>
-                                        <li>After payment, click the "I've Made Payment" button below</li>
-                                    </ol>
+                                    <ul class="instructions-list text-center">
+                                        <li>After make payment please press "confirm" button</li>
+                                    </ul>
                                 </div>
                                 <div class="payment-confirmation mt-4">
-                                    <button class="confirm-payment-btn">I've Made Payment</button>
+                                    <button class="confirm-payment-btn">Confirm</button>
                                 </div>
                             </div>
                         </div>
@@ -79,10 +79,33 @@
     </div>
 </div>
 
-<?php include('js/_js_usdt_payment.php'); ?>
+<script>
+    function copyToClipboard(elementId) {
+        var copyText = document.getElementById(elementId);
+        copyText.select();
+        copyText.setSelectionRange(0, 99999);
+        document.execCommand("copy");
 
-<style>
-    .usdt-title {
-        margin-bottom: 1rem !important;
+        // Tampilkan notifikasi kecil
+        var tooltip = document.createElement("div");
+        tooltip.innerHTML = "Copied!";
+        tooltip.style.position = "fixed";
+        tooltip.style.backgroundColor = "#b48b3d";
+        tooltip.style.color = "#000";
+        tooltip.style.padding = "5px 10px";
+        tooltip.style.borderRadius = "5px";
+        tooltip.style.top = "20px";
+        tooltip.style.right = "20px";
+        tooltip.style.zIndex = "9999";
+        document.body.appendChild(tooltip);
+
+        // Hilangkan notifikasi setelah 2 detik
+        setTimeout(function() {
+            tooltip.style.opacity = "0";
+            tooltip.style.transition = "opacity 0.5s";
+            setTimeout(function() {
+                document.body.removeChild(tooltip);
+            }, 500);
+        }, 2000);
     }
-</style>
+</script>
