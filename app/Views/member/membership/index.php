@@ -73,7 +73,7 @@
                     </div>
                 </div>
                 <div class="account-status-footer">
-                    <button class="membership-btn">Extend / New Membership</button>
+                    <button class="membership-btn" onclick="window.location.href='<?= BASE_URL ?>member/membership/set_investment_capital'">Extend / New Membership</button>
                 </div>
             </div>
         </div>

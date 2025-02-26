@@ -1359,15 +1359,6 @@ div.dataTables_wrapper div.dataTables_filter input {
     min-width: 460px;
     text-transform: capitalize;
     text-align: center;
-    /* Properti CSS baru dengan fallback */
-    /* Untuk browser yang mendukung */
-    text-edge: cap;
-    leading-trim: both;
-    /* Fallback untuk browser yang tidak mendukung */
-    vertical-align: middle;
-    display: flex;
-    align-items: center;
-    justify-content: center;
 }
 
 .membership-btn:hover {
@@ -1378,4 +1369,221 @@ div.dataTables_wrapper div.dataTables_filter input {
     background-color: #575757;
     color: black;
     border: none;
+}
+
+/* SET INVESTMENT CAPITAL STYLING */
+.investment-title {
+    color: #bfa573;
+    font-size: 32px;
+    font-weight: 700;
+    text-align: center;
+    text-transform: uppercase;
+    font-family: 'Noto Serif', serif;
+    margin-bottom: 30px;
+}
+
+.min-capital-text,
+.additional-capital-text,
+.total-capital-text,
+.payment-description {
+    color: #ffffff;
+    font-size: 20px;
+    margin-bottom: 15px;
+    text-align: center;
+    font-family: 'Noto Serif', serif;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 25px; /* 125% */
+    leading-trim: both;
+
+    text-edge: cap;
+}
+
+.min-capital-value {
+    background-color: #e0e0e0;
+    border: none;
+    height: 60px;
+    font-size: 32px;
+    font-weight: 700;
+    color: #000;
+    text-align: center;
+    margin-bottom: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+    max-width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    font-family: 'Noto Serif', serif;
+}
+
+.additional-capital-input,
+.payment-input {
+    background-color: #e0e0e0;
+    border: none;
+    height: 60px;
+    font-size: 32px;
+    font-weight: 700;
+    color: #000;
+    text-align: center;
+    border-radius: 5px;
+    font-family: 'Noto Serif', serif;
+}
+
+.payment-input {
+    max-width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    margin-bottom: 10px;
+}
+
+/* Styling untuk input group */
+.input-group {
+    margin-bottom: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+}
+
+.input-group .form-control {
+    width: 100%;
+    border-radius: 5px;
+    margin: 0;
+}
+
+.additional-capital-input {
+    margin-bottom: 0 !important;
+}
+
+/* Styling untuk tombol + dan - */
+.input-group-prepend,
+.input-group-append {
+    position: absolute;
+    top: 0;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.input-group-prepend {
+    left: -75px;
+}
+
+.input-group-append {
+    right: -75px;
+}
+
+.input-group-prepend button,
+.input-group-append button {
+    background-color: #e0e0e0;
+    color: #000 !important;
+    font-size: 28px;
+    font-weight: 700;
+    border: none;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+    margin: 0;
+    font-family: 'Noto Serif', serif;
+}
+
+/* Styling untuk tampilan total capital */
+.total-capital-display {
+    background-color: #bda069;
+    color: #000;
+    padding: 0 15px;
+    font-size: 32px;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 30px;
+    border-radius: 5px;
+    max-width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    border: 2px solid #fff;
+    font-family: 'Noto Serif', serif;
+}
+
+.membership-days {
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    text-align: center;
+    color: #ffffff;
+    font-family: 'Noto Serif', serif;
+}
+
+.confirm-button {
+    background: linear-gradient(90deg, #b48b3d 0%, #bfa573 100%);
+    color: #000 !important;
+    border: none;
+    font-size: 24px;
+    font-weight: 600;
+    padding: 10px 0;
+    width: 100%;
+    margin: 20px auto 30px;
+    border-radius: 5px;
+    max-width: 200px;
+    display: block;
+    font-family: 'Noto Serif', serif;
+}
+
+.confirm-button:hover {
+    background: linear-gradient(90deg, #a37b2d 0%, #af9563 100%);
+}
+
+.investment-note {
+    color: #bfa573;
+    font-size: 14px;
+    line-height: 1.5;
+    margin-top: 20px;
+    max-width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    font-family: 'Noto Serif', serif;
+}
+
+/* Tambahan untuk total capital display */
+#additional-capital::-webkit-inner-spin-button,
+#additional-capital::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+#additional-capital {
+    -moz-appearance: textfield;
+}
+
+/* Styling khusus untuk halaman set investment capital */
+.set-investment-container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px 0;
+    transition: all 0.3s ease;
+    width: 100%;
+    font-family: 'Noto Serif', serif;
+}
+
+/* Responsif untuk sidebar collapse */
+body.sidebar-main .content-page .set-investment-container {
+    max-width: 800px;
+    transition: all 0.3s ease;
+}
+
+/* Media query untuk layar yang lebih kecil */
+@media (max-width: 992px) {
+    .set-investment-container {
+        max-width: 100%;
+        padding: 20px 15px;
+    }
 }

@@ -36,4 +36,15 @@ class Membership extends BaseController
 
         return view('member/layout/dashboard_wrapper', $mdata);
     }
+
+    public function set_investment_capital()
+    {
+        $mdata = [
+            'title'     => 'Set Investment Capital - ' . SATOSHITITLE,
+            'content'   => 'member/membership/set_investment_capital',
+            'extra'     => 'member/membership/js/_js_set_investment_capital',
+        ];
+
+        return view('member/layout/dashboard_wrapper', $mdata);
+    }
 }
