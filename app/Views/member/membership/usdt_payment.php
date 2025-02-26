@@ -1,0 +1,88 @@
+<?php if (!empty(session('success'))) { ?>
+    <div class="alert alert-success fade show position-absolute" style="top: 1rem; right: 1rem; width: 30%; z-index: 99999;" role="alert">
+        <div class="iq-alert-icon">
+            <i class="ri-information-line"></i>
+        </div>
+        <div class="iq-alert-text text-black">
+            <?= session('success') ?>
+        </div>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <i class="ri-close-line text-black"></i>
+        </button>
+    </div>
+<?php } ?>
+
+<?php if (!empty(session('failed'))) { ?>
+    <div class="alert alert-danger fade show position-absolute" style="top: 1rem; right: 1rem; width: 30%; z-index: 99999;" role="alert">
+        <div class="iq-alert-icon">
+            <i class="ri-information-line"></i>
+        </div>
+        <div class="iq-alert-text text-black">
+            <?= session('failed') ?>
+        </div>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <i class="ri-close-line text-black"></i>
+        </button>
+    </div>
+<?php } ?>
+
+<!-- Page Content  -->
+<div class="content-page mb-5">
+    <div class="container-fluid">
+        <div class="row content-body">
+            <div class="col-lg-12 px-2">
+                <div class="payment-option-container">
+                    <h1 class="payment-option-title usdt-title">USDT PAYMENT</h1>
+
+                    <!-- USDT Payment Information -->
+                    <div class="usdt-payment-info">
+                        <div class="usdt-qr-container">
+                            <div class="usdt-qr-code">
+                                <img src="<?= BASE_URL ?>assets/img/qr-pnglobal.png" alt="USDT Payment QR Code" class="img-fluid">
+                            </div>
+                            <div class="usdt-payment-details">
+                                <div class="usdt-wallet-address">
+                                    <p class="address-label">USDT Wallet Address (TRC20):</p>
+                                    <div class="address-value">
+                                        <input type="text" class="form-control" value="TYQRBvjWcCY2kRLkQa1GhS9Dj1g5GZeXXX" id="wallet-address" readonly>
+                                        <button class="copy-btn" onclick="copyToClipboard('wallet-address')">
+                                            <i class="ri-file-copy-line"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="usdt-amount mt-3">
+                                    <p class="amount-label">Amount to Pay:</p>
+                                    <div class="amount-value">
+                                        <input type="text" class="form-control" value="100 USDT" id="payment-amount" readonly>
+                                        <button class="copy-btn" onclick="copyToClipboard('payment-amount')">
+                                            <i class="ri-file-copy-line"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="payment-instructions mt-4">
+                                    <p class="instructions-title">Payment Instructions:</p>
+                                    <ol class="instructions-list">
+                                        <li>Scan the QR code or copy the wallet address</li>
+                                        <li>Send the exact amount of USDT (TRC20 network)</li>
+                                        <li>After payment, click the "I've Made Payment" button below</li>
+                                    </ol>
+                                </div>
+                                <div class="payment-confirmation mt-4">
+                                    <button class="confirm-payment-btn">I've Made Payment</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<?php include('js/_js_usdt_payment.php'); ?>
+
+<style>
+    .usdt-title {
+        margin-bottom: 1rem !important;
+    }
+</style>

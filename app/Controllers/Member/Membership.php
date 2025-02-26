@@ -174,4 +174,28 @@ class Membership extends BaseController
 
         return view('member/layout/dashboard_wrapper', $mdata);
     }
+
+    public function usdt_payment()
+    {
+        $mdata = [
+            'title'     => 'USDT Payment - ' . SATOSHITITLE,
+            'content'   => 'member/membership/usdt_payment',
+            'extra'     => 'member/membership/js/_js_usdt_payment',
+            'active_membership' => 'active',
+        ];
+
+        return view('member/layout/dashboard_wrapper', $mdata);
+    }
+
+    public function usdc_payment()
+    {
+        $mdata = [
+            'title'     => 'USDC Payment - ' . SATOSHITITLE,
+            'content'   => 'member/membership/usdc_payment',
+            'extra'     => 'member/membership/js/_js_usdc_payment',
+            'active_membership' => 'active',
+        ];
+
+        return view('member/layout/dashboard_wrapper', $mdata);
+    }
 }

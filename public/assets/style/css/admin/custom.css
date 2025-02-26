@@ -1658,3 +1658,121 @@ body.sidebar-main .content-page .payment-option-container {
         padding: 20px 15px;
     }
 }
+
+.usdt-payment-info {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.usdt-qr-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.usdt-qr-code {
+    width: 250px;
+    height: 250px;
+    margin: 0 auto;
+    padding: 10px;
+    background-color: white;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.usdt-qr-code img {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.usdt-payment-details {
+    width: 100%;
+}
+
+.address-label,
+.amount-label,
+.instructions-title {
+    color: #b48b3d;
+    font-family: 'Noto Serif', serif;
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.address-value,
+.amount-value {
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.address-value input,
+.amount-value input {
+    background-color: #e0e0e0;
+    border: none;
+    height: 45px;
+    font-size: 16px;
+    font-weight: 500;
+    color: #000;
+    padding: 0 15px;
+    border-radius: 5px;
+    width: 100%;
+}
+
+.copy-btn {
+    position: absolute;
+    right: 10px;
+    background: transparent;
+    border: none;
+    color: #b48b3d;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.instructions-list {
+    color: #ffffff;
+    font-family: 'Noto Serif', serif;
+    font-size: 16px;
+    line-height: 1.6;
+    padding-left: 20px;
+}
+
+.instructions-list li {
+    margin-bottom: 10px;
+}
+
+.confirm-payment-btn {
+    background: linear-gradient(90deg, #b48b3d 0%, #bfa573 100%);
+    color: #000;
+    border: none;
+    border-radius: 10px;
+    padding: 15px 0;
+    font-size: 18px;
+    font-weight: 600;
+    font-family: 'Noto Serif', serif;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: 100%;
+    text-align: center;
+}
+
+.confirm-payment-btn:hover {
+    background: linear-gradient(90deg, #a37b2d 0%, #af9563 100%);
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+@media (max-width: 768px) {
+    .usdt-qr-container {
+        flex-direction: column;
+    }
+
+    .usdt-qr-code {
+        width: 200px;
+        height: 200px;
+        margin-bottom: 20px;
+    }
+}
