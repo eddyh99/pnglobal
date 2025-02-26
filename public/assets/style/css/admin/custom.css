@@ -1551,6 +1551,11 @@ div.dataTables_wrapper div.dataTables_filter input {
     margin-left: auto;
     margin-right: auto;
     font-family: 'Noto Serif', serif;
+    color: #fff;
+    leading-trim: both;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 25px; /* 125% */
 }
 
 /* Tambahan untuk total capital display */
