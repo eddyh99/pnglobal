@@ -1283,3 +1283,99 @@ div.dataTables_wrapper div.dataTables_filter input {
 .modal-content {
     margin: auto; /* Memastikan modal berada di tengah secara horizontal */
 }
+
+/* Card untuk Account Status tanpa border luar */
+.account-status-card {
+    width: 100%;
+    margin-bottom: 1rem;
+    padding: 1rem;
+}
+
+.account-status-header {
+    font-weight: bold;
+    color: #bfa573;
+    padding: 8px 0;
+    text-align: left;
+    font-size: 18px;
+}
+
+/* Grid container untuk account status detail dengan gap antar kolom dan baris */
+.account-status-detail {
+    display: grid;
+    grid-template-columns: minmax(120px, 1fr) minmax(300px, 3fr);
+    gap: 0.5rem;
+    margin: 1rem 0;
+    width: 100%;
+}
+
+/* Styling setiap item detail */
+.account-status-detail > div {
+    padding: 8px 20px;
+    border: 1px solid #bfa573;
+    display: flex;
+    align-items: center;
+    margin: 0;
+}
+
+/* Label untuk account status dengan align left */
+.account-status-detail .label {
+    margin-left: 0;
+    margin-right: 0;
+    color: #bfa573;
+    justify-content: flex-start;
+    text-align: left;
+    font-weight: bold;
+}
+
+/* Value untuk account status dengan margin yang berbeda */
+.account-status-detail .value {
+    margin-left: 0;
+    margin-right: 0;
+    color: #bfa573;
+    padding-left: 1.5rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.account-status-footer {
+    padding: 10px 0;
+    text-align: center;
+}
+
+/* Button untuk extend/new membership */
+.membership-btn {
+    background: linear-gradient(90deg, #b48b3d 0%, #bfa573 100%);
+    color: #000;
+    border: none;
+    padding: 2px 20px;
+    border-radius: 5px;
+    font-size: 24px;
+    font-weight: 600;
+    font-family: 'Poppins', sans-serif;
+    font-style: normal;
+    line-height: normal;
+    cursor: pointer;
+    min-height: 125px;
+    min-width: 460px;
+    text-transform: capitalize;
+    text-align: center;
+    /* Properti CSS baru dengan fallback */
+    /* Untuk browser yang mendukung */
+    text-edge: cap;
+    leading-trim: both;
+    /* Fallback untuk browser yang tidak mendukung */
+    vertical-align: middle;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.membership-btn:hover {
+    background: linear-gradient(90deg, #a37b2d 0%, #af9563 100%);
+}
+
+.membership-btn:disabled {
+    background-color: #575757;
+    color: black;
+    border: none;
+}
