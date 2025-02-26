@@ -83,17 +83,32 @@
         // Confirm payment function
         window.confirmPayment = function() {
             const totalCapital = config.minCapital + additionalCapital;
-            const paymentAmount = parseCurrency(paymentAmountInput.value);
+            const paymentAmountWithSymbol = paymentAmountInput.value;
+            // Pastikan nilai yang dikirim adalah numerik murni
+            const paymentAmount = parseFloat(paymentAmountWithSymbol.replace(/[^\d.-]/g, ''));
+
+            // Validasi nilai
+            if (isNaN(paymentAmount) || paymentAmount <= 0) {
+                alert('Nilai pembayaran tidak valid. Silakan coba lagi.');
+                return;
+            }
 
             // Konfirmasi dari user
             if (!confirm(`Anda akan mengkonfirmasi investasi sebesar ${formatCurrency(totalCapital)} dengan pembayaran € ${paymentAmount}. Lanjutkan?`)) {
                 return;
             }
 
+            console.log('Mengirim payment amount:', paymentAmount, 'tipe:', typeof paymentAmount);
+
             // Siapkan data untuk dikirim ke server
             const formData = new FormData();
-            formData.append('total_capital', totalCapital);
-            formData.append('payment_amount', paymentAmount);
+            formData.append('amount', paymentAmount);
+
+            // Tampilkan loading
+            const confirmButton = document.querySelector('.confirm-button');
+            const originalText = confirmButton.textContent;
+            confirmButton.textContent = 'Memproses...';
+            confirmButton.disabled = true;
 
             // Kirim data ke server menggunakan fetch API
             fetch('/member/membership/confirm_payment', {
@@ -108,9 +123,9 @@
                 })
                 .then(data => {
                     if (data.status === 'success') {
-                        alert('Pembayaran berhasil dikonfirmasi!');
+                        alert(`Pembayaran berhasil dikonfirmasi untuk email: ${data.data.email}!`);
                         // Redirect ke halaman lain jika diperlukan
-                        // window.location.href = '/member/membership';
+                        window.location.href = '/member/membership';
                     } else {
                         alert('Terjadi kesalahan: ' + data.message);
                     }

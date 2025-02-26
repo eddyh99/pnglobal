@@ -1592,3 +1592,69 @@ body.sidebar-main .content-page .set-investment-container {
         padding: 20px 15px;
     }
 }
+
+/* PAYMENT OPTION STYLING */
+.payment-option-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 2rem 0;
+    max-width: 400px;
+    margin: 0 auto;
+    transition: all 0.3s ease;
+}
+
+.payment-option-title {
+    color: #b48b3d;
+    font-family: 'Noto Serif', serif;
+    font-size: 36px;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 3rem;
+    text-transform: uppercase;
+}
+
+.payment-buttons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    width: 100%;
+}
+
+.payment-btn {
+    background-color: #bfa573;
+    color: #000;
+    border: none;
+    border-radius: 10px;
+    padding: 1.5rem 0;
+    font-size: 24px;
+    font-weight: 600;
+    font-family: 'Noto Serif', serif;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: 100%;
+    text-align: center;
+}
+
+.payment-btn:hover {
+    background: linear-gradient(90deg, #a37b2d 0%, #af9563 100%);
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Responsif untuk sidebar collapse */
+body.sidebar-main .content-page .payment-option-container {
+    max-width: 500px;
+    transition: all 0.3s ease;
+}
+
+/* Media query untuk layar yang lebih kecil */
+@media (max-width: 992px) {
+    .payment-option-container {
+        max-width: 90%;
+        padding: 20px 15px;
+    }
+}
