@@ -995,8 +995,19 @@ div.dataTables_wrapper div.dataTables_filter input {
     margin-top: 1rem;
 }
 
+/* Grid container untuk wallet detail card dengan gap antar kolom dan baris */
+.wallet-detailcard {
+    display: grid;
+    grid-template-columns: minmax(150px, 1fr) minmax(300px, 3fr);
+    gap: 0.5rem; /* Gap 0.5rem akan diterapkan antara label dan value serta antar row */
+    margin: 1rem 0;
+    width: 90%; /* Membatasi lebar keseluruhan card */
+    max-width: 800px; /* Maksimum lebar */
+}
+
 /* Styling setiap item detail */
-.binance-detailcard > div {
+.binance-detailcard > div,
+.wallet-detailcard > div {
     padding: 8px 20px;
     border: 1px solid #bfa573;
     display: flex;
@@ -1011,11 +1022,31 @@ div.dataTables_wrapper div.dataTables_filter input {
     color: #bfa573;
 }
 
+/* Label untuk wallet-detailcard dengan margin yang berbeda */
+.wallet-detailcard .label {
+    margin-left: 0;
+    margin-right: 0;
+    color: #bfa573;
+    justify-content: start;
+    text-align: left;
+    font-weight: bold;
+}
+
 /* Value didorong dari sisi kanan sebanyak 3rem */
 .binance-detailcard .value {
     margin-left: 0;
     margin-right: 5rem;
     color: #bfa573;
+}
+
+/* Value untuk wallet-detailcard dengan margin yang berbeda */
+.wallet-detailcard .value {
+    margin-left: 0;
+    margin-right: 0;
+    color: #bfa573;
+    padding-left: 1.5rem; /* Memberikan padding di sisi kiri teks */
+    overflow: hidden;
+    text-overflow: ellipsis; /* Menampilkan elipsis jika teks terlalu panjang */
 }
 
 .binance-fullcard-footer {
