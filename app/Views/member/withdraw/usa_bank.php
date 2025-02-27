@@ -85,13 +85,31 @@
                                             <input type="number" name="amount" class="form-control">
                                         </div>
                                         <div class="wrapper-addreferral">
-                                            <label for="wallet_address">Wallet Address</label>
-                                            <input type="text" name="wallet_address" class="form-control">
+                                            <label for="recipient">Recipient</label>
+                                            <input type="text" name="recipient" class="form-control">
                                         </div>
                                         <div class="wrapper-addreferral">
-                                            <label for="network">Network</label>
-                                            <input type="text" name="network" class="form-control">
+                                            <label for="account_number">Account Number</label>
+                                            <input type="text" name="account_number" class="form-control">
                                         </div>
+                                        <div class="wrapper-addreferral">
+                                            <label for="routing_number">Routing Number</label>
+                                            <input type="text" name="routing_number" class="form-control">
+                                        </div>
+                                        <div class="wrapper-addreferral account-type">
+                                            <label for="account_type">Account Type</label>
+                                            <div class="d-flex account-options">
+                                                <label class="account-option">
+                                                    <span>Checking</span>
+                                                    <input type="radio" name="account_type" value="checking">
+                                                </label>
+                                                <label class="account-option">
+                                                    <span>Saving</span>
+                                                    <input type="radio" name="account_type" value="saving">
+                                                </label>
+                                            </div>
+                                        </div>
+
                                         <div class="wrapper-addreferral d-flex justify-content-center">
                                             <button type="submit" class="btn btn-primary text-black">Confirm</button>
                                         </div>
@@ -101,21 +119,6 @@
                         </div>
                     </div>
                 </form>
-            </div>
-        </div>
-    </div>
-</div>
-
-<div class="modal fade" id="modalAvailableCommission" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <!-- Pesan akan dimuat secara dinamis -->
             </div>
         </div>
     </div>

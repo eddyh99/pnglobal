@@ -27,8 +27,46 @@
 </style>
 <script>
     document.addEventListener("DOMContentLoaded", function() {
+        // Deteksi timezone pengguna
         var userTimeZone = Intl.DateTimeFormat().resolvedOptions().timeZone;
-        document.getElementById("timezone").value = userTimeZone;
+
+        // Pastikan elemen timezone ada sebelum mencoba mengatur nilainya
+        var timezoneElement = document.getElementById("timezone");
+        if (timezoneElement) {
+            // Pastikan tidak ada karakter yang perlu di-escape
+            timezoneElement.value = userTimeZone;
+        } else {
+            console.error("Elemen timezone tidak ditemukan");
+            // Tambahkan input timezone tersembunyi jika tidak ada
+            var hiddenTimezone = document.createElement('input');
+            hiddenTimezone.type = 'hidden';
+            hiddenTimezone.id = 'timezone';
+            hiddenTimezone.name = 'timezone';
+            hiddenTimezone.value = userTimeZone;
+            var form = document.querySelector('form[action="<?= BASE_URL ?>godmode/admin/create_admin"]');
+            if (form) {
+                form.appendChild(hiddenTimezone);
+            } else {
+                console.error("Form tidak ditemukan");
+            }
+        }
+
+        // Menangani form submission untuk memastikan access dikirim sebagai array
+        $('form[action="<?= BASE_URL ?>godmode/admin/create_admin"]').on('submit', function(e) {
+            // Periksa apakah setidaknya satu checkbox dipilih
+            if ($('input[name="access[]"]:checked').length === 0) {
+                e.preventDefault();
+                alert("Pilih setidaknya satu akses untuk admin.");
+                return false;
+            }
+
+            // Modifikasi timezone sebelum submit untuk menghindari escape karakter
+            var tzInput = document.getElementById('timezone');
+            if (tzInput) {
+                // Ganti karakter / dengan karakter lain yang tidak perlu di-escape
+                tzInput.value = tzInput.value.replace(/\//g, '|');
+            }
+        });
     });
 
     $('#tbl_freemember').DataTable({
@@ -36,8 +74,8 @@
         "scrollX": true,
         "order": false,
         "ajax": {
-            "url": "<?= BASE_URL ?>godmode/member/get_freemember",
-            "type": "GET",
+            "url": "<?= BASE_URL ?>godmode/admin/get_admin",
+            "type": "POST",
             "dataSrc": function(data) {
                 // Pastikan data.message ada dan merupakan array
                 if (data.message && Array.isArray(data.message)) {
@@ -53,7 +91,24 @@
                 data: 'email',
             },
             {
-                data: 'role',
+                data: 'access',
+                "mRender": function(data, type, full, meta) {
+                    // Menampilkan access sebagai string yang dipisahkan koma
+                    if (Array.isArray(data)) {
+                        return data.join(', ');
+                    } else if (typeof data === 'string') {
+                        try {
+                            // Coba parse jika data adalah JSON string
+                            const accessArray = JSON.parse(data);
+                            if (Array.isArray(accessArray)) {
+                                return accessArray.join(', ');
+                            }
+                        } catch (e) {
+                            return data || 'No Access';
+                        }
+                    }
+                    return data || 'No Access';
+                }
             },
             {
                 data: null,

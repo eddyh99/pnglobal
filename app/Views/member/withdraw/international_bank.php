@@ -77,45 +77,45 @@
                             <h4>Withdraw Form</h4>
                         </div>
                         <div class="main-send-signal d-flex flex-column align-items-center justify-content-center">
-                            <form action="" method="POST">
-                                <div class="row w-100">
-                                    <div class="form-addreferral col-8 mx-auto">
-                                        <div class="wrapper-addreferral">
-                                            <label for="amount">Amount To Withdraw</label>
-                                            <input type="number" name="amount" class="form-control">
-                                        </div>
-                                        <div class="wrapper-addreferral">
-                                            <label for="wallet_address">Wallet Address</label>
-                                            <input type="text" name="wallet_address" class="form-control">
-                                        </div>
-                                        <div class="wrapper-addreferral">
-                                            <label for="network">Network</label>
-                                            <input type="text" name="network" class="form-control">
-                                        </div>
-                                        <div class="wrapper-addreferral d-flex justify-content-center">
-                                            <button type="submit" class="btn btn-primary text-black">Confirm</button>
-                                        </div>
+                            <div class="row w-100">
+                                <div class="form-addreferral col-8 mx-auto">
+                                    <div class="wrapper-addreferral">
+                                        <label for="amount">Amount To Withdraw</label>
+                                        <input type="number" name="amount" class="form-control">
+                                    </div>Ka
+                                    <div class="wrapper-addreferral">
+                                        <label for="recipient">Recipient Name</label>
+                                        <input type="text" name="recipient" class="form-control">
+                                    </div>
+                                    <div class="wrapper-addreferral">
+                                        <label for="account_number">Account Number</label>
+                                        <input type="text" name="account_number" class="form-control">
+                                    </div>
+                                    <div class="wrapper-addreferral">
+                                        <label for="swift_code">SWIFT Code</label>
+                                        <input type="text" name="swift_code" class="form-control">
+                                    </div>
+                                    <div class="wrapper-addreferral address-wrapper">
+                                        <label for="address">Address</label>
+                                        <input type="text" id="address_line1" class="form-control" placeholder="First Line">
+                                    </div>
+                                    <div class="wrapper-addreferral address-wrapper">
+                                        <input type="text" id="city" class="form-control" placeholder="City">
+                                    </div>
+                                    <div class="wrapper-addreferral address-group address-wrapper">
+                                        <input type="text" id="state" class="form-control" placeholder="State">
+                                        <input type="text" id="postal_code" class="form-control" placeholder="Postal Code">
+                                    </div>
+                                    <!-- Field tersembunyi untuk menggabungkan nilai address -->
+                                    <input type="hidden" name="wallet_address" id="wallet_address">
+                                    <div class="wrapper-addreferral d-flex justify-content-center">
+                                        <button type="submit" class="btn btn-primary text-black">Confirm</button>
                                     </div>
                                 </div>
-                            </form>
+                            </div>
                         </div>
                     </div>
                 </form>
-            </div>
-        </div>
-    </div>
-</div>
-
-<div class="modal fade" id="modalAvailableCommission" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <!-- Pesan akan dimuat secara dinamis -->
             </div>
         </div>
     </div>

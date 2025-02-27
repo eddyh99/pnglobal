@@ -62,7 +62,7 @@
                                     Available Commission to Withdraw
                                 </div>
                                 <div class="card-row card-bottom">
-                                    $300
+                                    Loading...
                                 </div>
                             </div>
                         </div>
@@ -73,9 +73,9 @@
             <div class="withdraw-options">
                 <div class="withdraw-title">Withdraw Option</div>
                 <div class="withdraw-buttons">
-                    <a href="#" class="transfer-btn">USA Local Bank Transfer</a>
+                    <a href="<?= BASE_URL ?>member/withdraw/usa_bank" class="transfer-btn">USA Local Bank Transfer</a>
                     <a href="<?= BASE_URL ?>member/withdraw/usdt" class="transfer-btn">USDT</a>
-                    <a href="#" class="transfer-btn">International Bank Transfer</a>
+                    <a href="<?= BASE_URL ?>member/withdraw/international_bank" class="transfer-btn">International Bank Transfer</a>
                     <a href="<?= BASE_URL ?>member/withdraw/usdc" class="transfer-btn">USDC</a>
                 </div>
             </div>

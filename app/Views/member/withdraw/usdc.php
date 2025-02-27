@@ -62,7 +62,7 @@
                                     Available Commission to Withdraw
                                 </div>
                                 <div class="card-row card-bottom">
-                                    $300
+                                    Loading...
                                 </div>
                             </div>
                         </div>
@@ -71,7 +71,7 @@
             </div>
 
             <div class="col-lg-12">
-                <form action="<?= BASE_URL ?>member/withdraw/payment_usdc" method="POST">
+                <form action="<?= BASE_URL ?>member/withdraw/request_withdraw" method="POST">
                     <div class="send-signals">
                         <div class="title-signal-preview d-flex justify-content-between align-items-center">
                             <h4>Withdraw Form</h4>

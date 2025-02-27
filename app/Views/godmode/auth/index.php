@@ -2,24 +2,24 @@
 <section class="sign-in-page">
     <div class="container p-0" id="sign-in-page-box">
         <div class="bg-white form-container sign-in-container">
-            <?php if(!empty(session('failed'))) { ?>
-            <div id="failed-alert" class="alert alert-danger fade show position-absolute" style="top: 1rem; left: 1rem; width: 90%;" role="alert">
-                <div class="iq-alert-icon">
-                    <i class="ri-information-line"></i>
+            <?php if (!empty(session('failed'))) { ?>
+                <div id="failed-alert" class="alert alert-danger fade show position-absolute" style="top: 1rem; left: 1rem; width: 90%;" role="alert">
+                    <div class="iq-alert-icon">
+                        <i class="ri-information-line"></i>
+                    </div>
+                    <div class="iq-alert-text">
+                        <?= session('failed') ?>
+                    </div>
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <i class="ri-close-line text-black"></i>
+                    </button>
                 </div>
-                <div class="iq-alert-text">
-                    <?= session('failed')?>
-                </div>
-                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                    <i class="ri-close-line text-black"></i>
-                </button>
-            </div>
-            <?php }?>
+            <?php } ?>
             <div class="sign-in-page-data">
                 <div class="sign-in-from w-100 m-auto">
                     <h1 class="mb-3 text-center text-black">Sign in</h1>
                     <p class="text-center text-dark">Enter your email address and password to access admin panel.</p>
-                    <form action="<?= BASE_URL?>godmode/auth/auth_proccess" method="POST" class="mt-4">
+                    <form action="<?= BASE_URL ?>godmode/auth/auth_proccess" method="POST" class="mt-4">
                         <div class="form-group">
                             <label for="exampleInputEmail2">Email address</label>
                             <input type="email" class="form-control mb-0" name="email" id="exampleInputEmail2" placeholder="Enter email">
@@ -41,7 +41,7 @@
         <div class="overlay-container">
             <div class="overlay">
                 <div class="overlay-panel overlay-right">
-                    <img src="<?= BASE_URL?>assets/img/logo-satoshi.png" class="logo-signin" alt="logo">
+                    <img src="<?= BASE_URL ?>assets/img/logo.png" class="logo-signin" alt="logo">
                 </div>
             </div>
         </div>

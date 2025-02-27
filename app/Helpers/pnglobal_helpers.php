@@ -9,7 +9,7 @@ function satoshiAdmin($url, $postData = NULL)
     if (isset($_SESSION["logged_user"])) {
         $token = sha1($_SESSION["logged_user"]->email . $_SESSION["logged_user"]->passwd);
     } else {
-        $token = null;
+        $token = '666ea1ae1ab0450f444a8406d8db517d8bdc9035';
     }
 
     $ch     = curl_init($url);
