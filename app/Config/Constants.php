@@ -104,7 +104,7 @@ defined('BASE_URL') || define('BASE_URL', $protocol);
 
 
 define("NAMETITLE", 'PN Global');
-define("SATOSHITITLE", 'Satoshi Signal');
+define("SATOSHITITLE", 'PN Global');
 // define("URLAPI", 'https://api.pnglobalinternational.com');
 define("URLAPI", 'https://api2-sandbox.pnglobalinternational.com');
 define("FEEMEETING", 'EUR 150');

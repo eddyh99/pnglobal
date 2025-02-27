@@ -55,7 +55,7 @@
                                                     <th></th>
                                                     <th>PRICE</th>
                                                     <th>STATUS</th>
-                                                    <th colspan="3">ACTION</th>
+                                                    <!-- <th colspan="3">ACTION</th> -->
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -168,7 +168,7 @@
                                                     <th></th>
                                                     <th>PRICE</th>
                                                     <th>STATUS</th>
-                                                    <th colspan="3">ACTION</th>
+                                                    <!-- <th colspan="3">ACTION</th> -->
                                                 </tr>
                                             </thead>
                                             <tbody>
