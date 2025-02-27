@@ -6,11 +6,7 @@ use PHPMailer\PHPMailer\Exception;
 
 function satoshiAdmin($url, $postData = NULL)
 {
-    if (isset($_SESSION["logged_user"])) {
-        $token = sha1($_SESSION["logged_user"]->email . $_SESSION["logged_user"]->passwd);
-    } else {
-        $token = '666ea1ae1ab0450f444a8406d8db517d8bdc9035';
-    }
+    $token = @sha1($_SESSION["logged_user"]->email . $_SESSION["logged_user"]->passwd);
 
     $ch     = curl_init($url);
     $headers    = array(
