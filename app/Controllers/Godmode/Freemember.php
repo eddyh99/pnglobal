@@ -113,12 +113,12 @@ class Freemember extends BaseController
     {
 
         // Call Get Memeber By Email
-        $url = URLAPI . "/auth/getmember_byemail?email=" . base64_decode($email);
-        $resultMember = satoshiAdmin($url)->result->message;
+        // $url = URLAPI . "/auth/getmember_byemail?email=" . base64_decode($email);
+        // $resultMember = satoshiAdmin($url)->result->message;
 
         // Call Get Detail Referral
-        $url = URLAPI . "/v1/member/detailreferral?id=" . $resultMember->id;
-        $resultReferral = satoshiAdmin($url)->result->message;
+        // $url = URLAPI . "/v1/member/detailreferral?id=" . $resultMember->id;
+        // $resultReferral = satoshiAdmin($url)->result->message;
 
         $mdata = [
             'title'     => 'Detail Member - ' . SATOSHITITLE,

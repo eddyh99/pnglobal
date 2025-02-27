@@ -1,13 +1,13 @@
 <script>
-window.setTimeout(function() {
-    $(".alert").fadeTo(500, 0).slideUp(500, function(){
-        $(this).remove(); 
-    });
-}, 5000);
-    $(document).ready(function(){
-        
+    window.setTimeout(function() {
+        $(".alert").fadeTo(500, 0).slideUp(500, function() {
+            $(this).remove();
+        });
+    }, 5000);
+    $(document).ready(function() {
+
         // Buy A when the button is clicked
-        $('#send-buy-a').click(function(e){
+        $('#send-buy-a').click(function(e) {
             // for not refresh
             e.preventDefault();
 
@@ -20,15 +20,15 @@ window.setTimeout(function() {
 
             // Ajax Proccess
             $.ajax({
-                url: '<?=BASE_URL?>godmode/signal/buysignal',
+                url: '<?= BASE_URL ?>godmode/signal/buysignal',
                 type: 'POST',
                 data: formData,
-                success: function (ress) {
+                success: function(ress) {
                     // Parse Data
                     let result = JSON.parse(ress)
 
                     // Check if response success
-                    if(result.code == '200'){
+                    if (result.code == '200') {
                         // Sweet Alert
                         Swal.fire({
                             text: `${result.message}`,
@@ -48,8 +48,8 @@ window.setTimeout(function() {
                         $("#buy-a").attr('disabled', true);
                         $("#send-buy-a").attr('disabled', true);
                         $('#cancel-buy-a').removeAttr('disabled');
-                        $("#buy-date-a").text('<?= date('d/m/y | H:i')?>');
-                        
+                        $("#buy-date-a").text('<?= date('d/m/y | H:i') ?>');
+
                         // remove attribute input and button sell for enabled
                         $('#sell-a').removeAttr('readonly');
                         $('#send-sell-a').removeAttr('disabled');
@@ -74,7 +74,7 @@ window.setTimeout(function() {
                             vMin: '0'
                         });
 
-                    }else{
+                    } else {
                         // Sweet Alert
                         Swal.fire({
                             text: `${result.message}`,
@@ -106,7 +106,7 @@ window.setTimeout(function() {
 
 
         // Buy B when the button is clicked
-        $('#send-buy-b').click(function(e){
+        $('#send-buy-b').click(function(e) {
             // for not refresh
             e.preventDefault();
 
@@ -119,15 +119,15 @@ window.setTimeout(function() {
 
             // Ajax Proccess
             $.ajax({
-                url: '<?=BASE_URL?>godmode/signal/buysignal',
+                url: '<?= BASE_URL ?>godmode/signal/buysignal',
                 type: 'POST',
                 data: formData,
-                success: function (ress) {
+                success: function(ress) {
                     // Parse Data
                     let result = JSON.parse(ress)
 
                     // Check if response success
-                    if(result.code == '200'){
+                    if (result.code == '200') {
                         // Sweet Alert
                         Swal.fire({
                             text: `${result.message}`,
@@ -147,7 +147,7 @@ window.setTimeout(function() {
                         $("#buy-b").attr('disabled', true);
                         $("#send-buy-b").attr('disabled', true);
                         $('#cancel-buy-b').removeAttr('disabled');
-                        $("#buy-date-b").text('<?= date('d/m/y | H:i')?>');
+                        $("#buy-date-b").text('<?= date('d/m/y | H:i') ?>');
 
                         // remove attribute input and button sell for enabled
                         $('#sell-b').removeAttr('readonly');
@@ -173,7 +173,7 @@ window.setTimeout(function() {
                             vMin: '0'
                         });
 
-                    }else{
+                    } else {
                         // Sweet Alert
                         Swal.fire({
                             text: `${result.message}`,
@@ -204,7 +204,7 @@ window.setTimeout(function() {
         })
 
         // Buy C when the button is clicked
-        $('#send-buy-c').click(function(e){
+        $('#send-buy-c').click(function(e) {
             // for not refresh
             e.preventDefault();
 
@@ -217,15 +217,15 @@ window.setTimeout(function() {
 
             // Ajax Proccess
             $.ajax({
-                url: '<?=BASE_URL?>godmode/signal/buysignal',
+                url: '<?= BASE_URL ?>godmode/signal/buysignal',
                 type: 'POST',
                 data: formData,
-                success: function (ress) {
+                success: function(ress) {
                     // Parse Data
                     let result = JSON.parse(ress)
 
                     // Check if response success
-                    if(result.code == '200'){
+                    if (result.code == '200') {
                         // Sweet Alert
                         Swal.fire({
                             text: `${result.message}`,
@@ -247,7 +247,7 @@ window.setTimeout(function() {
                         $("#buy-c").attr('disabled', true);
                         $("#send-buy-c").attr('disabled', true);
                         $('#cancel-buy-c').removeAttr('disabled');
-                        $("#buy-date-c").text('<?= date('d/m/y | H:i')?>');
+                        $("#buy-date-c").text('<?= date('d/m/y | H:i') ?>');
 
                         // remove attribute input and button sell for enabled
                         $('#sell-c').removeAttr('readonly');
@@ -273,7 +273,7 @@ window.setTimeout(function() {
                             vMin: '0'
                         });
 
-                    }else{
+                    } else {
                         // Sweet Alert
                         Swal.fire({
                             text: `${result.message}`,
@@ -303,7 +303,7 @@ window.setTimeout(function() {
             })
         })
         // Buy D when the button is clicked
-        $('#send-buy-d').click(function(e){
+        $('#send-buy-d').click(function(e) {
             // for not refresh
             e.preventDefault();
 
@@ -316,15 +316,15 @@ window.setTimeout(function() {
 
             // Ajax Proccess
             $.ajax({
-                url: '<?=BASE_URL?>godmode/signal/buysignal',
+                url: '<?= BASE_URL ?>godmode/signal/buysignal',
                 type: 'POST',
                 data: formData,
-                success: function (ress) {
+                success: function(ress) {
                     // Parse Data
                     let result = JSON.parse(ress)
 
                     // Check if response success
-                    if(result.code == '200'){
+                    if (result.code == '200') {
                         // Sweet Alert
                         Swal.fire({
                             text: `${result.message}`,
@@ -348,7 +348,7 @@ window.setTimeout(function() {
                         $("#buy-d").attr('disabled', true);
                         $("#send-buy-d").attr('disabled', true);
                         $('#cancel-buy-d').removeAttr('disabled');
-                        $("#buy-date-d").text('<?= date('d/m/y | H:i')?>');
+                        $("#buy-date-d").text('<?= date('d/m/y | H:i') ?>');
 
                         // remove attribute input and button sell for enabled
                         $('#sell-d').removeAttr('readonly');
@@ -362,7 +362,7 @@ window.setTimeout(function() {
                             vMin: '0'
                         });
 
-                    }else{
+                    } else {
                         // Sweet Alert
                         Swal.fire({
                             text: `${result.message}`,
@@ -399,7 +399,7 @@ window.setTimeout(function() {
             "ajax": {
                 "url": "<?= BASE_URL ?>godmode/signal/list_history_order",
                 "type": "POST",
-                "dataSrc":function (data){
+                "dataSrc": function(data) {
                     let firstSellIndex = null;
                     data.forEach((row, index) => {
                         if (firstSellIndex === null && row.type.toLowerCase().split(" ")[0] === "sell") {
@@ -407,14 +407,15 @@ window.setTimeout(function() {
                         }
                         row.isFirstSell = (index === firstSellIndex); // Add a new key to track
                     });
-                    return data;						
+                    return data;
                 }
             },
-            "columns": [
-                { data: 'type' },
-                { 
-                   data: "entry_price", 
-                   "mRender": function(data, type, full, meta) {
+            "columns": [{
+                    data: 'type'
+                },
+                {
+                    data: "entry_price",
+                    "mRender": function(data, type, full, meta) {
                         if (type === 'display') {
                             return parseFloat(data).toLocaleString('en-US', {
                                 minimumFractionDigits: 0,
@@ -422,11 +423,11 @@ window.setTimeout(function() {
                             });
                         }
                         return data;
-                    } 
+                    }
                 },
-                { 
-                   data: "created_at", 
-                   "mRender": function(data, type, full, meta) {
+                {
+                    data: "created_at",
+                    "mRender": function(data, type, full, meta) {
                         if (type === 'display') {
                             // Convert the date to the desired format
                             var date = new Date(data);
@@ -436,11 +437,11 @@ window.setTimeout(function() {
                             return day + '/' + month + '/' + year;
                         }
                         return data;
-                    } 
+                    }
                 },
-                { 
-                   data: "created_at", 
-                   "mRender": function(data, type, full, meta) {
+                {
+                    data: "created_at",
+                    "mRender": function(data, type, full, meta) {
                         if (type === 'display') {
                             // Extract the time (HH:mm) from the datetime string
                             var date = new Date(data);
@@ -449,24 +450,182 @@ window.setTimeout(function() {
                             return hours + ':' + minutes;
                         }
                         return data;
-                    } 
+                    }
                 },
-                { 
-                   data: null, 
-                   "mRender": function(data, type, full, meta) {
-                       // Only show button for first "Sell" row
+                {
+                    data: null,
+                    "mRender": function(data, type, full, meta) {
+                        // Only show button for first "Sell" row
                         if (full.isFirstSell) {
-                            return '<a href="<?=BASE_URL?>godmode/signal/cancel_sell?id=' + full.id + '&pair_id=' + full.pair_id + 
-                                   '" class="btn btn-sm btn-danger">Cancel</a>';
+                            return '<a href="<?= BASE_URL ?>godmode/signal/cancel_sell?id=' + full.id + '&pair_id=' + full.pair_id +
+                                '" class="btn btn-sm btn-danger">Cancel</a>';
                         }
                         return ''; // Empty for other rows
-                    } 
+                    }
                 },
-                
+
             ],
 
         });
 
     })
-
 </script>
+
+<!-- <script>
+    <?php if (!empty(session('success'))) { ?>
+        setTimeout(function() {
+            Swal.fire({
+                text: `<?= session('success') ?>`,
+                showCloseButton: true,
+                showConfirmButton: false,
+                background: '#E1FFF7',
+                color: '#000000',
+                position: 'top-end',
+                timer: 3000,
+                timerProgressBar: true,
+            });
+        }, 100);
+    <?php } ?>
+
+    <?php if (!empty(session('failed'))) { ?>
+        setTimeout(function() {
+            Swal.fire({
+                text: `<?= session('failed') ?>`,
+                showCloseButton: true,
+                showConfirmButton: false,
+                background: '#FFE4DC',
+                color: '#000000',
+                position: 'top-end',
+                timer: 3000,
+                timerProgressBar: true,
+            });
+        }, 100);
+    <?php } ?>
+
+    // Script untuk menangani nilai BUY dan SELL
+    document.addEventListener('DOMContentLoaded', function() {
+        // Nilai default atau dari server
+        let buyValue = 95000.48;
+        let sellValue = 93000.48;
+
+        // Elemen untuk menampilkan nilai
+        const buyValueElement = document.querySelector('.instruction-buy .instruction-value');
+        const sellValueElement = document.querySelector('.instruction-sell .instruction-value');
+
+        // Fungsi untuk memperbarui tampilan
+        function updateDisplayValues() {
+            if (buyValueElement && sellValueElement) {
+                buyValueElement.textContent = `= $ ${buyValue.toFixed(2)}`;
+                sellValueElement.textContent = `= $ ${sellValue.toFixed(2)}`;
+            }
+        }
+
+        // Inisialisasi tampilan
+        updateDisplayValues();
+
+        // Fungsi untuk menangani tombol OK
+        const okButtons = document.querySelectorAll('.btn-ok');
+        okButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                const row = this.closest('tr');
+                const priceInput = row.querySelector('.signal-price');
+                const statusBox = row.querySelector('.signal-status');
+
+                // Validasi harga
+                if (!priceInput.value || isNaN(priceInput.value)) {
+                    Swal.fire({
+                        text: 'Silakan masukkan harga yang valid',
+                        showCloseButton: true,
+                        showConfirmButton: false,
+                        background: '#FFE4DC',
+                        color: '#000000',
+                        position: 'top-end',
+                        timer: 3000,
+                        timerProgressBar: true,
+                    });
+                    return;
+                }
+
+                // Kirim data ke server (simulasi)
+                console.log('OK clicked, price:', priceInput.value);
+
+                // Update UI
+                priceInput.readOnly = true;
+                statusBox.textContent = 'Pending';
+            });
+        });
+
+        // Fungsi untuk menangani tombol FILL
+        const fillButtons = document.querySelectorAll('.btn-fill');
+        fillButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                const row = this.closest('tr');
+                const statusBox = row.querySelector('.signal-status');
+
+                // Hanya bisa FILL jika status Pending
+                if (statusBox.textContent.trim() !== 'Pending') {
+                    Swal.fire({
+                        text: 'Hanya signal dengan status Pending yang dapat di-Fill',
+                        showCloseButton: true,
+                        showConfirmButton: false,
+                        background: '#FFE4DC',
+                        color: '#000000',
+                        position: 'top-end',
+                        timer: 3000,
+                        timerProgressBar: true,
+                    });
+                    return;
+                }
+
+                // Kirim data ke server (simulasi)
+                console.log('FILL clicked');
+
+                // Update UI
+                statusBox.textContent = 'Filled';
+            });
+        });
+
+        // Fungsi untuk menangani tombol DEL
+        const delButtons = document.querySelectorAll('.btn-del');
+        delButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                const row = this.closest('tr');
+                const priceInput = row.querySelector('.signal-price');
+                const statusBox = row.querySelector('.signal-status');
+
+                // Konfirmasi penghapusan
+                Swal.fire({
+                    title: 'Konfirmasi',
+                    text: 'Apakah Anda yakin ingin menghapus signal ini?',
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#d33',
+                    cancelButtonColor: '#3085d6',
+                    confirmButtonText: 'Ya, hapus!',
+                    cancelButtonText: 'Batal'
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        // Kirim data ke server (simulasi)
+                        console.log('DEL clicked');
+
+                        // Update UI
+                        priceInput.readOnly = false;
+                        priceInput.value = '';
+                        statusBox.textContent = 'Pending';
+
+                        Swal.fire({
+                            text: 'Signal berhasil dihapus',
+                            showCloseButton: true,
+                            showConfirmButton: false,
+                            background: '#E1FFF7',
+                            color: '#000000',
+                            position: 'top-end',
+                            timer: 3000,
+                            timerProgressBar: true,
+                        });
+                    }
+                });
+            });
+        });
+    });
+</script> -->

@@ -23,37 +23,21 @@
                                         <div class="wrapper-addreferral">
                                             <label for="access">Access</label>
                                             <div class="role-wrapper">
-                                                <div class="row">
-                                                    <div class="col-md-4">
-                                                        <div class="role-item">
-                                                            <input type="checkbox" id="access_dashboard" name="access[]" value="Dashboard">
-                                                            <label for="access_dashboard">Dashboard</label>
-                                                        </div>
-                                                        <div class="role-item">
-                                                            <input type="checkbox" id="access_message" name="access[]" value="Message">
-                                                            <label for="access_message">Message</label>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-4">
-                                                        <div class="role-item">
-                                                            <input type="checkbox" id="access_free_member" name="access[]" value="Free Member">
-                                                            <label for="access_free_member">Free Member</label>
-                                                        </div>
-                                                        <div class="role-item">
-                                                            <input type="checkbox" id="access_signal" name="access[]" value="Signal">
-                                                            <label for="access_signal">Signal</label>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-4">
-                                                        <div class="role-item">
-                                                            <input type="checkbox" id="access_referrals" name="access[]" value="Referral">
-                                                            <label for="access_referral">Referral</label>
-                                                        </div>
-                                                        <div class="role-item">
-                                                            <input type="checkbox" id="access_payment" name="access[]" value="Payment">
-                                                            <label for="access_payment">Payment</label>
-                                                        </div>
-                                                    </div>
+                                                <div class="role-item">
+                                                    <input type="checkbox" id="access_dashboard" name="access[]" value="Dashboard">
+                                                    <label for="access_dashboard">Subscription</label>
+                                                </div>
+                                                <div class="role-item">
+                                                    <input type="checkbox" id="access_signal" name="access[]" value="Signal">
+                                                    <label for="access_signal">Signal</label>
+                                                </div>
+                                                <div class="role-item">
+                                                    <input type="checkbox" id="access_free_member" name="access[]" value="Free Member">
+                                                    <label for="access_free_member">Free Member</label>
+                                                </div>
+                                                <div class="role-item">
+                                                    <input type="checkbox" id="access_payment" name="access[]" value="Payment">
+                                                    <label for="access_payment">Payment</label>
                                                 </div>
                                             </div>
                                         </div>
