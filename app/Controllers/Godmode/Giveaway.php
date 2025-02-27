@@ -8,16 +8,22 @@ class Giveaway extends BaseController
 {
     public function __construct()
     {
-        // $session = session();
-        // if(!$session->has('logged_user')){
-        //     header("Location: ". BASE_URL . 'godmode/auth/signin');
-        //     exit();
-        // }
-        // if ($_SESSION["logged_user"]->role!='admin'){
-        //     header('HTTP/1.0 403 Forbidden');
-        //     exit();
-        // }
-        
+        $session = session();
+
+        // Jika belum login, redirect ke halaman signin
+        if (!$session->has('logged_user')) {
+            header("Location: " . BASE_URL . 'member/auth/login');
+            exit();
+        }
+
+        // Mendapatkan data user yang tersimpan (sudah login)
+        $loggedUser = $session->get('logged_user');
+
+        // Pengecekan role: hanya admin yang boleh mengakses halaman ini
+        if ($loggedUser->role !== 'admin') {
+
+            exit();
+        }
     }
     public function index()
     {
@@ -30,23 +36,22 @@ class Giveaway extends BaseController
 
         return view('godmode/layout/admin_wrapper', $mdata);
     }
-    
-    public function get_giveaway(){
+
+    public function get_giveaway()
+    {
         // Call Endpoin Get Total Member
         // $url = URLAPI . "/v1/referral/get_giveaway";
         // $result = satoshiAdmin($url)->result->message;
         // echo json_encode($result);
     }
 
-    public function sendbonus(){
+    public function sendbonus()
+    {
         // Init Data
         $gid    = $this->request->getVar('gid');
         $mdata = [
             'email'   => htmlspecialchars($this->request->getVar('email')),
             'amount'  => htmlspecialchars($this->request->getVar('amount')),
         ];
-
-        
     }
-    
 }

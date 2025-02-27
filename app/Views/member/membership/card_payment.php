@@ -46,68 +46,7 @@
 
                             <form id="payment-form" action="<?= BASE_URL ?>homepage/booking_proccess" method="POST">
                                 <div class="payment-summary">
-                                    <h1 class="fw-bold f-cormorant">Summary Meeting</h1>
-                                    <p class="me-0 pe-0 me-md-5 pe-md-2">
-                                        This is summary for your schedule meeting, before we accept please confirm your payment of <?= (empty($_SESSION["referral"]) ? "EUR 350" : FEEMEETING) ?>
-                                    </p>
-                                    <div class="mt-4 f-poppins pe-4">
-                                        <label for="fname">Full Name</label> <br>
-                                        <label class="fw-bold">
-                                            <?= $_SESSION['client']['fname'] ?>
-                                            <?= $_SESSION['client']['lname'] ?>
-                                        </label>
-                                    </div>
-                                    <div class="mt-3 f-poppins pe-4">
-                                        <label for="fname">Whatsapp mobile number </label> <br>
-                                        <label class="fw-bold">
-                                            <?= $_SESSION['client']['whatsapp'] ?>
-                                        </label>
-                                    </div>
-                                    <div class="mt-3 f-poppins pe-4">
-                                        <label for="fname">Email </label> <br>
-                                        <ul class="email-list">
-                                            <?php foreach ($_SESSION['client']['email'] as $email): ?>
-                                                <li class="fw-bold">
-                                                    <?= $email ?>
-                                                </li>
-                                            <?php endforeach; ?>
-                                        </ul>
-                                    </div>
-                                    <div class="mt-3 f-poppins pe-4">
-                                        <label for="fname">Timezone </label> <br>
-                                        <label class="fw-bold">
-                                            <?= $_SESSION['client']['timezone'] ?>
-                                        </label>
-                                    </div>
-                                    <div class="mt-3 f-poppins pe-4">
-                                        <label for="fname">Schedule</label> <br>
-                                        <label class="fw-bold">
-                                            <?php
-                                            $date = explode('#', $_SESSION['client']['datetime']);
-                                            $date = explode(' ', $date[0]);
-                                            echo $date[0];
-                                            ?>
-                                        </label><br>
-                                        <label class="fw-bold">
-                                            <?php
-                                            $date = explode('#', $_SESSION['client']['datetime']);
-                                            $date = explode(' ', $date[0]);
-                                            echo $date[1];
-                                            ?>
-                                            Until
-                                            <?php
-                                            $date = explode('#', $_SESSION['client']['datetime']);
-                                            $date = explode(' ', $date[1]);
-                                            echo $date[1];
-                                            ?>
-                                        </label>
-                                    </div>
-                                    <div class="mt-3 f-poppins pe-4">
-                                        <label for="fname">Description </label> <br>
-                                        <label class="fw-bold me-4">
-                                            <?= $_SESSION['client']['description'] ?>
-                                        </label>
-                                    </div>
+                                    <h1 class="fw-bold f-cormorant">Summary Membership</h1>
 
                                     <div class="mt-4 f-poppins pe-4">
                                         <small>Please fill your card*</small>

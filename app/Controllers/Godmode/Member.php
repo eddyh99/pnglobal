@@ -8,11 +8,22 @@ class Member extends BaseController
 {
     public function __construct()
     {
-        // $session = session();
-        // if(!$session->has('logged_user')){
-        //     header("Location: ". BASE_URL . 'godmode/auth/signin');
-        //     exit();
-        // }
+        $session = session();
+
+        // Jika belum login, redirect ke halaman signin
+        if (!$session->has('logged_user')) {
+            header("Location: " . BASE_URL . 'member/auth/login');
+            exit();
+        }
+
+        // Mendapatkan data user yang tersimpan (sudah login)
+        $loggedUser = $session->get('logged_user');
+
+        // Pengecekan role: hanya admin yang boleh mengakses halaman ini
+        if ($loggedUser->role !== 'admin') {
+
+            exit();
+        }
     }
 
     public function index()

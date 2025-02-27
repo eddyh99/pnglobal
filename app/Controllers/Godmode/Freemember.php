@@ -6,16 +6,24 @@ use App\Controllers\BaseController;
 
 class Freemember extends BaseController
 {
+    protected $validation;
+
     public function __construct()
     {
         $session = session();
+
+        // Jika belum login, redirect ke halaman signin
         if (!$session->has('logged_user')) {
             header("Location: " . BASE_URL . 'member/auth/login');
             exit();
         }
 
-        if ($_SESSION["logged_user"]->role != 'admin') {
-            header('HTTP/1.0 403 Forbidden');
+        // Mendapatkan data user yang tersimpan (sudah login)
+        $loggedUser = $session->get('logged_user');
+
+        // Pengecekan role: hanya admin yang boleh mengakses halaman ini
+        if ($loggedUser->role !== 'admin') {
+
             exit();
         }
     }

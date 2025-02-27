@@ -62,7 +62,7 @@
                             </div>
                         </div>
                     </a>
-                    <a href="<?= BASE_URL ?>godmode/subscriber" class="statistics">
+                    <a href="" class="statistics">
                         <div class="iq-card">
                             <div class="iq-card-body">
                                 <div class="d-flex flex-column justify-content-center align-items-start">
@@ -77,21 +77,6 @@
                             </div>
                         </div>
                     </a>
-                    <!-- <a href="<?= BASE_URL ?>godmode/message" class="statistics">
-                        <div class="iq-card">
-                            <div class="iq-card-body">
-                                <div class="d-flex flex-column justify-content-center align-items-start">
-                                    <div>
-                                        <h5 class="text-black">Message</h5>
-                                    </div>
-                                    <div class="mt-3 w-100 d-flex justify-content-end">
-                                        <h1 class="text-black fw-bold"><?= @$message; ?></h1>
-                                    </div>
-                                </div>
-                                <div class="disable"></div>
-                            </div>
-                        </div>
-                    </a> -->
                     <a href="" class="statistics">
                         <div class="iq-card">
                             <div class="iq-card-body">
@@ -109,7 +94,7 @@
                     </a>
                 </div>
             </div>
-            <?php if (base64_decode(@$_GET["type"]) != "free_member" && base64_decode(@$_GET["type"]) != "referral_member") { ?>
+            <?php if (base64_decode(@$_GET["type"]) != "free_member") { ?>
                 <div class="col-lg-12 dash-table-totalmember">
                     <h4 class="text-white my-3 text-uppercase fw-bold">Total Member</h4>
                     <table id="table_totalmember" class="table table-striped" style="width:100%">
@@ -136,9 +121,9 @@
                         <thead class="thead_freemember">
                             <tr>
                                 <th>EMAIL</th>
-                                <th>REGISTRATION DATE</th>
+                                <th>REF CODE</th>
+                                <th>START DATE</th>
                                 <th>END DATE</th>
-                                <th>STATUS</th>
                                 <th>DETAIL</th>
                             </tr>
                         </thead>
