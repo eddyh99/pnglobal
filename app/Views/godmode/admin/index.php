@@ -21,6 +21,10 @@
                                             <input type="password" name="password" class="form-control">
                                         </div>
                                         <div class="wrapper-addreferral">
+                                            <label for="alias">Alias</label>
+                                            <input type="text" name="alias" class="form-control">
+                                        </div>
+                                        <div class="wrapper-addreferral">
                                             <label for="access">Access</label>
                                             <div class="role-wrapper">
                                                 <div class="role-item">
