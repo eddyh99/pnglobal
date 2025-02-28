@@ -119,11 +119,11 @@ if ($parts[0] === 'sandbox') {
     define("SECRET_KEY", 'sk_test_51Ph1A4RpjQaOZ7NCuVCzdyyy342tNGnlrfnDyox5YirDorblTYDPP7dXK9K4fGqJazDRwyReh9HnLf5MWS7hOUsA00GtKiFgQQ');
 } else {
     define("URLAPI", 'https://api2.pnglobalinternational.com');
-    
+
     //email live
     define("EMAIL_ONE", 'pnglobal.usa@gmail.com');
     define("EMAIL_TWO", 'robnolfo62@gmail.com');
-    
+
     //STRIPE RIIL
     define("PUBLIC_KEY", 'pk_live_51OHVdwC8KQHLEjXQ88yk2DqcZUQtLIAAWJYumnMwHJC4tQi95Cu514mFtxPD8ezJMOJI6NhTgDy9T5GJJ7dSRyyR00RLGJMXU9');
     define("SECRET_KEY", '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');

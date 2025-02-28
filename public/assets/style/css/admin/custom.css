@@ -1709,3 +1709,101 @@ div.dataTables_wrapper div.dataTables_filter input {
         font-size: 11px;
     }
 }
+
+/* Styling untuk role checkbox */
+.role-wrapper {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    margin-top: 10px;
+    border: 2px solid #bfa573;
+    border-radius: 10px;
+    padding: 15px;
+    background-color: #1e1e1e;
+}
+
+.role-item {
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.role-item input[type='checkbox'] {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+.role-item label {
+    position: relative;
+    padding-left: 35px;
+    cursor: pointer;
+    font-size: 16px;
+    color: #ffffff;
+    margin-bottom: 0;
+    user-select: none;
+    width: 100%;
+}
+
+.role-item label:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 22px;
+    height: 22px;
+    border: 2px solid #bfa573;
+    background-color: transparent;
+    border-radius: 5px;
+}
+
+.role-item input[type='checkbox']:checked + label:before {
+    background-color: #bfa573;
+}
+
+.role-item input[type='checkbox']:checked + label:after {
+    content: '✓';
+    position: absolute;
+    left: 5px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #000;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+/* Responsif untuk role checkbox */
+@media (max-width: 768px) {
+    .role-wrapper {
+        gap: 10px;
+        padding: 12px;
+    }
+
+    .role-item label {
+        font-size: 14px;
+        padding-left: 30px;
+    }
+
+    .role-item label:before {
+        width: 18px;
+        height: 18px;
+    }
+
+    .role-item input[type='checkbox']:checked + label:after {
+        left: 4px;
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 576px) {
+    .role-wrapper {
+        grid-template-columns: 1fr;
+        gap: 8px;
+        padding: 10px;
+    }
+}

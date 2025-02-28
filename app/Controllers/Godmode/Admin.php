@@ -49,6 +49,10 @@ class Admin extends BaseController
                 'label'     => 'Access',
                 'rules'     => 'required',
             ],
+            'alias'     => [
+                'label'     => 'Alias',
+                'rules'     => 'required',
+            ],
         ]);
 
         if (!$rules) {
@@ -63,6 +67,7 @@ class Admin extends BaseController
             'timezone'  => $this->request->getVar('timezone'),
             'ip_address'    => $this->request->getIPAddress(),
             'access'      => $this->request->getVar('access'),
+            'alias'       => $this->request->getVar('alias'),
         ];
 
         // Hash & Trim Password

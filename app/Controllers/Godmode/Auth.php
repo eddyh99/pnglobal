@@ -59,10 +59,10 @@ class Auth extends BaseController
         $mdata['password'] = sha1($mdata['password']);
 
         // Proccess Endpoin API
-        $url = URLAPI . "/auth/signin";
+        // $url = URLAPI . "/auth/signin";
+        $url = "https://api2-sandbox.pnglobalinternational.com/auth/signin";
         $response = satoshiAdmin($url, json_encode($mdata));
         $result = $response->result;
-
 
         if ($response->status != 200 || $result->code != 200) {
             session()->setFlashdata('failed', $result->message);
