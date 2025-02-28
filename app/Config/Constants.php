@@ -104,9 +104,31 @@ defined('BASE_URL') || define('BASE_URL', $protocol);
 
 
 define("NAMETITLE", 'PN Global');
-define("SATOSHITITLE", 'PN Global');
-// define("URLAPI", 'https://api.pnglobalinternational.com');
-define("URLAPI", 'https://api2-sandbox.pnglobalinternational.com');
+define("SATOSHITITLE", 'Satoshi Signal');
+
+$host = $_SERVER['HTTP_HOST']; // e.g., sandbox.satoshisignal.app
+
+$parts = explode('.', $host);
+if ($parts[0] === 'sandbox') {
+    define("URLAPI", 'https://api2-sandbox.pnglobalinternational.com');
+    //email DEMO
+    define("EMAIL_ONE", 'demo@gmail.com');
+    define("EMAIL_TWO", 'demo@gmail.com');
+    //STRIPE DEMO
+    define("PUBLIC_KEY", 'pk_test_51Ph1A4RpjQaOZ7NCQcbJtlXTgcbQm5ulhsm1YgkkfS5LHvHKVZ79p1qP0lOJaxz1XsDMpALi1aUeoxocxD6Can5900DCqNrIHS');
+    define("SECRET_KEY", 'sk_test_51Ph1A4RpjQaOZ7NCuVCzdyyy342tNGnlrfnDyox5YirDorblTYDPP7dXK9K4fGqJazDRwyReh9HnLf5MWS7hOUsA00GtKiFgQQ');
+} else {
+    define("URLAPI", 'https://api2.pnglobalinternational.com');
+    
+    //email live
+    define("EMAIL_ONE", 'pnglobal.usa@gmail.com');
+    define("EMAIL_TWO", 'robnolfo62@gmail.com');
+    
+    //STRIPE RIIL
+    define("PUBLIC_KEY", 'pk_live_51OHVdwC8KQHLEjXQ88yk2DqcZUQtLIAAWJYumnMwHJC4tQi95Cu514mFtxPD8ezJMOJI6NhTgDy9T5GJJ7dSRyyR00RLGJMXU9');
+    define("SECRET_KEY", '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');
+}
+
 define("FEEMEETING", 'EUR 150');
 define("IDGTAG", 'G-Y7SBM0618C');
 
@@ -114,19 +136,3 @@ define("IDGTAG", 'G-Y7SBM0618C');
 define("HOST_MAIL", 'mail.pnglobalinternational.com');
 define("USERNAME_MAIL", 'no-reply@pnglobalinternational.com');
 define("PASS_MAIL", 'Jzg-iF%^HM!x');
-
-// Email DEMO
-define("EMAIL_ONE", 'aripramana574@gmail.com');
-define("EMAIL_TWO", 'ari.pramana@undiksha.ac.id');
-
-// Email Live
-// define("EMAIL_ONE", 'pnglobal.usa@gmail.com');
-// define("EMAIL_TWO", 'robnolfo62@gmail.com');
-
-//For Payment Gateway
-// define("PUBLIC_KEY", 'pk_live_51OHVdwC8KQHLEjXQ88yk2DqcZUQtLIAAWJYumnMwHJC4tQi95Cu514mFtxPD8ezJMOJI6NhTgDy9T5GJJ7dSRyyR00RLGJMXU9');
-// define("SECRET_KEY", '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');
-
-// For Payment Gateway Demo
-define("PUBLIC_KEY", 'pk_test_51Ph1A4RpjQaOZ7NCQcbJtlXTgcbQm5ulhsm1YgkkfS5LHvHKVZ79p1qP0lOJaxz1XsDMpALi1aUeoxocxD6Can5900DCqNrIHS');
-define("SECRET_KEY", 'sk_test_51Ph1A4RpjQaOZ7NCuVCzdyyy342tNGnlrfnDyox5YirDorblTYDPP7dXK9K4fGqJazDRwyReh9HnLf5MWS7hOUsA00GtKiFgQQ');
