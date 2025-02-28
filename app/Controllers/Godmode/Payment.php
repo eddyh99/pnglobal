@@ -46,18 +46,20 @@ class Payment extends BaseController
         return json_encode($data);
     }
 
-    public function detailpayment($id)
+    public function detailpayment($id, $email)
     {
+        $email = base64_decode($email);
+
         // Call Get Detail Request
         $url = URLAPI . "/v1/withdraw/detail_request_payment?id=" . $id;
         $resultPayment = satoshiAdmin($url)->result->message;
-
         $mdata = [
-            'title'     => 'Detail Member - ' . NAMETITLE,
+            'title'     => 'Detail Payment - ' . NAMETITLE,
             'content'   => 'godmode/payment/detail_payment',
             'extra'     => 'godmode/payment/js/_js_detailpayment',
             'active_payment'  => 'active',
             'payment'    => $resultPayment,
+            'email'    => $email,
         ];
 
         return view('godmode/layout/admin_wrapper', $mdata);
