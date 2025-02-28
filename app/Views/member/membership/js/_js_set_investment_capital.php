@@ -110,8 +110,8 @@
             confirmButton.textContent = 'Memproses...';
             confirmButton.disabled = true;
 
-            // Kirim data ke server menggunakan fetch API
-            fetch('/member/membership/confirm_payment', {
+            // Kirim data ke server untuk disimpan dalam session
+            fetch('/member/membership/save_payment_to_session', {
                     method: 'POST',
                     body: formData
                 })
@@ -123,16 +123,19 @@
                 })
                 .then(data => {
                     if (data.status === 'success') {
-                        alert(`Pembayaran berhasil dikonfirmasi untuk email: ${data.data.email}!`);
-                        // Redirect ke halaman lain jika diperlukan
-                        window.location.href = '/member/membership';
+                        // Redirect ke halaman payment option
+                        window.location.href = '/member/membership/membership_payment_option';
                     } else {
                         alert('Terjadi kesalahan: ' + data.message);
+                        confirmButton.textContent = originalText;
+                        confirmButton.disabled = false;
                     }
                 })
                 .catch(error => {
-                    console.error('Error confirming payment:', error);
-                    alert('Terjadi kesalahan saat mengkonfirmasi pembayaran. Silakan coba lagi.');
+                    console.error('Error saving payment data:', error);
+                    alert('Terjadi kesalahan saat menyimpan data pembayaran. Silakan coba lagi.');
+                    confirmButton.textContent = originalText;
+                    confirmButton.disabled = false;
                 });
         };
 

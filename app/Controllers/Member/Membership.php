@@ -170,14 +170,83 @@ class Membership extends BaseController
 
     public function payment_option()
     {
+        $session = session();
+
+        // Periksa apakah ada data pembayaran dalam session
+        if (!$session->has('payment_data')) {
+            return redirect()->to('/member/membership/set_investment_capital');
+        }
+
+        $paymentData = $session->get('payment_data');
+
         $mdata = [
             'title'     => 'Payment Option - ' . NAMETITLE,
             'content'   => 'member/membership/payment_option',
             'extra'     => 'member/membership/js/_js_payment_option',
             'active_membership' => 'active',
+            'payment_data' => $paymentData,
         ];
 
         return view('member/layout/dashboard_wrapper', $mdata);
+    }
+
+    /**
+     * Menyimpan data pembayaran ke dalam session
+     */
+    public function save_payment_to_session()
+    {
+        try {
+            // Validasi request
+            $rules = [
+                'amount' => 'required|numeric|greater_than[0]',
+                'total_capital' => 'required|numeric|greater_than[0]',
+            ];
+
+            if (!$this->validate($rules)) {
+                return $this->response->setJSON([
+                    'status' => 'error',
+                    'message' => $this->validator->getErrors()
+                ])->setStatusCode(400);
+            }
+
+            // Ambil data dari request dan pastikan tipe datanya numerik
+            $amount = (float) $this->request->getPost('amount');
+            $totalCapital = (float) $this->request->getPost('total_capital');
+
+            // Ambil email dari session
+            $session = session();
+            if (!$session->has('logged_user')) {
+                return $this->response->setJSON([
+                    'status' => 'error',
+                    'message' => 'User tidak terautentikasi'
+                ])->setStatusCode(401);
+            }
+
+            $loggedUser = $session->get('logged_user');
+            $email = $loggedUser->email;
+
+            // Simpan data ke dalam session
+            $paymentData = [
+                'email' => $email,
+                'amount' => $amount,
+                'total_capital' => $totalCapital,
+                'timestamp' => date('Y-m-d H:i:s')
+            ];
+
+            $session->set('payment_data', $paymentData);
+
+            return $this->response->setJSON([
+                'status' => 'success',
+                'message' => 'Data pembayaran berhasil disimpan',
+                'data' => $paymentData
+            ]);
+        } catch (\Exception $e) {
+            log_message('error', 'Exception: ' . $e->getMessage());
+            return $this->response->setJSON([
+                'status' => 'error',
+                'message' => 'Terjadi kesalahan internal: ' . $e->getMessage()
+            ])->setStatusCode(500);
+        }
     }
 
     public function usdt_payment()
