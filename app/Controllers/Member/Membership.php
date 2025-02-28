@@ -27,11 +27,16 @@ class Membership extends BaseController
 
     public function index()
     {
+        $session = session();
+        $loggedUser = $session->get('logged_user');
+        $refcode = $loggedUser->refcode;
+
         $mdata = [
             'title'     => 'Membership - ' . SATOSHITITLE,
             'content'   => 'member/membership/index',
             'extra'     => 'member/membership/js/_js_index',
             'active_membership' => 'active',
+            'refcode' => $refcode,
         ];
 
         return view('member/layout/dashboard_wrapper', $mdata);

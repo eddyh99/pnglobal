@@ -28,11 +28,16 @@ class Withdraw extends BaseController
 
     public function index()
     {
+        $session = session();
+        $loggedUser = $session->get('logged_user');
+        $refcode = $loggedUser->refcode;
+
         $mdata = [
             'title' => 'Withdraw - ' . SATOSHITITLE,
             'content' => 'member/withdraw/index',
             'extra' => 'member/withdraw/js/_js_index',
             'active_withdraw' => 'active',
+            'refcode' => $refcode,
         ];
 
         return view('member/layout/dashboard_wrapper', $mdata);

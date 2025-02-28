@@ -18,13 +18,13 @@
                 data: 'email'
             },
             {
-                data: 'requested_date'
+                data: 'requested_at'
             },
             {
                 data: 'amount'
             },
             {
-                data: 'method'
+                data: 'withdraw_type'
             },
             {
                 data: null,

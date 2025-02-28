@@ -6,9 +6,14 @@
         success: function(response) {
             // Cek jika response berhasil dan memiliki properti message.balance
             if (response && response.code === 200 && response.message && typeof response.message.balance !== "undefined") {
-                $(".custom-card.left-card .card-bottom").text("$" + response.message.balance);
+                // Format angka: hilangkan koma desimal dan tambahkan pemisah ribuan
+                var balance = parseFloat(response.message.balance);
+                var formattedBalance = "$ " + balance.toLocaleString('en-US', {
+                    maximumFractionDigits: 0
+                });
+                $(".custom-card.left-card .card-bottom").text(formattedBalance);
             } else {
-                $(".custom-card.left-card .card-bottom").text("$0");
+                $(".custom-card.left-card .card-bottom").text("$ 0");
             }
         },
         error: function(xhr, status, error) {
