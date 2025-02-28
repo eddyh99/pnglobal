@@ -30,11 +30,25 @@ class Dashboard extends BaseController
     public function index()
     {
 
+        $session = session();
+
+        // Jika belum login, redirect ke halaman signin
+        if (!$session->has('logged_user')) {
+            header("Location: " . BASE_URL . 'member/auth/login');
+            exit();
+        }
+
+        // Mendapatkan data user yang tersimpan (sudah login)
+        $loggedUser = $session->get('logged_user');
+        // dd($loggedUser);
+
         $mdata = [
             'title'     => 'Dashboard - ' . SATOSHITITLE,
             'content'   => 'member/dashboard/index',
             'extra'     => 'member/dashboard/js/_js_index',
             'active_dash'    => 'active',
+            'capital' => $loggedUser->initial_capital,
+            'refcode' => $loggedUser->refcode,
         ];
         return view('member/layout/dashboard_wrapper', $mdata);
     }

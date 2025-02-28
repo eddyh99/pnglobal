@@ -36,8 +36,8 @@
                         <div class="referral-card">
                             <div class="referral-link text-white">
                                 Referral link:
-                                <a href="https://pnglobalinternational.com/referral-blablabla" target="_blank">
-                                    https://pnglobalinternational.com/referral-blablabla
+                                <a href="https://pnglobalinternational.com/<?= $refcode ?>" target="_blank">
+                                    https://pnglobalinternational.com/<?= $refcode ?>
                                 </a>
                             </div>
                             <div class="referral-qr">
@@ -68,7 +68,7 @@
                                 Capital This Periode
                             </div>
                             <div class="card-row card-bottom">
-                                $ 10,000
+                                <?= '$ ' . number_format($capital, 0, '.', ',') ?>
                             </div>
                         </div>
                     </div>

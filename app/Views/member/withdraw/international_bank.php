@@ -82,7 +82,7 @@
                                     <div class="wrapper-addreferral">
                                         <label for="amount">Amount To Withdraw</label>
                                         <input type="number" name="amount" class="form-control">
-                                    </div>Ka
+                                    </div>
                                     <div class="wrapper-addreferral">
                                         <label for="recipient">Recipient Name</label>
                                         <input type="text" name="recipient" class="form-control">
