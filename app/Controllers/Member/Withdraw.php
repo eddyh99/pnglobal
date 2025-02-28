@@ -113,6 +113,10 @@ class Withdraw extends BaseController
     public function request_withdraw()
     {
         $rules = $this->validate([
+            'type' => [
+                'label' => 'Type',
+                'rules' => 'required|in_list[fiat,usdt]'
+            ],
             'recipient' => [
                 'label' => 'Recipient',
                 'rules' => 'permit_empty'
@@ -156,7 +160,7 @@ class Withdraw extends BaseController
 
         $mdata = [
             'amount' => $this->request->getVar('amount'),
-            'type' => 'fiat',
+            'type' => $this->request->getVar('type'),
             'member_id' => $member_id,
             'recipient' => $this->request->getVar('recipient'),
             'account_number' => $this->request->getVar('account_number'),
@@ -170,9 +174,16 @@ class Withdraw extends BaseController
         $url = URLAPI . "/v1/withdraw/request_payment";
         $result = satoshiAdmin($url, json_encode($mdata))->result;
 
-        return $this->response->setJSON([
-            'code' => $result->code,
-            'message' => $result->message
-        ]);
+        // Jika kode respons adalah 201, redirect ke halaman withdraw
+        if ($result->code == 201) {
+            return redirect()->to(BASE_URL . 'member/withdraw')->with('success', $result->message);
+        } else {
+            return redirect()->to(BASE_URL . 'member/withdraw')->with('error', $result->message);
+        }
+
+        // return $this->response->setJSON([
+        //     'code' => $result->code,
+        //     'message' => $result->message
+        // ]);
     }
 }

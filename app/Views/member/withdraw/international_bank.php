@@ -79,6 +79,7 @@
                         <div class="main-send-signal d-flex flex-column align-items-center justify-content-center">
                             <div class="row w-100">
                                 <div class="form-addreferral col-8 mx-auto">
+                                    <input type="hidden" name="type" value="fiat">
                                     <!-- <div class="wrapper-addreferral">
                                         <label for="amount">Amount To Withdraw</label>
                                         <input type="number" name="amount" class="form-control">
