@@ -59,8 +59,7 @@ class Auth extends BaseController
         $mdata['password'] = sha1($mdata['password']);
 
         // Proccess Endpoin API
-        // $url = URLAPI . "/auth/signin";
-        $url = "https://api2-sandbox.pnglobalinternational.com/auth/signin";
+        $url = URLAPI . "/auth/signin";
         $response = satoshiAdmin($url, json_encode($mdata));
         $result = $response->result;
 

@@ -61,11 +61,11 @@
             }
 
             // Modifikasi timezone sebelum submit untuk menghindari escape karakter
-            var tzInput = document.getElementById('timezone');
-            if (tzInput) {
-                // Ganti karakter / dengan karakter lain yang tidak perlu di-escape
-                tzInput.value = tzInput.value.replace(/\//g, '|');
-            }
+            // var tzInput = document.getElementById('timezone');
+            // if (tzInput) {
+            //     // Ganti karakter / dengan karakter lain yang tidak perlu di-escape
+            //     tzInput.value = tzInput.value.replace(/\//g, '|');
+            // }
         });
     });
 

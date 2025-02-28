@@ -77,6 +77,8 @@ class Admin extends BaseController
         $url = URLAPI . "/v1/member/add_admin";
         $result = satoshiAdmin($url, $json)->result;
 
+        // dd($result);
+
         if ($result->code == '201') {
             session()->setFlashdata('success', 'Admin created successfully');
             return redirect()->to(BASE_URL . 'godmode/admin');

@@ -1716,10 +1716,9 @@ div.dataTables_wrapper div.dataTables_filter input {
     grid-template-columns: repeat(2, 1fr);
     gap: 15px;
     margin-top: 10px;
-    border: 2px solid #bfa573;
+    border: 1px solid #bfa573;
     border-radius: 10px;
     padding: 15px;
-    background-color: #1e1e1e;
 }
 
 .role-item {
@@ -1806,4 +1805,134 @@ div.dataTables_wrapper div.dataTables_filter input {
         gap: 8px;
         padding: 10px;
     }
+}
+
+/* Card Full Width dengan 3 row (header, detail, dan footer) – Kelas unik menggunakan prefix "binance-" */
+.binance-fullcard {
+    width: 100%;
+    border: 2px solid #bfa573;
+    border-radius: 10px;
+    margin-bottom: 1rem;
+    padding: 1rem;
+}
+
+.binance-fullcard-header {
+    font-weight: bold;
+    color: #bfa573;
+    padding: 8px 20px;
+    text-align: center;
+}
+
+/* Grid container untuk binance detail card dengan gap antar kolom dan baris */
+.binance-detailcard {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.5rem; /* Gap 1rem akan diterapkan antara label dan value serta antar row */
+    margin-top: 1rem;
+}
+
+/* Grid container untuk wallet detail card dengan gap antar kolom dan baris */
+.wallet-detailcard {
+    display: grid;
+    grid-template-columns: minmax(150px, 1fr) minmax(300px, 3fr);
+    gap: 0.5rem; /* Gap 0.5rem akan diterapkan antara label dan value serta antar row */
+    margin: 1rem 0;
+    width: 90%; /* Membatasi lebar keseluruhan card */
+    max-width: 800px; /* Maksimum lebar */
+}
+
+/* Styling setiap item detail */
+.binance-detailcard > div,
+.wallet-detailcard > div {
+    padding: 8px 20px;
+    border: 1px solid #bfa573;
+    display: flex;
+    align-items: center;
+    margin: 0;
+}
+
+/* Atur margin khusus untuk label dan value */
+.binance-detailcard .label {
+    margin-left: 5rem;
+    margin-right: 0;
+    color: #bfa573;
+}
+
+/* Label untuk wallet-detailcard dengan margin yang berbeda */
+.wallet-detailcard .label {
+    margin-left: 0;
+    margin-right: 0;
+    color: #bfa573;
+    justify-content: start;
+    text-align: left;
+    font-weight: bold;
+}
+
+/* Label untuk wallet-detailcard dengan margin yang berbeda */
+.wallet-detailcard .value {
+    margin-left: 0;
+    margin-right: 0;
+    color: #bfa573;
+    justify-content: start;
+    text-align: left;
+    font-weight: bold;
+}
+
+.binance-fullcard-footer {
+    padding: 10px 20px;
+    text-align: center;
+}
+
+.binance-fullcard-footer .edit-btn {
+    background: linear-gradient(90deg, #b48b3d 0%, #bfa573 100%);
+    color: black;
+    border: none;
+    padding: 2px 20px;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.binance-fullcard-footer .edit-btn:disabled {
+    background-color: #575757;
+    color: black;
+    border: none;
+    padding: 2px 20px;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+/* Row button baru di bawah header Connect Binance API */
+.binance-button-row {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    gap: 1rem; /* Jarak antar button, bisa disesuaikan */
+    margin: 0 0 1rem 0; /* Optional: jarak atas */
+}
+
+.binance-button-row button {
+    border: 1px solid #bfa573;
+    background: transparent;
+    color: #000;
+    /* background-color: #bfa573; */
+    border-radius: 7px;
+    background: linear-gradient(90deg, #b48b3d 0%, #bfa573 100%);
+    border-radius: 5px;
+    padding: 5px 10px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+/* Container yang membungkus seluruh checkbox dengan border */
+.role-wrapper {
+    grid-template-columns: repeat(3, 1fr); /* Dua kolom sama lebar */
+    gap: 1rem;
+    width: 100%;
+    padding: 1rem;
+    border: 1px solid #bfa573;
+    border-radius: 5px;
 }

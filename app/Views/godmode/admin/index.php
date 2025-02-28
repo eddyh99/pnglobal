@@ -28,19 +28,19 @@
                                             <label for="access">Access</label>
                                             <div class="role-wrapper">
                                                 <div class="role-item">
-                                                    <input type="checkbox" id="access_dashboard" name="access[]" value="Dashboard">
-                                                    <label for="access_dashboard">Subscription</label>
+                                                    <input type="checkbox" id="access_dashboard" name="access[]" value="subscriber">
+                                                    <label for="access_dashboard">Subscriber</label>
                                                 </div>
                                                 <div class="role-item">
-                                                    <input type="checkbox" id="access_signal" name="access[]" value="Signal">
+                                                    <input type="checkbox" id="access_signal" name="access[]" value="signal">
                                                     <label for="access_signal">Signal</label>
                                                 </div>
                                                 <div class="role-item">
-                                                    <input type="checkbox" id="access_free_member" name="access[]" value="Free Member">
+                                                    <input type="checkbox" id="access_free_member" name="access[]" value="freemember">
                                                     <label for="access_free_member">Free Member</label>
                                                 </div>
                                                 <div class="role-item">
-                                                    <input type="checkbox" id="access_payment" name="access[]" value="Payment">
+                                                    <input type="checkbox" id="access_payment" name="access[]" value="payment">
                                                     <label for="access_payment">Payment</label>
                                                 </div>
                                             </div>
