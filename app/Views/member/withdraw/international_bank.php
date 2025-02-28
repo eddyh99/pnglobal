@@ -89,8 +89,8 @@
                                         <input type="text" name="recipient" class="form-control">
                                     </div>
                                     <div class="wrapper-addreferral">
-                                        <label for="account_number">Account Number</label>
-                                        <input type="text" name="account_number" class="form-control">
+                                        <label for="wallet_address">Account Number</label>
+                                        <input type="text" name="wallet_address" class="form-control">
                                     </div>
                                     <div class="wrapper-addreferral">
                                         <label for="swift_code">SWIFT Code</label>
@@ -108,7 +108,7 @@
                                         <input type="text" id="postal_code" class="form-control" placeholder="Postal Code">
                                     </div>
                                     <!-- Field tersembunyi untuk menggabungkan nilai address -->
-                                    <input type="hidden" name="wallet_address" id="wallet_address">
+                                    <input type="hidden" name="address" id="address">
                                     <div class="wrapper-addreferral d-flex justify-content-center">
                                         <button type="submit" class="btn btn-primary text-black">Confirm</button>
                                     </div>

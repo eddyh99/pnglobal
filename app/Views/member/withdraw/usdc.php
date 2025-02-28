@@ -87,7 +87,7 @@
                                         </div> -->
                                         <div class="wrapper-addreferral">
                                             <label for="wallet_address">Wallet Address</label>
-                                            <input type="text" name="address" class="form-control">
+                                            <input type="text" name="wallet_address" class="form-control">
                                         </div>
                                         <div class="wrapper-addreferral">
                                             <label for="network">Network</label>

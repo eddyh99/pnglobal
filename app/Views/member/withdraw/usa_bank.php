@@ -90,8 +90,8 @@
                                             <input type="text" name="recipient" class="form-control">
                                         </div>
                                         <div class="wrapper-addreferral">
-                                            <label for="account_number">Account Number</label>
-                                            <input type="text" name="account_number" class="form-control">
+                                            <label for="wallet_address">Account Number</label>
+                                            <input type="text" name="wallet_address" class="form-control">
                                         </div>
                                         <div class="wrapper-addreferral">
                                             <label for="routing_number">Routing Number</label>

@@ -121,10 +121,6 @@ class Withdraw extends BaseController
                 'label' => 'Recipient',
                 'rules' => 'permit_empty'
             ],
-            'account_number' => [
-                'label' => 'Account Number',
-                'rules' => 'permit_empty'
-            ],
             'routing_number' => [
                 'label' => 'Routing Number',
                 'rules' => 'permit_empty'
@@ -135,6 +131,10 @@ class Withdraw extends BaseController
             ],
             'swift_code' => [
                 'label' => 'SWIFT Code',
+                'rules' => 'permit_empty'
+            ],
+            'wallet_address' => [
+                'label' => 'Wallet Address',
                 'rules' => 'permit_empty'
             ],
             'address' => [
@@ -163,11 +163,11 @@ class Withdraw extends BaseController
             'type' => $this->request->getVar('type'),
             'member_id' => $member_id,
             'recipient' => $this->request->getVar('recipient'),
-            'account_number' => $this->request->getVar('account_number'),
             'routing_number' => $this->request->getVar('routing_number'),
             'account_type' => $this->request->getVar('account_type'),
             'swift_code' => $this->request->getVar('swift_code'),
-            'wallet_address' => $this->request->getVar('address'),
+            'wallet_address' => $this->request->getVar('wallet_address'),
+            'address' => $this->request->getVar('address'),
             'network' => $this->request->getVar('network'),
         ];
 
