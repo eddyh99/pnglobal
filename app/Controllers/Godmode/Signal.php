@@ -8,17 +8,24 @@ class Signal extends BaseController
 {
     public function __construct()
     {
-        // $session = session();
-        // if(!$session->has('logged_user')){
-        //     header("Location: ". BASE_URL . 'godmode/auth/signin');
-        //     exit();
-        // }
-        // if ($_SESSION["logged_user"]->role=='member'){
-        //     header('HTTP/1.0 403 Forbidden');
-        //     exit();
-        // }
+        $session = session();
+
+        // Jika belum login, redirect ke halaman signin
+        if (!$session->has('logged_user')) {
+            header("Location: " . BASE_URL . 'member/auth/login');
+            exit();
+        }
+
+        // Mendapatkan data user yang tersimpan (sudah login)
+        $loggedUser = $session->get('logged_user');
+
+        // Pengecekan role: hanya admin yang boleh mengakses halaman ini
+        if ($loggedUser->role !== 'admin') {
+
+            exit();
+        }
     }
-    
+
     public function index()
     {
         // Call Endpoin read signal
@@ -64,33 +71,33 @@ class Signal extends BaseController
         $buy_d = array();
 
         // Looping for get type of buy
-        foreach($result as $dt){
+        foreach ($result as $dt) {
             // Type Buy A
-            if($dt->type == 'Buy A'){
+            if ($dt->type == 'Buy A') {
                 $buy_a['id'] = $dt->id;
                 $buy_a['type'] = $dt->type;
                 $buy_a['entry_price'] = intval($dt->entry_price);
                 $buy_a['pair_id'] = $dt->pair_id;
                 $buy_a['created_at'] = $dt->created_at;
 
-            // Type Buy B
-            }else if($dt->type == 'Buy B'){
+                // Type Buy B
+            } else if ($dt->type == 'Buy B') {
                 $buy_b['id'] = $dt->id;
                 $buy_b['type'] = $dt->type;
                 $buy_b['entry_price'] = intval($dt->entry_price);
                 $buy_b['pair_id'] = $dt->pair_id;
                 $buy_b['created_at'] = $dt->created_at;
 
-            // Type Buy C
-            }else if($dt->type == 'Buy C'){
+                // Type Buy C
+            } else if ($dt->type == 'Buy C') {
                 $buy_c['id'] = $dt->id;
                 $buy_c['type'] = $dt->type;
                 $buy_c['entry_price'] = intval($dt->entry_price);
                 $buy_c['pair_id'] = $dt->pair_id;
                 $buy_c['created_at'] = $dt->created_at;
-            
-            // Type Buy D
-            }else if($dt->type == 'Buy D'){
+
+                // Type Buy D
+            } else if ($dt->type == 'Buy D') {
                 $buy_d['id'] = $dt->id;
                 $buy_d['type'] = $dt->type;
                 $buy_d['entry_price'] = intval($dt->entry_price);
@@ -118,9 +125,9 @@ class Signal extends BaseController
         // initialitation variable dengan tipe data array
         $newarray = [];
         $tempGroup = [];
- 
+
         // Looping for grouping per period, pembatas field is Buy A again
-        foreach($resultActive as $key => $dt){
+        foreach ($resultActive as $key => $dt) {
             $temp = (object) [
                 'id' => $dt->id,
                 'type' => $dt->type,
@@ -132,43 +139,42 @@ class Signal extends BaseController
 
             array_push($tempGroup,  $temp);
 
-            if($dt->type == 'Buy A'){
+            if ($dt->type == 'Buy A') {
                 array_push($newarray, $tempGroup);
                 $tempGroup = [];
                 // stop hanya index ke 0
-                break; 
+                break;
             }
         }
-  
+
         // For get instruction last order
         $order = '';
         $lastdate = '';
         $temp_price = '';
-        foreach($newarray[0] as $key => $dt){
+        foreach ($newarray[0] as $key => $dt) {
 
             $type = explode(" ", $dt->type);
 
-            if($key == 0){
+            if ($key == 0) {
                 $order = $dt->type;
                 $lastdate = $dt->created_at;
                 $temp_price = $dt->entry_price;
 
-                if($type[0] == 'Buy'){
+                if ($type[0] == 'Buy') {
                     $order = $dt->type;
                     $lastdate = $dt->created_at;
                     break;
                 }
             }
 
-            if($type[0] == 'Sell' && $dt->entry_price == $temp_price){
+            if ($type[0] == 'Sell' && $dt->entry_price == $temp_price) {
                 $order = $dt->type;
                 $lastdate = $dt->created_at;
             }
 
-            if($type[0] == 'Buy'){
+            if ($type[0] == 'Buy') {
                 break;
             }
-
         }
 
         // echo '<pre>'.print_r($buy_d,true).'</pre>';
@@ -209,7 +215,7 @@ class Signal extends BaseController
         ]);
 
         // Checking Validation
-        if(!$rules){
+        if (!$rules) {
             echo json_encode($this->validation->listErrors());
             exit();
         }
@@ -223,7 +229,7 @@ class Signal extends BaseController
 
         // Change format price
         $mdata['entry'] = str_replace(',', '', $mdata['entry']);
-        
+
         // Proccess Call Endpoin API
         // $url = URLAPI . "/v1/signal/sendsignal";
         // $response = satoshiAdmin($url, json_encode($mdata));
@@ -246,7 +252,7 @@ class Signal extends BaseController
         ]);
 
         // Checking Validation
-        if(!$rules){
+        if (!$rules) {
             session()->setFlashdata('failed', $this->validation->listErrors());
             return redirect()->to(BASE_URL . 'godmode/signal');
         }
@@ -271,8 +277,8 @@ class Signal extends BaseController
         $result = null;
 
         // Check Condition Signal Type
-        if($typesignal == 'Sell A'){
-            foreach($readsignal as $key => $val){
+        if ($typesignal == 'Sell A') {
+            foreach ($readsignal as $key => $val) {
                 // Assign value sell signal
                 $mdata['type'] = 'Sell ' . $alphabet[$key];
                 $mdata['pair_id'] = $val->id;
@@ -282,10 +288,10 @@ class Signal extends BaseController
                 $result = satoshiAdmin($url, json_encode($mdata))->result;
                 sleep(1);
             }
-        }else if($typesignal == 'Sell B'){
+        } else if ($typesignal == 'Sell B') {
             // initial Flag Buy B
             $startCheck = false;
-            foreach($readsignal as $key => $val){
+            foreach ($readsignal as $key => $val) {
                 // Get Flag Buy B
                 if ($val->type === 'Buy B') {
                     $startCheck = true;
@@ -303,10 +309,10 @@ class Signal extends BaseController
                     sleep(1);
                 }
             }
-        }else if($typesignal == 'Sell C'){
+        } else if ($typesignal == 'Sell C') {
             // initial Flag Buy C
             $startCheck = false;
-            foreach($readsignal as $key => $val){
+            foreach ($readsignal as $key => $val) {
                 // Get Flag Buy C
                 if ($val->type === 'Buy C') {
                     $startCheck = true;
@@ -322,12 +328,12 @@ class Signal extends BaseController
                     $url = URLAPI . "/v1/signal/sendsignal";
                     $result = satoshiAdmin($url, json_encode($mdata))->result;
                     sleep(1);
+                }
             }
-            }
-        }else if($typesignal == 'Sell D'){
+        } else if ($typesignal == 'Sell D') {
             // initial Flag Buy D
             $startCheck = false;
-            foreach($readsignal as $key => $val){
+            foreach ($readsignal as $key => $val) {
                 // Get Flag Buy D
                 if ($val->type === 'Buy D') {
                     $startCheck = true;
@@ -346,10 +352,10 @@ class Signal extends BaseController
             }
         }
 
-        if($result->code != '200') {
+        if ($result->code != '200') {
             session()->setFlashdata('failed', $result->message);
             return redirect()->to(BASE_URL . 'godmode/signal');
-        }else{
+        } else {
             session()->setFlashdata('success', $result->message);
             return redirect()->to(BASE_URL . 'godmode/signal');
         }
@@ -368,25 +374,25 @@ class Signal extends BaseController
         $signal_id = htmlspecialchars($this->request->getVar('signal_id'));
         // $url = URLAPI . "/v1/signal/cancelsignal?id=".$signal_id;
         // $result = satoshiAdmin($url)->result->message;
-        if($result->code != '200') {
+        if ($result->code != '200') {
             session()->setFlashdata('failed', $result->message);
             return redirect()->to(BASE_URL . 'godmode/signal');
-        }else{
+        } else {
             session()->setFlashdata('success', $result->message);
             return redirect()->to(BASE_URL . 'godmode/signal');
         }
     }
-    
+
     public function cancel_sell()
     {
         $signal_id  = htmlspecialchars($_GET['id']);
         $pair_id    = htmlspecialchars($_GET['pair_id']);
         // $url = URLAPI . "/v1/signal/cancel_sell?id=".$signal_id."&pair_id=".$pair_id;
         // $result = satoshiAdmin($url)->result->message;
-        if($result->code != '200') {
+        if ($result->code != '200') {
             session()->setFlashdata('failed', $result->message);
             return redirect()->to(BASE_URL . 'godmode/signal');
-        }else{
+        } else {
             session()->setFlashdata('success', $result->message);
             return redirect()->to(BASE_URL . 'godmode/signal');
         }

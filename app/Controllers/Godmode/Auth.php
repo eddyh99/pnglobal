@@ -59,7 +59,7 @@ class Auth extends BaseController
         $mdata['password'] = sha1($mdata['password']);
 
         // Proccess Endpoin API
-        $url = URLAPI . "/auth/admin/signin";
+        $url = URLAPI . "/auth/signin";
         $response = satoshiAdmin($url, json_encode($mdata));
         $result = $response->result;
 
@@ -81,6 +81,6 @@ class Auth extends BaseController
     public function logout()
     {
         $this->session->remove('logged_user');
-        return redirect()->to(BASE_URL . 'member/auth/login');
+        return redirect()->to(BASE_URL . 'godmode/auth/signin');
     }
 }

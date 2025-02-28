@@ -1,29 +1,29 @@
-<?php if(!empty(session('failed'))) { ?>
-<div class="alert alert-danger fade show position-absolute" style="top: 1rem; right: 1rem; width: 30%; z-index: 99999;" role="alert">
-    <div class="iq-alert-icon">
-        <i class="ri-information-line"></i>
+<?php if (!empty(session('failed'))) { ?>
+    <div class="alert alert-danger fade show position-absolute" style="top: 1rem; right: 1rem; width: 30%; z-index: 99999;" role="alert">
+        <div class="iq-alert-icon">
+            <i class="ri-information-line"></i>
+        </div>
+        <div class="iq-alert-text text-black">
+            <?= session('failed') ?>
+        </div>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <i class="ri-close-line text-black"></i>
+        </button>
     </div>
-    <div class="iq-alert-text text-black">
-        <?= session('failed')?>
+<?php } ?>
+<?php if (!empty(session('success'))) { ?>
+    <div class="alert alert-success fade show position-absolute" style="top: 1rem; right: 1rem; width: 30%; z-index: 99999;" role="alert">
+        <div class="iq-alert-icon">
+            <i class="ri-information-line"></i>
+        </div>
+        <div class="iq-alert-text text-black">
+            <?= session('success') ?>
+        </div>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <i class="ri-close-line text-black"></i>
+        </button>
     </div>
-    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-        <i class="ri-close-line text-black"></i>
-    </button>
-</div>
-<?php }?>
-<?php if(!empty(session('success'))) { ?>
-<div class="alert alert-success fade show position-absolute" style="top: 1rem; right: 1rem; width: 30%; z-index: 99999;" role="alert">
-    <div class="iq-alert-icon">
-        <i class="ri-information-line"></i>
-    </div>
-    <div class="iq-alert-text text-black">
-        <?= session('success')?>
-    </div>
-    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-        <i class="ri-close-line text-black"></i>
-    </button>
-</div>
-<?php }?>
+<?php } ?>
 
 <!-- Page Content  -->
 <div class="content-page mb-5">
@@ -33,342 +33,239 @@
                 <div class="send-signals">
                     <div class="title-signal-preview d-flex justify-content-between align-items-center">
                         <h4>Send Signals</h4>
+                        <div class="active-api-card text-white">
+                            Active
+                            <svg xmlns="http://www.w3.org/2000/svg" width="50" height="30" viewBox="0 0 50 30" fill="none">
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M45 0H5C3.67392 0 2.40215 0.526784 1.46447 1.46447C0.526784 2.40215 0 3.67392 0 5V25C0 26.3261 0.526784 27.5979 1.46447 28.5355C2.40215 29.4732 3.67392 30 5 30H45C46.3261 30 47.5979 29.4732 48.5355 28.5355C49.4732 27.5979 50 26.3261 50 25V5C50 3.67392 49.4732 2.40215 48.5355 1.46447C47.5979 0.526784 46.3261 0 45 0ZM18.225 22L17.5 19.325H12.9L12.175 22H7.925L12.5 7.675H17.725L22.5 22H18.225ZM34.075 14.15C33.8951 14.7425 33.588 15.2886 33.175 15.75C32.7054 16.2366 32.1331 16.6124 31.5 16.85C30.7002 17.1455 29.8525 17.2896 29 17.275H27.9V22H24V7.725H29C30.447 7.62052 31.8836 8.03731 33.05 8.9C33.5194 9.32202 33.887 9.84498 34.1252 10.4296C34.3633 11.0141 34.4659 11.6451 34.425 12.275C34.4108 12.9148 34.2926 13.5481 34.075 14.15ZM40.525 22H36.65V7.725H40.525V22ZM16.125 13.825L16.725 16.15H13.7L14.3 13.825C14.3 13.5 14.5 13.125 14.6 12.65C14.7 12.175 14.825 11.7 14.925 11.225C15.0295 10.8297 15.1129 10.4291 15.175 10.025C15.175 10.35 15.35 10.75 15.45 11.275L15.825 12.725L16.125 13.825ZM30.1 11.325C30.2375 11.4667 30.3441 11.6354 30.4129 11.8205C30.4818 12.0055 30.5114 12.2029 30.5 12.4C30.5139 12.7695 30.4182 13.1348 30.225 13.45C30.0605 13.6971 29.8252 13.8888 29.55 14C29.2575 14.1229 28.9422 14.1825 28.625 14.175H27.85V10.85H28.85C29.0604 10.8404 29.2705 10.873 29.4681 10.946C29.6656 11.019 29.8465 11.1309 30 11.275L30.1 11.325Z" fill="#0DB82D" />
+                            </svg>
+                        </div>
                     </div>
                     <div class="main-send-signal d-flex flex-column align-items-center justify-content-center">
-                        <div class="insturctions d-flex flex-column align-items-center justify-content-center">
-                            <span class="instructions-title">Instructions</span>
-                            <div class="box-insturctions d-flex align-items-center justify-content-center">
-                                <h4 class="last-insturctions"><?= @$order?></h4>
-                            </div>
-                        </div>
                         <div class="signal-preview">
                             <div class="row">
                                 <div class="col-12 col-md-6 all-buy">
-                                    <div class="wrapper-buy">
-                                        <!-- BUY A -->
-                                        <div class="buy">
-                                            <div class="d-flex align-items-end">
-                                                <?php if(!empty($buy_a)){ ?>
-                                                    <!-- Jika BUY A sudah send signal -->
-                                                    <div class="inside-buy">
-                                                        <div class="buy-title d-flex justify-content-between align-items-end">
-                                                            <span class="buy-text">BUY - A</span>
-                                                            <span id="buy-date-a" class="buy-date">
-                                                                <?php
-                                                                    $newDate = date('d/m/Y H:i', strtotime(@$buy_a['created_at']));
-                                                                    echo $newDate;
-                                                                ?>
-                                                            </span>
+                                    <div class="instruction-column instruction-buy">
+                                        <span class="instruction-label">BUY</span>
+                                        <span class="instruction-value">= $ 95000.48</span>
+                                    </div>
+                                    <div class="signal-section">
+                                        <table class="signal-table">
+                                            <thead>
+                                                <tr>
+                                                    <th></th>
+                                                    <th>PRICE</th>
+                                                    <th>STATUS</th>
+                                                    <!-- <th colspan="3">ACTION</th> -->
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <!-- BUY A -->
+                                                <tr>
+                                                    <td>
+                                                        <div class="signal-label buy-label">A</div>
+                                                    </td>
+                                                    <td>
+                                                        <input type="text" class="signal-price" value="94000" <?php echo (!empty($buy_a) ? "readonly" : "") ?>>
+                                                    </td>
+                                                    <td>
+                                                        <div class="signal-status">
+                                                            <?php echo (!empty($buy_a) ? "Filled" : "Pending") ?>
                                                         </div>
-                                                        <input 
-                                                            id="buy-a"
-                                                            type="text" 
-                                                            class="price-input" 
-                                                            value="<?= @$buy_a['entry_price']?>" 
-                                                            name="price" 
-                                                            readonly>
-                                                    </div>
-                                                    <button id="send-buy-a" disabled class="btn btn-primary">Send</button>&nbsp;&nbsp;
-                                                    <form action="<?=BASE_URL?>godmode/signal/deletesignal" method="POST">
-                                                        <input type="hidden" name="signal_id" value="<?=@$buy_a['id']?>">
-                                                        <button id="cancel-buy-a" class="btn btn-danger"  <?php echo (!empty($buy_b) || !empty($buy_c) || !empty($buy_d) ? "disabled" : "" )?>>Cancel</button>
-                                                    </form>
-                                                <?php } else {?>
-                                                    <!-- Jika BUY A belum send signal -->
-                                                    <div class="inside-buy">
-                                                        <div class="buy-title d-flex justify-content-between align-items-end">
-                                                            <span class="buy-text">BUY - A</span>
-                                                            <span id="buy-date-a" class="buy-date"></span>
+                                                    </td>
+                                                    <td>
+                                                        <button class="signal-btn btn-ok">OK</button>
+                                                    </td>
+                                                    <td>
+                                                        <button class="signal-btn btn-fill">FILL</button>
+                                                    </td>
+                                                    <td>
+                                                        <button class="signal-btn btn-del">DEL</button>
+                                                    </td>
+                                                </tr>
+                                                <!-- BUY B -->
+                                                <tr>
+                                                    <td>
+                                                        <div class="signal-label buy-label">B</div>
+                                                    </td>
+                                                    <td>
+                                                        <input type="text" class="signal-price" value="92000" <?php echo (!empty($buy_b) ? "readonly" : "") ?>>
+                                                    </td>
+                                                    <td>
+                                                        <div class="signal-status">
+                                                            <?php echo (!empty($buy_b) ? "Filled" : "Pending") ?>
                                                         </div>
-                                                        <input 
-                                                            id="buy-a"
-                                                            type="text" 
-                                                            class="price-input"  
-                                                            name="price">
-                                                    </div>
-                                                    <button id="send-buy-a" class="btn btn-primary">Send</button>&nbsp;&nbsp;
-                                                    <button id="cancel-buy-a" disabled class="btn btn-danger">Cancel</button>
-                                                <?php } ?>
-                                            </div>
-                                        </div>
-                                        <!-- BUY B -->
-                                        <div class="buy">
-                                            <div class="d-flex align-items-end">
-                                                <?php if(!empty($buy_a) && empty($buy_b)){ ?>
-                                                    <!-- Jika BUY A sudah send signal DAN Buy B belum send signal -->
-                                                    <div class="inside-buy">
-                                                        <div class="buy-title d-flex justify-content-between align-items-end">
-                                                            <span class="buy-text">BUY - B</span>
-                                                            <span id="buy-date-b" class="buy-date"></span>
+                                                    </td>
+                                                    <td>
+                                                        <button class="signal-btn btn-ok">OK</button>
+                                                    </td>
+                                                    <td>
+                                                        <button class="signal-btn btn-fill">FILL</button>
+                                                    </td>
+                                                    <td>
+                                                        <button class="signal-btn btn-del">DEL</button>
+                                                    </td>
+                                                </tr>
+                                                <!-- BUY C -->
+                                                <tr>
+                                                    <td>
+                                                        <div class="signal-label buy-label">C</div>
+                                                    </td>
+                                                    <td>
+                                                        <input type="text" class="signal-price" value="90000" <?php echo (!empty($buy_c) ? "readonly" : "") ?>>
+                                                    </td>
+                                                    <td>
+                                                        <div class="signal-status">
+                                                            <?php echo (!empty($buy_c) ? "Filled" : "Pending") ?>
                                                         </div>
-                                                        <input 
-                                                            id="buy-b"
-                                                            type="text" 
-                                                            class="price-input" 
-                                                            name="price"
-                                                        >
-                                                    </div>
-                                                    <button id="send-buy-b" class="btn btn-primary">Send</button>&nbsp;&nbsp;
-                                                    <button id="cancel-buy-b" disabled class="btn btn-danger">Cancel</button>
-                                                <?php } else {?>
-                                                    <!-- Jika Buy B sudah send signal -->
-                                                    <div class="inside-buy">
-                                                        <div class="buy-title d-flex justify-content-between align-items-end">
-                                                            <span class="buy-text">BUY - B</span>
-                                                            <span id="buy-date-b" class="buy-date">
-                                                                <?php
-                                                                    $newDate = date('d/m/Y H:i', strtotime(@$buy_b['created_at']));
-                                                                    echo $newDate;
-                                                                ?>
-                                                            </span>
+                                                    </td>
+                                                    <td>
+                                                        <button class="signal-btn btn-ok">OK</button>
+                                                    </td>
+                                                    <td>
+                                                        <button class="signal-btn btn-fill">FILL</button>
+                                                    </td>
+                                                    <td>
+                                                        <button class="signal-btn btn-del">DEL</button>
+                                                    </td>
+                                                </tr>
+                                                <!-- BUY D -->
+                                                <tr>
+                                                    <td>
+                                                        <div class="signal-label buy-label">D</div>
+                                                    </td>
+                                                    <td>
+                                                        <input type="text" class="signal-price" value="88000" <?php echo (!empty($buy_d) ? "readonly" : "") ?>>
+                                                    </td>
+                                                    <td>
+                                                        <div class="signal-status">
+                                                            <?php echo (!empty($buy_d) ? "Filled" : "Pending") ?>
                                                         </div>
-                                                        <input 
-                                                            id="buy-b"
-                                                            type="text" 
-                                                            class="price-input" 
-                                                            name="price"
-                                                            value="<?= @$buy_b['entry_price']?>"
-                                                            readonly>
-                                                    </div>
-                                                    <button id="send-buy-b" disabled class="btn btn-primary">Send</button>&nbsp;&nbsp;
-                                                    <form action="<?=BASE_URL?>godmode/signal/deletesignal" method="POST">
-                                                        <input type="hidden" name="signal_id" value="<?=@$buy_b['id']?>">
-                                                        <button type="submit" id="cancel-buy-b" class="btn btn-danger" <?php echo (!empty($buy_c) || !empty($buy_d) || empty($buy_a) ? "disabled" : "" )?>>Cancel</button>
-                                                    </form>
-                                                <?php } ?>
-                                            </div>
-                                        </div>
-                                        <!-- Buy C -->
-                                        <div class="buy">
-                                            <div class="d-flex align-items-end">
-                                                <?php if(!empty($buy_a) && !empty($buy_b) && empty($buy_c)){ ?>
-                                                    <!-- Jika BUY A sudah send signal DAN Buy B sudah send signal DAN Buy C belum send signal -->
-                                                    <div class="inside-buy">
-                                                        <div class="buy-title d-flex justify-content-between align-items-end">
-                                                            <span class="buy-text">BUY - C</span>
-                                                            <span id="buy-date-c" class="buy-date"></span>
-                                                        </div>
-                                                        <input 
-                                                            id="buy-c"
-                                                            type="text" 
-                                                            class="price-input" 
-                                                            name="price">
-                                                    </div>
-                                                    <button id="send-buy-c" class="btn btn-primary">Send</button>&nbsp;&nbsp;
-                                                    <button id="cancel-buy-c" disabled class="btn btn-danger">Cancel</button>
-                                                <?php } else {?>
-                                                    <!-- Jika Buy C sudah send signal -->
-                                                    <div class="inside-buy">
-                                                        <div class="buy-title d-flex justify-content-between align-items-end">
-                                                            <span class="buy-text">BUY - C</span>
-                                                            <span id="buy-date-c" class="buy-date">
-                                                                <?php
-                                                                    $newDate = date('d/m/Y H:i', strtotime(@$buy_c['created_at']));
-                                                                    echo $newDate;
-                                                                ?>
-                                                            </span>
-                                                        </div>
-                                                        <input 
-                                                            id="buy-c"
-                                                            type="text" 
-                                                            class="price-input" 
-                                                            name="price"
-                                                            value="<?= @$buy_c['entry_price']?>"
-                                                            readonly>
-                                                    </div>
-                                                    <button id="send-buy-c" disabled class="btn btn-primary">Send</button>&nbsp;&nbsp;
-                                                    <form action="<?=BASE_URL?>godmode/signal/deletesignal" method="POST">
-                                                        <input type="hidden" name="signal_id" value="<?=@$buy_c['id']?>">
-                                                        <button type="submit" id="cancel-buy-c" class="btn btn-danger" <?php echo (!empty($buy_d) || empty($buy_b) ? "disabled" : "" )?>>Cancel</button>
-                                                    <form>
-                                                <?php } ?>
-                                            </div>
-                                        </div>
-                                        <!-- Buy D -->
-                                        <div class="buy">
-                                            <div class="d-flex align-items-end">
-                                                <?php if(!empty($buy_a) && !empty($buy_b) && !empty($buy_c) && empty($buy_d)){ ?>
-                                                    <!-- Jika BUY A sudah send signal DAN Buy B sudah send signal DAN Buy C Sudah send signal DAN Buy D belum send signal -->
-                                                    <div class="inside-buy">
-                                                        <div class="buy-title d-flex justify-content-between align-items-end">
-                                                            <span class="buy-text">BUY - D</span>
-                                                            <span id="buy-date-d" class="buy-date"></span>
-                                                        </div>
-                                                        <input 
-                                                            id="buy-d"
-                                                            type="text" 
-                                                            class="price-input" 
-                                                            name="price">
-                                                    </div>
-                                                    <button id="send-buy-d" class="btn btn-primary">Send</button>
-                                                    &nbsp;&nbsp;
-                                                    <button type="submit" id="cancel-buy-d" disabled class="btn btn-danger">Cancel</button>
-                                                <?php } else {?>
-                                                    <!-- Jika Buy D sudah send signal -->
-                                                    <div class="inside-buy">
-                                                        <div class="buy-title d-flex justify-content-between align-items-end">
-                                                            <span class="buy-text">BUY - D</span>
-                                                            <span id="buy-date-d" class="buy-date">
-                                                                <?php
-                                                                    $newDate = date('d/m/Y H:i', strtotime(@$buy_d['created_at']));
-                                                                    echo $newDate;
-                                                                ?>
-                                                            </span>
-                                                        </div>
-                                                        <input 
-                                                            id="buy-d"
-                                                            type="text" 
-                                                            class="price-input" 
-                                                            name="price"
-                                                            value="<?= @$buy_d['entry_price']?>"
-                                                            readonly>
-                                                    </div>
-                                                    <button id="send-buy-d" disabled class="btn btn-primary">Send</button>&nbsp;&nbsp;
-                                                    <form action="<?=BASE_URL?>godmode/signal/deletesignal" method="POST">
-                                                        <input type="hidden" name="signal_id" value="<?=@$buy_d['id']?>">
-                                                        <button type="submit" id="cancel-buy-d" class="btn btn-danger" <?php echo (empty($buy_d) ? "disabled" : "" )?>>Cancel</button>
-                                                    </form>
-                                                <?php } ?>
-                                            </div>
-                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <button class="signal-btn btn-ok">OK</button>
+                                                    </td>
+                                                    <td>
+                                                        <button class="signal-btn btn-fill">FILL</button>
+                                                    </td>
+                                                    <td>
+                                                        <button class="signal-btn btn-del">DEL</button>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
                                     </div>
                                 </div>
                                 <!-- SELL SECTION -->
                                 <div class="col-12 col-md-6 all-sell mt-5 mt-md-0">
-                                    <div class="wrapper-sell">
-                                        <!-- Sell A -->
-                                        <div class="sell">
-                                            <form action="<?=BASE_URL?>godmode/signal/sellsignal" method="POST">
-                                                <div class="d-flex align-items-end">
-                                                    <input type="hidden" value="Sell A" name="type-sell">
-                                                    <?php if(!empty($buy_a)){?>
-                                                        <div class="inside-sell">
-                                                            <div class="sell-title d-flex justify-content-between align-items-end">
-                                                                <span class="sell-text">SELL - A</span>
-                                                            </div>
-                                                            <input 
-                                                                id="sell-a"
-                                                                type="text" 
-                                                                class="price-input" 
-                                                                name="price">
+                                    <div class="instruction-column instruction-sell">
+                                        <span class="instruction-label">SELL</span>
+                                        <span class="instruction-value">= $ 93000.48</span>
+                                    </div>
+                                    <div class="signal-section">
+                                        <table class="signal-table">
+                                            <thead>
+                                                <tr>
+                                                    <th></th>
+                                                    <th>PRICE</th>
+                                                    <th>STATUS</th>
+                                                    <!-- <th colspan="3">ACTION</th> -->
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <!-- SELL A -->
+                                                <tr>
+                                                    <td>
+                                                        <div class="signal-label sell-label">A</div>
+                                                    </td>
+                                                    <td>
+                                                        <input type="text" class="signal-price" value="94000" <?php echo (empty($buy_a) ? "readonly" : "") ?>>
+                                                    </td>
+                                                    <td>
+                                                        <div class="signal-status">
+                                                            Pending
                                                         </div>
-                                                        <button id="send-sell-a" class="btn btn-primary">Send</button>
-                                                    <?php } else {?>
-                                                        <div class="inside-sell">
-                                                            <div class="sell-title d-flex justify-content-between align-items-end">
-                                                                <span class="sell-text">SELL - A</span>
-                                                            </div>
-                                                            <input 
-                                                                id="sell-a"
-                                                                type="text" 
-                                                                class="price-input" 
-                                                                name="price"
-                                                                readonly>
+                                                    </td>
+                                                    <td>
+                                                        <button class="signal-btn btn-ok">OK</button>
+                                                    </td>
+                                                    <td>
+                                                        <button class="signal-btn btn-fill">FILL</button>
+                                                    </td>
+                                                    <td>
+                                                        <button class="signal-btn btn-del">DEL</button>
+                                                    </td>
+                                                </tr>
+                                                <!-- SELL B -->
+                                                <tr>
+                                                    <td>
+                                                        <div class="signal-label sell-label">B</div>
+                                                    </td>
+                                                    <td>
+                                                        <input type="text" class="signal-price" value="92000" <?php echo (empty($buy_b) ? "readonly" : "") ?>>
+                                                    </td>
+                                                    <td>
+                                                        <div class="signal-status">
+                                                            Pending
                                                         </div>
-                                                        <button id="send-sell-a" disabled class="btn btn-primary">Send</button>
-                                                    <?php } ?>
-                                                </div>
-                                            </form>
-                                        </div>
-                                        <div class="sell">
-                                            <form action="<?=BASE_URL?>godmode/signal/sellsignal" method="POST">
-                                                <input type="hidden" value="Sell B" name="type-sell">
-                                                <div class="d-flex align-items-end">
-                                                    <?php if(!empty($buy_b)){?>
-                                                        <div class="inside-sell">
-                                                            <div class="sell-title d-flex justify-content-between align-items-end">
-                                                                <span class="sell-text">SELL - B</span>
-                                                            </div>
-                                                            <input 
-                                                                id="sell-b"
-                                                                type="text" 
-                                                                class="price-input" 
-                                                                name="price">
+                                                    </td>
+                                                    <td>
+                                                        <button class="signal-btn btn-ok">OK</button>
+                                                    </td>
+                                                    <td>
+                                                        <button class="signal-btn btn-fill">FILL</button>
+                                                    </td>
+                                                    <td>
+                                                        <button class="signal-btn btn-del">DEL</button>
+                                                    </td>
+                                                </tr>
+                                                <!-- SELL C -->
+                                                <tr>
+                                                    <td>
+                                                        <div class="signal-label sell-label">C</div>
+                                                    </td>
+                                                    <td>
+                                                        <input type="text" class="signal-price" value="90000" <?php echo (empty($buy_c) ? "readonly" : "") ?>>
+                                                    </td>
+                                                    <td>
+                                                        <div class="signal-status">
+                                                            Filled
                                                         </div>
-                                                        <button id="send-sell-b" class="btn btn-primary">Send</button>
-                                                    <?php } else {?>
-                                                        <div class="inside-sell">
-                                                            <div class="sell-title d-flex justify-content-between align-items-end">
-                                                                <span class="sell-text">SELL - B</span>
-                                                            </div>
-                                                            <input 
-                                                                id="sell-b"
-                                                                type="text" 
-                                                                class="price-input" 
-                                                                name="price"
-                                                                readonly>
+                                                    </td>
+                                                    <td>
+                                                        <button class="signal-btn btn-ok">OK</button>
+                                                    </td>
+                                                    <td>
+                                                        <button class="signal-btn btn-fill">FILL</button>
+                                                    </td>
+                                                    <td>
+                                                        <button class="signal-btn btn-del">DEL</button>
+                                                    </td>
+                                                </tr>
+                                                <!-- SELL D -->
+                                                <tr>
+                                                    <td>
+                                                        <div class="signal-label sell-label">D</div>
+                                                    </td>
+                                                    <td>
+                                                        <input type="text" class="signal-price" value="88000" <?php echo (empty($buy_d) ? "readonly" : "") ?>>
+                                                    </td>
+                                                    <td>
+                                                        <div class="signal-status">
+                                                            Filled
                                                         </div>
-                                                        <button id="send-sell-b" disabled class="btn btn-primary">Send</button>
-                                                    <?php }  ?>
-                                                </div>
-                                            </form>
-                                        </div>
-                                        <div class="sell">
-                                            <form action="<?=BASE_URL?>godmode/signal/sellsignal" method="POST">
-                                                <input type="hidden" value="Sell C" name="type-sell">
-                                                <div class="d-flex align-items-end">
-                                                    <?php if(!empty($buy_c)){?>
-                                                        <div class="inside-sell">
-                                                            <div class="sell-title d-flex justify-content-between align-items-end">
-                                                                <span class="sell-text">SELL - C</span>
-                                                            </div>
-                                                            <input 
-                                                                id="sell-c"
-                                                                type="text" 
-                                                                class="price-input" 
-                                                                name="price">
-                                                        </div>
-                                                        <button id="send-sell-c" class="btn btn-primary">Send</button>
-                                                    <?php } else {?>
-                                                        <div class="inside-sell">
-                                                            <div class="sell-title d-flex justify-content-between align-items-end">
-                                                                <span class="sell-text">SELL - C</span>
-                                                            </div>
-                                                            <input 
-                                                                id="sell-c"
-                                                                type="text" 
-                                                                class="price-input" 
-                                                                name="price"
-                                                                readonly>
-                                                        </div>
-                                                        <button id="send-sell-c" disabled class="btn btn-primary">Send</button>
-                                                    <?php }  ?>
-                                                </div>
-                                            </form>
-                                        </div>
-                                        <div class="sell">
-                                            <form action="<?=BASE_URL?>godmode/signal/sellsignal" method="POST">
-                                                <input type="hidden" value="Sell D" name="type-sell">
-                                                <div class="d-flex align-items-end">
-                                                    <?php if(!empty($buy_d)){?>
-                                                        <div class="inside-sell">
-                                                            <div class="sell-title d-flex justify-content-between align-items-end">
-                                                                <span class="sell-text">SELL - D</span>
-                                                            </div>
-                                                            <input 
-                                                                id="sell-d"
-                                                                type="text" 
-                                                                class="price-input" 
-                                                                name="price">
-                                                        </div>
-                                                        <button id="send-sell-d" class="btn btn-primary">Send</button>
-                                                    <?php } else {?>
-                                                        <div class="inside-sell">
-                                                            <div class="sell-title d-flex justify-content-between align-items-end">
-                                                                <span class="sell-text">SELL - D</span>
-                                                            </div>
-                                                            <input 
-                                                                id="sell-d"
-                                                                type="text" 
-                                                                class="price-input" 
-                                                                name="price"
-                                                                readonly>
-                                                        </div>
-                                                        <button id="send-sell-d" disabled class="btn btn-primary">Send</button>
-                                                    <?php }  ?>
-                                                </div>
-                                            </form>
-                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <button class="signal-btn btn-ok">OK</button>
+                                                    </td>
+                                                    <td>
+                                                        <button class="signal-btn btn-fill">FILL</button>
+                                                    </td>
+                                                    <td>
+                                                        <button class="signal-btn btn-del">DEL</button>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
                                     </div>
                                 </div>
                             </div>
@@ -395,35 +292,3 @@
         </div>
     </div>
 </div>
-
-<script>
-    <?php if(!empty(session('success'))) { ?>
-        setTimeout(function() {
-            Swal.fire({
-                text: `<?= session('success')?>`,
-                showCloseButton: true,
-                showConfirmButton: false,
-                background: '#E1FFF7',
-                color: '#000000',
-                position: 'top-end',
-                timer: 3000,
-                timerProgressBar: true,
-            });
-        }, 100);
-    <?php }?>
-
-    <?php if(!empty(session('failed'))) { ?>
-        setTimeout(function() {
-            Swal.fire({
-                text: `<?= session('failed')?>`,
-                showCloseButton: true,
-                showConfirmButton: false,
-                background: '#FFE4DC',
-                color: '#000000',
-                position: 'top-end',
-                timer: 3000,
-                timerProgressBar: true,
-            });
-        }, 100);
-    <?php }?>
-</script>

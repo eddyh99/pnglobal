@@ -198,4 +198,16 @@ class Membership extends BaseController
 
         return view('member/layout/dashboard_wrapper', $mdata);
     }
+
+    public function card_payment()
+    {
+        $mdata = [
+            'title'     => 'Card Payment - ' . SATOSHITITLE,
+            'content'   => 'member/membership/card_payment',
+            'extra'     => 'member/membership/js/_js_card_payment',
+            'active_membership' => 'active',
+        ];
+
+        return view('member/layout/dashboard_wrapper', $mdata);
+    }
 }
