@@ -88,12 +88,20 @@ class Withdraw extends BaseController
 
     public function available_commission()
     {
+        $session = session();
+        $loggedUser = $session->get('logged_user');
+        $member_id = $loggedUser->id;
+
+        $mdata = [
+            'member_id' => $member_id,
+        ];
+
         $url = URLAPI . "/v1/withdraw/available_commission";
-        $result = satoshiAdmin($url)->result->message;
+        $result = satoshiAdmin($url, json_encode($mdata))->result;
 
         return $this->response->setJSON([
-            'code' => 200,
-            'message' => $result
+            'code' => $result->code,
+            'message' => $result->message
         ]);
     }
 
