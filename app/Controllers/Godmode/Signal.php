@@ -185,7 +185,7 @@ class Signal extends BaseController
         // $temp_price = '50000';  // Default value untuk testing
 
         $mdata = [
-            'title'     => 'Signal - ' . SATOSHITITLE,
+            'title'     => 'Signal - ' . NAMETITLE,
             'content'   => 'godmode/signal/index',
             'extra'     => 'godmode/signal/js/_js_index',
             'active_signal'    => 'active active-menu',

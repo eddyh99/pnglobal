@@ -39,7 +39,7 @@ class Referral extends BaseController
         $loggedUser = $session->get('logged_user');
 
         $mdata = [
-            'title'     => 'Referral - ' . SATOSHITITLE,
+            'title'     => 'Referral - ' . NAMETITLE,
             'content'   => 'member/referral/index',
             'extra'     => 'member/referral/js/_js_index',
             'active_referral'    => 'active',

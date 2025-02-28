@@ -51,7 +51,7 @@ class Member extends BaseController
 
 
         $mdata = [
-            'title'     => 'Dashboard - ' . SATOSHITITLE,
+            'title'     => 'Dashboard - ' . NAMETITLE,
             'content'   => 'godmode/dashboard/index',
             'extra'     => 'godmode/dashboard/js/_js_index',
             'active_dash'    => 'active',

@@ -25,7 +25,7 @@ class Admin extends BaseController
     public function index()
     {
         $mdata = [
-            'title'     => 'Admin - ' . SATOSHITITLE,
+            'title'     => 'Admin - ' . NAMETITLE,
             'content'   => 'godmode/admin/index',
             'extra'     => 'godmode/admin/js/_js_index',
             'active_admin'    => 'active active-menu'

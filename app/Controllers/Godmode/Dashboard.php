@@ -36,7 +36,7 @@ class Dashboard extends BaseController
         $totalsignal = $resultMembership->message->total_signals ?? 0;
 
         $mdata = [
-            'title'     => 'Dashboard - ' . SATOSHITITLE,
+            'title'     => 'Dashboard - ' . NAMETITLE,
             'content'   => 'godmode/dashboard/index',
             'extra'     => 'godmode/dashboard/js/_js_index',
             'active_dash'    => 'active',
@@ -60,7 +60,7 @@ class Dashboard extends BaseController
         $resultMember = satoshiAdmin($url, json_encode(['email' => $finalemail]))->result;
 
         $mdata = [
-            'title'     => 'Detail Member - ' . SATOSHITITLE,
+            'title'     => 'Detail Member - ' . NAMETITLE,
             'content'   => 'godmode/dashboard/detail_member',
             'extra'     => 'godmode/dashboard/js/_js_detailmember',
             'member'    => $resultMember,
@@ -92,7 +92,7 @@ class Dashboard extends BaseController
         $resultReferral = null;
 
         $mdata = [
-            'title'     => 'Detail Member - ' . SATOSHITITLE,
+            'title'     => 'Detail Member - ' . NAMETITLE,
             'content'   => 'godmode/dashboard/detail_referral',
             'extra'     => 'godmode/dashboard/js/_js_detailreferral',
             'active_dash'  => 'active',

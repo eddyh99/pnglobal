@@ -28,7 +28,7 @@ class Giveaway extends BaseController
     public function index()
     {
         $mdata = [
-            'title'     => 'Giveaway - ' . SATOSHITITLE,
+            'title'     => 'Giveaway - ' . NAMETITLE,
             'content'   => 'godmode/giveaway/index',
             'extra'     => 'godmode/giveaway/js/_js_index',
             'active_giveaway'    => 'active active-menu'

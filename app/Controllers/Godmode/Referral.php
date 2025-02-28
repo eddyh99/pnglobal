@@ -32,7 +32,7 @@ class Referral extends BaseController
     public function index()
     {
         $mdata = [
-            'title'     => 'Referral - ' . SATOSHITITLE,
+            'title'     => 'Referral - ' . NAMETITLE,
             'content'   => 'godmode/referral/index',
             'extra'     => 'godmode/referral/js/_js_index',
             'active_reff'    => 'active active-menu'
@@ -83,7 +83,7 @@ class Referral extends BaseController
         $resultReferral = satoshiAdmin($url)->result->message;
 
         $mdata = [
-            'title'     => 'Detail Member - ' . SATOSHITITLE,
+            'title'     => 'Detail Member - ' . NAMETITLE,
             'content'   => 'godmode/referral/detail_referral',
             'extra'     => 'godmode/referral/js/_js_detailreferral',
             'active_reff'  => 'active',

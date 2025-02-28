@@ -43,7 +43,7 @@ class Dashboard extends BaseController
         // dd($loggedUser);
 
         $mdata = [
-            'title'     => 'Dashboard - ' . SATOSHITITLE,
+            'title'     => 'Dashboard - ' . NAMETITLE,
             'content'   => 'member/dashboard/index',
             'extra'     => 'member/dashboard/js/_js_index',
             'active_dash'    => 'active',

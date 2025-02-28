@@ -18,7 +18,7 @@ class Auth extends BaseController
     public function signin()
     {
         $mdata = [
-            'title'     => 'Sign in - ' . SATOSHITITLE,
+            'title'     => 'Sign in - ' . NAMETITLE,
             'content'   => 'godmode/auth/index',
             'extra'     => 'godmode/auth/js/_js_index',
         ];

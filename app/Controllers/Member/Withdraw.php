@@ -33,7 +33,7 @@ class Withdraw extends BaseController
         $refcode = $loggedUser->refcode;
 
         $mdata = [
-            'title' => 'Withdraw - ' . SATOSHITITLE,
+            'title' => 'Withdraw - ' . NAMETITLE,
             'content' => 'member/withdraw/index',
             'extra' => 'member/withdraw/js/_js_index',
             'active_withdraw' => 'active',
@@ -46,7 +46,7 @@ class Withdraw extends BaseController
     public function usdt()
     {
         $mdata = [
-            'title' => 'Withdraw - ' . SATOSHITITLE,
+            'title' => 'Withdraw - ' . NAMETITLE,
             'content' => 'member/withdraw/usdt',
             'extra' => 'member/withdraw/js/_js_usdt',
             'active_withdraw' => 'active',
@@ -58,7 +58,7 @@ class Withdraw extends BaseController
     public function usdc()
     {
         $mdata = [
-            'title' => 'Withdraw - ' . SATOSHITITLE,
+            'title' => 'Withdraw - ' . NAMETITLE,
             'content' => 'member/withdraw/usdc',
             'extra' => 'member/withdraw/js/_js_usdc',
             'active_withdraw' => 'active',
@@ -70,7 +70,7 @@ class Withdraw extends BaseController
     public function international_bank()
     {
         $mdata = [
-            'title' => 'Withdraw - ' . SATOSHITITLE,
+            'title' => 'Withdraw - ' . NAMETITLE,
             'content' => 'member/withdraw/international_bank',
             'extra' => 'member/withdraw/js/_js_international_bank',
             'active_withdraw' => 'active',
@@ -82,7 +82,7 @@ class Withdraw extends BaseController
     public function usa_bank()
     {
         $mdata = [
-            'title' => 'Withdraw - ' . SATOSHITITLE,
+            'title' => 'Withdraw - ' . NAMETITLE,
             'content' => 'member/withdraw/usa_bank',
             'extra' => 'member/withdraw/js/_js_usa_bank',
             'active_withdraw' => 'active',

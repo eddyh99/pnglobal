@@ -23,7 +23,7 @@ class Payment extends BaseController
     public function index()
     {
         $mdata = [
-            'title'     => 'Payment - ' . SATOSHITITLE,
+            'title'     => 'Payment - ' . NAMETITLE,
             'content'   => 'godmode/payment/index',
             'extra'     => 'godmode/payment/js/_js_index',
             'active_payment'    => 'active active-menu'
@@ -46,15 +46,14 @@ class Payment extends BaseController
         return json_encode($data);
     }
 
-    public function detailpayment($id, $email)
+    public function detailpayment($id)
     {
         // Call Get Detail Request
-        // $url = URLAPI . "/v1/payment/detailpayment?email=".base64_decode($email)."&id=".$id;
-        // $resultPayment = satoshiAdmin($url)->result->message;
-        $resultPayment = [];
+        $url = URLAPI . "/v1/withdraw/detail_request_payment?id=" . $id;
+        $resultPayment = satoshiAdmin($url)->result->message;
 
         $mdata = [
-            'title'     => 'Detail Member - ' . SATOSHITITLE,
+            'title'     => 'Detail Member - ' . NAMETITLE,
             'content'   => 'godmode/payment/detail_payment',
             'extra'     => 'godmode/payment/js/_js_detailpayment',
             'active_payment'  => 'active',

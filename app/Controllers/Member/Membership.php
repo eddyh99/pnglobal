@@ -32,7 +32,7 @@ class Membership extends BaseController
         $refcode = $loggedUser->refcode;
 
         $mdata = [
-            'title'     => 'Membership - ' . SATOSHITITLE,
+            'title'     => 'Membership - ' . NAMETITLE,
             'content'   => 'member/membership/index',
             'extra'     => 'member/membership/js/_js_index',
             'active_membership' => 'active',
@@ -45,7 +45,7 @@ class Membership extends BaseController
     public function set_investment_capital()
     {
         $mdata = [
-            'title'     => 'Set Investment Capital - ' . SATOSHITITLE,
+            'title'     => 'Set Investment Capital - ' . NAMETITLE,
             'content'   => 'member/membership/set_investment_capital',
             'extra'     => 'member/membership/js/_js_set_investment_capital',
             'active_membership' => 'active',
@@ -171,7 +171,7 @@ class Membership extends BaseController
     public function payment_option()
     {
         $mdata = [
-            'title'     => 'Payment Option - ' . SATOSHITITLE,
+            'title'     => 'Payment Option - ' . NAMETITLE,
             'content'   => 'member/membership/payment_option',
             'extra'     => 'member/membership/js/_js_payment_option',
             'active_membership' => 'active',
@@ -183,7 +183,7 @@ class Membership extends BaseController
     public function usdt_payment()
     {
         $mdata = [
-            'title'     => 'USDT Payment - ' . SATOSHITITLE,
+            'title'     => 'USDT Payment - ' . NAMETITLE,
             'content'   => 'member/membership/usdt_payment',
             'extra'     => 'member/membership/js/_js_usdt_payment',
             'active_membership' => 'active',
@@ -195,7 +195,7 @@ class Membership extends BaseController
     public function usdc_payment()
     {
         $mdata = [
-            'title'     => 'USDC Payment - ' . SATOSHITITLE,
+            'title'     => 'USDC Payment - ' . NAMETITLE,
             'content'   => 'member/membership/usdc_payment',
             'extra'     => 'member/membership/js/_js_usdc_payment',
             'active_membership' => 'active',
@@ -207,7 +207,7 @@ class Membership extends BaseController
     public function card_payment()
     {
         $mdata = [
-            'title'     => 'Card Payment - ' . SATOSHITITLE,
+            'title'     => 'Card Payment - ' . NAMETITLE,
             'content'   => 'member/membership/card_payment',
             'extra'     => 'member/membership/js/_js_card_payment',
             'active_membership' => 'active',

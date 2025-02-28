@@ -31,7 +31,7 @@ class Freemember extends BaseController
     public function index()
     {
         $mdata = [
-            'title'     => 'Free Member - ' . SATOSHITITLE,
+            'title'     => 'Free Member - ' . NAMETITLE,
             'content'   => 'godmode/freemember/index',
             'extra'     => 'godmode/freemember/js/_js_index',
             'active_free'    => 'active active-menu'
@@ -121,7 +121,7 @@ class Freemember extends BaseController
         // $resultReferral = satoshiAdmin($url)->result->message;
 
         $mdata = [
-            'title'     => 'Detail Member - ' . SATOSHITITLE,
+            'title'     => 'Detail Member - ' . NAMETITLE,
             'content'   => 'godmode/freemember/detail_freemember',
             'extra'     => 'godmode/freemember/js/_js_detailreferral',
             'active_free'  => 'active',
