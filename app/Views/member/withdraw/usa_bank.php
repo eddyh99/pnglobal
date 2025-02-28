@@ -80,10 +80,10 @@
                             <form action="" method="POST">
                                 <div class="row w-100">
                                     <div class="form-addreferral col-8 mx-auto">
-                                        <div class="wrapper-addreferral">
+                                        <!-- <div class="wrapper-addreferral">
                                             <label for="amount">Amount To Withdraw</label>
                                             <input type="number" name="amount" class="form-control">
-                                        </div>
+                                        </div> -->
                                         <div class="wrapper-addreferral">
                                             <label for="recipient">Recipient</label>
                                             <input type="text" name="recipient" class="form-control">

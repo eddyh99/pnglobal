@@ -28,6 +28,6 @@
         var state = document.getElementById('state').value;
         var postal = document.getElementById('postal_code').value;
         // Menggabungkan semua nilai address menjadi satu string
-        document.getElementById('wallet_address').value = line1 + ', ' + city + ', ' + state + ', ' + postal;
+        document.getElementById('address').value = line1 + ', ' + city + ', ' + state + ', ' + postal;
     });
 </script>

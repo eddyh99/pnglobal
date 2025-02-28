@@ -79,10 +79,10 @@
                         <div class="main-send-signal d-flex flex-column align-items-center justify-content-center">
                             <div class="row w-100">
                                 <div class="form-addreferral col-8 mx-auto">
-                                    <div class="wrapper-addreferral">
+                                    <!-- <div class="wrapper-addreferral">
                                         <label for="amount">Amount To Withdraw</label>
                                         <input type="number" name="amount" class="form-control">
-                                    </div>
+                                    </div> -->
                                     <div class="wrapper-addreferral">
                                         <label for="recipient">Recipient Name</label>
                                         <input type="text" name="recipient" class="form-control">

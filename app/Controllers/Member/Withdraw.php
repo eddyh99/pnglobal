@@ -113,10 +113,6 @@ class Withdraw extends BaseController
     public function request_withdraw()
     {
         $rules = $this->validate([
-            'amount' => [
-                'label' => 'Amount',
-                'rules' => 'required|numeric|greater_than[0]'
-            ],
             'recipient' => [
                 'label' => 'Recipient',
                 'rules' => 'permit_empty'
@@ -167,7 +163,7 @@ class Withdraw extends BaseController
             'routing_number' => $this->request->getVar('routing_number'),
             'account_type' => $this->request->getVar('account_type'),
             'swift_code' => $this->request->getVar('swift_code'),
-            'address' => $this->request->getVar('address'),
+            'wallet_address' => $this->request->getVar('address'),
             'network' => $this->request->getVar('network'),
         ];
 

@@ -80,13 +80,13 @@
                             <form action="" method="POST">
                                 <div class="row w-100">
                                     <div class="form-addreferral col-8 mx-auto">
-                                        <div class="wrapper-addreferral">
+                                        <!-- <div class="wrapper-addreferral">
                                             <label for="amount">Amount To Withdraw</label>
                                             <input type="number" name="amount" class="form-control">
-                                        </div>
+                                        </div> -->
                                         <div class="wrapper-addreferral">
                                             <label for="wallet_address">Wallet Address</label>
-                                            <input type="text" name="wallet_address" class="form-control">
+                                            <input type="text" name="address" class="form-control">
                                         </div>
                                         <div class="wrapper-addreferral">
                                             <label for="network">Network</label>
