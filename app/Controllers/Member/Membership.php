@@ -91,7 +91,7 @@ class Membership extends BaseController
      * 
      * @return \CodeIgniter\HTTP\Response
      */
-    public function confirm_payment()
+    public function confirm_crypto_payment()
     {
         try {
             // Validasi request
@@ -145,24 +145,40 @@ class Membership extends BaseController
             if (isset($result->code) && $result->code != 201) {
                 return $this->response->setJSON([
                     'status' => 'error',
-                    'message' => $result->message ?? 'Terjadi kesalahan pada server API'
+                    'message' => '<p>' . ($result->message ?? 'An error occurred on the API server') . '</p><p>Please try again or contact customer support.</p>'
                 ])->setStatusCode(400);
             }
 
-            return $this->response->setJSON([
+            // Pastikan properti yang diperlukan ada dalam respons
+            $responseData = [
                 'status' => 'success',
-                'message' => 'Pembayaran berhasil dikonfirmasi',
+                'message' => '<p>Your payment is being processed and your account will be ready within 48 hours.</p><p>We will send you an email when your account is active.</p>',
                 'data' => [
-                    'email' => $result->email,
-                    'amount' => $result->amount,
-                    'end_date' => $result->end_date,
+                    'email' => $email, // Gunakan email dari session jika tidak ada dalam respons
+                    'amount' => $amount, // Gunakan amount dari request jika tidak ada dalam respons
                 ]
-            ])->setStatusCode(201);
+            ];
+
+            // Tambahkan end_date jika ada dalam respons
+            if (isset($result->end_date)) {
+                $responseData['data']['end_date'] = $result->end_date;
+            }
+
+            // Perbarui dengan data dari respons jika tersedia
+            if (isset($result->email)) {
+                $responseData['data']['email'] = $result->email;
+            }
+
+            if (isset($result->amount)) {
+                $responseData['data']['amount'] = $result->amount;
+            }
+
+            return $this->response->setJSON($responseData)->setStatusCode(201);
         } catch (\Exception $e) {
             log_message('error', 'Exception: ' . $e->getMessage());
             return $this->response->setJSON([
                 'status' => 'error',
-                'message' => 'Terjadi kesalahan internal: ' . $e->getMessage()
+                'message' => '<p>An internal error occurred:</p><p>' . $e->getMessage() . '</p><p>Please try again later or contact customer support.</p>'
             ])->setStatusCode(500);
         }
     }
@@ -225,7 +241,7 @@ class Membership extends BaseController
             log_message('error', 'Exception: ' . $e->getMessage());
             return $this->response->setJSON([
                 'status' => 'error',
-                'message' => 'Terjadi kesalahan internal: ' . $e->getMessage()
+                'message' => '<p>An internal error occurred:</p><p>' . $e->getMessage() . '</p><p>Please try again later or contact customer support.</p>'
             ])->setStatusCode(500);
         }
     }
@@ -254,11 +270,20 @@ class Membership extends BaseController
 
     public function usdc_payment()
     {
+        $session = session();
+
+        // Periksa apakah ada data pembayaran dalam session
+        if (!$session->has('payment_data')) {
+            return redirect()->to('/member/membership/set_investment_capital');
+        }
+
+        $paymentData = $session->get('payment_data');
         $mdata = [
             'title'     => 'USDC Payment - ' . NAMETITLE,
             'content'   => 'member/membership/usdc_payment',
             'extra'     => 'member/membership/js/_js_usdc_payment',
             'active_membership' => 'active',
+            'payment_data' => $paymentData,
         ];
 
         return view('member/layout/dashboard_wrapper', $mdata);
@@ -266,13 +291,150 @@ class Membership extends BaseController
 
     public function card_payment()
     {
+        $session = session();
+
+        // Periksa apakah ada data pembayaran dalam session
+        if (!$session->has('payment_data')) {
+            return redirect()->to('/member/membership/set_investment_capital');
+        }
+
+        $paymentData = $session->get('payment_data');
+
         $mdata = [
             'title'     => 'Card Payment - ' . NAMETITLE,
             'content'   => 'member/membership/card_payment',
             'extra'     => 'member/membership/js/_js_card_payment',
             'active_membership' => 'active',
+            'payment_data' => $paymentData,
         ];
 
         return view('member/layout/dashboard_wrapper', $mdata);
+    }
+
+    public function confirm_card_payment()
+    {
+        try {
+            // Validasi request
+            $rules = [
+                'amount' => 'required',
+                'payment_method_id' => 'required'
+            ];
+
+            if (!$this->validate($rules)) {
+                session()->setFlashdata('failed', $this->validator->getErrors());
+                return redirect()->to('/member/membership/card_payment');
+            }
+
+            // Ambil data dari request
+            $amount = $this->request->getPost('amount');
+            $paymentMethodId = $this->request->getPost('payment_method_id');
+
+            // Bersihkan nilai amount dari karakter non-numerik kecuali titik desimal
+            $amount = preg_replace('/[^0-9.]/', '', $amount);
+
+            // Konversi ke tipe data float
+            $amount = (float) $amount;
+
+            // Konversi ke sen untuk Stripe (Stripe menggunakan satuan sen)
+            $amountInCents = $amount * 100;
+
+            // Ambil email dari session
+            $session = session();
+            if (!$session->has('logged_user')) {
+                session()->setFlashdata('failed', 'User not authenticated');
+                return redirect()->to('/member/membership/card_payment');
+            }
+
+            $loggedUser = $session->get('logged_user');
+            $email = $loggedUser->email;
+
+            // Inisialisasi Stripe
+            \Stripe\Stripe::setApiKey(SECRET_KEY);
+
+            try {
+                // Buat payment intent di Stripe
+                $paymentIntent = \Stripe\PaymentIntent::create([
+                    'amount' => $amountInCents,
+                    'currency' => 'usd',
+                    'payment_method' => $paymentMethodId,
+                    'automatic_payment_methods' => [
+                        'enabled' => true,
+                        'allow_redirects' => 'never', // Nonaktifkan metode pembayaran berbasis redirect
+                    ],
+                ]);
+
+                if ($paymentIntent->status === 'requires_confirmation') {
+                    $confirmedPaymentIntent = $paymentIntent->confirm();
+
+                    // Jika pembayaran berhasil, simpan ke API
+                    if ($confirmedPaymentIntent->status === 'succeeded') {
+                        // Siapkan data untuk API
+                        $postData = [
+                            'email' => $email,
+                            'amount' => $amount,
+                            'payment_method' => 'card',
+                            'transaction_id' => $confirmedPaymentIntent->id
+                        ];
+
+                        $url = URLAPI . "/v1/subscribe/paid_subscribe";
+                        $response = satoshiAdmin($url, json_encode($postData));
+
+                        $result = $response->result;
+
+                        // Periksa kode response dari API
+                        if (isset($result->code) && $result->code != 201) {
+                            // Jika API gagal, refund pembayaran
+                            \Stripe\Refund::create([
+                                'payment_intent' => $confirmedPaymentIntent->id
+                            ]);
+
+                            session()->setFlashdata('failed', $result->message ?? 'An error occurred on the API server. Please try again or contact customer support.');
+                            return redirect()->to('/member/membership/card_payment');
+                        }
+
+                        // Hapus data pembayaran dari session
+                        $session->remove('payment_data');
+
+                        // Set flash data untuk sukses
+                        session()->setFlashdata('success', 'Your payment is being processed and your account will be ready within 48 hours. We will send you an email when your account is active.');
+                        return redirect()->to('/member/membership');
+                    } else {
+                        session()->setFlashdata('failed', 'Payment failed: ' . $confirmedPaymentIntent->status);
+                        return redirect()->to('/member/membership/card_payment');
+                    }
+                } else {
+                    session()->setFlashdata('failed', 'Payment failed: ' . $paymentIntent->status);
+                    return redirect()->to('/member/membership/card_payment');
+                }
+            } catch (\Stripe\Exception\CardException $e) {
+                // Kartu ditolak
+                session()->setFlashdata('failed', 'Card declined: ' . $e->getError()->message);
+                return redirect()->to('/member/membership/card_payment');
+            } catch (\Stripe\Exception\RateLimitException $e) {
+                // Terlalu banyak request
+                session()->setFlashdata('failed', 'Too many requests to Stripe. Please try again later.');
+                return redirect()->to('/member/membership/card_payment');
+            } catch (\Stripe\Exception\InvalidRequestException $e) {
+                // Parameter tidak valid
+                session()->setFlashdata('failed', 'Invalid parameters: ' . $e->getError()->message);
+                return redirect()->to('/member/membership/card_payment');
+            } catch (\Stripe\Exception\AuthenticationException $e) {
+                // Autentikasi gagal
+                session()->setFlashdata('failed', 'Stripe authentication failed. Please contact administrator.');
+                return redirect()->to('/member/membership/card_payment');
+            } catch (\Stripe\Exception\ApiConnectionException $e) {
+                // Koneksi ke Stripe gagal
+                session()->setFlashdata('failed', 'Connection to Stripe failed. Please try again later.');
+                return redirect()->to('/member/membership/card_payment');
+            } catch (\Stripe\Exception\ApiErrorException $e) {
+                // Error API Stripe lainnya
+                session()->setFlashdata('failed', 'Stripe error: ' . $e->getError()->message);
+                return redirect()->to('/member/membership/card_payment');
+            }
+        } catch (\Exception $e) {
+            log_message('error', 'Exception: ' . $e->getMessage());
+            session()->setFlashdata('failed', 'An internal error occurred: ' . $e->getMessage());
+            return redirect()->to('/member/membership/card_payment');
+        }
     }
 }

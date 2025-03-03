@@ -37,7 +37,7 @@
                     <!-- USDT Payment Information -->
                     <div class="usdt-payment-info">
                         <div class="usdt-qr-container">
-                            <form action="<?= BASE_URL ?>member/membership/confirm_payment" method="POST" id="usdt-payment-form">
+                            <form action="<?= BASE_URL ?>member/membership/confirm_crypto_payment" method="POST" id="usdt-payment-form">
                                 <div class="usdt-qr-code">
                                     <img src="<?= BASE_URL ?>assets/img/qr-pnglobal.png" alt="USDT Payment QR Code" class="img-fluid">
                                 </div>
@@ -76,6 +76,21 @@
                         </div>
                     </div>
                 </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="usdtSuccessModal" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <!-- Pesan akan dimuat secara dinamis -->
             </div>
         </div>
     </div>

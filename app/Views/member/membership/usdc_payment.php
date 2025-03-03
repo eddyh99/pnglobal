@@ -37,43 +37,60 @@
                     <!-- USDT Payment Information -->
                     <div class="usdt-payment-info">
                         <div class="usdt-qr-container">
-                            <div class="usdt-qr-code">
-                                <img src="<?= BASE_URL ?>assets/img/qr-pnglobal.png" alt="USDT Payment QR Code" class="img-fluid">
-                            </div>
-                            <div class="usdt-payment-details">
-                                <div class="usdt-wallet-address">
-                                    <p class="address-label">PN Global USDT Wallet Address</p>
-                                    <div class="address-value">
-                                        <input type="text" class="form-control" value="TYQRBvjWcCY2kRLkQa1GhS9Dj1g5GZeXXX" id="wallet-address" readonly>
-                                        <button class="copy-btn" onclick="copyToClipboard('wallet-address')">
-                                            <i class="ri-file-copy-line"></i>
-                                        </button>
+                            <form action="<?= BASE_URL ?>member/membership/confirm_crypto_payment" method="POST" id="usdc-payment-form">
+                                <div class="usdt-qr-code">
+                                    <img src="<?= BASE_URL ?>assets/img/qr-pnglobal.png" alt="USDT Payment QR Code" class="img-fluid">
+                                </div>
+                                <div class="usdt-payment-details">
+                                    <div class="usdt-wallet-address">
+                                        <p class="address-label">PN Global USDT Wallet Address</p>
+                                        <div class="address-value">
+                                            <input type="text" class="form-control" value="TYQRBvjWcCY2kRLkQa1GhS9Dj1g5GZeXXX" id="wallet-address" readonly>
+                                            <button class="copy-btn" onclick="copyToClipboard('wallet-address')">
+                                                <i class="ri-file-copy-line"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div class="usdt-amount mt-3">
+                                        <p class="amount-label">Network</p>
+                                        <div class="amount-value">
+                                            <input type="text" class="form-control" value="Blockchain" id="network" readonly>
+                                        </div>
+                                    </div>
+                                    <div class="usdt-amount mt-3">
+                                        <p class="amount-label">Amount to Pay</p>
+                                        <div class="amount-value">
+                                            <input type="text" class="form-control" value="<?= $payment_data['amount'] ?> USDC" id="amount" name="amount" readonly>
+                                        </div>
+                                    </div>
+                                    <div class="payment-instructions mt-4">
+                                        <ul class="instructions-list text-center">
+                                            <li>After make payment please press "confirm" button</li>
+                                        </ul>
+                                    </div>
+                                    <div class="payment-confirmation mt-4">
+                                        <button class="confirm-payment-btn">Confirm</button>
                                     </div>
                                 </div>
-                                <div class="usdt-amount mt-3">
-                                    <p class="amount-label">Network</p>
-                                    <div class="amount-value">
-                                        <input type="text" class="form-control" value="Blockchain" id="network" readonly>
-                                    </div>
-                                </div>
-                                <div class="usdt-amount mt-3">
-                                    <p class="amount-label">Amount to Pay</p>
-                                    <div class="amount-value">
-                                        <input type="text" class="form-control" value="100 USDT" id="payment-amount" readonly>
-                                    </div>
-                                </div>
-                                <div class="payment-instructions mt-4">
-                                    <ul class="instructions-list text-center">
-                                        <li>After make payment please press "confirm" button</li>
-                                    </ul>
-                                </div>
-                                <div class="payment-confirmation mt-4">
-                                    <button class="confirm-payment-btn">Confirm</button>
-                                </div>
-                            </div>
+                            </form>
                         </div>
                     </div>
                 </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="usdcSuccessModal" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <!-- Pesan akan dimuat secara dinamis -->
             </div>
         </div>
     </div>
