@@ -199,7 +199,6 @@ class Membership extends BaseController
             // Validasi request
             $rules = [
                 'amount' => 'required|numeric|greater_than[0]',
-                'total_capital' => 'required|numeric|greater_than[0]',
             ];
 
             if (!$this->validate($rules)) {
@@ -211,7 +210,6 @@ class Membership extends BaseController
 
             // Ambil data dari request dan pastikan tipe datanya numerik
             $amount = (float) $this->request->getPost('amount');
-            $totalCapital = (float) $this->request->getPost('total_capital');
 
             // Ambil email dari session
             $session = session();
@@ -229,7 +227,6 @@ class Membership extends BaseController
             $paymentData = [
                 'email' => $email,
                 'amount' => $amount,
-                'total_capital' => $totalCapital,
                 'timestamp' => date('Y-m-d H:i:s')
             ];
 

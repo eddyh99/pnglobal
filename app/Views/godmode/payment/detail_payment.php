@@ -73,6 +73,7 @@
                             <span><?= $payment->swift_code ?></span>
                         </div>
                     <?php endif; ?>
+
                 </div>
             </div>
         </div>

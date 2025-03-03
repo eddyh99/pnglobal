@@ -124,7 +124,7 @@
                 .then(data => {
                     if (data.status === 'success') {
                         // Redirect ke halaman payment option
-                        window.location.href = '/member/membership/membership_payment_option';
+                        window.location.href = '/member/membership/payment_option';
                     } else {
                         alert('Terjadi kesalahan: ' + data.message);
                         confirmButton.textContent = originalText;

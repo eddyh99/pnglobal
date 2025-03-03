@@ -171,6 +171,8 @@ class Withdraw extends BaseController
             'network' => $this->request->getVar('network'),
         ];
 
+        // dd(json_encode($mdata));
+
         $url = URLAPI . "/v1/withdraw/request_payment";
         $result = satoshiAdmin($url, json_encode($mdata))->result;
 
