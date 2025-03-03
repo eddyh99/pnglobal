@@ -111,6 +111,7 @@ $host = $_SERVER['HTTP_HOST']; // e.g., sandbox.satoshisignal.app
 $parts = explode('.', $host);
 if ($parts[0] === 'sandbox') {
     define("URLAPI", 'https://api2-sandbox.pnglobalinternational.com');
+    define("URLAPI2", 'https://sandbox-api.pnglobalinternational.com');
     //email DEMO
     define("EMAIL_ONE", 'demo@gmail.com');
     define("EMAIL_TWO", 'demo@gmail.com');

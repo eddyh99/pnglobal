@@ -30,7 +30,7 @@
 <div class="content-page mb-5">
     <div class="container-fluid">
         <div class="row content-body">
-            <div class="col-lg-12 px-2">
+            <div class="col-lg-12">
                 <div class="row referral-container">
                     <div class="col-md-10">
                         <div class="referral-card">
@@ -88,52 +88,52 @@
                         </div>
                     </div>
                 </div>
+                <!-- Binace Card -->
+                <div class="binance-fullcard">
+                    <div class="binance-fullcard-header">
+                        Connect Binance API
+                    </div>
+                    <div class="binance-detailcard">
+                        <div class="label">
+                            API Key
+                        </div>
+                        <div class="value">
+                            adsjJN945wkngsflkn
+                        </div>
+                        <div class="label">
+                            API Secret
+                        </div>
+                        <div class="value">
+                            adsjJN945wadsjJN945wkngsflkn
+                        </div>
+                    </div>
+                    <div class="binance-fullcard-footer">
+                        <button class="edit-btn">Edit</button>
+                    </div>
+                </div>
+                <!-- Tombol di luar binance-fullcard -->
+                <div class="binance-button-row">
+                    <button class="get-api-btn">How to get API?</button>
+                    <button class="support-btn">Contact Support</button>
+                </div>
+                <div class="col-lg-12 dash-table-totalmember">
+                    <h4 class="text-white my-3 text-uppercase fw-bold">Membership History</h4>
+                    <table id="table_totalmember" class="table table-striped" style="width:100%">
+                        <thead class="thead_totalmember">
+                            <tr>
+                                <th>DATE</th>
+                                <th>CAPITAL</th>
+                                <th>PAYMENT AMOUNT</th>
+                                <th>STATUS</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                    </table>
+                </div>
             </div>
 
-            <!-- Binace Card -->
-            <div class="binance-fullcard">
-                <div class="binance-fullcard-header">
-                    Connect Binance API
-                </div>
-                <div class="binance-detailcard">
-                    <div class="label">
-                        API Key
-                    </div>
-                    <div class="value">
-                        adsjJN945wkngsflkn
-                    </div>
-                    <div class="label">
-                        API Secret
-                    </div>
-                    <div class="value">
-                        adsjJN945wadsjJN945wkngsflkn
-                    </div>
-                </div>
-                <div class="binance-fullcard-footer">
-                    <button class="edit-btn">Edit</button>
-                </div>
-            </div>
-            <!-- Tombol di luar binance-fullcard -->
-            <div class="binance-button-row">
-                <button class="get-api-btn">How to get API?</button>
-                <button class="support-btn">Contact Support</button>
-            </div>
 
-            <div class="col-lg-12 dash-table-totalmember">
-                <h4 class="text-white my-3 text-uppercase fw-bold">Membership History</h4>
-                <table id="table_totalmember" class="table table-striped" style="width:100%">
-                    <thead class="thead_totalmember">
-                        <tr>
-                            <th>DATE</th>
-                            <th>CAPITAL</th>
-                            <th>PAYMENT AMOUNT</th>
-                            <th>STATUS</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                    </tbody>
-                </table>
-            </div>
         </div>
     </div>
 </div>

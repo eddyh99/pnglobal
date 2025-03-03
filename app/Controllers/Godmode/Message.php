@@ -22,8 +22,8 @@ class Message extends BaseController
     public function index()
     {
         // Call Endpoin Get All Message
-        $url = URLAPI . "/v1/signal/getallmessage";
-        $result = satoshiAdmin($url)->result->message;
+        $url = URLAPI2 . "/v1/signal/getallmessage";
+        $result = satoshiAdmin($url)->result;
 
         dd($result);
 
@@ -74,7 +74,7 @@ class Message extends BaseController
         ];
 
         // Proccess Endpoin API
-        $url = URLAPI . "/v1/signal/send_message";
+        $url = URLAPI2 . "/v1/signal/send_message";
         $response = satoshiAdmin($url, json_encode($mdata));
         $result = $response->result;
 
@@ -114,7 +114,7 @@ class Message extends BaseController
         ];
 
         // Proccess Endpoin API
-        $url = URLAPI . "/v1/signal/edit_message?msgid=" . $msgid;
+        $url = URLAPI2 . "/v1/signal/edit_message?msgid=" . $msgid;
         $response = satoshiAdmin($url, json_encode($mdata));
         $result = $response->result;
 
