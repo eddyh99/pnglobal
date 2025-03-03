@@ -1567,8 +1567,29 @@ div.dataTables_wrapper div.dataTables_filter input {
 /* Styling untuk tabel */
 .signal-table {
     width: 100%;
-    border-collapse: separate;
-    border-spacing: 0 10px;
+    border-collapse: collapse;
+    border-spacing: 0;
+    margin-top: 20px;
+}
+
+.signal-table th {
+    color: #ffffff;
+    font-weight: 600;
+    font-size: 16px;
+    text-transform: uppercase;
+    padding: 0 12px 0 12px !important;
+    line-height: 1;
+    height: 20px;
+}
+
+.signal-table td {
+    padding: 0 12px;
+    vertical-align: middle;
+}
+
+/* Mengurangi jarak antara header dan input */
+.signal-table thead + tbody {
+    margin-top: -10px;
 }
 
 .signal-table th,
