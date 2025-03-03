@@ -43,6 +43,10 @@
                                                     <input type="checkbox" id="access_payment" name="access[]" value="payment">
                                                     <label for="access_payment">Payment</label>
                                                 </div>
+                                                <div class="role-item">
+                                                    <input type="checkbox" id="access_message" name="access[]" value="message">
+                                                    <label for="access_message">Message</label>
+                                                </div>
                                             </div>
                                         </div>
                                         <div class="wrapper-addreferral d-flex justify-content-center">

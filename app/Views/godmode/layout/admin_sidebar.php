@@ -63,6 +63,17 @@
                         <span class="<?= (@$active_signal != null) ? 'text-black' : 'text-white' ?>">Signals</span>
                     </a>
                 </li>
+                <li class="<?= @$active_msg ?>">
+                    <a href="<?= BASE_URL ?>godmode/message" class="iq-waves-effect">
+                        <i>
+                            <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M3.75 15C3.75 13.2576 3.75 12.3863 3.89411 11.6618C4.48591 8.68665 6.81165 6.36091 9.78684 5.76911C10.5113 5.625 11.3826 5.625 13.125 5.625H16.875C18.6174 5.625 19.4887 5.625 20.2132 5.76911C23.1883 6.36091 25.5141 8.68665 26.1059 11.6618C26.25 12.3863 26.25 13.2576 26.25 15V15C26.25 16.7424 26.25 17.6137 26.1059 18.3382C25.5141 21.3133 23.1883 23.6391 20.2132 24.2309C19.4887 24.375 18.6174 24.375 16.875 24.375H13.125C11.3826 24.375 10.5113 24.375 9.78684 24.2309C6.81165 23.6391 4.48591 21.3133 3.89411 18.3382C3.75 17.6137 3.75 16.7424 3.75 15V15Z" stroke="<?= (@$active_msg != null) ? 'black' : 'white' ?>" stroke-width="2.25" stroke-linejoin="round" />
+                                <path d="M3.75 10L6.71216 12.3038C10.2366 15.0449 11.9988 16.4155 14.0118 16.6831C14.668 16.7704 15.3329 16.7703 15.9892 16.6831C18.0021 16.4153 19.7643 15.0447 23.2886 12.3034L26.25 10" stroke="<?= (@$active_msg != null) ? 'black' : 'white' ?>" stroke-width="2.25" stroke-linejoin="round" />
+                            </svg>
+                        </i>
+                        <span class="<?= (@$active_msg != null) ? 'text-black' : 'text-white' ?>">Message</span>
+                    </a>
+                </li>
                 <li class="<?= @$active_free ?>">
                     <a href="<?= BASE_URL ?>godmode/freemember" class="iq-waves-effect">
                         <i>
