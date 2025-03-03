@@ -171,16 +171,20 @@ class Withdraw extends BaseController
             'network' => $this->request->getVar('network'),
         ];
 
-        // dd(json_encode($mdata));
-
         $url = URLAPI . "/v1/withdraw/request_payment";
         $result = satoshiAdmin($url, json_encode($mdata))->result;
 
         // Jika kode respons adalah 201, redirect ke halaman withdraw
         if ($result->code == 201) {
-            return redirect()->to(BASE_URL . 'member/withdraw')->with('success', $result->message);
+            return $this->response->setJSON([
+                'code' => $result->code,
+                'message' => $result->message
+            ]);
         } else {
-            return redirect()->to(BASE_URL . 'member/withdraw')->with('error', $result->message);
+            return $this->response->setJSON([
+                'code' => $result->code,
+                'message' => $result->message
+            ]);
         }
 
         // return $this->response->setJSON([

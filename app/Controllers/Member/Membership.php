@@ -96,7 +96,7 @@ class Membership extends BaseController
         try {
             // Validasi request
             $rules = [
-                'amount' => 'required|numeric|greater_than[0]',
+                'amount' => 'required',
             ];
 
             if (!$this->validate($rules)) {
@@ -106,8 +106,17 @@ class Membership extends BaseController
                 ])->setStatusCode(400);
             }
 
-            // Ambil data dari request dan pastikan tipe datanya numerik
-            $amount = (float) $this->request->getPost('amount');
+            // Ambil data dari request
+            $amount = $this->request->getPost('amount');
+
+            // Jika amount berisi string "USDT" atau "usdt", hilangkan
+            $amount = str_replace(['USDT', 'usdt', 'USDC', 'usdc'], '', $amount);
+
+            // Bersihkan nilai amount dari karakter non-numerik kecuali titik desimal
+            $amount = preg_replace('/[^0-9.]/', '', $amount);
+
+            // Konversi ke tipe data float
+            $amount = (float) $amount;
 
             // Ambil email dari session
             $session = session();
@@ -130,20 +139,10 @@ class Membership extends BaseController
             $url = URLAPI . "/v1/subscribe/paid_subscribe";
             $response = satoshiAdmin($url, json_encode($postData));
 
-            // Periksa status response dari API
-            if ($response->status != 200) {
-                log_message('error', 'API Error: Status ' . $response->status);
-                return $this->response->setJSON([
-                    'status' => 'error',
-                    'message' => 'Terjadi kesalahan pada server API'
-                ])->setStatusCode(500);
-            }
-
             $result = $response->result;
 
             // Periksa kode response dari API
-            if (isset($result->code) && $result->code != 200) {
-                log_message('error', 'API Error: Code ' . $result->code . ' - ' . ($result->message ?? 'Unknown error'));
+            if (isset($result->code) && $result->code != 201) {
                 return $this->response->setJSON([
                     'status' => 'error',
                     'message' => $result->message ?? 'Terjadi kesalahan pada server API'
@@ -154,11 +153,11 @@ class Membership extends BaseController
                 'status' => 'success',
                 'message' => 'Pembayaran berhasil dikonfirmasi',
                 'data' => [
-                    'email' => $email,
-                    'amount' => $amount,
-                    'timestamp' => date('Y-m-d H:i:s')
+                    'email' => $result->email,
+                    'amount' => $result->amount,
+                    'end_date' => $result->end_date,
                 ]
-            ]);
+            ])->setStatusCode(201);
         } catch (\Exception $e) {
             log_message('error', 'Exception: ' . $e->getMessage());
             return $this->response->setJSON([
@@ -208,28 +207,13 @@ class Membership extends BaseController
                 ])->setStatusCode(400);
             }
 
-            // Ambil data dari request dan pastikan tipe datanya numerik
-            $amount = (float) $this->request->getPost('amount');
-
-            // Ambil email dari session
-            $session = session();
-            if (!$session->has('logged_user')) {
-                return $this->response->setJSON([
-                    'status' => 'error',
-                    'message' => 'User tidak terautentikasi'
-                ])->setStatusCode(401);
-            }
-
-            $loggedUser = $session->get('logged_user');
-            $email = $loggedUser->email;
-
             // Simpan data ke dalam session
             $paymentData = [
-                'email' => $email,
-                'amount' => $amount,
+                'amount' => $this->request->getPost('amount'),
                 'timestamp' => date('Y-m-d H:i:s')
             ];
 
+            $session = session();
             $session->set('payment_data', $paymentData);
 
             return $this->response->setJSON([
@@ -248,11 +232,21 @@ class Membership extends BaseController
 
     public function usdt_payment()
     {
+        $session = session();
+
+        // Periksa apakah ada data pembayaran dalam session
+        if (!$session->has('payment_data')) {
+            return redirect()->to('/member/membership/set_investment_capital');
+        }
+
+        $paymentData = $session->get('payment_data');
+
         $mdata = [
             'title'     => 'USDT Payment - ' . NAMETITLE,
             'content'   => 'member/membership/usdt_payment',
             'extra'     => 'member/membership/js/_js_usdt_payment',
             'active_membership' => 'active',
+            'payment_data' => $paymentData,
         ];
 
         return view('member/layout/dashboard_wrapper', $mdata);

@@ -23,6 +23,16 @@
     });
 
     $(document).ready(function() {
+        // Fungsi untuk menutup modal dan redirect
+        function closeModalAndRedirect(redirectUrl, delay) {
+            setTimeout(function() {
+                $("#modalAvailableCommission").modal("hide");
+                setTimeout(function() {
+                    window.location.href = redirectUrl;
+                }, 300); // Memberikan sedikit waktu untuk animasi modal menutup
+            }, delay);
+        }
+
         $('form[action="<?= BASE_URL ?>member/withdraw/request_withdraw"]').on('submit', function(e) {
             e.preventDefault(); // cegah submit form secara default
 
@@ -32,14 +42,18 @@
                 data: $(this).serialize(),
                 dataType: "json",
                 success: function(response) {
-                    if (response.code === 200) {
+                    if (response.code === 201) {
                         $("#modalAvailableCommission .modal-body").html("Your withdraw on process<br>Please check your wallet regularly");
+                        $("#modalAvailableCommission").modal("show");
+                        // Tutup modal dan redirect setelah 3 detik
+                        closeModalAndRedirect("<?= BASE_URL ?>member/withdraw", 3000);
                     } else if (response.code === 400) {
                         $("#modalAvailableCommission .modal-body").html("Insufficient balance. Please ensure you have enough funds and try again.");
+                        $("#modalAvailableCommission").modal("show");
                     } else {
                         $("#modalAvailableCommission .modal-body").html("An error occurred. Please try again later or contact support.");
+                        $("#modalAvailableCommission").modal("show");
                     }
-                    $("#modalAvailableCommission").modal("show");
                 },
                 error: function(xhr, status, error) {
                     console.error("Error:", error);
