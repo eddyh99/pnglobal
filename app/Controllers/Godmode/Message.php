@@ -25,14 +25,19 @@ class Message extends BaseController
         $url = URLAPI2 . "/v1/signal/getallmessage";
         $result = satoshiAdmin($url)->result;
 
-        dd($result);
+        $messageData = [];
+        if (isset($result) && is_object($result) && isset($result->message)) {
+            $messageData = $result->message;
+        } elseif (isset($result) && is_array($result)) {
+            $messageData = $result;
+        }
 
         $mdata = [
             'title'     => 'Message - ' . NAMETITLE,
             'content'   => 'godmode/message/index',
             'extra'     => 'godmode/message/js/_js_index',
             'active_msg'    => 'active active-menu',
-            'message'   => $result
+            'message'   => $messageData
         ];
 
         return view('godmode/layout/admin_wrapper', $mdata);
@@ -62,7 +67,7 @@ class Message extends BaseController
 
         // Checking Validation
         if (!$rules) {
-            session()->setFlashdata('error_validation', $this->validation->listErrors());
+            session()->setFlashdata('error_validation', $this->validator->listErrors());
             return redirect()->to(BASE_URL . 'godmode/message');
         }
 
@@ -102,7 +107,7 @@ class Message extends BaseController
 
         // Checking Validation
         if (!$rules) {
-            session()->setFlashdata('error_validation', $this->validation->listErrors());
+            session()->setFlashdata('error_validation', $this->validator->listErrors());
             return redirect()->to(BASE_URL . 'godmode/message');
         }
 

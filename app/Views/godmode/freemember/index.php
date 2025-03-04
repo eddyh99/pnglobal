@@ -29,6 +29,11 @@
 <!-- Page Content  -->
 <div class="content-page mb-5">
     <div class="container-fluid">
+        <!-- Tab Navigation -->
+        <div class="satoshi-signal-container">
+            <div class="satoshi-signal-label">SATOSHI SIGNAL</div>
+        </div>
+
         <div class="row content-body">
             <div class="col-lg-12">
                 <form action="<?= BASE_URL ?>godmode/freemember/createfree" method="POST">

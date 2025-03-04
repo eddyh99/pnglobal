@@ -2885,3 +2885,31 @@ body.sidebar-main .content-page .payment-option-container {
         border-bottom: 1px solid #222;
     }
 }
+
+/* Label Satoshi Signal */
+.satoshi-signal-label {
+    display: inline-block;
+    padding: 12px 20px;
+    text-align: center;
+    font-weight: 600;
+    font-size: 16px;
+    background-color: #bfa573;
+    color: #000;
+    margin: 30px auto 0;
+    max-width: 300px;
+    width: 100%;
+}
+
+/* Tambahan style untuk container label jika diperlukan */
+.satoshi-signal-container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+@media (max-width: 768px) {
+    .satoshi-signal-label {
+        width: 100%;
+        max-width: 100%;
+    }
+}
