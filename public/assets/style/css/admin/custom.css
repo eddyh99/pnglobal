@@ -2835,6 +2835,11 @@ body.sidebar-main .content-page .payment-option-container {
     max-width: 600px;
 }
 
+/* Khusus untuk tab-navigation di halaman payment */
+.payment-page .tab-navigation {
+    margin-bottom: 0;
+}
+
 .tab-item {
     flex: 1;
     padding: 12px 20px;

@@ -1,4 +1,43 @@
 <script>
+    // Tab functionality
+    $(document).ready(function() {
+        console.log("Document ready, initializing tabs");
+
+        // Default active tab
+        let activeTab = localStorage.getItem('activeTab') || 'pn-global';
+        console.log("Active tab from localStorage:", activeTab);
+
+        // Set active tab on load
+        $('.tab-item[data-tab="' + activeTab + '"]').addClass('active').css({
+            'background-color': '#BFA573',
+            'color': '#000'
+        });
+        $('#' + activeTab).addClass('active').css('display', 'block');
+
+        // Tab click handler
+        $('.tab-item').click(function() {
+            const tabId = $(this).data('tab');
+            console.log("Tab clicked:", tabId);
+
+            // Remove active class and reset styles from all tabs and contents
+            $('.tab-item').removeClass('active').css({
+                'background-color': '#444',
+                'color': '#fff'
+            });
+            $('.tab-content').removeClass('active').css('display', 'none');
+
+            // Add active class and styles to clicked tab and its content
+            $(this).addClass('active').css({
+                'background-color': '#BFA573',
+                'color': '#000'
+            });
+            $('#' + tabId).addClass('active').css('display', 'block');
+
+            // Save active tab to localStorage
+            localStorage.setItem('activeTab', tabId);
+        });
+    });
+
     $('#table_referralmember').DataTable({
         "pageLength": 50,
         "scrollX": true,
