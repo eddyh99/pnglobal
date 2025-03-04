@@ -195,6 +195,11 @@
     padding: 0rem 1rem;
 }
 
+/* CSS khusus untuk dash statistics di tab Satoshi Signal */
+#satoshi-signal .dash-statistics .statistics {
+    width: 20%;
+}
+
 .send-signals {
     border: 2px solid #b48b3d;
     border-radius: 10px;
@@ -2841,6 +2846,11 @@ body.sidebar-main .content-page .payment-option-container {
     text-decoration: none;
     cursor: pointer;
     transition: background-color 0.3s;
+}
+
+.tab-item:hover {
+    color: #fff; /* Mempertahankan warna teks putih saat hover */
+    text-decoration: none; /* Menghilangkan garis bawah */
 }
 
 .tab-item:first-child {

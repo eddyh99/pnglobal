@@ -28,22 +28,57 @@ class Dashboard extends BaseController
 
     public function index()
     {
-        $url = URLAPI . "/v1/member/get_membership";
-        $resultMembership = satoshiAdmin($url)->result;
-        $totalmember = $resultMembership->message->total_members ?? 0;
-        $totalfreemember = $resultMembership->message->total_free_members ?? 0;
-        $totalsubscription = $resultMembership->message->total_subscriptions ?? 0;
-        $totalsignal = $resultMembership->message->total_signals ?? 0;
+        $urlglobal = URLAPI . "/v1/member/get_membership";
+        $resultglobal = satoshiAdmin($urlglobal)->result;
+
+        // Call Endpoin total_member
+        $url = URLAPI2 . "/v1/member/total_member";
+        $resultTotalMember = satoshiAdmin($url)->result;
+
+        // Call Endpoin total free member
+        $url = URLAPI2 . "/v1/member/total_freemember";
+        $resultFreemember = satoshiAdmin($url)->result;
+
+        // Call Endpoin total Referral
+        $url = URLAPI2 . "/v1/subscription/subscribe_active";
+        $resultSubscriber = satoshiAdmin($url)->result;
+
+        // Call Endpoin total Message
+        $url = URLAPI2 . "/v1/signal/total_message";
+        $resultMessage = satoshiAdmin($url)->result;
+
+        // Call Endpoin total Signal
+        $url = URLAPI2 . "/v1/member/total_signal";
+        $resultSignal = satoshiAdmin($url)->result;
+
+
+        // PN Global
+        $totalmemberpnglobal = $resultglobal->message->total_members ?? 0;
+        $totalfreememberpnglobal = $resultglobal->message->total_free_members ?? 0;
+        $totalsubscriptionpnglobal = $resultglobal->message->total_subscriptions ?? 0;
+        $totalsignalpnglobal = $resultglobal->message->total_signals ?? 0;
+
+        // Satoshi Signal
+        $totalmembersatoshi = $resultTotalMember->message ?? 0;
+        $totalfreemembersatoshi = $resultFreemember->message ?? 0;
+        $totalsubscriptionsatoshi = $resultSubscriber->message ?? 0;
+        $totalsignalsatoshi = $resultSignal->message ?? 0;
+        $totalmessagesatoshi = $resultMessage->message ?? 0;
 
         $mdata = [
             'title'     => 'Dashboard - ' . NAMETITLE,
             'content'   => 'godmode/dashboard/index',
             'extra'     => 'godmode/dashboard/js/_js_index',
             'active_dash'    => 'active',
-            'totalmember' => $totalmember,
-            'freemember' => $totalfreemember,
-            'subscriber' => $totalsubscription,
-            'signal' => $totalsignal,
+            'totalmemberpnglobal' => $totalmemberpnglobal,
+            'freememberpnglobal' => $totalfreememberpnglobal,
+            'subscriberpnglobal' => $totalsubscriptionpnglobal,
+            'signalpnglobal' => $totalsignalpnglobal,
+            'totalmembersatoshi' => $totalmembersatoshi,
+            'freemembersatoshi' => $totalfreemembersatoshi,
+            'subscriptionsatoshi' => $totalsubscriptionsatoshi,
+            'signalsatoshi' => $totalsignalsatoshi,
+            'messagesatoshi' => $totalmessagesatoshi,
         ];
 
         return view('godmode/layout/admin_wrapper', $mdata);
