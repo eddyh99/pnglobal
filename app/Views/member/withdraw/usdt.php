@@ -94,7 +94,7 @@
                                             <input type="text" name="network" class="form-control">
                                         </div>
                                         <div class="wrapper-addreferral d-flex justify-content-center">
-                                            <button type="submit" class="btn btn-primary text-black">Confirm</button>
+                                            <button type="submit" id="submitBtn" class="btn btn-primary text-black">Confirm</button>
                                         </div>
                                     </div>
                                 </div>

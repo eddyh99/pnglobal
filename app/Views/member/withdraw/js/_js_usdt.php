@@ -36,6 +36,13 @@
         $('form[action="<?= BASE_URL ?>member/withdraw/request_withdraw"]').on('submit', function(e) {
             e.preventDefault(); // cegah submit form secara default
 
+            // Disable the button and show loading indicator
+            const submitBtn = document.getElementById('submitBtn');
+            if (submitBtn) {
+                submitBtn.disabled = true;
+                submitBtn.innerHTML = '<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Processing...';
+            }
+
             $.ajax({
                 url: $(this).attr('action'),
                 method: "POST",
@@ -50,15 +57,33 @@
                     } else if (response.code === 400) {
                         $("#modalAvailableCommission .modal-body").html("Insufficient balance. Please ensure you have enough funds and try again.");
                         $("#modalAvailableCommission").modal("show");
+
+                        // Re-enable the button if there's an error 
+                        if (submitBtn) {
+                            submitBtn.disabled = false;
+                            submitBtn.innerHTML = 'Confirm';
+                        }
                     } else {
                         $("#modalAvailableCommission .modal-body").html("An error occurred. Please try again later or contact support.");
                         $("#modalAvailableCommission").modal("show");
+
+                        // Re-enable the button if there's an error
+                        if (submitBtn) {
+                            submitBtn.disabled = false;
+                            submitBtn.innerHTML = 'Confirm';
+                        }
                     }
                 },
                 error: function(xhr, status, error) {
                     console.error("Error:", error);
                     $("#modalAvailableCommission .modal-body").html("A server error occurred. Please try again later or contact support.");
                     $("#modalAvailableCommission").modal("show");
+
+                    // Re-enable the button if there's an error
+                    if (submitBtn) {
+                        submitBtn.disabled = false;
+                        submitBtn.innerHTML = 'Confirm';
+                    }
                 }
             });
         });

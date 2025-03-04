@@ -122,4 +122,29 @@
             emptyTable: "No Data"
         }
     });
+
+    // Prevent double submission
+    document.addEventListener('DOMContentLoaded', function() {
+        const form = document.querySelector('form[action="<?= BASE_URL ?>godmode/admin/create_admin"]');
+        const submitBtn = document.getElementById('submitBtn');
+
+        if (form && submitBtn) {
+            form.addEventListener('submit', function() {
+                // Disable the button
+                submitBtn.disabled = true;
+
+                // Change button text to show processing
+                submitBtn.innerHTML = '<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Processing...';
+
+                // Enable the button after 10 seconds (failsafe in case form submission fails)
+                setTimeout(function() {
+                    submitBtn.disabled = false;
+                    submitBtn.innerHTML = 'Create';
+                }, 10000);
+
+                // Allow the form to submit
+                return true;
+            });
+        }
+    });
 </script>

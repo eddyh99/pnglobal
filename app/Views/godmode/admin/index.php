@@ -9,52 +9,50 @@
                             <h4>Add Admin</h4>
                         </div>
                         <div class="main-send-signal d-flex flex-column align-items-center justify-content-center">
-                            <form action="" method="POST">
-                                <div class="row w-100">
-                                    <div class="form-addreferral col-8 mx-auto">
-                                        <div class="wrapper-addreferral">
-                                            <label for="email">Email</label>
-                                            <input type="email" name="email" class="form-control">
-                                        </div>
-                                        <div class="wrapper-addreferral">
-                                            <label for="password">Password</label>
-                                            <input type="password" name="password" class="form-control">
-                                        </div>
-                                        <div class="wrapper-addreferral">
-                                            <label for="alias">Alias</label>
-                                            <input type="text" name="alias" class="form-control">
-                                        </div>
-                                        <div class="wrapper-addreferral">
-                                            <label for="access">Access</label>
-                                            <div class="role-wrapper">
-                                                <div class="role-item">
-                                                    <input type="checkbox" id="access_dashboard" name="access[]" value="subscriber">
-                                                    <label for="access_dashboard">Subscriber</label>
-                                                </div>
-                                                <div class="role-item">
-                                                    <input type="checkbox" id="access_signal" name="access[]" value="signal">
-                                                    <label for="access_signal">Signal</label>
-                                                </div>
-                                                <div class="role-item">
-                                                    <input type="checkbox" id="access_free_member" name="access[]" value="freemember">
-                                                    <label for="access_free_member">Free Member</label>
-                                                </div>
-                                                <div class="role-item">
-                                                    <input type="checkbox" id="access_payment" name="access[]" value="payment">
-                                                    <label for="access_payment">Payment</label>
-                                                </div>
-                                                <div class="role-item">
-                                                    <input type="checkbox" id="access_message" name="access[]" value="message">
-                                                    <label for="access_message">Message</label>
-                                                </div>
+                            <div class="row w-100">
+                                <div class="form-addreferral col-8 mx-auto">
+                                    <div class="wrapper-addreferral">
+                                        <label for="email">Email</label>
+                                        <input type="email" name="email" class="form-control">
+                                    </div>
+                                    <div class="wrapper-addreferral">
+                                        <label for="password">Password</label>
+                                        <input type="password" name="password" class="form-control">
+                                    </div>
+                                    <div class="wrapper-addreferral">
+                                        <label for="alias">Alias</label>
+                                        <input type="text" name="alias" class="form-control">
+                                    </div>
+                                    <div class="wrapper-addreferral">
+                                        <label for="access">Access</label>
+                                        <div class="role-wrapper">
+                                            <div class="role-item">
+                                                <input type="checkbox" id="access_dashboard" name="access[]" value="subscriber">
+                                                <label for="access_dashboard">Subscriber</label>
+                                            </div>
+                                            <div class="role-item">
+                                                <input type="checkbox" id="access_signal" name="access[]" value="signal">
+                                                <label for="access_signal">Signal</label>
+                                            </div>
+                                            <div class="role-item">
+                                                <input type="checkbox" id="access_free_member" name="access[]" value="freemember">
+                                                <label for="access_free_member">Free Member</label>
+                                            </div>
+                                            <div class="role-item">
+                                                <input type="checkbox" id="access_payment" name="access[]" value="payment">
+                                                <label for="access_payment">Payment</label>
+                                            </div>
+                                            <div class="role-item">
+                                                <input type="checkbox" id="access_message" name="access[]" value="message">
+                                                <label for="access_message">Message</label>
                                             </div>
                                         </div>
-                                        <div class="wrapper-addreferral d-flex justify-content-center">
-                                            <button type="submit" class="btn btn-primary">Create</button>
-                                        </div>
+                                    </div>
+                                    <div class="wrapper-addreferral d-flex justify-content-center">
+                                        <button type="submit" id="submitBtn" class="btn btn-primary">Create</button>
                                     </div>
                                 </div>
-                            </form>
+                            </div>
                         </div>
                     </div>
                 </form>
