@@ -83,6 +83,15 @@ class Member extends BaseController
         echo json_encode($result);
     }
 
+    public function get_allmember()
+    {
+        // Mengambil data untuk Satoshi Signal menggunakan URLAPI2
+        $url = URLAPI2 . "/v1/member/allmember";
+        $result = satoshiAdmin($url)->result;
+
+        echo json_encode($result);
+    }
+
     public function get_referralmember()
     {
         // Call Endpoin Get Referral Member

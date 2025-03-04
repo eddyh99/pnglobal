@@ -33,7 +33,7 @@
             <div class="row content-body">
                 <div class="col-lg-12 dash-table-referralmember mt-5">
                     <h4 class="text-white my-3 text-uppercase fw-bold">Request Payment</h4>
-                    <table id="table_referralmember" class="table table-striped" style="width:100%">
+                    <table id="table_satoshi_requestpayment" class="table table-striped" style="width:100%">
                         <thead class="thead_referralmember">
                             <tr>
                                 <th>EMAIL</th>

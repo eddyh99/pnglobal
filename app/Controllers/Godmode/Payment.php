@@ -82,4 +82,18 @@ class Payment extends BaseController
             'amount'  => htmlspecialchars($this->request->getVar('amount')),
         ];
     }
+
+    public function get_satoshi_requestpayment()
+    {
+        // Call Endpoint Get Satoshi Request Payment
+        $url = URLAPI2 . "/v1/payment/requestpayment";
+        $response = satoshiAdmin($url);
+        $result = $response->result;
+
+        $data = [
+            'code' => $result->code,
+            'message' => $result->message
+        ];
+        return json_encode($data);
+    }
 }

@@ -246,7 +246,7 @@
                 <?php if (base64_decode(@$_GET["type"]) != "free_member" && base64_decode(@$_GET["type"]) != "referral_member") { ?>
                     <div class="col-lg-12 dash-table-totalmember">
                         <h4 class="text-white my-3 text-uppercase fw-bold">Total Member</h4>
-                        <table id="table_totalmember" class="table table-striped" style="width:100%">
+                        <table id="table_totalmember_satoshi" class="table table-striped" style="width:100%">
                             <thead class="thead_totalmember">
                                 <tr>
                                     <th>EMAIL</th>
@@ -266,7 +266,7 @@
                 <?php } else if (base64_decode(@$_GET["type"]) == "free_member") { ?>
                     <div class="col-lg-12 dash-table-freemember">
                         <h4 class="text-white my-3 text-uppercase fw-bold">Free Member</h4>
-                        <table id="table_freemember" class="table table-striped" style="width:100%">
+                        <table id="table_freemember_satoshi" class="table table-striped" style="width:100%">
                             <thead class="thead_freemember">
                                 <tr>
                                     <th>EMAIL</th>
@@ -283,7 +283,7 @@
                 <?php } else if (base64_decode(@$_GET["type"]) == "referral_member") { ?>
                     <div class="col-lg-12 dash-table-referralmember">
                         <h4 class="text-white my-3 text-uppercase fw-bold">Referral Member</h4>
-                        <table id="table_referralmember" class="table table-striped" style="width:100%">
+                        <table id="table_referralmember_satoshi" class="table table-striped" style="width:100%">
                             <thead class="thead_referralmember">
                                 <tr>
                                     <th>EMAIL</th>
