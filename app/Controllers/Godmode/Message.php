@@ -41,9 +41,8 @@ class Message extends BaseController
     public function get_allmessage()
     {
         // Call Endpoin Get All Message
-        $url = "https://api.pnglobalinternational.com/v1/signal/getallmessage";
+        $url = URLAPI2 . "/v1/signal/getallmessage";
         $result = satoshiAdmin($url)->result->message;
-        dd($result);
         echo json_encode($result);
     }
 

@@ -1,6 +1,45 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.30.1/moment-with-locales.min.js"></script>
 
 <script>
+    // Tab functionality
+    $(document).ready(function() {
+        console.log("Document ready, initializing tabs");
+
+        // Default active tab
+        let activeTab = localStorage.getItem('activeTab') || 'pn-global';
+        console.log("Active tab from localStorage:", activeTab);
+
+        // Set active tab on load
+        $('.tab-item[data-tab="' + activeTab + '"]').addClass('active').css({
+            'background-color': '#BFA573',
+            'color': '#000'
+        });
+        $('#' + activeTab).addClass('active').css('display', 'block');
+
+        // Tab click handler
+        $('.tab-item').click(function() {
+            const tabId = $(this).data('tab');
+            console.log("Tab clicked:", tabId);
+
+            // Remove active class and reset styles from all tabs and contents
+            $('.tab-item').removeClass('active').css({
+                'background-color': '#444',
+                'color': '#fff'
+            });
+            $('.tab-content').removeClass('active').css('display', 'none');
+
+            // Add active class and styles to clicked tab and its content
+            $(this).addClass('active').css({
+                'background-color': '#BFA573',
+                'color': '#000'
+            });
+            $('#' + tabId).addClass('active').css('display', 'block');
+
+            // Save active tab to localStorage
+            localStorage.setItem('activeTab', tabId);
+        });
+    });
+
     window.setTimeout(function() {
         $(".alert").fadeTo(500, 0).slideUp(500, function() {
             $(this).remove();
@@ -166,4 +205,104 @@
 
         ],
     });
+
+    // DataTable untuk Satoshi Signal
+    $('#table_signals').DataTable({
+        "pageLength": 100,
+        "scrollX": true,
+        "order": [
+            [0, "desc"]
+        ],
+        "ajax": {
+            "url": "<?= BASE_URL ?>godmode/signals/get_signals",
+            "type": "POST",
+            "dataSrc": function(data) {
+                return data.message || [];
+            }
+        },
+        "columns": [{
+                data: "created_at",
+                "mRender": function(data, type, full, meta) {
+                    var date = new Date(data);
+                    var options = {
+                        day: '2-digit',
+                        month: 'short',
+                        year: 'numeric',
+                        hour: '2-digit',
+                        minute: '2-digit'
+                    };
+                    return date.toLocaleDateString('en-GB', options);
+                }
+            },
+            {
+                data: 'pair'
+            },
+            {
+                data: 'type',
+                "mRender": function(data, type, full, meta) {
+                    if (data.toLowerCase() === 'buy') {
+                        return '<span style="color: #0E7304; font-weight: bold;">BUY</span>';
+                    } else {
+                        return '<span style="color: #FF0000; font-weight: bold;">SELL</span>';
+                    }
+                }
+            },
+            {
+                data: 'entry_price'
+            },
+            {
+                data: 'target_price'
+            },
+            {
+                data: 'stop_loss'
+            },
+            {
+                data: 'status',
+                "mRender": function(data, type, full, meta) {
+                    if (data === 'active') {
+                        return `<div>
+                                    <svg width="8" height="8" viewBox="0 0 8 8" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="8" height="8" rx="4" fill="#0E7304"/></svg>
+                                    Active
+                                </div>`;
+                    } else if (data === 'completed') {
+                        return `<div>
+                                    <svg width="8" height="8" viewBox="0 0 8 8" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="8" height="8" rx="4" fill="#BFA573"/></svg>
+                                    Completed
+                                </div>`;
+                    } else {
+                        return `<div>
+                                    <svg width="8" height="8" viewBox="0 0 8 8" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="8" height="8" rx="4" fill="#FF0000"/></svg>
+                                    Cancelled
+                                </div>`;
+                    }
+                }
+            },
+            {
+                data: null,
+                "mRender": function(data, type, full, meta) {
+                    var btndetail = `<a href="<?= BASE_URL ?>godmode/signals/detail/${full.id}"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M20 3.33333V20H3.33333V3.33333H20ZM17.7778 5.55556H5.55556V17.7778H17.7778V5.55556ZM16.6667 0V2.22222L2.22219 2.22219L2.22222 16.6667H0V0H16.6667ZM15.5556 12.2222V14.4444H7.77778V12.2222H15.5556ZM15.5556 7.77778V10H7.77778V7.77778H15.5556Z" fill="#BFA573"/></svg></a>`;
+
+                    if (full.status === 'active') {
+                        btndetail += `&nbsp;&nbsp;<a href="#" onclick="completeSignal(${full.id})"><svg width="20" height="20" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="#BFA573" d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"/></svg></a>`;
+                        btndetail += `&nbsp;&nbsp;<a href="#" onclick="cancelSignal(${full.id})"><svg width="20" height="20" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><path fill="#BFA573" d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"/></svg></a>`;
+                    }
+
+                    return btndetail;
+                }
+            }
+        ]
+    });
+
+    // Fungsi untuk menangani signal
+    function completeSignal(id) {
+        if (confirm("Apakah Anda yakin ingin menandai sinyal ini sebagai selesai?")) {
+            window.location.replace("<?= BASE_URL ?>godmode/signals/complete_signal/" + id);
+        }
+    }
+
+    function cancelSignal(id) {
+        if (confirm("Apakah Anda yakin ingin membatalkan sinyal ini?")) {
+            window.location.replace("<?= BASE_URL ?>godmode/signals/cancel_signal/" + id);
+        }
+    }
 </script>
