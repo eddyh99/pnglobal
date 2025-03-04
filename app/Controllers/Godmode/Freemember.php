@@ -89,7 +89,8 @@ class Freemember extends BaseController
         $referral = (trim($referralInput) === '') ? null : htmlspecialchars($referralInput);
 
         // Proccess Endpoin API
-        $url = URLAPI . "/v1/member/add_freemember";
+        // $url = URLAPI . "/v1/member/add_freemember";
+        $url = URLAPI2 . "v1/member/create_referral";
         $response = satoshiAdmin($url, json_encode($mdata));
         $result = $response->result;
 

@@ -77,7 +77,7 @@ class Member extends BaseController
     public function get_freemember()
     {
         // Call Endpoin Get Free Member
-        $url = URLAPI . "/v1/member/free_member";
+        $url = URLAPI2 . "/v1/member/freemember";
         $result = satoshiAdmin($url)->result;
 
         echo json_encode($result);
