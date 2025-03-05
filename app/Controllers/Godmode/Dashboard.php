@@ -70,7 +70,6 @@ class Dashboard extends BaseController
             'content'   => 'godmode/dashboard/index',
             'extra'     => 'godmode/dashboard/js/_js_index',
             'active_dash'    => 'active',
-            'access' => $access,
             'totalmemberpnglobal' => $totalmemberpnglobal,
             'freememberpnglobal' => $totalfreememberpnglobal,
             'subscriberpnglobal' => $totalsubscriptionpnglobal,
