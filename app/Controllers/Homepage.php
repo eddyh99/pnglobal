@@ -476,6 +476,58 @@ class Homepage extends BaseController
         return $this->response->setJSON($data);
     }
 
+    public function save_payment_to_session()
+    {
+        try {
+            // Validasi request
+            $rules = [
+                'amount' => 'required|numeric|greater_than[0]',
+            ];
+
+            if (!$this->validate($rules)) {
+                return $this->response->setJSON([
+                    'status' => 'error',
+                    'message' => $this->validator->getErrors()
+                ])->setStatusCode(400);
+            }
+
+            // Simpan data ke dalam session
+            $paymentData = [
+                'amount' => $this->request->getPost('amount'),
+                'timestamp' => date('Y-m-d H:i:s')
+            ];
+
+            $session = session();
+            $session->set('payment_data', $paymentData);
+
+            return $this->response->setJSON([
+                'status' => 'success',
+                'message' => 'Payment data saved successfully',
+                'data' => $paymentData
+            ]);
+        } catch (\Exception $e) {
+            log_message('error', 'Exception: ' . $e->getMessage());
+            return $this->response->setJSON([
+                'status' => 'error',
+                'message' => '<p>An internal error occurred:</p><p>' . $e->getMessage() . '</p><p>Please try again later or contact customer support.</p>'
+            ])->setStatusCode(500);
+        }
+    }
+
+    public function payment_option()
+    {
+        $mdata = [
+            'title'     => 'Payment Option - ' . NAMETITLE,
+            'content'   => 'homepage/service/payment_option',
+            'extra'     => 'homepage/service/js/_js_payment_option',
+            // 'navoption' => true,
+            // 'darkNav'   => true,
+            'footer'    => false,
+            'nav'       => false,
+        ];
+
+        return view('homepage/layout/wrapper', $mdata);
+    }
 
     public function satoshi_register_payment($email)
     {

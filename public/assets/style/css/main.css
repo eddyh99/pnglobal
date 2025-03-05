@@ -23004,6 +23004,282 @@ body.sidebar-main .content-page .set-investment-container {
   text-decoration: none;
 }
 
+.payment-option-page {
+  background: #272626;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.payment-option-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 2rem 0;
+  max-width: 400px;
+  margin: 0 auto;
+  transition: all 0.3s ease;
+}
+
+.payment-option-title {
+  color: #b48b3d;
+  font-family: "Noto Serif", serif;
+  font-size: 36px;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 3rem;
+  text-transform: uppercase;
+}
+
+.payment-buttons {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  width: 100%;
+}
+
+.payment-btn {
+  background-color: #bfa573;
+  color: #000;
+  border: none;
+  border-radius: 10px;
+  padding: 1.5rem 0;
+  font-size: 24px;
+  font-weight: 600;
+  font-family: "Noto Serif", serif;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  width: 100%;
+  text-align: center;
+}
+.payment-btn:hover {
+  background: linear-gradient(90deg, #a37b2d 0%, #af9563 100%);
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.usdt-payment-info {
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.usdt-qr-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.usdt-qr-code {
+  width: 250px;
+  height: 250px;
+  margin: 0 auto;
+  padding: 10px;
+  background-color: white;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+.usdt-qr-code img {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.usdt-payment-details {
+  width: 100%;
+  margin-top: 25px;
+}
+.usdt-payment-details input.form-control {
+  color: #fff !important;
+  background-color: transparent !important;
+  background: linear-gradient(107deg, rgba(180, 139, 61, 0.1) 50.42%, rgba(191, 165, 115, 0.1) 100%) !important;
+  border: 2px solid #b48b3d !important;
+  box-shadow: none !important;
+}
+.usdt-payment-details input[readonly] {
+  background-color: transparent !important;
+  background-image: linear-gradient(107deg, rgba(180, 139, 61, 0.1) 50.42%, rgba(191, 165, 115, 0.1) 100%) !important;
+}
+
+.address-label,
+.amount-label,
+.instructions-title {
+  color: #fff;
+  font-family: "Poppins", sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.address-value,
+.amount-value {
+  display: flex;
+  align-items: center;
+  position: relative;
+  width: 100%;
+}
+
+.address-value {
+  display: flex !important;
+  position: relative !important;
+  align-items: center !important;
+  gap: 10px !important; /* Jarak antara input dan tombol */
+}
+.address-value input.form-control {
+  width: 100% !important; /* Mengembalikan lebar input menjadi 100% */
+  padding-right: 15px !important;
+}
+.address-value input {
+  background-color: transparent !important;
+  height: 45px;
+  font-size: 16px;
+  font-weight: 500;
+  font-family: "Poppins", sans-serif !important;
+  color: #fff !important;
+  padding: 0 15px;
+  width: 100% !important;
+  border-radius: 5px;
+  border: 2px solid #b48b3d;
+  background: linear-gradient(107deg, rgba(180, 139, 61, 0.1) 50.42%, rgba(191, 165, 115, 0.1) 100%) !important;
+}
+
+.amount-value input {
+  background-color: transparent !important;
+  height: 45px;
+  font-size: 16px;
+  font-weight: 500;
+  font-family: "Poppins", sans-serif !important;
+  color: #fff !important;
+  padding: 0 15px;
+  width: 100% !important;
+  border-radius: 5px;
+  border: 2px solid #b48b3d;
+  background: linear-gradient(107deg, rgba(180, 139, 61, 0.1) 50.42%, rgba(191, 165, 115, 0.1) 100%) !important;
+}
+
+.copy-btn {
+  position: absolute !important;
+  right: -45px !important;
+  top: 50% !important;
+  transform: translateY(-50%) !important;
+  height: 45px !important;
+  width: 45px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  background: transparent !important;
+  border: none !important;
+  color: #b48b3d !important;
+  font-size: 20px !important;
+  cursor: pointer !important;
+  z-index: 1 !important;
+}
+.copy-btn:hover {
+  color: #a37b2d !important;
+}
+
+.instructions-list {
+  color: #ffffff !important;
+  font-family: "Poppins", sans-serif !important;
+  font-size: 16px !important;
+  line-height: 1.6 !important;
+  padding-left: 0 !important;
+  list-style-type: none !important;
+  text-align: center !important;
+}
+.instructions-list li {
+  margin-bottom: 10px !important;
+  color: #ffffff !important;
+}
+
+.confirm-payment-btn {
+  background: linear-gradient(90deg, #b48b3d 0%, #bfa573 100%) !important;
+  color: #000 !important;
+  border: none !important;
+  border-radius: 10px !important;
+  padding: 15px 30px !important;
+  font-size: 24px !important;
+  font-weight: 500 !important;
+  font-family: "Noto Serif", serif !important;
+  cursor: pointer !important;
+  transition: all 0.3s ease !important;
+  width: auto !important;
+  margin: 0 auto !important;
+  display: block !important;
+  text-align: center !important;
+  leading-trim: both !important;
+  text-edge: cap !important;
+  font-style: normal !important;
+  line-height: 25px !important;
+  text-transform: capitalize !important;
+}
+.confirm-payment-btn:hover {
+  background: linear-gradient(90deg, #a37b2d 0%, #af9563 100%) !important;
+  transform: translateY(-3px) !important;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2) !important;
+}
+
+.payment-confirmation {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  width: 100% !important;
+}
+
+.usdt-wallet-address {
+  position: relative !important;
+  margin-bottom: 15px !important;
+}
+.usdt-wallet-address .form-control {
+  background-color: transparent !important;
+  background: linear-gradient(107deg, rgba(180, 139, 61, 0.1) 50.42%, rgba(191, 165, 115, 0.1) 100%) !important;
+}
+
+@media (max-width: 992px) {
+  .payment-option-container {
+    max-width: 90%;
+    padding: 20px 15px;
+  }
+}
+@media (max-width: 768px) {
+  .usdt-qr-container {
+    flex-direction: column;
+  }
+  .usdt-qr-code {
+    width: 200px;
+    height: 200px;
+    margin-bottom: 5px;
+  }
+  .usdt-payment-details {
+    margin-top: 20px;
+  }
+  .copy-btn {
+    right: -35px !important;
+    width: 35px !important;
+    height: 35px !important;
+    font-size: 16px !important;
+  }
+  .usdt-wallet-address {
+    padding-right: 35px !important;
+  }
+}
+@media (max-width: 480px) {
+  .copy-btn {
+    right: -30px !important;
+    width: 30px !important;
+    height: 30px !important;
+  }
+  .usdt-wallet-address {
+    padding-right: 30px !important;
+  }
+}
 /*----------------------------------------------------------
     File Name  : _navbar.scss
     Desc       : File ini merupakan styling untuk 

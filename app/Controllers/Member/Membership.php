@@ -234,7 +234,7 @@ class Membership extends BaseController
 
             return $this->response->setJSON([
                 'status' => 'success',
-                'message' => 'Data pembayaran berhasil disimpan',
+                'message' => 'Payment data saved successfully',
                 'data' => $paymentData
             ]);
         } catch (\Exception $e) {
