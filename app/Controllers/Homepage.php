@@ -529,6 +529,63 @@ class Homepage extends BaseController
         return view('homepage/layout/wrapper', $mdata);
     }
 
+    public function usdt_payment()
+    {
+        $session = session();
+        $paymentdata = $session->get('payment_data');
+
+        $mdata = [
+            'title'     => 'USDT Payment - ' . NAMETITLE,
+            'content'   => 'homepage/service/usdt_payment',
+            'extra'     => 'homepage/service/js/_js_usdt_payment',
+            // 'navoption' => true,
+            // 'darkNav'   => true,
+            'footer'    => false,
+            'nav'       => false,
+            'payment_data' => $paymentdata,
+        ];
+
+        return view('homepage/layout/wrapper', $mdata);
+    }
+
+    public function usdc_payment()
+    {
+        $session = session();
+        $paymentdata = $session->get('payment_data');
+
+        $mdata = [
+            'title'     => 'USDC Payment - ' . NAMETITLE,
+            'content'   => 'homepage/service/usdc_payment',
+            'extra'     => 'homepage/service/js/_js_usdc_payment',
+            // 'navoption' => true,
+            // 'darkNav'   => true,
+            'footer'    => false,
+            'nav'       => false,
+            'payment_data' => $paymentdata,
+        ];
+
+        return view('homepage/layout/wrapper', $mdata);
+    }
+
+    public function card_payment()
+    {
+        $session = session();
+        $paymentdata = $session->get('payment_data');
+
+        $mdata = [
+            'title'     => 'Card Payment - ' . NAMETITLE,
+            'content'   => 'homepage/service/card_payment',
+            'extra'     => 'homepage/service/js/_js_card_payment',
+            // 'navoption' => true,
+            // 'darkNav'   => true,
+            'footer'    => false,
+            'nav'       => false,
+            'payment_data' => $paymentdata,
+        ];
+
+        return view('homepage/layout/wrapper', $mdata);
+    }
+
     public function satoshi_register_payment($email)
     {
         $email = base64_decode($email);
