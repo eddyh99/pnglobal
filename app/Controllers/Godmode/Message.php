@@ -8,15 +8,24 @@ class Message extends BaseController
 {
     public function __construct()
     {
-        // $session = session();
-        // if (!$session->has('logged_user')) {
-        //     header("Location: " . BASE_URL . 'godmode/auth/signin');
-        //     exit();
-        // }
-        // if ($_SESSION["logged_user"]->role == 'message') {
-        //     header('HTTP/1.0 403 Forbidden');
-        //     exit();
-        // }
+        $session = session();
+        if (!$session->has('logged_user')) {
+            header("Location: " . BASE_URL . 'godmode/auth/signin');
+            exit();
+        }
+
+        $loggedUser = $session->get('logged_user');
+        if ($loggedUser->role != 'admin') {
+            header('HTTP/1.0 403 Forbidden');
+            exit();
+        }
+
+        $userAccess = json_decode($loggedUser->access, true);
+        if (!in_array('message', $userAccess)) {
+            session()->setFlashdata('failed', 'Anda tidak memiliki akses ke halaman ini');
+            header("Location: " . BASE_URL . 'godmode/dashboard');
+            exit();
+        }
     }
 
     public function index()

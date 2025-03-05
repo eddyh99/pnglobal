@@ -21,8 +21,8 @@ class Dashboard extends BaseController
 
         // Pengecekan role: hanya admin yang boleh mengakses halaman ini
         if ($loggedUser->role !== 'admin') {
-
-            exit();
+            session()->setFlashdata('failed', "You don't have access to this page");
+            return redirect()->to(BASE_URL . 'godmode/auth/logout');
         }
     }
 
@@ -70,6 +70,7 @@ class Dashboard extends BaseController
             'content'   => 'godmode/dashboard/index',
             'extra'     => 'godmode/dashboard/js/_js_index',
             'active_dash'    => 'active',
+            'access' => $access,
             'totalmemberpnglobal' => $totalmemberpnglobal,
             'freememberpnglobal' => $totalfreememberpnglobal,
             'subscriberpnglobal' => $totalsubscriptionpnglobal,

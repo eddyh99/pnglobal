@@ -12,7 +12,7 @@ class Signal extends BaseController
 
         // Jika belum login, redirect ke halaman signin
         if (!$session->has('logged_user')) {
-            header("Location: " . BASE_URL . 'member/auth/login');
+            header("Location: " . BASE_URL . 'godmode/auth/signin');
             exit();
         }
 
@@ -21,7 +21,14 @@ class Signal extends BaseController
 
         // Pengecekan role: hanya admin yang boleh mengakses halaman ini
         if ($loggedUser->role !== 'admin') {
+            exit();
+        }
 
+        // Pengecekan akses: hanya yang memiliki akses "signal" yang boleh mengakses halaman ini
+        $userAccess = json_decode($loggedUser->access, true);
+        if (!in_array('signal', $userAccess)) {
+            session()->setFlashdata('failed', 'Anda tidak memiliki akses ke halaman ini');
+            header("Location: " . BASE_URL . 'godmode/dashboard');
             exit();
         }
     }

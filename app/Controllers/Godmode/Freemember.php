@@ -26,6 +26,13 @@ class Freemember extends BaseController
 
             exit();
         }
+
+        $userAccess = json_decode($loggedUser->access, true);
+        if (!in_array('freemember', $userAccess)) {
+            session()->setFlashdata('failed', 'Anda tidak memiliki akses ke halaman ini');
+            header("Location: " . BASE_URL . 'godmode/dashboard');
+            exit();
+        }
     }
 
     public function index()
