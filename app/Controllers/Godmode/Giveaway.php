@@ -40,9 +40,9 @@ class Giveaway extends BaseController
     public function get_giveaway()
     {
         // Call Endpoin Get Total Member
-        // $url = URLAPI . "/v1/referral/get_giveaway";
-        // $result = satoshiAdmin($url)->result->message;
-        // echo json_encode($result);
+        $url = URLAPI2 . "/v1/referral/get_giveaway";
+        $result = satoshiAdmin($url)->result->message;
+        echo json_encode($result);
     }
 
     public function sendbonus()
