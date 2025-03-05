@@ -346,6 +346,12 @@ class Homepage extends BaseController
             'ip_address'    => htmlspecialchars($this->request->getIPAddress()),
         ];
 
+        $tempUser = (object)[
+            'email'  => htmlspecialchars($this->request->getVar('email')),
+            'passwd' => sha1($this->request->getVar('pass'))
+        ];
+        session()->set('logged_user', $tempUser);
+
 
         $url = URLAPI . "/auth/register";
         $result = satoshiAdmin($url, json_encode($mdata))->result;
@@ -446,6 +452,28 @@ class Homepage extends BaseController
         ];
 
         return view('homepage/layout/wrapper', $mdata);
+    }
+
+    public function get_investment_config()
+    {
+        $url = URLAPI . "/v1/price";
+        $result = satoshiAdmin($url)->result;
+
+        $minCapital = (float) $result->message->price;
+        $commission = (float) $result->message->commission;
+
+        log_message('debug', 'API Price: ' . $minCapital . ', Commission: ' . $commission);
+
+        $data = [
+            'min_capital' => $minCapital,
+            'additional_step' => 2000,
+            'percentage_multiplier' => $commission,
+            'percentage_fee' => 0.11,
+            'euro_conversion_rate' => 0.844,
+            'membership_days' => 30
+        ];
+
+        return $this->response->setJSON($data);
     }
 
 

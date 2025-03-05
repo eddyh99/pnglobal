@@ -22799,7 +22799,10 @@ input:-moz-placeholder {
   margin-bottom: 30px;
 }
 .investment-capital .investment-description,
-.investment-capital .payment-description {
+.investment-capital .payment-description,
+.investment-capital .min-capital-text,
+.investment-capital .additional-capital-text,
+.investment-capital .total-capital-text {
   color: #fff;
   text-align: center;
   font-family: "Noto Serif", serif;
@@ -22807,65 +22810,172 @@ input:-moz-placeholder {
   font-style: normal;
   font-weight: 700;
   line-height: 25px;
-  margin-bottom: 10px;
+  margin-bottom: 15px;
 }
-.investment-capital input.investment-input,
-.investment-capital input.payment-input {
-  display: block;
-  padding: 10px;
-  margin: 0 auto 15px;
-  font-family: "Noto Serif", serif;
-  font-size: 24px;
-  font-weight: bold;
+.investment-capital .min-capital-value,
+.investment-capital .total-capital-display {
+  background-color: #e0e0e0;
+  border: none;
+  height: 60px;
+  font-size: 32px;
+  font-weight: 700;
+  color: #000;
   text-align: center;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  background-color: #f0f0f0;
-}
-.investment-capital .input-group {
-  gap: 3px;
-}
-.investment-capital .input-group .btn {
-  padding: 10px 20px;
-  font-size: 24px;
-  font-weight: bold;
-  border: 1px solid #bda069;
-  border-radius: 5px;
-  background-color: #bda069;
-  margin: 0;
-  color: #fff;
+  margin-bottom: 30px;
   display: flex;
   align-items: center;
   justify-content: center;
+  border-radius: 5px;
+  max-width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  font-family: "Noto Serif", serif;
+}
+.investment-capital .total-capital-display {
+  background-color: #bda069;
+  color: #000;
+  border: 2px solid #fff;
+}
+.investment-capital .membership-days {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 20px;
+  text-align: center;
+  color: #ffffff;
+  font-family: "Noto Serif", serif;
+}
+.investment-capital input.investment-input,
+.investment-capital input.payment-input,
+.investment-capital input.additional-capital-input {
+  background-color: #e0e0e0;
+  border: none;
+  height: 60px;
+  font-size: 32px;
+  font-weight: 700;
+  color: #000;
+  text-align: center;
+  border-radius: 5px;
+  font-family: "Noto Serif", serif;
+}
+.investment-capital input.payment-input {
+  max-width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  margin-bottom: 10px;
+}
+.investment-capital .input-group {
+  margin-bottom: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+}
+.investment-capital .input-group .form-control {
+  width: 100%;
+  border-radius: 5px;
+  margin: 0;
+}
+.investment-capital .input-group .additional-capital-input {
+  margin-bottom: 0 !important;
+}
+.investment-capital .input-group .input-group-prepend,
+.investment-capital .input-group .input-group-append {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+.investment-capital .input-group .input-group-prepend {
+  left: -75px;
+}
+.investment-capital .input-group .input-group-append {
+  right: -75px;
+}
+.investment-capital .input-group .input-group-prepend button,
+.investment-capital .input-group .input-group-append button {
+  background-color: #e0e0e0;
+  color: #000 !important;
+  font-size: 28px;
+  font-weight: 700;
+  border: none;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+  margin: 0;
+  font-family: "Noto Serif", serif;
 }
 .investment-capital .confirm-button {
-  display: block;
-  width: 200px;
-  padding: 10px 0;
-  margin: 15px auto;
-  text-align: center;
-  color: #000;
-  font-family: "Noto Serif", serif;
-  font-size: 24px;
-  font-style: normal;
-  font-weight: 500;
-  line-height: 25px;
-  text-transform: capitalize;
+  background: linear-gradient(90deg, #b48b3d 0%, #bfa573 100%);
+  color: #000 !important;
   border: none;
-  border-radius: 10px;
-  background: #bda069;
-  cursor: pointer;
+  font-size: 24px;
+  font-weight: 600;
+  padding: 10px 0;
+  width: 100%;
+  margin: 20px auto 30px;
+  border-radius: 5px;
+  max-width: 200px;
+  display: block;
+  font-family: "Noto Serif", serif;
+}
+.investment-capital .confirm-button:hover {
+  background: linear-gradient(90deg, #a37b2d 0%, #af9563 100%);
 }
 .investment-capital .investment-note {
   color: #fff;
   font-family: "Noto Serif", serif;
-  font-size: 16px;
+  font-size: 14px;
   font-style: normal;
   font-weight: 500;
   line-height: 25px;
   margin-top: 20px;
+  max-width: 80%;
+  margin-left: auto;
+  margin-right: auto;
 }
 
+/* Tambahan untuk total capital display */
+#additional-capital::-webkit-inner-spin-button,
+#additional-capital::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+#additional-capital {
+  -moz-appearance: textfield;
+}
+
+/* Styling khusus untuk halaman set investment capital */
+.set-investment-container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px 0;
+  transition: all 0.3s ease;
+  width: 100%;
+  font-family: "Noto Serif", serif;
+}
+
+/* Responsif untuk sidebar collapse */
+body.sidebar-main .content-page .set-investment-container {
+  max-width: 800px;
+  transition: all 0.3s ease;
+}
+
+/* Media query untuk layar yang lebih kecil */
+@media (max-width: 992px) {
+  .set-investment-container {
+    max-width: 100%;
+    padding: 20px 15px;
+  }
+}
 /* _login.scss */
 .forgot-password {
   text-align: right;
