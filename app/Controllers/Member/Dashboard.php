@@ -40,7 +40,6 @@ class Dashboard extends BaseController
 
         // Mendapatkan data user yang tersimpan (sudah login)
         $loggedUser = $session->get('logged_user');
-        // dd($loggedUser);
 
         $mdata = [
             'title'     => 'Dashboard - ' . NAMETITLE,
