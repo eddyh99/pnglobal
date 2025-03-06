@@ -1360,6 +1360,19 @@ class Homepage extends BaseController
         return view('homepage/layout/wrapper-contactus', $mdata);
     }
 
+    public function tutorial()
+    {
+        $mdata = [
+            'title'     => 'Tutorial - ' . NAMETITLE,
+            'content'   => 'homepage/tutorial/index',
+            'extra'     => 'homepage/js/_js_index',
+            'footer'    => false,
+            'nav'       => false
+        ];
+
+        return view('homepage/layout/wrapper', $mdata);
+    }
+
     public function account_deletion()
     {
         $step = base64_decode(@$_GET['step']);
