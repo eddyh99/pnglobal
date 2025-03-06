@@ -45,7 +45,7 @@
                                     </div>
                                 <?php } ?>
 
-                                <form id="payment-form" action="<?= BASE_URL ?>member/membership/confirm_card_payment" method="POST">
+                                <form id="payment-form" action="<?= BASE_URL ?>homepage/confirm_card_payment" method="POST">
                                     <div class="payment-summary">
                                         <h1 class="fw-bold f-cormorant">Summary Membership</h1>
 

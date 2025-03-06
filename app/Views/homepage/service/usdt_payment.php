@@ -34,7 +34,7 @@
         <!-- USDT Payment Information -->
         <div class="usdt-payment-info">
             <div class="usdt-qr-container">
-                <form action="<?= BASE_URL ?>member/membership/confirm_crypto_payment" method="POST" id="usdt-payment-form">
+                <form action="<?= BASE_URL ?>homepage/confirm_crypto_payment" method="POST" id="usdt-payment-form">
                     <div class="usdt-qr-code">
                         <img src="<?= BASE_URL ?>assets/img/qr-pnglobal.png" alt="USDT Payment QR Code" class="img-fluid">
                     </div>

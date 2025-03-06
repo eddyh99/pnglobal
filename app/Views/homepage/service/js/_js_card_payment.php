@@ -260,7 +260,7 @@
         setTimeout(function() {
             $("#paymentSuccessModal").modal("hide");
             setTimeout(function() {
-                window.location.href = "<?= BASE_URL ?>member/membership";
+                window.location.href = "<?= BASE_URL ?>homepage/membership";
             }, 500);
         }, 3000); // Tampilkan modal selama 3 detik sebelum redirect
     }
