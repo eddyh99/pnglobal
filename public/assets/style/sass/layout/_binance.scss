@@ -38,6 +38,23 @@
     }
 }
 
+.api-title {
+    text-align: center;
+    color: #bfa573;
+    font-family: 'Noto Serif';
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: 25px; /* 104.167% */
+    text-transform: uppercase;
+    margin-bottom: 40px;
+
+    @media (max-width: 768px) {
+        font-size: 22px;
+        margin-bottom: 30px;
+    }
+}
+
 /* Tab Navigation */
 .tutorial-tabs {
     overflow: hidden;
@@ -227,5 +244,154 @@
     @media (max-width: 768px) {
         font-size: 18px;
         padding: 12px 30px;
+    }
+}
+
+/* Binance Card Styling */
+.binance-fullcard {
+    width: 100%;
+    min-width: 800px;
+    border: 2px solid #bfa573;
+    border-radius: 10px;
+    padding: 1rem;
+    margin-bottom: 2rem;
+}
+
+.binance-fullcard-header {
+    font-weight: bold;
+    color: #bfa573;
+    padding: 8px 20px;
+    text-align: center;
+    font-size: 18px;
+}
+
+.binance-detailcard {
+    display: grid;
+    grid-template-columns: minmax(100px, 1fr) minmax(300px, 3fr);
+    gap: 0.5rem;
+    margin: 1rem auto;
+    width: 80%;
+
+    .label {
+        margin: 0;
+        color: #bfa573;
+        justify-content: start;
+        font-weight: 600;
+        padding: 10px 15px;
+        border: 1px solid #bfa573;
+        display: flex;
+        align-items: center;
+    }
+
+    .value {
+        padding: 8px 20px;
+        border: 1px solid #bfa573;
+        display: flex;
+        align-items: center;
+        margin: 0;
+    }
+
+    input {
+        width: 100%;
+        padding: 8px;
+        background: transparent;
+        border: none;
+        color: #bfa573;
+        font-size: inherit;
+        font-family: inherit;
+        outline: none;
+
+        &:focus {
+            outline: none;
+        }
+
+        &:disabled {
+            background: transparent;
+            cursor: not-allowed;
+        }
+    }
+}
+
+.wallet-detailcard {
+    display: grid;
+    grid-template-columns: minmax(150px, 1fr) minmax(300px, 3fr);
+    gap: 0.5rem;
+    margin: 1rem 0;
+    width: 90%;
+    max-width: 800px;
+
+    .label,
+    .value {
+        padding: 8px 20px;
+        border: 1px solid #bfa573;
+        display: flex;
+        align-items: center;
+        margin: 0;
+        margin-left: 0;
+        margin-right: 0;
+        color: #bfa573;
+        justify-content: start;
+        text-align: left;
+        font-weight: bold;
+    }
+}
+
+.binance-fullcard-footer {
+    text-align: center;
+    margin-top: 20px;
+
+    .save-btn {
+        background: linear-gradient(90deg, #b48b3d 0%, #bfa573 100%);
+        color: black;
+        border: none;
+        padding: 8px 30px;
+        border-radius: 5px;
+        color: #000;
+        text-align: center;
+        font-family: 'Noto Serif';
+        font-size: 20px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+        cursor: pointer;
+        margin: 0 5px;
+        transition: all 0.3s ease;
+
+        &:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        &:disabled {
+            background-color: #575757;
+            color: black;
+            border: none;
+            cursor: not-allowed;
+        }
+    }
+}
+
+.binance-button-row {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    gap: 1rem;
+    margin: 2rem 0;
+
+    a {
+        border: 1px solid #bfa573;
+        background: transparent;
+        color: #000;
+        background: linear-gradient(90deg, #b48b3d 0%, #bfa573 100%);
+        border-radius: 5px;
+        padding: 10px 20px;
+        font-size: 16px;
+        cursor: pointer;
+        font-family: 'Noto Serif';
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
     }
 }

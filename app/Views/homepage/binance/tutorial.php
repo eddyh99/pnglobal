@@ -80,8 +80,15 @@
                         <div class="tutorial-step">
                             <h3>13. Copy the "API key" and "Secret API" to paste into the Satoshi Signal platform.</h3>
                             <h3>Note : The Secret API can only be viewed once. If you forget it, you can delete the API and create a new one.</h3>
+
                             <div class="tutorial-image">
                                 <img src="/assets/img/mobile-secret-api.png" alt="Desktop Search Bar">
+                            </div>
+                        </div>
+
+                        <div class="tutorial-step">
+                            <div class="register-button-container">
+                                <a href="/homepage/register_api" class="register-button">Continue <br> to Register</a>
                             </div>
                         </div>
                     </div>
@@ -185,7 +192,7 @@
 
                         <div class="tutorial-step">
                             <div class="register-button-container">
-                                <a href="/register" class="register-button">Continue <br> to Register</a>
+                                <a href="/homepage/register_api" class="register-button">Continue <br> to Register</a>
                             </div>
                         </div>
 
@@ -195,25 +202,3 @@
         </div>
     </div>
 </section>
-
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
-        const tabButtons = document.querySelectorAll('.tab-button');
-        const tabPanes = document.querySelectorAll('.tab-pane');
-
-        tabButtons.forEach(button => {
-            button.addEventListener('click', function() {
-                // Remove active class from all buttons and panes
-                tabButtons.forEach(btn => btn.classList.remove('active'));
-                tabPanes.forEach(pane => pane.classList.remove('active'));
-
-                // Add active class to clicked button
-                this.classList.add('active');
-
-                // Show corresponding tab pane
-                const tabId = this.getAttribute('data-tab');
-                document.getElementById(tabId).classList.add('active');
-            });
-        });
-    });
-</script>

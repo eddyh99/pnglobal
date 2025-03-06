@@ -1364,13 +1364,108 @@ class Homepage extends BaseController
     {
         $mdata = [
             'title'     => 'Tutorial - ' . NAMETITLE,
-            'content'   => 'homepage/tutorial/index',
-            'extra'     => 'homepage/js/_js_index',
+            'content'   => 'homepage/binance/tutorial',
+            'extra'     => 'homepage/binance/js/_js_tutorial',
             'footer'    => false,
             'nav'       => false
         ];
 
         return view('homepage/layout/wrapper', $mdata);
+    }
+
+    public function register_api()
+    {
+        $mdata = [
+            'title'     => 'Register API - ' . NAMETITLE,
+            'content'   => 'homepage/binance/api',
+            'extra'     => 'homepage/binance/js/_js_api',
+            'footer'    => false,
+            'nav'       => false
+        ];
+
+        return view('homepage/layout/wrapper', $mdata);
+    }
+
+    public function save_binance_api()
+    {
+        $rules = $this->validate([
+            'api_key' => [
+                'label'     => 'API Key',
+                'rules'     => 'required'
+            ],
+            'api_secret' => [
+                'label'     => 'API Secret',
+                'rules'     => 'required'
+            ],
+        ]);
+
+        if (!$rules) {
+            return $this->response->setJSON([
+                'success' => false,
+                'message' => $this->validation->listErrors()
+            ]);
+        }
+
+        // Menggunakan session() helper untuk mengakses session
+        $session = session();
+
+        // Periksa apakah logged_user adalah object atau array
+        if (isset($session->logged_user)) {
+            if (is_object($session->logged_user)) {
+                $email = $session->logged_user->email;
+                $pass = $session->logged_user->passwd;
+            } else {
+                $email = $session->logged_user['email'];
+                $pass = $session->logged_user['passwd'];
+            }
+        } else {
+            return $this->response->setJSON([
+                'success' => false,
+                'message' => 'User session not found. Please login again.'
+            ]);
+        }
+
+        $userData = [
+            'email' => $email,
+            'password' => $pass
+        ];
+
+        $url = URLAPI . "/auth/signin";
+        $response = satoshiAdmin($url, json_encode($userData));
+
+        // Berdasarkan struktur respons yang diberikan
+        if (isset($response->result) && isset($response->result->message) && isset($response->result->message->id)) {
+            $id = $response->result->message->id;
+            $api_key = $this->request->getVar('api_key');
+            $api_secret = $this->request->getVar('api_secret');
+
+            $mdata = [
+                'id_member' => $id,
+                'api_key' => $api_key,
+                'api_secret' => $api_secret
+            ];
+
+            $url = URLAPI . "/v1/member/set_api";
+            $apiResponse = satoshiAdmin($url, json_encode($mdata));
+
+            if (isset($apiResponse->result) && $apiResponse->result) {
+                $session->setFlashdata('success', 'API Key and Secret saved successfully');
+                return $this->response->setJSON([
+                    'success' => true,
+                    'message' => 'API Key and Secret saved successfully'
+                ]);
+            } else {
+                return $this->response->setJSON([
+                    'success' => false,
+                    'message' => 'Failed to save API Key and Secret'
+                ]);
+            }
+        } else {
+            return $this->response->setJSON([
+                'success' => false,
+                'message' => 'Authentication failed or invalid response format'
+            ]);
+        }
     }
 
     public function account_deletion()
