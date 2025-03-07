@@ -60,7 +60,7 @@
                                 Total Referral
                             </div>
                             <div class="card-row card-bottom">
-                                21
+                                Loading...
                             </div>
                         </div>
                     </div>
@@ -70,7 +70,7 @@
                                 Comission
                             </div>
                             <div class="card-row card-bottom">
-                                $300
+                                Loading...
                             </div>
                         </div>
                     </div>
@@ -78,8 +78,8 @@
             </div>
 
             <div class="col-lg-12 dash-table-totalmember">
-                <h4 class="text-white my-3 text-uppercase fw-bold">Referral Level 1</h4>
-                <table id="table_totalmember" class="table table-striped" style="width:100%">
+                <h4 class="text-white my-3 text-uppercase fw-bold">Referral</h4>
+                <table id="table_referral" class="table table-striped" style="width:100%">
                     <thead class="thead_totalmember">
                         <tr>
                             <th>EMAIL</th>

@@ -65,7 +65,7 @@ class Dashboard extends BaseController
     /**
      * Mengambil data riwayat membership untuk ditampilkan melalui AJAX
      */
-    public function getMembershipHistory()
+    public function get_membership_history()
     {
         $session = session();
 

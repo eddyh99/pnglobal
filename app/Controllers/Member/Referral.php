@@ -37,6 +37,13 @@ class Referral extends BaseController
         }
 
         $loggedUser = $session->get('logged_user');
+        $id_member = $loggedUser->id;
+
+        $url = URLAPI . '/v1/member/referral_summary?id_member=' . $id_member;
+        $result = satoshiAdmin($url);
+
+        $referral = $result->result->message->referral;
+        $commission = $result->result->message->commission;
 
         $mdata = [
             'title'     => 'Referral - ' . NAMETITLE,
@@ -44,7 +51,35 @@ class Referral extends BaseController
             'extra'     => 'member/referral/js/_js_index',
             'active_referral'    => 'active',
             'refcode' => $loggedUser->refcode,
+            'referral' => $referral,
+            'commission' => $commission,
         ];
         return view('member/layout/dashboard_wrapper', $mdata);
+    }
+
+    public function get_summary()
+    {
+        $session = session();
+
+        $loggedUser = $session->get('logged_user');
+        $id_member = $loggedUser->id;
+
+        $url = URLAPI . '/v1/member/referral_summary?id_member=' . $id_member;
+        $result = satoshiAdmin($url);
+
+        return $this->response->setJSON(['status' => true, 'message' => $result->result->message])->setStatusCode(200);
+    }
+
+    public function get_referral()
+    {
+        $session = session();
+
+        $loggedUser = $session->get('logged_user');
+        $id_member = $loggedUser->id;
+
+        $url = URLAPI . '/v1/member/list_downline?id_member=' . $id_member;
+        $result = satoshiAdmin($url);
+
+        return $this->response->setJSON(['status' => true, 'message' => $result->result->message])->setStatusCode(200);
     }
 }

@@ -36,7 +36,7 @@
                 }
             },
             ajax: {
-                url: '<?= BASE_URL ?>member/dashboard/getMembershipHistory',
+                url: '<?= BASE_URL ?>member/dashboard/get_membership_history',
                 type: 'GET',
                 dataSrc: function(response) {
                     console.log('API Response:', response);
