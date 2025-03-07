@@ -1839,9 +1839,30 @@ div.dataTables_wrapper div.dataTables_filter input {
 /* Card Full Width dengan 3 row (header, detail, dan footer) – Kelas unik menggunakan prefix "binance-" */
 .binance-fullcard {
     width: 100%;
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
     border: 2px solid #bfa573;
     border-radius: 10px;
     padding: 1rem;
+    margin-bottom: 2rem;
+    transition: all 0.3s ease;
+}
+
+/* Responsif untuk sidebar collapse */
+body.sidebar-main .content-page .binance-fullcard {
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+    transition: all 0.3s ease;
+}
+
+/* Media query untuk layar yang lebih kecil */
+@media (max-width: 992px) {
+    .binance-fullcard {
+        max-width: 100%;
+        min-width: auto;
+    }
 }
 
 .binance-fullcard-header {
@@ -1858,22 +1879,46 @@ div.dataTables_wrapper div.dataTables_filter input {
     grid-template-columns: minmax(100px, 1fr) minmax(300px, 3fr);
     gap: 0.5rem;
     margin: 1rem auto;
-    width: 80%; /* Membatasi lebar keseluruhan card */
+    width: 90%;
+    max-width: 800px;
+    transition: all 0.3s ease;
 }
 
-/* Grid container untuk wallet detail card dengan gap antar kolom dan baris */
-.wallet-detailcard {
-    display: grid;
-    grid-template-columns: minmax(150px, 1fr) minmax(300px, 3fr);
-    gap: 0.5rem; /* Gap 0.5rem akan diterapkan antara label dan value serta antar row */
-    margin: 1rem 0;
-    width: 90%; /* Membatasi lebar keseluruhan card */
-    max-width: 800px; /* Maksimum lebar */
+/* Responsif untuk sidebar collapse */
+body.sidebar-main .content-page .binance-detailcard {
+    width: 90%;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    transition: all 0.3s ease;
 }
 
-/* Styling setiap item detail */
-.binance-detailcard > div,
-.wallet-detailcard > div {
+/* Media query untuk layar yang lebih kecil */
+@media (max-width: 992px) {
+    .binance-detailcard {
+        width: 100%;
+        grid-template-columns: 1fr 3fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .binance-detailcard {
+        grid-template-columns: 1fr;
+    }
+}
+
+.binance-detailcard .label {
+    margin: 0;
+    color: #bfa573;
+    justify-content: start;
+    font-weight: 600;
+    padding: 10px 15px;
+    border: 1px solid #bfa573;
+    display: flex;
+    align-items: center;
+}
+
+.binance-detailcard .value {
     padding: 8px 20px;
     border: 1px solid #bfa573;
     display: flex;
@@ -1881,27 +1926,67 @@ div.dataTables_wrapper div.dataTables_filter input {
     margin: 0;
 }
 
-/* Atur margin khusus untuk label dan value */
-.binance-detailcard .label {
-    margin: 0;
+.binance-detailcard input {
+    width: 100%;
+    padding: 8px;
+    background: transparent;
+    border: none;
     color: #bfa573;
-    justify-content: start;
-    font-weight: 600;
-    padding: 10px 15px;
+    font-size: inherit;
+    font-family: inherit;
+    outline: none;
 }
 
-/* Label untuk wallet-detailcard dengan margin yang berbeda */
-.wallet-detailcard .label {
-    margin-left: 0;
-    margin-right: 0;
-    color: #bfa573;
-    justify-content: start;
-    text-align: left;
-    font-weight: bold;
+.binance-detailcard input:focus {
+    outline: none;
 }
 
-/* Label untuk wallet-detailcard dengan margin yang berbeda */
+.binance-detailcard input:disabled {
+    background: transparent;
+    cursor: not-allowed;
+}
+
+/* Grid container untuk wallet detail card dengan gap antar kolom dan baris */
+.wallet-detailcard {
+    display: grid;
+    grid-template-columns: minmax(150px, 1fr) minmax(300px, 3fr);
+    gap: 0.5rem;
+    margin: 1rem auto;
+    width: 90%;
+    max-width: 800px;
+    transition: all 0.3s ease;
+}
+
+/* Responsif untuk sidebar collapse */
+body.sidebar-main .content-page .wallet-detailcard {
+    width: 90%;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    transition: all 0.3s ease;
+}
+
+/* Media query untuk layar yang lebih kecil */
+@media (max-width: 992px) {
+    .wallet-detailcard {
+        width: 100%;
+        grid-template-columns: 1fr 3fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .wallet-detailcard {
+        grid-template-columns: 1fr;
+    }
+}
+
+.wallet-detailcard .label,
 .wallet-detailcard .value {
+    padding: 8px 20px;
+    border: 1px solid #bfa573;
+    display: flex;
+    align-items: center;
+    margin: 0;
     margin-left: 0;
     margin-right: 0;
     color: #bfa573;
@@ -1912,26 +1997,47 @@ div.dataTables_wrapper div.dataTables_filter input {
 
 .binance-fullcard-footer {
     text-align: center;
+    margin-top: 20px;
+    width: 100%;
 }
 
-.binance-fullcard-footer .edit-btn {
+.binance-fullcard-footer .save-btn {
     background: linear-gradient(90deg, #b48b3d 0%, #bfa573 100%);
     color: black;
     border: none;
-    padding: 2px 20px;
+    padding: 8px 30px;
     border-radius: 5px;
-    font-size: 16px;
+    color: #000;
+    text-align: center;
+    font-family: 'Noto Serif';
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
     cursor: pointer;
+    margin: 0 5px;
+    transition: all 0.3s ease;
 }
 
-.binance-fullcard-footer .edit-btn:disabled {
+@media (max-width: 768px) {
+    .binance-fullcard-footer .save-btn {
+        padding: 8px 20px;
+        font-size: 16px;
+        width: 100%;
+        max-width: 200px;
+    }
+}
+
+.binance-fullcard-footer .save-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.binance-fullcard-footer .save-btn:disabled {
     background-color: #575757;
     color: black;
     border: none;
-    padding: 2px 20px;
-    border-radius: 5px;
-    font-size: 16px;
-    cursor: pointer;
+    cursor: not-allowed;
 }
 
 /* Row button baru di bawah header Connect Binance API */
@@ -1941,21 +2047,47 @@ div.dataTables_wrapper div.dataTables_filter input {
     justify-content: center;
     align-items: center;
     text-align: center;
-    gap: 1rem; /* Jarak antar button, bisa disesuaikan */
-    margin: 2rem 0; /* Menambahkan margin atas untuk jarak dengan border */
+    gap: 1rem;
+    margin: 2rem 0;
+    flex-wrap: wrap;
 }
 
+@media (max-width: 768px) {
+    .binance-button-row {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+}
+
+.binance-button-row a,
 .binance-button-row button {
     border: 1px solid #bfa573;
     background: transparent;
     color: #000;
-    /* background-color: #bfa573; */
-    border-radius: 7px;
     background: linear-gradient(90deg, #b48b3d 0%, #bfa573 100%);
     border-radius: 5px;
-    padding: 5px 10px;
+    padding: 10px 20px;
     font-size: 16px;
     cursor: pointer;
+    font-family: 'Noto Serif';
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    transition: all 0.3s ease;
+}
+
+.binance-button-row a:hover,
+.binance-button-row button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+@media (max-width: 768px) {
+    .binance-button-row a,
+    .binance-button-row button {
+        width: 100%;
+        max-width: 200px;
+    }
 }
 
 /* Container yang membungkus seluruh checkbox dengan border */
@@ -2355,30 +2487,6 @@ body.sidebar-main .content-page .set-investment-container {
     background: linear-gradient(90deg, #a37b2d 0%, #af9563 100%);
     transform: translateY(-5px);
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-}
-
-.disabled-payment-btn {
-    background-color: #888888 !important;
-    color: #333333 !important;
-    cursor: not-allowed !important;
-    position: relative;
-}
-
-.disabled-payment-btn:hover {
-    background: #888888 !important;
-    transform: none !important;
-    box-shadow: none !important;
-}
-
-.coming-soon {
-    font-size: 14px;
-    font-weight: 400;
-    margin-left: 10px;
-    color: #ffffff;
-    background-color: #555555;
-    padding: 3px 8px;
-    border-radius: 4px;
-    display: inline-block;
 }
 
 /* Responsif untuk sidebar collapse */

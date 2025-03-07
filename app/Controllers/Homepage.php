@@ -737,7 +737,7 @@ class Homepage extends BaseController
                 // Buat payment intent di Stripe
                 $paymentIntent = \Stripe\PaymentIntent::create([
                     'amount' => $amountInCents,
-                    'currency' => 'usd',
+                    'currency' => 'eur',
                     'payment_method' => $paymentMethodId,
                     'automatic_payment_methods' => [
                         'enabled' => true,

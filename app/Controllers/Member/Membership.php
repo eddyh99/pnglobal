@@ -377,7 +377,7 @@ class Membership extends BaseController
                 // Buat payment intent di Stripe
                 $paymentIntent = \Stripe\PaymentIntent::create([
                     'amount' => $amountInCents,
-                    'currency' => 'usd',
+                    'currency' => 'eur',
                     'payment_method' => $paymentMethodId,
                     'automatic_payment_methods' => [
                         'enabled' => true,
@@ -507,6 +507,109 @@ class Membership extends BaseController
                 'status' => 'error',
                 'message' => 'An internal error occurred: ' . $e->getMessage()
             ])->setStatusCode(500);
+        }
+    }
+
+    public function api()
+    {
+        $mdata = [
+            'title'     => 'API - ' . NAMETITLE,
+            'content'   => 'member/membership/api',
+            'extra'     => 'member/membership/js/_js_api',
+            'active_membership' => 'active',
+        ];
+
+        return view('member/layout/dashboard_wrapper', $mdata);
+    }
+
+    public function save_binance_api()
+    {
+        $rules = $this->validate([
+            'api_key' => [
+                'label'     => 'API Key',
+                'rules'     => 'required'
+            ],
+            'api_secret' => [
+                'label'     => 'API Secret',
+                'rules'     => 'required'
+            ],
+        ]);
+
+        if (!$rules) {
+            return $this->response->setJSON([
+                'success' => false,
+                'message' => $this->validation->listErrors()
+            ]);
+        }
+
+        // Menggunakan session() helper untuk mengakses session
+        $session = session();
+
+        // Periksa apakah logged_user adalah object atau array
+        if (isset($session->logged_user)) {
+            if (is_object($session->logged_user)) {
+                $email = $session->logged_user->email;
+                $pass = $session->logged_user->passwd;
+            } else {
+                $email = $session->logged_user['email'];
+                $pass = $session->logged_user['passwd'];
+            }
+        } else {
+            return $this->response->setJSON([
+                'success' => false,
+                'message' => 'User session not found. Please login again.'
+            ]);
+        }
+
+        $userData = [
+            'email' => $email,
+            'password' => $pass
+        ];
+
+        $url = URLAPI . "/auth/signin";
+        $response = satoshiAdmin($url, json_encode($userData));
+
+        // Berdasarkan struktur respons yang diberikan
+        if (isset($response->result) && isset($response->result->message) && isset($response->result->message->id)) {
+            $id = $response->result->message->id;
+            $api_key = $this->request->getVar('api_key');
+            $api_secret = $this->request->getVar('api_secret');
+
+            $mdata = [
+                'id_member' => $id,
+                'api_key' => $api_key,
+                'api_secret' => $api_secret
+            ];
+
+            $url = URLAPI . "/v1/member/set_api";
+            $apiResponse = satoshiAdmin($url, json_encode($mdata));
+
+            $userUrl = URLAPI . "/auth/signin";
+            $userResponse = satoshiAdmin($userUrl, json_encode($userData));
+            $userResult = $userResponse->result;
+
+            // Jika berhasil mendapatkan data pengguna terbaru, perbarui session
+            if (isset($userResult->code) && $userResult->code == 200) {
+                $session->set('logged_user', $userResult->message);
+            }
+
+            if (isset($apiResponse->result) && $apiResponse->result) {
+                $session->setFlashdata('success', 'API Key and Secret saved successfully');
+                return $this->response->setJSON([
+                    'success' => true,
+                    'message' => 'API Key and Secret saved successfully'
+                ]);
+            } else {
+                return $this->response->setJSON([
+                    'success' => false,
+                    'message' => 'Failed to save API Key and Secret'
+                ]);
+            }
+        } else {
+            return $this->response->setJSON([
+                'success' => false,
+                'message' => 'Authentication failed or invalid response format'
+            ]);
         }
     }
 }
