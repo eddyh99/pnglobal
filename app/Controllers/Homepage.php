@@ -641,6 +641,25 @@ class Homepage extends BaseController
                 ])->setStatusCode(400);
             }
 
+            // Hapus data pembayaran dari session
+            $session->remove('payment_data');
+
+            // Perbarui data pengguna dalam session dengan data terbaru dari API
+            $userData = [
+                'email' => $email,
+                'password' => $session->get('logged_user')->passwd
+            ];
+
+            // Ambil data pengguna terbaru dari API
+            $userUrl = URLAPI . "/auth/signin";
+            $userResponse = satoshiAdmin($userUrl, json_encode($userData));
+            $userResult = $userResponse->result;
+
+            // Jika berhasil mendapatkan data pengguna terbaru, perbarui session
+            if (isset($userResult->code) && $userResult->code == 200) {
+                $session->set('logged_user', $userResult->message);
+            }
+
             return $this->response->setJSON([
                 'status' => 'success',
                 'message' => '<p>Your payment is being processed and your account will be ready within 48 hours.</p><p>We will send you an email when your account is active.</p>',
@@ -757,6 +776,22 @@ class Homepage extends BaseController
 
                         // Hapus data pembayaran dari session
                         $session->remove('payment_data');
+
+                        // Perbarui data pengguna dalam session dengan data terbaru dari API
+                        $userData = [
+                            'email' => $email,
+                            'password' => $loggedUser->passwd
+                        ];
+
+                        // Ambil data pengguna terbaru dari API
+                        $userUrl = URLAPI . "/auth/signin";
+                        $userResponse = satoshiAdmin($userUrl, json_encode($userData));
+                        $userResult = $userResponse->result;
+
+                        // Jika berhasil mendapatkan data pengguna terbaru, perbarui session
+                        if (isset($userResult->code) && $userResult->code == 200) {
+                            $session->set('logged_user', $userResult->message);
+                        }
 
                         // Set flash data untuk sukses
                         session()->setFlashdata('success', 'Your payment is being processed and your account will be ready within 48 hours. We will send you an email when your account is active.');
@@ -909,6 +944,26 @@ class Homepage extends BaseController
                     // POST subscribe member
                     $url = URLAPI . "/v1/subscription/paidsubscribe";
                     $result = satoshiAdmin($url, json_encode($mdata))->result->message;
+
+                    // Perbarui data pengguna dalam session jika pengguna sudah login
+                    $session = session();
+                    if ($session->has('logged_user')) {
+                        $loggedUser = $session->get('logged_user');
+                        $userData = [
+                            'email' => $loggedUser->email,
+                            'password' => $loggedUser->passwd
+                        ];
+
+                        // Ambil data pengguna terbaru dari API
+                        $userUrl = URLAPI . "/auth/signin";
+                        $userResponse = satoshiAdmin($userUrl, json_encode($userData));
+                        $userResult = $userResponse->result;
+
+                        // Jika berhasil mendapatkan data pengguna terbaru, perbarui session
+                        if (isset($userResult->code) && $userResult->code == 200) {
+                            $session->set('logged_user', $userResult->message);
+                        }
+                    }
 
                     session()->setFlashdata('successPayment', 'Thank you for your register, wait 1-5 minutes our team will be contact');
                     header("Location: " . BASE_URL . "homepage/service?service=" . base64_encode("satoshi_signal"));

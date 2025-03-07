@@ -44,7 +44,7 @@
                                 </div>
                             <?php } ?>
 
-                            <form id="payment-form" action="<?= BASE_URL ?>member/membership/confirm_card_payment" method="POST">
+                            <form id="payment-form" method="POST">
                                 <div class="payment-summary">
                                     <h1 class="fw-bold f-cormorant">Summary Membership</h1>
 
@@ -166,7 +166,7 @@
             setTimeout(function() {
                 $("#paymentSuccessModal").modal("hide");
                 setTimeout(function() {
-                    window.location.href = "<?= BASE_URL ?>member/membership";
+                    window.location.href = "<?= BASE_URL ?>member/dashboard";
                 }, 500);
             }, 3000); // Tampilkan modal selama 3 detik sebelum redirect
         });
