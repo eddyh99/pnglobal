@@ -111,34 +111,8 @@
                 $(this).html('<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Processing...');
                 $(this).prop('disabled', true);
 
-                // Buat AJAX request untuk memperpanjang membership
-                $.ajax({
-                    url: '<?= BASE_URL ?>member/membership/renew',
-                    type: 'POST',
-                    dataType: 'json',
-                    success: function(response) {
-                        if (response.status) {
-                            // Tampilkan pesan sukses
-                            alert('Your membership has been renewed successfully!');
-                            // Reload halaman untuk memperbarui informasi
-                            window.location.reload();
-                        } else {
-                            // Tampilkan pesan error
-                            alert('Error: ' + response.message);
-                            // Reset tombol
-                            $('.btn-renew').html('Renew');
-                            $('.btn-renew').prop('disabled', false);
-                        }
-                    },
-                    error: function(xhr, status, error) {
-                        // Tampilkan pesan error
-                        alert('An error occurred while processing your request. Please try again later.');
-                        console.error('AJAX Error:', status, error);
-                        // Reset tombol
-                        $('.btn-renew').html('Renew');
-                        $('.btn-renew').prop('disabled', false);
-                    }
-                });
+                // Redirect ke halaman set_investment_capital
+                window.location.href = '<?= BASE_URL ?>member/membership/set_investment_capital';
             }
         });
     });

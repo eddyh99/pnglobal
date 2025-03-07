@@ -84,7 +84,7 @@
                         <span class="<?= (@$active_withdraw != null) ? 'text-black' : 'text-white' ?>">Withdraw</span>
                     </a>
                 </li>
-                <li class="<?= @$active_membership ?>">
+                <!-- <li class="<?= @$active_membership ?>">
                     <a href="<?= BASE_URL ?>member/membership" class="iq-waves-effect">
                         <i>
                             <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30" fill="none">
@@ -93,7 +93,7 @@
                         </i>
                         <span class="<?= (@$active_membership != null) ? 'text-black' : 'text-white' ?>">Membership</span>
                     </a>
-                </li>
+                </li> -->
                 <?php
                 // }
                 ?>

@@ -2357,6 +2357,30 @@ body.sidebar-main .content-page .set-investment-container {
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }
 
+.disabled-payment-btn {
+    background-color: #888888 !important;
+    color: #333333 !important;
+    cursor: not-allowed !important;
+    position: relative;
+}
+
+.disabled-payment-btn:hover {
+    background: #888888 !important;
+    transform: none !important;
+    box-shadow: none !important;
+}
+
+.coming-soon {
+    font-size: 14px;
+    font-weight: 400;
+    margin-left: 10px;
+    color: #ffffff;
+    background-color: #555555;
+    padding: 3px 8px;
+    border-radius: 4px;
+    display: inline-block;
+}
+
 /* Responsif untuk sidebar collapse */
 body.sidebar-main .content-page .payment-option-container {
     max-width: 500px;
