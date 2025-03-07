@@ -192,4 +192,19 @@ class Withdraw extends BaseController
         //     'message' => $result->message
         // ]);
     }
+
+    public function get_withdraw_history()
+    {
+        $session = session();
+        $loggedUser = $session->get('logged_user');
+        $member_id = $loggedUser->id;
+
+        $url = URLAPI . "/v1/member/history_payment?id_member=" . $member_id;
+        $result = satoshiAdmin($url)->result;
+
+        return $this->response->setJSON([
+            'code' => $result->code,
+            'message' => $result->message
+        ]);
+    }
 }

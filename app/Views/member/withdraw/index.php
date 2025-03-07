@@ -82,7 +82,7 @@
 
             <div class="col-lg-12 dash-table-totalmember">
                 <h4 class="text-white my-3 text-uppercase fw-bold">WITHDRAW HISTORY</h4>
-                <table id="table_totalmember" class="table table-striped" style="width:100%">
+                <table id="table_withdraw" class="table table-striped" style="width:100%">
                     <thead class="thead_totalmember">
                         <tr>
                             <th>DATE</th>
