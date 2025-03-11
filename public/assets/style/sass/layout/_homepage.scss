@@ -1336,7 +1336,9 @@
     .container {
         margin: 0 auto;
         padding: 0 15px;
+        max-width: 1200px;
     }
+
     .newsletter-card {
         background: #fff;
         padding: 30px;
@@ -1356,6 +1358,15 @@
             font-weight: 800;
             line-height: 30px; /* 93.75% */
             margin-bottom: 20px;
+
+            @include mix.md-down {
+                font-size: 28px;
+                line-height: 1.2;
+            }
+
+            @include mix.sm-down {
+                font-size: 24px;
+            }
         }
 
         .card-description {
@@ -1366,6 +1377,17 @@
             font-weight: 800;
             line-height: 30px; /* 150% */
             margin-bottom: 30px;
+
+            @include mix.md-down {
+                font-size: 18px;
+                line-height: 1.5;
+                padding: 0 10px;
+            }
+
+            @include mix.sm-down {
+                font-size: 16px;
+                padding: 0;
+            }
         }
 
         .newsletter-form {
@@ -1373,6 +1395,11 @@
             align-items: center;
             justify-content: center;
             gap: 10px;
+
+            @include mix.sm-down {
+                flex-direction: column;
+                width: 100%;
+            }
 
             input {
                 border: none;
@@ -1383,6 +1410,15 @@
                 font-size: 16px;
                 width: 60%;
                 min-height: 50px;
+
+                @include mix.md-down {
+                    width: 70%;
+                }
+
+                @include mix.sm-down {
+                    width: 100%;
+                    margin-bottom: 10px;
+                }
             }
 
             button {
@@ -1397,7 +1433,36 @@
                 line-height: 30px; /* 150% */
                 padding: 10px 20px;
                 cursor: pointer;
+                transition: all 0.3s ease;
+
+                @include mix.sm-down {
+                    width: 100%;
+                    font-size: 18px;
+                }
+
+                &:hover {
+                    background: darken(#bfa573, 10%);
+                    transform: translateY(-2px);
+                }
             }
         }
+
+        @include mix.md-down {
+            min-height: 300px;
+            padding: 25px 20px;
+        }
+
+        @include mix.sm-down {
+            min-height: auto;
+            padding: 20px 15px;
+        }
+    }
+
+    @include mix.md-down {
+        padding: 40px 0;
+    }
+
+    @include mix.sm-down {
+        padding: 30px 0;
     }
 }

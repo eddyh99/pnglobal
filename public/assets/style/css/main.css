@@ -88,6 +88,10 @@
 // ukuran tertentu dan seterusnya sampai ukuran terbesar
 ------------------------------------------------------------*/
 /*----------------------------------------------------------
+//  Untuk Media Query Max Width untuk mengubah suatu
+// ukuran tertentu dan seterusnya sampai ukuran terkecil
+------------------------------------------------------------*/
+/*----------------------------------------------------------
 2. Breakpoints End
 ------------------------------------------------------------*/
 /*----------------------------------------------------------
@@ -14435,6 +14439,7 @@ p {
 .newsletter-card-section .container {
   margin: 0 auto;
   padding: 0 15px;
+  max-width: 1200px;
 }
 .newsletter-card-section .newsletter-card {
   background: #fff;
@@ -14456,6 +14461,17 @@ p {
   line-height: 30px; /* 93.75% */
   margin-bottom: 20px;
 }
+@media (max-width: 767px) {
+  .newsletter-card-section .newsletter-card .card-title {
+    font-size: 28px;
+    line-height: 1.2;
+  }
+}
+@media (max-width: 566px) {
+  .newsletter-card-section .newsletter-card .card-title {
+    font-size: 24px;
+  }
+}
 .newsletter-card-section .newsletter-card .card-description {
   color: #000;
   font-family: "Noto Serif", serif;
@@ -14465,11 +14481,30 @@ p {
   line-height: 30px; /* 150% */
   margin-bottom: 30px;
 }
+@media (max-width: 767px) {
+  .newsletter-card-section .newsletter-card .card-description {
+    font-size: 18px;
+    line-height: 1.5;
+    padding: 0 10px;
+  }
+}
+@media (max-width: 566px) {
+  .newsletter-card-section .newsletter-card .card-description {
+    font-size: 16px;
+    padding: 0;
+  }
+}
 .newsletter-card-section .newsletter-card .newsletter-form {
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 10px;
+}
+@media (max-width: 566px) {
+  .newsletter-card-section .newsletter-card .newsletter-form {
+    flex-direction: column;
+    width: 100%;
+  }
 }
 .newsletter-card-section .newsletter-card .newsletter-form input {
   border: none;
@@ -14480,6 +14515,17 @@ p {
   font-size: 16px;
   width: 60%;
   min-height: 50px;
+}
+@media (max-width: 767px) {
+  .newsletter-card-section .newsletter-card .newsletter-form input {
+    width: 70%;
+  }
+}
+@media (max-width: 566px) {
+  .newsletter-card-section .newsletter-card .newsletter-form input {
+    width: 100%;
+    margin-bottom: 10px;
+  }
 }
 .newsletter-card-section .newsletter-card .newsletter-form button {
   border: none;
@@ -14493,6 +14539,39 @@ p {
   line-height: 30px; /* 150% */
   padding: 10px 20px;
   cursor: pointer;
+  transition: all 0.3s ease;
+}
+@media (max-width: 566px) {
+  .newsletter-card-section .newsletter-card .newsletter-form button {
+    width: 100%;
+    font-size: 18px;
+  }
+}
+.newsletter-card-section .newsletter-card .newsletter-form button:hover {
+  background: rgb(175, 142.5, 80);
+  transform: translateY(-2px);
+}
+@media (max-width: 767px) {
+  .newsletter-card-section .newsletter-card {
+    min-height: 300px;
+    padding: 25px 20px;
+  }
+}
+@media (max-width: 566px) {
+  .newsletter-card-section .newsletter-card {
+    min-height: auto;
+    padding: 20px 15px;
+  }
+}
+@media (max-width: 767px) {
+  .newsletter-card-section {
+    padding: 40px 0;
+  }
+}
+@media (max-width: 566px) {
+  .newsletter-card-section {
+    padding: 30px 0;
+  }
 }
 
 /*----------------------------------------------------------
