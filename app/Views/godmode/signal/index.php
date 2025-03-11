@@ -73,7 +73,7 @@
                                                         </div>
                                                     </td>
                                                     <td>
-                                                        <button class="signal-btn btn-ok">OK</button>
+                                                        <button class="signal-btn btn-ok">SELL</button>
                                                     </td>
                                                     <td>
                                                         <button class="signal-btn btn-fill">FILL</button>
@@ -96,7 +96,7 @@
                                                         </div>
                                                     </td>
                                                     <td>
-                                                        <button class="signal-btn btn-ok">OK</button>
+                                                        <button class="signal-btn btn-ok">SELL</button>
                                                     </td>
                                                     <td>
                                                         <button class="signal-btn btn-fill">FILL</button>
@@ -119,7 +119,7 @@
                                                         </div>
                                                     </td>
                                                     <td>
-                                                        <button class="signal-btn btn-ok">OK</button>
+                                                        <button class="signal-btn btn-ok">SELL</button>
                                                     </td>
                                                     <td>
                                                         <button class="signal-btn btn-fill">FILL</button>
@@ -142,7 +142,7 @@
                                                         </div>
                                                     </td>
                                                     <td>
-                                                        <button class="signal-btn btn-ok">OK</button>
+                                                        <button class="signal-btn btn-ok">SELL</button>
                                                     </td>
                                                     <td>
                                                         <button class="signal-btn btn-fill">FILL</button>
@@ -186,7 +186,7 @@
                                                         </div>
                                                     </td>
                                                     <td>
-                                                        <button class="signal-btn btn-ok">OK</button>
+                                                        <button class="signal-btn btn-ok">SELL</button>
                                                     </td>
                                                     <td>
                                                         <button class="signal-btn btn-fill">FILL</button>
@@ -209,7 +209,7 @@
                                                         </div>
                                                     </td>
                                                     <td>
-                                                        <button class="signal-btn btn-ok">OK</button>
+                                                        <button class="signal-btn btn-ok">SELL</button>
                                                     </td>
                                                     <td>
                                                         <button class="signal-btn btn-fill">FILL</button>
@@ -232,7 +232,7 @@
                                                         </div>
                                                     </td>
                                                     <td>
-                                                        <button class="signal-btn btn-ok">OK</button>
+                                                        <button class="signal-btn btn-ok">SELL</button>
                                                     </td>
                                                     <td>
                                                         <button class="signal-btn btn-fill">FILL</button>
@@ -255,7 +255,7 @@
                                                         </div>
                                                     </td>
                                                     <td>
-                                                        <button class="signal-btn btn-ok">OK</button>
+                                                        <button class="signal-btn btn-ok">SELL</button>
                                                     </td>
                                                     <td>
                                                         <button class="signal-btn btn-fill">FILL</button>
