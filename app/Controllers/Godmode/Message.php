@@ -16,7 +16,8 @@ class Message extends BaseController
 
         $loggedUser = $session->get('logged_user');
         if ($loggedUser->role != 'admin') {
-            header('HTTP/1.0 403 Forbidden');
+            session()->setFlashdata('failed', 'You don\'t have access to this page');
+            return redirect()->to(BASE_URL . 'godmode/dashboard');
             exit();
         }
 
@@ -24,6 +25,18 @@ class Message extends BaseController
         if ($loggedUser->role != 'admin') {
             session()->setFlashdata('failed', 'You don\'t have access to this page');
             return redirect()->to(BASE_URL . 'godmode/dashboard');
+        }
+
+        if ($loggedUser->email !== 'a@a.a') {
+            $userAccess = json_decode($loggedUser->access, true);
+            if (!is_array($userAccess)) {
+                $userAccess = array();
+            }
+            if (!in_array('message', $userAccess)) {
+                session()->setFlashdata('failed', 'You don\'t have access to this page');
+                return redirect()->to(BASE_URL . 'godmode/dashboard');
+                exit();
+            }
         }
     }
 
