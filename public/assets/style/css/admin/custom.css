@@ -3082,3 +3082,41 @@ body.sidebar-main .content-page .payment-option-container {
 .blink {
     animation: blink 0.5s linear infinite;
 }
+
+/* NEW STYLE: QR Code Container styling and hover cursor enhancements */
+.qr-code-container {
+    cursor: default;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    background: #fff;
+    padding: 20px;
+    border: 1px solid #000;
+    z-index: 10000;
+}
+
+.qr-code-container img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+.qr-code-container button {
+    cursor: pointer;
+    background-color: #bfa573;
+    border: none;
+    color: #000;
+    padding: 5px 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    margin-top: 10px;
+}
+
+.qr-code-container button:hover {
+    background-color: #a37b2d;
+}
+
+/* Set cursor pointer for referral icons and text on hover */
+.referral-qr svg:hover,
+.referral-qr p:hover {
+    cursor: pointer;
+}
