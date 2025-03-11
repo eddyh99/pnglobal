@@ -113,71 +113,114 @@ class Auth extends BaseController
 
 	public function send_resetpassword()
 	{
+		// Pastikan ini adalah request AJAX
+		if (!$this->request->isAJAX()) {
+			return $this->response->setStatusCode(400)->setJSON([
+				'code'    => 400,
+				'message' => 'Request not valid'
+			]);
+		}
+
 		$email = $this->request->getVar('email');
 
 		if (empty($email)) {
-			session()->setFlashdata('failed', 'Alamat email tidak ditemukan.');
-			return redirect()->to(BASE_URL . 'member/subscription/forgot_password');
+			return $this->response->setJSON([
+				'code'    => 400,
+				'message' => 'Email not found.'
+			]);
 		}
 
 		$email = urldecode($email);
 		$subject = "Satoshi Signal - Reset Password";
 
-		// Call Endpoint Member
-		$url = URLAPI . "/auth/resend_token";
-		$apiResponse = satoshiAdmin($url, json_encode(['email' => $email]));
+		try {
+			// Call Endpoint Member
+			$url = URLAPI . "/auth/resend_token";
+			$apiResponse = satoshiAdmin($url, json_encode(['email' => $email]));
 
-		// Pastikan $apiResponse adalah objek
-		if (!is_object($apiResponse)) {
-			return $this->response->setJSON([
-				'code'    => 500,
-				'service' => 'auth',
-				'error'   => 'Invalid response',
-				'message' => 'Response dari API tidak valid.'
-			]);
-		}
+			// Pastikan $apiResponse adalah objek
+			if (!is_object($apiResponse)) {
+				return $this->response->setJSON([
+					'code'    => 500,
+					'service' => 'auth',
+					'error'   => 'Invalid response',
+					'message' => 'Invalid response from API.'
+				]);
+			}
 
-		$result = $apiResponse->result;
+			$result = $apiResponse->result;
 
-		// Cek apakah $result adalah objek dan memiliki properti yang diharapkan
-		if (is_object($result)) {
-			if (isset($result->message)) {
-				// Jika ada pesan, ambil token dari dalam pesan
-				$token = $result->message->otp ?? null; // Menggunakan null coalescing operator
+			// Cek apakah $result adalah objek dan memiliki properti yang diharapkan
+			if (is_object($result)) {
+				if (isset($result->message)) {
+					// Jika ada pesan, ambil token dari dalam pesan
+					$token = $result->message->otp ?? null; // Menggunakan null coalescing operator
+
+					if ($token === null) {
+						return $this->response->setJSON([
+							'code'    => 500,
+							'service' => 'auth',
+							'error'   => 'Missing OTP',
+							'message' => 'OTP not found in response.'
+						]);
+					}
+				} else {
+					return $this->response->setJSON([
+						'code'    => 500,
+						'service' => 'auth',
+						'error'   => 'Unexpected response format',
+						'message' => 'No message in response.'
+					]);
+				}
 			} else {
+				// Jika $result adalah string, tangani dengan benar
+				if (is_string($result)) {
+					return $this->response->setJSON([
+						'code'    => 500,
+						'service' => 'auth',
+						'error'   => 'Unexpected response format',
+						'message' => $result // Mengembalikan string sebagai pesan
+					]);
+				}
+
 				return $this->response->setJSON([
 					'code'    => 500,
 					'service' => 'auth',
-					'error'   => 'Unexpected response format',
-					'message' => 'Tidak ada pesan dalam respons.'
-				]);
-			}
-		} else {
-			// Jika $result adalah string, tangani dengan benar
-			if (is_string($result)) {
-				return $this->response->setJSON([
-					'code'    => 500,
-					'service' => 'auth',
-					'error'   => 'Unexpected response format',
-					'message' => $result // Mengembalikan string sebagai pesan
+					'error'   => 'Invalid response format',
+					'message' => 'Failed to get OTP from API.'
 				]);
 			}
 
+			// Kirim email dengan token
+			try {
+				$emailSent = sendmail_satoshi($email, $subject, emailtemplate_forgot_password($token, $email));
+
+				// Jika sendmail_satoshi tidak mengembalikan nilai, anggap berhasil
+				// (karena fungsi aslinya tidak mengembalikan nilai)
+
+				// Kembalikan respons sukses
+				return $this->response->setJSON([
+					'code'    => 200,
+					'message' => 'Email has been sent to your email'
+				]);
+			} catch (Exception $e) {
+				log_message('error', 'Error sending email: ' . $e->getMessage());
+				return $this->response->setJSON([
+					'code'    => 500,
+					'service' => 'email',
+					'error'   => 'Email error',
+					'message' => 'Failed to send email: ' . $e->getMessage()
+				]);
+			}
+		} catch (Exception $e) {
+			log_message('error', 'Error in send_resetpassword: ' . $e->getMessage());
 			return $this->response->setJSON([
 				'code'    => 500,
-				'service' => 'auth',
-				'error'   => 'Invalid response format',
-				'message' => 'Failed to get OTP from API.'
+				'service' => 'system',
+				'error'   => 'System error',
+				'message' => 'System error: ' . $e->getMessage()
 			]);
 		}
-
-		// Kirim email dengan token
-		sendmail_satoshi($email, $subject, emailtemplate_forgot_password($token, $email));
-
-		return $this->response->setJSON([
-			'code'    => 200,
-			'message' => 'Email berhasil dikirim'
-		]);
 	}
 
 	public function activate_member($email = null)

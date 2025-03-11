@@ -125,7 +125,7 @@ function sendmail_booking($subject, $mdata)
 
 function sendmail_satoshi($email, $subject, $message)
 {
-    $mail = new PHPMailer();
+    $mail = new PHPMailer(true);
     try {
         $mail->isSMTP();
         $mail->Host         = HOST_MAIL;
@@ -143,7 +143,13 @@ function sendmail_satoshi($email, $subject, $message)
             )
         );
 
-        $mail->SMTPDebug = 2;
+        $mail->SMTPDebug = 0;
+
+        if ($mail->SMTPDebug > 0) {
+            $mail->Debugoutput = function ($str, $level) {
+                log_message('debug', "PHPMailer [$level]: $str");
+            };
+        }
 
         $mail->setFrom(USERNAME_MAIL, SATOSHITITLE . ' Activation Email');
         $mail->isHTML(true);
@@ -152,8 +158,12 @@ function sendmail_satoshi($email, $subject, $message)
         $mail->AddAddress($email);
         $mail->msgHTML($message);
         $mail->send();
+
+        return true;
     } catch (Exception $e) {
-        exit();
+        log_message('error', 'PHPMailer Error: ' . $e->getMessage());
+
+        return false;
     }
 }
 

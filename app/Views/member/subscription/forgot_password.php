@@ -32,11 +32,12 @@
                 <div class="forgot-password-form w-100">
                     <h1 class="mb-3 text-center text-black">Reset Password</h1>
                     <p class="text-center text-dark text-capitalize">Enter your email address to reset your password</p>
-                    <form action="<?= BASE_URL ?>auth/send_resetpassword" method="POST" class="mt-4" id="forgotPasswordForm">
+                    <form class="mt-4" id="forgotPasswordForm">
                         <div class="form-group">
                             <label for="exampleInputEmail2">Email address</label>
                             <input type="email" class="form-control mb-0" name="email" id="email" placeholder="Enter email">
                         </div>
+                        <div id="response-message" class="alert" style="display: none;"></div>
                         <div class="forgot-password-info text-center px-10">
                             <button type="submit" class="btn btn-primary mb-2 text-center">Reset</button>
                         </div>
