@@ -31,6 +31,9 @@
                             </div>
                             <i class="icon-pass-login las la-eye" id="togglePassword"></i>
                         </div>
+                        <div class="forgot-password text-right">
+                            <a href="<?= BASE_URL ?>member/auth/forgot_password" class="text-black">Forgot Password</a>
+                        </div>
                         <div class="sign-info">
                             <button type="submit" class="btn btn-primary mb-2">Sign in</button>
                         </div>
