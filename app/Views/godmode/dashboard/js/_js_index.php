@@ -310,7 +310,7 @@
         "pageLength": 100,
         "scrollX": true,
         "ajax": {
-            "url": "<?= BASE_URL ?>godmode/member/get_totalmember",
+            "url": "<?= BASE_URL ?>godmode/member/get_totalmember_satoshi",
             "type": "POST",
             "dataSrc": function(data) {
                 return data;
@@ -410,7 +410,7 @@
         "scrollX": true,
         "order": false,
         "ajax": {
-            "url": "<?= BASE_URL ?>godmode/member/get_freemember",
+            "url": "<?= BASE_URL ?>godmode/member/get_freemember_satoshi",
             "type": "POST",
             "dataSrc": function(data) {
                 console.log(data);
@@ -469,7 +469,7 @@
         "scrollX": true,
         "order": false,
         "ajax": {
-            "url": "<?= BASE_URL ?>godmode/member/get_referralmember",
+            "url": "<?= BASE_URL ?>godmode/member/get_referralmember_satoshi",
             "type": "POST",
             "dataSrc": function(data) {
                 console.log(data);

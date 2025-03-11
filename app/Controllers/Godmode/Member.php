@@ -108,4 +108,28 @@ class Member extends BaseController
         $result = satoshiAdmin($url)->result->message;
         echo json_encode($result);
     }
+
+    public function get_totalmember_satoshi()
+    {
+        // Call Endpoin Get Total Member
+        $url = URLAPI2 . "/v1/member/allmember";
+        $result = satoshiAdmin($url)->result->message;
+        echo json_encode($result);
+    }
+
+    public function get_freemember_satoshi()
+    {
+        // Call Endpoin Get Free Member
+        $url = URLAPI2 . "/v1/member/freemember";
+        $result = satoshiAdmin($url)->result->message;
+        echo json_encode($result);
+    }
+
+    public function get_referralmember_satoshi()
+    {
+        // Call Endpoin Get Referral Member
+        $url = URLAPI2 . "/v1/member/referralmember";
+        $result = satoshiAdmin($url)->result->message;
+        echo json_encode($result);
+    }
 }

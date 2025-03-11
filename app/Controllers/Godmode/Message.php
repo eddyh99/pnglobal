@@ -20,11 +20,10 @@ class Message extends BaseController
             exit();
         }
 
-        $userAccess = json_decode($loggedUser->access, true);
-        if (!in_array('message', $userAccess)) {
-            session()->setFlashdata('failed', 'Anda tidak memiliki akses ke halaman ini');
-            header("Location: " . BASE_URL . 'godmode/dashboard');
-            exit();
+        $loggedUser = $session->get('logged_user');
+        if ($loggedUser->role != 'admin') {
+            session()->setFlashdata('failed', 'You don\'t have access to this page');
+            return redirect()->to(BASE_URL . 'godmode/dashboard');
         }
     }
 

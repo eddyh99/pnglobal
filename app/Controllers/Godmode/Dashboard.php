@@ -12,7 +12,7 @@ class Dashboard extends BaseController
 
         // Jika belum login, redirect ke halaman signin
         if (!$session->has('logged_user')) {
-            header("Location: " . BASE_URL . 'member/auth/login');
+            header("Location: " . BASE_URL . 'godmode/auth/signin');
             exit();
         }
 
@@ -22,7 +22,7 @@ class Dashboard extends BaseController
         // Pengecekan role: hanya admin yang boleh mengakses halaman ini
         if ($loggedUser->role !== 'admin') {
             session()->setFlashdata('failed', "You don't have access to this page");
-            return redirect()->to(BASE_URL . 'godmode/auth/logout');
+            return redirect()->to(BASE_URL . 'godmode/auth/signin');
         }
     }
 

