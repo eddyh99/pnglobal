@@ -4,6 +4,9 @@
     // Tab functionality
     $(document).ready(function() {
         console.log("Document ready, initializing tabs");
+        $('<style>#table_totalmember_wrapper > div:nth-child(1) > div:nth-child(1) { display: flex; justify-content: flex-end !important; align-items: center; }</style>').appendTo('head');
+        $('<style>#table_totalmember_wrapper .dataTables_filter { float: right !important; }</style>').appendTo('head');
+
 
         // Default active tab
         let activeTab = localStorage.getItem('activeTab') || 'pn-global';

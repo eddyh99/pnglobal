@@ -3120,3 +3120,51 @@ body.sidebar-main .content-page .payment-option-container {
 .referral-qr p:hover {
     cursor: pointer;
 }
+
+#table_totalmember_wrapper > div:nth-child(1) > div:nth-child(2) {
+    display: flex;
+    justify-content: flex-end !important;
+    align-items: center;
+}
+
+#table_totalmember_satoshi_wrapper > div:nth-child(1) > div:nth-child(2) {
+    display: flex;
+    justify-content: flex-end !important;
+    align-items: center;
+}
+
+#table_freemember_wrapper > div:nth-child(1) > div:nth-child(2) {
+    display: flex;
+    justify-content: flex-end !important;
+    align-items: center;
+}
+
+#table_freemember_satoshi_wrapper > div:nth-child(1) > div:nth-child(2) {
+    display: flex;
+    justify-content: flex-end !important;
+    align-items: center;
+}
+
+#table_referralmember_satoshi_wrapper > div:nth-child(1) > div:nth-child(2) {
+    display: flex;
+    justify-content: flex-end !important;
+    align-items: center;
+}
+
+#table_satoshi_requestpayment_wrapper > div:nth-child(1) > div:nth-child(2) {
+    display: flex;
+    justify-content: flex-end !important;
+    align-items: center;
+}
+
+#table_referralmember_wrapper > div:nth-child(1) > div:nth-child(2) {
+    display: flex;
+    justify-content: flex-end !important;
+    align-items: center;
+}
+
+#tbl_freemember_wrapper > div:nth-child(1) > div:nth-child(2) {
+    display: flex;
+    justify-content: flex-end !important;
+    align-items: center;
+}

@@ -72,7 +72,7 @@
             <div class="col-lg-12 dash-table-referralmember mt-5">
                 <h4 class="text-white my-3 text-uppercase fw-bold">Free Member</h4>
                 <table id="tbl_freemember" class="table table-striped" style="width:100%">
-                    <thead class="thead_referralmember">
+                    <thead class="thead_freemember">
                         <tr>
                             <th>EMAIL</th>
                             <th>REFERRAL CODE</th>
