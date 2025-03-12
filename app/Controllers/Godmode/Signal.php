@@ -46,37 +46,8 @@ class Signal extends BaseController
         // $url = URLAPI . "/v1/signal/readsignal";
         // $result = satoshiAdmin($url)->result->message;
 
-        // Data dummy untuk testing
-        $result = [
-            (object)[
-                'id' => 1,
-                'type' => 'Buy A',
-                'entry_price' => '50000',
-                'pair_id' => 1,
-                'created_at' => date('Y-m-d H:i:s')
-            ],
-            (object)[
-                'id' => 2,
-                'type' => 'Buy B',
-                'entry_price' => '51000',
-                'pair_id' => 2,
-                'created_at' => date('Y-m-d H:i:s')
-            ],
-            (object)[
-                'id' => 3,
-                'type' => 'Buy C',
-                'entry_price' => '52000',
-                'pair_id' => 3,
-                'created_at' => date('Y-m-d H:i:s')
-            ],
-            (object)[
-                'id' => 4,
-                'type' => 'Buy D',
-                'entry_price' => '49000',
-                'pair_id' => 4,
-                'created_at' => date('Y-m-d H:i:s')
-            ]
-        ];
+        // Data dummy untuk testing - kosongkan semua data
+        $result = [];
 
         // Initial Array Buy A, Buy B, and Buy C
         $buy_a = array();
@@ -124,17 +95,8 @@ class Signal extends BaseController
         // $url = URLAPI . "/v1/signal/readhistory";
         // $resultActive = satoshiAdmin($url)->result->message;
 
-        // Data dummy untuk history
-        $resultActive = [
-            (object)[
-                'id' => 1,
-                'type' => 'Buy A',
-                'entry_price' => '50000',
-                'pair_id' => 1,
-                'created_at' => date('Y-m-d H:i:s'),
-                'update_at' => date('Y-m-d H:i:s')
-            ]
-        ];
+        // Data dummy untuk history - kosongkan
+        $resultActive = [];
 
         // initialitation variable dengan tipe data array
         $newarray = [];
@@ -161,42 +123,17 @@ class Signal extends BaseController
             }
         }
 
+        $session = session();
+        $user = $session->get('logged_user');
+        $api_key = $user->api_key;
+        $api_secret = $user->api_secret;
+
         // For get instruction last order
         $order = '';
         $lastdate = '';
         $temp_price = '';
-        foreach ($newarray[0] as $key => $dt) {
-
-            $type = explode(" ", $dt->type);
-
-            if ($key == 0) {
-                $order = $dt->type;
-                $lastdate = $dt->created_at;
-                $temp_price = $dt->entry_price;
-
-                if ($type[0] == 'Buy') {
-                    $order = $dt->type;
-                    $lastdate = $dt->created_at;
-                    break;
-                }
-            }
-
-            if ($type[0] == 'Sell' && $dt->entry_price == $temp_price) {
-                $order = $dt->type;
-                $lastdate = $dt->created_at;
-            }
-
-            if ($type[0] == 'Buy') {
-                break;
-            }
-        }
-
-        // echo '<pre>'.print_r($buy_d,true).'</pre>';
-        // die;
-
-        // $order = 'Buy A';  // Default value untuk testing
-        // $lastdate = date('Y-m-d H:i:s');  // Default value untuk testing
-        // $temp_price = '50000';  // Default value untuk testing
+        $order = '';
+        $lastdate = '';
 
         $mdata = [
             'title'     => 'Signal - ' . NAMETITLE,
@@ -209,6 +146,8 @@ class Signal extends BaseController
             'buy_d'      => $buy_d,
             'order'      => $order,
             'lastdate'      => $lastdate,
+            'api_key'      => $api_key,
+            'api_secret'      => $api_secret,
         ];
 
         return view('godmode/layout/admin_wrapper', $mdata);
@@ -230,7 +169,7 @@ class Signal extends BaseController
 
         // Checking Validation
         if (!$rules) {
-            echo json_encode($this->validation->listErrors());
+            echo json_encode($this->validator->listErrors());
             exit();
         }
 
@@ -249,6 +188,14 @@ class Signal extends BaseController
         // $response = satoshiAdmin($url, json_encode($mdata));
         // $result = $response->result;
         // echo json_encode($result);
+
+        // Untuk testing, kita buat respons dummy
+        $result = [
+            'code' => '200',
+            'message' => 'Signal berhasil dikirim'
+        ];
+
+        echo json_encode($result);
     }
 
     public function sellsignal()
@@ -259,7 +206,7 @@ class Signal extends BaseController
                 'label'     => 'Entry Price',
                 'rules'     => 'required'
             ],
-            'type-sell'     => [
+            'type'     => [
                 'label'     => 'Type Signal',
                 'rules'     => 'required'
             ],
@@ -267,134 +214,122 @@ class Signal extends BaseController
 
         // Checking Validation
         if (!$rules) {
-            session()->setFlashdata('failed', $this->validation->listErrors());
-            return redirect()->to(BASE_URL . 'godmode/signal');
+            $response = [
+                'code' => '400',
+                'message' => $this->validator->listErrors()
+            ];
+            echo json_encode($response);
+            exit();
         }
 
         // Initial Data
-        $typesignal = htmlspecialchars($this->request->getVar('type-sell'));
         $mdata = [
             'entry'     => htmlspecialchars($this->request->getVar('price')),
+            'type'      => htmlspecialchars($this->request->getVar('type')),
+            'pair_id'   => $this->request->getVar('pair_id'),
         ];
-
 
         // Change format price
         $mdata['entry'] = str_replace(',', '', $mdata['entry']);
 
-        // Looping Check Condition Sell Signal
-        // Call Endpoin read signal
-        // $url = URLAPI . "/v1/signal/readsignal";
-        // $readsignal = satoshiAdmin($url)->result->message;
+        // Proccess Call Endpoin API
+        // $url = URLAPI . "/v1/signal/sendsignal";
+        // $response = satoshiAdmin($url, json_encode($mdata));
+        // $result = $response->result;
 
-        // Initial Alpabhet
-        $alphabet = ['A', 'B', 'C', 'D'];
-        $result = null;
+        // Untuk testing, kita buat respons dummy
+        $result = [
+            'code' => '200',
+            'message' => 'Signal berhasil dikirim'
+        ];
 
-        // Check Condition Signal Type
-        if ($typesignal == 'Sell A') {
-            foreach ($readsignal as $key => $val) {
-                // Assign value sell signal
-                $mdata['type'] = 'Sell ' . $alphabet[$key];
-                $mdata['pair_id'] = $val->id;
+        echo json_encode($result);
+    }
 
-                // Send Endpoin send signal Sell
-                $url = URLAPI . "/v1/signal/sendsignal";
-                $result = satoshiAdmin($url, json_encode($mdata))->result;
-                sleep(1);
-            }
-        } else if ($typesignal == 'Sell B') {
-            // initial Flag Buy B
-            $startCheck = false;
-            foreach ($readsignal as $key => $val) {
-                // Get Flag Buy B
-                if ($val->type === 'Buy B') {
-                    $startCheck = true;
-                }
+    public function fillsignal()
+    {
+        // Validation Field
+        $rules = $this->validate([
+            'type'     => [
+                'label'     => 'Type Signal',
+                'rules'     => 'required'
+            ],
+        ]);
 
-                // Checking Flag Buy B and other
-                if ($startCheck) {
-                    // Assign value sell signal
-                    $mdata['type'] = 'Sell ' . $alphabet[$key];
-                    $mdata['pair_id'] = $val->id;
-
-                    // Send Endpoin send signal Sell
-                    $url = URLAPI . "/v1/signal/sendsignal";
-                    $result = satoshiAdmin($url, json_encode($mdata))->result;
-                    sleep(1);
-                }
-            }
-        } else if ($typesignal == 'Sell C') {
-            // initial Flag Buy C
-            $startCheck = false;
-            foreach ($readsignal as $key => $val) {
-                // Get Flag Buy C
-                if ($val->type === 'Buy C') {
-                    $startCheck = true;
-                }
-
-                // Checking Flag Buy C and other
-                if ($startCheck) {
-                    // Assign value sell signal
-                    $mdata['type'] = 'Sell ' . $alphabet[$key];
-                    $mdata['pair_id'] = $val->id;
-
-                    // Send Endpoin send signal Sell
-                    $url = URLAPI . "/v1/signal/sendsignal";
-                    $result = satoshiAdmin($url, json_encode($mdata))->result;
-                    sleep(1);
-                }
-            }
-        } else if ($typesignal == 'Sell D') {
-            // initial Flag Buy D
-            $startCheck = false;
-            foreach ($readsignal as $key => $val) {
-                // Get Flag Buy D
-                if ($val->type === 'Buy D') {
-                    $startCheck = true;
-                }
-
-                // Checking Flag Buy D and other
-                if ($startCheck) {
-                    // Assign value sell signal
-                    $mdata['type'] = 'Sell ' . $alphabet[$key];
-                    $mdata['pair_id'] = $val->id;
-
-                    // Send Endpoin send signal Sell
-                    $url = URLAPI . "/v1/signal/sendsignal";
-                    $result = satoshiAdmin($url, json_encode($mdata))->result;
-                }
-            }
+        // Checking Validation
+        if (!$rules) {
+            $response = [
+                'code' => '400',
+                'message' => $this->validator->listErrors()
+            ];
+            echo json_encode($response);
+            exit();
         }
 
-        if ($result->code != '200') {
-            session()->setFlashdata('failed', $result->message);
-            return redirect()->to(BASE_URL . 'godmode/signal');
-        } else {
-            session()->setFlashdata('success', $result->message);
-            return redirect()->to(BASE_URL . 'godmode/signal');
+        // Initial Data
+        $mdata = [
+            'type'      => htmlspecialchars($this->request->getVar('type')),
+        ];
+
+        // Proccess Call Endpoin API
+        // $url = URLAPI . "/v1/signal/fillsignal";
+        // $response = satoshiAdmin($url, json_encode($mdata));
+        // $result = $response->result;
+
+        // Untuk testing, kita buat respons dummy
+        $result = [
+            'code' => '200',
+            'message' => 'Signal berhasil diisi'
+        ];
+
+        echo json_encode($result);
+    }
+
+    public function deletesignal()
+    {
+        // Validation Field
+        $rules = $this->validate([
+            'type'     => [
+                'label'     => 'Type Signal',
+                'rules'     => 'required'
+            ],
+        ]);
+
+        // Checking Validation
+        if (!$rules) {
+            $response = [
+                'code' => '400',
+                'message' => $this->validator->listErrors()
+            ];
+            echo json_encode($response);
+            exit();
         }
+
+        // Initial Data
+        $mdata = [
+            'type'      => htmlspecialchars($this->request->getVar('type')),
+        ];
+
+        // Proccess Call Endpoin API
+        // $url = URLAPI . "/v1/signal/deletesignal";
+        // $response = satoshiAdmin($url, json_encode($mdata));
+        // $result = $response->result;
+
+        // Untuk testing, kita buat respons dummy
+        $result = [
+            'code' => '200',
+            'message' => 'Signal berhasil dihapus'
+        ];
+
+        echo json_encode($result);
     }
 
     public function list_history_order()
     {
         // Call Endpoin List History Order
-        // $url = URLAPI . "/v1/signal/readhistory";
-        // $result = satoshiAdmin($url)->result->message;
-        // echo json_encode($result);
-    }
-
-    public function deletesignal()
-    {
-        $signal_id = htmlspecialchars($this->request->getVar('signal_id'));
-        // $url = URLAPI . "/v1/signal/cancelsignal?id=".$signal_id;
-        // $result = satoshiAdmin($url)->result->message;
-        if ($result->code != '200') {
-            session()->setFlashdata('failed', $result->message);
-            return redirect()->to(BASE_URL . 'godmode/signal');
-        } else {
-            session()->setFlashdata('success', $result->message);
-            return redirect()->to(BASE_URL . 'godmode/signal');
-        }
+        $url = URLAPI . "/v1/order/get_all";
+        $result = satoshiAdmin($url)->result->message;
+        echo json_encode($result);
     }
 
     public function cancel_sell()
@@ -403,6 +338,13 @@ class Signal extends BaseController
         $pair_id    = htmlspecialchars($_GET['pair_id']);
         // $url = URLAPI . "/v1/signal/cancel_sell?id=".$signal_id."&pair_id=".$pair_id;
         // $result = satoshiAdmin($url)->result->message;
+
+        // Untuk testing, kita buat respons dummy
+        $result = (object)[
+            'code' => '200',
+            'message' => 'Signal berhasil dibatalkan'
+        ];
+
         if ($result->code != '200') {
             session()->setFlashdata('failed', $result->message);
             return redirect()->to(BASE_URL . 'godmode/signal');
