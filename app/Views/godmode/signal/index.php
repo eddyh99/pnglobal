@@ -83,7 +83,7 @@
                                                         <button id="send-buy-a" class="signal-btn btn-ok" <?php echo (!empty($buy_a) ? "disabled" : "") ?>>BUY</button>
                                                     </td>
                                                     <td>
-                                                        <button id="fill-buy-a" class="signal-btn btn-fill">FILL</button>
+                                                        <button id="fill-buy-a" class="signal-btn btn-fill" <?php echo (!empty($buy_a) && strtolower($buy_a['status']) === 'filled' ? "disabled" : "") ?>>FILL</button>
                                                     </td>
                                                     <td>
                                                         <button id="del-buy-a" class="signal-btn btn-del">DEL</button>
@@ -106,7 +106,7 @@
                                                         <button id="send-buy-b" class="signal-btn btn-ok" <?php echo (!empty($buy_b) ? "disabled" : "") ?>>BUY</button>
                                                     </td>
                                                     <td>
-                                                        <button id="fill-buy-b" class="signal-btn btn-fill">FILL</button>
+                                                        <button id="fill-buy-b" class="signal-btn btn-fill" <?php echo (!empty($buy_b) && strtolower($buy_b['status']) === 'filled' ? "disabled" : "") ?>>FILL</button>
                                                     </td>
                                                     <td>
                                                         <button id="del-buy-b" class="signal-btn btn-del">DEL</button>
@@ -129,7 +129,7 @@
                                                         <button id="send-buy-c" class="signal-btn btn-ok" <?php echo (!empty($buy_c) ? "disabled" : "") ?>>BUY</button>
                                                     </td>
                                                     <td>
-                                                        <button id="fill-buy-c" class="signal-btn btn-fill">FILL</button>
+                                                        <button id="fill-buy-c" class="signal-btn btn-fill" <?php echo (!empty($buy_c) && strtolower($buy_c['status']) === 'filled' ? "disabled" : "") ?>>FILL</button>
                                                     </td>
                                                     <td>
                                                         <button id="del-buy-c" class="signal-btn btn-del">DEL</button>
@@ -152,7 +152,7 @@
                                                         <button id="send-buy-d" class="signal-btn btn-ok" <?php echo (!empty($buy_d) ? "disabled" : "") ?>>BUY</button>
                                                     </td>
                                                     <td>
-                                                        <button id="fill-buy-d" class="signal-btn btn-fill">FILL</button>
+                                                        <button id="fill-buy-d" class="signal-btn btn-fill" <?php echo (!empty($buy_d) && strtolower($buy_d['status']) === 'filled' ? "disabled" : "") ?>>FILL</button>
                                                     </td>
                                                     <td>
                                                         <button id="del-buy-d" class="signal-btn btn-del">DEL</button>
@@ -185,7 +185,7 @@
                                                         <div class="signal-label sell-label">A</div>
                                                     </td>
                                                     <td>
-                                                        <input type="text" id="sell-a" class="signal-price" value="" <?php echo (empty($buy_a) ? "readonly" : "") ?>>
+                                                        <input type="text" id="sell-a" class="signal-price" value="" <?php echo (empty($buy_a) || (isset($buy_a['status']) && strtolower($buy_a['status']) === 'new') ? "readonly" : "") ?>>
                                                     </td>
                                                     <td>
                                                         <div class="signal-status">
@@ -193,7 +193,7 @@
                                                         </div>
                                                     </td>
                                                     <td>
-                                                        <button id="send-sell-a" class="signal-btn btn-ok" <?php echo (empty($buy_a) ? "disabled" : "") ?>>SELL</button>
+                                                        <button id="send-sell-a" class="signal-btn btn-ok" <?php echo (empty($buy_a) || (isset($buy_a['status']) && strtolower($buy_a['status']) === 'new') ? "disabled" : "") ?>>SELL</button>
                                                     </td>
                                                     <td>
                                                         <button id="fill-sell-a" class="signal-btn btn-fill" <?php echo (empty($buy_a) ? "disabled" : "") ?>>FILL</button>
@@ -208,7 +208,7 @@
                                                         <div class="signal-label sell-label">B</div>
                                                     </td>
                                                     <td>
-                                                        <input type="text" id="sell-b" class="signal-price" value="" <?php echo (empty($buy_b) ? "readonly" : "") ?>>
+                                                        <input type="text" id="sell-b" class="signal-price" value="" <?php echo (empty($buy_b) || (isset($buy_b['status']) && strtolower($buy_b['status']) === 'new') ? "readonly" : "") ?>>
                                                     </td>
                                                     <td>
                                                         <div class="signal-status">
@@ -216,7 +216,7 @@
                                                         </div>
                                                     </td>
                                                     <td>
-                                                        <button id="send-sell-b" class="signal-btn btn-ok" <?php echo (empty($buy_b) ? "disabled" : "") ?>>SELL</button>
+                                                        <button id="send-sell-b" class="signal-btn btn-ok" <?php echo (empty($buy_b) || (isset($buy_b['status']) && strtolower($buy_b['status']) === 'new') ? "disabled" : "") ?>>SELL</button>
                                                     </td>
                                                     <td>
                                                         <button id="fill-sell-b" class="signal-btn btn-fill" <?php echo (empty($buy_b) ? "disabled" : "") ?>>FILL</button>
@@ -231,7 +231,7 @@
                                                         <div class="signal-label sell-label">C</div>
                                                     </td>
                                                     <td>
-                                                        <input type="text" id="sell-c" class="signal-price" value="" <?php echo (empty($buy_c) ? "readonly" : "") ?>>
+                                                        <input type="text" id="sell-c" class="signal-price" value="" <?php echo (empty($buy_c) || (isset($buy_c['status']) && strtolower($buy_c['status']) === 'new') ? "readonly" : "") ?>>
                                                     </td>
                                                     <td>
                                                         <div class="signal-status">
@@ -239,7 +239,7 @@
                                                         </div>
                                                     </td>
                                                     <td>
-                                                        <button id="send-sell-c" class="signal-btn btn-ok" <?php echo (empty($buy_c) ? "disabled" : "") ?>>SELL</button>
+                                                        <button id="send-sell-c" class="signal-btn btn-ok" <?php echo (empty($buy_c) || (isset($buy_c['status']) && strtolower($buy_c['status']) === 'new') ? "disabled" : "") ?>>SELL</button>
                                                     </td>
                                                     <td>
                                                         <button id="fill-sell-c" class="signal-btn btn-fill" <?php echo (empty($buy_c) ? "disabled" : "") ?>>FILL</button>
@@ -254,7 +254,7 @@
                                                         <div class="signal-label sell-label">D</div>
                                                     </td>
                                                     <td>
-                                                        <input type="text" id="sell-d" class="signal-price" value="" <?php echo (empty($buy_d) ? "readonly" : "") ?>>
+                                                        <input type="text" id="sell-d" class="signal-price" value="" <?php echo (empty($buy_d) || (isset($buy_d['status']) && strtolower($buy_d['status']) === 'new') ? "readonly" : "") ?>>
                                                     </td>
                                                     <td>
                                                         <div class="signal-status">
@@ -262,7 +262,7 @@
                                                         </div>
                                                     </td>
                                                     <td>
-                                                        <button id="send-sell-d" class="signal-btn btn-ok" <?php echo (empty($buy_d) ? "disabled" : "") ?>>SELL</button>
+                                                        <button id="send-sell-d" class="signal-btn btn-ok" <?php echo (empty($buy_d) || (isset($buy_d['status']) && strtolower($buy_d['status']) === 'new') ? "disabled" : "") ?>>SELL</button>
                                                     </td>
                                                     <td>
                                                         <button id="fill-sell-d" class="signal-btn btn-fill" <?php echo (empty($buy_d) ? "disabled" : "") ?>>FILL</button>

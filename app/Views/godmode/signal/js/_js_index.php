@@ -5,6 +5,9 @@
         });
     }, 5000);
     $(document).ready(function() {
+        // Debug: Log bahwa dokumen sudah siap
+        console.log('Document ready - Initializing event handlers');
+
         // Inisialisasi autoNumeric pada semua input harga
         $('#buy-a, #buy-b, #buy-c, #buy-d, #sell-a, #sell-b, #sell-c, #sell-d').autoNumeric('init', {
             aSep: ',',
@@ -20,22 +23,76 @@
         console.log('Status tombol sell-c:', $('#send-sell-c').prop('disabled'));
         console.log('Status tombol sell-d:', $('#send-sell-d').prop('disabled'));
 
+        // Fungsi untuk mengatur status tombol berdasarkan status signal
+        function updateButtonStatus() {
+            // Periksa status untuk setiap baris
+            ['a', 'b', 'c', 'd'].forEach(letter => {
+                const buyStatus = $(`#buy-${letter}`).closest('tr').find('.signal-status').text().trim().toLowerCase();
+                const sellStatus = $(`#sell-${letter}`).closest('tr').find('.signal-status').text().trim().toLowerCase();
+
+                console.log(`Buy ${letter.toUpperCase()} status:`, buyStatus);
+                console.log(`Sell ${letter.toUpperCase()} status:`, sellStatus);
+
+                // Atur tombol FILL berdasarkan status
+                if (buyStatus === 'filled') {
+                    // Jika status buy adalah filled, disable tombol FILL
+                    $(`#fill-buy-${letter}`).prop('disabled', true).addClass('filled');
+                } else if (buyStatus === 'new' || buyStatus === 'pending') {
+                    // Jika status buy adalah new atau pending, enable tombol FILL
+                    $(`#fill-buy-${letter}`).prop('disabled', false).removeClass('filled');
+                }
+
+                if (sellStatus === 'filled') {
+                    // Jika status sell adalah filled, disable tombol FILL
+                    $(`#fill-sell-${letter}`).prop('disabled', true).addClass('filled');
+                } else if (sellStatus === 'pending') {
+                    // Jika status sell adalah pending, enable tombol FILL
+                    $(`#fill-sell-${letter}`).prop('disabled', false).removeClass('filled');
+                }
+
+                // Jika status buy masih new, disable tombol SELL
+                if (buyStatus === 'new') {
+                    $(`#sell-${letter}`).prop('readonly', true);
+                    $(`#send-sell-${letter}`).prop('disabled', true);
+                } else if (buyStatus === 'filled') {
+                    // Jika status buy adalah filled, enable tombol SELL
+                    $(`#sell-${letter}`).prop('readonly', false);
+                    $(`#send-sell-${letter}`).prop('disabled', false);
+                }
+            });
+        }
+
+        // Panggil fungsi saat halaman dimuat
+        updateButtonStatus();
+
         // Pastikan tombol sell tidak disabled jika sudah ada nilai buy yang diinput
         if ($('#buy-a').val() && $('#buy-a').prop('disabled')) {
-            $('#sell-a').removeAttr('readonly');
-            $('#send-sell-a').removeAttr('disabled');
+            const buyStatusA = $('#buy-a').closest('tr').find('.signal-status').text().trim().toLowerCase();
+            if (buyStatusA !== 'new') {
+                $('#sell-a').removeAttr('readonly');
+                $('#send-sell-a').removeAttr('disabled');
+            }
         }
         if ($('#buy-b').val() && $('#buy-b').prop('disabled')) {
-            $('#sell-b').removeAttr('readonly');
-            $('#send-sell-b').removeAttr('disabled');
+            const buyStatusB = $('#buy-b').closest('tr').find('.signal-status').text().trim().toLowerCase();
+            if (buyStatusB !== 'new') {
+                $('#sell-b').removeAttr('readonly');
+                $('#send-sell-b').removeAttr('disabled');
+            }
         }
         if ($('#buy-c').val() && $('#buy-c').prop('disabled')) {
-            $('#sell-c').removeAttr('readonly');
-            $('#send-sell-c').removeAttr('disabled');
+            const buyStatusC = $('#buy-c').closest('tr').find('.signal-status').text().trim().toLowerCase();
+            if (buyStatusC !== 'new') {
+                $('#sell-c').removeAttr('readonly');
+                $('#send-sell-c').removeAttr('disabled');
+            }
         }
         if ($('#buy-d').val() && $('#buy-d').prop('disabled')) {
-            $('#sell-d').removeAttr('readonly');
-            $('#send-sell-d').removeAttr('disabled');
+            const buyStatusD = $('#buy-d').closest('tr').find('.signal-status').text().trim().toLowerCase();
+            if (buyStatusD !== 'new') {
+                $('#sell-d').removeAttr('readonly');
+                $('#send-sell-d').removeAttr('disabled');
+            }
         }
 
         // Fungsi untuk menghitung nilai buy berdasarkan aturan bisnis
@@ -556,18 +613,23 @@
         $('#fill-buy-a, #fill-buy-b, #fill-buy-c, #fill-buy-d').click(function(e) {
             e.preventDefault();
 
+            // Jika tombol disabled, jangan lakukan apa-apa
+            if ($(this).prop('disabled')) {
+                return;
+            }
+
             // Dapatkan ID tombol untuk menentukan tipe signal
             const buttonId = $(this).attr('id');
             const signalType = buttonId.replace('fill-', '').replace('-', ' ').toUpperCase();
 
             // Dapatkan status saat ini
             const statusElement = $(this).closest('tr').find('.signal-status');
-            const currentStatus = statusElement.text().trim();
+            const currentStatus = statusElement.text().trim().toLowerCase();
 
-            // Hanya bisa FILL jika status New
-            if (currentStatus !== 'new') {
+            // Hanya bisa FILL jika status New atau Pending
+            if (currentStatus !== 'new' && currentStatus !== 'pending') {
                 Swal.fire({
-                    text: 'Hanya signal dengan status New yang dapat di-Fill',
+                    text: 'Hanya signal dengan status New atau Pending yang dapat di-Fill',
                     showCloseButton: true,
                     showConfirmButton: false,
                     background: '#FFE4DC',
@@ -606,6 +668,12 @@
                             if (result.code == '200') {
                                 // Update status
                                 statusElement.text('Filled');
+
+                                // Update tombol FILL
+                                $(this).prop('disabled', true).addClass('filled');
+
+                                // Update status tombol
+                                updateButtonStatus();
 
                                 // Sweet Alert
                                 Swal.fire({
@@ -650,22 +718,57 @@
             });
         });
 
-        // Fungsi untuk menangani tombol FILL pada SELL
-        $('#fill-sell-a, #fill-sell-b, #fill-sell-c, #fill-sell-d').click(function(e) {
+        // Fungsi untuk menangani tombol SELL
+        console.log('Setting up SELL button event handlers');
+
+        // Event handler untuk tombol SELL
+        $('#send-sell-a, #send-sell-b, #send-sell-c, #send-sell-d').on('click', function(e) {
             e.preventDefault();
+
+            // Debug: Log tombol yang diklik
+            console.log('Tombol sell diklik:', this.id);
 
             // Dapatkan ID tombol untuk menentukan tipe signal
             const buttonId = $(this).attr('id');
-            const signalType = buttonId.replace('fill-', '').replace('-', ' ').toUpperCase();
+            const signalType = buttonId.replace('send-', '').replace('-', ' ').toUpperCase();
+            const signalLetter = signalType.split(' ')[1]; // A, B, C, atau D
 
-            // Dapatkan status saat ini
-            const statusElement = $(this).closest('tr').find('.signal-status');
-            const currentStatus = statusElement.text().trim();
+            console.log('Signal Type:', signalType);
+            console.log('Signal Letter:', signalLetter);
 
-            // Hanya bisa FILL jika status Pending
-            if (currentStatus !== 'Pending') {
+            // Dapatkan nilai harga
+            const priceInput = $(`#sell-${signalLetter.toLowerCase()}`);
+            console.log('Price Input Element:', priceInput.length > 0 ? 'Found' : 'Not Found');
+            console.log('Price Input Value:', priceInput.val());
+            console.log('Price Input Disabled:', priceInput.prop('disabled'));
+            console.log('Price Input Readonly:', priceInput.prop('readonly'));
+
+            // Pastikan nilai harga diambil dengan benar dari autoNumeric
+            // Gunakan autoNumeric('get') untuk mendapatkan nilai numerik tanpa format
+            let price;
+            try {
+                // Coba dapatkan nilai dengan autoNumeric jika tersedia
+                price = priceInput.autoNumeric('get');
+                console.log('Price from autoNumeric:', price);
+            } catch (error) {
+                // Jika error, gunakan nilai biasa
+                price = priceInput.val();
+                // Hapus koma jika ada
+                price = price.replace(/,/g, '');
+                console.log('Price from val():', price);
+                console.log('AutoNumeric error:', error.message);
+            }
+
+            // Dapatkan pair_id dari buy yang sesuai
+            const buyRow = $(`#buy-${signalLetter.toLowerCase()}`).closest('tr');
+            const pairId = buyRow.data('pair-id') || null;
+            console.log('Pair ID:', pairId);
+
+            // Validasi harga - pastikan nilai tidak kosong dan merupakan angka
+            if (!price || isNaN(parseFloat(price)) || parseFloat(price) <= 0) {
+                console.log('Validasi harga gagal:', price);
                 Swal.fire({
-                    text: 'Hanya signal dengan status Pending yang dapat di-Fill',
+                    text: 'Harga harus berupa angka yang valid',
                     showCloseButton: true,
                     showConfirmButton: false,
                     background: '#FFE4DC',
@@ -677,58 +780,158 @@
                 return;
             }
 
-            // Kirim data ke server
-            $.ajax({
-                url: '<?= BASE_URL ?>godmode/signal/fillsignal',
-                type: 'POST',
-                data: {
-                    type: signalType
-                },
-                success: function(ress) {
-                    // Parse Data
-                    let result = JSON.parse(ress);
+            // Validasi pair_id - pastikan ada pair_id yang valid
+            if (!pairId) {
+                console.log('Validasi pair_id gagal:', pairId);
+                Swal.fire({
+                    text: 'Cannot find the corresponding signal ID',
+                    showCloseButton: true,
+                    showConfirmButton: false,
+                    background: '#FFE4DC',
+                    color: '#000000',
+                    position: 'top-end',
+                    timer: 3000,
+                    timerProgressBar: true,
+                });
+                return;
+            }
 
-                    // Check if response success
-                    if (result.code == '200') {
-                        // Update status
-                        statusElement.text('Filled');
+            // Implementasi aturan bisnis berdasarkan tipe SELL
+            let affectedBuys = [];
+            let sellMessage = '';
 
-                        // Sweet Alert
-                        Swal.fire({
-                            text: `${result.message}`,
-                            showCloseButton: true,
-                            showConfirmButton: false,
-                            background: '#E1FFF7',
-                            color: '#000000',
-                            position: 'top-end',
-                            timer: 3000,
-                            timerProgressBar: true,
-                        });
-                    } else {
-                        // Sweet Alert
-                        Swal.fire({
-                            text: `${result.message}`,
-                            showCloseButton: true,
-                            showConfirmButton: false,
-                            background: '#FFE4DC',
-                            color: '#000000',
-                            position: 'top-end',
-                            timer: 3000,
-                            timerProgressBar: true,
-                        });
-                    }
-                },
-                error: function(jqXHR, textStatus, errorThrown) {
-                    // Sweet Alert
-                    Swal.fire({
-                        text: `${textStatus}`,
-                        showCloseButton: true,
-                        showConfirmButton: false,
-                        background: '#FFE4DC',
-                        color: '#000000',
-                        position: 'top-end',
-                        timer: 3000,
-                        timerProgressBar: true,
+            // Menerapkan aturan bisnis:
+            // 1. Buy A, B, C, D trus SELL D -> hanya dari Buy D
+            // 2. Buy A, B, C, D trus SELL C -> Buy C+D
+            // 3. Buy A, B, C, D trus SELL B -> Buy B+C+D
+            // 4. Buy A, B, C, D trus SELL A -> Buy A+B+C+D
+            switch (signalLetter) {
+                case 'A':
+                    affectedBuys = ['A', 'B', 'C', 'D'];
+                    sellMessage = 'Menjual posisi A+B+C+D';
+                    break;
+                case 'B':
+                    affectedBuys = ['B', 'C', 'D'];
+                    sellMessage = 'Menjual posisi B+C+D';
+                    break;
+                case 'C':
+                    affectedBuys = ['C', 'D'];
+                    sellMessage = 'Menjual posisi C+D';
+                    break;
+                case 'D':
+                    affectedBuys = ['D'];
+                    sellMessage = 'Menjual posisi D';
+                    break;
+            }
+
+            console.log('Affected Buys:', affectedBuys);
+            console.log('Sell Message:', sellMessage);
+
+            // Data yang akan dikirim ke server
+            const sendData = {
+                price: price,
+                type: signalType,
+                pair_id: pairId,
+                affected_buys: affectedBuys.join(',') // Mengirim informasi buy yang terpengaruh
+            };
+
+            console.log('Data yang dikirim ke server:', sendData);
+
+            // Konfirmasi sebelum mengirim SELL
+            Swal.fire({
+                title: 'Confirmation',
+                text: `Are you sure you want to sell ${signalType} at price ${parseFloat(price).toLocaleString('id-ID')}?`,
+                icon: 'question',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Yes, sell!',
+                cancelButtonText: 'Batal'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    // Kirim data ke server
+                    $.ajax({
+                        url: '<?= BASE_URL ?>godmode/signal/sellsignal',
+                        type: 'POST',
+                        data: sendData,
+                        success: function(ress) {
+                            console.log('Response dari server:', ress);
+
+                            // Parse Data
+                            let result;
+                            try {
+                                result = JSON.parse(ress);
+                                console.log('Parsed result:', result);
+                            } catch (error) {
+                                console.error('Error parsing JSON:', error);
+                                console.log('Raw response:', ress);
+                                Swal.fire({
+                                    text: 'Error processing server response',
+                                    showCloseButton: true,
+                                    showConfirmButton: false,
+                                    background: '#FFE4DC',
+                                    color: '#000000',
+                                    position: 'top-end',
+                                    timer: 3000,
+                                    timerProgressBar: true,
+                                });
+                                return;
+                            }
+
+                            // Check if response success
+                            if (result.code == '200') {
+                                // Update UI
+                                priceInput.prop('readonly', true);
+                                $(`#${buttonId}`).prop('disabled', true);
+
+                                // Nonaktifkan tombol SELL untuk buy yang terpengaruh
+                                affectedBuys.forEach(letter => {
+                                    $(`#sell-${letter.toLowerCase()}`).prop('readonly', true);
+                                    $(`#send-sell-${letter.toLowerCase()}`).prop('disabled', true);
+                                });
+
+                                // Sweet Alert dengan pesan yang lebih informatif
+                                Swal.fire({
+                                    text: `${result.message} - ${sellMessage}`,
+                                    showCloseButton: true,
+                                    showConfirmButton: false,
+                                    background: '#E1FFF7',
+                                    color: '#000000',
+                                    position: 'top-end',
+                                    timer: 3000,
+                                    timerProgressBar: true,
+                                });
+
+                                // Refresh tabel history
+                                $('#table_message').DataTable().ajax.reload();
+                            } else {
+                                // Sweet Alert
+                                Swal.fire({
+                                    text: `${result.message}`,
+                                    showCloseButton: true,
+                                    showConfirmButton: false,
+                                    background: '#FFE4DC',
+                                    color: '#000000',
+                                    position: 'top-end',
+                                    timer: 3000,
+                                    timerProgressBar: true,
+                                });
+                            }
+                        },
+                        error: function(jqXHR, textStatus, errorThrown) {
+                            console.error('AJAX Error:', textStatus, errorThrown);
+                            // Sweet Alert
+                            Swal.fire({
+                                text: `Error: ${textStatus}`,
+                                showCloseButton: true,
+                                showConfirmButton: false,
+                                background: '#FFE4DC',
+                                color: '#000000',
+                                position: 'top-end',
+                                timer: 3000,
+                                timerProgressBar: true,
+                            });
+                        }
                     });
                 }
             });
@@ -897,191 +1100,6 @@
                                 timerProgressBar: true,
                             });
                         }
-                    });
-                }
-            });
-        });
-
-        // Fungsi untuk menangani tombol SELL
-        $('#send-sell-a, #send-sell-b, #send-sell-c, #send-sell-d').click(function(e) {
-            e.preventDefault();
-
-            // Debug: Log tombol yang diklik
-            console.log('Tombol sell diklik:', this.id);
-
-            // Dapatkan ID tombol untuk menentukan tipe signal
-            const buttonId = $(this).attr('id');
-            const signalType = buttonId.replace('send-', '').replace('-', ' ').toUpperCase();
-            const signalLetter = signalType.split(' ')[1]; // A, B, C, atau D
-
-            console.log('Signal Type:', signalType);
-            console.log('Signal Letter:', signalLetter);
-
-            // Dapatkan nilai harga
-            const priceInput = $(`#sell-${signalLetter.toLowerCase()}`);
-            console.log('Price Input Element:', priceInput.length > 0 ? 'Found' : 'Not Found');
-            console.log('Price Input Value:', priceInput.val());
-            console.log('Price Input Disabled:', priceInput.prop('disabled'));
-            console.log('Price Input Readonly:', priceInput.prop('readonly'));
-
-            // Pastikan nilai harga diambil dengan benar dari autoNumeric
-            // Gunakan autoNumeric('get') untuk mendapatkan nilai numerik tanpa format
-            let price;
-            try {
-                // Coba dapatkan nilai dengan autoNumeric jika tersedia
-                price = priceInput.autoNumeric('get');
-                console.log('Price from autoNumeric:', price);
-            } catch (error) {
-                // Jika error, gunakan nilai biasa
-                price = priceInput.val();
-                // Hapus koma jika ada
-                price = price.replace(/,/g, '');
-                console.log('Price from val():', price);
-                console.log('AutoNumeric error:', error.message);
-            }
-
-            // Dapatkan pair_id dari buy yang sesuai
-            const buyRow = $(`#buy-${signalLetter.toLowerCase()}`).closest('tr');
-            const pairId = buyRow.data('pair-id') || null;
-            console.log('Pair ID:', pairId);
-
-            // Validasi harga - pastikan nilai tidak kosong dan merupakan angka
-            if (!price || price.trim() === '' || isNaN(parseFloat(price))) {
-                console.log('Validasi harga gagal:', price);
-                Swal.fire({
-                    text: 'Price must be a number',
-                    showCloseButton: true,
-                    showConfirmButton: false,
-                    background: '#FFE4DC',
-                    color: '#000000',
-                    position: 'top-end',
-                    timer: 3000,
-                    timerProgressBar: true,
-                });
-                return;
-            }
-
-            // Implementasi aturan bisnis berdasarkan tipe SELL
-            let affectedBuys = [];
-            let sellMessage = '';
-
-            // Menerapkan aturan bisnis:
-            // 1. Buy A, B, C, D trus SELL D -> hanya dari Buy D
-            // 2. Buy A, B, C, D trus SELL C -> Buy C+D
-            // 3. Buy A, B, C, D trus SELL B -> Buy B+C+D
-            // 4. Buy A, B, C, D trus SELL A -> Buy A+B+C+D
-            switch (signalLetter) {
-                case 'A':
-                    affectedBuys = ['A', 'B', 'C', 'D'];
-                    sellMessage = 'Menjual posisi A+B+C+D';
-                    break;
-                case 'B':
-                    affectedBuys = ['B', 'C', 'D'];
-                    sellMessage = 'Menjual posisi B+C+D';
-                    break;
-                case 'C':
-                    affectedBuys = ['C', 'D'];
-                    sellMessage = 'Menjual posisi C+D';
-                    break;
-                case 'D':
-                    affectedBuys = ['D'];
-                    sellMessage = 'Menjual posisi D';
-                    break;
-            }
-
-            console.log('Affected Buys:', affectedBuys);
-            console.log('Sell Message:', sellMessage);
-
-            // Data yang akan dikirim ke server
-            const sendData = {
-                price: price,
-                type: signalType,
-                pair_id: pairId,
-                affected_buys: affectedBuys.join(',') // Mengirim informasi buy yang terpengaruh
-            };
-
-            console.log('Data yang dikirim ke server:', sendData);
-
-            // Kirim data ke server
-            $.ajax({
-                url: '<?= BASE_URL ?>godmode/signal/sellsignal',
-                type: 'POST',
-                data: sendData,
-                success: function(ress) {
-                    console.log('Response dari server:', ress);
-
-                    // Parse Data
-                    let result;
-                    try {
-                        result = JSON.parse(ress);
-                        console.log('Parsed result:', result);
-                    } catch (error) {
-                        console.error('Error parsing JSON:', error);
-                        console.log('Raw response:', ress);
-                        Swal.fire({
-                            text: 'Error processing server response',
-                            showCloseButton: true,
-                            showConfirmButton: false,
-                            background: '#FFE4DC',
-                            color: '#000000',
-                            position: 'top-end',
-                            timer: 3000,
-                            timerProgressBar: true,
-                        });
-                        return;
-                    }
-
-                    // Check if response success
-                    if (result.code == '200') {
-                        // Update UI
-                        priceInput.prop('readonly', true);
-                        $(`#${buttonId}`).prop('disabled', true);
-
-                        // Nonaktifkan tombol SELL untuk buy yang terpengaruh
-                        affectedBuys.forEach(letter => {
-                            $(`#sell-${letter.toLowerCase()}`).prop('readonly', true);
-                            $(`#send-sell-${letter.toLowerCase()}`).prop('disabled', true);
-                        });
-
-                        // Sweet Alert dengan pesan yang lebih informatif
-                        Swal.fire({
-                            text: `${result.message} - ${sellMessage}`,
-                            showCloseButton: true,
-                            showConfirmButton: false,
-                            background: '#E1FFF7',
-                            color: '#000000',
-                            position: 'top-end',
-                            timer: 3000,
-                            timerProgressBar: true,
-                        });
-
-                        // Refresh tabel history
-                        $('#table_message').DataTable().ajax.reload();
-                    } else {
-                        // Sweet Alert
-                        Swal.fire({
-                            text: `${result.message}`,
-                            showCloseButton: true,
-                            showConfirmButton: false,
-                            background: '#FFE4DC',
-                            color: '#000000',
-                            position: 'top-end',
-                            timer: 3000,
-                            timerProgressBar: true,
-                        });
-                    }
-                },
-                error: function(jqXHR, textStatus, errorThrown) {
-                    // Sweet Alert
-                    Swal.fire({
-                        text: `${textStatus}`,
-                        showCloseButton: true,
-                        showConfirmButton: false,
-                        background: '#FFE4DC',
-                        color: '#000000',
-                        position: 'top-end',
-                        timer: 3000,
-                        timerProgressBar: true,
                     });
                 }
             });

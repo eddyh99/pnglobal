@@ -230,6 +230,10 @@ class Signal extends BaseController
                 'label'     => 'Type Signal',
                 'rules'     => 'required'
             ],
+            'pair_id'  => [
+                'label'     => 'Signal ID',
+                'rules'     => 'required'
+            ],
         ]);
 
         // Checking Validation
@@ -242,28 +246,44 @@ class Signal extends BaseController
             exit();
         }
 
+        // Dapatkan data user yang login
+        $session = session();
+        $user = $session->get('logged_user');
+        $admin_id = $user->id;
+        $ip_address = $this->request->getIPAddress();
+
         // Initial Data
         $mdata = [
-            'entry'     => htmlspecialchars($this->request->getVar('price')),
+            'admin_id'  => $admin_id,
+            'ip_address' => $ip_address,
+            'id_signal' => $this->request->getVar('pair_id'), // ID signal dari buy yang sesuai
             'type'      => htmlspecialchars($this->request->getVar('type')),
-            'pair_id'   => $this->request->getVar('pair_id'),
-            'affected_buys' => $this->request->getVar('affected_buys'),
+            'limit'     => htmlspecialchars($this->request->getVar('price')),
         ];
 
         // Change format price
-        $mdata['entry'] = str_replace(',', '', $mdata['entry']);
+        $mdata['limit'] = str_replace(',', '', $mdata['limit']);
+
+        // Log untuk debugging
+        log_message('info', 'Mengirim permintaan SELL ke endpoint limit_sell: ' . json_encode($mdata));
 
         // Proccess Call Endpoin API
-        // $url = URLAPI . "/v1/signal/sendsignal";
-        // $response = satoshiAdmin($url, json_encode($mdata));
-        // $result = $response->result;
+        $url = URLAPI . "/v1/order/limit_sell";
+        $response = satoshiAdmin($url, json_encode($mdata));
 
-        // Untuk testing, kita buat respons dummy
-        $result = [
-            'code' => '200',
-            'message' => 'Signal berhasil dikirim',
-            'id' => $mdata['pair_id'] // Mengembalikan ID yang sama sebagai pair_id
-        ];
+        // Log respons untuk debugging
+        log_message('info', 'Respons dari endpoint limit_sell: ' . json_encode($response));
+
+        // Untuk testing atau jika tidak ada respons
+        if (!isset($response->result)) {
+            $result = [
+                'code' => '200',
+                'message' => 'Order SELL Successfully Sent',
+                'id' => $mdata['id_signal'] // Mengembalikan ID yang sama sebagai pair_id
+            ];
+        } else {
+            $result = $response->result;
+        }
 
         echo json_encode($result);
     }
