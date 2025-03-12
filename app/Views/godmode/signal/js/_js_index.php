@@ -564,10 +564,10 @@
             const statusElement = $(this).closest('tr').find('.signal-status');
             const currentStatus = statusElement.text().trim();
 
-            // Hanya bisa FILL jika status Pending
+            // Hanya bisa FILL jika status New
             if (currentStatus !== 'new') {
                 Swal.fire({
-                    text: 'Only New Signal Can Be Filled',
+                    text: 'Hanya signal dengan status New yang dapat di-Fill',
                     showCloseButton: true,
                     showConfirmButton: false,
                     background: '#FFE4DC',
@@ -579,58 +579,72 @@
                 return;
             }
 
-            // Kirim data ke server
-            $.ajax({
-                url: '<?= BASE_URL ?>godmode/signal/fillsignal',
-                type: 'POST',
-                data: {
-                    type: signalType
-                },
-                success: function(ress) {
-                    // Parse Data
-                    let result = JSON.parse(ress);
+            // Konfirmasi sebelum melakukan FILL
+            Swal.fire({
+                title: 'Confirmation',
+                text: `Are you sure you want to fill ${signalType}?`,
+                icon: 'question',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Yes, fill!',
+                cancelButtonText: 'Batal'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    // Kirim data ke server
+                    $.ajax({
+                        url: '<?= BASE_URL ?>godmode/signal/fillsignal',
+                        type: 'POST',
+                        data: {
+                            type: signalType
+                        },
+                        success: function(ress) {
+                            // Parse Data
+                            let result = JSON.parse(ress);
 
-                    // Check if response success
-                    if (result.code == '200') {
-                        // Update status
-                        statusElement.text('Filled');
+                            // Check if response success
+                            if (result.code == '200') {
+                                // Update status
+                                statusElement.text('Filled');
 
-                        // Sweet Alert
-                        Swal.fire({
-                            text: `${result.message}`,
-                            showCloseButton: true,
-                            showConfirmButton: false,
-                            background: '#E1FFF7',
-                            color: '#000000',
-                            position: 'top-end',
-                            timer: 3000,
-                            timerProgressBar: true,
-                        });
-                    } else {
-                        // Sweet Alert
-                        Swal.fire({
-                            text: `${result.message}`,
-                            showCloseButton: true,
-                            showConfirmButton: false,
-                            background: '#FFE4DC',
-                            color: '#000000',
-                            position: 'top-end',
-                            timer: 3000,
-                            timerProgressBar: true,
-                        });
-                    }
-                },
-                error: function(jqXHR, textStatus, errorThrown) {
-                    // Sweet Alert
-                    Swal.fire({
-                        text: `${textStatus}`,
-                        showCloseButton: true,
-                        showConfirmButton: false,
-                        background: '#FFE4DC',
-                        color: '#000000',
-                        position: 'top-end',
-                        timer: 3000,
-                        timerProgressBar: true,
+                                // Sweet Alert
+                                Swal.fire({
+                                    text: `${result.message}`,
+                                    showCloseButton: true,
+                                    showConfirmButton: false,
+                                    background: '#E1FFF7',
+                                    color: '#000000',
+                                    position: 'top-end',
+                                    timer: 3000,
+                                    timerProgressBar: true,
+                                });
+                            } else {
+                                // Sweet Alert
+                                Swal.fire({
+                                    text: `${result.message}`,
+                                    showCloseButton: true,
+                                    showConfirmButton: false,
+                                    background: '#FFE4DC',
+                                    color: '#000000',
+                                    position: 'top-end',
+                                    timer: 3000,
+                                    timerProgressBar: true,
+                                });
+                            }
+                        },
+                        error: function(jqXHR, textStatus, errorThrown) {
+                            // Sweet Alert
+                            Swal.fire({
+                                text: `${textStatus}`,
+                                showCloseButton: true,
+                                showConfirmButton: false,
+                                background: '#FFE4DC',
+                                color: '#000000',
+                                position: 'top-end',
+                                timer: 3000,
+                                timerProgressBar: true,
+                            });
+                        }
                     });
                 }
             });

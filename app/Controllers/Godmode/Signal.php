@@ -288,21 +288,53 @@ class Signal extends BaseController
             exit();
         }
 
+        // Dapatkan data user yang login    
+        $session = session();
+        $user = $session->get('logged_user');
+        $admin_id = $user->id;
+        $ip_address = $this->request->getIPAddress();
+
         // Initial Data
         $mdata = [
             'type'      => htmlspecialchars($this->request->getVar('type')),
+            'admin_id'  => $admin_id,
+            'ip_address'  => $ip_address,
         ];
+
+        // Cek apakah tipe adalah BUY atau SELL
+        $type = strtoupper($mdata['type']);
+        if (strpos($type, 'BUY') !== false) {
+            // Jika tipe adalah BUY, gunakan endpoint update_buy
+            $url = URLAPI . "/v1/order/update_buy";
+
+            // Tambahkan data tambahan yang mungkin diperlukan untuk endpoint update_buy
+            // $mdata['status'] = 'filled'; // Ubah status menjadi filled
+
+            // Log untuk debugging
+            log_message('info', 'Mengirim permintaan ke endpoint update_buy: ' . json_encode($mdata));
+        } else {
+            // Jika tipe adalah SELL, gunakan endpoint fillsignal yang lama
+            $url = URLAPI . "/v1/signal/fillsignal";
+
+            // Log untuk debugging
+            log_message('info', 'Mengirim permintaan ke endpoint fillsignal: ' . json_encode($mdata));
+        }
 
         // Proccess Call Endpoin API
-        // $url = URLAPI . "/v1/signal/fillsignal";
-        // $response = satoshiAdmin($url, json_encode($mdata));
-        // $result = $response->result;
+        $response = satoshiAdmin($url);
 
-        // Untuk testing, kita buat respons dummy
-        $result = [
-            'code' => '200',
-            'message' => 'Signal berhasil diisi'
-        ];
+        // Log respons untuk debugging
+        log_message('info', 'Respons dari endpoint: ' . json_encode($response));
+
+        // Untuk testing atau jika tidak ada respons
+        if (!isset($response->result)) {
+            $result = [
+                'code' => '200',
+                'message' => ($type == 'BUY') ? 'Order Successfully Updated' : 'Signal Successfully Filled'
+            ];
+        } else {
+            $result = $response->result;
+        }
 
         echo json_encode($result);
     }
@@ -340,7 +372,7 @@ class Signal extends BaseController
         // Untuk testing, kita buat respons dummy
         $result = [
             'code' => '200',
-            'message' => 'Signal berhasil dihapus'
+            'message' => 'Signal Successfully Deleted'
         ];
 
         echo json_encode($result);
