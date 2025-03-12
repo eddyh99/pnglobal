@@ -5,6 +5,70 @@
         });
     }, 5000);
     $(document).ready(function() {
+        // Inisialisasi autoNumeric pada semua input harga
+        $('#buy-a, #buy-b, #buy-c, #buy-d, #sell-a, #sell-b, #sell-c, #sell-d').autoNumeric('init', {
+            aSep: ',',
+            aDec: '.',
+            aForm: true,
+            vMax: '99999999999',
+            vMin: '0'
+        });
+
+        // Debug: Log status tombol sell saat halaman dimuat
+        console.log('Status tombol sell-a:', $('#send-sell-a').prop('disabled'));
+        console.log('Status tombol sell-b:', $('#send-sell-b').prop('disabled'));
+        console.log('Status tombol sell-c:', $('#send-sell-c').prop('disabled'));
+        console.log('Status tombol sell-d:', $('#send-sell-d').prop('disabled'));
+
+        // Pastikan tombol sell tidak disabled jika sudah ada nilai buy yang diinput
+        if ($('#buy-a').val() && $('#buy-a').prop('disabled')) {
+            $('#sell-a').removeAttr('readonly');
+            $('#send-sell-a').removeAttr('disabled');
+        }
+        if ($('#buy-b').val() && $('#buy-b').prop('disabled')) {
+            $('#sell-b').removeAttr('readonly');
+            $('#send-sell-b').removeAttr('disabled');
+        }
+        if ($('#buy-c').val() && $('#buy-c').prop('disabled')) {
+            $('#sell-c').removeAttr('readonly');
+            $('#send-sell-c').removeAttr('disabled');
+        }
+        if ($('#buy-d').val() && $('#buy-d').prop('disabled')) {
+            $('#sell-d').removeAttr('readonly');
+            $('#send-sell-d').removeAttr('disabled');
+        }
+
+        // Fungsi untuk menghitung nilai buy berdasarkan aturan bisnis
+        function calculateBuyValues(initialCapital) {
+            // Pastikan initialCapital adalah kelipatan 2000
+            initialCapital = Math.floor(initialCapital / 2000) * 2000;
+
+            // Setiap buy adalah 1/4 dari initial capital
+            const buyValue = initialCapital / 4;
+
+            return {
+                buyA: buyValue,
+                buyB: buyValue,
+                buyC: buyValue,
+                buyD: buyValue,
+                total: initialCapital
+            };
+        }
+
+        // Event handler untuk input buy-a untuk menghitung nilai buy secara otomatis
+        $('#buy-a').on('input', function() {
+            // Hanya lakukan perhitungan jika buy-a belum disubmit
+            if (!$('#send-buy-a').prop('disabled')) {
+                const inputValue = $(this).autoNumeric('get');
+                if (inputValue && !isNaN(inputValue)) {
+                    const initialCapital = parseFloat(inputValue) * 4; // Total capital adalah 4x nilai buy-a
+                    const values = calculateBuyValues(initialCapital);
+
+                    // Update nilai di UI
+                    $('#buy-a').autoNumeric('set', values.buyA);
+                }
+            }
+        });
 
         // Buy A when the button is clicked
         $('#send-buy-a').click(function(e) {
@@ -14,7 +78,7 @@
             // init data for send to controller
             let formData = {
                 price: $("#buy-a").val(),
-                type: 'Buy A',
+                type: 'BUY A',
                 pair_id: null
             };
 
@@ -44,11 +108,20 @@
                         // Change last instructor
                         $(".last-insturctions").text("Buy A");
 
+                        // Dapatkan nilai buy-a untuk menghitung nilai buy lainnya
+                        const buyAValue = $("#buy-a").autoNumeric('get');
+                        const values = calculateBuyValues(buyAValue * 4); // Total capital adalah 4x nilai buy-a
+
                         // Add attribute input and button buy for disabled
                         $("#buy-a").attr('disabled', true);
                         $("#send-buy-a").attr('disabled', true);
                         $('#cancel-buy-a').removeAttr('disabled');
                         $("#buy-date-a").text('<?= date('d/m/y | H:i') ?>');
+
+                        // Jika ada ID dalam respons, tambahkan sebagai pair_id ke baris
+                        if (result.id) {
+                            $("#send-buy-a").closest('tr').attr('data-pair-id', result.id);
+                        }
 
                         // remove attribute input and button sell for enabled
                         $('#sell-a').removeAttr('readonly');
@@ -73,6 +146,9 @@
                             vMax: '99999999999',
                             vMin: '0'
                         });
+
+                        // Set nilai buy-b sama dengan buy-a (1/4 dari total capital)
+                        $('#buy-b').autoNumeric('set', values.buyB);
 
                     } else {
                         // Sweet Alert
@@ -113,7 +189,7 @@
             // init data for send to controller
             let formData = {
                 price: $("#buy-b").val(),
-                type: 'Buy B',
+                type: 'BUY B',
                 pair_id: null
             };
 
@@ -143,11 +219,20 @@
                         // Change last instructor
                         $(".last-insturctions").text("Buy B");
 
+                        // Dapatkan nilai buy-a untuk menghitung nilai buy lainnya
+                        const buyAValue = $("#buy-a").autoNumeric('get');
+                        const values = calculateBuyValues(buyAValue * 4); // Total capital adalah 4x nilai buy-a
+
                         // Add attribute input and button buy for disabled
                         $("#buy-b").attr('disabled', true);
                         $("#send-buy-b").attr('disabled', true);
                         $('#cancel-buy-b').removeAttr('disabled');
                         $("#buy-date-b").text('<?= date('d/m/y | H:i') ?>');
+
+                        // Jika ada ID dalam respons, tambahkan sebagai pair_id ke baris
+                        if (result.id) {
+                            $("#send-buy-b").closest('tr').attr('data-pair-id', result.id);
+                        }
 
                         // remove attribute input and button sell for enabled
                         $('#sell-b').removeAttr('readonly');
@@ -172,6 +257,9 @@
                             vMax: '99999999999',
                             vMin: '0'
                         });
+
+                        // Set nilai buy-c sama dengan buy-a dan buy-b (1/4 dari total capital)
+                        $('#buy-c').autoNumeric('set', values.buyC);
 
                     } else {
                         // Sweet Alert
@@ -211,7 +299,7 @@
             // init data for send to controller
             let formData = {
                 price: $("#buy-c").val(),
-                type: 'Buy C',
+                type: 'BUY C',
                 pair_id: null
             };
 
@@ -243,11 +331,20 @@
                         $('#cancel-buy-a').attr('disabled', true);
                         $('#cancel-buy-b').attr('disabled', true);
 
+                        // Dapatkan nilai buy-a untuk menghitung nilai buy lainnya
+                        const buyAValue = $("#buy-a").autoNumeric('get');
+                        const values = calculateBuyValues(buyAValue * 4); // Total capital adalah 4x nilai buy-a
+
                         // Add attribute input and button buy for disabled
                         $("#buy-c").attr('disabled', true);
                         $("#send-buy-c").attr('disabled', true);
                         $('#cancel-buy-c').removeAttr('disabled');
                         $("#buy-date-c").text('<?= date('d/m/y | H:i') ?>');
+
+                        // Jika ada ID dalam respons, tambahkan sebagai pair_id ke baris
+                        if (result.id) {
+                            $("#send-buy-c").closest('tr').attr('data-pair-id', result.id);
+                        }
 
                         // remove attribute input and button sell for enabled
                         $('#sell-c').removeAttr('readonly');
@@ -272,6 +369,9 @@
                             vMax: '99999999999',
                             vMin: '0'
                         });
+
+                        // Set nilai buy-d sama dengan buy-a, buy-b, dan buy-c (1/4 dari total capital)
+                        $('#buy-d').autoNumeric('set', values.buyD);
 
                     } else {
                         // Sweet Alert
@@ -310,7 +410,7 @@
             // init data for send to controller
             let formData = {
                 price: $("#buy-d").val(),
-                type: 'Buy D',
+                type: 'BUY D',
                 pair_id: null
             };
 
@@ -349,6 +449,11 @@
                         $("#send-buy-d").attr('disabled', true);
                         $('#cancel-buy-d').removeAttr('disabled');
                         $("#buy-date-d").text('<?= date('d/m/y | H:i') ?>');
+
+                        // Jika ada ID dalam respons, tambahkan sebagai pair_id ke baris
+                        if (result.id) {
+                            $("#send-buy-d").closest('tr').attr('data-pair-id', result.id);
+                        }
 
                         // remove attribute input and button sell for enabled
                         $('#sell-d').removeAttr('readonly');
@@ -460,9 +565,9 @@
             const currentStatus = statusElement.text().trim();
 
             // Hanya bisa FILL jika status Pending
-            if (currentStatus !== 'Pending') {
+            if (currentStatus !== 'new') {
                 Swal.fire({
-                    text: 'Hanya signal dengan status Pending yang dapat di-Fill',
+                    text: 'Only New Signal Can Be Filled',
                     showCloseButton: true,
                     showConfirmButton: false,
                     background: '#FFE4DC',
@@ -787,21 +892,48 @@
         $('#send-sell-a, #send-sell-b, #send-sell-c, #send-sell-d').click(function(e) {
             e.preventDefault();
 
+            // Debug: Log tombol yang diklik
+            console.log('Tombol sell diklik:', this.id);
+
             // Dapatkan ID tombol untuk menentukan tipe signal
             const buttonId = $(this).attr('id');
             const signalType = buttonId.replace('send-', '').replace('-', ' ').toUpperCase();
             const signalLetter = signalType.split(' ')[1]; // A, B, C, atau D
 
+            console.log('Signal Type:', signalType);
+            console.log('Signal Letter:', signalLetter);
+
             // Dapatkan nilai harga
             const priceInput = $(`#sell-${signalLetter.toLowerCase()}`);
-            const price = priceInput.val();
+            console.log('Price Input Element:', priceInput.length > 0 ? 'Found' : 'Not Found');
+            console.log('Price Input Value:', priceInput.val());
+            console.log('Price Input Disabled:', priceInput.prop('disabled'));
+            console.log('Price Input Readonly:', priceInput.prop('readonly'));
+
+            // Pastikan nilai harga diambil dengan benar dari autoNumeric
+            // Gunakan autoNumeric('get') untuk mendapatkan nilai numerik tanpa format
+            let price;
+            try {
+                // Coba dapatkan nilai dengan autoNumeric jika tersedia
+                price = priceInput.autoNumeric('get');
+                console.log('Price from autoNumeric:', price);
+            } catch (error) {
+                // Jika error, gunakan nilai biasa
+                price = priceInput.val();
+                // Hapus koma jika ada
+                price = price.replace(/,/g, '');
+                console.log('Price from val():', price);
+                console.log('AutoNumeric error:', error.message);
+            }
 
             // Dapatkan pair_id dari buy yang sesuai
             const buyRow = $(`#buy-${signalLetter.toLowerCase()}`).closest('tr');
             const pairId = buyRow.data('pair-id') || null;
+            console.log('Pair ID:', pairId);
 
-            // Validasi harga
-            if (!price || isNaN(price)) {
+            // Validasi harga - pastikan nilai tidak kosong dan merupakan angka
+            if (!price || price.trim() === '' || isNaN(parseFloat(price))) {
+                console.log('Validasi harga gagal:', price);
                 Swal.fire({
                     text: 'Price must be a number',
                     showCloseButton: true,
@@ -815,18 +947,75 @@
                 return;
             }
 
+            // Implementasi aturan bisnis berdasarkan tipe SELL
+            let affectedBuys = [];
+            let sellMessage = '';
+
+            // Menerapkan aturan bisnis:
+            // 1. Buy A, B, C, D trus SELL D -> hanya dari Buy D
+            // 2. Buy A, B, C, D trus SELL C -> Buy C+D
+            // 3. Buy A, B, C, D trus SELL B -> Buy B+C+D
+            // 4. Buy A, B, C, D trus SELL A -> Buy A+B+C+D
+            switch (signalLetter) {
+                case 'A':
+                    affectedBuys = ['A', 'B', 'C', 'D'];
+                    sellMessage = 'Menjual posisi A+B+C+D';
+                    break;
+                case 'B':
+                    affectedBuys = ['B', 'C', 'D'];
+                    sellMessage = 'Menjual posisi B+C+D';
+                    break;
+                case 'C':
+                    affectedBuys = ['C', 'D'];
+                    sellMessage = 'Menjual posisi C+D';
+                    break;
+                case 'D':
+                    affectedBuys = ['D'];
+                    sellMessage = 'Menjual posisi D';
+                    break;
+            }
+
+            console.log('Affected Buys:', affectedBuys);
+            console.log('Sell Message:', sellMessage);
+
+            // Data yang akan dikirim ke server
+            const sendData = {
+                price: price,
+                type: signalType,
+                pair_id: pairId,
+                affected_buys: affectedBuys.join(',') // Mengirim informasi buy yang terpengaruh
+            };
+
+            console.log('Data yang dikirim ke server:', sendData);
+
             // Kirim data ke server
             $.ajax({
                 url: '<?= BASE_URL ?>godmode/signal/sellsignal',
                 type: 'POST',
-                data: {
-                    price: price,
-                    type: signalType,
-                    pair_id: pairId
-                },
+                data: sendData,
                 success: function(ress) {
+                    console.log('Response dari server:', ress);
+
                     // Parse Data
-                    let result = JSON.parse(ress);
+                    let result;
+                    try {
+                        result = JSON.parse(ress);
+                        console.log('Parsed result:', result);
+                    } catch (error) {
+                        console.error('Error parsing JSON:', error);
+                        console.log('Raw response:', ress);
+                        Swal.fire({
+                            text: 'Error processing server response',
+                            showCloseButton: true,
+                            showConfirmButton: false,
+                            background: '#FFE4DC',
+                            color: '#000000',
+                            position: 'top-end',
+                            timer: 3000,
+                            timerProgressBar: true,
+                        });
+                        return;
+                    }
 
                     // Check if response success
                     if (result.code == '200') {
@@ -834,9 +1023,15 @@
                         priceInput.prop('readonly', true);
                         $(`#${buttonId}`).prop('disabled', true);
 
-                        // Sweet Alert
+                        // Nonaktifkan tombol SELL untuk buy yang terpengaruh
+                        affectedBuys.forEach(letter => {
+                            $(`#sell-${letter.toLowerCase()}`).prop('readonly', true);
+                            $(`#send-sell-${letter.toLowerCase()}`).prop('disabled', true);
+                        });
+
+                        // Sweet Alert dengan pesan yang lebih informatif
                         Swal.fire({
-                            text: `${result.message}`,
+                            text: `${result.message} - ${sellMessage}`,
                             showCloseButton: true,
                             showConfirmButton: false,
                             background: '#E1FFF7',

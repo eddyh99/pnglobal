@@ -42,52 +42,68 @@ class Signal extends BaseController
 
     public function index()
     {
-        // Call Endpoin read signal
-        // $url = URLAPI . "/v1/signal/readsignal";
-        // $result = satoshiAdmin($url)->result->message;
+        // Call Endpoint read latest signal
+        $url = URLAPI . "/v1/order/latestsignal";
+        $response = satoshiAdmin($url);
+        $result = $response->result->message;
 
-        // Data dummy untuk testing - kosongkan semua data
-        $result = [];
-
-        // Initial Array Buy A, Buy B, and Buy C
+        // Initial Array Buy A, Buy B, Buy C, dan Buy D
         $buy_a = array();
         $buy_b = array();
         $buy_c = array();
         $buy_d = array();
 
-        // Looping for get type of buy
+        // Variabel untuk menyimpan ID terbaru untuk setiap tipe buy
+        $latest_buy_a_id = 0;
+        $latest_buy_b_id = 0;
+        $latest_buy_c_id = 0;
+        $latest_buy_d_id = 0;
+
+        // Looping untuk mendapatkan data terbaru untuk setiap tipe buy
         foreach ($result as $dt) {
             // Type Buy A
-            if ($dt->type == 'Buy A') {
+            if ($dt->type == 'Buy A' && $dt->id > $latest_buy_a_id) {
+                $latest_buy_a_id = $dt->id;
                 $buy_a['id'] = $dt->id;
                 $buy_a['type'] = $dt->type;
-                $buy_a['entry_price'] = intval($dt->entry_price);
-                $buy_a['pair_id'] = $dt->pair_id;
-                $buy_a['created_at'] = $dt->created_at;
-
-                // Type Buy B
-            } else if ($dt->type == 'Buy B') {
+                $buy_a['entry_price'] = floatval($dt->entry_price);
+                $buy_a['status'] = $dt->status;
+                // Gunakan id sebagai pair_id karena tidak ada lagi pair_id dalam respons
+                $buy_a['pair_id'] = $dt->id;
+                if (isset($dt->created_at)) $buy_a['created_at'] = $dt->created_at;
+            }
+            // Type Buy B
+            else if ($dt->type == 'Buy B' && $dt->id > $latest_buy_b_id) {
+                $latest_buy_b_id = $dt->id;
                 $buy_b['id'] = $dt->id;
                 $buy_b['type'] = $dt->type;
-                $buy_b['entry_price'] = intval($dt->entry_price);
-                $buy_b['pair_id'] = $dt->pair_id;
-                $buy_b['created_at'] = $dt->created_at;
-
-                // Type Buy C
-            } else if ($dt->type == 'Buy C') {
+                $buy_b['entry_price'] = floatval($dt->entry_price);
+                $buy_b['status'] = $dt->status;
+                // Gunakan id sebagai pair_id karena tidak ada lagi pair_id dalam respons
+                $buy_b['pair_id'] = $dt->id;
+                if (isset($dt->created_at)) $buy_b['created_at'] = $dt->created_at;
+            }
+            // Type Buy C
+            else if ($dt->type == 'Buy C' && $dt->id > $latest_buy_c_id) {
+                $latest_buy_c_id = $dt->id;
                 $buy_c['id'] = $dt->id;
                 $buy_c['type'] = $dt->type;
-                $buy_c['entry_price'] = intval($dt->entry_price);
-                $buy_c['pair_id'] = $dt->pair_id;
-                $buy_c['created_at'] = $dt->created_at;
-
-                // Type Buy D
-            } else if ($dt->type == 'Buy D') {
+                $buy_c['entry_price'] = floatval($dt->entry_price);
+                $buy_c['status'] = $dt->status;
+                // Gunakan id sebagai pair_id karena tidak ada lagi pair_id dalam respons
+                $buy_c['pair_id'] = $dt->id;
+                if (isset($dt->created_at)) $buy_c['created_at'] = $dt->created_at;
+            }
+            // Type Buy D
+            else if ($dt->type == 'Buy D' && $dt->id > $latest_buy_d_id) {
+                $latest_buy_d_id = $dt->id;
                 $buy_d['id'] = $dt->id;
                 $buy_d['type'] = $dt->type;
-                $buy_d['entry_price'] = intval($dt->entry_price);
-                $buy_d['pair_id'] = $dt->pair_id;
-                $buy_d['created_at'] = $dt->created_at;
+                $buy_d['entry_price'] = floatval($dt->entry_price);
+                $buy_d['status'] = $dt->status;
+                // Gunakan id sebagai pair_id karena tidak ada lagi pair_id dalam respons
+                $buy_d['pair_id'] = $dt->id;
+                if (isset($dt->created_at)) $buy_d['created_at'] = $dt->created_at;
             }
         }
 
@@ -173,28 +189,32 @@ class Signal extends BaseController
             exit();
         }
 
+        $session = session();
+        $user = $session->get('logged_user');
+        $admin_id = $user->id;
+        $ip_address = $this->request->getIPAddress();
+
         // Initial Data
         $mdata = [
-            'entry'     => htmlspecialchars($this->request->getVar('price')),
+            'limit'     => htmlspecialchars($this->request->getVar('price')),
             'type'      => htmlspecialchars($this->request->getVar('type')),
-            'pair_id'   => null,
+            'admin_id'  => $admin_id,
+            'ip_address'  => $ip_address,
         ];
 
         // Change format price
-        $mdata['entry'] = str_replace(',', '', $mdata['entry']);
+        $mdata['limit'] = str_replace(',', '', $mdata['limit']);
 
         // Proccess Call Endpoin API
-        // $url = URLAPI . "/v1/signal/sendsignal";
-        // $response = satoshiAdmin($url, json_encode($mdata));
-        // $result = $response->result;
-        // echo json_encode($result);
+        $url = URLAPI . "/v1/order/limit_buy";
+        $response = satoshiAdmin($url, json_encode($mdata));
 
-        // Untuk testing, kita buat respons dummy
-        $result = [
-            'code' => '200',
-            'message' => 'Signal berhasil dikirim'
-        ];
+        // Jika respons berhasil, tambahkan ID sebagai pair_id
+        if (isset($response->result) && isset($response->result->id)) {
+            $response->result->pair_id = $response->result->id;
+        }
 
+        $result = $response->result;
         echo json_encode($result);
     }
 
@@ -227,6 +247,7 @@ class Signal extends BaseController
             'entry'     => htmlspecialchars($this->request->getVar('price')),
             'type'      => htmlspecialchars($this->request->getVar('type')),
             'pair_id'   => $this->request->getVar('pair_id'),
+            'affected_buys' => $this->request->getVar('affected_buys'),
         ];
 
         // Change format price
@@ -240,7 +261,8 @@ class Signal extends BaseController
         // Untuk testing, kita buat respons dummy
         $result = [
             'code' => '200',
-            'message' => 'Signal berhasil dikirim'
+            'message' => 'Signal berhasil dikirim',
+            'id' => $mdata['pair_id'] // Mengembalikan ID yang sama sebagai pair_id
         ];
 
         echo json_encode($result);
