@@ -290,72 +290,128 @@ class Signal extends BaseController
 
     public function fillsignal()
     {
-        // Validation Field
-        $rules = $this->validate([
-            'type'     => [
-                'label'     => 'Type Signal',
-                'rules'     => 'required'
-            ],
-        ]);
+        // Dapatkan ID signal dari request jika ada
+        $id_signal = $this->request->getVar('id_signal');
 
-        // Checking Validation
-        if (!$rules) {
-            $response = [
+        // Jika masih tidak ada id_signal, kirim error
+        if (!$id_signal) {
+            $result = [
                 'code' => '400',
-                'message' => $this->validator->listErrors()
+                'message' => 'Signal not found'
             ];
-            echo json_encode($response);
+            echo json_encode($result);
             exit();
         }
 
-        // Dapatkan data user yang login    
-        $session = session();
-        $user = $session->get('logged_user');
-        $admin_id = $user->id;
-        $ip_address = $this->request->getIPAddress();
-
-        // Initial Data
-        $mdata = [
-            'type'      => htmlspecialchars($this->request->getVar('type')),
-            'admin_id'  => $admin_id,
-            'ip_address'  => $ip_address,
+        // Daftar endpoint yang akan dicoba
+        $endpoints = [
+            URLAPI . "/v1/order/fill_order?id_signal=" . $id_signal,
+            URLAPI . "/v1/order/fill?id_signal=" . $id_signal,
+            URLAPI . "/v1/order/fillOrder?id_signal=" . $id_signal,
+            URLAPI . "/v1/order/fill-order?id_signal=" . $id_signal
         ];
 
-        // Cek apakah tipe adalah BUY atau SELL
-        $type = strtoupper($mdata['type']);
-        if (strpos($type, 'BUY') !== false) {
-            // Jika tipe adalah BUY, gunakan endpoint update_buy
-            $url = URLAPI . "/v1/order/update_buy";
+        $response = null;
+        $success = false;
 
-            // Tambahkan data tambahan yang mungkin diperlukan untuk endpoint update_buy
-            // $mdata['status'] = 'filled'; // Ubah status menjadi filled
-
+        // Coba setiap endpoint sampai berhasil
+        foreach ($endpoints as $url) {
             // Log untuk debugging
-            log_message('info', 'Mengirim permintaan ke endpoint update_buy: ' . json_encode($mdata));
-        } else {
-            // Jika tipe adalah SELL, gunakan endpoint fillsignal yang lama
-            $url = URLAPI . "/v1/signal/fillsignal";
+            log_message('info', 'Mencoba endpoint: ' . $url);
 
-            // Log untuk debugging
-            log_message('info', 'Mengirim permintaan ke endpoint fillsignal: ' . json_encode($mdata));
+            // Proccess Call Endpoin API
+            $response = satoshiAdmin($url);
+
+            // Log respons untuk debugging
+            log_message('info', 'Respons dari endpoint: ' . json_encode($response));
+
+            // Periksa apakah respons berhasil
+            if (isset($response->status) && $response->status == 200 && isset($response->result)) {
+                $success = true;
+                log_message('info', 'Endpoint berhasil: ' . $url);
+                break;
+            }
         }
 
-        // Proccess Call Endpoin API
-        $response = satoshiAdmin($url);
+        // Jika tidak ada endpoint yang berhasil, coba dengan metode POST
+        if (!$success) {
+            // Dapatkan data user yang login
+            $session = session();
+            $user = $session->get('logged_user');
+            $admin_id = $user->id;
+            $ip_address = $this->request->getIPAddress();
 
-        // Log respons untuk debugging
-        log_message('info', 'Respons dari endpoint: ' . json_encode($response));
-
-        // Untuk testing atau jika tidak ada respons
-        if (!isset($response->result)) {
-            $result = [
-                'code' => '200',
-                'message' => ($type == 'BUY') ? 'Order Successfully Updated' : 'Signal Successfully Filled'
+            // Siapkan data untuk dikirim ke API
+            $mdata = [
+                'id_signal' => $id_signal,
+                'admin_id'  => $admin_id,
+                'ip_address' => $ip_address
             ];
-        } else {
-            $result = $response->result;
+
+            // Daftar endpoint POST yang akan dicoba
+            $post_endpoints = [
+                URLAPI . "/v1/order/fill_order",
+                URLAPI . "/v1/order/fill",
+                URLAPI . "/v1/order/fillOrder",
+                URLAPI . "/v1/order/fill-order"
+            ];
+
+            foreach ($post_endpoints as $url) {
+                // Log untuk debugging
+                log_message('info', 'Mencoba endpoint POST: ' . $url . ' dengan data: ' . json_encode($mdata));
+
+                // Proccess Call Endpoin API dengan metode POST
+                $response = satoshiAdmin($url, json_encode($mdata));
+
+                // Log respons untuk debugging
+                log_message('info', 'Respons dari endpoint POST: ' . json_encode($response));
+
+                // Periksa apakah respons berhasil
+                if (isset($response->status) && $response->status == 200 && isset($response->result)) {
+                    $success = true;
+                    log_message('info', 'Endpoint POST berhasil: ' . $url);
+                    break;
+                }
+            }
         }
 
+        // Periksa respons dari API
+        if (isset($response->result) && is_object($response->result)) {
+            // Jika ada result, gunakan itu
+            $result = (array) $response->result;
+
+            // Pastikan ada kode status
+            if (!isset($result['code'])) {
+                $result['code'] = $success ? '200' : '400';
+            }
+
+            // Pastikan ada pesan
+            if (!isset($result['message'])) {
+                $result['message'] = $success
+                    ? 'Order Successfully Filled'
+                    : 'Failed to fill order';
+            }
+        } else {
+            // Jika tidak ada result, buat respons default
+            $result = [
+                'code' => $success ? '200' : '400',
+                'message' => $success
+                    ? 'Order Successfully Filled'
+                    : 'Failed to fill order'
+            ];
+
+            // Jika ada error message dari API, gunakan itu
+            if (isset($response->error) && isset($response->error->message)) {
+                $result['message'] = $response->error->message;
+            }
+        }
+
+        // Tambahkan informasi tambahan jika diperlukan
+        $result['timestamp'] = date('Y-m-d H:i:s');
+        $result['id_signal'] = $id_signal;
+        $result['success'] = $success;
+
+        // Kembalikan hasil sebagai JSON
         echo json_encode($result);
     }
 

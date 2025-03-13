@@ -289,7 +289,7 @@
                             <th>PRICE</th>
                             <th>DATE</th>
                             <th>TIME</th>
-                            <th>ACTION</th>
+                            <th>ADMIN</th>
                         </tr>
                     </thead>
                     <tbody>

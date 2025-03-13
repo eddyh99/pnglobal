@@ -594,15 +594,7 @@
                     data: "time",
                 },
                 {
-                    data: null,
-                    "mRender": function(data, type, full, meta) {
-                        // Only show button for first "Sell" row
-                        if (full.isFirstSell) {
-                            return '<a href="<?= BASE_URL ?>godmode/signal/cancel_sell?id=' + full.id + '&pair_id=' + full.pair_id +
-                                '" class="btn btn-sm btn-danger">Cancel</a>';
-                        }
-                        return ''; // Empty for other rows
-                    }
+                    data: "admin",
                 },
 
             ],
@@ -621,6 +613,9 @@
             // Dapatkan ID tombol untuk menentukan tipe signal
             const buttonId = $(this).attr('id');
             const signalType = buttonId.replace('fill-', '').replace('-', ' ').toUpperCase();
+
+            // Dapatkan ID signal dari data-pair-id pada baris
+            const signalId = $(this).closest('tr').data('pair-id');
 
             // Dapatkan status saat ini
             const statusElement = $(this).closest('tr').find('.signal-status');
@@ -656,9 +651,9 @@
                     // Kirim data ke server
                     $.ajax({
                         url: '<?= BASE_URL ?>godmode/signal/fillsignal',
-                        type: 'POST',
+                        type: 'GET',
                         data: {
-                            type: signalType
+                            id_signal: signalId
                         },
                         success: function(ress) {
                             // Parse Data
