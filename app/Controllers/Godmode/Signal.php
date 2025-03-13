@@ -45,7 +45,6 @@ class Signal extends BaseController
         // Call Endpoint read latest signal
         $url = URLAPI . "/v1/order/latestsignal";
         $response = satoshiAdmin($url);
-        $result = $response->result->message;
 
         // Initial Array Buy A, Buy B, Buy C, dan Buy D
         $buy_a = array();
@@ -59,52 +58,71 @@ class Signal extends BaseController
         $latest_buy_c_id = 0;
         $latest_buy_d_id = 0;
 
-        // Looping untuk mendapatkan data terbaru untuk setiap tipe buy
-        foreach ($result as $dt) {
-            // Type Buy A
-            if ($dt->type == 'Buy A' && $dt->id > $latest_buy_a_id) {
-                $latest_buy_a_id = $dt->id;
-                $buy_a['id'] = $dt->id;
-                $buy_a['type'] = $dt->type;
-                $buy_a['entry_price'] = floatval($dt->entry_price);
-                $buy_a['status'] = $dt->status;
-                // Gunakan id sebagai pair_id karena tidak ada lagi pair_id dalam respons
-                $buy_a['pair_id'] = $dt->id;
-                if (isset($dt->created_at)) $buy_a['created_at'] = $dt->created_at;
+        // Periksa apakah respons valid dan berisi data
+        if (isset($response->result) && isset($response->result->message)) {
+            $result = $response->result->message;
+
+            // Jika result adalah string "No buy orders found!", tidak perlu melakukan looping
+            if (is_string($result) && $result === "No buy orders found!") {
+                log_message('info', 'Tidak ada buy orders yang ditemukan');
             }
-            // Type Buy B
-            else if ($dt->type == 'Buy B' && $dt->id > $latest_buy_b_id) {
-                $latest_buy_b_id = $dt->id;
-                $buy_b['id'] = $dt->id;
-                $buy_b['type'] = $dt->type;
-                $buy_b['entry_price'] = floatval($dt->entry_price);
-                $buy_b['status'] = $dt->status;
-                // Gunakan id sebagai pair_id karena tidak ada lagi pair_id dalam respons
-                $buy_b['pair_id'] = $dt->id;
-                if (isset($dt->created_at)) $buy_b['created_at'] = $dt->created_at;
+            // Pastikan result adalah array atau objek sebelum melakukan loop
+            else if (is_array($result) || is_object($result)) {
+                // Looping untuk mendapatkan data terbaru untuk setiap tipe buy
+                foreach ($result as $dt) {
+                    // Type Buy A
+                    if ($dt->type == 'Buy A' && $dt->id > $latest_buy_a_id) {
+                        $latest_buy_a_id = $dt->id;
+                        $buy_a['id'] = $dt->id;
+                        $buy_a['type'] = $dt->type;
+                        $buy_a['entry_price'] = floatval($dt->entry_price);
+                        $buy_a['status'] = $dt->status;
+                        // Gunakan id sebagai pair_id karena tidak ada lagi pair_id dalam respons
+                        $buy_a['pair_id'] = $dt->id;
+                        if (isset($dt->created_at)) $buy_a['created_at'] = $dt->created_at;
+                    }
+                    // Type Buy B
+                    else if ($dt->type == 'Buy B' && $dt->id > $latest_buy_b_id) {
+                        $latest_buy_b_id = $dt->id;
+                        $buy_b['id'] = $dt->id;
+                        $buy_b['type'] = $dt->type;
+                        $buy_b['entry_price'] = floatval($dt->entry_price);
+                        $buy_b['status'] = $dt->status;
+                        // Gunakan id sebagai pair_id karena tidak ada lagi pair_id dalam respons
+                        $buy_b['pair_id'] = $dt->id;
+                        if (isset($dt->created_at)) $buy_b['created_at'] = $dt->created_at;
+                    }
+                    // Type Buy C
+                    else if ($dt->type == 'Buy C' && $dt->id > $latest_buy_c_id) {
+                        $latest_buy_c_id = $dt->id;
+                        $buy_c['id'] = $dt->id;
+                        $buy_c['type'] = $dt->type;
+                        $buy_c['entry_price'] = floatval($dt->entry_price);
+                        $buy_c['status'] = $dt->status;
+                        // Gunakan id sebagai pair_id karena tidak ada lagi pair_id dalam respons
+                        $buy_c['pair_id'] = $dt->id;
+                        if (isset($dt->created_at)) $buy_c['created_at'] = $dt->created_at;
+                    }
+                    // Type Buy D
+                    else if ($dt->type == 'Buy D' && $dt->id > $latest_buy_d_id) {
+                        $latest_buy_d_id = $dt->id;
+                        $buy_d['id'] = $dt->id;
+                        $buy_d['type'] = $dt->type;
+                        $buy_d['entry_price'] = floatval($dt->entry_price);
+                        $buy_d['status'] = $dt->status;
+                        // Gunakan id sebagai pair_id karena tidak ada lagi pair_id dalam respons
+                        $buy_d['pair_id'] = $dt->id;
+                        if (isset($dt->created_at)) $buy_d['created_at'] = $dt->created_at;
+                    }
+                }
+            } else {
+                // Log error jika result bukan array atau objek dan bukan string yang diharapkan
+                log_message('error', 'Result bukan array atau objek: ' . gettype($result));
+                log_message('error', 'Isi result: ' . json_encode($result));
             }
-            // Type Buy C
-            else if ($dt->type == 'Buy C' && $dt->id > $latest_buy_c_id) {
-                $latest_buy_c_id = $dt->id;
-                $buy_c['id'] = $dt->id;
-                $buy_c['type'] = $dt->type;
-                $buy_c['entry_price'] = floatval($dt->entry_price);
-                $buy_c['status'] = $dt->status;
-                // Gunakan id sebagai pair_id karena tidak ada lagi pair_id dalam respons
-                $buy_c['pair_id'] = $dt->id;
-                if (isset($dt->created_at)) $buy_c['created_at'] = $dt->created_at;
-            }
-            // Type Buy D
-            else if ($dt->type == 'Buy D' && $dt->id > $latest_buy_d_id) {
-                $latest_buy_d_id = $dt->id;
-                $buy_d['id'] = $dt->id;
-                $buy_d['type'] = $dt->type;
-                $buy_d['entry_price'] = floatval($dt->entry_price);
-                $buy_d['status'] = $dt->status;
-                // Gunakan id sebagai pair_id karena tidak ada lagi pair_id dalam respons
-                $buy_d['pair_id'] = $dt->id;
-                if (isset($dt->created_at)) $buy_d['created_at'] = $dt->created_at;
-            }
+        } else {
+            // Log error jika respons tidak valid
+            log_message('error', 'Respons tidak valid dari endpoint latestsignal');
         }
 
         // Call Endpoin read history all signal
@@ -209,12 +227,61 @@ class Signal extends BaseController
         $url = URLAPI . "/v1/order/limit_buy";
         $response = satoshiAdmin($url, json_encode($mdata));
 
-        // Jika respons berhasil, tambahkan ID sebagai pair_id
+        $code = isset($response->code) ? $response->code : 500;
+        $message = '';
+
+        // Buat pesan berdasarkan respons
         if (isset($response->result) && isset($response->result->id)) {
-            $response->result->pair_id = $response->result->id;
+            // Jika ada ID dalam respons, anggap sukses
+            $response->result->pair_id = $response->result->id; // Tambahkan pair_id seperti pada kode awal
+            switch ($code) {
+                case 201:
+                    $message = 'Buy order processed successfully';
+                    break;
+                case 200:
+                    $message = 'Buy order placed successfully';
+                    break;
+                default:
+                    $message = 'Unknown response code: ' . $code;
+                    break;
+            }
+        } else {
+            // Jika respons tidak valid atau gagal
+            $message = isset($response->error->message) ? $response->error->message : 'Failed to process buy order';
         }
 
-        $result = $response->result;
+        // Jika pengiriman ke endpoint utama berhasil, kirim ke endpoint kedua
+        if ($code == 201 || $code == 200) {
+            // Siapkan data untuk endpoint kedua
+            $mdata2 = [
+                'entry' => floatval($mdata['limit']), // Gunakan harga yang sudah diformat
+                'type' => $mdata['type'], // Gunakan tipe yang sama
+                'pair_id' => null
+            ];
+
+            // Log untuk debugging
+            log_message('info', 'Mengirim data ke endpoint sendsignal: ' . json_encode($mdata2));
+
+            // Proses Panggilan Endpoint Kedua
+            $url2 = URLAPI2 . "/v1/signal/sendsignal";
+            $response2 = satoshiAdmin($url2, json_encode($mdata2));
+
+            // Log respons dari endpoint kedua
+            log_message('info', 'Respons dari endpoint sendsignal: ' . json_encode($response2));
+
+            // Jika endpoint kedua gagal, log error tetapi tidak memengaruhi respons utama
+            if (!isset($response2->status) || $response2->status != 200) {
+                log_message('error', 'Gagal mengirim ke endpoint sendsignal: ' . json_encode($response2));
+            }
+        }
+
+        // Buat array respons yang hanya berisi code dan pesan
+        $result = [
+            'code' => $code,
+            'message' => $message
+        ];
+
+        // Kembalikan hasil dalam format JSON
         echo json_encode($result);
     }
 
@@ -264,6 +331,12 @@ class Signal extends BaseController
         // Change format price
         $mdata['limit'] = str_replace(',', '', $mdata['limit']);
 
+        $mdata2 = [
+            'entry' => floatval($mdata['limit']),
+            'type' => $mdata['type'],
+            'pair_id' => null // Akan diperbarui setelah respons pertama
+        ];
+
         // Log untuk debugging
         log_message('info', 'Mengirim permintaan SELL ke endpoint limit_sell: ' . json_encode($mdata));
 
@@ -271,20 +344,48 @@ class Signal extends BaseController
         $url = URLAPI . "/v1/order/limit_sell";
         $response = satoshiAdmin($url, json_encode($mdata));
 
-        // Log respons untuk debugging
-        log_message('info', 'Respons dari endpoint limit_sell: ' . json_encode($response));
+        $code = $response->result->code;
+        $message = '';
+        $pair_id = null;
 
-        // Untuk testing atau jika tidak ada respons
-        if (!isset($response->result)) {
-            $result = [
-                'code' => '200',
-                'message' => 'Order SELL Successfully Sent',
-                'id' => $mdata['id_signal'] // Mengembalikan ID yang sama sebagai pair_id
-            ];
+        // Buat pesan berdasarkan respons
+        if (isset($response->result) && isset($response->result->id)) {
+            // Jika ada ID dalam respons, anggap sukses
+            $response->result->pair_id = $response->result->id; // Tambahkan pair_id seperti pada kode awal
+            $pair_id = $response->result->id;
+            $mdata2['pair_id'] = $pair_id;
+            switch ($code) {
+                case 201:
+                    $message = 'Sell order processed successfully';
+                    break;
+                case 200:
+                    $message = 'Sell order placed successfully';
+                    break;
+                default:
+                    $message = 'Unknown response code: ' . $code;
+                    break;
+            }
         } else {
-            $result = $response->result;
+            // Jika respons tidak valid atau gagal
+            $message = isset($response->error->message) ? $response->error->message : 'Failed to process sell order';
         }
 
+        if ($code == 201 || $code == 200) {
+            $url2 = URLAPI2 . "/v1/signal/sendsignal";
+            $response2 = satoshiAdmin($url2, json_encode($mdata2));
+            log_message('info', 'Respons dari endpoint sendsignal: ' . json_encode($response2));
+            if (!isset($response2->status) || $response2->status != 200) {
+                log_message('error', 'Gagal mengirim ke endpoint sendsignal: ' . json_encode($response2));
+            }
+        }
+
+        // Buat array respons yang hanya berisi code dan pesan
+        $result = [
+            'code' => $code,
+            'message' => $message
+        ];
+
+        // Kembalikan hasil dalam format JSON
         echo json_encode($result);
     }
 
@@ -458,8 +559,26 @@ class Signal extends BaseController
     {
         // Call Endpoin List History Order
         $url = URLAPI . "/v1/order/get_all";
-        $result = satoshiAdmin($url)->result->message;
-        echo json_encode($result);
+        $response = satoshiAdmin($url);
+
+        // Periksa apakah respons valid dan berisi data
+        if (isset($response->result) && isset($response->result->message)) {
+            $result = $response->result->message;
+
+            // Jika result adalah string, kembalikan array kosong
+            if (is_string($result)) {
+                log_message('info', 'Respons dari get_all adalah string: ' . $result);
+                echo json_encode([]);
+                return;
+            }
+
+            // Jika result adalah array atau objek, kembalikan apa adanya
+            echo json_encode($result);
+        } else {
+            // Jika respons tidak valid, kembalikan array kosong
+            log_message('error', 'Respons tidak valid dari endpoint get_all');
+            echo json_encode([]);
+        }
     }
 
     public function cancel_sell()

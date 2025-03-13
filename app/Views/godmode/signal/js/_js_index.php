@@ -651,7 +651,7 @@
                     // Kirim data ke server
                     $.ajax({
                         url: '<?= BASE_URL ?>godmode/signal/fillsignal',
-                        type: 'GET',
+                        type: 'POST',
                         data: {
                             id_signal: signalId
                         },
