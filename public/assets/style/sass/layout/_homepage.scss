@@ -711,16 +711,41 @@
             }
         }
 
+        header {
+            h1 {
+                font-size: 26px; // Kurangi ukuran font judul lagi
+                line-height: 36px; // Kurangi line height lagi
+            }
+        }
+
+        .lead-wrapper {
+            .lead {
+                font-size: 20px; // Kurangi ukuran font lagi
+                line-height: 28px; // Kurangi line height lagi
+            }
+        }
+
         .newsletter-text {
+            padding: 1rem !important;
+
             .col-md-6:last-child {
                 text-align: center !important; // Rata tengah untuk tampilan responsif
                 padding-right: 0 !important; // Hapus padding kanan pada responsif
+                padding-left: 0 !important; // Hapus padding kiri pada responsif
             }
 
-            .countdown,
+            .countdown {
+                font-size: 22px !important;
+                line-height: 30px !important;
+                text-align: center !important; // Rata tengah untuk tampilan responsif
+            }
+
             .description,
             .highlight,
             .highlight-1 {
+                font-size: 18px !important;
+                line-height: 28px !important;
+                padding: 0 10px !important;
                 text-align: center !important; // Rata tengah untuk tampilan responsif
             }
         }
@@ -758,8 +783,8 @@
                 .opportunity,
                 .signup,
                 .btn {
-                    padding-left: 0 !important; // Hapus padding kiri
-                    padding-right: 0 !important; // Hapus padding kanan
+                    padding-left: 15px !important; // Sedikit padding kiri
+                    padding-right: 15px !important; // Sedikit padding kanan
                     margin-left: 0 !important; // Hapus margin kiri
                     margin-right: 0 !important; // Hapus margin kanan
                     max-width: 100% !important; // Full width
@@ -767,14 +792,14 @@
                 }
 
                 .button-wrapper {
-                    padding-left: 0 !important; // Hapus padding kiri
-                    padding-right: 0 !important; // Hapus padding kanan
+                    padding-left: 15px !important; // Sedikit padding kiri
+                    padding-right: 15px !important; // Sedikit padding kanan
                     width: 100% !important; // Full width
 
                     .btn.custom-btn {
                         margin: 20px auto !important; // Kurangi margin atas dan bawah, tetapi tetap tengah secara horizontal
-                        min-width: 80% !important; // Kurangi lebar tombol agar ada space di kiri dan kanan
-                        max-width: 80% !important; // Batasi lebar maksimum
+                        min-width: 85% !important; // Kurangi lebar tombol agar ada space di kiri dan kanan
+                        max-width: 85% !important; // Batasi lebar maksimum
                         font-size: 20px !important; // Perbesar ukuran font
                         padding: 15px 10px !important; // Tambahkan padding
                     }
@@ -833,9 +858,10 @@
 
                     .btn.custom-btn {
                         margin: 20px auto !important; // Kurangi margin atas dan bawah, tetapi tetap tengah secara horizontal
-                        min-width: 85% !important; // Kurangi lebar tombol agar ada space di kiri dan kanan
-                        max-width: 85% !important; // Batasi lebar maksimum
-                        font-size: 22px !important; // Perbesar ukuran font
+                        min-width: 80% !important; // Kurangi lebar tombol agar ada space di kiri dan kanan
+                        max-width: 80% !important; // Batasi lebar maksimum
+                        font-size: 20px !important; // Perbesar ukuran font
+                        padding: 15px 10px !important; // Tambahkan padding
                     }
                 }
             }
@@ -1081,7 +1107,7 @@
     }
 
     // Media query untuk tampilan responsif
-    @media (max-width: 991.98px) {
+    @media (max-width: 1199.98px) {
         min-height: auto; // Tidak full height pada tampilan responsif
         padding-bottom: 50px; // Tambahkan padding bawah
 
@@ -1101,8 +1127,35 @@
             padding: 15px 0; // Kurangi padding pada cards container
 
             .custom-card {
-                padding: 1.5rem; // Kurangi padding pada card
-                min-height: 350px; // Kurangi tinggi minimum card
+                padding: 2rem; // Kurangi padding pada card
+                min-height: 400px; // Sesuaikan tinggi minimum card
+            }
+        }
+    }
+
+    // Media query untuk tampilan tablet
+    @media (max-width: 991.98px) and (min-width: 768px) {
+        .cards-container {
+            .row {
+                display: flex;
+
+                .col-md-6 {
+                    display: flex;
+                }
+
+                .custom-card {
+                    flex: 1;
+                    min-height: 350px; // Tetapkan tinggi yang sama untuk kedua card
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    padding: 1.75rem;
+
+                    .card-text {
+                        font-size: 20px; // Kurangi ukuran font
+                        line-height: 1.5; // Kurangi line height
+                    }
+                }
             }
         }
     }
@@ -1123,7 +1176,7 @@
             padding: 10px 0; // Kurangi padding lebih lanjut
 
             .custom-card {
-                padding: 1rem; // Kurangi padding pada card
+                padding: 1.5rem; // Kurangi padding pada card
                 min-height: 300px; // Kurangi tinggi minimum card
                 margin-bottom: 0.75rem; // Kurangi margin bawah
             }
@@ -1143,7 +1196,7 @@
     @media (max-width: 575.98px) {
         .cards-container {
             .custom-card {
-                padding: 0.75rem; // Kurangi padding lebih lanjut
+                padding: 1.25rem; // Kurangi padding lebih lanjut
                 min-height: 250px; // Kurangi tinggi minimum card
                 box-shadow: 0px 4px 10px 5px #fff; // Kurangi shadow
             }
@@ -1323,17 +1376,51 @@
     }
 
     // Media query untuk tampilan responsif
+    @media (max-width: 1199.98px) {
+        .col-12.col-lg-6 {
+            padding: 0 60px; // Kurangi padding pada kolom
+        }
+
+        .service-card {
+            padding: 22px; // Kurangi padding pada card
+            min-height: 190px; // Kurangi tinggi minimum
+
+            .service-btn {
+                min-width: 280px; // Kurangi lebar minimum tombol
+                font-size: 12px; // Kurangi ukuran font
+                padding: 3px 15px; // Kurangi padding
+            }
+        }
+    }
+
+    // Media query untuk tampilan tablet
     @media (max-width: 991.98px) {
         .col-12.col-lg-6 {
-            padding: 0 50px; // Kurangi padding pada kolom
+            padding: 0 40px; // Kurangi padding pada kolom
         }
 
         .service-card {
             padding: 20px; // Kurangi padding pada card
             min-height: 180px; // Kurangi tinggi minimum
 
+            .service-title {
+                font-size: 22px; // Kurangi ukuran font judul
+                line-height: 28px; // Kurangi line height
+            }
+
+            .service-description {
+                font-size: 15px; // Kurangi ukuran font deskripsi
+                line-height: 26px; // Kurangi line height
+                margin-bottom: 15px; // Tambahkan margin bottom
+            }
+
             .service-btn {
-                min-width: 250px; // Kurangi lebar minimum tombol
+                min-width: 240px; // Kurangi lebar minimum tombol
+                min-height: 40px; // Kurangi tinggi minimum tombol
+                font-size: 11px; // Kurangi ukuran font tombol
+                padding: 3px 12px; // Kurangi padding tombol
+                white-space: normal; // Izinkan teks untuk wrap
+                height: auto; // Tinggi otomatis berdasarkan konten
             }
         }
     }
@@ -1940,9 +2027,11 @@
 ------------------------------------------------------------*/
 .first-steps {
     position: relative;
-    height: auto; // Change from max-height
-    min-height: 637px; // Add min-height instead
-    // margin-bottom: 120px; // Add space for footer
+    height: auto;
+    min-height: 637px;
+    background-color: transparent; // Ubah dari #000 ke transparent
+    overflow: visible; // Ubah dari hidden ke visible agar tombol bisa overflow
+    margin-bottom: 50px; // Tambahkan margin bottom untuk ruang overflow tombol
 
     .first-steps-bg {
         position: absolute;
@@ -1955,6 +2044,7 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
+            opacity: 0.8; // Tingkatkan opacity gambar
         }
     }
 
@@ -1962,48 +2052,57 @@
         position: relative;
         z-index: 2;
         max-width: 746px;
+        height: auto; // Ubah dari 100% ke auto
         margin: 0 auto;
-        padding: 150px 0;
+        padding: 50px 0; // Tambahkan padding
         margin-left: 25%;
         margin-right: 50px;
+        display: flex; // Menggunakan flexbox
+        flex-direction: column; // Arah kolom
+        justify-content: center; // Tengah secara vertikal
     }
 
     .content-box {
         border: 1px solid #000;
-        background: rgba(0, 0, 0, 0.88);
+        background: rgba(0, 0, 0, 0.8); // Kurangi opacity background
         box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-        padding: 10px 40px 50px;
+        padding: 30px 40px 50px; // Kurangi padding bawah
         position: relative;
-        margin-bottom: 10px;
+        margin-bottom: 40px; // Tambahkan margin bottom untuk tombol
+        border-radius: 5px;
+        width: 100%; // Memastikan box memenuhi lebar container
+        height: auto; // Ubah dari 100% ke auto
+        min-height: auto; // Hapus tinggi minimum
     }
 
     .title {
         color: #bfa573;
         text-align: center;
         font-family: var.$f-noto;
-        font-size: 30px;
+        font-size: 35px;
         font-style: normal;
-        font-weight: 600;
-        line-height: 37px;
-        margin-bottom: 10px;
+        font-weight: 700;
+        line-height: 45px;
+        margin-bottom: 20px;
+        text-transform: uppercase;
     }
 
     .description {
         color: #fff;
         text-align: center;
         font-family: var.$f-noto;
-        font-size: 18px;
+        font-size: 20px;
         font-style: normal;
-        font-weight: 600;
+        font-weight: 500;
         line-height: 30px;
-        margin-bottom: 10px;
+        margin-bottom: 30px;
         padding: 0 20px;
     }
 
     .cta-button {
         position: absolute;
         left: 50%;
-        bottom: -40px;
+        bottom: -25px; // Ubah dari -30px ke -25px
         transform: translateX(-50%);
         border-radius: 5px;
         background: #bfa573;
@@ -2011,7 +2110,7 @@
         color: #000;
         text-align: center;
         font-family: var.$f-noto;
-        font-size: 16px;
+        font-size: 18px;
         font-style: normal;
         font-weight: 700;
         line-height: 25px;
@@ -2019,10 +2118,13 @@
         border: none;
         padding: 15px 30px;
         cursor: pointer;
+        min-width: 300px;
+        z-index: 10;
 
         &:hover {
             box-shadow: 0px 4px 10px 3px #fff;
             color: #fff;
+            background-color: darken(#bfa573, 10%);
         }
     }
 
@@ -2031,10 +2133,146 @@
         top: 50px;
         right: 50px;
         z-index: 2;
+        display: block; // Tampilkan pada desktop
 
         .logo-image {
             max-width: 150px;
             height: auto;
+        }
+    }
+
+    // Tambahkan pseudo-element untuk background putih di bawah
+    // &::after {
+    //     content: '';
+    //     position: absolute;
+    //     bottom: 0;
+    //     left: 0;
+    //     width: 100%;
+    //     height: 50px; // Tinggi background putih di bawah
+    //     background-color: #fff;
+    //     z-index: 1;
+    // }
+
+    // Media query untuk tampilan responsif
+    @media (max-width: 991.98px) {
+        min-height: auto;
+        margin-bottom: 40px; // Kurangi margin bottom pada tampilan responsif
+
+        &::after {
+            height: 40px; // Kurangi tinggi background putih pada tampilan responsif
+        }
+
+        .container {
+            margin: 0 auto;
+            padding: 40px 20px; // Tambahkan padding
+            max-width: 100%;
+        }
+
+        .content-box {
+            padding: 25px 20px 40px; // Kurangi padding bawah
+            min-height: auto; // Hapus tinggi minimum
+            background: rgba(
+                0,
+                0,
+                0,
+                0.7
+            ); // Kurangi opacity background pada responsive
+            margin-bottom: 30px; // Kurangi margin bottom
+        }
+
+        .title {
+            font-size: 28px;
+            line-height: 36px;
+        }
+
+        .description {
+            font-size: 18px;
+            line-height: 28px;
+            padding: 0 10px;
+        }
+
+        .cta-button {
+            min-width: 250px;
+            font-size: 16px;
+            padding: 12px 20px;
+            bottom: -22px; // Naikkan posisi tombol
+        }
+
+        .logo-big {
+            display: none; // Sembunyikan pada tampilan responsif
+        }
+    }
+
+    // Media query untuk tampilan mobile
+    @media (max-width: 767.98px) {
+        margin-bottom: 35px; // Kurangi margin bottom lagi
+
+        &::after {
+            height: 35px; // Kurangi tinggi background putih lagi
+        }
+
+        .container {
+            padding: 30px 15px; // Kurangi padding
+        }
+
+        .content-box {
+            padding: 20px 15px 40px; // Kurangi padding bawah
+            background: rgba(0, 0, 0, 0.6); // Kurangi opacity background lagi
+            margin-bottom: 25px; // Kurangi margin bottom
+        }
+
+        .title {
+            font-size: 24px;
+            line-height: 32px;
+        }
+
+        .description {
+            font-size: 16px;
+            line-height: 26px;
+        }
+
+        .cta-button {
+            min-width: 220px;
+            font-size: 14px;
+            padding: 10px 15px;
+            bottom: -20px; // Naikkan posisi tombol lagi
+        }
+    }
+
+    // Media query untuk tampilan sangat kecil
+    @media (max-width: 575.98px) {
+        margin-bottom: 30px; // Kurangi margin bottom lagi
+
+        &::after {
+            height: 30px; // Kurangi tinggi background putih lagi
+        }
+
+        .container {
+            padding: 20px 10px; // Kurangi padding lagi
+        }
+
+        .content-box {
+            padding: 15px 10px 35px; // Kurangi padding bawah lagi
+            background: rgba(0, 0, 0, 0.5); // Kurangi opacity background lagi
+            margin-bottom: 20px; // Kurangi margin bottom lagi
+        }
+
+        .title {
+            font-size: 22px;
+            line-height: 28px;
+        }
+
+        .description {
+            font-size: 14px;
+            line-height: 22px;
+            padding: 0 5px;
+        }
+
+        .cta-button {
+            min-width: 200px;
+            font-size: 13px;
+            padding: 8px 12px;
+            bottom: -18px; // Naikkan posisi tombol lagi
         }
     }
 }

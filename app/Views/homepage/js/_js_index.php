@@ -34,7 +34,7 @@
 
         function updateVideoSource() {
             const width = window.innerWidth;
-            if (width <= 767.98) {
+            if (width <= 991) {
                 sourceElement.src = `${baseUrl}assets/vid/bg-newsletter-mobile.mp4`;
             } else {
                 sourceElement.src = `${baseUrl}assets/vid/bg-newsletter.mp4`;

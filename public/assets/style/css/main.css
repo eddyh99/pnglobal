@@ -12949,7 +12949,6 @@ p {
   font-size: 20px;
   font-style: normal;
   font-weight: 400;
-  line-height: 15px;
 }
 .bg-contactform .left-side #g-textgetintouch {
   margin: 3rem 0 1rem;
@@ -13907,14 +13906,33 @@ p {
     object-fit: contain !important;
     object-position: center !important;
   }
+  .newsletter header h1 {
+    font-size: 26px;
+    line-height: 36px;
+  }
+  .newsletter .lead-wrapper .lead {
+    font-size: 20px;
+    line-height: 28px;
+  }
+  .newsletter .newsletter-text {
+    padding: 1rem !important;
+  }
   .newsletter .newsletter-text .col-md-6:last-child {
     text-align: center !important;
     padding-right: 0 !important;
+    padding-left: 0 !important;
   }
-  .newsletter .newsletter-text .countdown,
+  .newsletter .newsletter-text .countdown {
+    font-size: 22px !important;
+    line-height: 30px !important;
+    text-align: center !important;
+  }
   .newsletter .newsletter-text .description,
   .newsletter .newsletter-text .highlight,
   .newsletter .newsletter-text .highlight-1 {
+    font-size: 18px !important;
+    line-height: 28px !important;
+    padding: 0 10px !important;
     text-align: center !important;
   }
   .newsletter .mt-4 {
@@ -13947,22 +13965,22 @@ p {
   .newsletter .mt-4 .col-md-6:last-child .opportunity,
   .newsletter .mt-4 .col-md-6:last-child .signup,
   .newsletter .mt-4 .col-md-6:last-child .btn {
-    padding-left: 0 !important;
-    padding-right: 0 !important;
+    padding-left: 15px !important;
+    padding-right: 15px !important;
     margin-left: 0 !important;
     margin-right: 0 !important;
     max-width: 100% !important;
     width: 100% !important;
   }
   .newsletter .mt-4 .col-md-6:last-child .button-wrapper {
-    padding-left: 0 !important;
-    padding-right: 0 !important;
+    padding-left: 15px !important;
+    padding-right: 15px !important;
     width: 100% !important;
   }
   .newsletter .mt-4 .col-md-6:last-child .button-wrapper .btn.custom-btn {
     margin: 20px auto !important;
-    min-width: 80% !important;
-    max-width: 80% !important;
+    min-width: 85% !important;
+    max-width: 85% !important;
     font-size: 20px !important;
     padding: 15px 10px !important;
   }
@@ -14012,9 +14030,10 @@ p {
   }
   .newsletter .mt-4 .col-md-6:last-child .button-wrapper .btn.custom-btn {
     margin: 20px auto !important;
-    min-width: 85% !important;
-    max-width: 85% !important;
-    font-size: 22px !important;
+    min-width: 80% !important;
+    max-width: 80% !important;
+    font-size: 20px !important;
+    padding: 15px 10px !important;
   }
 }
 @media (max-width: 430px) {
@@ -14225,7 +14244,7 @@ p {
   box-shadow: 0px 4px 35px 8px #f7941d;
   color: #fff;
 }
-@media (max-width: 991.98px) {
+@media (max-width: 1199.98px) {
   .earning-section {
     min-height: auto;
     padding-bottom: 50px;
@@ -14243,8 +14262,28 @@ p {
     padding: 15px 0;
   }
   .earning-section .cards-container .custom-card {
-    padding: 1.5rem;
+    padding: 2rem;
+    min-height: 400px;
+  }
+}
+@media (max-width: 991.98px) and (min-width: 768px) {
+  .earning-section .cards-container .row {
+    display: flex;
+  }
+  .earning-section .cards-container .row .col-md-6 {
+    display: flex;
+  }
+  .earning-section .cards-container .row .custom-card {
+    flex: 1;
     min-height: 350px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 1.75rem;
+  }
+  .earning-section .cards-container .row .custom-card .card-text {
+    font-size: 20px;
+    line-height: 1.5;
   }
 }
 @media (max-width: 767.98px) {
@@ -14258,7 +14297,7 @@ p {
     padding: 10px 0;
   }
   .earning-section .cards-container .custom-card {
-    padding: 1rem;
+    padding: 1.5rem;
     min-height: 300px;
     margin-bottom: 0.75rem;
   }
@@ -14272,7 +14311,7 @@ p {
 }
 @media (max-width: 575.98px) {
   .earning-section .cards-container .custom-card {
-    padding: 0.75rem;
+    padding: 1.25rem;
     min-height: 250px;
     box-shadow: 0px 4px 10px 5px #fff;
   }
@@ -14417,16 +14456,44 @@ p {
     padding: 0 12px;
   }
 }
+@media (max-width: 1199.98px) {
+  .service-homepage .col-12.col-lg-6 {
+    padding: 0 60px;
+  }
+  .service-homepage .service-card {
+    padding: 22px;
+    min-height: 190px;
+  }
+  .service-homepage .service-card .service-btn {
+    min-width: 280px;
+    font-size: 12px;
+    padding: 3px 15px;
+  }
+}
 @media (max-width: 991.98px) {
   .service-homepage .col-12.col-lg-6 {
-    padding: 0 50px;
+    padding: 0 40px;
   }
   .service-homepage .service-card {
     padding: 20px;
     min-height: 180px;
   }
+  .service-homepage .service-card .service-title {
+    font-size: 22px;
+    line-height: 28px;
+  }
+  .service-homepage .service-card .service-description {
+    font-size: 15px;
+    line-height: 26px;
+    margin-bottom: 15px;
+  }
   .service-homepage .service-card .service-btn {
-    min-width: 250px;
+    min-width: 240px;
+    min-height: 40px;
+    font-size: 11px;
+    padding: 3px 12px;
+    white-space: normal;
+    height: auto;
   }
 }
 @media (max-width: 767.98px) {
@@ -14935,6 +15002,9 @@ p {
   position: relative;
   height: auto;
   min-height: 637px;
+  background-color: transparent;
+  overflow: visible;
+  margin-bottom: 50px;
 }
 .first-steps .first-steps-bg {
   position: absolute;
@@ -14947,49 +15017,59 @@ p {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  opacity: 0.8;
 }
 .first-steps .container {
   position: relative;
   z-index: 2;
   max-width: 746px;
+  height: auto;
   margin: 0 auto;
-  padding: 150px 0;
+  padding: 50px 0;
   margin-left: 25%;
   margin-right: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 .first-steps .content-box {
   border: 1px solid #000;
-  background: rgba(0, 0, 0, 0.88);
+  background: rgba(0, 0, 0, 0.8);
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-  padding: 10px 40px 50px;
+  padding: 30px 40px 50px;
   position: relative;
-  margin-bottom: 10px;
+  margin-bottom: 40px;
+  border-radius: 5px;
+  width: 100%;
+  height: auto;
+  min-height: auto;
 }
 .first-steps .title {
   color: #bfa573;
   text-align: center;
   font-family: "Noto Serif", serif;
-  font-size: 30px;
+  font-size: 35px;
   font-style: normal;
-  font-weight: 600;
-  line-height: 37px;
-  margin-bottom: 10px;
+  font-weight: 700;
+  line-height: 45px;
+  margin-bottom: 20px;
+  text-transform: uppercase;
 }
 .first-steps .description {
   color: #fff;
   text-align: center;
   font-family: "Noto Serif", serif;
-  font-size: 18px;
+  font-size: 20px;
   font-style: normal;
-  font-weight: 600;
+  font-weight: 500;
   line-height: 30px;
-  margin-bottom: 10px;
+  margin-bottom: 30px;
   padding: 0 20px;
 }
 .first-steps .cta-button {
   position: absolute;
   left: 50%;
-  bottom: -40px;
+  bottom: -25px;
   transform: translateX(-50%);
   border-radius: 5px;
   background: #bfa573;
@@ -14997,7 +15077,7 @@ p {
   color: #000;
   text-align: center;
   font-family: "Noto Serif", serif;
-  font-size: 16px;
+  font-size: 18px;
   font-style: normal;
   font-weight: 700;
   line-height: 25px;
@@ -15005,20 +15085,123 @@ p {
   border: none;
   padding: 15px 30px;
   cursor: pointer;
+  min-width: 300px;
+  z-index: 10;
 }
 .first-steps .cta-button:hover {
   box-shadow: 0px 4px 10px 3px #fff;
   color: #fff;
+  background-color: rgb(175, 142.5, 80);
 }
 .first-steps .logo-big {
   position: absolute;
   top: 50px;
   right: 50px;
   z-index: 2;
+  display: block;
 }
 .first-steps .logo-big .logo-image {
   max-width: 150px;
   height: auto;
+}
+@media (max-width: 991.98px) {
+  .first-steps {
+    min-height: auto;
+    margin-bottom: 40px;
+  }
+  .first-steps::after {
+    height: 40px;
+  }
+  .first-steps .container {
+    margin: 0 auto;
+    padding: 40px 20px;
+    max-width: 100%;
+  }
+  .first-steps .content-box {
+    padding: 25px 20px 40px;
+    min-height: auto;
+    background: rgba(0, 0, 0, 0.7);
+    margin-bottom: 30px;
+  }
+  .first-steps .title {
+    font-size: 28px;
+    line-height: 36px;
+  }
+  .first-steps .description {
+    font-size: 18px;
+    line-height: 28px;
+    padding: 0 10px;
+  }
+  .first-steps .cta-button {
+    min-width: 250px;
+    font-size: 16px;
+    padding: 12px 20px;
+    bottom: -22px;
+  }
+  .first-steps .logo-big {
+    display: none;
+  }
+}
+@media (max-width: 767.98px) {
+  .first-steps {
+    margin-bottom: 35px;
+  }
+  .first-steps::after {
+    height: 35px;
+  }
+  .first-steps .container {
+    padding: 30px 15px;
+  }
+  .first-steps .content-box {
+    padding: 20px 15px 40px;
+    background: rgba(0, 0, 0, 0.6);
+    margin-bottom: 25px;
+  }
+  .first-steps .title {
+    font-size: 24px;
+    line-height: 32px;
+  }
+  .first-steps .description {
+    font-size: 16px;
+    line-height: 26px;
+  }
+  .first-steps .cta-button {
+    min-width: 220px;
+    font-size: 14px;
+    padding: 10px 15px;
+    bottom: -20px;
+  }
+}
+@media (max-width: 575.98px) {
+  .first-steps {
+    margin-bottom: 30px;
+  }
+  .first-steps::after {
+    height: 30px;
+  }
+  .first-steps .container {
+    padding: 20px 10px;
+  }
+  .first-steps .content-box {
+    padding: 15px 10px 35px;
+    background: rgba(0, 0, 0, 0.5);
+    margin-bottom: 20px;
+  }
+  .first-steps .title {
+    font-size: 22px;
+    line-height: 28px;
+  }
+  .first-steps .description {
+    font-size: 14px;
+    line-height: 22px;
+    padding: 0 5px;
+  }
+  .first-steps .cta-button {
+    min-width: 200px;
+    font-size: 13px;
+    padding: 8px 12px;
+    bottom: -18px;
+  }
 }
 
 /*----------------------------------------------------------
