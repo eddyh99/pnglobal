@@ -14307,17 +14307,12 @@ p {
   justify-content: flex-start;
 }
 .service-homepage .section-title-bg {
-  width: 100vw;
-  height: 200px;
+  width: 100%;
   padding: 30px 0;
-  background: url("../../img/bg-our-service.png") no-repeat center center;
-  background-size: cover;
+  background: #fff;
   box-shadow: 0 4px 4px rgba(0, 0, 0, 0.1);
   position: relative;
-  left: 50%;
-  right: 50%;
-  margin-left: -50vw;
-  margin-right: -50vw;
+  margin-bottom: 30px;
 }
 .service-homepage .section-title {
   position: relative;
@@ -14344,6 +14339,7 @@ p {
   padding: 24px;
   min-height: 200px;
   position: relative;
+  margin: 0 5px;
 }
 .service-homepage .service-card .row .col-3 {
   width: auto;
@@ -14419,6 +14415,72 @@ p {
   }
   .service-homepage .col-lg-6 {
     padding: 0 12px;
+  }
+}
+@media (max-width: 991.98px) {
+  .service-homepage .col-12.col-lg-6 {
+    padding: 0 50px;
+  }
+  .service-homepage .service-card {
+    padding: 20px;
+    min-height: 180px;
+  }
+  .service-homepage .service-card .service-btn {
+    min-width: 250px;
+  }
+}
+@media (max-width: 767.98px) {
+  .service-homepage .col-12.col-lg-6 {
+    padding: 0 35px !important;
+  }
+  .service-homepage .service-cards {
+    gap: 30px;
+    margin-top: 30px;
+  }
+  .service-homepage .service-card {
+    padding: 15px;
+    min-height: 160px;
+    margin: 0 8px;
+  }
+  .service-homepage .service-card .service-title {
+    font-size: 22px;
+  }
+  .service-homepage .service-card .service-description {
+    font-size: 14px;
+    line-height: 24px;
+  }
+  .service-homepage .service-card .service-btn {
+    min-width: 220px;
+    min-height: 40px;
+    font-size: 12px;
+  }
+}
+@media (max-width: 575.98px) {
+  .service-homepage .col-12.col-lg-6 {
+    padding: 0 20px !important;
+  }
+  .service-homepage .service-cards {
+    gap: 20px;
+  }
+  .service-homepage .service-card {
+    padding: 15px;
+    margin: 0 5px;
+  }
+  .service-homepage .service-card .row {
+    margin: 0 -5px;
+  }
+  .service-homepage .service-card .service-title {
+    font-size: 20px;
+  }
+  .service-homepage .service-card .service-description {
+    font-size: 13px;
+    line-height: 20px;
+  }
+  .service-homepage .service-card .service-btn {
+    min-width: 200px;
+    min-height: 35px;
+    font-size: 11px;
+    padding: 3px 15px;
   }
 }
 
