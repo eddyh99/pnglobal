@@ -1433,22 +1433,15 @@
     }
 
     .section-title-bg {
-        width: 100vw;
-        height: 250px;
+        width: 100%;
         padding: 30px 0;
-        background: url('../../img/bg-who-we-are.png') no-repeat center center;
-        background-size: cover;
+        background: #fff;
         box-shadow: 0 4px 4px rgba(0, 0, 0, 0.1);
         position: relative;
-        left: 50%;
-        right: 50%;
-        margin-left: -50vw;
-        margin-right: -50vw;
-
+        margin-bottom: 30px;
         display: flex;
         align-items: center;
         justify-content: center;
-        padding-bottom: 20px;
     }
 
     .section-title {
@@ -1462,7 +1455,6 @@
         text-align: center;
         text-transform: uppercase;
         margin: 0;
-        margin-top: 20px;
     }
 
     .who-image {
@@ -1493,8 +1485,10 @@
             flex-direction: column;
 
             .title-main {
-                white-space: nowrap;
+                white-space: normal;
                 margin-bottom: 10px;
+                word-wrap: break-word;
+                overflow-wrap: break-word;
             }
 
             .subtitle {
@@ -1506,6 +1500,8 @@
                 font-weight: 800;
                 line-height: 40px;
                 text-transform: capitalize;
+                word-wrap: break-word;
+                overflow-wrap: break-word;
             }
         }
 
@@ -1517,10 +1513,99 @@
                 font-weight: 500;
                 line-height: 30px;
                 margin-bottom: 20px;
+                word-wrap: break-word;
+                overflow-wrap: break-word;
 
                 &:last-child {
                     margin-bottom: 0;
                 }
+            }
+        }
+    }
+
+    // Media query untuk tampilan responsif
+    @media (max-width: 991.98px) {
+        .section-title {
+            font-size: 32px;
+            line-height: 36px;
+        }
+
+        .who-content {
+            .who-title {
+                font-size: 26px;
+                line-height: 32px;
+
+                .subtitle {
+                    font-size: 20px;
+                    line-height: 28px;
+                }
+            }
+        }
+    }
+
+    // Media query untuk tampilan mobile
+    @media (max-width: 767.98px) {
+        margin-top: 50px;
+
+        .section-title-bg {
+            padding: 20px 0;
+        }
+
+        .section-title {
+            font-size: 28px;
+            line-height: 32px;
+        }
+
+        .who-content {
+            padding: 15px;
+
+            .who-title {
+                font-size: 24px;
+                line-height: 30px;
+
+                .subtitle {
+                    font-size: 18px;
+                    line-height: 24px;
+                }
+            }
+
+            .who-description p {
+                font-size: 16px;
+                line-height: 26px;
+            }
+        }
+    }
+
+    // Media query untuk tampilan sangat kecil
+    @media (max-width: 575.98px) {
+        margin-top: 30px;
+
+        .section-title {
+            font-size: 24px;
+            line-height: 28px;
+            padding: 0 10px;
+        }
+
+        .who-content {
+            padding: 10px;
+
+            .who-title {
+                font-size: 22px;
+                line-height: 28px;
+
+                .title-main {
+                    font-size: 20px;
+                }
+
+                .subtitle {
+                    font-size: 16px;
+                    line-height: 22px;
+                }
+            }
+
+            .who-description p {
+                font-size: 14px;
+                line-height: 22px;
             }
         }
     }
@@ -1732,6 +1817,116 @@
                 font-weight: 600;
                 line-height: 40px;
                 text-transform: uppercase;
+            }
+
+            .card-image {
+                max-width: 100%;
+                height: auto;
+                margin-top: 15px;
+            }
+        }
+    }
+
+    // Media query untuk tampilan responsif
+    @media (max-width: 991.98px) {
+        background-color: #fff; // Ubah background menjadi putih pada tampilan responsif
+        margin-top: -200px; // Kurangi margin atas
+        padding-bottom: 70px; // Kurangi padding bawah
+
+        .container {
+            padding-top: 150px; // Kurangi padding atas
+        }
+
+        .cards-wrapper {
+            flex-direction: column; // Ubah ke vertikal pada tampilan responsif
+            gap: 20px; // Kurangi gap antar card
+
+            .card {
+                min-height: 180px; // Kurangi tinggi minimum
+                padding: 25px; // Kurangi padding
+
+                &.dark-card {
+                    background: #1e1e1e; // Tetap pertahankan warna asli
+
+                    .card-title {
+                        color: #fff; // Tetap pertahankan warna asli
+                    }
+
+                    &:hover {
+                        box-shadow: 0px 4px 15px 5px rgba(189, 160, 105, 0.7); // Kurangi intensitas shadow
+                    }
+                }
+
+                &.light-card {
+                    background: #ccb78f; // Tetap pertahankan warna asli
+
+                    &:hover {
+                        box-shadow: 0px 4px 15px 5px rgba(255, 255, 255, 0.7); // Kurangi intensitas shadow
+                    }
+                }
+
+                .card-title {
+                    font-size: 18px; // Kurangi ukuran font
+                    line-height: 30px; // Kurangi line height
+                }
+
+                .card-image {
+                    max-width: 80%; // Kurangi ukuran gambar
+                    margin-top: 10px; // Kurangi margin atas
+                }
+            }
+        }
+    }
+
+    // Media query untuk tampilan mobile
+    @media (max-width: 767.98px) {
+        margin-top: -180px; // Kurangi margin atas
+        padding-bottom: 60px; // Kurangi padding bawah
+
+        .container {
+            padding-top: 130px; // Kurangi padding atas
+        }
+
+        .cards-wrapper {
+            gap: 15px; // Kurangi gap antar card lagi
+
+            .card {
+                min-height: 160px; // Kurangi tinggi minimum lagi
+                padding: 20px; // Kurangi padding lagi
+
+                .card-title {
+                    font-size: 16px; // Kurangi ukuran font lagi
+                    line-height: 26px; // Kurangi line height lagi
+                }
+            }
+        }
+    }
+
+    // Media query untuk tampilan sangat kecil
+    @media (max-width: 575.98px) {
+        margin-top: -150px; // Kurangi margin atas lagi
+        padding-bottom: 50px; // Kurangi padding bawah lagi
+
+        .container {
+            padding-top: 110px; // Kurangi padding atas lagi
+        }
+
+        .cards-wrapper {
+            gap: 10px; // Kurangi gap antar card lagi
+
+            .card {
+                min-height: 140px; // Kurangi tinggi minimum lagi
+                padding: 15px; // Kurangi padding lagi
+
+                .card-title {
+                    font-size: 14px; // Kurangi ukuran font lagi
+                    line-height: 22px; // Kurangi line height lagi
+                }
+
+                .card-image {
+                    max-width: 70%; // Kurangi ukuran gambar lagi
+                    margin-top: 8px; // Kurangi margin atas lagi
+                }
             }
         }
     }
