@@ -100,7 +100,7 @@
                         <span class="<?= (@$active_admin != null) ? 'text-black' : 'text-white' ?>">Admin</span>
                     </a>
                 </li>
-
+                <!-- 
                 <li class="<?= @$active_walletsetting ?>">
                     <a href="<?= BASE_URL ?>godmode/walletsetting" class="iq-waves-effect">
                         <i>
@@ -111,7 +111,7 @@
                         </i>
                         <span class="<?= (@$active_walletsetting != null) ? 'text-black' : 'text-white' ?>">Wallet Setting</span>
                     </a>
-                </li>
+                </li> -->
 
                 <?php if (in_array('message', $access)): ?>
                     <li class="<?= @$active_msg ?>">
