@@ -149,7 +149,7 @@
             <div class="cards-container">
                 <div class="row">
                     <!-- Card Kiri -->
-                    <div class="col-md-6">
+                    <div class="col-md-6 mb-3 mb-md-0">
                         <div class="custom-card">
                             <div class="divider"></div>
                             <p class="card-text">

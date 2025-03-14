@@ -14106,6 +14106,28 @@ p {
   margin: 10px auto 0;
   max-width: 700px;
 }
+@media (max-width: 767.98px) {
+  .earning-title {
+    padding: 15px 0;
+  }
+  .earning-title .title-wrapper .title {
+    font-size: 30px;
+    line-height: 40px;
+  }
+  .earning-title .title-wrapper .subtitle {
+    font-size: 18px;
+    line-height: 1.5;
+  }
+}
+@media (max-width: 575.98px) {
+  .earning-title .title-wrapper .title {
+    font-size: 24px;
+    line-height: 30px;
+  }
+  .earning-title .title-wrapper .subtitle {
+    font-size: 16px;
+  }
+}
 
 .earning-section {
   position: relative;
@@ -14121,6 +14143,7 @@ p {
   left: 0;
   width: 100%;
   height: 100%;
+  z-index: 1;
 }
 .earning-section .earning-bg video {
   width: 100%;
@@ -14201,6 +14224,62 @@ p {
   transform: translateY(-2px);
   box-shadow: 0px 4px 35px 8px #f7941d;
   color: #fff;
+}
+@media (max-width: 991.98px) {
+  .earning-section {
+    min-height: auto;
+    padding-bottom: 50px;
+  }
+  .earning-section .earning-bg {
+    height: 100%;
+  }
+  .earning-section .earning-bg video {
+    height: 100%;
+  }
+  .earning-section .container {
+    padding: 50px 15px 0;
+  }
+  .earning-section .cards-container {
+    padding: 15px 0;
+  }
+  .earning-section .cards-container .custom-card {
+    padding: 1.5rem;
+    min-height: 350px;
+  }
+}
+@media (max-width: 767.98px) {
+  .earning-section .container {
+    padding: 30px 10px 0;
+  }
+  .earning-section .earning-bg video {
+    object-fit: cover;
+  }
+  .earning-section .cards-container {
+    padding: 10px 0;
+  }
+  .earning-section .cards-container .custom-card {
+    padding: 1rem;
+    min-height: 300px;
+    margin-bottom: 0.75rem;
+  }
+  .earning-section .cards-container .card-text {
+    font-size: 18px;
+  }
+  .earning-section .cta {
+    font-size: 15px;
+    padding: 10px 20px;
+  }
+}
+@media (max-width: 575.98px) {
+  .earning-section .cards-container .custom-card {
+    padding: 0.75rem;
+    min-height: 250px;
+    box-shadow: 0px 4px 10px 5px #fff;
+  }
+  .earning-section .cards-container .card-text {
+    font-size: 16px;
+    line-height: 1.5;
+  }
 }
 
 /*----------------------------------------------------------
