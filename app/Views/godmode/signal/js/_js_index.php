@@ -27,11 +27,53 @@
         function updateButtonStatus() {
             // Periksa status untuk setiap baris
             ['a', 'b', 'c', 'd'].forEach(letter => {
-                const buyStatus = $(`#buy-${letter}`).closest('tr').find('.signal-status').text().trim().toLowerCase();
-                const sellStatus = $(`#sell-${letter}`).closest('tr').find('.signal-status').text().trim().toLowerCase();
+                const buyInput = $(`#buy-${letter}`);
+                const buyValue = buyInput.val();
+                const buyStatus = buyInput.closest('tr').find('.signal-status').text().trim().toLowerCase();
+                const sellInput = $(`#sell-${letter}`);
+                const sellValue = sellInput.val();
+                const sellStatus = sellInput.closest('tr').find('.signal-status').text().trim().toLowerCase();
+                const delBuyBtn = $(`#del-buy-${letter}`);
+                const delSellBtn = $(`#del-sell-${letter}`);
 
                 console.log(`Buy ${letter.toUpperCase()} status:`, buyStatus);
+                console.log(`Buy ${letter.toUpperCase()} value:`, buyValue);
                 console.log(`Sell ${letter.toUpperCase()} status:`, sellStatus);
+                console.log(`Sell ${letter.toUpperCase()} value:`, sellValue);
+
+                // Atur tombol DEL BUY berdasarkan nilai input
+                if (!buyValue || buyValue === '') {
+                    // Jika field kosong, disable tombol DEL dan ubah warna menjadi abu-abu
+                    delBuyBtn.prop('disabled', true).addClass('disabled-btn').css({
+                        'border-color': '#6c757d',
+                        'color': '#6c757d',
+                        'cursor': 'not-allowed'
+                    });
+                } else {
+                    // Jika field sudah terisi, enable tombol DEL dan kembalikan warna merah
+                    delBuyBtn.prop('disabled', false).removeClass('disabled-btn').css({
+                        'border-color': '#f80d0d',
+                        'color': '#ffffff',
+                        'cursor': 'pointer'
+                    });
+                }
+
+                // Atur tombol DEL SELL berdasarkan nilai input
+                if (!sellValue || sellValue === '') {
+                    // Jika field kosong, disable tombol DEL dan ubah warna menjadi abu-abu
+                    delSellBtn.prop('disabled', true).addClass('disabled-btn').css({
+                        'border-color': '#6c757d',
+                        'color': '#6c757d',
+                        'cursor': 'not-allowed'
+                    });
+                } else {
+                    // Jika field sudah terisi, enable tombol DEL dan kembalikan warna merah
+                    delSellBtn.prop('disabled', false).removeClass('disabled-btn').css({
+                        'border-color': '#f80d0d',
+                        'color': '#ffffff',
+                        'cursor': 'pointer'
+                    });
+                }
 
                 // Atur tombol FILL berdasarkan status
                 if (buyStatus === 'filled') {
@@ -65,6 +107,52 @@
         // Panggil fungsi saat halaman dimuat
         updateButtonStatus();
 
+        // Tambahkan event listener untuk input harga BUY
+        $('#buy-a, #buy-b, #buy-c, #buy-d').on('input', function() {
+            const letter = $(this).attr('id').replace('buy-', '');
+            const value = $(this).val();
+            const delBtn = $(`#del-buy-${letter}`);
+
+            if (!value || value === '') {
+                // Jika field kosong, disable tombol DEL dan ubah warna menjadi abu-abu
+                delBtn.prop('disabled', true).addClass('disabled-btn').css({
+                    'border-color': '#6c757d',
+                    'color': '#6c757d',
+                    'cursor': 'not-allowed'
+                });
+            } else {
+                // Jika field sudah terisi, enable tombol DEL dan kembalikan warna merah
+                delBtn.prop('disabled', false).removeClass('disabled-btn').css({
+                    'border-color': '#f80d0d',
+                    'color': '#ffffff',
+                    'cursor': 'pointer'
+                });
+            }
+        });
+
+        // Tambahkan event listener untuk input harga SELL
+        $('#sell-a, #sell-b, #sell-c, #sell-d').on('input', function() {
+            const letter = $(this).attr('id').replace('sell-', '');
+            const value = $(this).val();
+            const delBtn = $(`#del-sell-${letter}`);
+
+            if (!value || value === '') {
+                // Jika field kosong, disable tombol DEL dan ubah warna menjadi abu-abu
+                delBtn.prop('disabled', true).addClass('disabled-btn').css({
+                    'border-color': '#6c757d',
+                    'color': '#6c757d',
+                    'cursor': 'not-allowed'
+                });
+            } else {
+                // Jika field sudah terisi, enable tombol DEL dan kembalikan warna merah
+                delBtn.prop('disabled', false).removeClass('disabled-btn').css({
+                    'border-color': '#f80d0d',
+                    'color': '#ffffff',
+                    'cursor': 'pointer'
+                });
+            }
+        });
+
         // Pastikan tombol sell tidak disabled jika sudah ada nilai buy yang diinput
         if ($('#buy-a').val() && $('#buy-a').prop('disabled')) {
             const buyStatusA = $('#buy-a').closest('tr').find('.signal-status').text().trim().toLowerCase();
@@ -94,6 +182,21 @@
                 $('#send-sell-d').removeAttr('disabled');
             }
         }
+
+        // Inisialisasi status tombol DEL saat halaman pertama kali dimuat
+        ['a', 'b', 'c', 'd'].forEach(letter => {
+            const buyInput = $(`#buy-${letter}`);
+            const buyValue = buyInput.val();
+            const delBtn = $(`#del-buy-${letter}`);
+
+            if (!buyValue || buyValue === '') {
+                // Jika field kosong, disable tombol DEL dan ubah warna menjadi abu-abu
+                delBtn.prop('disabled', true).addClass('disabled-btn');
+            } else {
+                // Jika field sudah terisi, enable tombol DEL dan kembalikan warna merah
+                delBtn.prop('disabled', false).removeClass('disabled-btn');
+            }
+        });
 
         // Fungsi untuk menghitung nilai buy berdasarkan aturan bisnis
         function calculateBuyValues(initialCapital) {
@@ -174,6 +277,9 @@
                         $("#send-buy-a").attr('disabled', true);
                         $('#cancel-buy-a').removeAttr('disabled');
                         $("#buy-date-a").text('<?= date('d/m/y | H:i') ?>');
+
+                        // Aktifkan tombol DEL karena sekarang ada nilai
+                        $("#del-buy-a").prop('disabled', false).removeClass('disabled-btn');
 
                         // Jika ada ID dalam respons, tambahkan sebagai pair_id ke baris
                         if (result.id) {
@@ -285,6 +391,9 @@
                         $("#send-buy-b").attr('disabled', true);
                         $('#cancel-buy-b').removeAttr('disabled');
                         $("#buy-date-b").text('<?= date('d/m/y | H:i') ?>');
+
+                        // Aktifkan tombol DEL karena sekarang ada nilai
+                        $("#del-buy-b").prop('disabled', false).removeClass('disabled-btn');
 
                         // Jika ada ID dalam respons, tambahkan sebagai pair_id ke baris
                         if (result.id) {
@@ -398,6 +507,9 @@
                         $('#cancel-buy-c').removeAttr('disabled');
                         $("#buy-date-c").text('<?= date('d/m/y | H:i') ?>');
 
+                        // Aktifkan tombol DEL karena sekarang ada nilai
+                        $("#del-buy-c").prop('disabled', false).removeClass('disabled-btn');
+
                         // Jika ada ID dalam respons, tambahkan sebagai pair_id ke baris
                         if (result.id) {
                             $("#send-buy-c").closest('tr').attr('data-pair-id', result.id);
@@ -506,6 +618,9 @@
                         $("#send-buy-d").attr('disabled', true);
                         $('#cancel-buy-d').removeAttr('disabled');
                         $("#buy-date-d").text('<?= date('d/m/y | H:i') ?>');
+
+                        // Aktifkan tombol DEL karena sekarang ada nilai
+                        $("#del-buy-d").prop('disabled', false).removeClass('disabled-btn');
 
                         // Jika ada ID dalam respons, tambahkan sebagai pair_id ke baris
                         if (result.id) {
@@ -624,7 +739,7 @@
             // Hanya bisa FILL jika status New atau Pending
             if (currentStatus !== 'new' && currentStatus !== 'pending') {
                 Swal.fire({
-                    text: 'Hanya signal dengan status New atau Pending yang dapat di-Fill',
+                    text: 'Only signals with New or Pending status can be filled',
                     showCloseButton: true,
                     showConfirmButton: false,
                     background: '#FFE4DC',
@@ -644,8 +759,8 @@
                 showCancelButton: true,
                 confirmButtonColor: '#3085d6',
                 cancelButtonColor: '#d33',
-                confirmButtonText: 'Yes, fill!',
-                cancelButtonText: 'Batal'
+                confirmButtonText: 'Yes, fill it!',
+                cancelButtonText: 'Cancel'
             }).then((result) => {
                 if (result.isConfirmed) {
                     // Kirim data ke server
@@ -763,7 +878,7 @@
             if (!price || isNaN(parseFloat(price)) || parseFloat(price) <= 0) {
                 console.log('Validasi harga gagal:', price);
                 Swal.fire({
-                    text: 'Harga harus berupa angka yang valid',
+                    text: 'Price must be a valid number',
                     showCloseButton: true,
                     showConfirmButton: false,
                     background: '#FFE4DC',
@@ -835,13 +950,13 @@
             // Konfirmasi sebelum mengirim SELL
             Swal.fire({
                 title: 'Confirmation',
-                text: `Are you sure you want to sell ${signalType} at price ${parseFloat(price).toLocaleString('id-ID')}?`,
+                text: `Are you sure you want to sell ${signalType} at price ${parseFloat(price).toLocaleString('en-US')}?`,
                 icon: 'question',
                 showCancelButton: true,
                 confirmButtonColor: '#3085d6',
                 cancelButtonColor: '#d33',
-                confirmButtonText: 'Yes, sell!',
-                cancelButtonText: 'Batal'
+                confirmButtonText: 'Yes, sell it!',
+                cancelButtonText: 'Cancel'
             }).then((result) => {
                 if (result.isConfirmed) {
                     // Kirim data ke server
@@ -938,17 +1053,35 @@
 
             // Dapatkan ID tombol untuk menentukan tipe signal
             const buttonId = $(this).attr('id');
-            const signalType = buttonId.replace('del-', '').replace('-', ' ').toUpperCase();
+            const signalLetter = buttonId.replace('del-buy-', '').toUpperCase();
+
+            // Dapatkan ID signal dari data-pair-id pada baris
+            const signalId = $(this).closest('tr').data('pair-id');
+
+            // Jika tidak ada signal ID, tampilkan pesan error
+            if (!signalId) {
+                Swal.fire({
+                    text: 'Cannot find signal ID',
+                    showCloseButton: true,
+                    showConfirmButton: false,
+                    background: '#FFE4DC',
+                    color: '#000000',
+                    position: 'top-end',
+                    timer: 3000,
+                    timerProgressBar: true,
+                });
+                return;
+            }
 
             // Konfirmasi penghapusan
             Swal.fire({
                 title: 'Confirmation',
-                text: 'Are you sure you want to delete this signal?',
+                text: `Are you sure you want to delete Buy ${signalLetter} signal?`,
                 icon: 'warning',
                 showCancelButton: true,
                 confirmButtonColor: '#d33',
                 cancelButtonColor: '#3085d6',
-                confirmButtonText: 'Yes, delete!',
+                confirmButtonText: 'Yes, delete it!',
                 cancelButtonText: 'Cancel'
             }).then((result) => {
                 if (result.isConfirmed) {
@@ -957,7 +1090,7 @@
                         url: '<?= BASE_URL ?>godmode/signal/deletesignal',
                         type: 'POST',
                         data: {
-                            type: signalType
+                            id_signal: signalId
                         },
                         success: function(ress) {
                             // Parse Data
@@ -970,8 +1103,20 @@
                                 const priceInput = row.find('.signal-price');
                                 const statusElement = row.find('.signal-status');
 
+                                // Reset nilai input dan status
+                                priceInput.val('');
                                 priceInput.prop('readonly', false);
                                 statusElement.text('Pending');
+
+                                // Reset data-pair-id
+                                row.removeAttr('data-pair-id');
+
+                                // Enable tombol BUY
+                                row.find(`#send-buy-${signalLetter.toLowerCase()}`).prop('disabled', false);
+
+                                // Disable tombol SELL yang sesuai
+                                $(`#sell-${signalLetter.toLowerCase()}`).prop('readonly', true);
+                                $(`#send-sell-${signalLetter.toLowerCase()}`).prop('disabled', true);
 
                                 // Sweet Alert
                                 Swal.fire({
@@ -984,6 +1129,9 @@
                                     timer: 3000,
                                     timerProgressBar: true,
                                 });
+
+                                // Refresh tabel history
+                                $('#table_message').DataTable().ajax.reload();
                             } else {
                                 // Sweet Alert
                                 Swal.fire({
@@ -1022,17 +1170,35 @@
 
             // Dapatkan ID tombol untuk menentukan tipe signal
             const buttonId = $(this).attr('id');
-            const signalType = buttonId.replace('del-', '').replace('-', ' ').toUpperCase();
+            const signalLetter = buttonId.replace('del-sell-', '').toUpperCase();
+
+            // Dapatkan ID signal dari data-pair-id pada baris
+            const signalId = $(this).closest('tr').data('pair-id');
+
+            // Jika tidak ada signal ID, tampilkan pesan error
+            if (!signalId) {
+                Swal.fire({
+                    text: 'Cannot find signal ID',
+                    showCloseButton: true,
+                    showConfirmButton: false,
+                    background: '#FFE4DC',
+                    color: '#000000',
+                    position: 'top-end',
+                    timer: 3000,
+                    timerProgressBar: true,
+                });
+                return;
+            }
 
             // Konfirmasi penghapusan
             Swal.fire({
                 title: 'Confirmation',
-                text: 'Are you sure you want to delete this signal?',
+                text: `Are you sure you want to delete Sell ${signalLetter} signal?`,
                 icon: 'warning',
                 showCancelButton: true,
                 confirmButtonColor: '#d33',
                 cancelButtonColor: '#3085d6',
-                confirmButtonText: 'Yes, delete!',
+                confirmButtonText: 'Yes, delete it!',
                 cancelButtonText: 'Cancel'
             }).then((result) => {
                 if (result.isConfirmed) {
@@ -1041,7 +1207,7 @@
                         url: '<?= BASE_URL ?>godmode/signal/deletesignal',
                         type: 'POST',
                         data: {
-                            type: signalType
+                            id_signal: signalId
                         },
                         success: function(ress) {
                             // Parse Data
@@ -1054,6 +1220,8 @@
                                 const priceInput = row.find('.signal-price');
                                 const statusElement = row.find('.signal-status');
 
+                                // Reset nilai input
+                                priceInput.val('');
                                 priceInput.prop('readonly', true);
                                 statusElement.text('Pending');
 
@@ -1068,6 +1236,9 @@
                                     timer: 3000,
                                     timerProgressBar: true,
                                 });
+
+                                // Refresh tabel history
+                                $('#table_message').DataTable().ajax.reload();
                             } else {
                                 // Sweet Alert
                                 Swal.fire({

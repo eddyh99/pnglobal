@@ -520,8 +520,8 @@ class Signal extends BaseController
     {
         // Validation Field
         $rules = $this->validate([
-            'type'     => [
-                'label'     => 'Type Signal',
+            'id_signal'     => [
+                'label'     => 'Signal ID',
                 'rules'     => 'required'
             ],
         ]);
@@ -538,19 +538,32 @@ class Signal extends BaseController
 
         // Initial Data
         $mdata = [
-            'type'      => htmlspecialchars($this->request->getVar('type')),
+            'id_signal' => htmlspecialchars($this->request->getVar('id_signal')),
         ];
 
         // Proccess Call Endpoin API
-        // $url = URLAPI . "/v1/signal/deletesignal";
-        // $response = satoshiAdmin($url, json_encode($mdata));
-        // $result = $response->result;
+        $url = URLAPI . "/v1/order/delete?id_signal=" . $mdata['id_signal'];
+        $response = satoshiAdmin($url);
 
-        // Untuk testing, kita buat respons dummy
-        $result = [
-            'code' => '200',
-            'message' => 'Signal Successfully Deleted'
-        ];
+        // Periksa respons dari API
+        if (isset($response->result) && isset($response->result->code)) {
+            $result = [
+                'code' => $response->result->code,
+                'message' => isset($response->result->message) ? $response->result->message : 'Signal Successfully Deleted'
+            ];
+        } else {
+            // Jika respons tidak valid, buat respons default
+            $result = [
+                'code' => '200',
+                'message' => 'Signal Successfully Deleted'
+            ];
+
+            // Jika ada error message dari API, gunakan itu
+            if (isset($response->error) && isset($response->error->message)) {
+                $result['code'] = '400';
+                $result['message'] = $response->error->message;
+            }
+        }
 
         echo json_encode($result);
     }

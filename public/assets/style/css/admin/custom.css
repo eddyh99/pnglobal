@@ -1703,6 +1703,14 @@ div.dataTables_wrapper div.dataTables_filter input {
     color: #ffffff;
 }
 
+.btn-del:disabled,
+.btn-del.disabled-btn {
+    border: 2px solid #6c757d;
+    background-color: transparent;
+    color: #6c757d;
+    cursor: not-allowed;
+}
+
 /* Responsif */
 @media (max-width: 768px) {
     .signal-table th {
