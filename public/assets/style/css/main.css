@@ -13799,8 +13799,8 @@ p {
   padding: 2rem;
 }
 .newsletter .newsletter-content .newsletter-text .col-md-6:last-child {
-  text-align: center;
-  padding-right: 0;
+  text-align: left;
+  padding-right: 110px;
   padding-left: 0;
 }
 .newsletter .newsletter-content .newsletter-text .countdown {
@@ -13810,6 +13810,7 @@ p {
   font-style: normal;
   font-weight: 800;
   line-height: 35px;
+  text-align: left;
 }
 .newsletter .newsletter-content .newsletter-text .description,
 .newsletter .newsletter-content .newsletter-text .highlight {
@@ -13819,6 +13820,7 @@ p {
   font-style: normal;
   font-weight: 500;
   line-height: 35px;
+  text-align: left;
 }
 .newsletter .newsletter-content .newsletter-text .highlight-1 {
   color: #bda069;
@@ -13827,6 +13829,7 @@ p {
   font-style: normal;
   font-weight: 600;
   line-height: 35px;
+  text-align: left;
 }
 .newsletter .newsletter-content .mt-4 .col-md-6:last-child {
   position: relative;
@@ -13840,7 +13843,7 @@ p {
   position: absolute;
   top: 0;
   left: 0;
-  right: 0;
+  right: 75px;
   bottom: 0;
   background: linear-gradient(180deg, rgba(189, 160, 105, 0.54) 0%, rgba(87, 74, 48, 0.54) 80.1%);
   z-index: -1;
@@ -13848,8 +13851,8 @@ p {
 .newsletter .newsletter-content .mt-4 .col-md-6:last-child .opportunity,
 .newsletter .newsletter-content .mt-4 .col-md-6:last-child .signup,
 .newsletter .newsletter-content .mt-4 .col-md-6:last-child .btn {
-  padding-left: 0;
-  padding-right: 0;
+  padding-left: 46px;
+  padding-right: 126px;
   margin: 0 auto;
   display: block;
   max-width: 600px;
@@ -13875,8 +13878,8 @@ p {
   display: flex;
   justify-content: center;
   width: 100%;
-  padding-left: 0;
-  padding-right: 0;
+  padding-left: 46px;
+  padding-right: 126px;
 }
 .newsletter .newsletter-content .mt-4 .col-md-6:last-child .button-wrapper .btn.custom-btn {
   margin: 35px auto;
@@ -13898,14 +13901,171 @@ p {
 }
 @media (max-width: 767.98px) {
   .newsletter .newsletter-content {
-    padding-bottom: 0;
+    padding-bottom: 0 !important;
   }
   .newsletter .newsletter-bg video {
-    object-fit: contain;
-    object-position: center;
+    object-fit: contain !important;
+    object-position: center !important;
+  }
+  .newsletter .newsletter-text .col-md-6:last-child {
+    text-align: center !important;
+    padding-right: 0 !important;
+  }
+  .newsletter .newsletter-text .countdown,
+  .newsletter .newsletter-text .description,
+  .newsletter .newsletter-text .highlight,
+  .newsletter .newsletter-text .highlight-1 {
+    text-align: center !important;
+  }
+  .newsletter .mt-4 {
+    width: 100% !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+  .newsletter .mt-4 .row {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    width: 100% !important;
+  }
+  .newsletter .mt-4 .col-md-6 {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+  .newsletter .mt-4 .col-md-6:last-child {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    flex: 0 0 100% !important;
+  }
+  .newsletter .mt-4 .col-md-6:last-child::before {
+    right: 0 !important;
+    left: 0 !important;
+  }
+  .newsletter .mt-4 .col-md-6:last-child .opportunity,
+  .newsletter .mt-4 .col-md-6:last-child .signup,
+  .newsletter .mt-4 .col-md-6:last-child .btn {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    max-width: 100% !important;
+    width: 100% !important;
+  }
+  .newsletter .mt-4 .col-md-6:last-child .button-wrapper {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    width: 100% !important;
   }
   .newsletter .mt-4 .col-md-6:last-child .button-wrapper .btn.custom-btn {
-    min-width: 400px;
+    margin: 20px auto !important;
+    min-width: 80% !important;
+    max-width: 80% !important;
+    font-size: 20px !important;
+    padding: 15px 10px !important;
+  }
+}
+@media (max-width: 599px) {
+  .newsletter .mt-4 {
+    width: 100% !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+  .newsletter .mt-4 .row {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    width: 100% !important;
+  }
+  .newsletter .mt-4 .col-md-6 {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+  .newsletter .mt-4 .col-md-6:last-child {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    flex: 0 0 100% !important;
+  }
+  .newsletter .mt-4 .col-md-6:last-child::before {
+    right: 0 !important;
+    left: 0 !important;
+  }
+  .newsletter .mt-4 .col-md-6:last-child .opportunity,
+  .newsletter .mt-4 .col-md-6:last-child .signup,
+  .newsletter .mt-4 .col-md-6:last-child .btn {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    max-width: 100% !important;
+    width: 100% !important;
+  }
+  .newsletter .mt-4 .col-md-6:last-child .button-wrapper {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    width: 100% !important;
+  }
+  .newsletter .mt-4 .col-md-6:last-child .button-wrapper .btn.custom-btn {
+    margin: 20px auto !important;
+    min-width: 85% !important;
+    max-width: 85% !important;
+    font-size: 22px !important;
+  }
+}
+@media (max-width: 430px) {
+  .newsletter .mt-4 {
+    width: 100% !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+  .newsletter .mt-4 .row {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    width: 100% !important;
+  }
+  .newsletter .mt-4 .col-md-6 {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+  .newsletter .mt-4 .col-md-6:last-child {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    flex: 0 0 100% !important;
+  }
+  .newsletter .mt-4 .col-md-6:last-child::before {
+    right: 0 !important;
+    left: 0 !important;
+  }
+  .newsletter .mt-4 .col-md-6:last-child .opportunity,
+  .newsletter .mt-4 .col-md-6:last-child .signup,
+  .newsletter .mt-4 .col-md-6:last-child .btn {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    max-width: 100% !important;
+    width: 100% !important;
+  }
+  .newsletter .mt-4 .col-md-6:last-child .button-wrapper {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    width: 100% !important;
+  }
+  .newsletter .mt-4 .col-md-6:last-child .button-wrapper .btn.custom-btn {
+    margin: 20px auto !important;
+    min-width: 90% !important;
+    max-width: 90% !important;
+    font-size: 24px !important;
+    padding: 15px 5px !important;
   }
 }
 
