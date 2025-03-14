@@ -56,7 +56,7 @@
     <!-- Start Of Why Choose -->
     <section class="why-choose">
         <div class="row align-items-center">
-            <div class="col-12 col-lg-6">
+            <div class="col-12 col-lg-6 order-lg-first text-column">
                 <h2 class="why-title">Why Choose PN Global</h2>
                 <p class="why-desc">
                     In a constantly evolving financial world, protecting and growing your capital requires smart and tailored strategies. With PN Global International, access strategic consulting to reduce your tax burden, protect your assets, and create investment packages customized for your needs.
@@ -65,16 +65,13 @@
                     Choose PN Global and discover how we can help you to achieve your financial goals.
                 </p>
             </div>
-            <div class="col-12 col-lg-6">
+            <div class="col-12 col-lg-6 order-lg-last image-column">
                 <div class="why-image-container">
-                    <img src="<?php echo BASE_URL; ?>assets/img/why-choose.webp"
-                        alt="Why Choose PN Global"
-                        class="img-fluid object-fit-cover">
+                    <img src="<?php echo BASE_URL; ?>assets/img/why-choose.webp" alt="Why Choose PN Global" class="img-fluid object-fit-cover">
                 </div>
             </div>
         </div>
-        <div class="container">
-        </div>
+        <div class="container"></div> <!-- Bisa dihapus jika tidak digunakan -->
     </section>
     <!-- End Of Why -->
 
