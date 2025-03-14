@@ -13727,11 +13727,14 @@ p {
   width: 100%;
   min-height: 100vh;
   overflow-x: hidden;
+  background-color: #fff;
 }
 .newsletter .newsletter-bg {
   position: absolute;
   width: 100%;
   height: 100%;
+  top: 0;
+  left: 0;
 }
 .newsletter .newsletter-bg::after {
   content: "";
@@ -13739,13 +13742,15 @@ p {
   top: 0;
   left: 0;
   width: 100%;
-  height: 100vh;
+  height: 100%;
   z-index: 2;
+  background: rgba(0, 0, 0, 0.5);
 }
 .newsletter .newsletter-bg video {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center;
   position: absolute;
   top: 0;
   left: 0;
@@ -13761,8 +13766,7 @@ p {
   padding-bottom: 10rem;
 }
 .newsletter .newsletter-content .bg-title-something-big {
-  background: url("../../img/bg-title-something-big.png") no-repeat center center;
-  background-size: cover;
+  background-color: #fff;
   padding: 2rem;
 }
 .newsletter .newsletter-content header {
@@ -13774,37 +13778,30 @@ p {
 .newsletter .newsletter-content header h1 {
   margin: 0;
   font-size: 35px;
-  font-weight: 800px;
+  font-weight: 800;
   line-height: 50px;
+  color: #000;
 }
-.newsletter .newsletter-content header .lead {
+.newsletter .newsletter-content .lead-wrapper .lead {
   margin: 0.5rem 0 0;
   text-transform: capitalize;
-  color: #000;
   font-family: "Noto Serif", serif;
   font-size: 25px;
   font-style: normal;
   font-weight: 800;
   line-height: 35px;
   text-align: center;
-}
-.newsletter .newsletter-content header .lead .text-white {
   color: #fff;
-  font-family: "Noto Serif", serif;
-  font-size: 25px;
-  font-style: normal;
-  font-weight: 800;
-  line-height: 35px;
-  display: block;
-  margin-top: 0.25rem;
+  background: none;
 }
 .newsletter .newsletter-content .newsletter-text {
   width: 100%;
   padding: 2rem;
 }
 .newsletter .newsletter-content .newsletter-text .col-md-6:last-child {
-  text-align: left;
-  padding-right: 110px;
+  text-align: center;
+  padding-right: 0;
+  padding-left: 0;
 }
 .newsletter .newsletter-content .newsletter-text .countdown {
   color: #bda069;
@@ -13834,7 +13831,7 @@ p {
 .newsletter .newsletter-content .mt-4 .col-md-6:last-child {
   position: relative;
   padding-top: 2rem;
-  margin-left: -25px;
+  margin-left: 0;
   padding-bottom: 2rem;
   text-align: center;
 }
@@ -13843,7 +13840,7 @@ p {
   position: absolute;
   top: 0;
   left: 0;
-  right: 75px;
+  right: 0;
   bottom: 0;
   background: linear-gradient(180deg, rgba(189, 160, 105, 0.54) 0%, rgba(87, 74, 48, 0.54) 80.1%);
   z-index: -1;
@@ -13851,8 +13848,11 @@ p {
 .newsletter .newsletter-content .mt-4 .col-md-6:last-child .opportunity,
 .newsletter .newsletter-content .mt-4 .col-md-6:last-child .signup,
 .newsletter .newsletter-content .mt-4 .col-md-6:last-child .btn {
-  padding-left: 46px;
-  padding-right: 126px;
+  padding-left: 0;
+  padding-right: 0;
+  margin: 0 auto;
+  display: block;
+  max-width: 600px;
 }
 .newsletter .newsletter-content .mt-4 .col-md-6:last-child .opportunity {
   color: #fff;
@@ -13875,8 +13875,8 @@ p {
   display: flex;
   justify-content: center;
   width: 100%;
-  padding-left: 46px;
-  padding-right: 126px;
+  padding-left: 0;
+  padding-right: 0;
 }
 .newsletter .newsletter-content .mt-4 .col-md-6:last-child .button-wrapper .btn.custom-btn {
   margin: 35px auto;
@@ -13895,6 +13895,18 @@ p {
 }
 .newsletter .newsletter-content .mt-4 .col-md-6:last-child .button-wrapper .btn.custom-btn:hover {
   background-color: #fff;
+}
+@media (max-width: 767.98px) {
+  .newsletter .newsletter-content {
+    padding-bottom: 0;
+  }
+  .newsletter .newsletter-bg video {
+    object-fit: contain;
+    object-position: center;
+  }
+  .newsletter .mt-4 .col-md-6:last-child .button-wrapper .btn.custom-btn {
+    min-width: 400px;
+  }
 }
 
 /*----------------------------------------------------------

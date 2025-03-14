@@ -79,7 +79,7 @@
     <section class="newsletter position-relative container-fluid p-0">
         <!-- Background with image -->
         <div class="newsletter-bg">
-            <video autoplay loop muted playsinline class="img-fluid">
+            <video autoplay loop muted playsinline class="img-fluid" id="newsletter-video">
                 <source src="<?php echo BASE_URL; ?>assets/vid/bg-newsletter.mp4" type="video/mp4">
             </video>
         </div>
@@ -89,10 +89,10 @@
             <div class="bg-title-something-big">
                 <header>
                     <h1>Something Big and Sensational is About to Arrive!</h1>
-                    <p class="lead">Are you ready for a once-in-a-lifetime opportunity available to just a few?<br>
-                        <span class="text-white">Get ready to be amazed!</span>
-                    </p>
                 </header>
+            </div>
+            <div class="lead-wrapper">
+                <p class="lead">Are you ready for a once-in-a-lifetime opportunity available to just a few?<br>Get ready to be amazed!</p>
             </div>
 
             <section class="newsletter-text">
@@ -104,7 +104,6 @@
                         <p class="countdown">The countdown has begun!</p>
                         <p class="description">In April, PN Global will reveal a secret that will radically transform your financial life. A new service, available only to a limited number of users, that will exceed your expectations.</p>
                         <p class="highlight">Forget risky investments and long working hours; with our new tool, you can generate extra income effortlessly, with zero risk to your capital and maintaining full control without having to entrust your money to anyone. <br><span class="highlight-1">You will comfortably see your money multiply automatically!</span></p>
-
                     </div>
                 </div>
             </section>

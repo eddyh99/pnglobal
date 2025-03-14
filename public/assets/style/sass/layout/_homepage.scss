@@ -497,11 +497,14 @@
     width: 100%;
     min-height: 100vh;
     overflow-x: hidden;
+    background-color: #fff;
 
     .newsletter-bg {
         position: absolute;
         width: 100%;
-        height: 100%;
+        height: 100%; // Full height sesuai section
+        top: 0;
+        left: 0;
 
         &::after {
             content: '';
@@ -509,14 +512,16 @@
             top: 0;
             left: 0;
             width: 100%;
-            height: 100vh;
+            height: 100%; // Sesuaikan dengan tinggi .newsletter-bg
             z-index: 2;
+            background: rgba(0, 0, 0, 0.5); // Opacity untuk teks lebih terbaca
         }
 
         video {
             width: 100%;
             height: 100%;
-            object-fit: cover;
+            object-fit: cover; // Memenuhi area sambil mempertahankan aspek rasio
+            object-position: center; // Memusatkan jam pasir
             position: absolute;
             top: 0;
             left: 0;
@@ -530,19 +535,16 @@
         z-index: 2;
         display: flex;
         flex-direction: column;
-        min-height: 100vh; // Tambahkan ini
-        padding-bottom: 10rem; // Tambahkan padding bawah
+        min-height: 100vh;
+        padding-bottom: 10rem; // Kembalikan padding bottom untuk resolusi besar
 
         .bg-title-something-big {
-            background: url('../../img/bg-title-something-big.png') no-repeat
-                center center;
-            background-size: cover;
+            background-color: #fff; // Background putih hanya untuk "Something Big"
             padding: 2rem;
         }
 
         header {
             width: 100%;
-            // background-color: #bda069b0;
             padding: 1rem;
             text-align: center;
             text-transform: uppercase;
@@ -550,31 +552,24 @@
             h1 {
                 margin: 0;
                 font-size: 35px;
-                font-weight: 800px;
+                font-weight: 800;
                 line-height: 50px;
+                color: #000; // Teks "Something Big" berwarna hitam
             }
+        }
 
+        .lead-wrapper {
             .lead {
                 margin: 0.5rem 0 0;
                 text-transform: capitalize;
-                color: #000;
                 font-family: var.$f-noto;
                 font-size: 25px;
                 font-style: normal;
                 font-weight: 800;
                 line-height: 35px;
                 text-align: center;
-
-                .text-white {
-                    color: #fff;
-                    font-family: var.$f-noto;
-                    font-size: 25px;
-                    font-style: normal;
-                    font-weight: 800;
-                    line-height: 35px;
-                    display: block;
-                    margin-top: 0.25rem;
-                }
+                color: #fff; // Teks "Are you ready..." berwarna putih
+                background: none; // Tanpa background
             }
         }
 
@@ -583,8 +578,9 @@
             padding: 2rem;
 
             .col-md-6:last-child {
-                text-align: left;
-                padding-right: 110px;
+                text-align: center; // Rata tengah untuk semua teks
+                padding-right: 0; // Hapus padding tambahan
+                padding-left: 0; // Hapus padding tambahan
             }
 
             .countdown {
@@ -620,7 +616,7 @@
             .col-md-6:last-child {
                 position: relative;
                 padding-top: 2rem;
-                margin-left: -25px;
+                margin-left: 0; // Hapus offset negatif
                 padding-bottom: 2rem;
                 text-align: center;
 
@@ -629,7 +625,7 @@
                     position: absolute;
                     top: 0;
                     left: 0;
-                    right: 75px;
+                    right: 0; // Full width
                     bottom: 0;
                     background: linear-gradient(
                         180deg,
@@ -642,8 +638,11 @@
                 .opportunity,
                 .signup,
                 .btn {
-                    padding-left: 46px;
-                    padding-right: 126px;
+                    padding-left: 0;
+                    padding-right: 0;
+                    margin: 0 auto;
+                    display: block;
+                    max-width: 600px;
                 }
 
                 .opportunity {
@@ -665,44 +664,15 @@
                     margin-bottom: 1rem;
                 }
 
-                // .button-wrapper {
-                //     text-align: center;
-                //     padding-left: 46px;
-                //     padding-right: 126px;
-                // }
-
-                // .btn.custom-btn {
-                //     background: #BDA069;
-                //     box-shadow: 0px 4px 15px 10px #FFF;
-                //     color: #000;
-                //     font-family: var.$f-noto;
-                //     font-size: 20px;
-                //     font-weight: 700;
-                //     line-height: 25px;
-                //     padding: 8px 25px;
-                //     margin: 35px 0;
-                //     border: none;
-                //     display: flex;
-                //     align-items: center;
-                //     justify-content: center;
-                //     min-height: 70px;
-                //     text-align: center;
-                //     white-space: normal;
-
-                //     &:hover {
-                //         background: darken(#BDA069, 5%);
-                //     }
-                // }
-
                 .button-wrapper {
                     display: flex;
                     justify-content: center;
                     width: 100%;
-                    padding-left: 46px;
-                    padding-right: 126px;
+                    padding-left: 0;
+                    padding-right: 0;
 
                     .btn.custom-btn {
-                        margin: 35px auto; // Changed from 35px 0
+                        margin: 35px auto;
                         width: auto;
                         min-width: 350px;
                         display: flex;
@@ -721,6 +691,26 @@
                         }
                     }
                 }
+            }
+        }
+    }
+
+    // Media Query untuk responsivitas
+    @media (max-width: 767.98px) {
+        .newsletter-content {
+            padding-bottom: 0; // Hilangkan padding bottom hanya pada resolusi kecil
+        }
+
+        .newsletter-bg {
+            video {
+                object-fit: contain; // Pastikan seluruh video terlihat
+                object-position: center; // Memusatkan jam pasir pada resolusi kecil
+            }
+        }
+
+        .mt-4 .col-md-6:last-child {
+            .button-wrapper .btn.custom-btn {
+                min-width: 400px; // Besarkan tombol pada resolusi kecil
             }
         }
     }
