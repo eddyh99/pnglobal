@@ -76,7 +76,7 @@
                                                     </td>
                                                     <td>
                                                         <div class="signal-status">
-                                                            <?php echo (!empty($buy_a) ? $buy_a['status'] : 'Pending') ?>
+                                                            <?php echo (!empty($buy_a) ? $buy_a['status'] : '') ?>
                                                         </div>
                                                     </td>
                                                     <td>
@@ -99,7 +99,7 @@
                                                     </td>
                                                     <td>
                                                         <div class="signal-status">
-                                                            <?php echo (!empty($buy_b) ? $buy_b['status'] : 'Pending') ?>
+                                                            <?php echo (!empty($buy_b) ? $buy_b['status'] : '') ?>
                                                         </div>
                                                     </td>
                                                     <td>
@@ -122,7 +122,7 @@
                                                     </td>
                                                     <td>
                                                         <div class="signal-status">
-                                                            <?php echo (!empty($buy_c) ? $buy_c['status'] : 'Pending') ?>
+                                                            <?php echo (!empty($buy_c) ? $buy_c['status'] : '') ?>
                                                         </div>
                                                     </td>
                                                     <td>
@@ -145,7 +145,7 @@
                                                     </td>
                                                     <td>
                                                         <div class="signal-status">
-                                                            <?php echo (!empty($buy_d) ? $buy_d['status'] : 'Pending') ?>
+                                                            <?php echo (!empty($buy_d) ? $buy_d['status'] : '') ?>
                                                         </div>
                                                     </td>
                                                     <td>
@@ -189,7 +189,7 @@
                                                     </td>
                                                     <td>
                                                         <div class="signal-status">
-                                                            Pending
+                                                            <?php echo (!empty($buy_a) ? $buy_a['status'] : '') ?>
                                                         </div>
                                                     </td>
                                                     <td>
@@ -212,7 +212,7 @@
                                                     </td>
                                                     <td>
                                                         <div class="signal-status">
-                                                            Pending
+                                                            <?php echo (!empty($buy_b) ? $buy_b['status'] : '') ?>
                                                         </div>
                                                     </td>
                                                     <td>
@@ -235,7 +235,7 @@
                                                     </td>
                                                     <td>
                                                         <div class="signal-status">
-                                                            Pending
+                                                            <?php echo (!empty($buy_c) ? $buy_c['status'] : '') ?>
                                                         </div>
                                                     </td>
                                                     <td>
@@ -258,7 +258,7 @@
                                                     </td>
                                                     <td>
                                                         <div class="signal-status">
-                                                            Pending
+                                                            <?php echo (!empty($buy_d) ? $buy_d['status'] : '') ?>
                                                         </div>
                                                     </td>
                                                     <td>
