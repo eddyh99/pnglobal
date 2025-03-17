@@ -36,7 +36,7 @@
 
                 .title {
                     color: #d1b06b;
-                    font-family: var.$f-noto;
+                    font-family: var.$f-poppins;
                     font-size: 35px;
                     font-weight: 800;
                     line-height: 25px;
@@ -46,7 +46,7 @@
 
                 .subtitle {
                     color: #bfa573;
-                    font-family: var.$f-noto;
+                    font-family: var.$f-poppins;
                     font-size: 20px;
                     font-weight: 700;
                     line-height: 35px;
@@ -56,7 +56,7 @@
 
                 .description {
                     color: #fff;
-                    font-family: var.$f-noto;
+                    font-family: var.$f-poppins;
                     font-size: 20px;
                     font-weight: 500;
                     line-height: 30px;
@@ -65,7 +65,7 @@
 
                 .cta-button {
                     color: #000;
-                    font-family: var.$f-noto;
+                    font-family: var.$f-poppins;
                     font-size: 16px;
                     font-weight: 600;
                     line-height: 25px;
@@ -81,7 +81,6 @@
 
                     &:hover {
                         background: #fff;
-                        box-shadow: 0px 4px 15px 0px #fff;
                     }
                 }
             }
@@ -127,7 +126,7 @@
 
         .advisor-title {
             color: #fff;
-            font-family: var.$f-noto;
+            font-family: var.$f-poppins;
             font-size: 25px;
             font-weight: 700;
             line-height: 35px;
@@ -151,7 +150,7 @@
 
     .content-title {
         color: #bda069;
-        font-family: var.$f-noto;
+        font-family: var.$f-poppins;
         font-size: 20px;
         font-weight: 700;
         line-height: 25px;
@@ -160,7 +159,7 @@
 
     .content-description {
         color: #fff;
-        font-family: var.$f-noto;
+        font-family: var.$f-poppins;
         font-size: 18px;
         font-weight: 500;
         line-height: 30px;
@@ -205,7 +204,7 @@
 
             .card-title {
                 color: #d1b06b;
-                font-family: var.$f-noto;
+                font-family: var.$f-poppins;
                 font-size: 22px;
                 font-weight: 700;
                 line-height: 35px;
@@ -230,7 +229,7 @@
 
         .card-description {
             color: #fff;
-            font-family: var.$f-noto;
+            font-family: var.$f-poppins;
             font-size: 18px;
             font-weight: 500;
             line-height: 28px;
@@ -259,7 +258,7 @@
 
             &.primary li {
                 color: #d1b06b;
-                font-family: var.$f-noto;
+                font-family: var.$f-poppins;
                 font-size: 18px;
                 font-weight: 600;
                 line-height: 35px;
@@ -267,7 +266,7 @@
 
             &.secondary li {
                 color: #bda069;
-                font-family: var.$f-noto;
+                font-family: var.$f-poppins;
                 font-size: 18px;
                 font-weight: 600;
                 line-height: 35px;
@@ -313,7 +312,7 @@
 
         .description {
             color: #fff;
-            font-family: var.$f-noto;
+            font-family: var.$f-poppins;
             font-size: 20px;
             font-weight: 500;
             line-height: 30px;
@@ -326,7 +325,7 @@
 
     .section-title {
         color: #bfa573;
-        font-family: var.$f-noto;
+        font-family: var.$f-poppins;
         font-size: 30px;
         font-weight: 700;
         line-height: 40px;
@@ -355,7 +354,7 @@
 
         .content-title {
             color: #d1b06b;
-            font-family: var.$f-noto;
+            font-family: var.$f-poppins;
             font-size: 20px;
             font-weight: 600;
             line-height: 25px;
@@ -364,7 +363,7 @@
 
         .content-description {
             color: #fff;
-            font-family: var.$f-noto;
+            font-family: var.$f-poppins;
             font-size: 20px;
             font-weight: 500;
             line-height: 30px;
@@ -387,7 +386,7 @@
 
     .section-title {
         color: #bda069;
-        font-family: var.$f-noto;
+        font-family: var.$f-poppins;
         font-size: 25px;
         font-weight: 700;
         line-height: 35px;
@@ -397,7 +396,7 @@
 
     .main-description {
         color: #fff;
-        font-family: var.$f-noto;
+        font-family: var.$f-poppins;
         font-size: 20px;
         font-weight: 500;
         line-height: 30px;
@@ -406,7 +405,7 @@
 
     .subtitle {
         color: #bda069;
-        font-family: var.$f-noto;
+        font-family: var.$f-poppins;
         font-size: 20px;
         font-weight: 700;
         line-height: 45px;
@@ -416,7 +415,7 @@
 
     .sub-description {
         color: #fff;
-        font-family: var.$f-noto;
+        font-family: var.$f-poppins;
         font-size: 20px;
         font-weight: 500;
         line-height: 30px;
@@ -425,7 +424,7 @@
 
     .cta-button {
         color: #000;
-        font-family: var.$f-noto;
+        font-family: var.$f-poppins;
         font-size: 16px;
         font-weight: 700;
         line-height: 25px;
@@ -439,7 +438,6 @@
 
         &:hover {
             background: #fff;
-            box-shadow: 0px 4px 15px 0px #fff;
         }
     }
 }

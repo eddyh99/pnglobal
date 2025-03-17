@@ -39,7 +39,7 @@
 
                 .wc-title {
                     color: #bda069;
-                    font-family: var.$f-noto;
+                    font-family: var.$f-poppins;
                     font-size: 30px;
                     font-weight: 800;
                     line-height: 25px;
@@ -49,7 +49,7 @@
 
                 .wc-subtitle {
                     color: #bfa573;
-                    font-family: var.$f-noto;
+                    font-family: var.$f-poppins;
                     font-size: 20px;
                     font-weight: 700;
                     line-height: 35px;
@@ -59,7 +59,7 @@
 
                 .wc-description {
                     color: #fff;
-                    font-family: var.$f-noto;
+                    font-family: var.$f-poppins;
                     font-size: 20px;
                     font-weight: 500;
                     line-height: 30px;
@@ -69,7 +69,7 @@
                 .wc-button {
                     color: #000;
                     text-align: center;
-                    font-family: var.$f-noto;
+                    font-family: var.$f-poppins;
                     font-size: 16px;
                     font-weight: 600;
                     line-height: 25px;
@@ -87,7 +87,6 @@
 
                     &:hover {
                         background: #fff;
-                        box-shadow: 0px 4px 15px 0px #fff;
                     }
                 }
             }
@@ -105,7 +104,7 @@
     .pp-title {
         color: #d1b06b;
         text-align: center;
-        font-family: var.$f-noto;
+        font-family: var.$f-poppins;
         font-size: 25px;
         font-weight: 800;
         line-height: 40px;
@@ -116,7 +115,7 @@
     .pp-description {
         color: #fff;
         text-align: center;
-        font-family: var.$f-noto;
+        font-family: var.$f-poppins;
         font-size: 20px;
         font-weight: 500;
         line-height: 30px;
@@ -129,7 +128,7 @@
     .pp-subtitle {
         color: #fff;
         text-align: center;
-        font-family: var.$f-noto;
+        font-family: var.$f-poppins;
         font-size: 20px;
         font-weight: 600;
         line-height: 30px;
@@ -152,7 +151,7 @@
         .card-title {
             color: #d1b06b;
             text-align: center;
-            font-family: var.$f-noto;
+            font-family: var.$f-poppins;
             font-size: 20px;
             font-weight: 700;
             line-height: 30px;
@@ -171,7 +170,7 @@
         .card-description {
             color: #fff;
             text-align: center;
-            font-family: var.$f-noto;
+            font-family: var.$f-poppins;
             font-size: 20px;
             font-weight: 700;
             line-height: 30px;
@@ -215,7 +214,7 @@
 
         .partnership-title {
             color: #bda069;
-            font-family: var.$f-noto;
+            font-family: var.$f-poppins;
             font-size: 25px;
             font-weight: 800;
             line-height: 40px;
@@ -225,7 +224,7 @@
 
         .partnership-subtitle {
             color: #bda069;
-            font-family: var.$f-noto;
+            font-family: var.$f-poppins;
             font-size: 20px;
             font-weight: 800;
             line-height: 40px;
@@ -235,7 +234,7 @@
 
         .partnership-description {
             color: #fff;
-            font-family: var.$f-noto;
+            font-family: var.$f-poppins;
             font-size: 18px;
             font-weight: 600;
             line-height: 30px;
@@ -249,7 +248,7 @@
         .partnership-button {
             color: #000;
             text-align: center;
-            font-family: var.$f-noto;
+            font-family: var.$f-poppins;
             font-size: 18px;
             font-weight: 600;
             line-height: 30px;
@@ -263,7 +262,6 @@
 
             &:hover {
                 background: #fff;
-                box-shadow: 0px 4px 15px 0px #fff;
             }
         }
     }

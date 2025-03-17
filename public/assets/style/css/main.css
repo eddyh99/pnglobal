@@ -19315,7 +19315,7 @@ input:-moz-placeholder {
   }
 }
 .banner-luxbtc .wrapper-banner-luxbtc .logo-banner .text-wrapper .logo-text-banner .goal-text {
-  font-family: "Odor Mean Chey", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 40px;
   font-style: normal;
   font-weight: 400;
@@ -19340,7 +19340,7 @@ input:-moz-placeholder {
 }
 .banner-luxbtc .wrapper-banner-luxbtc .logo-banner .text-wrapper .discover-text {
   color: #fff;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 22px;
   font-style: normal;
   font-weight: 600;
@@ -19355,7 +19355,6 @@ input:-moz-placeholder {
 }
 .banner-luxbtc .wrapper-banner-luxbtc .logo-banner .button-wrapper .btn-primary {
   background: #bda069;
-  box-shadow: 0px 4px 4px rgba(255, 255, 255, 0.9);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -19364,13 +19363,11 @@ input:-moz-placeholder {
   border-radius: 5px;
 }
 .banner-luxbtc .wrapper-banner-luxbtc .logo-banner .button-wrapper .btn-primary:hover {
-  transform: translateY(-5px);
   background: #fff;
-  box-shadow: 0px 4px 20px 10px #fff;
 }
 .banner-luxbtc .wrapper-banner-luxbtc .logo-banner .button-wrapper .btn-primary .btn-text {
   color: #000;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 18px;
   font-weight: 700;
   line-height: 25px;
@@ -19415,7 +19412,7 @@ input:-moz-placeholder {
 }
 .exclusive-trading .container .row .main-desc {
   color: #fff;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 20px;
   font-style: normal;
   font-weight: 500;
@@ -19428,7 +19425,7 @@ input:-moz-placeholder {
 }
 .exclusive-trading .container .row .sub-desc {
   color: #fff;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 20px;
   font-style: normal;
   font-weight: 500;
@@ -19487,7 +19484,7 @@ input:-moz-placeholder {
 }
 .optimized-security .container .security-content .content-block .main-text {
   color: #bda069;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 20px;
   font-style: normal;
   font-weight: 700;
@@ -19496,7 +19493,7 @@ input:-moz-placeholder {
 }
 .optimized-security .container .security-content .content-block .sub-text {
   color: #fff;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 18px;
   font-style: normal;
   font-weight: 500;
@@ -19558,7 +19555,7 @@ input:-moz-placeholder {
 }
 .expertise-section .container .expertise-content .main-text {
   color: #bda069;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 20px;
   font-style: normal;
   font-weight: 700;
@@ -19567,7 +19564,7 @@ input:-moz-placeholder {
 }
 .expertise-section .container .expertise-content .sub-text {
   color: #fff;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 18px;
   font-style: normal;
   font-weight: 500;
@@ -19617,7 +19614,7 @@ input:-moz-placeholder {
 }
 .benefits-section .container .benefit-item h3 {
   color: #bda069;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 20px;
   font-style: normal;
   font-weight: 600;
@@ -19633,7 +19630,7 @@ input:-moz-placeholder {
 }
 .benefits-section .container .benefit-item p {
   color: #fff;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 18px;
   font-style: normal;
   font-weight: 500;
@@ -19728,7 +19725,7 @@ input:-moz-placeholder {
 }
 .opportunities-section .container .opportunities-content h3 {
   color: #fff;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 18px;
   font-style: normal;
   font-weight: 700;
@@ -19738,7 +19735,7 @@ input:-moz-placeholder {
 }
 .opportunities-section .container .opportunities-content .main-text {
   color: #fff;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 18px;
   font-style: normal;
   font-weight: 500;
@@ -19747,7 +19744,7 @@ input:-moz-placeholder {
 }
 .opportunities-section .container .opportunities-content .sub-text {
   color: #fff;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 18px;
   font-style: normal;
   font-weight: 500;
@@ -19770,7 +19767,7 @@ input:-moz-placeholder {
 }
 .opportunities-section .container .opportunities-content .button-wrapper .btn-primary .btn-text {
   color: #000;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 18px;
   font-style: normal;
   font-weight: 600;
@@ -19778,9 +19775,7 @@ input:-moz-placeholder {
   text-transform: uppercase;
 }
 .opportunities-section .container .opportunities-content .button-wrapper .btn-primary:hover {
-  transform: translateY(-5px);
   background: #fff;
-  box-shadow: 0px 4px 15px 0px #fff;
 }
 
 .page-wrapper {
@@ -19828,7 +19823,7 @@ input:-moz-placeholder {
   color: #fff;
 }
 .banner-btcelite .wrapper-banner-btcelite .logo-banner .text-wrapper .logo-text-banner .goal-text {
-  font-family: "Odor Mean Chey", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 40px;
   font-style: normal;
   font-weight: 400;
@@ -19853,7 +19848,7 @@ input:-moz-placeholder {
 }
 .banner-btcelite .wrapper-banner-btcelite .logo-banner .text-wrapper .discover-text {
   color: #fff;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 22px;
   font-weight: 600;
   line-height: 144.687%;
@@ -19867,7 +19862,6 @@ input:-moz-placeholder {
 }
 .banner-btcelite .wrapper-banner-btcelite .logo-banner .button-wrapper .btn-primary {
   background: #bda069;
-  box-shadow: 0px 4px 4px rgba(255, 255, 255, 0.9);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -19877,13 +19871,11 @@ input:-moz-placeholder {
   transition: all 0.3s ease;
 }
 .banner-btcelite .wrapper-banner-btcelite .logo-banner .button-wrapper .btn-primary:hover {
-  transform: translateY(-5px);
   background: #fff;
-  box-shadow: 0px 4px 20px 10px #fff;
 }
 .banner-btcelite .wrapper-banner-btcelite .logo-banner .button-wrapper .btn-primary .btn-text {
   color: #000;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 18px;
   font-weight: 700;
   line-height: 25px;
@@ -19903,7 +19895,7 @@ input:-moz-placeholder {
 .security-section .container h2 {
   color: #bda069;
   text-align: center;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 25px;
   font-style: normal;
   font-weight: 800;
@@ -19913,7 +19905,7 @@ input:-moz-placeholder {
 .security-section .container h3 {
   color: #fff;
   text-align: center;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 20px;
   font-style: normal;
   font-weight: 600;
@@ -19923,7 +19915,7 @@ input:-moz-placeholder {
 .security-section .container .description {
   color: #fff;
   text-align: center;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 20px;
   font-style: normal;
   font-weight: 500;
@@ -19982,7 +19974,7 @@ input:-moz-placeholder {
 }
 .total-security-section .container h2 {
   color: #bda069;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 25px;
   font-style: normal;
   font-weight: 700;
@@ -19991,7 +19983,7 @@ input:-moz-placeholder {
 }
 .total-security-section .container h3 {
   color: #fff;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 20px;
   font-style: normal;
   font-weight: 800;
@@ -20000,7 +19992,7 @@ input:-moz-placeholder {
 }
 .total-security-section .container .description {
   color: #fff;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 18px;
   font-style: normal;
   font-weight: 500;
@@ -20052,7 +20044,7 @@ input:-moz-placeholder {
 .personal-broker-section .container h2 {
   color: #d1b06b;
   text-align: center;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 25px;
   font-style: normal;
   font-weight: 700;
@@ -20062,7 +20054,7 @@ input:-moz-placeholder {
 }
 .personal-broker-section .container h3 {
   color: #bda069;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 20px;
   font-style: normal;
   font-weight: 800;
@@ -20071,7 +20063,7 @@ input:-moz-placeholder {
 }
 .personal-broker-section .container .description {
   color: #fff;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 18px;
   font-style: normal;
   font-weight: 500;
@@ -20092,7 +20084,7 @@ input:-moz-placeholder {
 }
 .freedom-section .container .row h2 {
   color: #bda069;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 25px;
   font-style: normal;
   font-weight: 700;
@@ -20116,7 +20108,7 @@ input:-moz-placeholder {
 }
 .freedom-section .container .row .col-5:last-of-type h3 {
   color: #bda069;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 20px;
   font-style: normal;
   font-weight: 800;
@@ -20125,7 +20117,7 @@ input:-moz-placeholder {
 }
 .freedom-section .container .row .col-5:last-of-type .description {
   color: #fff;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 18px;
   font-style: normal;
   font-weight: 500;
@@ -20152,7 +20144,7 @@ input:-moz-placeholder {
 }
 .start-growing-section .container .row .col-6:last-child h2 {
   color: #bda069;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 25px;
   font-style: normal;
   font-weight: 700;
@@ -20162,7 +20154,7 @@ input:-moz-placeholder {
 }
 .start-growing-section .container .row .col-6:last-child .description {
   color: #fff;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 18px;
   font-style: normal;
   font-weight: 500;
@@ -20177,7 +20169,7 @@ input:-moz-placeholder {
   color: #000;
   text-decoration: none;
   text-align: center;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 18px;
   font-style: normal;
   font-weight: 600;
@@ -20188,7 +20180,6 @@ input:-moz-placeholder {
 }
 .start-growing-section .container .row .col-6:last-child .btn-activate:hover {
   background: #fff;
-  box-shadow: 0px 4px 15px 0px #fff;
   color: #000;
 }
 
@@ -20255,7 +20246,7 @@ input:-moz-placeholder {
 .banner-satoshi .wrapper-banner-satoshi .logo-banner .text-wrapper .logo-text-banner .goal-text {
   color: #bda069;
   text-align: center;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 35px;
   font-style: normal;
   font-weight: 800;
@@ -20264,7 +20255,7 @@ input:-moz-placeholder {
 }
 .banner-satoshi .wrapper-banner-satoshi .logo-banner .text-wrapper .discover-text {
   color: #fff;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 25px;
   font-style: normal;
   font-weight: 600;
@@ -20288,7 +20279,7 @@ input:-moz-placeholder {
 }
 .success-section .container h2 {
   color: #000;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 30px;
   font-weight: 800;
   line-height: 30px;
@@ -20296,7 +20287,7 @@ input:-moz-placeholder {
 }
 .success-section .container .description {
   color: #000;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 20px;
   font-weight: 600;
   line-height: 30px;
@@ -20314,7 +20305,7 @@ input:-moz-placeholder {
   border-radius: 5px;
   background: #bda069;
   color: #000;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 18px;
   font-weight: 600;
   line-height: 30px;
@@ -20326,9 +20317,6 @@ input:-moz-placeholder {
 .success-section .container .button-wrapper .activate-button:hover {
   background: #000;
   color: #bda069;
-  font-size: 19px;
-  font-weight: 700;
-  box-shadow: 0px 4px 15px 5px #bda069;
 }
 
 .revolutionize-section .top-content {
@@ -20343,7 +20331,7 @@ input:-moz-placeholder {
 .revolutionize-section .top-content .container h2 {
   color: #bda069;
   text-align: center;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 35px;
   font-weight: 600;
   line-height: 144.687%;
@@ -20353,7 +20341,7 @@ input:-moz-placeholder {
 .revolutionize-section .top-content .container .description {
   color: #fff;
   text-align: center;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 20px;
   font-weight: 500;
   line-height: 35px;
@@ -20361,7 +20349,7 @@ input:-moz-placeholder {
 }
 .revolutionize-section .top-content .container .description .highlight {
   color: #fff;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 20px;
   font-weight: 800;
   line-height: 35px;
@@ -20420,7 +20408,7 @@ input:-moz-placeholder {
 .revolutionize-section .bottom-content .signal-card .card-title h3 {
   color: #bda069;
   text-align: center;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 18px;
   font-weight: 900;
   line-height: 144.687%;
@@ -20428,7 +20416,7 @@ input:-moz-placeholder {
 }
 .revolutionize-section .bottom-content .signal-card .card-text {
   color: #000;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 20px;
   font-weight: 500;
   line-height: 25px;
@@ -20447,7 +20435,7 @@ input:-moz-placeholder {
 }
 .app-features-section .top-content .container .main-title {
   color: #bda069;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 40px;
   font-weight: 900;
   line-height: 144.687%;
@@ -20456,7 +20444,7 @@ input:-moz-placeholder {
 }
 .app-features-section .top-content .container .sub-title {
   color: #fff;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 40px;
   font-weight: 900;
   line-height: 144.687%;
@@ -20500,7 +20488,7 @@ input:-moz-placeholder {
 .app-features-section .bottom-content .feature-card-title h3 {
   color: #eccf98;
   text-align: center;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 20px;
   font-weight: 900;
   line-height: 144.687%;
@@ -20520,7 +20508,7 @@ input:-moz-placeholder {
 .app-features-section .bottom-content .feature-card-content p {
   color: #000;
   text-align: center;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 20px;
   font-weight: 700;
   line-height: 144.687%;
@@ -20555,7 +20543,7 @@ input:-moz-placeholder {
 }
 .farewell-section .text-content h2 {
   color: #bfa573;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 35px;
   font-weight: 600;
   line-height: 45px;
@@ -20564,7 +20552,7 @@ input:-moz-placeholder {
 }
 .farewell-section .text-content .description {
   color: #fff;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 25px;
   font-weight: 600;
   line-height: 150%;
@@ -20573,7 +20561,7 @@ input:-moz-placeholder {
 }
 .farewell-section .text-content .highlight {
   color: #fff;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 25px;
   font-weight: 700;
   line-height: 150%;
@@ -20587,7 +20575,7 @@ input:-moz-placeholder {
   border: none;
   background: linear-gradient(95deg, #bda069 68.96%, #fff 100.93%);
   color: #000;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 18px;
   font-weight: 700;
   text-transform: uppercase;
@@ -20626,7 +20614,7 @@ input:-moz-placeholder {
 }
 .referral-section .top-content .container h2 {
   text-align: center;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 35px;
   font-weight: 600;
   line-height: 40px;
@@ -20656,14 +20644,14 @@ input:-moz-placeholder {
 }
 .referral-section .top-content .container .referral-card h3 {
   color: #000;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 20px;
   font-weight: 900;
   line-height: 30px;
   margin-bottom: 20px;
 }
 .referral-section .top-content .container .referral-card .card-text {
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 18px;
   font-weight: 500;
   line-height: 30px;
@@ -20706,7 +20694,7 @@ input:-moz-placeholder {
   position: relative;
   margin-bottom: 20px;
   color: #000;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 18px;
   font-weight: 500;
   line-height: 30px;
@@ -20736,7 +20724,7 @@ input:-moz-placeholder {
 }
 .subscription-section .top-content .container h2 {
   color: #bda069;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 30px;
   font-weight: 700;
   line-height: 40px;
@@ -20748,7 +20736,7 @@ input:-moz-placeholder {
 }
 .subscription-section .top-content .container .description {
   color: #fff;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 18px;
   font-weight: 600;
   line-height: 30px;
@@ -20862,7 +20850,7 @@ input:-moz-placeholder {
 }
 .sharing-section .sharing-content h2 {
   color: #000;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 25px;
   font-weight: 800;
   line-height: 30px;
@@ -20870,7 +20858,7 @@ input:-moz-placeholder {
 }
 .sharing-section .sharing-content .description {
   color: #000;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 18px;
   font-weight: 600;
   line-height: 30px;
@@ -20885,7 +20873,7 @@ input:-moz-placeholder {
   padding: 10px 20px;
   cursor: pointer;
   box-shadow: 0px 4px 10px 0px rgba(56, 55, 52, 0.88);
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 18px;
   font-weight: 600;
   line-height: 30px;
@@ -20895,9 +20883,7 @@ input:-moz-placeholder {
 .sharing-section .sharing-content .share-button:hover {
   border-radius: 5px;
   background: #000;
-  box-shadow: 0px 4px 10px 10px #fff;
   color: #c4a46f;
-  font-family: "Noto Serif";
   font-size: 19px;
   font-weight: 700;
   line-height: 30px;
@@ -20920,7 +20906,7 @@ input:-moz-placeholder {
 }
 .payout-section .top-content .container h2 {
   color: #000;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 25px;
   font-weight: 800;
   line-height: 30px;
@@ -20934,7 +20920,7 @@ input:-moz-placeholder {
 }
 .payout-section .top-content .container .payout-list li {
   color: #000;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 18px;
   font-weight: 600;
   line-height: 30px;
@@ -20967,7 +20953,7 @@ input:-moz-placeholder {
 }
 .payout-section .bottom-content .text-content h3 {
   color: #bda069;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 22px;
   font-weight: 800;
   line-height: 30px;
@@ -20975,7 +20961,7 @@ input:-moz-placeholder {
 }
 .payout-section .bottom-content .text-content .description {
   color: #000;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 18px;
   font-weight: 600;
   line-height: 30px;
@@ -20987,7 +20973,7 @@ input:-moz-placeholder {
 .payout-section .bottom-content .text-content .withdraw-list li {
   list-style: disc;
   color: #000;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 18px;
   font-weight: 400;
   line-height: 45px;
@@ -21024,7 +21010,7 @@ input:-moz-placeholder {
 .payout-section .opportunity-content .opportunity-text {
   color: #fff;
   text-align: center;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 20px;
   font-weight: 600;
   line-height: 30px;
@@ -21053,7 +21039,7 @@ input:-moz-placeholder {
 }
 .binance-section .container h2 {
   color: #fff;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 30px;
   font-weight: 700;
   line-height: 22px;
@@ -21065,7 +21051,7 @@ input:-moz-placeholder {
 }
 .binance-section .container .description {
   color: #fff;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 20px;
   font-weight: 500;
   line-height: 30px;
@@ -21076,7 +21062,7 @@ input:-moz-placeholder {
 }
 .binance-section .container .link-text {
   color: #fff;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 20px;
   font-weight: 600;
   line-height: 35px;
@@ -21090,7 +21076,7 @@ input:-moz-placeholder {
 }
 .binance-section .container .warning-text {
   color: #fff;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 18px;
   font-weight: 600;
   line-height: 25px;
@@ -21117,7 +21103,7 @@ input:-moz-placeholder {
 }
 .formula-section .top-content .container h2 {
   color: #bd9f69;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 40px;
   font-weight: 900;
   line-height: 144.687%;
@@ -21126,7 +21112,7 @@ input:-moz-placeholder {
 }
 .formula-section .top-content .container .description {
   color: #fff;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 25px;
   font-weight: 600;
   line-height: 140%;
@@ -21157,7 +21143,7 @@ input:-moz-placeholder {
 }
 .formula-section .bottom-content .text-content h3 {
   color: #bda069;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 25px;
   font-weight: 700;
   line-height: 150%;
@@ -21166,7 +21152,7 @@ input:-moz-placeholder {
 }
 .formula-section .bottom-content .text-content .description {
   color: #fff;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 20px;
   font-weight: 600;
   line-height: 40px;
@@ -21179,7 +21165,7 @@ input:-moz-placeholder {
   background: #bda069;
   box-shadow: 0px 4px 30px 10px #fff;
   color: #000;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 18px;
   font-weight: 700;
   padding: 15px 30px;
@@ -21236,7 +21222,7 @@ input:-moz-placeholder {
 }
 .crypto-consulting .container-fluid .row .consulting-content .title {
   color: #d1b06b;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 35px;
   font-weight: 800;
   line-height: 25px;
@@ -21245,7 +21231,7 @@ input:-moz-placeholder {
 }
 .crypto-consulting .container-fluid .row .consulting-content .subtitle {
   color: #bfa573;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 20px;
   font-weight: 700;
   line-height: 35px;
@@ -21254,7 +21240,7 @@ input:-moz-placeholder {
 }
 .crypto-consulting .container-fluid .row .consulting-content .description {
   color: #fff;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 20px;
   font-weight: 500;
   line-height: 30px;
@@ -21262,7 +21248,7 @@ input:-moz-placeholder {
 }
 .crypto-consulting .container-fluid .row .consulting-content .cta-button {
   color: #000;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 16px;
   font-weight: 600;
   line-height: 25px;
@@ -21278,7 +21264,6 @@ input:-moz-placeholder {
 }
 .crypto-consulting .container-fluid .row .consulting-content .cta-button:hover {
   background: #fff;
-  box-shadow: 0px 4px 15px 0px #fff;
 }
 @media (min-width: 768px) {
   .crypto-consulting .consulting-content {
@@ -21310,7 +21295,7 @@ input:-moz-placeholder {
 }
 .advisor-section .title-wrapper .advisor-title {
   color: #fff;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 25px;
   font-weight: 700;
   line-height: 35px;
@@ -21330,7 +21315,7 @@ input:-moz-placeholder {
 }
 .advisor-section .content-title {
   color: #bda069;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 20px;
   font-weight: 700;
   line-height: 25px;
@@ -21338,7 +21323,7 @@ input:-moz-placeholder {
 }
 .advisor-section .content-description {
   color: #fff;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 18px;
   font-weight: 500;
   line-height: 30px;
@@ -21374,7 +21359,7 @@ input:-moz-placeholder {
 }
 .service-cards-consulting .service-card .title-container .card-title {
   color: #d1b06b;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 22px;
   font-weight: 700;
   line-height: 35px;
@@ -21395,7 +21380,7 @@ input:-moz-placeholder {
 }
 .service-cards-consulting .service-card .card-description {
   color: #fff;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 18px;
   font-weight: 500;
   line-height: 28px;
@@ -21421,14 +21406,14 @@ input:-moz-placeholder {
 }
 .service-cards-consulting .service-card .feature-list.primary li {
   color: #d1b06b;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 18px;
   font-weight: 600;
   line-height: 35px;
 }
 .service-cards-consulting .service-card .feature-list.secondary li {
   color: #bda069;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 18px;
   font-weight: 600;
   line-height: 35px;
@@ -21463,7 +21448,7 @@ input:-moz-placeholder {
 }
 .starting-section .middle-content .description {
   color: #fff;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 20px;
   font-weight: 500;
   line-height: 30px;
@@ -21473,7 +21458,7 @@ input:-moz-placeholder {
 }
 .starting-section .section-title {
   color: #bfa573;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 30px;
   font-weight: 700;
   line-height: 40px;
@@ -21498,7 +21483,7 @@ input:-moz-placeholder {
 }
 .starting-section .content-block .content-title {
   color: #d1b06b;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 20px;
   font-weight: 600;
   line-height: 25px;
@@ -21506,7 +21491,7 @@ input:-moz-placeholder {
 }
 .starting-section .content-block .content-description {
   color: #fff;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 20px;
   font-weight: 500;
   line-height: 30px;
@@ -21526,7 +21511,7 @@ input:-moz-placeholder {
 }
 .knowledge-section .section-title {
   color: #bda069;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 25px;
   font-weight: 700;
   line-height: 35px;
@@ -21535,7 +21520,7 @@ input:-moz-placeholder {
 }
 .knowledge-section .main-description {
   color: #fff;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 20px;
   font-weight: 500;
   line-height: 30px;
@@ -21543,7 +21528,7 @@ input:-moz-placeholder {
 }
 .knowledge-section .subtitle {
   color: #bda069;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 20px;
   font-weight: 700;
   line-height: 45px;
@@ -21552,7 +21537,7 @@ input:-moz-placeholder {
 }
 .knowledge-section .sub-description {
   color: #fff;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 20px;
   font-weight: 500;
   line-height: 30px;
@@ -21560,7 +21545,7 @@ input:-moz-placeholder {
 }
 .knowledge-section .cta-button {
   color: #000;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 16px;
   font-weight: 700;
   line-height: 25px;
@@ -21574,7 +21559,6 @@ input:-moz-placeholder {
 }
 .knowledge-section .cta-button:hover {
   background: #fff;
-  box-shadow: 0px 4px 15px 0px #fff;
 }
 
 .passive-income {
@@ -21607,7 +21591,7 @@ input:-moz-placeholder {
 }
 .passive-income .container-fluid .row .passive-content .title {
   color: #fff;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 30px;
   font-weight: 800;
   line-height: 25px;
@@ -21616,7 +21600,7 @@ input:-moz-placeholder {
 }
 .passive-income .container-fluid .row .passive-content .subtitle {
   color: #fff;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 20px;
   font-weight: 700;
   line-height: 35px;
@@ -21625,7 +21609,7 @@ input:-moz-placeholder {
 }
 .passive-income .container-fluid .row .passive-content .description {
   color: #000;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 20px;
   font-weight: 500;
   line-height: 30px;
@@ -21633,7 +21617,7 @@ input:-moz-placeholder {
 }
 .passive-income .container-fluid .row .passive-content .cta-button {
   color: #fff;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 16px;
   font-weight: 600;
   line-height: 25px;
@@ -21650,7 +21634,6 @@ input:-moz-placeholder {
 }
 .passive-income .container-fluid .row .passive-content .cta-button:hover {
   background: #fff;
-  box-shadow: 0px 4px 15px 0px #fff;
   color: #000;
 }
 @media (min-width: 768px) {
@@ -21673,7 +21656,7 @@ input:-moz-placeholder {
 .transform-section .transform-title {
   color: #d1b06b;
   text-align: center;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 25px;
   font-weight: 800;
   line-height: 40px;
@@ -21683,7 +21666,7 @@ input:-moz-placeholder {
 .transform-section .transform-description {
   color: #fff;
   text-align: center;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 20px;
   font-weight: 500;
   line-height: 30px;
@@ -21704,7 +21687,7 @@ input:-moz-placeholder {
 .choose-section .choose-title {
   color: #bda069;
   text-align: center;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 25px;
   font-weight: 700;
   line-height: 25px;
@@ -21724,7 +21707,7 @@ input:-moz-placeholder {
 .choose-section .choose-card h3 {
   color: #d1b06b;
   text-align: center;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 20px;
   font-weight: 700;
   line-height: 30px;
@@ -21734,7 +21717,7 @@ input:-moz-placeholder {
 .choose-section .choose-card p {
   color: #fff;
   text-align: center;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 18px;
   font-weight: 500;
   line-height: 30px;
@@ -21747,7 +21730,7 @@ input:-moz-placeholder {
 .invest-section .invest-title {
   color: #d1b06b;
   text-align: center;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 25px;
   font-weight: 800;
   line-height: 40px;
@@ -21756,7 +21739,7 @@ input:-moz-placeholder {
 .invest-section .invest-description {
   color: #fff;
   text-align: center;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 18px;
   font-weight: 500;
   line-height: 35px;
@@ -21791,7 +21774,7 @@ input:-moz-placeholder {
 .investment-section .investment-card h3 {
   color: #eccf98;
   text-align: center;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 20px;
   font-weight: 900;
   line-height: 140%;
@@ -21801,7 +21784,7 @@ input:-moz-placeholder {
 .investment-section .investment-card p {
   color: #fff;
   text-align: center;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 20px;
   font-weight: 600;
   line-height: 144.687%;
@@ -21817,7 +21800,7 @@ input:-moz-placeholder {
 .collateral-section .collateral-title {
   color: #d1b06b;
   text-align: center;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 25px;
   font-weight: 800;
   line-height: 40px; /* 160% */
@@ -21827,7 +21810,7 @@ input:-moz-placeholder {
 .collateral-section .collateral-description {
   color: #fff;
   text-align: center;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 18px;
   font-weight: 600;
   line-height: 30px; /* 166.667% */
@@ -21838,7 +21821,7 @@ input:-moz-placeholder {
   border-radius: 5px;
   background: #d1b06b;
   color: #161513;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   padding: 0.75rem 3rem;
   cursor: pointer;
   color: #000;
@@ -21852,7 +21835,6 @@ input:-moz-placeholder {
 }
 .collateral-section .collateral-btn:hover {
   background: #fff;
-  box-shadow: 0px 4px 15px 0px #fff;
 }
 .collateral-section .collateral-image {
   max-width: 100%;
@@ -21892,7 +21874,7 @@ input:-moz-placeholder {
 }
 .portfolio-creation .container-fluid .row .portfolio-content .title {
   color: #bda069;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 30px;
   font-weight: 800;
   line-height: 25px;
@@ -21901,7 +21883,7 @@ input:-moz-placeholder {
 }
 .portfolio-creation .container-fluid .row .portfolio-content .subtitle {
   color: #bfa573;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 20px;
   font-weight: 700;
   line-height: 35px;
@@ -21910,7 +21892,7 @@ input:-moz-placeholder {
 }
 .portfolio-creation .container-fluid .row .portfolio-content .description {
   color: #fff;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 20px;
   font-weight: 500;
   line-height: 30px;
@@ -21918,7 +21900,7 @@ input:-moz-placeholder {
 }
 .portfolio-creation .container-fluid .row .portfolio-content .cta-button {
   color: #000;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 16px;
   font-weight: 600;
   line-height: 25px;
@@ -21936,7 +21918,6 @@ input:-moz-placeholder {
 }
 .portfolio-creation .container-fluid .row .portfolio-content .cta-button:hover {
   background: #fff;
-  box-shadow: 0px 4px 15px 0px #fff;
 }
 @media (min-width: 768px) {
   .portfolio-creation .portfolio-content {
@@ -21963,7 +21944,7 @@ input:-moz-placeholder {
 }
 .profile-priority .container .profile-content .profile-title {
   color: #d1b06b;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 25px;
   font-style: normal;
   font-weight: 800;
@@ -21973,7 +21954,7 @@ input:-moz-placeholder {
 }
 .profile-priority .container .profile-content .profile-description {
   color: #fff;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 20px;
   font-style: normal;
   font-weight: 500;
@@ -22016,7 +21997,7 @@ input:-moz-placeholder {
 }
 .tailored-section .tailored-card .tailored-title {
   color: #d1b06b;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 22px;
   font-weight: 700;
   line-height: 40px;
@@ -22037,7 +22018,7 @@ input:-moz-placeholder {
 }
 .tailored-section .tailored-card .bullet-points .bullet-item .bullet-title {
   color: #bda069;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 20px;
   font-weight: 600;
   line-height: 35px;
@@ -22059,7 +22040,7 @@ input:-moz-placeholder {
 }
 .tailored-section .tailored-card .bullet-points .bullet-item .bullet-desc {
   color: #fff;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 18px;
   font-weight: 500;
   line-height: 28px;
@@ -22075,7 +22056,7 @@ input:-moz-placeholder {
 }
 .future-section .future-content .future-title {
   color: #d1b06b;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 20px;
   font-weight: 800;
   line-height: 35px;
@@ -22084,7 +22065,7 @@ input:-moz-placeholder {
 }
 .future-section .future-content .future-description {
   color: #fff;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 18px;
   font-weight: 500;
   line-height: 28px;
@@ -22097,7 +22078,7 @@ input:-moz-placeholder {
 }
 .future-section .keeps-content .keeps-title {
   color: #d1b06b;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 25px;
   font-weight: 800;
   line-height: 35px;
@@ -22139,7 +22120,7 @@ input:-moz-placeholder {
 }
 .custom-portfolio-section .container-fluid .custom-portfolio-content .custom-title {
   color: #d1b06b;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 25px;
   font-weight: 800;
   line-height: 40px;
@@ -22148,7 +22129,7 @@ input:-moz-placeholder {
 }
 .custom-portfolio-section .container-fluid .custom-portfolio-content .custom-description {
   color: #fff;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 18px;
   font-weight: 600;
   line-height: 30px;
@@ -22156,7 +22137,7 @@ input:-moz-placeholder {
 }
 .custom-portfolio-section .container-fluid .custom-portfolio-content .custom-highlight {
   color: #fff;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 20px;
   font-weight: 600;
   line-height: 30px;
@@ -22168,7 +22149,7 @@ input:-moz-placeholder {
   background: #d1b06b;
   color: #000;
   text-align: center;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 18px;
   font-weight: 600;
   line-height: 30px;
@@ -22179,7 +22160,6 @@ input:-moz-placeholder {
 }
 .custom-portfolio-section .container-fluid .custom-portfolio-content .custom-button:hover {
   background: #fff;
-  box-shadow: 0px 4px 15px 0px #fff;
 }
 
 .accumulation-wrapper {
@@ -22222,7 +22202,7 @@ input:-moz-placeholder {
 }
 .accumulation-plans .container-fluid .row .accumulation-content .title {
   color: #fff;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 30px;
   font-weight: 800;
   line-height: 25px;
@@ -22231,7 +22211,7 @@ input:-moz-placeholder {
 }
 .accumulation-plans .container-fluid .row .accumulation-content .subtitle {
   color: #fff;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 20px;
   font-weight: 700;
   line-height: 35px;
@@ -22240,7 +22220,7 @@ input:-moz-placeholder {
 }
 .accumulation-plans .container-fluid .row .accumulation-content .description {
   color: #000;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 20px;
   font-weight: 500;
   line-height: 30px;
@@ -22248,7 +22228,7 @@ input:-moz-placeholder {
 }
 .accumulation-plans .container-fluid .row .accumulation-content .cta-button {
   color: #fff;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 16px;
   font-weight: 600;
   line-height: 25px;
@@ -22265,7 +22245,6 @@ input:-moz-placeholder {
 }
 .accumulation-plans .container-fluid .row .accumulation-content .cta-button:hover {
   background: #fff;
-  box-shadow: 0px 4px 15px 0px #fff;
   color: #000;
 }
 @media (min-width: 768px) {
@@ -22292,7 +22271,7 @@ input:-moz-placeholder {
   color: #d1b06b;
   text-align: center;
   text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 25px;
   font-weight: 800;
   line-height: 40px;
@@ -22302,7 +22281,7 @@ input:-moz-placeholder {
 .systematic-section .systematic-description {
   color: #fff;
   text-align: center;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 20px;
   font-weight: 500;
   line-height: 30px;
@@ -22317,7 +22296,7 @@ input:-moz-placeholder {
 .why-choose-section .why-choose-content .why-title {
   color: #d1b06b;
   text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 25px;
   font-weight: 800;
   line-height: 40px;
@@ -22337,7 +22316,7 @@ input:-moz-placeholder {
 }
 .why-choose-section .benefits-content .benefits-description {
   color: #fff;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 18px;
   font-weight: 500;
   line-height: 28px;
@@ -22350,7 +22329,7 @@ input:-moz-placeholder {
 }
 .why-choose-section .benefits-content .benefits-list li {
   color: #d1b06b;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 18px;
   font-weight: 600;
   line-height: 35px;
@@ -22380,7 +22359,7 @@ input:-moz-placeholder {
 .transparency-section .transparency-content .transparency-title {
   color: #d1b06b;
   text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 20px;
   font-weight: 800;
   line-height: 30px;
@@ -22389,7 +22368,7 @@ input:-moz-placeholder {
 }
 .transparency-section .transparency-content .transparency-description p {
   color: #fff;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 18px;
   font-weight: 500;
   line-height: 28px;
@@ -22425,7 +22404,7 @@ input:-moz-placeholder {
 }
 .prosperity-section .prosperity-content .prosperity-title {
   color: #bda069;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 29px;
   font-weight: 600;
   line-height: 30px;
@@ -22434,7 +22413,7 @@ input:-moz-placeholder {
 }
 .prosperity-section .prosperity-content .prosperity-subtitle {
   color: #fff;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 18px;
   font-weight: 700;
   line-height: 30px;
@@ -22442,7 +22421,7 @@ input:-moz-placeholder {
 }
 .prosperity-section .prosperity-content .prosperity-description {
   color: #fff;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 18px;
   font-weight: 600;
   line-height: 30px;
@@ -22450,7 +22429,7 @@ input:-moz-placeholder {
 }
 .prosperity-section .prosperity-content .prosperity-button {
   color: #000;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 18px;
   font-weight: 600;
   line-height: 25px;
@@ -22465,7 +22444,6 @@ input:-moz-placeholder {
 }
 .prosperity-section .prosperity-content .prosperity-button:hover {
   background: #fff;
-  box-shadow: 0px 4px 15px 0px #fff;
 }
 
 .funds-reallocation {
@@ -22504,7 +22482,7 @@ input:-moz-placeholder {
 }
 .funds-reallocation .container-fluid .row .fr-content .fr-title {
   color: #fff;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 30px;
   font-style: normal;
   font-weight: 800;
@@ -22514,7 +22492,7 @@ input:-moz-placeholder {
 }
 .funds-reallocation .container-fluid .row .fr-content .fr-subtitle {
   color: #fff;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 20px;
   font-style: normal;
   font-weight: 700;
@@ -22524,7 +22502,7 @@ input:-moz-placeholder {
 }
 .funds-reallocation .container-fluid .row .fr-content .fr-description {
   color: #000;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 20px;
   font-style: normal;
   font-weight: 500;
@@ -22534,7 +22512,7 @@ input:-moz-placeholder {
 .funds-reallocation .container-fluid .row .fr-content .fr-button {
   color: #fff;
   text-align: center;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 16px;
   font-style: normal;
   font-weight: 600;
@@ -22552,7 +22530,6 @@ input:-moz-placeholder {
 }
 .funds-reallocation .container-fluid .row .fr-content .fr-button:hover {
   background: #fff;
-  box-shadow: 0px 4px 15px 0px #fff;
   color: #000;
 }
 
@@ -22573,7 +22550,7 @@ input:-moz-placeholder {
   color: #d1b06b;
   text-align: center;
   text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 25px;
   font-weight: 800;
   line-height: 40px;
@@ -22584,7 +22561,7 @@ input:-moz-placeholder {
   color: #fff;
   text-align: center;
   text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 20px;
   font-weight: 800;
   line-height: 40px;
@@ -22598,7 +22575,7 @@ input:-moz-placeholder {
 }
 .funds-solution-section .container-fluid .bottom-row .fs-content p {
   color: #fff;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 20px;
   font-weight: 500;
   line-height: 30px;
@@ -22623,7 +22600,7 @@ input:-moz-placeholder {
 .how-it-works-section .hiw-title {
   color: #bda069;
   text-align: center;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 25px;
   font-weight: 700;
   line-height: 25px;
@@ -22632,7 +22609,7 @@ input:-moz-placeholder {
 .how-it-works-section .hiw-description {
   color: #fff;
   text-align: center;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 20px;
   font-weight: 500;
   line-height: 30px;
@@ -22646,7 +22623,7 @@ input:-moz-placeholder {
 }
 .how-it-works-section .process-card .card-title {
   color: #d1b06b;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 18px;
   font-weight: 600;
   line-height: 30px;
@@ -22655,7 +22632,7 @@ input:-moz-placeholder {
 }
 .how-it-works-section .process-card .card-description {
   color: #fff;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 18px;
   font-weight: 500;
   line-height: 30px;
@@ -22669,7 +22646,7 @@ input:-moz-placeholder {
 .advantages-section .adv-title {
   color: #d1b06b;
   text-align: center;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 25px;
   font-weight: 700;
   line-height: 40px;
@@ -22685,7 +22662,7 @@ input:-moz-placeholder {
 .advantages-section .adv-subtitle {
   color: #fff;
   text-align: center;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 20px;
   font-weight: 500;
   line-height: 30px;
@@ -22721,14 +22698,14 @@ input:-moz-placeholder {
 }
 .advantages-section .advantages-list li .list-title {
   color: #d1b06b;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 18px;
   font-weight: 600;
   line-height: 30px;
 }
 .advantages-section .advantages-list li .list-desc {
   color: #fff;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 18px;
   font-weight: 500;
   line-height: 30px;
@@ -22741,7 +22718,7 @@ input:-moz-placeholder {
 .complex-regulations-section .cr-title {
   color: #bda069;
   text-align: center;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 29px;
   font-weight: 600;
   line-height: 30px;
@@ -22751,7 +22728,7 @@ input:-moz-placeholder {
 .complex-regulations-section .cr-subtitle {
   color: #fff;
   text-align: center;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 18px;
   font-weight: 700;
   line-height: 30px;
@@ -22766,7 +22743,7 @@ input:-moz-placeholder {
 }
 .complex-regulations-section .cr-content .cr-description {
   color: #fff;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 18px;
   font-weight: 500;
   line-height: 30px;
@@ -22778,7 +22755,7 @@ input:-moz-placeholder {
 .complex-regulations-section .cr-content .cr-button {
   color: #000;
   text-align: center;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 16px;
   font-weight: 600;
   line-height: 25px;
@@ -22792,7 +22769,6 @@ input:-moz-placeholder {
 }
 .complex-regulations-section .cr-content .cr-button:hover {
   background: #fff;
-  box-shadow: 0px 4px 15px 0px #fff;
 }
 .complex-regulations-section .cr-image {
   height: 100%;
@@ -22841,7 +22817,7 @@ input:-moz-placeholder {
 }
 .wealth-consulting .container-fluid .row .wc-content .wc-title {
   color: #bda069;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 30px;
   font-weight: 800;
   line-height: 25px;
@@ -22850,7 +22826,7 @@ input:-moz-placeholder {
 }
 .wealth-consulting .container-fluid .row .wc-content .wc-subtitle {
   color: #bfa573;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 20px;
   font-weight: 700;
   line-height: 35px;
@@ -22859,7 +22835,7 @@ input:-moz-placeholder {
 }
 .wealth-consulting .container-fluid .row .wc-content .wc-description {
   color: #fff;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 20px;
   font-weight: 500;
   line-height: 30px;
@@ -22868,7 +22844,7 @@ input:-moz-placeholder {
 .wealth-consulting .container-fluid .row .wc-content .wc-button {
   color: #000;
   text-align: center;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 16px;
   font-weight: 600;
   line-height: 25px;
@@ -22886,7 +22862,6 @@ input:-moz-placeholder {
 }
 .wealth-consulting .container-fluid .row .wc-content .wc-button:hover {
   background: #fff;
-  box-shadow: 0px 4px 15px 0px #fff;
 }
 
 .personalized-path-section {
@@ -22897,7 +22872,7 @@ input:-moz-placeholder {
 .personalized-path-section .pp-title {
   color: #d1b06b;
   text-align: center;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 25px;
   font-weight: 800;
   line-height: 40px;
@@ -22907,7 +22882,7 @@ input:-moz-placeholder {
 .personalized-path-section .pp-description {
   color: #fff;
   text-align: center;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 20px;
   font-weight: 500;
   line-height: 30px;
@@ -22919,7 +22894,7 @@ input:-moz-placeholder {
 .personalized-path-section .pp-subtitle {
   color: #fff;
   text-align: center;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 20px;
   font-weight: 600;
   line-height: 30px;
@@ -22935,7 +22910,7 @@ input:-moz-placeholder {
 .personalized-path-section .service-card .card-title {
   color: #d1b06b;
   text-align: center;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 20px;
   font-weight: 700;
   line-height: 30px;
@@ -22952,7 +22927,7 @@ input:-moz-placeholder {
 .personalized-path-section .service-card .card-description {
   color: #fff;
   text-align: center;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 20px;
   font-weight: 700;
   line-height: 30px;
@@ -22985,7 +22960,7 @@ input:-moz-placeholder {
 }
 .partnership-section .partnership-content .partnership-title {
   color: #bda069;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 25px;
   font-weight: 800;
   line-height: 40px;
@@ -22994,7 +22969,7 @@ input:-moz-placeholder {
 }
 .partnership-section .partnership-content .partnership-subtitle {
   color: #bda069;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 20px;
   font-weight: 800;
   line-height: 40px;
@@ -23003,7 +22978,7 @@ input:-moz-placeholder {
 }
 .partnership-section .partnership-content .partnership-description {
   color: #fff;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 18px;
   font-weight: 600;
   line-height: 30px;
@@ -23015,7 +22990,7 @@ input:-moz-placeholder {
 .partnership-section .partnership-content .partnership-button {
   color: #000;
   text-align: center;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 18px;
   font-weight: 600;
   line-height: 30px;
@@ -23029,7 +23004,6 @@ input:-moz-placeholder {
 }
 .partnership-section .partnership-content .partnership-button:hover {
   background: #fff;
-  box-shadow: 0px 4px 15px 0px #fff;
 }
 
 .tax-reduction {
@@ -23068,7 +23042,7 @@ input:-moz-placeholder {
 }
 .tax-reduction .container-fluid .row .tr-content .tr-title {
   color: #bda069;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 30px;
   font-weight: 800;
   line-height: 25px;
@@ -23077,7 +23051,7 @@ input:-moz-placeholder {
 }
 .tax-reduction .container-fluid .row .tr-content .tr-subtitle {
   color: #bfa573;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 20px;
   font-weight: 700;
   line-height: 35px;
@@ -23086,7 +23060,7 @@ input:-moz-placeholder {
 }
 .tax-reduction .container-fluid .row .tr-content .tr-description {
   color: #fff;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 20px;
   font-weight: 500;
   line-height: 30px;
@@ -23095,7 +23069,7 @@ input:-moz-placeholder {
 .tax-reduction .container-fluid .row .tr-content .tr-button {
   color: #000;
   text-align: center;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 16px;
   font-weight: 600;
   line-height: 25px;
@@ -23112,7 +23086,6 @@ input:-moz-placeholder {
 }
 .tax-reduction .container-fluid .row .tr-content .tr-button:hover {
   background: #fff;
-  box-shadow: 0px 4px 15px 0px #fff;
 }
 
 .optimize-finances-section {
@@ -23122,7 +23095,7 @@ input:-moz-placeholder {
 .optimize-finances-section .of-title {
   color: #d1b06b;
   text-align: center;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 25px;
   font-weight: 800;
   line-height: 40px;
@@ -23132,7 +23105,7 @@ input:-moz-placeholder {
 .optimize-finances-section .of-description {
   color: #fff;
   text-align: center;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 20px;
   font-weight: 500;
   line-height: 30px;
@@ -23147,7 +23120,7 @@ input:-moz-placeholder {
 .key-services-section .ks-title {
   color: #bda069;
   text-align: center;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 25px;
   font-weight: 800;
   line-height: 40px;
@@ -23168,7 +23141,7 @@ input:-moz-placeholder {
 .key-services-section .service-card .card-title {
   color: #bda069;
   text-align: left;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 20px;
   font-weight: 600;
   line-height: 35px;
@@ -23176,7 +23149,7 @@ input:-moz-placeholder {
 }
 .key-services-section .service-card .card-description {
   color: #fff;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 18px;
   font-weight: 500;
   line-height: 28px;
@@ -23191,7 +23164,7 @@ input:-moz-placeholder {
 }
 .benefits-section .benefits-content .benefits-title {
   color: #bda069;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 25px;
   font-weight: 800;
   line-height: 40px;
@@ -23201,7 +23174,7 @@ input:-moz-placeholder {
 }
 .benefits-section .benefits-content .benefits-description {
   color: #fff;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 18px;
   font-weight: 600;
   line-height: 30px;
@@ -23243,7 +23216,7 @@ input:-moz-placeholder {
 }
 .increased-net-worth-section .inw-content .inw-list .list-title {
   color: #bda069;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 20px;
   font-weight: 700;
   line-height: 35px;
@@ -23258,7 +23231,7 @@ input:-moz-placeholder {
 }
 .increased-net-worth-section .inw-content .inw-description {
   color: #fff;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 18px;
   font-weight: 500;
   line-height: 28px;
@@ -23276,7 +23249,7 @@ input:-moz-placeholder {
 }
 .say-goodbye-section .sg-content .sg-title {
   color: #bda069;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 25px;
   font-weight: 800;
   line-height: 40px;
@@ -23285,7 +23258,7 @@ input:-moz-placeholder {
 }
 .say-goodbye-section .sg-content .sg-description {
   color: #fff;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 18px;
   font-weight: 600;
   line-height: 30px;
@@ -23294,7 +23267,7 @@ input:-moz-placeholder {
 .say-goodbye-section .sg-content .sg-button {
   color: #000;
   text-align: center;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 18px;
   font-weight: 600;
   line-height: 30px;
@@ -23308,7 +23281,6 @@ input:-moz-placeholder {
 }
 .say-goodbye-section .sg-content .sg-button:hover {
   background: #fff;
-  box-shadow: 0px 4px 15px 0px #fff;
 }
 .say-goodbye-section .sg-image {
   height: 100%;
@@ -23356,7 +23328,7 @@ input:-moz-placeholder {
 }
 .capital-protection .container-fluid .row .cp-content .cp-title {
   color: #fff;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 30px;
   font-weight: 800;
   line-height: 25px;
@@ -23365,7 +23337,7 @@ input:-moz-placeholder {
 }
 .capital-protection .container-fluid .row .cp-content .cp-subtitle {
   color: #fff;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 20px;
   font-weight: 700;
   line-height: 35px;
@@ -23374,7 +23346,7 @@ input:-moz-placeholder {
 }
 .capital-protection .container-fluid .row .cp-content .cp-description {
   color: #000;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 20px;
   font-weight: 500;
   line-height: 30px;
@@ -23383,7 +23355,7 @@ input:-moz-placeholder {
 .capital-protection .container-fluid .row .cp-content .cp-button {
   color: #fff;
   text-align: center;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 16px;
   font-weight: 600;
   line-height: 25px;
@@ -23401,7 +23373,6 @@ input:-moz-placeholder {
 .capital-protection .container-fluid .row .cp-content .cp-button:hover {
   color: #000;
   background: #fff;
-  box-shadow: 0px 4px 15px 0px #fff;
 }
 
 .secure-future-section {
@@ -23411,7 +23382,7 @@ input:-moz-placeholder {
 .secure-future-section .sf-title {
   color: #d1b06b;
   text-align: center;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 25px;
   font-weight: 800;
   line-height: 40px;
@@ -23421,7 +23392,7 @@ input:-moz-placeholder {
 .secure-future-section .sf-description {
   color: #fff;
   text-align: center;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 20px;
   font-weight: 500;
   line-height: 30px;
@@ -23435,7 +23406,7 @@ input:-moz-placeholder {
 }
 .secure-future-section .sf-left-content .sf-subtitle {
   color: #d1b06b;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 22px;
   font-weight: 700;
   line-height: 40px;
@@ -23464,7 +23435,7 @@ input:-moz-placeholder {
 }
 .secure-future-section .sf-list li {
   color: #bda069;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 20px;
   font-weight: 600;
   line-height: 35px;
@@ -23480,7 +23451,7 @@ input:-moz-placeholder {
 }
 .secure-future-section .sf-list .sf-list-description {
   color: #fff;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 18px;
   font-weight: 500;
   line-height: 28px;
@@ -23500,7 +23471,7 @@ input:-moz-placeholder {
 }
 .protection-plan-section .pp-title-content .pp-title {
   color: #bda069;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 25px;
   font-weight: 800;
   line-height: 40px;
@@ -23522,7 +23493,7 @@ input:-moz-placeholder {
 }
 .protection-plan-section .pp-content .pp-description {
   color: #fff;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 18px;
   font-weight: 500;
   line-height: 30px;
@@ -23546,7 +23517,7 @@ input:-moz-placeholder {
 .capital-benefits-section .benefit-card .card-title {
   color: #bda069;
   text-align: center;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 20px;
   font-weight: 900;
   line-height: 140%;
@@ -23556,7 +23527,7 @@ input:-moz-placeholder {
 .capital-benefits-section .benefit-card .card-description {
   color: #fff;
   text-align: center;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 20px;
   font-weight: 600;
   line-height: 144.687%;
@@ -23584,7 +23555,7 @@ input:-moz-placeholder {
 }
 .legacy-protection-section .lp-content .lp-title {
   color: #bda069;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 20px;
   font-weight: 900;
   line-height: 144.687%;
@@ -23593,7 +23564,7 @@ input:-moz-placeholder {
 }
 .legacy-protection-section .lp-content .lp-description {
   color: #fff;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 20px;
   font-weight: 700;
   line-height: 30px;
@@ -23602,7 +23573,7 @@ input:-moz-placeholder {
 .legacy-protection-section .lp-content .lp-button {
   color: #000;
   text-align: center;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 18px;
   font-weight: 600;
   line-height: 25px;

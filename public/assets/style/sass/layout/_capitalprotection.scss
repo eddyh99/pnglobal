@@ -39,7 +39,7 @@
 
                 .cp-title {
                     color: #fff;
-                    font-family: var.$f-noto;
+                    font-family: var.$f-poppins;
                     font-size: 30px;
                     font-weight: 800;
                     line-height: 25px;
@@ -49,7 +49,7 @@
 
                 .cp-subtitle {
                     color: #fff;
-                    font-family: var.$f-noto;
+                    font-family: var.$f-poppins;
                     font-size: 20px;
                     font-weight: 700;
                     line-height: 35px;
@@ -59,7 +59,7 @@
 
                 .cp-description {
                     color: #000;
-                    font-family: var.$f-noto;
+                    font-family: var.$f-poppins;
                     font-size: 20px;
                     font-weight: 500;
                     line-height: 30px;
@@ -69,7 +69,7 @@
                 .cp-button {
                     color: #fff;
                     text-align: center;
-                    font-family: var.$f-noto;
+                    font-family: var.$f-poppins;
                     font-size: 16px;
                     font-weight: 600;
                     line-height: 25px;
@@ -87,7 +87,6 @@
                     &:hover {
                         color: #000;
                         background: #fff;
-                        box-shadow: 0px 4px 15px 0px #fff;
                     }
                 }
             }
@@ -102,7 +101,7 @@
     .sf-title {
         color: #d1b06b;
         text-align: center;
-        font-family: var.$f-noto;
+        font-family: var.$f-poppins;
         font-size: 25px;
         font-weight: 800;
         line-height: 40px;
@@ -113,7 +112,7 @@
     .sf-description {
         color: #fff;
         text-align: center;
-        font-family: var.$f-noto;
+        font-family: var.$f-poppins;
         font-size: 20px;
         font-weight: 500;
         line-height: 30px;
@@ -128,7 +127,7 @@
 
         .sf-subtitle {
             color: #d1b06b;
-            font-family: var.$f-noto;
+            font-family: var.$f-poppins;
             font-size: 22px;
             font-weight: 700;
             line-height: 40px;
@@ -169,7 +168,7 @@
 
         li {
             color: #bda069;
-            font-family: var.$f-noto;
+            font-family: var.$f-poppins;
             font-size: 20px;
             font-weight: 600;
             line-height: 35px;
@@ -187,7 +186,7 @@
 
         .sf-list-description {
             color: #fff;
-            font-family: var.$f-noto;
+            font-family: var.$f-poppins;
             font-size: 18px;
             font-weight: 500;
             line-height: 28px;
@@ -214,7 +213,7 @@
 
         .pp-title {
             color: #bda069;
-            font-family: var.$f-noto;
+            font-family: var.$f-poppins;
             font-size: 25px;
             font-weight: 800;
             line-height: 40px;
@@ -242,7 +241,7 @@
     .pp-content {
         .pp-description {
             color: #fff;
-            font-family: var.$f-noto;
+            font-family: var.$f-poppins;
             font-size: 18px;
             font-weight: 500;
             line-height: 30px;
@@ -274,7 +273,7 @@
         .card-title {
             color: #bda069;
             text-align: center;
-            font-family: var.$f-noto;
+            font-family: var.$f-poppins;
             font-size: 20px;
             font-weight: 900;
             line-height: 140%;
@@ -285,7 +284,7 @@
         .card-description {
             color: #fff;
             text-align: center;
-            font-family: var.$f-noto;
+            font-family: var.$f-poppins;
             font-size: 20px;
             font-weight: 600;
             line-height: 144.687%;
@@ -326,7 +325,7 @@
 
         .lp-title {
             color: #bda069;
-            font-family: var.$f-noto;
+            font-family: var.$f-poppins;
             font-size: 20px;
             font-weight: 900;
             line-height: 144.687%;
@@ -336,7 +335,7 @@
 
         .lp-description {
             color: #fff;
-            font-family: var.$f-noto;
+            font-family: var.$f-poppins;
             font-size: 20px;
             font-weight: 700;
             line-height: 30px;
@@ -346,7 +345,7 @@
         .lp-button {
             color: #000;
             text-align: center;
-            font-family: var.$f-noto;
+            font-family: var.$f-poppins;
             font-size: 18px;
             font-weight: 600;
             line-height: 25px;
