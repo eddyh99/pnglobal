@@ -122,6 +122,15 @@
         } else {
             initializeStripe();
         }
+
+        // Mencegah form melakukan submit langsung
+        var form = document.getElementById('payment-form');
+        if (form) {
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                // Form akan diproses oleh Stripe dan AJAX
+            });
+        }
     });
 
     function initializeStripe() {
@@ -156,11 +165,10 @@
                 brandElement.style.backgroundImage = 'none';
             }
 
-            var errorElement = document.getElementById('card-errors');
             if (event.error) {
-                errorElement.textContent = event.error.message;
+                showError(event.error.message);
             } else {
-                errorElement.textContent = '';
+                showError('');
             }
         });
 
@@ -197,23 +205,76 @@
 
             if (error) {
                 // Show error and re-enable the button
-                document.getElementById('card-errors').textContent = error.message;
+                showError(error.message);
                 document.getElementById('submit-button').disabled = false;
             } else {
-                // Create a hidden input field for the token
-                const hiddenInput = document.createElement('input');
-                hiddenInput.setAttribute('type', 'hidden');
-                hiddenInput.setAttribute('name', 'payment_method_id');
-                hiddenInput.setAttribute('value', paymentMethod.id);
-                form.appendChild(hiddenInput);
-
                 // Show loading modal if exists
                 if ($("#loadingcontent").length > 0) {
                     $("#loadingcontent").modal("show");
                 }
 
-                // Submit the form to PHP for further processing
-                form.submit();
+                // Siapkan data untuk dikirim melalui AJAX
+                var formData = new FormData();
+                formData.append('payment_method_id', paymentMethod.id);
+                formData.append('amount', document.querySelector('input[name="amount"]').value);
+
+                // Kirim data melalui AJAX
+                $.ajax({
+                    url: '<?= BASE_URL ?>homepage/confirm_card_payment',
+                    type: 'POST',
+                    data: formData,
+                    processData: false,
+                    contentType: false,
+                    dataType: 'json',
+                    success: function(response) {
+                        console.log('Response success:', response);
+                        // Sembunyikan loading modal
+                        if ($("#loadingcontent").length > 0) {
+                            $("#loadingcontent").modal("hide");
+                        }
+
+                        // Jika berhasil, tampilkan pesan sukses dan redirect
+                        if (response.status === 'success') {
+                            showSuccessAndRedirect(
+                                `<div class="text-center">
+                                    <div class="mb-4">
+                                        <i class="ri-checkbox-circle-line text-success" style="font-size: 4rem;"></i>
+                                    </div>
+                                    <p>${response.message || 'Your payment is successful.'}</p>
+                                </div>`
+                            );
+                        } else {
+                            // Jika gagal, tampilkan pesan error
+                            showError(response.message || 'Something went wrong. Please try again.');
+                            // Re-enable the submit button
+                            document.getElementById('submit-button').disabled = false;
+                        }
+                    },
+                    error: function(xhr, status, error) {
+                        console.log('Response error:', xhr.responseText);
+                        // Sembunyikan loading modal
+                        if ($("#loadingcontent").length > 0) {
+                            $("#loadingcontent").modal("hide");
+                        }
+
+                        // Parse response JSON jika ada
+                        var errorMessage = 'Something went wrong. Please try again.';
+                        try {
+                            var response = JSON.parse(xhr.responseText);
+                            if (response && response.message) {
+                                errorMessage = response.message;
+                            }
+                        } catch (e) {
+                            console.error('Error parsing JSON response:', e);
+                        }
+
+                        // Tampilkan pesan error
+                        showError(errorMessage);
+
+                        // Re-enable the submit button
+                        document.getElementById('submit-button').disabled = false;
+                    }
+                });
             }
         });
     }
@@ -247,8 +308,7 @@
                 <div class="mb-4">
                     <i class="ri-checkbox-circle-line text-success" style="font-size: 4rem;"></i>
                 </div>
-                <p>Your payment is being processed and your account will be ready within 48 hours.</p>
-                <p>We will send you an email when your account is active.</p>
+                <p>Your payment is successful.</p>
             </div>
         `;
 
@@ -272,5 +332,19 @@
 
         // Tampilkan notifikasi
         alert('Copied to clipboard: ' + element.value);
+    }
+
+    // Fungsi untuk menampilkan pesan error
+    function showError(message) {
+        var errorElement = document.getElementById('card-errors');
+        if (errorElement) {
+            errorElement.textContent = message;
+            errorElement.scrollIntoView({
+                behavior: 'smooth',
+                block: 'center'
+            });
+        } else {
+            alert('Error: ' + message);
+        }
     }
 </script>

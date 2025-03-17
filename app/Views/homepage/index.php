@@ -20,11 +20,15 @@
 
                 <div class="button-wrapper">
                     <div class="btn-primary" data-aos="flip-down" data-aos-duration="3000">
-                        <div class="btn-text">Claim Your<br /> Financial Freedom</div>
+                        <a href="<?= BASE_URL ?>homepage/bookingconsultation?service=<?= base64_encode($title) ?>">
+                            <div class="btn-text">Claim Your<br /> Financial Freedom</div>
+                        </a>
                     </div>
 
                     <div class="btn-secondary" data-aos="flip-down" data-aos-duration="3000">
-                        <div class="btn-text">Request a Consultation</div>
+                        <a href="<?= BASE_URL ?>homepage/bookingconsultation?service=<?= base64_encode($title) ?>">
+                            <div class="btn-text">Request a Consultation</div>
+                        </a>
                     </div>
                 </div>
 

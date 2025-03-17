@@ -148,7 +148,7 @@
         line-height: 25px; /* 125% */
         font-variant: small-caps;
         margin-bottom: 20px;
-        text-align: center;
+        text-align: left;
 
         @media (max-width: 768px) {
             font-size: 18px;
@@ -219,7 +219,9 @@
 }
 
 .register-button {
-    display: inline-block;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     padding: 5px 40px;
     border-radius: 10px;
     background: #bda069;

@@ -704,7 +704,10 @@ class Homepage extends BaseController
 
             if (!$this->validate($rules)) {
                 session()->setFlashdata('failed', $this->validator->getErrors());
-                return redirect()->to('/member/membership/card_payment');
+                return $this->response->setJSON([
+                    'status' => 'error',
+                    'message' => $this->validator->getErrors()
+                ])->setStatusCode(400);
             }
 
             // Ambil data dari request
@@ -724,7 +727,10 @@ class Homepage extends BaseController
             $session = session();
             if (!$session->has('logged_user')) {
                 session()->setFlashdata('failed', 'User not authenticated');
-                return redirect()->to('/homepage/card_payment');
+                return $this->response->setJSON([
+                    'status' => 'error',
+                    'message' => 'User not authenticated'
+                ])->setStatusCode(401);
             }
 
             $loggedUser = $session->get('logged_user');
@@ -771,7 +777,10 @@ class Homepage extends BaseController
                             ]);
 
                             session()->setFlashdata('failed', $result->message ?? 'An error occurred on the API server. Please try again or contact customer support.');
-                            return redirect()->to('/homepage/card_payment');
+                            return $this->response->setJSON([
+                                'status' => 'error',
+                                'message' => $result->message ?? 'An error occurred on the API server. Please try again or contact customer support.'
+                            ])->setStatusCode(400);
                         }
 
                         // Hapus data pembayaran dari session
@@ -795,44 +804,74 @@ class Homepage extends BaseController
 
                         // Set flash data untuk sukses
                         session()->setFlashdata('success', 'Your payment is being processed and your account will be ready within 48 hours. We will send you an email when your account is active.');
-                        return redirect()->to('/homepage/membership');
+                        return $this->response->setJSON([
+                            'status' => 'success',
+                            'message' => 'Your payment is being processed and your account will be ready within 48 hours. We will send you an email when your account is active.'
+                        ])->setStatusCode(200);
                     } else {
                         session()->setFlashdata('failed', 'Payment failed: ' . $confirmedPaymentIntent->status);
-                        return redirect()->to('/homepage/card_payment');
+                        return $this->response->setJSON([
+                            'status' => 'error',
+                            'message' => 'Payment failed: ' . $confirmedPaymentIntent->status
+                        ])->setStatusCode(400);
                     }
                 } else {
                     session()->setFlashdata('failed', 'Payment failed: ' . $paymentIntent->status);
-                    return redirect()->to('/homepage/card_payment');
+                    return $this->response->setJSON([
+                        'status' => 'error',
+                        'message' => 'Payment failed: ' . $paymentIntent->status
+                    ])->setStatusCode(400);
                 }
             } catch (\Stripe\Exception\CardException $e) {
                 // Kartu ditolak
                 session()->setFlashdata('failed', 'Card declined: ' . $e->getError()->message);
-                return redirect()->to('/homepage/card_payment');
+                return $this->response->setJSON([
+                    'status' => 'error',
+                    'message' => 'Card declined: ' . $e->getError()->message
+                ])->setStatusCode(400);
             } catch (\Stripe\Exception\RateLimitException $e) {
                 // Terlalu banyak request
                 session()->setFlashdata('failed', 'Too many requests to Stripe. Please try again later.');
-                return redirect()->to('/homepage/card_payment');
+                return $this->response->setJSON([
+                    'status' => 'error',
+                    'message' => 'Too many requests to Stripe. Please try again later.'
+                ])->setStatusCode(400);
             } catch (\Stripe\Exception\InvalidRequestException $e) {
                 // Parameter tidak valid
                 session()->setFlashdata('failed', 'Invalid parameters: ' . $e->getError()->message);
-                return redirect()->to('/homepage/card_payment');
+                return $this->response->setJSON([
+                    'status' => 'error',
+                    'message' => 'Invalid parameters: ' . $e->getError()->message
+                ])->setStatusCode(400);
             } catch (\Stripe\Exception\AuthenticationException $e) {
                 // Autentikasi gagal
                 session()->setFlashdata('failed', 'Stripe authentication failed. Please contact administrator.');
-                return redirect()->to('/homepage/card_payment');
+                return $this->response->setJSON([
+                    'status' => 'error',
+                    'message' => 'Stripe authentication failed. Please contact administrator.'
+                ])->setStatusCode(400);
             } catch (\Stripe\Exception\ApiConnectionException $e) {
                 // Koneksi ke Stripe gagal
                 session()->setFlashdata('failed', 'Connection to Stripe failed. Please try again later.');
-                return redirect()->to('/homepage/card_payment');
+                return $this->response->setJSON([
+                    'status' => 'error',
+                    'message' => 'Connection to Stripe failed. Please try again later.'
+                ])->setStatusCode(400);
             } catch (\Stripe\Exception\ApiErrorException $e) {
                 // Error API Stripe lainnya
                 session()->setFlashdata('failed', 'Stripe error: ' . $e->getError()->message);
-                return redirect()->to('/homepage/card_payment');
+                return $this->response->setJSON([
+                    'status' => 'error',
+                    'message' => 'Stripe error: ' . $e->getError()->message
+                ])->setStatusCode(400);
             }
         } catch (\Exception $e) {
             log_message('error', 'Exception: ' . $e->getMessage());
             session()->setFlashdata('failed', 'An internal error occurred: ' . $e->getMessage());
-            return redirect()->to('/homepage/card_payment');
+            return $this->response->setJSON([
+                'status' => 'error',
+                'message' => 'An internal error occurred: ' . $e->getMessage()
+            ])->setStatusCode(500);
         }
     }
 

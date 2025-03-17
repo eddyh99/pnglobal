@@ -88,7 +88,7 @@
 
                         <div class="tutorial-step">
                             <div class="register-button-container">
-                                <a href="/homepage/register_api" class="register-button">Continue <br> to Register</a>
+                                <a href="/homepage/register_api" class="register-button">NEXT</a>
                             </div>
                         </div>
                     </div>
@@ -192,7 +192,7 @@
 
                         <div class="tutorial-step">
                             <div class="register-button-container">
-                                <a href="/homepage/register_api" class="register-button">Continue <br> to Register</a>
+                                <a href="/homepage/register_api" class="register-button">NEXT</a>
                             </div>
                         </div>
 

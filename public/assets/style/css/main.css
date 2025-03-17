@@ -16847,7 +16847,7 @@ p {
 .main-section-otp {
   /* Styling untuk section OTP wrapper */
   background-color: #272626;
-  height: 100vh;
+  min-height: 100vh;
   overflow: hidden;
   bottom: 0;
 }
@@ -24471,7 +24471,7 @@ button.copy-btn:hover i {
   line-height: 25px; /* 125% */
   font-variant: small-caps;
   margin-bottom: 20px;
-  text-align: center;
+  text-align: left;
 }
 @media (max-width: 768px) {
   .tutorial-step h3 {
@@ -24539,7 +24539,9 @@ button.copy-btn:hover i {
 }
 
 .register-button {
-  display: inline-block;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   padding: 5px 40px;
   border-radius: 10px;
   background: #bda069;

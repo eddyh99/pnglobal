@@ -146,8 +146,13 @@
         // Event listener untuk teks 'Show QR Code' (p element di .referral-qr)
         $('.referral-qr p').on('click', function() {
             var qrDiv = $('.qr-code-container');
+            var buttonPosition = $(this).offset(); // Get the position of the clicked button
+            var buttonWidth = $(this).outerWidth(); // Get the width of the button
+            var qrContainerWidth = 200; // Approximate width of the QR code container (adjust as needed)
+            var additionalOffset = 20; // Additional downward offset in pixels (adjust as needed)
+
             if (qrDiv.length === 0) {
-                qrDiv = $('<div class="qr-code-container" style="position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background: #fff; padding: 20px; border: 1px solid #000; z-index: 10000;"></div>');
+                qrDiv = $('<div class="qr-code-container" style="position: absolute; top: ' + (buttonPosition.top + $(this).outerHeight() + additionalOffset) + 'px; left: ' + (buttonPosition.left + buttonWidth - qrContainerWidth) + 'px; background: #fff; padding: 20px; border: 1px solid #000; z-index: 10000; width: ' + qrContainerWidth + 'px;"></div>');
                 var qrImg = $('<img>').attr('src', 'https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=' + encodeURIComponent(referralLink));
                 var closeBtn = $('<button style="display:block; margin-top:10px;">Close</button>');
                 closeBtn.on('click', function() {
