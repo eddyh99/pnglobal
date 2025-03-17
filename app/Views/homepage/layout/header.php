@@ -14,7 +14,7 @@
     <!-- Google Font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Noto+Serif:ital,wght@0,100..900;1,100..900&family=Odor+Mean+Chey&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Noto+Serif:ital,wght@0,100..900;1,100..900&family=Odor+Mean+Chey&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
 
     <!-- Icon Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -52,17 +52,24 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav ms-auto">
-                        <li class="nav-item me-0 me-xl-4 <?= (current_url() === BASE_URL('index.php/homepage/hotdeals')) ? 'active' : '' ?>">
+                        <!-- <li class="nav-item me-0 me-xl-4 <?= (current_url() === BASE_URL('index.php/homepage/hotdeals')) ? 'active' : '' ?>">
                             <a class="nav-link" translate="no" aria-current="page" href="<?= BASE_URL ?>homepage/service?service=<?= base64_encode('satoshi_signal') ?>">HOT <br> DEAL</a>
+                        </li> -->
+                        <li class="nav-item dropdown me-0 me-xl-2">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                PRODUCTS
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="<?= BASE_URL ?>homepage/service?service=<?= base64_encode('btc_elite_management') ?>">BTC Elite Management</a></li>
+                                <li><a class="dropdown-item" href="<?= BASE_URL ?>homepage/service?service=<?= base64_encode('satoshi_signal') ?>">SATOSHI SIGNAL</a></li>
+                                <li><a class="dropdown-item" href="<?= BASE_URL ?>homepage/service?service=<?= base64_encode('lux_btc_brokers') ?>">Lux BTC Brokers </a></li>
+                            </ul>
                         </li>
                         <li class="nav-item dropdown me-0 me-xl-2">
                             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                SERVICES <br> INFORMATION
+                                SERVICES
                             </a>
                             <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="<?= BASE_URL ?>homepage/service?service=<?= base64_encode('satoshi_signal') ?>">SATOSHI SIGNAL</a></li>
-                                <li><a class="dropdown-item" href="<?= BASE_URL ?>homepage/service?service=<?= base64_encode('lux_btc_brokers') ?>">Lux BTC Brokers </a></li>
-                                <li><a class="dropdown-item" href="<?= BASE_URL ?>homepage/service?service=<?= base64_encode('btc_elite_management') ?>">BTC Elite Management</a></li>
                                 <li><a class="dropdown-item" href="<?= BASE_URL ?>homepage/service?service=<?= base64_encode('crypto_consulting') ?>">CRYPTO CONSULTING</a></li>
                                 <li><a class="dropdown-item" href="<?= BASE_URL ?>homepage/service?service=<?= base64_encode('passive_income') ?>">PASSIVE INCOMING</a></li>
                                 <li><a class="dropdown-item" href="<?= BASE_URL ?>homepage/service?service=<?= base64_encode('portfolio_creation') ?>">PORTFOLIO CREATION</a></li>
@@ -87,7 +94,7 @@
                     </li> -->
                     </ul>
                     <div class="nav-buttons">
-                        <a class="btn-navbar-referral" href="<?= BASE_URL ?>member/auth/login">LOGIN WITH REFERRAL</a>
+                        <a class="btn-navbar-referral" href="<?= BASE_URL ?>member/auth/login">MEMBER LOGIN</a>
                         <!-- <a class="btn-navbar-contactform" href="<?= BASE_URL ?>homepage/contactreferral">Get Referral</a> -->
                     </div>
                 </div>

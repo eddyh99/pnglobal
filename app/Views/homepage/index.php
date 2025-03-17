@@ -59,7 +59,7 @@
             <div class="col-12 col-lg-6 order-lg-first text-column">
                 <h2 class="why-title">Why Choose PN Global</h2>
                 <p class="why-desc">
-                    In a constantly evolving financial world, protecting and growing your capital requires smart and tailored strategies. With PN Global International, access strategic consulting to reduce your tax burden, protect your assets, and create investment packages customized for your needs.
+                    In a constantly evolving financial world, protecting and growing your capital requires smart and tailored strategies. <br> With PN Global International, access strategic consulting to reduce your tax burden, protect your assets, and create investment packages customized for your needs.
                 </p>
                 <p class="why-cta">
                     Choose PN Global and discover how we can help you to achieve your financial goals.
@@ -102,7 +102,7 @@
                     </div>
                     <div class="col-md-6">
                         <p class="countdown">The countdown has begun!</p>
-                        <p class="description">In April, PN Global will reveal a secret that will radically transform your financial life. A new service, available only to a limited number of users, that will exceed your expectations.</p>
+                        <p class="description">In April, PN Global will reveal a secret that will radically transform your financial life. A new service, <span class="highlight-bold">available only to a limited number of users</span>, that will exceed your expectations.</p>
                         <p class="highlight">Forget risky investments and long working hours; with our new tool, you can generate extra income effortlessly, with zero risk to your capital and maintaining full control without having to entrust your money to anyone. <br><span class="highlight-1">You will comfortably see your money multiply automatically!</span></p>
                     </div>
                 </div>
@@ -114,7 +114,7 @@
                         <!-- Left column empty -->
                     </div>
                     <div class="col-md-6">
-                        <p class="opportunity">Be among the first to take advantage of this tool that will revolutionize the financial sector! Don't miss out on this unique opportunity.</p>
+                        <!-- <p class="opportunity">Be among the first to take advantage of this tool that will revolutionize the financial sector! Don't miss out on this unique opportunity.</p> -->
                         <p class="signup">Sign up for our newsletter and become a member of this exclusive community.</p>
                         <div class="button-wrapper">
                             <button class="btn custom-btn px-4 py-2">Join the newsletter <br> for free!</button>
@@ -151,18 +151,16 @@
                     <!-- Card Kiri -->
                     <div class="col-md-6 mb-3 mb-md-0">
                         <div class="custom-card">
-                            <div class="divider"></div>
                             <p class="card-text">
-                                Accurate buy and sell signals to maximize your profits, risk-free. Rely on PN Global brokers and our exclusive app for guaranteed results
-                            </p>
+                                Accurate buy and sell signals to maximize your profits, risk-free. Rely on PN Global brokers and our exclusive app for guaranteed results. </p>
+                            <div class="divider"></div>
                         </div>
                     </div>
                     <!-- Card Kanan -->
                     <div class="col-md-6">
                         <div class="custom-card">
                             <p class="card-text">
-                                With Satoshi Signal, you are connected to our brokers who work 24/7 to provide infallible buy and sell signals. We do the hard work; you collect the profits. No more uncertainties: maximize your gains with a proven and zero risk strategy.
-                            </p>
+                                With Satoshi Signal, you are connected to our brokers who work 24/7 to provide infallible buy and sell signals. We do the hard work; you collect the profits. No more uncertainties: maximize your gains with a proven and zero risk strategy. </p>
                             <div class="divider"></div>
                         </div>
                     </div>
@@ -184,96 +182,6 @@
         <div class="container-fluid">
             <div class="row">
                 <!-- Left Column -->
-                <div class="col-12 col-lg-6">
-                    <div class="service-cards">
-                        <!-- <div class="service-card">
-                            <div class="row">
-                                <div class="col-3">
-                                    <div class="service-image">
-                                        <img src="assets/img/ic_satoshi.webp" alt="Satoshi Signal">
-                                    </div>
-                                </div>
-                                <div class="col-9">
-                                    <h3 class="service-title">Satoshi Signal</h3>
-                                    <p class="service-description">Receive real-time buy and sell signals from expert brokers to boost profits and reduce risk.</p>
-                                    <button class="service-btn">Activate Instant <br> Brokerage Signals</button>
-                                </div>
-                            </div>
-                        </div> -->
-                        <div class="service-card">
-                            <div class="row">
-                                <div class="col-3">
-                                    <div class="service-image">
-                                        <img src="assets/img/ic_btc_elite_with_bg.png" alt="BTC Elite Management">
-                                    </div>
-                                </div>
-                                <div class="col-9">
-                                    <h3 class="service-title">btc elite management</h3>
-                                    <p class="service-description">Entrust your Binance wallet to a dedicated personal broker who manages your assets directly.</p>
-                                    <button class="service-btn">Full Management <br> of Your Wallet</button>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="service-card">
-                            <div class="row">
-                                <div class="col-3">
-                                    <div class="service-image">
-                                        <img src="assets/img/ic_passive_income_with_bg.png" alt="Passive Income">
-                                    </div>
-                                </div>
-                                <div class="col-9">
-                                    <h3 class="service-title">Passive Income</h3>
-                                    <p class="service-description">Together, we build your passive income stream for consistent and automatic earnings.</p>
-                                    <button class="service-btn">Start Earning <br> Passively</button>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="service-card">
-                            <div class="row">
-                                <div class="col-3">
-                                    <div class="service-image">
-                                        <img src="assets/img/ic_portfolio_creation_with_bg.png" alt="portfolio creation">
-                                    </div>
-                                </div>
-                                <div class="col-9">
-                                    <h3 class="service-title">portfolio creation</h3>
-                                    <p class="service-description">TOGETHER WE CREATE A stock PORTFOLIO THAT MEETS YOUR RETURN AND RISK NEs.</p>
-                                    <button class="service-btn">Build Your <br> Perfect Portfolio</button>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="service-card">
-                            <div class="row">
-                                <div class="col-3">
-                                    <div class="service-image">
-                                        <img src="assets/img/ic_wealth_consulting_with_bg.png" alt=" Wealth Consulting">
-                                    </div>
-                                </div>
-                                <div class="col-9">
-                                    <h3 class="service-title"> Wealth Consulting</h3>
-                                    <p class="service-description">We help you protect and grow your wealth with personalized strategies.</p>
-                                    <button class="service-btn">ENTRUST US WITH YOUR <br> ASSET GROWTH</button>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="service-card">
-                            <div class="row">
-                                <div class="col-3">
-                                    <div class="service-image">
-                                        <img src="assets/img/ic_tax_reduction_with_bg.png" alt="Tax Reduction">
-                                    </div>
-                                </div>
-                                <div class="col-9">
-                                    <h3 class="service-title">Tax Reduction</h3>
-                                    <p class="service-description">We find for you the best solutions, personalized and 100% legal, to reduce the tax burden on your returns.</p>
-                                    <button class="service-btn">Cut Your Taxes <br> with Us</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Right Column -->
                 <div class="col-12 col-lg-6">
                     <div class="service-cards">
                         <!-- <div class="service-card">
@@ -349,6 +257,97 @@
                         </div>
                     </div>
                 </div>
+
+
+                <!-- Right Column -->
+                <div class="col-12 col-lg-6">
+                    <div class="service-cards">
+                        <!-- <div class="service-card">
+                            <div class="row">
+                                <div class="col-3">
+                                    <div class="service-image">
+                                        <img src="assets/img/ic_satoshi.webp" alt="Satoshi Signal">
+                                    </div>
+                                </div>
+                                <div class="col-9">
+                                    <h3 class="service-title">Satoshi Signal</h3>
+                                    <p class="service-description">Receive real-time buy and sell signals from expert brokers to boost profits and reduce risk.</p>
+                                    <button class="service-btn">Activate Instant <br> Brokerage Signals</button>
+                                </div>
+                            </div>
+                        </div> -->
+                        <!-- <div class="service-card">
+                            <div class="row">
+                                <div class="col-3">
+                                    <div class="service-image">
+                                        <img src="assets/img/ic_btc_elite_with_bg.png" alt="BTC Elite Management">
+                                    </div>
+                                </div>
+                                <div class="col-9">
+                                    <h3 class="service-title">btc elite management</h3>
+                                    <p class="service-description">Entrust your Binance wallet to a dedicated personal broker who manages your assets directly.</p>
+                                    <button class="service-btn">Full Management <br> of Your Wallet</button>
+                                </div>
+                            </div>
+                        </div> -->
+                        <div class="service-card">
+                            <div class="row">
+                                <div class="col-3">
+                                    <div class="service-image">
+                                        <img src="assets/img/ic_passive_income_with_bg.png" alt="Passive Income">
+                                    </div>
+                                </div>
+                                <div class="col-9">
+                                    <h3 class="service-title">Passive Income</h3>
+                                    <p class="service-description">Together, we build your passive income stream for consistent and automatic earnings.</p>
+                                    <button class="service-btn">Start Earning <br> Passively</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="service-card">
+                            <div class="row">
+                                <div class="col-3">
+                                    <div class="service-image">
+                                        <img src="assets/img/ic_portfolio_creation_with_bg.png" alt="portfolio creation">
+                                    </div>
+                                </div>
+                                <div class="col-9">
+                                    <h3 class="service-title">portfolio creation</h3>
+                                    <p class="service-description">TOGETHER WE CREATE A stock PORTFOLIO THAT MEETS YOUR RETURN AND RISK NEs.</p>
+                                    <button class="service-btn">Build Your <br> Perfect Portfolio</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="service-card">
+                            <div class="row">
+                                <div class="col-3">
+                                    <div class="service-image">
+                                        <img src="assets/img/ic_wealth_consulting_with_bg.png" alt=" Wealth Consulting">
+                                    </div>
+                                </div>
+                                <div class="col-9">
+                                    <h3 class="service-title"> Wealth Consulting</h3>
+                                    <p class="service-description">We help you protect and grow your wealth with personalized strategies.</p>
+                                    <button class="service-btn">ENTRUST US WITH YOUR <br> ASSET GROWTH</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="service-card">
+                            <div class="row">
+                                <div class="col-3">
+                                    <div class="service-image">
+                                        <img src="assets/img/ic_tax_reduction_with_bg.png" alt="Tax Reduction">
+                                    </div>
+                                </div>
+                                <div class="col-9">
+                                    <h3 class="service-title">Tax Reduction</h3>
+                                    <p class="service-description">We find for you the best solutions, personalized and 100% legal, to reduce the tax burden on your returns.</p>
+                                    <button class="service-btn">Cut Your Taxes <br> with Us</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -364,7 +363,7 @@
             <div class="row">
                 <div class="col-12 col-lg-6">
                     <div class="who-image">
-                        <img src="<?php echo BASE_URL; ?>assets/img/img-who-we-are.webp" alt="Who We Are">
+                        <img src="<?php echo BASE_URL; ?>assets/img/who-we-are-new.png" alt="Who We Are">
                     </div>
                 </div>
                 <div class="col-12 col-lg-6">

@@ -75,7 +75,7 @@
                         text-align: center;
                         font-size: 1rem; // 16px
                         font-weight: 700;
-                        font-family: var.$f-noto;
+                        font-family: var.$f-poppins;
                         text-transform: uppercase;
                         line-height: 1.4;
                     }
@@ -83,10 +83,10 @@
 
                 .btn-primary {
                     background-color: var.$text-primary-pnglobal;
-                    box-shadow: 0px 4px 4px 0px rgba(255, 255, 255, 1);
+                    // box-shadow: 0px 4px 4px 0px rgba(255, 255, 255, 1);
 
                     &:hover {
-                        box-shadow: 0px 4px 15px 10px #fff;
+                        // box-shadow: 0px 4px 15px 10px #fff;
                         .btn-text {
                             color: var.$text-black-pnglobal !important;
                         }
@@ -100,10 +100,10 @@
 
                 .btn-secondary {
                     background-color: var.$text-white-pnglobal;
-                    box-shadow: 0px 4px 4px 0px rgba(189, 160, 105, 1);
+                    // box-shadow: 0px 4px 4px 0px rgba(189, 160, 105, 1);
 
                     &:hover {
-                        box-shadow: 0px 4px 10px 10px #bda069;
+                        // box-shadow: 0px 4px 10px 10px #bda069;
                         .btn-text {
                             color: #bda069 !important;
                         }
@@ -123,7 +123,7 @@
                 border-radius: 5px;
 
                 .discover-text {
-                    font-family: var.$f-noto;
+                    font-family: var.$f-poppins;
                     color: var.$text-white-pnglobal;
                     font-size: 1.375rem; // 22px
                     font-weight: 600;
@@ -156,7 +156,7 @@
                 }
 
                 .goal-text {
-                    font-family: var.$f-odor;
+                    font-family: var.$f-poppins;
                     text-transform: uppercase;
                     font-weight: normal;
                     line-height: 50px;
@@ -256,13 +256,13 @@
 2. Future Start
 ------------------------------------------------------------*/
 .homepage-future-section {
-    background-color: #fff;
+    background-color: #141414;
 }
 
 .homepage-future-heading {
     color: var.$text-primary-pnglobal;
     text-align: center;
-    font-family: var.$f-noto;
+    font-family: var.$f-poppins;
     font-size: 30px;
     font-style: normal;
     font-weight: 800;
@@ -271,9 +271,9 @@
 }
 
 .homepage-future-text {
-    color: #000;
+    color: #fff;
     text-align: center;
-    font-family: var.$f-noto;
+    font-family: var.$f-poppins;
     font-size: 20px;
     font-style: normal;
     font-weight: 500;
@@ -281,9 +281,9 @@
 }
 
 .homepage-future-cta {
-    color: #000;
+    color: #fff;
     text-align: center;
-    font-family: var.$f-noto;
+    font-family: var.$f-poppins;
     font-size: 22px;
     font-style: normal;
     font-weight: 700;
@@ -318,7 +318,7 @@
         &.text-column {
             .why-title {
                 color: #bfa573;
-                font-family: var.$f-noto;
+                font-family: var.$f-poppins;
                 font-size: 30px;
                 font-weight: 800;
                 line-height: 30px;
@@ -330,7 +330,7 @@
 
             .why-desc {
                 color: #fff;
-                font-family: var.$f-noto;
+                font-family: var.$f-poppins;
                 font-size: 18px;
                 font-weight: 500;
                 line-height: 30px;
@@ -341,9 +341,10 @@
 
             .why-cta {
                 color: #fff;
-                font-family: var.$f-noto;
-                font-size: 20px;
-                font-weight: 700;
+                font-family: var.$f-poppins;
+                font-style: italic;
+                font-size: 18px;
+                font-weight: 500;
                 line-height: 30px;
                 margin-left: 98px;
                 margin-right: 67px;
@@ -539,7 +540,7 @@
         padding-bottom: 10rem; // Kembalikan padding bottom untuk resolusi besar
 
         .bg-title-something-big {
-            background-color: #fff; // Background putih hanya untuk "Something Big"
+            background-color: #d9d9d9; // Background putih hanya untuk "Something Big"
             padding: 2rem;
         }
 
@@ -550,26 +551,32 @@
             text-transform: uppercase;
 
             h1 {
+                font-family: var.$f-poppins;
                 margin: 0;
+                color: #000;
+
+                text-align: center;
                 font-size: 35px;
-                font-weight: 800;
-                line-height: 50px;
-                color: #000; // Teks "Something Big" berwarna hitam
+                font-style: normal;
+                font-weight: 700;
+                line-height: 50px; /* 142.857% */
+                text-transform: uppercase;
             }
         }
 
         .lead-wrapper {
             .lead {
-                margin: 0.5rem 0 0;
+                margin: 0;
+                padding: 1rem 0;
                 text-transform: capitalize;
-                font-family: var.$f-noto;
+                font-family: var.$f-poppins;
                 font-size: 25px;
                 font-style: normal;
                 font-weight: 800;
                 line-height: 35px;
                 text-align: center;
                 color: #fff; // Teks "Are you ready..." berwarna putih
-                background: none; // Tanpa background
+                background: rgba(0, 0, 0, 0.3);
             }
         }
 
@@ -585,7 +592,7 @@
 
             .countdown {
                 color: #bda069;
-                font-family: var.$f-noto;
+                font-family: var.$f-poppins;
                 font-size: 25px;
                 font-style: normal;
                 font-weight: 800;
@@ -596,7 +603,7 @@
             .description,
             .highlight {
                 color: #fff;
-                font-family: var.$f-noto;
+                font-family: var.$f-poppins;
                 font-size: 20px;
                 font-style: normal;
                 font-weight: 500;
@@ -604,9 +611,13 @@
                 text-align: left; // Ubah ke rata kiri untuk tampilan large
             }
 
+            .highlight-bold {
+                font-weight: 700;
+            }
+
             .highlight-1 {
                 color: #bda069;
-                font-family: var.$f-noto;
+                font-family: var.$f-poppins;
                 font-size: 20px;
                 font-style: normal;
                 font-weight: 600;
@@ -650,7 +661,7 @@
 
                 .opportunity {
                     color: #fff;
-                    font-family: var.$f-noto;
+                    font-family: var.$f-poppins;
                     font-size: 20px;
                     font-weight: 700;
                     line-height: 30px;
@@ -659,8 +670,8 @@
                 }
 
                 .signup {
-                    color: #000;
-                    font-family: var.$f-noto;
+                    color: #fff;
+                    font-family: var.$f-poppins;
                     font-size: 20px;
                     font-weight: 800;
                     line-height: 30px;
@@ -682,9 +693,8 @@
                         align-items: center;
                         justify-content: center;
                         background: #bda069;
-                        box-shadow: 0px 4px 15px 10px #fff;
                         color: #000;
-                        font-family: var.$f-noto;
+                        font-family: var.$f-poppins;
                         font-size: 20px;
                         font-weight: 700;
                         line-height: 25px;
@@ -948,7 +958,7 @@
         text-align: center;
         .title {
             color: #bda069;
-            font-family: var.$f-odor;
+            font-family: var.$f-poppins;
             font-size: 40px;
             font-weight: 400;
             line-height: 50px;
@@ -958,7 +968,7 @@
         }
         .subtitle {
             color: #fff;
-            font-family: var.$f-noto;
+            font-family: var.$f-poppins;
             font-size: 20px;
             font-weight: 600;
             line-height: 144.687%;
@@ -1046,7 +1056,7 @@
         .custom-card {
             border: 1px solid #000;
             background: rgba(0, 0, 0, 0.76);
-            box-shadow: 0px 4px 20px 10px #fff;
+            border: 1px solid #bfa573;
             overflow: hidden;
             padding: 3rem;
             margin-bottom: 1rem;
@@ -1062,16 +1072,18 @@
             height: 4px;
             background: #e98c1b;
             box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-            margin: 1rem 0;
+            margin: 1rem auto;
+            text-align: center;
             align-self: flex-start;
         }
 
         .card-text {
             color: #fff;
-            font-family: 'Noto Serif', serif;
+            font-family: var.$f-poppins;
             font-size: 22px;
             font-style: normal;
             font-weight: 600;
+            text-align: center;
             line-height: 144.687%;
         }
     }
@@ -1084,25 +1096,25 @@
 
     .cta {
         max-width: 333px;
-        color: #f7941d;
+        color: #fff;
         text-align: center;
-        font-family: var.$f-noto;
+        font-family: var.$f-poppins;
         font-size: 17px;
         font-weight: 500;
         line-height: 25px;
         text-transform: uppercase;
         border-radius: 5px;
-        border: 1px solid #fff;
+        border: 0.5px solid #fff;
         background: #000;
-        box-shadow: 0px 4px 35px 8px #fff;
         padding: 12px 24px;
         cursor: pointer;
         transition: all 0.3s ease;
 
         &:hover {
-            transform: translateY(-2px);
-            box-shadow: 0px 4px 35px 8px #f7941d;
-            color: #fff;
+            color: #000;
+            border: 0.5px solid #bda069;
+            background: #bda069;
+            border-radius: 5px;
         }
     }
 
@@ -1219,14 +1231,7 @@
     position: relative;
     margin: 0;
     padding-bottom: 30px;
-    background: linear-gradient(
-        321deg,
-        #000 6.14%,
-        #101010 22.77%,
-        #313131 43.59%,
-        #000 65.77%,
-        #111 87.49%
-    );
+    background: #000;
     .container {
         padding: 0 28px;
 
@@ -1247,7 +1252,7 @@
     .section-title-bg {
         width: 100%;
         padding: 30px 0;
-        background: #fff;
+        background: #d9d9d9;
         box-shadow: 0 4px 4px rgba(0, 0, 0, 0.1);
         position: relative;
         margin-bottom: 30px;
@@ -1258,7 +1263,7 @@
         z-index: 2;
         color: #000;
         text-align: center;
-        font-family: var.$f-noto;
+        font-family: var.$f-poppins;
         font-size: 40px;
         font-style: normal;
         font-weight: 800;
@@ -1276,15 +1281,12 @@
 
     .service-card {
         border-radius: 5px;
-        background: linear-gradient(
-            259deg,
-            rgba(101, 101, 101, 0.75) 6.7%,
-            #000 57.93%
-        );
+        background: #000;
         padding: 24px;
         min-height: 200px;
         position: relative;
         margin: 0 5px;
+        border: 1px solid #d1b06b;
 
         .row {
             .col-3 {
@@ -1316,7 +1318,7 @@
 
         .service-title {
             color: #d1b06b;
-            font-family: var.$f-noto;
+            font-family: var.$f-poppins;
             font-size: 25px;
             font-weight: 800;
             line-height: 30px;
@@ -1325,7 +1327,7 @@
 
         .service-description {
             color: #fff;
-            font-family: var.$f-noto;
+            font-family: var.$f-poppins;
             font-size: 16px;
             font-weight: 400;
             line-height: 30px;
@@ -1339,9 +1341,9 @@
         .service-btn {
             color: #000;
             text-align: center;
-            font-family: var.$f-noto;
+            font-family: var.$f-poppins;
             font-size: 13px;
-            font-weight: 700;
+            font-weight: 500;
             line-height: 18px;
             text-transform: uppercase;
             border-radius: 5px;
@@ -1349,19 +1351,12 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            box-shadow: 0px 4px 6px 0px rgba(255, 255, 255, 0.9);
             border: none;
             padding: 3px 20px;
             cursor: pointer;
             transition: all 0.3s ease;
             min-width: 300px;
             min-height: 45px;
-
-            &:hover {
-                transform: translateY(-2px);
-                box-shadow: 0px 4px 10px 3px #e8d9bd;
-                background-color: #fff;
-            }
         }
     }
 
@@ -1505,14 +1500,7 @@
     margin-top: 100px;
 
     .container {
-        background: linear-gradient(
-            135deg,
-            #000 0%,
-            #1a1a1a 40%,
-            #2d2d2d 60%,
-            #4a4a4a 80%,
-            #5f5f5f 100%
-        );
+        background: #141414;
         padding-top: 50px;
         padding-bottom: 50px;
         max-width: 100%;
@@ -1522,10 +1510,8 @@
     .section-title-bg {
         width: 100%;
         padding: 30px 0;
-        background: #fff;
-        box-shadow: 0 4px 4px rgba(0, 0, 0, 0.1);
+        background: #d9d9d9;
         position: relative;
-        margin-bottom: 30px;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -1534,7 +1520,7 @@
     .section-title {
         color: #000;
         text-align: center;
-        font-family: var.$f-noto;
+        font-family: var.$f-poppins;
         font-size: 40px;
         font-style: normal;
         font-weight: 800;
@@ -1562,7 +1548,7 @@
 
         .who-title {
             color: #bfa573;
-            font-family: var.$f-noto;
+            font-family: var.$f-poppins;
             font-size: 30px;
             font-weight: 800;
             line-height: 40px;
@@ -1581,7 +1567,7 @@
             .subtitle {
                 display: block;
                 color: #fff;
-                font-family: var.$f-noto;
+                font-family: var.$f-poppins;
                 font-size: 24px;
                 font-style: normal;
                 font-weight: 800;
@@ -1595,7 +1581,7 @@
         .who-description {
             p {
                 color: #fff;
-                font-family: var.$f-noto;
+                font-family: var.$f-poppins;
                 font-size: 18px;
                 font-weight: 500;
                 line-height: 30px;
@@ -1742,7 +1728,6 @@
         max-width: 748px;
         margin: 0 auto;
         text-align: center;
-        text-transform: uppercase;
     }
 
     .quote-text {
@@ -1750,12 +1735,11 @@
         text-align: center;
         text-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
         -webkit-text-stroke: 1.5px rgba(56, 55, 52, 0.76);
-        font-family: var.$f-noto;
+        font-family: var.$f-poppins;
         font-size: 25px;
         font-style: normal;
         font-weight: 900;
         line-height: 40px;
-        font-variant: small-caps;
         margin: 0;
     }
 }
@@ -1781,7 +1765,7 @@
 
         .invest-title {
             text-align: center;
-            font-family: var.$f-odor;
+            font-family: var.$f-poppins;
             font-size: 35px;
             font-style: normal;
             font-weight: 400;
@@ -1812,7 +1796,7 @@
         .invest-description {
             color: #000;
             text-align: center;
-            font-family: var.$f-noto;
+            font-family: var.$f-poppins;
             font-size: 18px;
             font-style: normal;
             font-weight: 500;
@@ -1823,7 +1807,7 @@
         .invest-cta {
             color: #000;
             text-align: center;
-            font-family: var.$f-noto;
+            font-family: var.$f-poppins;
             font-size: 22px;
             font-style: normal;
             font-weight: 500;
@@ -1869,14 +1853,6 @@
                 .card-title {
                     color: #fff;
                 }
-
-                &:hover {
-                    box-shadow: 0px 4px 20px 10px #bda069;
-
-                    .card-title {
-                        color: #d1b06b;
-                    }
-                }
             }
 
             &.light-card {
@@ -1886,19 +1862,11 @@
                 .card-title {
                     color: #000;
                 }
-
-                &:hover {
-                    box-shadow: 0px 4px 20px 10px #fff;
-
-                    .card-title {
-                        color: #fff;
-                    }
-                }
             }
 
             .card-title {
                 text-align: center;
-                font-family: var.$f-noto;
+                font-family: var.$f-poppins;
                 font-size: 20px;
                 font-style: normal;
                 font-weight: 600;
@@ -2078,7 +2046,7 @@
     .title {
         color: #bfa573;
         text-align: center;
-        font-family: var.$f-noto;
+        font-family: var.$f-poppins;
         font-size: 35px;
         font-style: normal;
         font-weight: 700;
@@ -2090,7 +2058,7 @@
     .description {
         color: #fff;
         text-align: center;
-        font-family: var.$f-noto;
+        font-family: var.$f-poppins;
         font-size: 20px;
         font-style: normal;
         font-weight: 500;
@@ -2106,10 +2074,9 @@
         transform: translateX(-50%);
         border-radius: 5px;
         background: #bfa573;
-        box-shadow: 0px 4px 4px 1px #fff;
         color: #000;
         text-align: center;
-        font-family: var.$f-noto;
+        font-family: var.$f-poppins;
         font-size: 18px;
         font-style: normal;
         font-weight: 700;
@@ -2122,9 +2089,8 @@
         z-index: 10;
 
         &:hover {
-            box-shadow: 0px 4px 10px 3px #fff;
+            // box-shadow: 0px 4px 10px 3px #fff;
             color: #fff;
-            background-color: darken(#bfa573, 10%);
         }
     }
 
@@ -2303,7 +2269,7 @@
 
         .card-title {
             color: #000;
-            font-family: var.$f-noto;
+            font-family: var.$f-poppins;
             font-size: 32px;
             font-style: normal;
             font-weight: 800;
@@ -2322,7 +2288,7 @@
 
         .card-description {
             color: #000;
-            font-family: var.$f-noto;
+            font-family: var.$f-poppins;
             font-size: 20px;
             font-style: normal;
             font-weight: 800;
@@ -2357,7 +2323,7 @@
                 padding: 10px;
                 border-radius: 5px;
                 background: #d4d0d0;
-                font-family: var.$f-noto;
+                font-family: var.$f-poppins;
                 font-size: 16px;
                 width: 60%;
                 min-height: 50px;
@@ -2377,7 +2343,7 @@
                 border-radius: 5px;
                 background: #bfa573;
                 color: #000;
-                font-family: var.$f-noto;
+                font-family: var.$f-poppins;
                 font-size: 20px;
                 font-style: normal;
                 font-weight: 400;

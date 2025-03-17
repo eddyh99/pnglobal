@@ -12622,7 +12622,12 @@ ul li {
 /*----------------------------------------------------------
 1. Tags Typography Start 
 ------------------------------------------------------------*/
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   padding: 0px;
   margin: 0px;
 }
@@ -12722,6 +12727,10 @@ p {
   font-family: "Noto Serif", serif;
 }
 
+.f-poppins {
+  font-family: "Poppins", sans-serif;
+}
+
 /*----------------------------------------------------------
 2. Class Font End
 ------------------------------------------------------------*/
@@ -12740,6 +12749,7 @@ p {
 1. Navbar Homepage Start
 ------------------------------------------------------------*/
 .navbar {
+  /* background-color: rgba(217, 217, 217, 0.15); */
   background-color: rgba(9, 9, 9, 0.75);
   position: absolute;
   top: 0;
@@ -12778,6 +12788,7 @@ p {
 }
 .navbar .navbar-nav .nav-item .nav-link {
   color: #ffffff;
+  font-family: "Poppins", sans-serif;
   font-size: 15px;
   text-align: center;
 }
@@ -12817,6 +12828,7 @@ p {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  font-family: "Poppins", sans-serif;
   width: 100%;
 }
 .navbar .navbar-nav .dropdown .dropdown-menu .dropdown-item:hover {
@@ -12834,21 +12846,19 @@ p {
 .navbar .nav-buttons .btn-navbar-referral {
   width: 122px;
   height: 43px;
-  background-color: white;
-  border-radius: 5px;
-  box-shadow: 0px 4px 4px 0px rgb(189, 160, 105);
+  background-color: #bfa573;
   display: flex;
   align-items: center;
   font-size: 13px;
   text-decoration: none;
   text-align: center;
-  color: #bfa573;
   font-size: 14px;
-  transition: all 0.3s ease;
+  font-family: "Poppins", sans-serif;
+  color: #ffffff;
 }
 .navbar .nav-buttons .btn-navbar-referral:hover {
   color: #0b0a08;
-  box-shadow: 0px 4px 4px #ffffff;
+  background-color: #ffffff;
 }
 .navbar .navbar-toggler:focus,
 .navbar .navbar-toggler:active,
@@ -12920,7 +12930,7 @@ p {
 1. ContactForm Start
 ------------------------------------------------------------*/
 .bg-contactform {
-  background-color: rgba(30, 30, 30, 0.85);
+  background: rgba(30, 30, 30, 0.85);
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
   padding: 3rem 0px;
   color: #ffffff;
@@ -12939,6 +12949,7 @@ p {
 }
 .bg-contactform .left-side #g-getintouch {
   color: #bfa573;
+  font-family: "Poppins", sans-serif;
   font-size: 30px;
   font-style: normal;
   font-weight: 600;
@@ -12947,6 +12958,7 @@ p {
 .bg-contactform .left-side #g-subgetintouch {
   margin-top: 1rem;
   font-size: 20px;
+  font-family: "Poppins", sans-serif;
   font-style: normal;
   font-weight: 400;
 }
@@ -13090,14 +13102,12 @@ p {
   border-radius: 8px;
   font-size: 0.9rem;
   padding: 0.75rem 5rem;
+  font-family: "Poppins", sans-serif;
   transition: all 0.3s ease;
   margin-top: 0.5rem;
-  box-shadow: 0px 4px 6px 0px #fff;
 }
 .bg-footer .col-12.col-md-4 .d-flex.flex-column .btn-contact-form:hover {
   background: #1a1a1a;
-  transform: translateY(-2px);
-  box-shadow: 0px 4px 10px 3px #fff;
 }
 .bg-footer .list {
   border-left: 2px solid #bfa573;
@@ -13110,7 +13120,7 @@ p {
 }
 .bg-footer .list .footer-link {
   color: #fff !important;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 16px;
   font-style: normal;
   font-weight: 600;
@@ -13152,6 +13162,7 @@ p {
   padding-left: 1.5rem;
   list-style-type: none;
   text-align: justify;
+  font-family: "Poppins", sans-serif;
   font-size: 14px;
 }
 .bg-footer .footer-list li strong {
@@ -13190,6 +13201,7 @@ p {
   text-decoration: underline;
   margin: 0;
   padding: 0;
+  font-family: "Poppins", sans-serif;
 }
 .bg-footer .address .row > .col-md-4:last-child .footer-link:hover {
   padding-left: 0;
@@ -13207,7 +13219,7 @@ p {
 .bg-footer .address .row > .col-md-4:last-child .mif-link .mif-text {
   text-align: right;
   color: #d1b06b;
-  font-family: "Markazi Text";
+  font-family: "Poppins", sans-serif;
   font-size: 12px;
   font-style: normal;
   font-weight: 600;
@@ -13373,16 +13385,12 @@ p {
   text-align: center;
   font-size: 1rem;
   font-weight: 700;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   text-transform: uppercase;
   line-height: 1.4;
 }
 .banner-homepage .wrapper-banner-homepage .logo-banner .button-wrapper .btn-primary {
   background-color: #bfa573;
-  box-shadow: 0px 4px 4px 0px rgb(255, 255, 255);
-}
-.banner-homepage .wrapper-banner-homepage .logo-banner .button-wrapper .btn-primary:hover {
-  box-shadow: 0px 4px 15px 10px #fff;
 }
 .banner-homepage .wrapper-banner-homepage .logo-banner .button-wrapper .btn-primary:hover .btn-text {
   color: #1e1e1e !important;
@@ -13393,10 +13401,6 @@ p {
 }
 .banner-homepage .wrapper-banner-homepage .logo-banner .button-wrapper .btn-secondary {
   background-color: #ffffff;
-  box-shadow: 0px 4px 4px 0px rgb(189, 160, 105);
-}
-.banner-homepage .wrapper-banner-homepage .logo-banner .button-wrapper .btn-secondary:hover {
-  box-shadow: 0px 4px 10px 10px #bda069;
 }
 .banner-homepage .wrapper-banner-homepage .logo-banner .button-wrapper .btn-secondary:hover .btn-text {
   color: #bda069 !important;
@@ -13412,7 +13416,7 @@ p {
   border-radius: 5px;
 }
 .banner-homepage .wrapper-banner-homepage .logo-banner .text-wrapper .discover-text {
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   color: #ffffff;
   font-size: 1.375rem;
   font-weight: 600;
@@ -13446,7 +13450,7 @@ p {
   }
 }
 .banner-homepage .wrapper-banner-homepage .logo-banner .logo-text-banner .goal-text {
-  font-family: "Odor Mean Chey", serif;
+  font-family: "Poppins", sans-serif;
   text-transform: uppercase;
   font-weight: normal;
   line-height: 50px;
@@ -13523,13 +13527,13 @@ p {
 2. Future Start
 ------------------------------------------------------------*/
 .homepage-future-section {
-  background-color: #fff;
+  background-color: #141414;
 }
 
 .homepage-future-heading {
   color: #bfa573;
   text-align: center;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 30px;
   font-style: normal;
   font-weight: 800;
@@ -13538,9 +13542,9 @@ p {
 }
 
 .homepage-future-text {
-  color: #000;
+  color: #fff;
   text-align: center;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 20px;
   font-style: normal;
   font-weight: 500;
@@ -13548,9 +13552,9 @@ p {
 }
 
 .homepage-future-cta {
-  color: #000;
+  color: #fff;
   text-align: center;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 22px;
   font-style: normal;
   font-weight: 700;
@@ -13580,7 +13584,7 @@ p {
 }
 .why-choose .col-12.col-lg-6.text-column .why-title {
   color: #bfa573;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 30px;
   font-weight: 800;
   line-height: 30px;
@@ -13591,7 +13595,7 @@ p {
 }
 .why-choose .col-12.col-lg-6.text-column .why-desc {
   color: #fff;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 18px;
   font-weight: 500;
   line-height: 30px;
@@ -13601,9 +13605,10 @@ p {
 }
 .why-choose .col-12.col-lg-6.text-column .why-cta {
   color: #fff;
-  font-family: "Noto Serif", serif;
-  font-size: 20px;
-  font-weight: 700;
+  font-family: "Poppins", sans-serif;
+  font-style: italic;
+  font-size: 18px;
+  font-weight: 500;
   line-height: 30px;
   margin-left: 98px;
   margin-right: 67px;
@@ -13765,7 +13770,7 @@ p {
   padding-bottom: 10rem;
 }
 .newsletter .newsletter-content .bg-title-something-big {
-  background-color: #fff;
+  background-color: #d9d9d9;
   padding: 2rem;
 }
 .newsletter .newsletter-content header {
@@ -13775,23 +13780,28 @@ p {
   text-transform: uppercase;
 }
 .newsletter .newsletter-content header h1 {
+  font-family: "Poppins", sans-serif;
   margin: 0;
-  font-size: 35px;
-  font-weight: 800;
-  line-height: 50px;
   color: #000;
+  text-align: center;
+  font-size: 35px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 50px; /* 142.857% */
+  text-transform: uppercase;
 }
 .newsletter .newsletter-content .lead-wrapper .lead {
-  margin: 0.5rem 0 0;
+  margin: 0;
+  padding: 1rem 0;
   text-transform: capitalize;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 25px;
   font-style: normal;
   font-weight: 800;
   line-height: 35px;
   text-align: center;
   color: #fff;
-  background: none;
+  background: rgba(0, 0, 0, 0.3);
 }
 .newsletter .newsletter-content .newsletter-text {
   width: 100%;
@@ -13804,7 +13814,7 @@ p {
 }
 .newsletter .newsletter-content .newsletter-text .countdown {
   color: #bda069;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 25px;
   font-style: normal;
   font-weight: 800;
@@ -13814,16 +13824,19 @@ p {
 .newsletter .newsletter-content .newsletter-text .description,
 .newsletter .newsletter-content .newsletter-text .highlight {
   color: #fff;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 20px;
   font-style: normal;
   font-weight: 500;
   line-height: 35px;
   text-align: left;
 }
+.newsletter .newsletter-content .newsletter-text .highlight-bold {
+  font-weight: 700;
+}
 .newsletter .newsletter-content .newsletter-text .highlight-1 {
   color: #bda069;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 20px;
   font-style: normal;
   font-weight: 600;
@@ -13858,7 +13871,7 @@ p {
 }
 .newsletter .newsletter-content .mt-4 .col-md-6:last-child .opportunity {
   color: #fff;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 20px;
   font-weight: 700;
   line-height: 30px;
@@ -13866,8 +13879,8 @@ p {
   margin-bottom: 1rem;
 }
 .newsletter .newsletter-content .mt-4 .col-md-6:last-child .signup {
-  color: #000;
-  font-family: "Noto Serif", serif;
+  color: #fff;
+  font-family: "Poppins", sans-serif;
   font-size: 20px;
   font-weight: 800;
   line-height: 30px;
@@ -13888,9 +13901,8 @@ p {
   align-items: center;
   justify-content: center;
   background: #bda069;
-  box-shadow: 0px 4px 15px 10px #fff;
   color: #000;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 20px;
   font-weight: 700;
   line-height: 25px;
@@ -14108,7 +14120,7 @@ p {
 }
 .earning-title .title-wrapper .title {
   color: #bda069;
-  font-family: "Odor Mean Chey", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 40px;
   font-weight: 400;
   line-height: 50px;
@@ -14118,7 +14130,7 @@ p {
 }
 .earning-title .title-wrapper .subtitle {
   color: #fff;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 20px;
   font-weight: 600;
   line-height: 144.687%;
@@ -14191,7 +14203,7 @@ p {
 .earning-section .cards-container .custom-card {
   border: 1px solid #000;
   background: rgba(0, 0, 0, 0.76);
-  box-shadow: 0px 4px 20px 10px #fff;
+  border: 1px solid #bfa573;
   overflow: hidden;
   padding: 3rem;
   margin-bottom: 1rem;
@@ -14206,15 +14218,17 @@ p {
   height: 4px;
   background: #e98c1b;
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-  margin: 1rem 0;
+  margin: 1rem auto;
+  text-align: center;
   align-self: flex-start;
 }
 .earning-section .cards-container .card-text {
   color: #fff;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 22px;
   font-style: normal;
   font-weight: 600;
+  text-align: center;
   line-height: 144.687%;
 }
 .earning-section .button-wrapper {
@@ -14224,25 +14238,25 @@ p {
 }
 .earning-section .cta {
   max-width: 333px;
-  color: #f7941d;
+  color: #fff;
   text-align: center;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 17px;
   font-weight: 500;
   line-height: 25px;
   text-transform: uppercase;
   border-radius: 5px;
-  border: 1px solid #fff;
+  border: 0.5px solid #fff;
   background: #000;
-  box-shadow: 0px 4px 35px 8px #fff;
   padding: 12px 24px;
   cursor: pointer;
   transition: all 0.3s ease;
 }
 .earning-section .cta:hover {
-  transform: translateY(-2px);
-  box-shadow: 0px 4px 35px 8px #f7941d;
-  color: #fff;
+  color: #000;
+  border: 0.5px solid #bda069;
+  background: #bda069;
+  border-radius: 5px;
 }
 @media (max-width: 1199.98px) {
   .earning-section {
@@ -14331,7 +14345,7 @@ p {
   position: relative;
   margin: 0;
   padding-bottom: 30px;
-  background: linear-gradient(321deg, #000 6.14%, #101010 22.77%, #313131 43.59%, #000 65.77%, #111 87.49%);
+  background: #000;
 }
 .service-homepage .container {
   padding: 0 28px;
@@ -14348,7 +14362,7 @@ p {
 .service-homepage .section-title-bg {
   width: 100%;
   padding: 30px 0;
-  background: #fff;
+  background: #d9d9d9;
   box-shadow: 0 4px 4px rgba(0, 0, 0, 0.1);
   position: relative;
   margin-bottom: 30px;
@@ -14358,7 +14372,7 @@ p {
   z-index: 2;
   color: #000;
   text-align: center;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 40px;
   font-style: normal;
   font-weight: 800;
@@ -14374,11 +14388,12 @@ p {
 }
 .service-homepage .service-card {
   border-radius: 5px;
-  background: linear-gradient(259deg, rgba(101, 101, 101, 0.75) 6.7%, #000 57.93%);
+  background: #000;
   padding: 24px;
   min-height: 200px;
   position: relative;
   margin: 0 5px;
+  border: 1px solid #d1b06b;
 }
 .service-homepage .service-card .row .col-3 {
   width: auto;
@@ -14405,7 +14420,7 @@ p {
 }
 .service-homepage .service-card .service-title {
   color: #d1b06b;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 25px;
   font-weight: 800;
   line-height: 30px;
@@ -14413,7 +14428,7 @@ p {
 }
 .service-homepage .service-card .service-description {
   color: #fff;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 16px;
   font-weight: 400;
   line-height: 30px;
@@ -14425,9 +14440,9 @@ p {
 .service-homepage .service-card .service-btn {
   color: #000;
   text-align: center;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 13px;
-  font-weight: 700;
+  font-weight: 500;
   line-height: 18px;
   text-transform: uppercase;
   border-radius: 5px;
@@ -14435,18 +14450,12 @@ p {
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0px 4px 6px 0px rgba(255, 255, 255, 0.9);
   border: none;
   padding: 3px 20px;
   cursor: pointer;
   transition: all 0.3s ease;
   min-width: 300px;
   min-height: 45px;
-}
-.service-homepage .service-card .service-btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0px 4px 10px 3px #e8d9bd;
-  background-color: #fff;
 }
 @media (min-width: 992px) {
   .service-homepage .row {
@@ -14561,7 +14570,7 @@ p {
   margin-top: 100px;
 }
 .who-we-are .container {
-  background: linear-gradient(135deg, #000 0%, #1a1a1a 40%, #2d2d2d 60%, #4a4a4a 80%, #5f5f5f 100%);
+  background: #141414;
   padding-top: 50px;
   padding-bottom: 50px;
   max-width: 100%;
@@ -14570,10 +14579,8 @@ p {
 .who-we-are .section-title-bg {
   width: 100%;
   padding: 30px 0;
-  background: #fff;
-  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.1);
+  background: #d9d9d9;
   position: relative;
-  margin-bottom: 30px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -14581,7 +14588,7 @@ p {
 .who-we-are .section-title {
   color: #000;
   text-align: center;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 40px;
   font-style: normal;
   font-weight: 800;
@@ -14606,7 +14613,7 @@ p {
 }
 .who-we-are .who-content .who-title {
   color: #bfa573;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 30px;
   font-weight: 800;
   line-height: 40px;
@@ -14624,7 +14631,7 @@ p {
 .who-we-are .who-content .who-title .subtitle {
   display: block;
   color: #fff;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 24px;
   font-style: normal;
   font-weight: 800;
@@ -14635,7 +14642,7 @@ p {
 }
 .who-we-are .who-content .who-description p {
   color: #fff;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 18px;
   font-weight: 500;
   line-height: 30px;
@@ -14756,19 +14763,17 @@ p {
   max-width: 748px;
   margin: 0 auto;
   text-align: center;
-  text-transform: uppercase;
 }
 .quotes .quote-text {
   color: #fff;
   text-align: center;
   text-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
   -webkit-text-stroke: 1.5px rgba(56, 55, 52, 0.76);
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 25px;
   font-style: normal;
   font-weight: 900;
   line-height: 40px;
-  font-variant: small-caps;
   margin: 0;
 }
 
@@ -14793,7 +14798,7 @@ p {
 }
 .invest .invest-title-wrapper .invest-title {
   text-align: center;
-  font-family: "Odor Mean Chey", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 35px;
   font-style: normal;
   font-weight: 400;
@@ -14820,7 +14825,7 @@ p {
 .invest .invest-content .invest-description {
   color: #000;
   text-align: center;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 18px;
   font-style: normal;
   font-weight: 500;
@@ -14830,7 +14835,7 @@ p {
 .invest .invest-content .invest-cta {
   color: #000;
   text-align: center;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 22px;
   font-style: normal;
   font-weight: 500;
@@ -14873,12 +14878,6 @@ p {
 .cards-section .cards-wrapper .card.dark-card .card-title {
   color: #fff;
 }
-.cards-section .cards-wrapper .card.dark-card:hover {
-  box-shadow: 0px 4px 20px 10px #bda069;
-}
-.cards-section .cards-wrapper .card.dark-card:hover .card-title {
-  color: #d1b06b;
-}
 .cards-section .cards-wrapper .card.light-card {
   border-radius: 5px;
   background: #ccb78f;
@@ -14886,15 +14885,9 @@ p {
 .cards-section .cards-wrapper .card.light-card .card-title {
   color: #000;
 }
-.cards-section .cards-wrapper .card.light-card:hover {
-  box-shadow: 0px 4px 20px 10px #fff;
-}
-.cards-section .cards-wrapper .card.light-card:hover .card-title {
-  color: #fff;
-}
 .cards-section .cards-wrapper .card .card-title {
   text-align: center;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 20px;
   font-style: normal;
   font-weight: 600;
@@ -15047,7 +15040,7 @@ p {
 .first-steps .title {
   color: #bfa573;
   text-align: center;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 35px;
   font-style: normal;
   font-weight: 700;
@@ -15058,7 +15051,7 @@ p {
 .first-steps .description {
   color: #fff;
   text-align: center;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 20px;
   font-style: normal;
   font-weight: 500;
@@ -15073,10 +15066,9 @@ p {
   transform: translateX(-50%);
   border-radius: 5px;
   background: #bfa573;
-  box-shadow: 0px 4px 4px 1px #fff;
   color: #000;
   text-align: center;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 18px;
   font-style: normal;
   font-weight: 700;
@@ -15089,9 +15081,7 @@ p {
   z-index: 10;
 }
 .first-steps .cta-button:hover {
-  box-shadow: 0px 4px 10px 3px #fff;
   color: #fff;
-  background-color: rgb(175, 142.5, 80);
 }
 .first-steps .logo-big {
   position: absolute;
@@ -15229,7 +15219,7 @@ p {
 }
 .newsletter-card-section .newsletter-card .card-title {
   color: #000;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 32px;
   font-style: normal;
   font-weight: 800;
@@ -15249,7 +15239,7 @@ p {
 }
 .newsletter-card-section .newsletter-card .card-description {
   color: #000;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 20px;
   font-style: normal;
   font-weight: 800;
@@ -15286,7 +15276,7 @@ p {
   padding: 10px;
   border-radius: 5px;
   background: #d4d0d0;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 16px;
   width: 60%;
   min-height: 50px;
@@ -15307,7 +15297,7 @@ p {
   border-radius: 5px;
   background: #bfa573;
   color: #000;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 20px;
   font-style: normal;
   font-weight: 400;
@@ -24772,7 +24762,6 @@ button.copy-btn:hover i {
 .btn-navbar-contactform:hover {
   background-color: #bfa573;
   color: #1e1e1e;
-  box-shadow: 0px 4px 4px 0px #E8D9BD;
   font-weight: 700;
 }
 
@@ -24788,7 +24777,7 @@ button.copy-btn:hover i {
 .btn-navbar-about:hover {
   background-color: #1e1e1e;
   color: #bfa573;
-  box-shadow: 0px 4px 4px 0px #E8D9BD;
+  box-shadow: 0px 4px 4px 0px #e8d9bd;
   font-weight: 700;
 }
 
@@ -24804,7 +24793,6 @@ button.copy-btn:hover i {
 .btn-navbar-referral:hover {
   background-color: #ffffff;
   color: #bfa573;
-  box-shadow: 0px 4px 4px 0px #E8D9BD;
   font-weight: 700;
 }
 
@@ -24831,6 +24819,7 @@ button.copy-btn:hover i {
 .btn-footer-contactform {
   background-color: #bfa573;
   color: #1e1e1e;
+  font-family: "Poppins", sans-serif;
   padding: 0.8rem 1rem !important;
   border-radius: 10px;
   font-size: 13px;
@@ -24839,13 +24828,13 @@ button.copy-btn:hover i {
 .btn-footer-contactform:hover {
   background-color: #bfa573;
   color: #ffffff;
-  box-shadow: 0px 4px 4px 0px #E8D9BD;
   font-weight: 700;
 }
 
 .btn-footer-enrollnow {
   background-color: #1e1e1e;
   color: #ffffff;
+  font-family: "Poppins", sans-serif;
   padding: 0.8rem 1rem !important;
   border-radius: 10px;
   font-size: 13px;
@@ -24854,7 +24843,7 @@ button.copy-btn:hover i {
 .btn-footer-enrollnow:hover {
   background-color: #1e1e1e;
   color: #ffffff;
-  box-shadow: 0px 4px 4px 0px #E8D9BD;
+  box-shadow: 0px 4px 4px 0px #e8d9bd;
   font-weight: 700;
 }
 
@@ -24868,10 +24857,10 @@ button.copy-btn:hover i {
 }
 
 .btn-satoshi-price-register {
-  background-color: #C5A571;
+  background-color: #c5a571;
   color: #000000;
   font-weight: 900;
-  -webkit-text-stroke: 0.3px #ECCF98;
+  -webkit-text-stroke: 0.3px #eccf98;
   font-weight: 800;
   font-size: 22px;
 }
