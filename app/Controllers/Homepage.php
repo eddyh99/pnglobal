@@ -1629,4 +1629,48 @@ class Homepage extends BaseController
 
         return view('homepage/layout/wrapper', $mdata);
     }
+
+    public function subscribe_newsletter()
+    {
+        try {
+            // Validasi email
+            $rules = $this->validate([
+                'email' => [
+                    'label' => 'Email',
+                    'rules' => 'required|valid_email'
+                ]
+            ]);
+
+            if (!$rules) {
+                return $this->response->setJSON([
+                    'status' => 'error',
+                    'message' => $this->validation->listErrors()
+                ]);
+            }
+
+            $email = $this->request->getPost('email');
+
+            // Panggil API untuk menambahkan email ke newsletter
+            $url = URLAPI . "/newsletter/add?email=" . $email;
+            $response = satoshiAdmin($url);
+
+            if (isset($response->result) && $response->result->code == 201) {
+                return $this->response->setJSON([
+                    'status' => 'success',
+                    'message' => 'Successfully subscribed to newsletter'
+                ]);
+            } else {
+                return $this->response->setJSON([
+                    'status' => 'error',
+                    'message' => isset($response->result->message) ? $response->result->message : 'Failed to subscribe to newsletter'
+                ]);
+            }
+        } catch (\Exception $e) {
+            log_message('error', 'Newsletter subscription error: ' . $e->getMessage());
+            return $this->response->setJSON([
+                'status' => 'error',
+                'message' => 'An error occurred while processing your request'
+            ]);
+        }
+    }
 }
