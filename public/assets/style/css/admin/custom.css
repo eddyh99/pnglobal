@@ -858,6 +858,12 @@ div.dataTables_wrapper div.dataTables_filter input {
     color: #ffffff;
 }
 
+.form-addreferral .wrapper-addreferral input[readonly] {
+    text-align: center;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
 .form-addreferral .wrapper-addreferral input[type='radio'] {
     width: auto; /* Hilangkan lebar 100% */
     margin: 0 1rem; /* Berikan margin 1rem */
@@ -1031,6 +1037,9 @@ div.dataTables_wrapper div.dataTables_filter input {
 @media (max-width: 991px) {
 }
 @media (max-width: 767px) {
+    .referral-card {
+        margin-bottom: 15px; /* Jarak bawah */
+    }
 }
 @media (max-width: 580px) {
     .dash-statistics .statistics {
@@ -1089,6 +1098,15 @@ div.dataTables_wrapper div.dataTables_filter input {
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+
+.left-column {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    text-align: center;
+    flex: 1; /* Membagi ruang secara proporsional */
 }
 
 /* Kolom kiri pada row bawah card kanan */

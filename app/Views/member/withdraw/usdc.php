@@ -83,7 +83,7 @@
                                         </div>
                                         <div class="wrapper-addreferral">
                                             <label for="network">Network</label>
-                                            <input type="text" name="network" class="form-control">
+                                            <input type="text" name="network" class="form-control text-center" value="BLOCKCHAIN" readonly>
                                         </div>
                                         <div class="wrapper-addreferral d-flex justify-content-center">
                                             <button type="submit" id="submitBtn" class="btn btn-primary text-black">Confirm</button>
