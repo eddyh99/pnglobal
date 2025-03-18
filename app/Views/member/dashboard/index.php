@@ -32,7 +32,7 @@
         <div class="row content-body">
             <div class="col-lg-12">
                 <div class="row referral-container">
-                    <div class="col-md-10">
+                    <div class="col-md-6">
                         <div class="referral-card">
                             <div class="referral-link text-white">
                                 Referral link:

@@ -240,7 +240,6 @@
 .send-signals .main-send-signal .signal-preview {
     width: 100%;
     padding: 1.5rem;
-    background-color: #121212;
     border-radius: 10px;
     margin-bottom: 20px;
 }
@@ -939,13 +938,14 @@ div.dataTables_wrapper div.dataTables_filter input {
     gap: 20px; /* Jarak antara referral link dan referral-qr */
     border: 2px solid #bfa573;
     border-radius: 5px;
-    padding: 0.5rem 1rem;
-    width: fit-content; /* Lebar hanya sepanjang kontennya */
+    padding: 0.75rem;
+    width: 100%; /* Lebar hanya sepanjang kontennya */
 }
 
 /* Pengaturan untuk referral link */
 .referral-link {
     text-align: left;
+    font-size: 12px;
 }
 
 /* Pengaturan elemen di dalam referral-qr */
@@ -974,7 +974,7 @@ div.dataTables_wrapper div.dataTables_filter input {
     border-radius: 5px;
     border: 1px solid #b48b3d;
     background: rgba(180, 139, 61, 0.25);
-    padding: 0.5rem 1rem;
+    padding: 0.5rem;
     text-align: center;
     /* Lebar akan mengikuti grid system (col-md-2) */
 }
@@ -1533,7 +1533,6 @@ div.dataTables_wrapper div.dataTables_filter input {
 
 .signal-section {
     width: 100%;
-    background-color: #121212;
     border-radius: 10px;
     padding: 0 20px;
 }

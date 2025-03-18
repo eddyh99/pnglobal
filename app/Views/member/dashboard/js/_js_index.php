@@ -148,16 +148,23 @@
             var qrDiv = $('.qr-code-container');
             var buttonPosition = $(this).offset(); // Get the position of the clicked button
             var buttonWidth = $(this).outerWidth(); // Get the width of the button
-            var qrContainerWidth = 200; // Approximate width of the QR code container (adjust as needed)
+            var qrContainerWidth = 200; // Pertahankan lebar QR code container yang asli
             var additionalOffset = 20; // Additional downward offset in pixels (adjust as needed)
+            var rightShift = 30; // Jarak tambahan ke kanan (dalam pixel)
 
             if (qrDiv.length === 0) {
-                qrDiv = $('<div class="qr-code-container" style="position: absolute; top: ' + (buttonPosition.top + $(this).outerHeight() + additionalOffset) + 'px; left: ' + (buttonPosition.left + buttonWidth - qrContainerWidth) + 'px; background: #fff; padding: 20px; border: 1px solid #000; z-index: 10000; width: ' + qrContainerWidth + 'px;"></div>');
-                var qrImg = $('<img>').attr('src', 'https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=' + encodeURIComponent(referralLink));
-                var closeBtn = $('<button style="display:block; margin-top:10px;">Close</button>');
+                qrDiv = $('<div class="qr-code-container" style="position: fixed; top: ' + (buttonPosition.top + $(this).outerHeight() + additionalOffset) + 'px; left: ' + (buttonPosition.left + buttonWidth + rightShift - qrContainerWidth) + 'px; background: #fff; padding: 20px; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.15); z-index: 10000; width: ' + qrContainerWidth + 'px;"></div>');
+
+                // QR Code image dengan ukuran yang sama
+                var qrImg = $('<img style="display: block; margin: 0 auto; width: 150px; height: 150px;">').attr('src', 'https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=' + encodeURIComponent(referralLink));
+
+                // Tombol yang lebih menarik
+                var closeBtn = $('<button style="display: block; margin: 10px auto 0; padding: 6px 15px; background-color: #c9a95b; color: #000; border: none; border-radius: 4px; cursor: pointer; width: 80px;">Close</button>');
+
                 closeBtn.on('click', function() {
                     qrDiv.remove();
                 });
+
                 qrDiv.append(qrImg).append(closeBtn);
                 $('body').append(qrDiv);
             } else {
