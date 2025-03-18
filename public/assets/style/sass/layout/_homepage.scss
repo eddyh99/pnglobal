@@ -1242,7 +1242,13 @@
 
     .col-12.col-lg-6 {
         padding: 0 100px;
+
+        &:first-child {
+            padding-right: 40px;
+        }
+
         &:last-child {
+            padding-left: 40px;
             .service-cards {
                 justify-content: flex-start;
             }
@@ -1275,7 +1281,7 @@
     .service-cards {
         display: flex;
         flex-direction: column;
-        gap: 50px;
+        gap: 75px;
         margin-top: 50px;
     }
 
@@ -1289,11 +1295,19 @@
         border: 1px solid #d1b06b;
 
         .row {
+            display: flex;
+            align-items: flex-start;
+            position: relative;
+
             .col-3 {
                 width: auto;
+                position: relative;
             }
+
             .col-9 {
                 width: calc(100% - 80px);
+                padding-left: 65px;
+                margin-top: 20px;
             }
         }
 
@@ -1308,11 +1322,14 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            z-index: 2;
 
             img {
-                max-width: 70px;
-                max-height: 70px;
+                width: 125px;
+                height: 125px;
                 object-fit: contain;
+                position: relative;
+                z-index: 2;
             }
         }
 
@@ -1323,6 +1340,7 @@
             font-weight: 800;
             line-height: 30px;
             text-transform: uppercase;
+            margin-bottom: 15px;
         }
 
         .service-description {
@@ -1330,8 +1348,9 @@
             font-family: var.$f-poppins;
             font-size: 16px;
             font-weight: 400;
-            line-height: 30px;
+            line-height: 24px;
             text-transform: lowercase;
+            margin-bottom: 20px;
 
             &::first-letter {
                 text-transform: uppercase;
@@ -1371,120 +1390,55 @@
     }
 
     // Media query untuk tampilan responsif
-    @media (max-width: 1199.98px) {
-        .col-12.col-lg-6 {
-            padding: 0 60px; // Kurangi padding pada kolom
-        }
-
-        .service-card {
-            padding: 22px; // Kurangi padding pada card
-            min-height: 190px; // Kurangi tinggi minimum
-
-            .service-btn {
-                min-width: 280px; // Kurangi lebar minimum tombol
-                font-size: 12px; // Kurangi ukuran font
-                padding: 3px 15px; // Kurangi padding
-            }
-        }
-    }
-
-    // Media query untuk tampilan tablet
     @media (max-width: 991.98px) {
-        .col-12.col-lg-6 {
-            padding: 0 40px; // Kurangi padding pada kolom
-        }
-
         .service-card {
-            padding: 20px; // Kurangi padding pada card
-            min-height: 180px; // Kurangi tinggi minimum
+            .row {
+                .col-9 {
+                    padding-left: 55px;
+                }
+            }
 
             .service-title {
-                font-size: 22px; // Kurangi ukuran font judul
-                line-height: 28px; // Kurangi line height
+                font-size: 22px;
+                line-height: 26px;
             }
 
             .service-description {
-                font-size: 15px; // Kurangi ukuran font deskripsi
-                line-height: 26px; // Kurangi line height
-                margin-bottom: 15px; // Tambahkan margin bottom
+                font-size: 14px;
+                line-height: 22px;
             }
 
             .service-btn {
-                min-width: 240px; // Kurangi lebar minimum tombol
-                min-height: 40px; // Kurangi tinggi minimum tombol
-                font-size: 11px; // Kurangi ukuran font tombol
-                padding: 3px 12px; // Kurangi padding tombol
-                white-space: normal; // Izinkan teks untuk wrap
-                height: auto; // Tinggi otomatis berdasarkan konten
+                min-width: 250px;
+                min-height: 40px;
             }
         }
     }
 
     // Media query untuk tampilan mobile
     @media (max-width: 767.98px) {
-        .col-12.col-lg-6 {
-            padding: 0 35px !important; // Tambahkan padding agar ada ruang di samping
-        }
-
-        .service-cards {
-            gap: 30px; // Kurangi gap antar card
-            margin-top: 30px; // Kurangi margin atas
-        }
-
         .service-card {
-            padding: 15px; // Kurangi padding lebih lanjut
-            min-height: 160px; // Kurangi tinggi minimum lagi
-            margin: 0 8px; // Tambahkan margin kiri dan kanan
-
-            .service-title {
-                font-size: 22px; // Kurangi ukuran font judul
-            }
-
-            .service-description {
-                font-size: 14px; // Kurangi ukuran font deskripsi
-                line-height: 24px; // Kurangi line height
-            }
-
-            .service-btn {
-                min-width: 220px; // Kurangi lebar minimum tombol lagi
-                min-height: 40px; // Kurangi tinggi minimum tombol
-                font-size: 12px; // Kurangi ukuran font tombol
-            }
-        }
-    }
-
-    // Media query untuk tampilan sangat kecil
-    @media (max-width: 575.98px) {
-        .col-12.col-lg-6 {
-            padding: 0 20px !important; // Tambahkan padding agar tetap ada ruang di samping
-        }
-
-        .service-cards {
-            gap: 20px; // Kurangi gap antar card lagi
-        }
-
-        .service-card {
-            padding: 15px; // Tambahkan sedikit padding agar tidak terlalu menempel
-            margin: 0 5px; // Tambahkan margin kiri dan kanan
-
             .row {
-                margin: 0 -5px; // Kurangi margin pada row
+                .col-9 {
+                    padding-left: 45px;
+                    margin-top: 15px;
+                }
             }
 
             .service-title {
-                font-size: 20px; // Kurangi ukuran font judul lagi
+                font-size: 20px;
+                line-height: 24px;
             }
 
             .service-description {
-                font-size: 13px; // Kurangi ukuran font deskripsi lagi
-                line-height: 20px; // Kurangi line height lagi
+                font-size: 13px;
+                line-height: 20px;
             }
 
             .service-btn {
-                min-width: 200px; // Kurangi lebar minimum tombol lagi
-                min-height: 35px; // Kurangi tinggi minimum tombol lagi
-                font-size: 11px; // Kurangi ukuran font tombol lagi
-                padding: 3px 15px; // Kurangi padding tombol
+                min-width: 200px;
+                min-height: 35px;
+                font-size: 12px;
             }
         }
     }
