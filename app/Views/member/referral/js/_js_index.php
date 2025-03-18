@@ -1,5 +1,102 @@
+<style>
+    .custom-card {
+        transition: all 0.3s ease;
+        cursor: pointer;
+        border-radius: 10px;
+        border: 2px solid #FAFAFA;
+        background: linear-gradient(107deg, #737373 50.42%, #D2D1CE 100%);
+    }
+
+    .custom-card:hover:not(.active-card) {
+        box-shadow: 0 0 15px rgba(180, 139, 61, 0.3);
+    }
+
+    .active-card,
+    .custom-card.active-card {
+        border-radius: 10px;
+        border: 2px solid #B48B3D;
+        background: linear-gradient(107deg, #B48B3D 50.42%, #BFA573 100%);
+        box-shadow: 0 0 15px rgba(180, 139, 61, 0.5);
+    }
+
+    /* Menyesuaikan warna teks untuk card yang aktif */
+    .active-card .card-row,
+    .custom-card.active-card .card-row {
+        color: white;
+    }
+
+    .qr-code-container button {
+        background-color: #B48B3D;
+        color: white;
+        border: none;
+        padding: 5px 10px;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+</style>
+
 <script>
     $(document).ready(function() {
+        // Set tabel aktif secara default (referral)
+        var activeTable = 'referral';
+
+        // Aktifkan card referral secara default
+        $('#card-referral').addClass('active-card');
+
+        // Tambahkan style untuk card yang aktif
+        function updateActiveCardStyle() {
+            // Hapus semua kelas active-card terlebih dahulu
+            $('.custom-card').removeClass('active-card');
+
+            // Tambahkan kelas active-card ke card yang aktif
+            if (activeTable === 'referral') {
+                $('#card-referral').addClass('active-card');
+            } else {
+                $('#card-commission').addClass('active-card');
+            }
+        }
+
+        // Fungsi untuk mengganti tabel yang ditampilkan
+        function switchTable(table) {
+            activeTable = table;
+
+            if (table === 'referral') {
+                $('#referral-content').show();
+                $('#commission-content').hide();
+
+                // Refresh DataTable jika sudah diinisialisasi
+                if ($.fn.dataTable.isDataTable('#table_referral')) {
+                    $('#table_referral').DataTable().ajax.reload();
+                }
+            } else {
+                $('#commission-content').show();
+                $('#referral-content').hide();
+
+                // Refresh DataTable jika sudah diinisialisasi
+                if ($.fn.dataTable.isDataTable('#table_commission')) {
+                    $('#table_commission').DataTable().ajax.reload();
+                }
+            }
+
+            // Perbarui style card yang aktif
+            updateActiveCardStyle();
+        }
+
+        // Tambahkan event listener untuk card Total Referral
+        $('#card-referral').on('click', function() {
+            switchTable('referral');
+        });
+
+        // Tambahkan event listener untuk card Commission
+        $('#card-commission').on('click', function() {
+            switchTable('commission');
+        });
+
+        // Tambahkan styling untuk card yang bisa diklik
+        $('.custom-card').css('cursor', 'pointer');
+
+        // Set card aktif secara default
+        updateActiveCardStyle();
 
         $.ajax({
             url: '<?= BASE_URL ?>member/referral/get_summary',
@@ -21,19 +118,19 @@
                     var formattedCommission = Math.floor(commission).toLocaleString('en-US');
 
                     // Gunakan selector yang lebih spesifik untuk masing-masing card
-                    $('.custom-card:eq(0) .card-bottom').text(referral);
-                    $('.custom-card:eq(1) .card-bottom').text('$ ' + formattedCommission);
+                    $('#card-referral .card-bottom').text(referral);
+                    $('#card-commission .card-bottom').text('$ ' + formattedCommission);
                 } else {
                     // Atur nilai default untuk kedua card
-                    $('.custom-card:eq(0) .card-bottom').text("0");
-                    $('.custom-card:eq(1) .card-bottom').text("$ 0");
+                    $('#card-referral .card-bottom').text("0");
+                    $('#card-commission .card-bottom').text("$ 0");
                 }
             },
             error: function(xhr, status, error) {
                 console.error('Error:', error);
                 // Atur nilai default jika terjadi error
-                $('.custom-card:eq(0) .card-bottom').text("0");
-                $('.custom-card:eq(1) .card-bottom').text("$ 0");
+                $('#card-referral .card-bottom').text("0");
+                $('#card-commission .card-bottom').text("$ 0");
             }
         });
 
@@ -69,6 +166,46 @@
                 },
                 {
                     data: 'subscription'
+                }
+            ]
+        });
+
+        // Inisialisasi tabel Commission
+        var tableCommission = $('#table_commission').DataTable({
+            serverSide: false,
+            responsive: true,
+            paging: true,
+            searching: true,
+            ordering: true,
+            info: true,
+            lengthChange: true,
+            pageLength: 10,
+            lengthMenu: [10, 25, 50, 100],
+            ajax: {
+                url: '<?= BASE_URL ?>member/referral/get_commission',
+                type: 'GET',
+                dataSrc: function(response) {
+                    console.log('Commission API Response:', response);
+                    if (response.status) {
+                        return response.message;
+                    } else {
+                        console.error('Error fetching commission data:', response.message);
+                        return [];
+                    }
+                }
+            },
+            columns: [{
+                    data: 'date'
+                },
+                {
+                    data: 'amount',
+                    render: function(data, type, row) {
+                        // Format jumlah dengan $ dan pemisah ribuan
+                        return '$ ' + parseFloat(data).toLocaleString('en-US');
+                    }
+                },
+                {
+                    data: 'status'
                 }
             ]
         });

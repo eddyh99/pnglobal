@@ -3175,3 +3175,22 @@ body.sidebar-main .content-page .payment-option-container {
     justify-content: flex-end !important;
     align-items: center;
 }
+
+#table_referral_wrapper > div:nth-child(1) > div:nth-child(2) {
+    display: flex;
+    justify-content: flex-end !important;
+    align-items: center;
+}
+
+#table_commission_wrapper > div:nth-child(1) > div:nth-child(2) {
+    display: flex;
+    justify-content: flex-end !important;
+    align-items: center;
+}
+
+/* Styling untuk search bar table withdraw */
+#table_withdraw_wrapper > div:nth-child(1) > div:nth-child(2) {
+    display: flex;
+    justify-content: flex-end !important;
+    align-items: center;
+}

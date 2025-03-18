@@ -82,4 +82,17 @@ class Referral extends BaseController
 
         return $this->response->setJSON(['status' => true, 'message' => $result->result->message])->setStatusCode(200);
     }
+
+    public function get_commission()
+    {
+        $session = session();
+
+        $loggedUser = $session->get('logged_user');
+        $id_member = $loggedUser->id;
+
+        $url = URLAPI . '/v1/member/list_commission?id_member=' . $id_member;
+        $result = satoshiAdmin($url);
+
+        return $this->response->setJSON(['status' => true, 'message' => $result->result->message])->setStatusCode(200);
+    }
 }

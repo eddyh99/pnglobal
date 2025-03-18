@@ -26,6 +26,8 @@
     </div>
 <?php } ?>
 
+
+
 <!-- Page Content  -->
 <div class="content-page mb-5">
     <div class="container-fluid">
@@ -55,7 +57,7 @@
                 </div>
                 <div class="row referral-cards mb-4">
                     <div class="col-md-6">
-                        <div class="custom-card left-card">
+                        <div class="custom-card left-card" id="card-referral">
                             <div class="card-row card-top">
                                 Total Referral
                             </div>
@@ -65,7 +67,7 @@
                         </div>
                     </div>
                     <div class="col-md-6">
-                        <div class="custom-card left-card">
+                        <div class="custom-card left-card" id="card-commission">
                             <div class="card-row card-top">
                                 Comission
                             </div>
@@ -78,18 +80,34 @@
             </div>
 
             <div class="col-lg-12 dash-table-totalmember">
-                <h4 class="text-white my-3 text-uppercase fw-bold">Referral</h4>
-                <table id="table_referral" class="table table-striped" style="width:100%">
-                    <thead class="thead_totalmember">
-                        <tr>
-                            <th>EMAIL</th>
-                            <th>STATUS</th>
-                            <th>SUBSCRIPTION</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                    </tbody>
-                </table>
+                <div id="referral-content">
+                    <h4 class="text-white my-3 text-uppercase fw-bold">Referral</h4>
+                    <table id="table_referral" class="table table-striped" style="width:100%">
+                        <thead class="thead_totalmember">
+                            <tr>
+                                <th>EMAIL</th>
+                                <th>STATUS</th>
+                                <th>SUBSCRIPTION</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                    </table>
+                </div>
+                <div id="commission-content" style="display:none;">
+                    <h4 class="text-white my-3 text-uppercase fw-bold">Commission</h4>
+                    <table id="table_commission" class="table table-striped" style="width:100%">
+                        <thead class="thead_totalmember">
+                            <tr>
+                                <th>EMAIL</th>
+                                <th>AMOUNT</th>
+                                <th>DATE</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
     </div>
