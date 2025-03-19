@@ -53,5 +53,18 @@ class Giveaway extends BaseController
             'email'   => htmlspecialchars($this->request->getVar('email')),
             'amount'  => htmlspecialchars($this->request->getVar('amount')),
         ];
+
+        // Proccess Endpoin API
+        $url = URLAPI2 . "/v1/payment/send_bonus?type=giveaway&idgive=" . $gid;
+        $response = satoshiAdmin($url, json_encode($mdata));
+        $result = $response->result;
+
+        if ($result->code != '200') {
+            session()->setFlashdata('failed', "Something Wrong, Please Try Again!");
+            return redirect()->to(BASE_URL . 'godmode/giveaway');
+        } else {
+            session()->setFlashdata('success', "Bonus has been successfully sent");
+            return redirect()->to(BASE_URL . 'godmode/giveaway');
+        }
     }
 }
