@@ -1,3 +1,50 @@
+<style>
+    /* Styling untuk QR Code Container */
+    .qr-code-container {
+        position: absolute;
+        background: #fff;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        z-index: 10000;
+        width: 200px;
+    }
+
+    .qr-code-container button {
+        background-color: #B48B3D;
+        color: white;
+        border: none;
+        padding: 5px 10px;
+        border-radius: 4px;
+        cursor: pointer;
+        display: block;
+        margin: 10px auto 0;
+        width: 80px;
+    }
+
+    /* Container untuk referral link dan QR code */
+    .referral-section {
+        position: relative;
+        display: flex;
+        align-items: center;
+        width: 100%;
+    }
+
+    .referral-link-container {
+        width: 50%;
+        position: relative;
+    }
+
+    .qr-code-section {
+        width: 50%;
+        position: relative;
+    }
+
+    .referral-qr {
+        position: relative;
+    }
+</style>
+
 <script>
     $("document").ready(function($) {
         var nav = $('#navbar');
@@ -103,6 +150,46 @@
                         submitButton.innerHTML = 'SUBSCRIBE';
                     });
             });
+        }
+    });
+
+    // Event listener untuk Show QR Code
+    $('.referral-qr p').on('click', function(e) {
+        e.preventDefault();
+        var qrDiv = $('.qr-code-container');
+        var $this = $(this);
+        var buttonOffset = $this.offset();
+        var parentOffset = $('.referral-section').offset();
+
+        // Menghitung posisi relatif terhadap parent
+        var relativeTop = buttonOffset.top - parentOffset.top;
+        var relativeLeft = buttonOffset.left - parentOffset.left;
+
+        if (qrDiv.length === 0) {
+            qrDiv = $('<div class="qr-code-container"></div>');
+
+            // QR Code image
+            var qrImg = $('<img style="display: block; margin: 0 auto; width: 150px; height: 150px;">').attr('src', 'https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=' + encodeURIComponent(window.location.href));
+
+            // Close button
+            var closeBtn = $('<button>Close</button>');
+
+            closeBtn.on('click', function() {
+                qrDiv.remove();
+            });
+
+            qrDiv.append(qrImg).append(closeBtn);
+
+            // Menambahkan ke parent dan mengatur posisi
+            $('.referral-section').append(qrDiv);
+
+            // Mengatur posisi setelah element ditambahkan ke DOM
+            qrDiv.css({
+                'top': relativeTop + $this.outerHeight() + 35,
+                'left': relativeLeft + $this.outerWidth() - qrDiv.outerWidth()
+            });
+        } else {
+            qrDiv.toggle();
         }
     });
 </script>

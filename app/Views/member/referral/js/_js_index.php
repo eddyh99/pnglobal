@@ -25,6 +25,20 @@
         color: white;
     }
 
+    .qr-code-container {
+        position: fixed;
+        background: #fff;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        z-index: 10000;
+        width: 200px;
+        left: 52.5% !important;
+        /* Override posisi left yang diberikan melalui JavaScript */
+        transform: translateX(-50%);
+        /* Memastikan QR code berada di tengah */
+    }
+
     .qr-code-container button {
         background-color: #B48B3D;
         color: white;
@@ -32,6 +46,23 @@
         padding: 5px 10px;
         border-radius: 4px;
         cursor: pointer;
+    }
+
+    /* Container untuk referral link dan QR code */
+    .referral-section {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+    }
+
+    .referral-link-container {
+        width: 50%;
+    }
+
+    .qr-code-section {
+        width: 50%;
+        text-align: right;
     }
 </style>
 
@@ -265,6 +296,12 @@
             } else {
                 qrDiv.toggle();
             }
+
+            // Mengatur posisi setelah element ditambahkan ke DOM
+            qrDiv.css({
+                'top': buttonPosition.top + $(this).outerHeight() + 30, // Mengubah offset top menjadi 30px
+                'left': buttonPosition.left + $(this).outerWidth() - qrDiv.outerWidth()
+            });
         });
     });
 </script>

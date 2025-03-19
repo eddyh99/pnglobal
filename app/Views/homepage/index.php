@@ -7,7 +7,7 @@
             </video>
             <div class="logo-banner">
                 <div class="text-wrapper">
-                    <p id="g-text-banner-homepage" class="logo-text-banner" data-aos="fade-down" data-aos-duration="1500">
+                    <p id="g-text-banner-homepage" class="logo-text-banner">
                         <span class="goal-text">
                             YOUR GOAL IS FINANCIAL FREEDOM, <br>
                             <span style="color: #BFA573;">
@@ -15,17 +15,17 @@
                             </span>
                         </span>
                     </p>
-                    <p class="discover-text" data-aos="fade-down" data-aos-duration="2000">Discover How to Reduce Taxes and Grow Your Capital Today!</p>
+                    <p class="discover-text">Discover How to Reduce Taxes and Grow Your Capital Today!</p>
                 </div>
 
                 <div class="button-wrapper">
-                    <div class="btn-primary" data-aos="flip-down" data-aos-duration="3000">
+                    <div class="btn-primary">
                         <a href="<?= BASE_URL ?>homepage/bookingconsultation?service=<?= base64_encode($title) ?>">
                             <div class="btn-text">Claim Your<br /> Financial Freedom</div>
                         </a>
                     </div>
 
-                    <div class="btn-secondary" data-aos="flip-down" data-aos-duration="3000">
+                    <div class="btn-secondary">
                         <a href="<?= BASE_URL ?>homepage/bookingconsultation?service=<?= base64_encode($title) ?>">
                             <div class="btn-text">Request a Consultation</div>
                         </a>
