@@ -12779,12 +12779,25 @@ p {
 .navbar .logo-text .text-white {
   color: #ffffff;
 }
+@media (max-width: 991px) {
+  .navbar .navbar-collapse {
+    padding: 1rem;
+    border-radius: 8px;
+    margin-top: 1rem;
+  }
+}
 .navbar .navbar-nav {
   display: flex;
   justify-content: center;
   align-items: center;
   width: 100%;
   gap: 2rem;
+}
+@media (max-width: 991px) {
+  .navbar .navbar-nav {
+    flex-direction: column;
+    gap: 1rem;
+  }
 }
 .navbar .navbar-nav .nav-item .nav-link {
   color: #ffffff;
@@ -12795,6 +12808,11 @@ p {
 .navbar .navbar-nav .nav-item .nav-link:hover {
   color: #bda069;
 }
+@media (max-width: 991px) {
+  .navbar .navbar-nav .nav-item .nav-link {
+    padding: 0.5rem 0;
+  }
+}
 .navbar .navbar-nav .dropdown {
   position: relative;
 }
@@ -12804,6 +12822,31 @@ p {
   opacity: 1;
   visibility: visible;
   transform: translateX(-50%);
+}
+@media (max-width: 991px) {
+  .navbar .navbar-nav .dropdown:hover .dropdown-menu {
+    display: none;
+    transform: none;
+  }
+}
+@media (max-width: 991px) {
+  .navbar .navbar-nav .dropdown {
+    width: 100%;
+  }
+}
+@media (max-width: 991px) {
+  .navbar .navbar-nav .dropdown .dropdown-toggle {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+  }
+}
+@media (max-width: 991px) {
+  .navbar .navbar-nav .dropdown .dropdown-toggle::after {
+    margin-left: auto;
+  }
 }
 .navbar .navbar-nav .dropdown .dropdown-menu {
   position: absolute;
@@ -12819,6 +12862,24 @@ p {
   visibility: hidden;
   transition: all 0.3s ease;
 }
+@media (max-width: 991px) {
+  .navbar .navbar-nav .dropdown .dropdown-menu {
+    position: static;
+    transform: none;
+    background: transparent;
+    min-width: 100%;
+    max-width: 100%;
+    padding: 0;
+    margin-top: 0;
+    display: none;
+    visibility: visible;
+  }
+}
+@media (max-width: 991px) {
+  .navbar .navbar-nav .dropdown .dropdown-menu.show {
+    display: block;
+  }
+}
 .navbar .navbar-nav .dropdown .dropdown-menu .dropdown-item {
   color: #d1b06b;
   transition: all 0.3s ease;
@@ -12831,17 +12892,28 @@ p {
   font-family: "Poppins", sans-serif;
   width: 100%;
 }
+@media (max-width: 991px) {
+  .navbar .navbar-nav .dropdown .dropdown-menu .dropdown-item {
+    padding: 8px 0;
+  }
+}
 .navbar .navbar-nav .dropdown .dropdown-menu .dropdown-item:hover {
   background-color: #d1b06b;
   color: #0b0a08;
   width: 100%;
   font-weight: 800;
-  line-height: 25px; /* 192.308% */
+  line-height: 25px;
 }
 .navbar .nav-buttons {
   display: flex;
   gap: 1rem;
   margin-left: auto;
+}
+@media (max-width: 991px) {
+  .navbar .nav-buttons {
+    width: 100%;
+    margin-top: 1rem;
+  }
 }
 .navbar .nav-buttons .btn-navbar-referral {
   width: 122px;
@@ -12855,6 +12927,12 @@ p {
   font-size: 14px;
   font-family: "Poppins", sans-serif;
   color: #ffffff;
+}
+@media (max-width: 991px) {
+  .navbar .nav-buttons .btn-navbar-referral {
+    width: 100%;
+    justify-content: center;
+  }
 }
 .navbar .nav-buttons .btn-navbar-referral:hover {
   color: #0b0a08;
@@ -14435,6 +14513,12 @@ p {
   position: relative;
   z-index: 2;
 }
+@media (min-width: 567px) {
+  .service-homepage .service-card .service-image img {
+    width: 100px;
+    height: 100px;
+  }
+}
 .service-homepage .service-card .service-title {
   color: #d1b06b;
   font-family: "Poppins", sans-serif;
@@ -14485,6 +14569,18 @@ p {
   }
 }
 @media (max-width: 991.98px) {
+  .service-homepage .container {
+    padding: 0 15px;
+  }
+  .service-homepage .col-12.col-lg-6 {
+    padding: 0 15px;
+  }
+  .service-homepage .col-12.col-lg-6:first-child {
+    padding-right: 15px;
+  }
+  .service-homepage .col-12.col-lg-6:last-child {
+    padding-left: 15px;
+  }
   .service-homepage .service-card .row .col-9 {
     padding-left: 55px;
   }
@@ -14502,6 +14598,18 @@ p {
   }
 }
 @media (max-width: 767.98px) {
+  .service-homepage .container {
+    padding: 0 10px;
+  }
+  .service-homepage .col-12.col-lg-6 {
+    padding: 0 20px;
+  }
+  .service-homepage .col-12.col-lg-6:first-child {
+    padding-right: 20px;
+  }
+  .service-homepage .col-12.col-lg-6:last-child {
+    padding-left: 20px;
+  }
   .service-homepage .service-card .row .col-9 {
     padding-left: 45px;
     margin-top: 15px;
@@ -18467,6 +18575,14 @@ input:-moz-placeholder {
 .dark-bg-sections > section:last-child {
   margin-bottom: 0;
 }
+@media (max-width: 991px) {
+  .dark-bg-sections {
+    padding: 0;
+  }
+  .dark-bg-sections > section {
+    margin: 0;
+  }
+}
 
 .advanced-training {
   position: relative;
@@ -18476,7 +18592,7 @@ input:-moz-placeholder {
 }
 .advanced-training .section-title {
   color: #bfa573;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 30px;
   font-style: normal;
   font-weight: 800;
@@ -18485,7 +18601,7 @@ input:-moz-placeholder {
 }
 .advanced-training .section-subtitle {
   color: #fff;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 20px;
   font-style: normal;
   font-weight: 600;
@@ -18494,7 +18610,7 @@ input:-moz-placeholder {
 }
 .advanced-training .section-description {
   color: #fff;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 18px;
   font-style: normal;
   font-weight: 500;
@@ -18508,6 +18624,22 @@ input:-moz-placeholder {
   position: relative;
   z-index: 3;
 }
+@media (max-width: 991px) {
+  .advanced-training .section-title {
+    padding-top: 50px;
+    text-align: center;
+  }
+  .advanced-training img {
+    margin-bottom: 0;
+    min-width: 100%;
+    min-height: auto;
+    max-width: 473px;
+    max-height: 418px;
+    margin-left: auto;
+    display: block;
+    transform: translateX(20%);
+  }
+}
 
 .course-content {
   padding: 30px 0;
@@ -18516,7 +18648,7 @@ input:-moz-placeholder {
 }
 .course-content .section-title {
   color: #fff;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 30px;
   font-style: normal;
   font-weight: 600;
@@ -18536,7 +18668,7 @@ input:-moz-placeholder {
 }
 .course-content .section-description {
   color: #fff;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 18px;
   font-style: normal;
   font-weight: 400;
@@ -18545,11 +18677,16 @@ input:-moz-placeholder {
 }
 .course-content .section-description strong {
   color: #bfa573;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 18px;
   font-style: normal;
   font-weight: 600;
   line-height: 25px;
+}
+@media (max-width: 991px) {
+  .course-content .section-description {
+    text-align: center;
+  }
 }
 
 .aspiring-entrepreneurs {
@@ -18558,7 +18695,7 @@ input:-moz-placeholder {
 }
 .aspiring-entrepreneurs .section-title {
   color: rgba(56, 55, 52, 0.82);
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 30px;
   font-style: normal;
   font-weight: 600;
@@ -18577,7 +18714,7 @@ input:-moz-placeholder {
 }
 .aspiring-entrepreneurs .section-subtitle {
   color: #1e1e1e;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 25px;
   font-style: normal;
   font-weight: 600;
@@ -18587,11 +18724,16 @@ input:-moz-placeholder {
 }
 .aspiring-entrepreneurs .section-description {
   color: #000;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 18px;
   font-style: normal;
   font-weight: 400;
   line-height: 30px;
+}
+@media (max-width: 991px) {
+  .aspiring-entrepreneurs .section-subtitle {
+    margin-top: 1rem;
+  }
 }
 
 .understand-bitcoin {
@@ -18606,7 +18748,7 @@ input:-moz-placeholder {
 }
 .understand-bitcoin .section-description {
   color: #bfa573;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 18px;
   font-style: normal;
   font-weight: 600;
@@ -18615,7 +18757,7 @@ input:-moz-placeholder {
 }
 .understand-bitcoin .section-content {
   color: #fff;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 18px;
   font-style: normal;
   font-weight: 400;
@@ -18623,7 +18765,7 @@ input:-moz-placeholder {
 }
 .understand-bitcoin .bitcoin-title {
   color: #fff;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 25px;
   font-style: normal;
   font-weight: 600;
@@ -18648,6 +18790,23 @@ input:-moz-placeholder {
   margin-bottom: -50px;
   z-index: 2;
 }
+@media (max-width: 991px) {
+  .understand-bitcoin .row {
+    display: flex;
+    flex-direction: column;
+  }
+  .understand-bitcoin .col-12.col-lg-6:last-child {
+    order: -1;
+    margin-bottom: 2rem;
+  }
+  .understand-bitcoin .bitcoin-title {
+    text-align: center;
+    margin: 0 auto 1rem;
+  }
+  .understand-bitcoin img {
+    margin-bottom: 2rem;
+  }
+}
 
 .blockchain-design {
   padding: 30px 0 0;
@@ -18661,7 +18820,7 @@ input:-moz-placeholder {
 }
 .blockchain-design .section-description {
   color: #bfa573;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 18px;
   font-style: normal;
   font-weight: 600;
@@ -18670,7 +18829,7 @@ input:-moz-placeholder {
 }
 .blockchain-design .section-content {
   color: #fff;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 18px;
   font-style: normal;
   font-weight: 400;
@@ -18678,7 +18837,7 @@ input:-moz-placeholder {
 }
 .blockchain-design .blockchain-title {
   color: #fff;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 25px;
   font-style: normal;
   font-weight: 600;
@@ -18716,7 +18875,7 @@ input:-moz-placeholder {
 }
 .bitcoin-mining .section-description {
   color: #fff;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 18px;
   font-style: normal;
   font-weight: 600;
@@ -18725,7 +18884,7 @@ input:-moz-placeholder {
 }
 .bitcoin-mining .section-content {
   color: #1e1e1e;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 18px;
   font-style: normal;
   font-weight: 400;
@@ -18733,7 +18892,7 @@ input:-moz-placeholder {
 }
 .bitcoin-mining .mining-title {
   color: #1e1e1e;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 25px;
   font-style: normal;
   font-weight: 600;
@@ -18758,6 +18917,23 @@ input:-moz-placeholder {
   margin-bottom: -50px;
   z-index: 2;
 }
+@media (max-width: 991px) {
+  .bitcoin-mining .row {
+    display: flex;
+    flex-direction: column;
+  }
+  .bitcoin-mining .col-12.col-lg-6:last-child {
+    order: -1;
+    margin-bottom: 2rem;
+  }
+  .bitcoin-mining .mining-title {
+    text-align: center;
+    margin: 0 auto 1rem;
+  }
+  .bitcoin-mining img {
+    margin-bottom: 2rem;
+  }
+}
 
 .dark-bg-sections > * {
   margin: 0;
@@ -18774,7 +18950,7 @@ input:-moz-placeholder {
 }
 .benefits-training .section-description {
   color: #000;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 18px;
   font-style: normal;
   font-weight: 400;
@@ -18792,7 +18968,7 @@ input:-moz-placeholder {
 }
 .benefits-training .benefits-title {
   color: #000;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 30px;
   font-style: normal;
   font-weight: 600;
@@ -18809,6 +18985,20 @@ input:-moz-placeholder {
   height: 3px;
   background: #bfa573;
   margin: 10px -15px;
+}
+@media (max-width: 991px) {
+  .benefits-training .row {
+    display: flex;
+    flex-direction: column;
+  }
+  .benefits-training .col-12.col-lg-6:last-child {
+    order: -1;
+    margin-bottom: 2rem;
+  }
+  .benefits-training .benefits-title {
+    text-align: center;
+    margin: 0 auto 2rem;
+  }
 }
 
 .training-features {
@@ -18851,7 +19041,7 @@ input:-moz-placeholder {
 }
 .training-features .section-title {
   color: #bfa573;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 25px;
   font-weight: 600;
   line-height: 40px;
@@ -18859,7 +19049,7 @@ input:-moz-placeholder {
 }
 .training-features .section-subtitle {
   color: #bfa573;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 18px;
   font-weight: 600;
   line-height: 25px;
@@ -18867,10 +19057,56 @@ input:-moz-placeholder {
 }
 .training-features .section-description {
   color: #fff;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 16px;
   font-weight: 500;
   line-height: 30px;
+}
+@media (max-width: 991px) {
+  .training-features {
+    position: relative;
+    padding: 50px 0;
+  }
+  .training-features:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("../../../../assets/img/ic_bitcoin_cat.png");
+    background-size: cover;
+    background-position: center;
+    opacity: 0.3;
+    z-index: 0;
+  }
+  .training-features .container {
+    position: relative;
+    z-index: 1;
+  }
+  .training-features .col-12.col-lg-6 {
+    padding: 0 15px;
+  }
+  .training-features .feature-card {
+    background: none;
+    padding: 20px;
+    text-align: center;
+    max-height: none;
+  }
+  .training-features .col-12.col-lg-6:last-child {
+    display: none;
+  }
+  .training-features .section-title {
+    font-size: 28px;
+    margin-bottom: 1.5rem;
+  }
+  .training-features .section-subtitle {
+    font-size: 20px;
+  }
+  .training-features .section-description {
+    font-size: 18px;
+    line-height: 32px;
+  }
 }
 
 .online-training {
@@ -18912,7 +19148,7 @@ input:-moz-placeholder {
 }
 .online-training .section-title {
   color: #bfa573;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 30px;
   font-weight: 600;
   line-height: 40px;
@@ -18928,7 +19164,7 @@ input:-moz-placeholder {
 }
 .online-training .section-subtitle {
   color: #eccf98;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 18px;
   font-style: normal;
   font-weight: 600;
@@ -18962,7 +19198,7 @@ input:-moz-placeholder {
 }
 .online-training .step-text {
   color: #fff;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 18px;
   font-weight: 400;
   line-height: 30px;
@@ -18986,11 +19222,10 @@ input:-moz-placeholder {
 .online-training .follow-button {
   border-radius: 5px;
   background: #bda069;
-  box-shadow: 0px 4px 15px 6px #fff;
   border: none;
   padding: 10px 30px;
   color: #000;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 18px;
   font-weight: 600;
   cursor: pointer;
@@ -18999,6 +19234,22 @@ input:-moz-placeholder {
 .online-training .follow-button:hover {
   background: #fff;
   color: #000;
+}
+@media (max-width: 991px) {
+  .online-training {
+    min-height: auto;
+    padding: 0;
+  }
+  .online-training .content-wrapper {
+    max-width: 100%;
+    border-radius: 0;
+    padding: 30px 15px;
+  }
+  .online-training .container {
+    max-width: 100%;
+    padding: 0;
+    margin: 0;
+  }
 }
 
 .banner-about {
