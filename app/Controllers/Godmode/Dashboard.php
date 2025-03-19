@@ -86,13 +86,29 @@ class Dashboard extends BaseController
 
     public function detailmember($email, $id_member)
     {
-
         // Decode Email
         $finalemail = base64_decode($email);
 
-        // Call Get Memeber By Email
-        $url = URLAPI . "/v1/member/get_detailmember";
-        $resultMember = satoshiAdmin($url, json_encode(['email' => $finalemail]))->result;
+        // Get tab parameter with default value
+        $tab = $this->request->getGet('tab') ?? 'pn-global';
+
+        // Log untuk debugging
+        log_message('debug', 'Detail member - Raw tab parameter: ' . $this->request->getGet('tab'));
+        log_message('debug', 'Detail member - Processed tab value: ' . $tab);
+        log_message('debug', 'Detail member - Email: ' . $finalemail);
+
+        // Determine which API endpoint to use based on active tab
+        $url = $tab === 'satoshi-signal'
+            ? URLAPI2 . "/auth/getmember_byemail?email=" . $finalemail
+            : URLAPI . "/v1/member/get_detailmember";
+
+        log_message('debug', 'Detail member - Using API URL: ' . $url);
+
+        $resultMember = $tab === 'satoshi-signal'
+            ? satoshiAdmin($url)->result
+            : satoshiAdmin($url, json_encode(['email' => $finalemail]))->result;
+
+        log_message('debug', 'Detail member - API Response received');
 
         $mdata = [
             'title'     => 'Detail Member - ' . NAMETITLE,
@@ -102,9 +118,10 @@ class Dashboard extends BaseController
             'active_dash'   => 'active',
             'email' => $finalemail,
             'id_member' => $id_member,
-            // 'type'      => $finaltype,
+            'tab' => $tab // Pass tab to view
         ];
 
+        log_message('debug', 'Detail member - View data prepared with tab: ' . $tab);
         return view('godmode/layout/admin_wrapper', $mdata);
     }
 
@@ -185,12 +202,20 @@ class Dashboard extends BaseController
         }
     }
 
+    public function get_downline($id)
+    {
+        // Call Endpoin Get Referral Member
+        $url = URLAPI2 . "/v1/referral/getDownline?id=" . $id;
+        $result = satoshiAdmin($url)->result->message;
+        echo json_encode($result);
+    }
+
     public function getlevel_downline($id, $level)
     {
         // Call Endpoin Get Referral Member
-        // $url = URLAPI . "/v1/referral/getlevel_downline?id=".$id."&level=".$level;
-        // $result = satoshiAdmin($url)->result->message;
-        // echo json_encode($result);
+        $url = URLAPI2 . "/v1/referral/getlevel_downline?id=" . $id . "&level=" . $level;
+        $result = satoshiAdmin($url)->result->message;
+        echo json_encode($result);
     }
 
     public function set_statusMember($email, $status)

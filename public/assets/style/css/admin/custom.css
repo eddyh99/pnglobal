@@ -3212,3 +3212,9 @@ body.sidebar-main .content-page .payment-option-container {
     justify-content: flex-end !important;
     align-items: center;
 }
+
+#table_level_wrapper > div:nth-child(1) > div:nth-child(2) {
+    display: flex;
+    justify-content: flex-end !important;
+    align-items: center;
+}

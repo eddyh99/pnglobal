@@ -64,7 +64,6 @@
             {
                 data: null,
                 "mRender": function(data, type, full, meta) {
-                    // Jika salah satu atau kedua nilai start_date dan end_date null, tampilkan "Inactive"
                     if (!full.start_date || !full.end_date) {
                         return `<div>
                                     <svg width="8" height="8" viewBox="0 0 8 8" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="8" height="8" rx="4" fill="#FF0000"/></svg>
@@ -75,7 +74,6 @@
                     var start = moment(full.start_date, "YYYY-MM-DD HH:mm:ss");
                     var end = moment(full.end_date, "YYYY-MM-DD HH:mm:ss");
 
-                    // Jika format tanggal tidak valid, juga tampilkan "Inactive"
                     if (!start.isValid() || !end.isValid()) {
                         return `<div>
                                     <svg width="8" height="8" viewBox="0 0 8 8" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="8" height="8" rx="4" fill="#FF0000"/></svg>
@@ -86,12 +84,73 @@
                     var diffDays = end.diff(start, 'days');
                     return diffDays + " days";
                 }
-            },
-
-        ],
-
+            }
+        ]
     });
 
+    <?php if ($tab === 'satoshi-signal') { ?>
+        $('#table_referralmember_satoshi').DataTable({
+            "pageLength": 50,
+            "scrollX": true,
+            "order": false,
+            "ajax": {
+                "url": "<?= BASE_URL ?>godmode/dashboard/get_downline/<?= $member->message->id ?>",
+                "type": "POST",
+                "dataSrc": function(data) {
+                    console.log(data);
+                    return data || [];
+                }
+            },
+            "columns": [{
+                    data: 'email'
+                },
+                {
+                    data: 'status'
+                },
+                {
+                    data: null,
+                    "mRender": function(data, type, full, meta) {
+                        var subscription = '';
+                        if (parseInt(full.day) > 0) {
+                            subscription = full.day + " days until " + full.end_date;
+                        }
+                        return subscription;
+                    }
+                }
+            ]
+        });
+
+        $('#table_level').DataTable({
+            "pageLength": 50,
+            "scrollX": true,
+            "order": false,
+            "ajax": {
+                "url": "<?= BASE_URL ?>godmode/dashboard/getlevel_downline/<?= $member->message->id ?>/2",
+                "type": "POST",
+                "dataSrc": function(data) {
+                    console.log(data);
+                    return data || [];
+                }
+            },
+            "columns": [{
+                    data: 'email'
+                },
+                {
+                    data: 'status'
+                },
+                {
+                    data: null,
+                    "mRender": function(data, type, full, meta) {
+                        var subscription = '';
+                        if (parseInt(full.day) > 0) {
+                            subscription = full.day + " days until " + full.end_date;
+                        }
+                        return subscription;
+                    }
+                }
+            ]
+        });
+    <?php } ?>
 
     function validate() {
         return confirm("Are you sure you want to give a bonus to this user?");
