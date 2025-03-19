@@ -213,7 +213,7 @@
             pageLength: 10,
             lengthMenu: [10, 25, 50, 100],
             ajax: {
-                url: '<?= BASE_URL ?>member/referral/get_commission',
+                url: '<?= BASE_URL ?>member/referral/get_referral',
                 type: 'GET',
                 dataSrc: function(response) {
                     console.log('Commission API Response:', response);
