@@ -35,8 +35,8 @@
                     <h1 class="payment-option-title">PAYMENT OPTION</h1>
                     <div class="payment-buttons">
                         <button class="payment-btn" onclick="window.location.href='<?= BASE_URL ?>member/membership/card_payment'">CARD</button>
-                        <button class="payment-btn disabled-payment-btn" disabled>USDT (COMING SOON)</button>
-                        <button class="payment-btn disabled-payment-btn" disabled>USDC (COMING SOON)</button>
+                        <button class="payment-btn" onclick="window.location.href='<?= BASE_URL ?>member/membership/usdt_payment'">USDT</button>
+                        <button class="payment-btn" onclick="window.location.href='<?= BASE_URL ?>member/membership/usdc_payment'">USDC</button>
                     </div>
                 </div>
             </div>
