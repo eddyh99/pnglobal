@@ -240,18 +240,42 @@ class Signal extends BaseController
                 } else {
                     $response->result->pair_id = null;
                 }
-                $message = $response->result->message; // Gunakan pesan dari respons
+                $message = isset($response->result->message) ? $response->result->message : 'Buy order successfully processed';
                 $code = $response->result->code;
             } else {
                 $message = isset($response->error->message) ? $response->error->message : 'Failed to process buy order';
-                log_message('error', 'Invalid or failed response from limit_buy endpoint: ' . json_encode($response));
                 // Return early if first endpoint fails
                 echo json_encode(['code' => $code, 'message' => $message]);
                 exit();
             }
+        } else if (isset($response->status)) {
+            // Handle kasus dimana hanya ada status tanpa result
+            if ($response->status == 200 || $response->status == 201) {
+                $message = 'Buy order successfully processed';
+                $code = $response->status;
+            } else if ($response->status == 400) {
+                $message = 'Failed to process buy order: Invalid parameters';
+                $code = 400;
+            } else if ($response->status == 401) {
+                $message = 'Failed to process buy order: Unauthorized';
+                $code = 401;
+            } else if ($response->status == 403) {
+                $message = 'Failed to process buy order: Access denied';
+                $code = 403;
+            } else if ($response->status == 404) {
+                $message = 'Failed to process buy order: Endpoint not found';
+                $code = 404;
+            } else if ($response->status == 500) {
+                $message = 'Failed to process buy order: Server error occurred';
+                $code = 500;
+            } else {
+                $message = 'Failed to process buy order: Unknown error occurred';
+                $code = $response->status;
+            }
+            echo json_encode(['code' => $code, 'message' => $message]);
+            exit();
         } else {
             $message = 'Invalid response format from limit_buy endpoint';
-            log_message('error', 'Invalid response format: ' . json_encode($response));
             echo json_encode(['code' => 500, 'message' => $message]);
             exit();
         }
@@ -265,26 +289,24 @@ class Signal extends BaseController
                 'pair_id' => isset($response->result->id) ? $response->result->id : null
             ];
 
-            // Log request to second endpoint
-            log_message('info', 'Sending data to sendsignal endpoint: ' . json_encode($mdata2));
-
             // Process Call to Second Endpoint API
             $url2 = URLAPI2 . "/v1/signal/sendsignal";
             $response2 = satoshiAdmin($url2, json_encode($mdata2));
 
-            // Log response from second endpoint
-            log_message('info', 'Response from sendsignal endpoint: ' . json_encode($response2));
-
             // Check second endpoint response
             if (isset($response2->result) && isset($response2->result->code)) {
                 if ($response2->result->code == 200 || $response2->result->code == 201) {
-                    $message = $response2->result->message;
+                    $message = isset($response2->result->message) ? $response2->result->message : 'Signal successfully saved';
                     $code = $response2->result->code;
-                } else {
-                    log_message('error', 'Failed to send to sendsignal endpoint: ' . json_encode($response2));
                 }
-            } else {
-                log_message('error', 'Invalid response from sendsignal endpoint: ' . json_encode($response2));
+            } else if (isset($response2->status)) {
+                // Handle kasus dimana hanya ada status tanpa result untuk endpoint kedua
+                if ($response2->status == 200 || $response2->status == 201) {
+                    $message = 'Signal successfully saved';
+                    $code = $response2->status;
+                } else {
+                    $message = 'Signal created but failed to save to second endpoint';
+                }
             }
         }
 
