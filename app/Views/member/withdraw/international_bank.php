@@ -31,22 +31,13 @@
     <div class="container-fluid">
         <div class="row content-body">
             <div class="col-lg-12 px-2">
-                <div class="row referral-container">
-                    <div class="col-md-10">
-                        <div class="referral-card">
-                            <div class="referral-link text-white" style="margin: 0 10px;">
-                                <a href="<?= BASE_URL ?>member/withdraw" class="back-button" style="display: flex; align-items: center; justify-content: center; text-decoration: none; color: #FFFFFF; font-weight: bold;">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="11" height="14" viewBox="0 0 11 14" fill="none" style="margin-right: 10px;">
-                                        <path d="M0 7L10.5 0.937822V13.0622L0 7Z" fill="#B48B3D" />
-                                    </svg>
-                                    BACK
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <a href="<?= BASE_URL ?>member/withdraw" class="back-button">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="11" height="14" viewBox="0 0 11 14" fill="none">
+                        <path d="M0 7L10.5 0.937822V13.0622L0 7Z" fill="#B48B3D" />
+                    </svg>
+                    BACK
+                </a>
                 <div class="withdraw-comission">
-
                     <div class="row referral-cards mb-4">
                         <div class="col-md-6">
                             <div class="custom-card left-card">
