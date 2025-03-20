@@ -1,3 +1,32 @@
+<style>
+    .loading-state {
+        position: relative;
+        pointer-events: none;
+        opacity: 0.7;
+        color: transparent !important;
+    }
+
+    .loading-state:after {
+        content: "";
+        position: absolute;
+        width: 16px;
+        height: 16px;
+        top: 50%;
+        left: 50%;
+        margin-top: -8px;
+        margin-left: -8px;
+        border: 2px solid rgba(255, 255, 255, 0.3);
+        border-top-color: #fff;
+        border-radius: 50%;
+        animation: loading-spinner 0.6s linear infinite;
+    }
+
+    @keyframes loading-spinner {
+        to {
+            transform: rotate(360deg);
+        }
+    }
+</style>
 <script>
     window.setTimeout(function() {
         $(".alert").fadeTo(500, 0).slideUp(500, function() {
@@ -5,6 +34,36 @@
         });
     }, 5000);
     $(document).ready(function() {
+        // Fungsi untuk menangani loading state
+        function handleButtonLoading(button) {
+            // Simpan teks asli button sebagai data attribute
+            button.setAttribute('data-original-text', button.textContent);
+            button.classList.add('loading-state');
+            button.disabled = true;
+        }
+
+        // Fungsi untuk menghapus loading state
+        function removeButtonLoading(button) {
+            button.classList.remove('loading-state');
+            button.disabled = false;
+        }
+
+        // Menangani semua button buy
+        document.querySelectorAll('[id^="send-buy-"]').forEach(button => {
+            button.addEventListener('click', function(e) {
+                handleButtonLoading(this);
+                // Loading state akan dihapus setelah ajax selesai
+            });
+        });
+
+        // Menangani semua button delete
+        document.querySelectorAll('[id^="del-buy-"], [id^="del-sell-"]').forEach(button => {
+            button.addEventListener('click', function(e) {
+                handleButtonLoading(this);
+                // Loading state akan dihapus setelah ajax selesai
+            });
+        });
+
         // Debug: Log bahwa dokumen sudah siap
         console.log('Document ready - Initializing event handlers');
 
@@ -198,35 +257,27 @@
             }
         });
 
-        // Fungsi untuk menghitung nilai buy berdasarkan aturan bisnis
-        function calculateBuyValues(initialCapital) {
-            // Pastikan initialCapital adalah kelipatan 2000
-            initialCapital = Math.floor(initialCapital / 2000) * 2000;
-
-            // Setiap buy adalah 1/4 dari initial capital
-            const buyValue = initialCapital / 4;
-
-            return {
-                buyA: buyValue,
-                buyB: buyValue,
-                buyC: buyValue,
-                buyD: buyValue,
-                total: initialCapital
-            };
+        // Fungsi untuk menghitung nilai 1/4 dari total capital
+        function calculateQuarterCapital(totalCapital) {
+            // Pastikan totalCapital adalah kelipatan 2000
+            totalCapital = Math.floor(totalCapital / 2000) * 2000;
+            return totalCapital / 4;
         }
 
-        // Event handler untuk input buy-a untuk menghitung nilai buy secara otomatis
+        // Event handler untuk input buy-a
         $('#buy-a').on('input', function() {
-            // Hanya lakukan perhitungan jika buy-a belum disubmit
-            if (!$('#send-buy-a').prop('disabled')) {
-                const inputValue = $(this).autoNumeric('get');
-                if (inputValue && !isNaN(inputValue)) {
-                    const initialCapital = parseFloat(inputValue) * 4; // Total capital adalah 4x nilai buy-a
-                    const values = calculateBuyValues(initialCapital);
+            // Hanya format angka, tidak menghitung nilai lainnya
+            const inputValue = $(this).autoNumeric('get');
+            if (inputValue && !isNaN(inputValue)) {
+                $(this).autoNumeric('set', inputValue);
 
-                    // Update nilai di UI
-                    $('#buy-a').autoNumeric('set', values.buyA);
-                }
+                // Hitung 1/4 dari total capital (untuk referensi)
+                const totalCapital = parseFloat(inputValue) * 4;
+                const quarterValue = calculateQuarterCapital(totalCapital);
+
+                // Tampilkan nilai referensi di console (bisa diubah ke UI jika diperlukan)
+                console.log('Total Capital:', totalCapital);
+                console.log('1/4 Capital (Reference):', quarterValue);
             }
         });
 
@@ -263,14 +314,13 @@
                             position: 'top-end',
                             timer: 3000,
                             timerProgressBar: true,
+                            didClose: () => {
+                                window.location.reload();
+                            }
                         });
 
                         // Change last instructor
                         $(".last-insturctions").text("Buy A");
-
-                        // Dapatkan nilai buy-a untuk menghitung nilai buy lainnya
-                        const buyAValue = $("#buy-a").autoNumeric('get');
-                        const values = calculateBuyValues(buyAValue * 4); // Total capital adalah 4x nilai buy-a
 
                         // Add attribute input and button buy for disabled
                         $("#buy-a").attr('disabled', true);
@@ -310,9 +360,6 @@
                             vMin: '0'
                         });
 
-                        // Set nilai buy-b sama dengan buy-a (1/4 dari total capital)
-                        $('#buy-b').autoNumeric('set', values.buyB);
-
                     } else {
                         // Sweet Alert
                         Swal.fire({
@@ -324,8 +371,12 @@
                             position: 'top-end',
                             timer: 3000,
                             timerProgressBar: true,
+                            didClose: () => {
+                                window.location.reload();
+                            }
                         });
                     }
+                    removeButtonLoading(document.querySelector('#send-buy-a'));
                 },
                 error: function(jqXHR, textStatus, errorThrown) {
                     // Sweet Alert
@@ -338,11 +389,14 @@
                         position: 'top-end',
                         timer: 3000,
                         timerProgressBar: true,
+                        didClose: () => {
+                            window.location.reload();
+                        }
                     });
+                    removeButtonLoading(document.querySelector('#send-buy-a'));
                 }
             })
         })
-
 
         // Buy B when the button is clicked
         $('#send-buy-b').click(function(e) {
@@ -377,6 +431,9 @@
                             position: 'top-end',
                             timer: 3000,
                             timerProgressBar: true,
+                            didClose: () => {
+                                window.location.reload();
+                            }
                         });
 
                         // Change last instructor
@@ -438,8 +495,12 @@
                             position: 'top-end',
                             timer: 3000,
                             timerProgressBar: true,
+                            didClose: () => {
+                                window.location.reload();
+                            }
                         });
                     }
+                    removeButtonLoading(document.querySelector('#send-buy-b'));
                 },
                 error: function(jqXHR, textStatus, errorThrown) {
                     // Sweet Alert
@@ -452,7 +513,11 @@
                         position: 'top-end',
                         timer: 3000,
                         timerProgressBar: true,
+                        didClose: () => {
+                            window.location.reload();
+                        }
                     });
+                    removeButtonLoading(document.querySelector('#send-buy-b'));
                 }
             })
         })
@@ -490,6 +555,9 @@
                             position: 'top-end',
                             timer: 3000,
                             timerProgressBar: true,
+                            didClose: () => {
+                                window.location.reload();
+                            }
                         });
 
                         // Change last instructor
@@ -553,8 +621,12 @@
                             position: 'top-end',
                             timer: 3000,
                             timerProgressBar: true,
+                            didClose: () => {
+                                window.location.reload();
+                            }
                         });
                     }
+                    removeButtonLoading(document.querySelector('#send-buy-c'));
                 },
                 error: function(jqXHR, textStatus, errorThrown) {
                     // Sweet Alert
@@ -567,7 +639,11 @@
                         position: 'top-end',
                         timer: 3000,
                         timerProgressBar: true,
+                        didClose: () => {
+                            window.location.reload();
+                        }
                     });
+                    removeButtonLoading(document.querySelector('#send-buy-c'));
                 }
             })
         })
@@ -604,6 +680,9 @@
                             position: 'top-end',
                             timer: 3000,
                             timerProgressBar: true,
+                            didClose: () => {
+                                window.location.reload();
+                            }
                         });
 
                         // Change last instructor
@@ -650,8 +729,12 @@
                             position: 'top-end',
                             timer: 3000,
                             timerProgressBar: true,
+                            didClose: () => {
+                                window.location.reload();
+                            }
                         });
                     }
+                    removeButtonLoading(document.querySelector('#send-buy-d'));
                 },
                 error: function(jqXHR, textStatus, errorThrown) {
                     // Sweet Alert
@@ -664,7 +747,11 @@
                         position: 'top-end',
                         timer: 3000,
                         timerProgressBar: true,
+                        didClose: () => {
+                            window.location.reload();
+                        }
                     });
+                    removeButtonLoading(document.querySelector('#send-buy-d'));
                 }
             })
         })
@@ -795,6 +882,9 @@
                                     position: 'top-end',
                                     timer: 3000,
                                     timerProgressBar: true,
+                                    didClose: () => {
+                                        window.location.reload();
+                                    }
                                 });
                             } else {
                                 // Sweet Alert
@@ -807,6 +897,9 @@
                                     position: 'top-end',
                                     timer: 3000,
                                     timerProgressBar: true,
+                                    didClose: () => {
+                                        window.location.reload();
+                                    }
                                 });
                             }
                         },
@@ -1010,6 +1103,9 @@
                                     position: 'top-end',
                                     timer: 3000,
                                     timerProgressBar: true,
+                                    didClose: () => {
+                                        window.location.reload();
+                                    }
                                 });
 
                                 // Refresh tabel history
@@ -1025,6 +1121,9 @@
                                     position: 'top-end',
                                     timer: 3000,
                                     timerProgressBar: true,
+                                    didClose: () => {
+                                        window.location.reload();
+                                    }
                                 });
                             }
                         },
@@ -1128,6 +1227,9 @@
                                     position: 'top-end',
                                     timer: 3000,
                                     timerProgressBar: true,
+                                    didClose: () => {
+                                        window.location.reload();
+                                    }
                                 });
 
                                 // Refresh tabel history
@@ -1143,6 +1245,9 @@
                                     position: 'top-end',
                                     timer: 3000,
                                     timerProgressBar: true,
+                                    didClose: () => {
+                                        window.location.reload();
+                                    }
                                 });
                             }
                         },
@@ -1235,6 +1340,9 @@
                                     position: 'top-end',
                                     timer: 3000,
                                     timerProgressBar: true,
+                                    didClose: () => {
+                                        window.location.reload();
+                                    }
                                 });
 
                                 // Refresh tabel history
@@ -1250,6 +1358,9 @@
                                     position: 'top-end',
                                     timer: 3000,
                                     timerProgressBar: true,
+                                    didClose: () => {
+                                        window.location.reload();
+                                    }
                                 });
                             }
                         },

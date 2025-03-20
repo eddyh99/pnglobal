@@ -191,13 +191,13 @@ class Signal extends BaseController
     {
         // Validation Field
         $rules = $this->validate([
-            'price'     => [
-                'label'     => 'Entry Price',
-                'rules'     => 'required'
+            'price' => [
+                'label' => 'Entry Price',
+                'rules' => 'required'
             ],
-            'type'     => [
-                'label'     => 'Type Signal',
-                'rules'     => 'required'
+            'type' => [
+                'label' => 'Type Signal',
+                'rules' => 'required'
             ],
         ]);
 
@@ -214,74 +214,87 @@ class Signal extends BaseController
 
         // Initial Data
         $mdata = [
-            'limit'     => htmlspecialchars($this->request->getVar('price')),
-            'type'      => htmlspecialchars($this->request->getVar('type')),
-            'admin_id'  => $admin_id,
-            'ip_address'  => $ip_address,
+            'limit' => htmlspecialchars($this->request->getVar('price')),
+            'type' => htmlspecialchars($this->request->getVar('type')),
+            'admin_id' => $admin_id,
+            'ip_address' => $ip_address,
         ];
 
         // Change format price
         $mdata['limit'] = str_replace(',', '', $mdata['limit']);
 
-        // Proccess Call Endpoin API
+        // Process Call to First Endpoint API (limit_buy)
         $url = URLAPI . "/v1/order/limit_buy";
         $response = satoshiAdmin($url, json_encode($mdata));
 
-        $code = isset($response->code) ? $response->code : 500;
+        // Determine response code from first endpoint
+        $code = isset($response->result->code) ? $response->result->code : (isset($response->status) ? $response->status : 500);
         $message = '';
 
-        // Buat pesan berdasarkan respons
-        if (isset($response->result) && isset($response->result->id)) {
-            // Jika ada ID dalam respons, anggap sukses
-            $response->result->pair_id = $response->result->id; // Tambahkan pair_id seperti pada kode awal
-            switch ($code) {
-                case 201:
-                    $message = 'Buy order processed successfully';
-                    break;
-                case 200:
-                    $message = 'Buy order placed successfully';
-                    break;
-                default:
-                    $message = 'Unknown response code: ' . $code;
-                    break;
+        // Handle response from first endpoint
+        if (isset($response->result) && isset($response->result->code)) {
+            if ($response->result->code == 200 || $response->result->code == 201) {
+                // Pastikan id ada sebelum menggunakannya
+                if (isset($response->result->id)) {
+                    $response->result->pair_id = $response->result->id;
+                } else {
+                    $response->result->pair_id = null;
+                }
+                $message = $response->result->message; // Gunakan pesan dari respons
+                $code = $response->result->code;
+            } else {
+                $message = isset($response->error->message) ? $response->error->message : 'Failed to process buy order';
+                log_message('error', 'Invalid or failed response from limit_buy endpoint: ' . json_encode($response));
+                // Return early if first endpoint fails
+                echo json_encode(['code' => $code, 'message' => $message]);
+                exit();
             }
         } else {
-            // Jika respons tidak valid atau gagal
-            $message = isset($response->error->message) ? $response->error->message : 'Failed to process buy order';
+            $message = 'Invalid response format from limit_buy endpoint';
+            log_message('error', 'Invalid response format: ' . json_encode($response));
+            echo json_encode(['code' => 500, 'message' => $message]);
+            exit();
         }
 
-        // Jika pengiriman ke endpoint utama berhasil, kirim ke endpoint kedua
-        if ($code == 201 || $code == 200) {
-            // Siapkan data untuk endpoint kedua
+        // If first endpoint succeeds, call the second endpoint (sendsignal)
+        if ($code == 200 || $code == 201) {
+            // Prepare data for second endpoint
             $mdata2 = [
-                'entry' => floatval($mdata['limit']), // Gunakan harga yang sudah diformat
-                'type' => $mdata['type'], // Gunakan tipe yang sama
-                'pair_id' => null
+                'entry' => floatval($mdata['limit']),
+                'type' => $mdata['type'],
+                'pair_id' => isset($response->result->id) ? $response->result->id : null
             ];
 
-            // Log untuk debugging
-            log_message('info', 'Mengirim data ke endpoint sendsignal: ' . json_encode($mdata2));
+            // Log request to second endpoint
+            log_message('info', 'Sending data to sendsignal endpoint: ' . json_encode($mdata2));
 
-            // Proses Panggilan Endpoint Kedua
+            // Process Call to Second Endpoint API
             $url2 = URLAPI2 . "/v1/signal/sendsignal";
             $response2 = satoshiAdmin($url2, json_encode($mdata2));
 
-            // Log respons dari endpoint kedua
-            log_message('info', 'Respons dari endpoint sendsignal: ' . json_encode($response2));
+            // Log response from second endpoint
+            log_message('info', 'Response from sendsignal endpoint: ' . json_encode($response2));
 
-            // Jika endpoint kedua gagal, log error tetapi tidak memengaruhi respons utama
-            if (!isset($response2->status) || $response2->status != 200) {
-                log_message('error', 'Gagal mengirim ke endpoint sendsignal: ' . json_encode($response2));
+            // Check second endpoint response
+            if (isset($response2->result) && isset($response2->result->code)) {
+                if ($response2->result->code == 200 || $response2->result->code == 201) {
+                    $message = $response2->result->message;
+                    $code = $response2->result->code;
+                } else {
+                    log_message('error', 'Failed to send to sendsignal endpoint: ' . json_encode($response2));
+                }
+            } else {
+                log_message('error', 'Invalid response from sendsignal endpoint: ' . json_encode($response2));
             }
         }
 
-        // Buat array respons yang hanya berisi code dan pesan
+        // Create response array
         $result = [
             'code' => $code,
             'message' => $message
         ];
 
-        // Kembalikan hasil dalam format JSON
+        // Return result as JSON
         echo json_encode($result);
     }
 
@@ -520,9 +533,9 @@ class Signal extends BaseController
     {
         // Validation Field
         $rules = $this->validate([
-            'id_signal'     => [
-                'label'     => 'Signal ID',
-                'rules'     => 'required'
+            'id_signal' => [
+                'label' => 'Signal ID',
+                'rules' => 'required'
             ],
         ]);
 
@@ -537,31 +550,53 @@ class Signal extends BaseController
         }
 
         // Initial Data
+        $signal_id = htmlspecialchars($this->request->getVar('id_signal'));
         $mdata = [
-            'id_signal' => htmlspecialchars($this->request->getVar('id_signal')),
+            'id_signal' => $signal_id,
         ];
 
-        // Proccess Call Endpoin API
-        $url = URLAPI . "/v1/order/delete?id_signal=" . $mdata['id_signal'];
-        $response = satoshiAdmin($url);
+        // Log untuk debugging
+        log_message('info', 'Mencoba menghapus signal dengan ID: ' . $signal_id);
 
-        // Periksa respons dari API
-        if (isset($response->result) && isset($response->result->code)) {
+        // Process Call to First Endpoint API
+        $url1 = URLAPI . "/v1/order/delete?id_signal=" . $signal_id;
+        $response1 = satoshiAdmin($url1);
+
+        // Log response dari endpoint pertama
+        log_message('info', 'Response dari endpoint delete pertama: ' . json_encode($response1));
+
+        // Process Call to Second Endpoint API
+        $url2 = URLAPI2 . "/v1/signal/cancelsignal?id=" . $signal_id;
+        $response2 = satoshiAdmin($url2);
+
+        // Log response dari endpoint kedua
+        log_message('info', 'Response dari endpoint delete kedua: ' . json_encode($response2));
+
+        // Determine the primary response based on first endpoint
+        if (isset($response1->result) && isset($response1->result->code)) {
             $result = [
-                'code' => $response->result->code,
-                'message' => isset($response->result->message) ? $response->result->message : 'Signal Successfully Deleted'
+                'code' => $response1->result->code,
+                'message' => $response1->result->message
             ];
         } else {
-            // Jika respons tidak valid, buat respons default
+            // Fallback if first endpoint response is unexpected
             $result = [
-                'code' => '200',
-                'message' => 'Signal Successfully Deleted'
+                'code' => isset($response1->error) ? '400' : '200',
+                'message' => isset($response1->error->message) ? $response1->error->message : 'Signal deleted'
             ];
+        }
 
-            // Jika ada error message dari API, gunakan itu
-            if (isset($response->error) && isset($response->error->message)) {
-                $result['code'] = '400';
-                $result['message'] = $response->error->message;
+        // Log second endpoint response for debugging, but don't override primary result unless necessary
+        if (isset($response2->result) && isset($response2->result->code)) {
+            log_message('info', 'Second endpoint response: ' . json_encode($response2->result));
+        } else {
+            log_message('error', 'Second endpoint failed or returned unexpected response: ' . json_encode($response2));
+        }
+
+        // If first endpoint succeeds but second fails, log it but don't change the success response
+        if ($result['code'] == '200' || $result['code'] == '201') {
+            if (!isset($response2->result) || !isset($response2->result->code) || ($response2->result->code != '200' && $response2->result->code != '201')) {
+                log_message('warning', 'First endpoint succeeded but second endpoint failed: ' . json_encode($response2));
             }
         }
 
