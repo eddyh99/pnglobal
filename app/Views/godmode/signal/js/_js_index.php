@@ -947,7 +947,6 @@
             console.log('Price Input Readonly:', priceInput.prop('readonly'));
 
             // Pastikan nilai harga diambil dengan benar dari autoNumeric
-            // Gunakan autoNumeric('get') untuk mendapatkan nilai numerik tanpa format
             let price;
             try {
                 // Coba dapatkan nilai dengan autoNumeric jika tersedia
@@ -999,43 +998,11 @@
                 return;
             }
 
-            // Implementasi aturan bisnis berdasarkan tipe SELL
-            let affectedBuys = [];
-            let sellMessage = '';
-
-            // Menerapkan aturan bisnis:
-            // 1. Buy A, B, C, D trus SELL D -> hanya dari Buy D
-            // 2. Buy A, B, C, D trus SELL C -> Buy C+D
-            // 3. Buy A, B, C, D trus SELL B -> Buy B+C+D
-            // 4. Buy A, B, C, D trus SELL A -> Buy A+B+C+D
-            switch (signalLetter) {
-                case 'A':
-                    affectedBuys = ['A', 'B', 'C', 'D'];
-                    sellMessage = 'Menjual posisi A+B+C+D';
-                    break;
-                case 'B':
-                    affectedBuys = ['B', 'C', 'D'];
-                    sellMessage = 'Menjual posisi B+C+D';
-                    break;
-                case 'C':
-                    affectedBuys = ['C', 'D'];
-                    sellMessage = 'Menjual posisi C+D';
-                    break;
-                case 'D':
-                    affectedBuys = ['D'];
-                    sellMessage = 'Menjual posisi D';
-                    break;
-            }
-
-            console.log('Affected Buys:', affectedBuys);
-            console.log('Sell Message:', sellMessage);
-
             // Data yang akan dikirim ke server
             const sendData = {
                 price: price,
                 type: signalType,
-                pair_id: pairId,
-                affected_buys: affectedBuys.join(',') // Mengirim informasi buy yang terpengaruh
+                pair_id: pairId
             };
 
             console.log('Data yang dikirim ke server:', sendData);
@@ -1087,15 +1054,9 @@
                                 priceInput.prop('readonly', true);
                                 $(`#${buttonId}`).prop('disabled', true);
 
-                                // Nonaktifkan tombol SELL untuk buy yang terpengaruh
-                                affectedBuys.forEach(letter => {
-                                    $(`#sell-${letter.toLowerCase()}`).prop('readonly', true);
-                                    $(`#send-sell-${letter.toLowerCase()}`).prop('disabled', true);
-                                });
-
                                 // Sweet Alert dengan pesan yang lebih informatif
                                 Swal.fire({
-                                    text: `${result.message} - ${sellMessage}`,
+                                    text: `${result.message}`,
                                     showCloseButton: true,
                                     showConfirmButton: false,
                                     background: '#E1FFF7',

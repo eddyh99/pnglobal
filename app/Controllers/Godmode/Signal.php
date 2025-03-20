@@ -336,7 +336,7 @@ class Signal extends BaseController
         $mdata = [
             'admin_id'  => $admin_id,
             'ip_address' => $ip_address,
-            'id_signal' => $this->request->getVar('pair_id'), // ID signal dari buy yang sesuai
+            'id_signal' => $this->request->getVar('pair_id'),
             'type'      => htmlspecialchars($this->request->getVar('type')),
             'limit'     => htmlspecialchars($this->request->getVar('price')),
         ];
@@ -344,62 +344,137 @@ class Signal extends BaseController
         // Change format price
         $mdata['limit'] = str_replace(',', '', $mdata['limit']);
 
-        $mdata2 = [
-            'entry' => floatval($mdata['limit']),
-            'type' => $mdata['type'],
-            'pair_id' => null // Akan diperbarui setelah respons pertama
-        ];
+        // Call Endpoint read signal untuk mendapatkan daftar signal
+        $url = URLAPI . "/v1/signal/readsignal";
+        $readsignal = satoshiAdmin($url)->result->message;
+
+        // Initial Alphabet
+        $alphabet = ['A', 'B', 'C', 'D'];
+        $result = null;
+        $typesignal = $mdata['type'];
 
         // Log untuk debugging
-        log_message('info', 'Mengirim permintaan SELL ke endpoint limit_sell: ' . json_encode($mdata));
+        log_message('info', 'Memulai proses sell dengan tipe: ' . $typesignal);
 
-        // Proccess Call Endpoin API
-        $url = URLAPI . "/v1/order/limit_sell";
-        $response = satoshiAdmin($url, json_encode($mdata));
+        // Check Condition Signal Type
+        if ($typesignal == 'Sell A') {
+            foreach ($readsignal as $key => $val) {
+                // Assign value sell signal
+                $mdata['type'] = 'Sell ' . $alphabet[$key];
+                $mdata['pair_id'] = $val->id;
 
-        $code = $response->result->code;
-        $message = '';
-        $pair_id = null;
+                // Send ke endpoint pertama (URLAPI)
+                $url1 = URLAPI . "/v1/order/limit_sell";
+                $response1 = satoshiAdmin($url1, json_encode($mdata));
+                log_message('info', 'Response dari endpoint limit_sell: ' . json_encode($response1));
 
-        // Buat pesan berdasarkan respons
-        if (isset($response->result) && isset($response->result->id)) {
-            // Jika ada ID dalam respons, anggap sukses
-            $response->result->pair_id = $response->result->id; // Tambahkan pair_id seperti pada kode awal
-            $pair_id = $response->result->id;
-            $mdata2['pair_id'] = $pair_id;
-            switch ($code) {
-                case 201:
-                    $message = 'Sell order processed successfully';
-                    break;
-                case 200:
-                    $message = 'Sell order placed successfully';
-                    break;
-                default:
-                    $message = 'Unknown response code: ' . $code;
-                    break;
+                // Send ke endpoint kedua (URLAPI2)
+                $url2 = URLAPI2 . "/v1/signal/sendsignal";
+                $response2 = satoshiAdmin($url2, json_encode($mdata));
+                log_message('info', 'Response dari endpoint sendsignal: ' . json_encode($response2));
+
+                $result = $response1->result;
+                sleep(1);
             }
-        } else {
-            // Jika respons tidak valid atau gagal
-            $message = isset($response->error->message) ? $response->error->message : 'Failed to process sell order';
+        } else if ($typesignal == 'Sell B') {
+            // initial Flag Buy B
+            $startCheck = false;
+            foreach ($readsignal as $key => $val) {
+                // Get Flag Buy B
+                if ($val->type === 'Buy B') {
+                    $startCheck = true;
+                }
+
+                // Checking Flag Buy B and other
+                if ($startCheck) {
+                    // Assign value sell signal
+                    $mdata['type'] = 'Sell ' . $alphabet[$key];
+                    $mdata['pair_id'] = $val->id;
+
+                    // Send ke endpoint pertama (URLAPI)
+                    $url1 = URLAPI . "/v1/order/limit_sell";
+                    $response1 = satoshiAdmin($url1, json_encode($mdata));
+                    log_message('info', 'Response dari endpoint limit_sell: ' . json_encode($response1));
+
+                    // Send ke endpoint kedua (URLAPI2)
+                    $url2 = URLAPI2 . "/v1/signal/sendsignal";
+                    $response2 = satoshiAdmin($url2, json_encode($mdata));
+                    log_message('info', 'Response dari endpoint sendsignal: ' . json_encode($response2));
+
+                    $result = $response1->result;
+                    sleep(1);
+                }
+            }
+        } else if ($typesignal == 'Sell C') {
+            // initial Flag Buy C
+            $startCheck = false;
+            foreach ($readsignal as $key => $val) {
+                // Get Flag Buy C
+                if ($val->type === 'Buy C') {
+                    $startCheck = true;
+                }
+
+                // Checking Flag Buy C and other
+                if ($startCheck) {
+                    // Assign value sell signal
+                    $mdata['type'] = 'Sell ' . $alphabet[$key];
+                    $mdata['pair_id'] = $val->id;
+
+                    // Send ke endpoint pertama (URLAPI)
+                    $url1 = URLAPI . "/v1/order/limit_sell";
+                    $response1 = satoshiAdmin($url1, json_encode($mdata));
+                    log_message('info', 'Response dari endpoint limit_sell: ' . json_encode($response1));
+
+                    // Send ke endpoint kedua (URLAPI2)
+                    $url2 = URLAPI2 . "/v1/signal/sendsignal";
+                    $response2 = satoshiAdmin($url2, json_encode($mdata));
+                    log_message('info', 'Response dari endpoint sendsignal: ' . json_encode($response2));
+
+                    $result = $response1->result;
+                    sleep(1);
+                }
+            }
+        } else if ($typesignal == 'Sell D') {
+            // initial Flag Buy D
+            $startCheck = false;
+            foreach ($readsignal as $key => $val) {
+                // Get Flag Buy D
+                if ($val->type === 'Buy D') {
+                    $startCheck = true;
+                }
+
+                // Checking Flag Buy D and other
+                if ($startCheck) {
+                    // Assign value sell signal
+                    $mdata['type'] = 'Sell ' . $alphabet[$key];
+                    $mdata['pair_id'] = $val->id;
+
+                    // Send ke endpoint pertama (URLAPI)
+                    $url1 = URLAPI . "/v1/order/limit_sell";
+                    $response1 = satoshiAdmin($url1, json_encode($mdata));
+                    log_message('info', 'Response dari endpoint limit_sell: ' . json_encode($response1));
+
+                    // Send ke endpoint kedua (URLAPI2)
+                    $url2 = URLAPI2 . "/v1/signal/sendsignal";
+                    $response2 = satoshiAdmin($url2, json_encode($mdata));
+                    log_message('info', 'Response dari endpoint sendsignal: ' . json_encode($response2));
+
+                    $result = $response1->result;
+                }
+            }
         }
 
-        if ($code == 201 || $code == 200) {
-            $url2 = URLAPI2 . "/v1/signal/sendsignal";
-            $response2 = satoshiAdmin($url2, json_encode($mdata2));
-            log_message('info', 'Respons dari endpoint sendsignal: ' . json_encode($response2));
-            if (!isset($response2->status) || $response2->status != 200) {
-                log_message('error', 'Gagal mengirim ke endpoint sendsignal: ' . json_encode($response2));
-            }
-        }
-
-        // Buat array respons yang hanya berisi code dan pesan
-        $result = [
-            'code' => $code,
-            'message' => $message
+        // Buat response array
+        $response = [
+            'code' => isset($result->code) ? $result->code : '400',
+            'message' => isset($result->message) ? $result->message : 'Failed to process sell order'
         ];
 
-        // Kembalikan hasil dalam format JSON
-        echo json_encode($result);
+        // Log hasil akhir
+        log_message('info', 'Hasil akhir proses sell: ' . json_encode($response));
+
+        // Return result as JSON
+        echo json_encode($response);
     }
 
     public function fillsignal()
