@@ -266,12 +266,25 @@ class Membership extends BaseController
     {
         $session = session();
 
-        // Periksa apakah ada data pembayaran dalam session
         if (!$session->has('payment_data')) {
             return redirect()->to('/member/membership/set_investment_capital');
         }
 
         $paymentData = $session->get('payment_data');
+        $loggedUser = $session->get('logged_user');
+        $email = $loggedUser->email;
+        $amount = $paymentData['amount'];
+        $invoiceNumber = 'INV-' . time();
+        $description = 'Membership Subscription (USDT)';
+
+        // Ganti 'USDT' dengan kode yang sesuai, misalnya 'USDT.TRC20'
+        $paymentResponse = $this->createCoinPaymentTransaction($amount, 'USDT.TRC20', $invoiceNumber, $email, $description);
+
+        if ($paymentResponse['error'] !== 'ok') {
+            $errorMessage = isset($paymentResponse['error']) ? $paymentResponse['error'] : 'Unknown error';
+            $session->setFlashdata('failed', 'Terjadi masalah saat memproses pembayaran Anda: ' . $errorMessage . '. Silakan coba lagi.');
+            return redirect()->to('/member/membership/payment_option');
+        }
 
         $mdata = [
             'title'     => 'USDT Payment - ' . NAMETITLE,
@@ -279,6 +292,7 @@ class Membership extends BaseController
             'extra'     => 'member/membership/js/_js_usdt_payment',
             'active_membership' => 'active',
             'payment_data' => $paymentData,
+            'checkout_url' => $paymentResponse['result']['checkout_url']
         ];
 
         return view('member/layout/dashboard_wrapper', $mdata);
@@ -288,23 +302,35 @@ class Membership extends BaseController
     {
         $session = session();
 
-        // Periksa apakah ada data pembayaran dalam session
         if (!$session->has('payment_data')) {
             return redirect()->to('/member/membership/set_investment_capital');
         }
 
         $paymentData = $session->get('payment_data');
+        $loggedUser = $session->get('logged_user');
+        $email = $loggedUser->email;
+        $amount = $paymentData['amount'];
+        $invoiceNumber = 'INV-' . time();
+        $description = 'Membership Subscription (USDC)';
+
+        $paymentResponse = $this->createCoinPaymentTransaction($amount, 'USDC', $invoiceNumber, $email, $description);
+
+        if ($paymentResponse['error'] !== 'ok') {
+            $session->setFlashdata('failed', 'Terjadi masalah saat memproses pembayaran Anda. Silakan coba lagi.');
+            return redirect()->to('/member/membership/payment_option');
+        }
+
         $mdata = [
             'title'     => 'USDC Payment - ' . NAMETITLE,
             'content'   => 'member/membership/usdc_payment',
             'extra'     => 'member/membership/js/_js_usdc_payment',
             'active_membership' => 'active',
             'payment_data' => $paymentData,
+            'checkout_url' => $paymentResponse['result']['checkout_url']
         ];
 
         return view('member/layout/dashboard_wrapper', $mdata);
     }
-
     public function card_payment()
     {
         $session = session();
@@ -325,6 +351,102 @@ class Membership extends BaseController
         ];
 
         return view('member/layout/dashboard_wrapper', $mdata);
+    }
+
+    private function createCoinPaymentTransaction($amount, $currency, $invoiceNumber, $buyer_email, $description)
+    {
+        $payload = [
+            'cmd'       => 'create_transaction',
+            'amount'    => $amount,
+            'currency1' => 'USD',
+            'currency2' => $currency,
+            'invoice'   => $invoiceNumber,
+            'buyer_email' => $buyer_email,
+            'item_name'  => $description,
+            'key'        => COINPAYMENTS_PUBLIC_KEY,
+            'ipn_url'    => BASE_URL . 'member/membership/coinpayment_notify',
+            'success_url' => BASE_URL . 'member/membership/returncrypto?email=' . $buyer_email,
+            'cancel_url' => BASE_URL . 'member/membership/payment_option',
+            'version'    => 1,
+        ];
+
+        $postData = http_build_query($payload, '', '&');
+        $hmac = hash_hmac('sha512', $postData, COINPAYMENTS_PRIVATE_KEY);
+
+        log_message('debug', 'CoinPayments Payload: ' . json_encode($payload));
+        log_message('debug', 'CoinPayments HMAC: ' . $hmac);
+
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL, COINPAYMENTS_API_URL);
+        curl_setopt($ch, CURLOPT_POST, 1);
+        curl_setopt($ch, CURLOPT_POSTFIELDS, $postData);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+        curl_setopt($ch, CURLOPT_HTTPHEADER, ['HMAC: ' . $hmac]);
+
+        $response = curl_exec($ch);
+        if ($response === false) {
+            log_message('error', 'cURL Error: ' . curl_error($ch));
+        } else {
+            log_message('debug', 'CoinPayments Response: ' . $response);
+        }
+        curl_close($ch);
+
+        return json_decode($response, true);
+    }
+
+    public function coinpayment_notify()
+    {
+        log_message('debug', 'CoinPayments Notify: ' . json_encode($_POST));
+
+        if (isset($_POST["status"]) && $_POST["status"] == 100) {
+            $merchantOrderId = $_POST['invoice'];
+            $reference = $_POST['txn_id'];
+
+            $code = "pending";
+            if ($_POST['status_text'] === 'Complete') {
+                $code = "complete";
+            } elseif ($_POST['status_text'] === 'Failed') {
+                $code = "failed";
+            }
+
+            $data = [
+                "email"     => $_POST['buyer_email'],
+                "amount"    => $_POST['amount2'], // Jumlah dalam cryptocurrency
+                "invoice"   => $merchantOrderId,
+                "references" => $reference,
+                "status"    => $code
+            ];
+
+            $url = URLAPI . "/v1/subscribe/paid_subscribe";
+            $response = satoshiAdmin($url, json_encode($data));
+            $result = $response->result;
+
+            if (isset($result->code) && $result->code == 201) {
+                log_message('debug', 'CoinPayments IPN processed successfully for invoice: ' . $merchantOrderId);
+            } else {
+                log_message('error', 'CoinPayments IPN failed for invoice: ' . $merchantOrderId);
+            }
+        }
+    }
+
+    public function returncrypto()
+    {
+        $session = session();
+
+        if (!$session->has('logged_user')) {
+            return redirect()->to('/member/auth/login');
+        }
+
+        $email = $this->request->getGet('email');
+        if ($session->get('logged_user')->email !== $email) {
+            $session->setFlashdata('failed', 'Email tidak cocok.');
+            return redirect()->to('/member/membership/payment_option');
+        }
+
+        $session->setFlashdata('success', 'Pembayaran Anda sedang diproses dan akun Anda akan siap dalam 48 jam. Kami akan mengirimkan email saat akun Anda aktif.');
+        $session->remove('payment_data');
+
+        return redirect()->to('/member/membership');
     }
 
     public function confirm_card_payment()

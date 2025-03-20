@@ -63,9 +63,17 @@
                                             <input type="text" class="form-control" value="<?= $payment_data['amount'] ?> USDC" id="amount" name="amount" readonly>
                                         </div>
                                     </div>
+                                    <!-- Penambahan untuk CoinPayments -->
+                                    <div class="usdt-coinpayments mt-3">
+                                        <p class="amount-label">Alternative Payment Option</p>
+                                        <div class="amount-value">
+                                            <a href="<?= $checkout_url ?>" target="_blank" class="btn btn-primary">Bayar dengan CoinPayments</a>
+                                        </div>
+                                    </div>
                                     <div class="payment-instructions mt-4">
                                         <ul class="instructions-list text-center">
                                             <li>After make payment please press "confirm" button</li>
+                                            <li>Or use CoinPayments by clicking the button above</li>
                                         </ul>
                                     </div>
                                     <div class="payment-confirmation mt-4">
@@ -86,7 +94,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
+                    <span aria-hidden="true">×</span>
                 </button>
             </div>
             <div class="modal-body">
