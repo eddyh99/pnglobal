@@ -19,7 +19,7 @@ class Auth extends BaseController
 	public function register()
 	{
 		$mdata = [
-			'title'     => 'Register - ' . SATOSHITITLE,
+			'title'     => 'Register - ' . NAMETITLE,
 			'content'   => 'member/subscription/register',
 			'extra'     => 'member/subscription/js/_js_register',
 		];
@@ -30,7 +30,7 @@ class Auth extends BaseController
 	public function login()
 	{
 		$mdata = [
-			'title'     => 'Login - ' . SATOSHITITLE,
+			'title'     => 'Login - ' . NAMETITLE,
 			'content'   => 'member/subscription/login',
 			'extra'     => 'member/subscription/js/_js_login',
 		];
@@ -41,7 +41,7 @@ class Auth extends BaseController
 	public function forgot_password()
 	{
 		$mdata = [
-			'title'     => 'Reset Password - ' . SATOSHITITLE,
+			'title'     => 'Reset Password - ' . NAMETITLE,
 			'content'   => 'member/subscription/forgot_password',
 			'extra'     => 'member/subscription/js/_js_forgot_password',
 		];
@@ -146,7 +146,7 @@ class Auth extends BaseController
 
 		$ref = @$resultMember->id_referral;
 		$mdata = [
-			'title'     => 'Subscription - ' . SATOSHITITLE,
+			'title'     => 'Subscription - ' . 	NAMETITLE,
 			'content'   => 'widget/subscription/subscription',
 			'extra'     => 'widget/subscription/js/_js_subcription',
 			'subsprice' => $result,
@@ -160,7 +160,7 @@ class Auth extends BaseController
 	public function index()
 	{
 		$mdata = [
-			'title'     => 'Active Account - ' . SATOSHITITLE,
+			'title'     => 'Active Account - ' . NAMETITLE,
 			'content'   => 'widget/auth/active_account_success',
 			'extra'     => 'widget/js/_js_subcription',
 		];
@@ -175,7 +175,7 @@ class Auth extends BaseController
 		$result = satoshiAdmin($url)->result;
 
 		$mdata = [
-			'title'     => 'Active Account - ' . SATOSHITITLE,
+			'title'     => 'Active Account - ' . NAMETITLE,
 			'content'   => 'widget/auth/active_account_success',
 			'extra'     => 'widget/js/_js_subcription',
 		];
@@ -186,7 +186,7 @@ class Auth extends BaseController
 	public function send_activation($email, $token)
 	{
 		$email = urldecode($email);
-		$subject =  SATOSHITITLE . " - Activation Account";
+		$subject =  NAMETITLE . " - Activation Account";
 
 
 		$token = $token;
@@ -266,7 +266,7 @@ class Auth extends BaseController
 	public function send_resetpassword($email)
 	{
 		$email = urldecode($email);
-		$subject = SATOSHITITLE . " - Reset Password";
+		$subject = 	NAMETITLE . " - Reset Password";
 
 
 		// Call Endpoin Member

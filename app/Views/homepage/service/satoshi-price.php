@@ -37,8 +37,8 @@
                             <i class="icon-pass-login fa-solid fa-eye" id="togglePassword2"></i>
                         </div>
                         <div class="register-form mt-3">
-                            <label for="timezone" class="fw-semibold">Timezone</label>
-                            <input type="text" id="timezone" class="form-control" name="timezone" readonly value="<?= set_value('timezone') ?>">
+                            <!-- <label for="timezone" class="fw-semibold">Timezone</label> -->
+                            <input type="hidden" id="timezone" class="form-control" name="timezone" readonly value="<?= set_value('timezone') ?>">
                         </div>
                         <div class="register-form mt-3">
                             <label for="referral" class="fw-semibold">Referral Code</label>

@@ -34,6 +34,14 @@
             margin-bottom: 0;
         }
     }
+
+    @include mix.lg-down {
+        padding: 0;
+
+        > section {
+            margin: 0;
+        }
+    }
 }
 
 // Advanced training section
@@ -45,7 +53,7 @@
 
     .section-title {
         color: #bfa573;
-        font-family: var.$f-noto;
+        font-family: var.$f-poppins;
         font-size: 30px;
         font-style: normal;
         font-weight: 800;
@@ -55,7 +63,7 @@
 
     .section-subtitle {
         color: #fff;
-        font-family: var.$f-noto;
+        font-family: var.$f-poppins;
         font-size: 20px;
         font-style: normal;
         font-weight: 600;
@@ -65,7 +73,7 @@
 
     .section-description {
         color: #fff;
-        font-family: var.$f-noto;
+        font-family: var.$f-poppins;
         font-size: 18px;
         font-style: normal;
         font-weight: 500;
@@ -80,6 +88,24 @@
         position: relative;
         z-index: 3;
     }
+
+    @include mix.lg-down {
+        .section-title {
+            padding-top: 50px;
+            text-align: center;
+        }
+
+        img {
+            margin-bottom: 0;
+            min-width: 100%;
+            min-height: auto;
+            max-width: 473px;
+            max-height: 418px;
+            margin-left: auto;
+            display: block;
+            transform: translateX(20%);
+        }
+    }
 }
 
 .course-content {
@@ -89,7 +115,7 @@
 
     .section-title {
         color: #fff;
-        font-family: var.$f-noto;
+        font-family: var.$f-poppins;
         font-size: 30px;
         font-style: normal;
         font-weight: 600;
@@ -111,7 +137,7 @@
 
     .section-description {
         color: #fff;
-        font-family: var.$f-noto;
+        font-family: var.$f-poppins;
         font-size: 18px;
         font-style: normal;
         font-weight: 400;
@@ -120,11 +146,17 @@
 
         strong {
             color: #bfa573;
-            font-family: var.$f-noto;
+            font-family: var.$f-poppins;
             font-size: 18px;
             font-style: normal;
             font-weight: 600;
             line-height: 25px;
+        }
+    }
+
+    @include mix.lg-down {
+        .section-description {
+            text-align: center;
         }
     }
 }
@@ -135,7 +167,7 @@
 
     .section-title {
         color: rgba(56, 55, 52, 0.82);
-        font-family: var.$f-noto;
+        font-family: var.$f-poppins;
         font-size: 30px;
         font-style: normal;
         font-weight: 600;
@@ -156,7 +188,7 @@
 
     .section-subtitle {
         color: #1e1e1e;
-        font-family: var.$f-noto;
+        font-family: var.$f-poppins;
         font-size: 25px;
         font-style: normal;
         font-weight: 600;
@@ -167,11 +199,17 @@
 
     .section-description {
         color: #000;
-        font-family: var.$f-noto;
+        font-family: var.$f-poppins;
         font-size: 18px;
         font-style: normal;
         font-weight: 400;
         line-height: 30px;
+    }
+
+    @include mix.lg-down {
+        .section-subtitle {
+            margin-top: 1rem;
+        }
     }
 }
 
@@ -187,7 +225,7 @@
 
     .section-description {
         color: #bfa573;
-        font-family: var.$f-noto;
+        font-family: var.$f-poppins;
         font-size: 18px;
         font-style: normal;
         font-weight: 600;
@@ -197,7 +235,7 @@
 
     .section-content {
         color: #fff;
-        font-family: var.$f-noto;
+        font-family: var.$f-poppins;
         font-size: 18px;
         font-style: normal;
         font-weight: 400;
@@ -206,7 +244,7 @@
 
     .bitcoin-title {
         color: #fff;
-        font-family: var.$f-noto;
+        font-family: var.$f-poppins;
         font-size: 25px;
         font-style: normal;
         font-weight: 600;
@@ -230,8 +268,31 @@
         width: 100%;
         height: auto;
         position: relative;
-        margin-bottom: -50px; // Push image down
-        z-index: 2; // Ensure image stays above next section
+        margin-bottom: -50px;
+        z-index: 2;
+    }
+
+    @include mix.lg-down {
+        .row {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .col-12.col-lg-6 {
+            &:last-child {
+                order: -1;
+                margin-bottom: 2rem;
+            }
+        }
+
+        .bitcoin-title {
+            text-align: center;
+            margin: 0 auto 1rem;
+        }
+
+        img {
+            margin-bottom: 2rem;
+        }
     }
 }
 
@@ -247,7 +308,7 @@
 
     .section-description {
         color: #bfa573;
-        font-family: var.$f-noto;
+        font-family: var.$f-poppins;
         font-size: 18px;
         font-style: normal;
         font-weight: 600;
@@ -257,7 +318,7 @@
 
     .section-content {
         color: #fff;
-        font-family: var.$f-noto;
+        font-family: var.$f-poppins;
         font-size: 18px;
         font-style: normal;
         font-weight: 400;
@@ -266,7 +327,7 @@
 
     .blockchain-title {
         color: #fff;
-        font-family: var.$f-noto;
+        font-family: var.$f-poppins;
         font-size: 25px;
         font-style: normal;
         font-weight: 600;
@@ -307,7 +368,7 @@
 
     .section-description {
         color: #fff;
-        font-family: var.$f-noto;
+        font-family: var.$f-poppins;
         font-size: 18px;
         font-style: normal;
         font-weight: 600;
@@ -317,7 +378,7 @@
 
     .section-content {
         color: #1e1e1e;
-        font-family: var.$f-noto;
+        font-family: var.$f-poppins;
         font-size: 18px;
         font-style: normal;
         font-weight: 400;
@@ -326,7 +387,7 @@
 
     .mining-title {
         color: #1e1e1e;
-        font-family: var.$f-noto;
+        font-family: var.$f-poppins;
         font-size: 25px;
         font-style: normal;
         font-weight: 600;
@@ -350,8 +411,31 @@
         width: 100%;
         height: auto;
         position: relative;
-        margin-bottom: -50px; // Push image down
-        z-index: 2; // Ensure image stays above next section
+        margin-bottom: -50px;
+        z-index: 2;
+    }
+
+    @include mix.lg-down {
+        .row {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .col-12.col-lg-6 {
+            &:last-child {
+                order: -1;
+                margin-bottom: 2rem;
+            }
+        }
+
+        .mining-title {
+            text-align: center;
+            margin: 0 auto 1rem;
+        }
+
+        img {
+            margin-bottom: 2rem;
+        }
     }
 }
 
@@ -370,7 +454,7 @@
 
     .section-description {
         color: #000;
-        font-family: var.$f-noto;
+        font-family: var.$f-poppins;
         font-size: 18px;
         font-style: normal;
         font-weight: 400;
@@ -393,7 +477,7 @@
 
     .benefits-title {
         color: #000;
-        font-family: var.$f-noto;
+        font-family: var.$f-poppins;
         font-size: 30px;
         font-style: normal;
         font-weight: 600;
@@ -412,6 +496,25 @@
             margin: 10px -15px;
         }
     }
+
+    @include mix.lg-down {
+        .row {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .col-12.col-lg-6 {
+            &:last-child {
+                order: -1;
+                margin-bottom: 2rem;
+            }
+        }
+
+        .benefits-title {
+            text-align: center;
+            margin: 0 auto 2rem;
+        }
+    }
 }
 
 .training-features {
@@ -428,16 +531,15 @@
     }
 
     .col-12.col-lg-6 {
-        // Fix selector syntax
         padding: 0 30px;
 
         &:first-child .feature-card {
-            margin-right: 0; // Align right
+            margin-right: 0;
             margin-left: auto;
         }
 
         &:last-child .feature-card {
-            margin-left: 0; // Align left
+            margin-left: 0;
             margin-right: auto;
         }
     }
@@ -449,13 +551,12 @@
             #656262 24.88%,
             #1e1e1e 47.94%
         );
-
         padding: 40px;
         border-radius: 10px;
         height: 100%;
         max-width: 470px;
         max-height: 554px;
-        margin: 0 auto; // Center the card
+        margin: 0 auto;
 
         &:has(img) {
             padding: 0;
@@ -470,7 +571,7 @@
 
     .section-title {
         color: #bfa573;
-        font-family: var.$f-noto;
+        font-family: var.$f-poppins;
         font-size: 25px;
         font-weight: 600;
         line-height: 40px;
@@ -479,7 +580,7 @@
 
     .section-subtitle {
         color: #bfa573;
-        font-family: var.$f-noto;
+        font-family: var.$f-poppins;
         font-size: 18px;
         font-weight: 600;
         line-height: 25px;
@@ -488,10 +589,63 @@
 
     .section-description {
         color: #fff;
-        font-family: var.$f-noto;
+        font-family: var.$f-poppins;
         font-size: 16px;
         font-weight: 500;
         line-height: 30px;
+    }
+
+    @include mix.lg-down {
+        position: relative;
+        padding: 50px 0;
+
+        &:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('../../../../assets/img/ic_bitcoin_cat.png');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.3;
+            z-index: 0;
+        }
+
+        .container {
+            position: relative;
+            z-index: 1;
+        }
+
+        .col-12.col-lg-6 {
+            padding: 0 15px;
+        }
+
+        .feature-card {
+            background: none;
+            padding: 20px;
+            text-align: center;
+            max-height: none;
+        }
+
+        .col-12.col-lg-6:last-child {
+            display: none;
+        }
+
+        .section-title {
+            font-size: 28px;
+            margin-bottom: 1.5rem;
+        }
+
+        .section-subtitle {
+            font-size: 20px;
+        }
+
+        .section-description {
+            font-size: 18px;
+            line-height: 32px;
+        }
     }
 }
 
@@ -538,7 +692,7 @@
 
     .section-title {
         color: #bfa573;
-        font-family: var.$f-noto;
+        font-family: var.$f-poppins;
         font-size: 30px;
         font-weight: 600;
         line-height: 40px;
@@ -557,7 +711,7 @@
 
     .section-subtitle {
         color: #eccf98;
-        font-family: var.$f-noto;
+        font-family: var.$f-poppins;
         font-size: 18px;
         font-style: normal;
         font-weight: 600;
@@ -598,7 +752,7 @@
 
     .step-text {
         color: #fff;
-        font-family: var.$f-noto;
+        font-family: var.$f-poppins;
         font-size: 18px;
         font-weight: 400;
         line-height: 30px;
@@ -626,11 +780,10 @@
     .follow-button {
         border-radius: 5px;
         background: #bda069;
-        box-shadow: 0px 4px 15px 6px #fff;
         border: none;
         padding: 10px 30px;
         color: #000;
-        font-family: var.$f-noto;
+        font-family: var.$f-poppins;
         font-size: 18px;
         font-weight: 600;
         cursor: pointer;
@@ -639,6 +792,23 @@
         &:hover {
             background: #fff;
             color: #000;
+        }
+    }
+
+    @include mix.lg-down {
+        min-height: auto;
+        padding: 0;
+
+        .content-wrapper {
+            max-width: 100%;
+            border-radius: 0;
+            padding: 30px 15px;
+        }
+
+        .container {
+            max-width: 100%;
+            padding: 0;
+            margin: 0;
         }
     }
 }

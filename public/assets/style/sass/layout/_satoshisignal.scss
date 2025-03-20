@@ -54,7 +54,7 @@
                     .goal-text {
                         color: #bda069;
                         text-align: center;
-                        font-family: var.$f-noto;
+                        font-family: var.$f-poppins;
                         font-size: 35px;
                         font-style: normal;
                         font-weight: 800;
@@ -65,7 +65,7 @@
 
                 .discover-text {
                     color: #fff;
-                    font-family: var.$f-noto;
+                    font-family: var.$f-poppins;
                     font-size: 25px;
                     font-style: normal;
                     font-weight: 600;
@@ -93,7 +93,7 @@
 
         h2 {
             color: #000;
-            font-family: var.$f-noto;
+            font-family: var.$f-poppins;
             font-size: 30px;
             font-weight: 800;
             line-height: 30px;
@@ -102,7 +102,7 @@
 
         .description {
             color: #000;
-            font-family: var.$f-noto;
+            font-family: var.$f-poppins;
             font-size: 20px;
             font-weight: 600;
             line-height: 30px;
@@ -121,7 +121,7 @@
                 border-radius: 5px;
                 background: #bda069;
                 color: #000;
-                font-family: var.$f-noto;
+                font-family: var.$f-poppins;
                 font-size: 18px;
                 font-weight: 600;
                 line-height: 30px;
@@ -133,9 +133,6 @@
                 &:hover {
                     background: #000;
                     color: #bda069;
-                    font-size: 19px;
-                    font-weight: 700;
-                    box-shadow: 0px 4px 15px 5px #bda069;
                 }
             }
         }
@@ -155,7 +152,7 @@
             h2 {
                 color: #bda069;
                 text-align: center;
-                font-family: var.$f-noto;
+                font-family: var.$f-poppins;
                 font-size: 35px;
                 font-weight: 600;
                 line-height: 144.687%;
@@ -166,7 +163,7 @@
             .description {
                 color: #fff;
                 text-align: center;
-                font-family: var.$f-noto;
+                font-family: var.$f-poppins;
                 font-size: 20px;
                 font-weight: 500;
                 line-height: 35px;
@@ -174,7 +171,7 @@
 
                 .highlight {
                     color: #fff;
-                    font-family: var.$f-noto;
+                    font-family: var.$f-poppins;
                     font-size: 20px;
                     font-weight: 800;
                     line-height: 35px;
@@ -254,7 +251,7 @@
                 h3 {
                     color: #bda069;
                     text-align: center;
-                    font-family: var.$f-noto;
+                    font-family: var.$f-poppins;
                     font-size: 18px;
                     font-weight: 900;
                     line-height: 144.687%;
@@ -264,7 +261,7 @@
 
             .card-text {
                 color: #000;
-                font-family: var.$f-noto;
+                font-family: var.$f-poppins;
                 font-size: 20px;
                 font-weight: 500;
                 line-height: 25px;
@@ -287,7 +284,7 @@
 
             .main-title {
                 color: #bda069;
-                font-family: var.$f-noto;
+                font-family: var.$f-poppins;
                 font-size: 40px;
                 font-weight: 900;
                 line-height: 144.687%;
@@ -297,7 +294,7 @@
 
             .sub-title {
                 color: #fff;
-                font-family: var.$f-noto;
+                font-family: var.$f-poppins;
                 font-size: 40px;
                 font-weight: 900;
                 line-height: 144.687%;
@@ -353,7 +350,7 @@
             h3 {
                 color: #eccf98;
                 text-align: center;
-                font-family: var.$f-noto;
+                font-family: var.$f-poppins;
                 font-size: 20px;
                 font-weight: 900;
                 line-height: 144.687%;
@@ -380,7 +377,7 @@
             p {
                 color: #000;
                 text-align: center;
-                font-family: var.$f-noto;
+                font-family: var.$f-poppins;
                 font-size: 20px;
                 font-weight: 700;
                 line-height: 144.687%;
@@ -419,7 +416,7 @@
         padding: 0 100px;
         h2 {
             color: #bfa573;
-            font-family: var.$f-noto;
+            font-family: var.$f-poppins;
             font-size: 35px;
             font-weight: 600;
             line-height: 45px;
@@ -429,7 +426,7 @@
 
         .description {
             color: #fff;
-            font-family: var.$f-noto;
+            font-family: var.$f-poppins;
             font-size: 25px;
             font-weight: 600;
             line-height: 150%;
@@ -439,7 +436,7 @@
 
         .highlight {
             color: #fff;
-            font-family: var.$f-noto;
+            font-family: var.$f-poppins;
             font-size: 25px;
             font-weight: 700;
             line-height: 150%;
@@ -459,7 +456,7 @@
                     #fff 100.93%
                 );
                 color: #000;
-                font-family: var.$f-noto;
+                font-family: var.$f-poppins;
                 font-size: 18px;
                 font-weight: 700;
                 text-transform: uppercase;
@@ -507,7 +504,7 @@
 
             h2 {
                 text-align: center;
-                font-family: var.$f-noto;
+                font-family: var.$f-poppins;
                 font-size: 35px;
                 font-weight: 600;
                 line-height: 40px;
@@ -541,7 +538,7 @@
 
                 h3 {
                     color: #000;
-                    font-family: var.$f-noto;
+                    font-family: var.$f-poppins;
                     font-size: 20px;
                     font-weight: 900;
                     line-height: 30px;
@@ -549,7 +546,7 @@
                 }
 
                 .card-text {
-                    font-family: var.$f-noto;
+                    font-family: var.$f-poppins;
                     font-size: 18px;
                     font-weight: 500;
                     line-height: 30px;
@@ -606,7 +603,7 @@
                 position: relative;
                 margin-bottom: 20px;
                 color: #000;
-                font-family: var.$f-noto;
+                font-family: var.$f-poppins;
                 font-size: 18px;
                 font-weight: 500;
                 line-height: 30px;
@@ -639,7 +636,7 @@
 
             h2 {
                 color: #bda069;
-                font-family: var.$f-noto;
+                font-family: var.$f-poppins;
                 font-size: 30px;
                 font-weight: 700;
                 line-height: 40px;
@@ -652,7 +649,7 @@
 
             .description {
                 color: #fff;
-                font-family: var.$f-noto;
+                font-family: var.$f-poppins;
                 font-size: 18px;
                 font-weight: 600;
                 line-height: 30px;
@@ -794,7 +791,7 @@
 
         h2 {
             color: #000;
-            font-family: var.$f-noto;
+            font-family: var.$f-poppins;
             font-size: 25px;
             font-weight: 800;
             line-height: 30px;
@@ -803,7 +800,7 @@
 
         .description {
             color: #000;
-            font-family: var.$f-noto;
+            font-family: var.$f-poppins;
             font-size: 18px;
             font-weight: 600;
             line-height: 30px;
@@ -819,7 +816,7 @@
             padding: 10px 20px;
             cursor: pointer;
             box-shadow: 0px 4px 10px 0px rgba(56, 55, 52, 0.88);
-            font-family: var.$f-noto;
+            font-family: var.$f-poppins;
             font-size: 18px;
             font-weight: 600;
             line-height: 30px;
@@ -829,9 +826,7 @@
             &:hover {
                 border-radius: 5px;
                 background: #000;
-                box-shadow: 0px 4px 10px 10px #fff;
                 color: #c4a46f;
-                font-family: 'Noto Serif';
                 font-size: 19px;
                 font-weight: 700;
                 line-height: 30px;
@@ -856,7 +851,7 @@
 
             h2 {
                 color: #000;
-                font-family: var.$f-noto;
+                font-family: var.$f-poppins;
                 font-size: 25px;
                 font-weight: 800;
                 line-height: 30px;
@@ -871,7 +866,7 @@
 
                 li {
                     color: #000;
-                    font-family: var.$f-noto;
+                    font-family: var.$f-poppins;
                     font-size: 18px;
                     font-weight: 600;
                     line-height: 30px;
@@ -910,7 +905,7 @@
 
             h3 {
                 color: #bda069;
-                font-family: var.$f-noto;
+                font-family: var.$f-poppins;
                 font-size: 22px;
                 font-weight: 800;
                 line-height: 30px;
@@ -919,7 +914,7 @@
 
             .description {
                 color: #000;
-                font-family: var.$f-noto;
+                font-family: var.$f-poppins;
                 font-size: 18px;
                 font-weight: 600;
                 line-height: 30px;
@@ -933,7 +928,7 @@
                     list-style: disc;
 
                     color: #000;
-                    font-family: var.$f-noto;
+                    font-family: var.$f-poppins;
                     font-size: 18px;
                     font-weight: 400;
                     line-height: 45px;
@@ -978,7 +973,7 @@
         .opportunity-text {
             color: #fff;
             text-align: center;
-            font-family: var.$f-noto;
+            font-family: var.$f-poppins;
             font-size: 20px;
             font-weight: 600;
             line-height: 30px;
@@ -1010,7 +1005,7 @@
 
         h2 {
             color: #fff;
-            font-family: var.$f-noto;
+            font-family: var.$f-poppins;
             font-size: 30px;
             font-weight: 700;
             line-height: 22px;
@@ -1024,7 +1019,7 @@
 
         .description {
             color: #fff;
-            font-family: var.$f-noto;
+            font-family: var.$f-poppins;
             font-size: 20px;
             font-weight: 500;
             line-height: 30px;
@@ -1037,7 +1032,7 @@
 
         .link-text {
             color: #fff;
-            font-family: var.$f-noto;
+            font-family: var.$f-poppins;
             font-size: 20px;
             font-weight: 600;
             line-height: 35px;
@@ -1053,7 +1048,7 @@
 
         .warning-text {
             color: #fff;
-            font-family: var.$f-noto;
+            font-family: var.$f-poppins;
             font-size: 18px;
             font-weight: 600;
             line-height: 25px;
@@ -1082,7 +1077,7 @@
 
             h2 {
                 color: #bd9f69;
-                font-family: var.$f-noto;
+                font-family: var.$f-poppins;
                 font-size: 40px;
                 font-weight: 900;
                 line-height: 144.687%;
@@ -1092,7 +1087,7 @@
 
             .description {
                 color: #fff;
-                font-family: var.$f-noto;
+                font-family: var.$f-poppins;
                 font-size: 25px;
                 font-weight: 600;
                 line-height: 140%;
@@ -1130,7 +1125,7 @@
 
             h3 {
                 color: #bda069;
-                font-family: var.$f-noto;
+                font-family: var.$f-poppins;
                 font-size: 25px;
                 font-weight: 700;
                 line-height: 150%;
@@ -1140,7 +1135,7 @@
 
             .description {
                 color: #fff;
-                font-family: var.$f-noto;
+                font-family: var.$f-poppins;
                 font-size: 20px;
                 font-weight: 600;
                 line-height: 40px;
@@ -1152,9 +1147,8 @@
                 border: none;
                 border-radius: 5px;
                 background: #bda069;
-                box-shadow: 0px 4px 30px 10px #fff;
                 color: #000;
-                font-family: var.$f-noto;
+                font-family: var.$f-poppins;
                 font-size: 18px;
                 font-weight: 700;
                 padding: 15px 30px;
@@ -1163,7 +1157,6 @@
 
                 &:hover {
                     background: #fff;
-                    box-shadow: 0px 4px 35px 20px #bda069;
                 }
             }
         }

@@ -1,6 +1,10 @@
 <!-- Page Content  -->
 <div class="content-page mb-5">
     <div class="container-fluid">
+
+        <div class="satoshi-signal-container">
+            <div class="satoshi-signal-label">SATOSHI SIGNAL</div>
+        </div>
         <div class="row content-body">
             <div class="col-lg-12 dash-table-referralmember mt-5">
                 <h4 class="text-white my-3 text-uppercase fw-bold">Giveaway</h4>
@@ -31,11 +35,11 @@
             <div class="modal-header">
                 <!-- <h5 class="modal-title" id="upgradeModalLabel">Modal title</h5> -->
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span class="text-black" aria-hidden="true">&times;</span>
+                    <span class="text-black" aria-hidden="true">&times;</span>
                 </button>
             </div>
             <div class="modal-body">
-                <form method="POST" action="<?=BASE_URL?>godmode/giveaway/sendbonus?type=giveaway">
+                <form method="POST" action="<?= BASE_URL ?>godmode/giveaway/sendbonus?type=giveaway">
                     <input type="hidden" name="gid" id="gid">
                     <input type="hidden" name="email" id="emailid">
                     <div class="d-flex flex-column justify-content-center align-items-center">
@@ -49,4 +53,3 @@
         </div>
     </div>
 </div>
-

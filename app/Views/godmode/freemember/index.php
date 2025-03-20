@@ -29,6 +29,11 @@
 <!-- Page Content  -->
 <div class="content-page mb-5">
     <div class="container-fluid">
+        <!-- Tab Navigation -->
+        <div class="satoshi-signal-container">
+            <div class="satoshi-signal-label">SATOSHI SIGNAL</div>
+        </div>
+
         <div class="row content-body">
             <div class="col-lg-12">
                 <form action="<?= BASE_URL ?>godmode/freemember/createfree" method="POST">
@@ -37,31 +42,25 @@
                             <h4>Add Free Member</h4>
                         </div>
                         <div class="main-send-signal d-flex flex-column align-items-center justify-content-center">
-                            <form action="" method="POST">
-                                <div class="row w-100">
-                                    <div class="form-addreferral col-8 mx-auto">
-                                        <div class="wrapper-addreferral">
-                                            <label for="email">Email</label>
-                                            <input type="email" name="email" class="form-control">
-                                        </div>
-                                        <div class="wrapper-addreferral">
-                                            <label for="referral">Amount</label>
-                                            <input type="number" name="amount" class="form-control">
-                                        </div>
-                                        <div class="wrapper-addreferral">
-                                            <label for="referral">Upline Referral</label>
-                                            <input type="text" name="referral" class="form-control">
-                                        </div>
-                                        <div class="wrapper-addreferral">
-                                            <label for="referral">Free Member Expiration Date</label>
-                                            <input type="text" name="expired" id="expired" value="<?= date("Y-m-d") ?>" class="form-control text-white">
-                                        </div>
-                                        <div class="wrapper-addreferral d-flex justify-content-center">
-                                            <button type="submit" class="btn btn-primary">Create</button>
-                                        </div>
+                            <div class="row w-100">
+                                <div class="form-addreferral col-8 mx-auto">
+                                    <div class="wrapper-addreferral">
+                                        <label for="email">Email</label>
+                                        <input type="email" name="email" class="form-control">
+                                    </div>
+                                    <div class="wrapper-addreferral">
+                                        <label for="referral">Upline Referral</label>
+                                        <input type="text" name="referral" class="form-control">
+                                    </div>
+                                    <div class="wrapper-addreferral">
+                                        <label for="referral">Free Member Expiration Date</label>
+                                        <input type="text" name="expired" id="expired" value="<?= date("Y-m-d") ?>" class="form-control text-white">
+                                    </div>
+                                    <div class="wrapper-addreferral d-flex justify-content-center">
+                                        <button type="submit" id="submitBtn" class="btn btn-primary">Create</button>
                                     </div>
                                 </div>
-                            </form>
+                            </div>
                         </div>
                     </div>
                 </form>
@@ -69,7 +68,7 @@
             <div class="col-lg-12 dash-table-referralmember mt-5">
                 <h4 class="text-white my-3 text-uppercase fw-bold">Free Member</h4>
                 <table id="tbl_freemember" class="table table-striped" style="width:100%">
-                    <thead class="thead_referralmember">
+                    <thead class="thead_freemember">
                         <tr>
                             <th>EMAIL</th>
                             <th>REFERRAL CODE</th>

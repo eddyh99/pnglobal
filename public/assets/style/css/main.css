@@ -88,6 +88,10 @@
 // ukuran tertentu dan seterusnya sampai ukuran terbesar
 ------------------------------------------------------------*/
 /*----------------------------------------------------------
+//  Untuk Media Query Max Width untuk mengubah suatu
+// ukuran tertentu dan seterusnya sampai ukuran terkecil
+------------------------------------------------------------*/
+/*----------------------------------------------------------
 2. Breakpoints End
 ------------------------------------------------------------*/
 /*----------------------------------------------------------
@@ -12618,7 +12622,12 @@ ul li {
 /*----------------------------------------------------------
 1. Tags Typography Start 
 ------------------------------------------------------------*/
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   padding: 0px;
   margin: 0px;
 }
@@ -12718,6 +12727,10 @@ p {
   font-family: "Noto Serif", serif;
 }
 
+.f-poppins {
+  font-family: "Poppins", sans-serif;
+}
+
 /*----------------------------------------------------------
 2. Class Font End
 ------------------------------------------------------------*/
@@ -12736,6 +12749,7 @@ p {
 1. Navbar Homepage Start
 ------------------------------------------------------------*/
 .navbar {
+  /* background-color: rgba(217, 217, 217, 0.15); */
   background-color: rgba(9, 9, 9, 0.75);
   position: absolute;
   top: 0;
@@ -12765,6 +12779,13 @@ p {
 .navbar .logo-text .text-white {
   color: #ffffff;
 }
+@media (max-width: 991px) {
+  .navbar .navbar-collapse {
+    padding: 1rem;
+    border-radius: 8px;
+    margin-top: 1rem;
+  }
+}
 .navbar .navbar-nav {
   display: flex;
   justify-content: center;
@@ -12772,13 +12793,25 @@ p {
   width: 100%;
   gap: 2rem;
 }
+@media (max-width: 991px) {
+  .navbar .navbar-nav {
+    flex-direction: column;
+    gap: 1rem;
+  }
+}
 .navbar .navbar-nav .nav-item .nav-link {
   color: #ffffff;
+  font-family: "Poppins", sans-serif;
   font-size: 15px;
   text-align: center;
 }
 .navbar .navbar-nav .nav-item .nav-link:hover {
   color: #bda069;
+}
+@media (max-width: 991px) {
+  .navbar .navbar-nav .nav-item .nav-link {
+    padding: 0.5rem 0;
+  }
 }
 .navbar .navbar-nav .dropdown {
   position: relative;
@@ -12790,12 +12823,37 @@ p {
   visibility: visible;
   transform: translateX(-50%);
 }
+@media (max-width: 991px) {
+  .navbar .navbar-nav .dropdown:hover .dropdown-menu {
+    display: none;
+    transform: none;
+  }
+}
+@media (max-width: 991px) {
+  .navbar .navbar-nav .dropdown {
+    width: 100%;
+  }
+}
+@media (max-width: 991px) {
+  .navbar .navbar-nav .dropdown .dropdown-toggle {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+  }
+}
+@media (max-width: 991px) {
+  .navbar .navbar-nav .dropdown .dropdown-toggle::after {
+    margin-left: auto;
+  }
+}
 .navbar .navbar-nav .dropdown .dropdown-menu {
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
   text-align: center;
-  background: linear-gradient(120deg, #0b0a08 0%, #0b0a08 60%, #5c5240 80%, #ccb78f 95%, #ccb78f 100%);
+  background: #0b0a08;
   border: none;
   text-align: center;
   min-width: 350px;
@@ -12803,6 +12861,24 @@ p {
   max-width: 600px;
   visibility: hidden;
   transition: all 0.3s ease;
+}
+@media (max-width: 991px) {
+  .navbar .navbar-nav .dropdown .dropdown-menu {
+    position: static;
+    transform: none;
+    background: transparent;
+    min-width: 100%;
+    max-width: 100%;
+    padding: 0;
+    margin-top: 0;
+    display: none;
+    visibility: visible;
+  }
+}
+@media (max-width: 991px) {
+  .navbar .navbar-nav .dropdown .dropdown-menu.show {
+    display: block;
+  }
 }
 .navbar .navbar-nav .dropdown .dropdown-menu .dropdown-item {
   color: #d1b06b;
@@ -12813,38 +12889,54 @@ p {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  font-family: "Poppins", sans-serif;
   width: 100%;
+}
+@media (max-width: 991px) {
+  .navbar .navbar-nav .dropdown .dropdown-menu .dropdown-item {
+    padding: 8px 0;
+  }
 }
 .navbar .navbar-nav .dropdown .dropdown-menu .dropdown-item:hover {
   background-color: #d1b06b;
   color: #0b0a08;
   width: 100%;
   font-weight: 800;
-  line-height: 25px; /* 192.308% */
+  line-height: 25px;
 }
 .navbar .nav-buttons {
   display: flex;
   gap: 1rem;
   margin-left: auto;
 }
+@media (max-width: 991px) {
+  .navbar .nav-buttons {
+    width: 100%;
+    margin-top: 1rem;
+  }
+}
 .navbar .nav-buttons .btn-navbar-referral {
   width: 122px;
   height: 43px;
-  background-color: white;
-  border-radius: 5px;
-  box-shadow: 0px 4px 4px 0px rgb(189, 160, 105);
+  background-color: #bfa573;
   display: flex;
   align-items: center;
   font-size: 13px;
   text-decoration: none;
   text-align: center;
-  color: #bfa573;
   font-size: 14px;
-  transition: all 0.3s ease;
+  font-family: "Poppins", sans-serif;
+  color: #ffffff;
+}
+@media (max-width: 991px) {
+  .navbar .nav-buttons .btn-navbar-referral {
+    width: 100%;
+    justify-content: center;
+  }
 }
 .navbar .nav-buttons .btn-navbar-referral:hover {
   color: #0b0a08;
-  box-shadow: 0px 4px 4px #ffffff;
+  background-color: #ffffff;
 }
 .navbar .navbar-toggler:focus,
 .navbar .navbar-toggler:active,
@@ -12916,7 +13008,7 @@ p {
 1. ContactForm Start
 ------------------------------------------------------------*/
 .bg-contactform {
-  background-color: rgba(30, 30, 30, 0.85);
+  background: rgba(30, 30, 30, 0.85);
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
   padding: 3rem 0px;
   color: #ffffff;
@@ -12935,6 +13027,7 @@ p {
 }
 .bg-contactform .left-side #g-getintouch {
   color: #bfa573;
+  font-family: "Poppins", sans-serif;
   font-size: 30px;
   font-style: normal;
   font-weight: 600;
@@ -12943,9 +13036,9 @@ p {
 .bg-contactform .left-side #g-subgetintouch {
   margin-top: 1rem;
   font-size: 20px;
+  font-family: "Poppins", sans-serif;
   font-style: normal;
   font-weight: 400;
-  line-height: 15px;
 }
 .bg-contactform .left-side #g-textgetintouch {
   margin: 3rem 0 1rem;
@@ -13087,14 +13180,12 @@ p {
   border-radius: 8px;
   font-size: 0.9rem;
   padding: 0.75rem 5rem;
+  font-family: "Poppins", sans-serif;
   transition: all 0.3s ease;
   margin-top: 0.5rem;
-  box-shadow: 0px 4px 6px 0px #fff;
 }
 .bg-footer .col-12.col-md-4 .d-flex.flex-column .btn-contact-form:hover {
   background: #1a1a1a;
-  transform: translateY(-2px);
-  box-shadow: 0px 4px 10px 3px #fff;
 }
 .bg-footer .list {
   border-left: 2px solid #bfa573;
@@ -13107,7 +13198,7 @@ p {
 }
 .bg-footer .list .footer-link {
   color: #fff !important;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 16px;
   font-style: normal;
   font-weight: 600;
@@ -13149,6 +13240,7 @@ p {
   padding-left: 1.5rem;
   list-style-type: none;
   text-align: justify;
+  font-family: "Poppins", sans-serif;
   font-size: 14px;
 }
 .bg-footer .footer-list li strong {
@@ -13187,6 +13279,7 @@ p {
   text-decoration: underline;
   margin: 0;
   padding: 0;
+  font-family: "Poppins", sans-serif;
 }
 .bg-footer .address .row > .col-md-4:last-child .footer-link:hover {
   padding-left: 0;
@@ -13204,7 +13297,7 @@ p {
 .bg-footer .address .row > .col-md-4:last-child .mif-link .mif-text {
   text-align: right;
   color: #d1b06b;
-  font-family: "Markazi Text";
+  font-family: "Poppins", sans-serif;
   font-size: 12px;
   font-style: normal;
   font-weight: 600;
@@ -13332,14 +13425,6 @@ p {
   object-fit: cover;
   object-position: 50% 50%;
 }
-.banner-homepage .wrapper-banner-homepage .img-banner {
-  width: 100%;
-  min-height: 100vh !important;
-  position: absolute;
-  z-index: 1;
-  object-fit: cover;
-  object-position: 50% 50%;
-}
 .banner-homepage .wrapper-banner-homepage .logo-banner {
   display: flex;
   justify-content: center;
@@ -13349,64 +13434,56 @@ p {
   text-align: center;
   width: 100%;
 }
-.banner-homepage .wrapper-banner-homepage .logo-banner img {
-  clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
-  width: 150px;
-}
 .banner-homepage .wrapper-banner-homepage .logo-banner .button-wrapper {
-  display: flex;
-  justify-content: center;
-  gap: 44px;
   margin-top: 2rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 2.75rem;
 }
-.banner-homepage .wrapper-banner-homepage .logo-banner .btn-primary,
-.banner-homepage .wrapper-banner-homepage .logo-banner .btn-secondary {
+.banner-homepage .wrapper-banner-homepage .logo-banner .button-wrapper .btn-primary,
+.banner-homepage .wrapper-banner-homepage .logo-banner .button-wrapper .btn-secondary {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 268px;
-  height: 64px;
+  width: 100%;
+  max-width: 268px;
+  height: auto;
+  min-height: 64px;
   border-radius: 5px;
+  padding: 0.5rem 1rem;
+  transition: transform 0.3s ease;
 }
-.banner-homepage .wrapper-banner-homepage .logo-banner .btn-primary:hover,
-.banner-homepage .wrapper-banner-homepage .logo-banner .btn-secondary:hover {
+.banner-homepage .wrapper-banner-homepage .logo-banner .button-wrapper .btn-primary:hover,
+.banner-homepage .wrapper-banner-homepage .logo-banner .button-wrapper .btn-secondary:hover {
   transform: translateY(-5px);
 }
-.banner-homepage .wrapper-banner-homepage .logo-banner .btn-primary .btn-text,
-.banner-homepage .wrapper-banner-homepage .logo-banner .btn-secondary .btn-text {
+.banner-homepage .wrapper-banner-homepage .logo-banner .button-wrapper .btn-primary .btn-text,
+.banner-homepage .wrapper-banner-homepage .logo-banner .button-wrapper .btn-secondary .btn-text {
   text-align: center;
-  font-size: 18px;
+  font-size: 1rem;
   font-weight: 700;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   text-transform: uppercase;
-  line-height: 25px;
-  padding: 0.5rem;
+  line-height: 1.4;
 }
-.banner-homepage .wrapper-banner-homepage .logo-banner .btn-primary {
+.banner-homepage .wrapper-banner-homepage .logo-banner .button-wrapper .btn-primary {
   background-color: #bfa573;
-  box-shadow: 0px 4px 4px 0px rgb(255, 255, 255);
 }
-.banner-homepage .wrapper-banner-homepage .logo-banner .btn-primary:hover {
-  box-shadow: 0px 4px 15px 10px #fff;
-}
-.banner-homepage .wrapper-banner-homepage .logo-banner .btn-primary:hover .btn-text {
+.banner-homepage .wrapper-banner-homepage .logo-banner .button-wrapper .btn-primary:hover .btn-text {
   color: #1e1e1e !important;
 }
-.banner-homepage .wrapper-banner-homepage .logo-banner .btn-primary .btn-text {
+.banner-homepage .wrapper-banner-homepage .logo-banner .button-wrapper .btn-primary .btn-text {
   color: #ffffff;
   transition: color 0.3s ease;
 }
-.banner-homepage .wrapper-banner-homepage .logo-banner .btn-secondary {
+.banner-homepage .wrapper-banner-homepage .logo-banner .button-wrapper .btn-secondary {
   background-color: #ffffff;
-  box-shadow: 0px 4px 4px 0px rgb(189, 160, 105);
 }
-.banner-homepage .wrapper-banner-homepage .logo-banner .btn-secondary:hover {
-  box-shadow: 0px 4px 10px 10px #bda069;
-}
-.banner-homepage .wrapper-banner-homepage .logo-banner .btn-secondary:hover .btn-text {
+.banner-homepage .wrapper-banner-homepage .logo-banner .button-wrapper .btn-secondary:hover .btn-text {
   color: #bda069 !important;
 }
-.banner-homepage .wrapper-banner-homepage .logo-banner .btn-secondary .btn-text {
+.banner-homepage .wrapper-banner-homepage .logo-banner .button-wrapper .btn-secondary .btn-text {
   color: #1e1e1e;
   transition: color 0.3s ease;
 }
@@ -13417,11 +13494,10 @@ p {
   border-radius: 5px;
 }
 .banner-homepage .wrapper-banner-homepage .logo-banner .text-wrapper .discover-text {
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   color: #ffffff;
-  font-size: 22px;
+  font-size: 1.375rem;
   font-weight: 600;
-  line-height: loose;
   text-align: center;
   margin-bottom: 0;
 }
@@ -13429,7 +13505,7 @@ p {
   text-transform: uppercase;
   letter-spacing: 3px;
   margin-bottom: 11px;
-  font-size: 16px;
+  font-size: 1rem;
   font-weight: 700;
   text-align: center;
   color: #ffffff;
@@ -13437,51 +13513,91 @@ p {
 @media (min-width: 768px) {
   .banner-homepage .wrapper-banner-homepage .logo-banner .logo-text-banner {
     letter-spacing: 8px;
-    font-size: 20px;
+    font-size: 1.25rem;
   }
 }
 @media (min-width: 1024px) {
   .banner-homepage .wrapper-banner-homepage .logo-banner .logo-text-banner {
-    font-size: 30px;
+    font-size: 1.875rem;
   }
 }
 @media (min-width: 1200px) {
   .banner-homepage .wrapper-banner-homepage .logo-banner .logo-text-banner {
     padding: 0rem 3rem;
-    font-size: 40px;
+    font-size: 2.5rem;
   }
 }
 .banner-homepage .wrapper-banner-homepage .logo-banner .logo-text-banner .goal-text {
-  font-family: "Odor Mean Chey", serif;
+  font-family: "Poppins", sans-serif;
   text-transform: uppercase;
   font-weight: normal;
   line-height: 50px;
-  font-size: 25px;
+  font-size: 1.5625rem;
   letter-spacing: 0;
-  color: #ffffff;
 }
 @media (min-width: 768px) {
   .banner-homepage .wrapper-banner-homepage .logo-banner .logo-text-banner .goal-text {
-    font-size: 30px;
+    font-size: 1.875rem;
   }
 }
 @media (min-width: 1024px) {
   .banner-homepage .wrapper-banner-homepage .logo-banner .logo-text-banner .goal-text {
-    font-size: 40px;
+    font-size: 2.5rem;
   }
 }
 .banner-homepage .wrapper-banner-homepage .logo-banner .logo-text-banner .goal-text span {
   color: #bfa573;
   display: block;
 }
-.banner-homepage .wrapper-banner-homepage .logo-banner .logo-text-banner-teamwork {
-  letter-spacing: 4px;
-  font-weight: 700;
-  text-align: center;
-  color: #383734;
-  margin-top: 1.5rem;
-}
 
+@media (max-width: 576px) {
+  .banner-homepage .logo-banner .button-wrapper {
+    flex-direction: column;
+    gap: 1.25rem;
+    padding: 0 1rem;
+  }
+  .banner-homepage .logo-banner .button-wrapper .btn-primary,
+  .banner-homepage .logo-banner .button-wrapper .btn-secondary {
+    max-width: 100%;
+    width: 100%;
+    padding: 0.75rem 1.5rem;
+    min-height: 60px;
+  }
+  .banner-homepage .logo-banner .button-wrapper .btn-primary .btn-text,
+  .banner-homepage .logo-banner .button-wrapper .btn-secondary .btn-text {
+    font-size: 0.8125rem;
+    line-height: 1.3;
+    text-align: center;
+    word-break: break-word;
+    white-space: normal;
+  }
+  .banner-homepage .logo-banner .text-wrapper {
+    padding: 15px;
+    margin-bottom: 1.5rem;
+  }
+  .banner-homepage .logo-banner .text-wrapper .discover-text {
+    font-size: 1rem;
+  }
+  .banner-homepage .logo-banner .logo-text-banner .goal-text {
+    font-size: 1.25rem;
+    line-height: 1.5;
+  }
+}
+@media (min-width: 576px) and (max-width: 767.98px) {
+  .banner-homepage .logo-banner .button-wrapper {
+    flex-direction: row;
+    gap: 1.5rem;
+  }
+  .banner-homepage .logo-banner .button-wrapper .btn-primary,
+  .banner-homepage .logo-banner .button-wrapper .btn-secondary {
+    max-width: 200px;
+    padding: 0.75rem 1rem;
+  }
+  .banner-homepage .logo-banner .button-wrapper .btn-primary .btn-text,
+  .banner-homepage .logo-banner .button-wrapper .btn-secondary .btn-text {
+    font-size: 0.9375rem;
+  }
+}
 /*----------------------------------------------------------
 1. Banner Homepage End
 ------------------------------------------------------------*/
@@ -13489,13 +13605,13 @@ p {
 2. Future Start
 ------------------------------------------------------------*/
 .homepage-future-section {
-  background-color: #fff;
+  background-color: #141414;
 }
 
 .homepage-future-heading {
   color: #bfa573;
   text-align: center;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 30px;
   font-style: normal;
   font-weight: 800;
@@ -13504,9 +13620,9 @@ p {
 }
 
 .homepage-future-text {
-  color: #000;
+  color: #fff;
   text-align: center;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 20px;
   font-style: normal;
   font-weight: 500;
@@ -13514,9 +13630,9 @@ p {
 }
 
 .homepage-future-cta {
-  color: #000;
+  color: #fff;
   text-align: center;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 22px;
   font-style: normal;
   font-weight: 700;
@@ -13544,9 +13660,9 @@ p {
   display: flex;
   justify-content: flex-end;
 }
-.why-choose .why-title {
+.why-choose .col-12.col-lg-6.text-column .why-title {
   color: #bfa573;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 30px;
   font-weight: 800;
   line-height: 30px;
@@ -13555,9 +13671,9 @@ p {
   margin-left: 98px;
   margin-right: 67px;
 }
-.why-choose .why-desc {
+.why-choose .col-12.col-lg-6.text-column .why-desc {
   color: #fff;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 18px;
   font-weight: 500;
   line-height: 30px;
@@ -13565,30 +13681,121 @@ p {
   margin-left: 98px;
   margin-right: 67px;
 }
-.why-choose .why-cta {
+.why-choose .col-12.col-lg-6.text-column .why-cta {
   color: #fff;
-  font-family: "Noto Serif", serif;
-  font-size: 20px;
-  font-weight: 700;
+  font-family: "Poppins", sans-serif;
+  font-style: italic;
+  font-size: 18px;
+  font-weight: 500;
   line-height: 30px;
   margin-left: 98px;
   margin-right: 67px;
 }
-.why-choose .why-image-container {
+.why-choose .col-12.col-lg-6.image-column .why-image-container {
   height: 300px;
   overflow: hidden;
   width: 100%;
 }
 @media (min-width: 992px) {
-  .why-choose .why-image-container {
+  .why-choose .col-12.col-lg-6.image-column .why-image-container {
     height: 413px;
     margin-right: 0;
   }
 }
-.why-choose .why-image-container img {
+.why-choose .col-12.col-lg-6.image-column .why-image-container img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+@media (max-width: 991.98px) {
+  .why-choose {
+    padding-top: 0;
+  }
+  .why-choose .row {
+    flex-direction: column-reverse;
+  }
+  .why-choose .col-12.col-lg-6 {
+    padding: 0;
+  }
+  .why-choose .col-12.col-lg-6.text-column {
+    text-align: center;
+  }
+  .why-choose .col-12.col-lg-6.text-column .why-title,
+  .why-choose .col-12.col-lg-6.text-column .why-desc,
+  .why-choose .col-12.col-lg-6.text-column .why-cta {
+    margin-left: 15px;
+    margin-right: 15px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .why-choose .col-12.col-lg-6.text-column .why-title {
+    font-size: 24px;
+  }
+  .why-choose .col-12.col-lg-6.text-column .why-desc {
+    font-size: 16px;
+  }
+  .why-choose .col-12.col-lg-6.text-column .why-cta {
+    font-size: 18px;
+  }
+  .why-choose .col-12.col-lg-6.image-column {
+    margin: 0;
+    padding: 0;
+  }
+  .why-choose .col-12.col-lg-6.image-column .why-image-container {
+    width: 100%;
+    height: auto;
+    position: relative;
+    left: 0;
+    margin-left: 0;
+    margin-right: 0;
+    margin-bottom: 2rem;
+    overflow: hidden;
+  }
+  .why-choose .col-12.col-lg-6.image-column .why-image-container img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    display: block;
+  }
+}
+@media (min-width: 576px) and (max-width: 767.98px) {
+  .why-choose .col-12.col-lg-6.text-column .why-title,
+  .why-choose .col-12.col-lg-6.text-column .why-desc,
+  .why-choose .col-12.col-lg-6.text-column .why-cta {
+    margin-left: 15px;
+    margin-right: 15px;
+  }
+  .why-choose .col-12.col-lg-6.text-column .why-title {
+    font-size: 26px;
+  }
+  .why-choose .col-12.col-lg-6.text-column .why-desc {
+    font-size: 17px;
+  }
+  .why-choose .col-12.col-lg-6.text-column .why-cta {
+    font-size: 19px;
+  }
+}
+@media (min-width: 992px) {
+  .why-choose {
+    padding-top: 55px;
+  }
+  .why-choose .row {
+    flex-direction: row;
+    align-items: center;
+  }
+  .why-choose .col-12.col-lg-6:last-child {
+    padding-right: 0;
+    display: flex;
+    justify-content: flex-end;
+  }
+  .why-choose .col-12.col-lg-6.image-column .why-image-container {
+    height: 413px;
+    width: 100%;
+    margin-right: 0;
+    position: static;
+    margin-bottom: 0;
+  }
 }
 
 /*----------------------------------------------------------
@@ -13602,11 +13809,14 @@ p {
   width: 100%;
   min-height: 100vh;
   overflow-x: hidden;
+  background-color: #fff;
 }
 .newsletter .newsletter-bg {
   position: absolute;
   width: 100%;
   height: 100%;
+  top: 0;
+  left: 0;
 }
 .newsletter .newsletter-bg::after {
   content: "";
@@ -13614,13 +13824,15 @@ p {
   top: 0;
   left: 0;
   width: 100%;
-  height: 100vh;
+  height: 100%;
   z-index: 2;
+  background: rgba(0, 0, 0, 0.5);
 }
 .newsletter .newsletter-bg video {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center;
   position: absolute;
   top: 0;
   left: 0;
@@ -13636,8 +13848,7 @@ p {
   padding-bottom: 10rem;
 }
 .newsletter .newsletter-content .bg-title-something-big {
-  background: url("../../img/bg-title-something-big.png") no-repeat center center;
-  background-size: cover;
+  background-color: #d9d9d9;
   padding: 2rem;
 }
 .newsletter .newsletter-content header {
@@ -13647,31 +13858,28 @@ p {
   text-transform: uppercase;
 }
 .newsletter .newsletter-content header h1 {
+  font-family: "Poppins", sans-serif;
   margin: 0;
-  font-size: 35px;
-  font-weight: 800px;
-  line-height: 50px;
-}
-.newsletter .newsletter-content header .lead {
-  margin: 0.5rem 0 0;
-  text-transform: capitalize;
   color: #000;
-  font-family: "Noto Serif", serif;
+  text-align: center;
+  font-size: 35px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 50px; /* 142.857% */
+  text-transform: uppercase;
+}
+.newsletter .newsletter-content .lead-wrapper .lead {
+  margin: 0;
+  padding: 1rem 0;
+  text-transform: capitalize;
+  font-family: "Poppins", sans-serif;
   font-size: 25px;
   font-style: normal;
   font-weight: 800;
   line-height: 35px;
   text-align: center;
-}
-.newsletter .newsletter-content header .lead .text-white {
   color: #fff;
-  font-family: "Noto Serif", serif;
-  font-size: 25px;
-  font-style: normal;
-  font-weight: 800;
-  line-height: 35px;
-  display: block;
-  margin-top: 0.25rem;
+  background: rgba(0, 0, 0, 0.3);
 }
 .newsletter .newsletter-content .newsletter-text {
   width: 100%;
@@ -13680,36 +13888,43 @@ p {
 .newsletter .newsletter-content .newsletter-text .col-md-6:last-child {
   text-align: left;
   padding-right: 110px;
+  padding-left: 0;
 }
 .newsletter .newsletter-content .newsletter-text .countdown {
   color: #bda069;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 25px;
   font-style: normal;
   font-weight: 800;
   line-height: 35px;
+  text-align: left;
 }
 .newsletter .newsletter-content .newsletter-text .description,
 .newsletter .newsletter-content .newsletter-text .highlight {
   color: #fff;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 20px;
   font-style: normal;
   font-weight: 500;
   line-height: 35px;
+  text-align: left;
+}
+.newsletter .newsletter-content .newsletter-text .highlight-bold {
+  font-weight: 700;
 }
 .newsletter .newsletter-content .newsletter-text .highlight-1 {
   color: #bda069;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 20px;
   font-style: normal;
   font-weight: 600;
   line-height: 35px;
+  text-align: left;
 }
 .newsletter .newsletter-content .mt-4 .col-md-6:last-child {
   position: relative;
   padding-top: 2rem;
-  margin-left: -25px;
+  margin-left: 0;
   padding-bottom: 2rem;
   text-align: center;
 }
@@ -13728,10 +13943,13 @@ p {
 .newsletter .newsletter-content .mt-4 .col-md-6:last-child .btn {
   padding-left: 46px;
   padding-right: 126px;
+  margin: 0 auto;
+  display: block;
+  max-width: 600px;
 }
 .newsletter .newsletter-content .mt-4 .col-md-6:last-child .opportunity {
   color: #fff;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 20px;
   font-weight: 700;
   line-height: 30px;
@@ -13739,8 +13957,8 @@ p {
   margin-bottom: 1rem;
 }
 .newsletter .newsletter-content .mt-4 .col-md-6:last-child .signup {
-  color: #000;
-  font-family: "Noto Serif", serif;
+  color: #fff;
+  font-family: "Poppins", sans-serif;
   font-size: 20px;
   font-weight: 800;
   line-height: 30px;
@@ -13761,15 +13979,203 @@ p {
   align-items: center;
   justify-content: center;
   background: #bda069;
-  box-shadow: 0px 4px 15px 10px #fff;
   color: #000;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 20px;
   font-weight: 700;
   line-height: 25px;
 }
 .newsletter .newsletter-content .mt-4 .col-md-6:last-child .button-wrapper .btn.custom-btn:hover {
   background-color: #fff;
+}
+@media (max-width: 767.98px) {
+  .newsletter .newsletter-content {
+    padding-bottom: 0 !important;
+  }
+  .newsletter .newsletter-bg video {
+    object-fit: contain !important;
+    object-position: center !important;
+  }
+  .newsletter header h1 {
+    font-size: 26px;
+    line-height: 36px;
+  }
+  .newsletter .lead-wrapper .lead {
+    font-size: 20px;
+    line-height: 28px;
+  }
+  .newsletter .newsletter-text {
+    padding: 1rem !important;
+  }
+  .newsletter .newsletter-text .col-md-6:last-child {
+    text-align: center !important;
+    padding-right: 0 !important;
+    padding-left: 0 !important;
+  }
+  .newsletter .newsletter-text .countdown {
+    font-size: 22px !important;
+    line-height: 30px !important;
+    text-align: center !important;
+  }
+  .newsletter .newsletter-text .description,
+  .newsletter .newsletter-text .highlight,
+  .newsletter .newsletter-text .highlight-1 {
+    font-size: 18px !important;
+    line-height: 28px !important;
+    padding: 0 10px !important;
+    text-align: center !important;
+  }
+  .newsletter .mt-4 {
+    width: 100% !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+  .newsletter .mt-4 .row {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    width: 100% !important;
+  }
+  .newsletter .mt-4 .col-md-6 {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+  .newsletter .mt-4 .col-md-6:last-child {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    flex: 0 0 100% !important;
+  }
+  .newsletter .mt-4 .col-md-6:last-child::before {
+    right: 0 !important;
+    left: 0 !important;
+  }
+  .newsletter .mt-4 .col-md-6:last-child .opportunity,
+  .newsletter .mt-4 .col-md-6:last-child .signup,
+  .newsletter .mt-4 .col-md-6:last-child .btn {
+    padding-left: 15px !important;
+    padding-right: 15px !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    max-width: 100% !important;
+    width: 100% !important;
+  }
+  .newsletter .mt-4 .col-md-6:last-child .button-wrapper {
+    padding-left: 15px !important;
+    padding-right: 15px !important;
+    width: 100% !important;
+  }
+  .newsletter .mt-4 .col-md-6:last-child .button-wrapper .btn.custom-btn {
+    margin: 20px auto !important;
+    min-width: 85% !important;
+    max-width: 85% !important;
+    font-size: 20px !important;
+    padding: 15px 10px !important;
+  }
+}
+@media (max-width: 599px) {
+  .newsletter .mt-4 {
+    width: 100% !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+  .newsletter .mt-4 .row {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    width: 100% !important;
+  }
+  .newsletter .mt-4 .col-md-6 {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+  .newsletter .mt-4 .col-md-6:last-child {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    flex: 0 0 100% !important;
+  }
+  .newsletter .mt-4 .col-md-6:last-child::before {
+    right: 0 !important;
+    left: 0 !important;
+  }
+  .newsletter .mt-4 .col-md-6:last-child .opportunity,
+  .newsletter .mt-4 .col-md-6:last-child .signup,
+  .newsletter .mt-4 .col-md-6:last-child .btn {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    max-width: 100% !important;
+    width: 100% !important;
+  }
+  .newsletter .mt-4 .col-md-6:last-child .button-wrapper {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    width: 100% !important;
+  }
+  .newsletter .mt-4 .col-md-6:last-child .button-wrapper .btn.custom-btn {
+    margin: 20px auto !important;
+    min-width: 80% !important;
+    max-width: 80% !important;
+    font-size: 20px !important;
+    padding: 15px 10px !important;
+  }
+}
+@media (max-width: 430px) {
+  .newsletter .mt-4 {
+    width: 100% !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+  .newsletter .mt-4 .row {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    width: 100% !important;
+  }
+  .newsletter .mt-4 .col-md-6 {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+  .newsletter .mt-4 .col-md-6:last-child {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    flex: 0 0 100% !important;
+  }
+  .newsletter .mt-4 .col-md-6:last-child::before {
+    right: 0 !important;
+    left: 0 !important;
+  }
+  .newsletter .mt-4 .col-md-6:last-child .opportunity,
+  .newsletter .mt-4 .col-md-6:last-child .signup,
+  .newsletter .mt-4 .col-md-6:last-child .btn {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    max-width: 100% !important;
+    width: 100% !important;
+  }
+  .newsletter .mt-4 .col-md-6:last-child .button-wrapper {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    width: 100% !important;
+  }
+  .newsletter .mt-4 .col-md-6:last-child .button-wrapper .btn.custom-btn {
+    margin: 20px auto !important;
+    min-width: 90% !important;
+    max-width: 90% !important;
+    font-size: 24px !important;
+    padding: 15px 5px !important;
+  }
 }
 
 /*----------------------------------------------------------
@@ -13792,7 +14198,7 @@ p {
 }
 .earning-title .title-wrapper .title {
   color: #bda069;
-  font-family: "Odor Mean Chey", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 40px;
   font-weight: 400;
   line-height: 50px;
@@ -13802,12 +14208,34 @@ p {
 }
 .earning-title .title-wrapper .subtitle {
   color: #fff;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 20px;
   font-weight: 600;
   line-height: 144.687%;
   margin: 10px auto 0;
   max-width: 700px;
+}
+@media (max-width: 767.98px) {
+  .earning-title {
+    padding: 15px 0;
+  }
+  .earning-title .title-wrapper .title {
+    font-size: 30px;
+    line-height: 40px;
+  }
+  .earning-title .title-wrapper .subtitle {
+    font-size: 18px;
+    line-height: 1.5;
+  }
+}
+@media (max-width: 575.98px) {
+  .earning-title .title-wrapper .title {
+    font-size: 24px;
+    line-height: 30px;
+  }
+  .earning-title .title-wrapper .subtitle {
+    font-size: 16px;
+  }
 }
 
 .earning-section {
@@ -13824,6 +14252,7 @@ p {
   left: 0;
   width: 100%;
   height: 100%;
+  z-index: 1;
 }
 .earning-section .earning-bg video {
   width: 100%;
@@ -13852,7 +14281,7 @@ p {
 .earning-section .cards-container .custom-card {
   border: 1px solid #000;
   background: rgba(0, 0, 0, 0.76);
-  box-shadow: 0px 4px 20px 10px #fff;
+  border: 1px solid #bfa573;
   overflow: hidden;
   padding: 3rem;
   margin-bottom: 1rem;
@@ -13867,15 +14296,17 @@ p {
   height: 4px;
   background: #e98c1b;
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-  margin: 1rem 0;
+  margin: 1rem auto;
+  text-align: center;
   align-self: flex-start;
 }
 .earning-section .cards-container .card-text {
   color: #fff;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 22px;
   font-style: normal;
   font-weight: 600;
+  text-align: center;
   line-height: 144.687%;
 }
 .earning-section .button-wrapper {
@@ -13885,25 +14316,101 @@ p {
 }
 .earning-section .cta {
   max-width: 333px;
-  color: #f7941d;
+  color: #fff;
   text-align: center;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 17px;
   font-weight: 500;
   line-height: 25px;
   text-transform: uppercase;
   border-radius: 5px;
-  border: 1px solid #fff;
+  border: 0.5px solid #fff;
   background: #000;
-  box-shadow: 0px 4px 35px 8px #fff;
   padding: 12px 24px;
   cursor: pointer;
   transition: all 0.3s ease;
 }
 .earning-section .cta:hover {
-  transform: translateY(-2px);
-  box-shadow: 0px 4px 35px 8px #f7941d;
-  color: #fff;
+  color: #000;
+  border: 0.5px solid #bda069;
+  background: #bda069;
+  border-radius: 5px;
+}
+@media (max-width: 1199.98px) {
+  .earning-section {
+    min-height: auto;
+    padding-bottom: 50px;
+  }
+  .earning-section .earning-bg {
+    height: 100%;
+  }
+  .earning-section .earning-bg video {
+    height: 100%;
+  }
+  .earning-section .container {
+    padding: 50px 15px 0;
+  }
+  .earning-section .cards-container {
+    padding: 15px 0;
+  }
+  .earning-section .cards-container .custom-card {
+    padding: 2rem;
+    min-height: 400px;
+  }
+}
+@media (max-width: 991.98px) and (min-width: 768px) {
+  .earning-section .cards-container .row {
+    display: flex;
+  }
+  .earning-section .cards-container .row .col-md-6 {
+    display: flex;
+  }
+  .earning-section .cards-container .row .custom-card {
+    flex: 1;
+    min-height: 350px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 1.75rem;
+  }
+  .earning-section .cards-container .row .custom-card .card-text {
+    font-size: 20px;
+    line-height: 1.5;
+  }
+}
+@media (max-width: 767.98px) {
+  .earning-section .container {
+    padding: 30px 10px 0;
+  }
+  .earning-section .earning-bg video {
+    object-fit: cover;
+  }
+  .earning-section .cards-container {
+    padding: 10px 0;
+  }
+  .earning-section .cards-container .custom-card {
+    padding: 1.5rem;
+    min-height: 300px;
+    margin-bottom: 0.75rem;
+  }
+  .earning-section .cards-container .card-text {
+    font-size: 18px;
+  }
+  .earning-section .cta {
+    font-size: 15px;
+    padding: 10px 20px;
+  }
+}
+@media (max-width: 575.98px) {
+  .earning-section .cards-container .custom-card {
+    padding: 1.25rem;
+    min-height: 250px;
+    box-shadow: 0px 4px 10px 5px #fff;
+  }
+  .earning-section .cards-container .card-text {
+    font-size: 16px;
+    line-height: 1.5;
+  }
 }
 
 /*----------------------------------------------------------
@@ -13916,7 +14423,7 @@ p {
   position: relative;
   margin: 0;
   padding-bottom: 30px;
-  background: linear-gradient(321deg, #000 6.14%, #101010 22.77%, #313131 43.59%, #000 65.77%, #111 87.49%);
+  background: #000;
 }
 .service-homepage .container {
   padding: 0 28px;
@@ -13927,28 +14434,29 @@ p {
 .service-homepage .col-12.col-lg-6 {
   padding: 0 100px;
 }
+.service-homepage .col-12.col-lg-6:first-child {
+  padding-right: 40px;
+}
+.service-homepage .col-12.col-lg-6:last-child {
+  padding-left: 40px;
+}
 .service-homepage .col-12.col-lg-6:last-child .service-cards {
   justify-content: flex-start;
 }
 .service-homepage .section-title-bg {
-  width: 100vw;
-  height: 200px;
+  width: 100%;
   padding: 30px 0;
-  background: url("../../img/bg-our-service.png") no-repeat center center;
-  background-size: cover;
+  background: #d9d9d9;
   box-shadow: 0 4px 4px rgba(0, 0, 0, 0.1);
   position: relative;
-  left: 50%;
-  right: 50%;
-  margin-left: -50vw;
-  margin-right: -50vw;
+  margin-bottom: 30px;
 }
 .service-homepage .section-title {
   position: relative;
   z-index: 2;
   color: #000;
   text-align: center;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 40px;
   font-style: normal;
   font-weight: 800;
@@ -13959,21 +14467,31 @@ p {
 .service-homepage .service-cards {
   display: flex;
   flex-direction: column;
-  gap: 50px;
+  gap: 75px;
   margin-top: 50px;
 }
 .service-homepage .service-card {
   border-radius: 5px;
-  background: linear-gradient(259deg, rgba(101, 101, 101, 0.75) 6.7%, #000 57.93%);
+  background: #000;
   padding: 24px;
   min-height: 200px;
+  position: relative;
+  margin: 0 5px;
+  border: 1px solid #d1b06b;
+}
+.service-homepage .service-card .row {
+  display: flex;
+  align-items: flex-start;
   position: relative;
 }
 .service-homepage .service-card .row .col-3 {
   width: auto;
+  position: relative;
 }
 .service-homepage .service-card .row .col-9 {
   width: calc(100% - 80px);
+  padding-left: 65px;
+  margin-top: 20px;
 }
 .service-homepage .service-card .service-image {
   position: absolute;
@@ -13986,27 +14504,38 @@ p {
   display: flex;
   align-items: center;
   justify-content: center;
+  z-index: 2;
 }
 .service-homepage .service-card .service-image img {
-  max-width: 70px;
-  max-height: 70px;
+  width: 125px;
+  height: 125px;
   object-fit: contain;
+  position: relative;
+  z-index: 2;
+}
+@media (min-width: 567px) {
+  .service-homepage .service-card .service-image img {
+    width: 100px;
+    height: 100px;
+  }
 }
 .service-homepage .service-card .service-title {
   color: #d1b06b;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 25px;
   font-weight: 800;
   line-height: 30px;
   text-transform: uppercase;
+  margin-bottom: 15px;
 }
 .service-homepage .service-card .service-description {
   color: #fff;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 16px;
   font-weight: 400;
-  line-height: 30px;
+  line-height: 24px;
   text-transform: lowercase;
+  margin-bottom: 20px;
 }
 .service-homepage .service-card .service-description::first-letter {
   text-transform: uppercase;
@@ -14014,9 +14543,9 @@ p {
 .service-homepage .service-card .service-btn {
   color: #000;
   text-align: center;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 13px;
-  font-weight: 700;
+  font-weight: 500;
   line-height: 18px;
   text-transform: uppercase;
   border-radius: 5px;
@@ -14024,18 +14553,12 @@ p {
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0px 4px 6px 0px rgba(255, 255, 255, 0.9);
   border: none;
   padding: 3px 20px;
   cursor: pointer;
   transition: all 0.3s ease;
-  min-width: 300px;
+  width: 100%;
   min-height: 45px;
-}
-.service-homepage .service-card .service-btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0px 4px 10px 3px #e8d9bd;
-  background-color: #fff;
 }
 @media (min-width: 992px) {
   .service-homepage .row {
@@ -14043,6 +14566,66 @@ p {
   }
   .service-homepage .col-lg-6 {
     padding: 0 12px;
+  }
+}
+@media (max-width: 991.98px) {
+  .service-homepage .container {
+    padding: 0 15px;
+  }
+  .service-homepage .col-12.col-lg-6 {
+    padding: 0 15px;
+  }
+  .service-homepage .col-12.col-lg-6:first-child {
+    padding-right: 15px;
+  }
+  .service-homepage .col-12.col-lg-6:last-child {
+    padding-left: 15px;
+  }
+  .service-homepage .service-card .row .col-9 {
+    padding-left: 55px;
+  }
+  .service-homepage .service-card .service-title {
+    font-size: 22px;
+    line-height: 26px;
+  }
+  .service-homepage .service-card .service-description {
+    font-size: 14px;
+    line-height: 22px;
+  }
+  .service-homepage .service-card .service-btn {
+    min-width: 250px;
+    min-height: 40px;
+  }
+}
+@media (max-width: 767.98px) {
+  .service-homepage .container {
+    padding: 0 10px;
+  }
+  .service-homepage .col-12.col-lg-6 {
+    padding: 0 20px;
+  }
+  .service-homepage .col-12.col-lg-6:first-child {
+    padding-right: 20px;
+  }
+  .service-homepage .col-12.col-lg-6:last-child {
+    padding-left: 20px;
+  }
+  .service-homepage .service-card .row .col-9 {
+    padding-left: 45px;
+    margin-top: 15px;
+  }
+  .service-homepage .service-card .service-title {
+    font-size: 20px;
+    line-height: 24px;
+  }
+  .service-homepage .service-card .service-description {
+    font-size: 13px;
+    line-height: 20px;
+  }
+  .service-homepage .service-card .service-btn {
+    min-width: 200px;
+    min-height: 35px;
+    font-size: 12px;
   }
 }
 
@@ -14056,33 +14639,25 @@ p {
   margin-top: 100px;
 }
 .who-we-are .container {
-  background: linear-gradient(135deg, #000 0%, #1a1a1a 40%, #2d2d2d 60%, #4a4a4a 80%, #5f5f5f 100%);
+  background: #141414;
   padding-top: 50px;
   padding-bottom: 50px;
   max-width: 100%;
   margin: 0;
 }
 .who-we-are .section-title-bg {
-  width: 100vw;
-  height: 250px;
+  width: 100%;
   padding: 30px 0;
-  background: url("../../img/bg-who-we-are.png") no-repeat center center;
-  background-size: cover;
-  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.1);
+  background: #d9d9d9;
   position: relative;
-  left: 50%;
-  right: 50%;
-  margin-left: -50vw;
-  margin-right: -50vw;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding-bottom: 20px;
 }
 .who-we-are .section-title {
   color: #000;
   text-align: center;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 40px;
   font-style: normal;
   font-weight: 800;
@@ -14090,7 +14665,6 @@ p {
   text-align: center;
   text-transform: uppercase;
   margin: 0;
-  margin-top: 20px;
 }
 .who-we-are .who-image {
   position: relative;
@@ -14108,7 +14682,7 @@ p {
 }
 .who-we-are .who-content .who-title {
   color: #bfa573;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 30px;
   font-weight: 800;
   line-height: 40px;
@@ -14118,29 +14692,104 @@ p {
   flex-direction: column;
 }
 .who-we-are .who-content .who-title .title-main {
-  white-space: nowrap;
+  white-space: normal;
   margin-bottom: 10px;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
 }
 .who-we-are .who-content .who-title .subtitle {
   display: block;
   color: #fff;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 24px;
   font-style: normal;
   font-weight: 800;
   line-height: 40px;
   text-transform: capitalize;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
 }
 .who-we-are .who-content .who-description p {
   color: #fff;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 18px;
   font-weight: 500;
   line-height: 30px;
   margin-bottom: 20px;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
 }
 .who-we-are .who-content .who-description p:last-child {
   margin-bottom: 0;
+}
+@media (max-width: 991.98px) {
+  .who-we-are .section-title {
+    font-size: 32px;
+    line-height: 36px;
+  }
+  .who-we-are .who-content .who-title {
+    font-size: 26px;
+    line-height: 32px;
+  }
+  .who-we-are .who-content .who-title .subtitle {
+    font-size: 20px;
+    line-height: 28px;
+  }
+}
+@media (max-width: 767.98px) {
+  .who-we-are {
+    margin-top: 50px;
+  }
+  .who-we-are .section-title-bg {
+    padding: 20px 0;
+  }
+  .who-we-are .section-title {
+    font-size: 28px;
+    line-height: 32px;
+  }
+  .who-we-are .who-content {
+    padding: 15px;
+  }
+  .who-we-are .who-content .who-title {
+    font-size: 24px;
+    line-height: 30px;
+  }
+  .who-we-are .who-content .who-title .subtitle {
+    font-size: 18px;
+    line-height: 24px;
+  }
+  .who-we-are .who-content .who-description p {
+    font-size: 16px;
+    line-height: 26px;
+  }
+}
+@media (max-width: 575.98px) {
+  .who-we-are {
+    margin-top: 30px;
+  }
+  .who-we-are .section-title {
+    font-size: 24px;
+    line-height: 28px;
+    padding: 0 10px;
+  }
+  .who-we-are .who-content {
+    padding: 10px;
+  }
+  .who-we-are .who-content .who-title {
+    font-size: 22px;
+    line-height: 28px;
+  }
+  .who-we-are .who-content .who-title .title-main {
+    font-size: 20px;
+  }
+  .who-we-are .who-content .who-title .subtitle {
+    font-size: 16px;
+    line-height: 22px;
+  }
+  .who-we-are .who-content .who-description p {
+    font-size: 14px;
+    line-height: 22px;
+  }
 }
 
 /*----------------------------------------------------------
@@ -14183,19 +14832,17 @@ p {
   max-width: 748px;
   margin: 0 auto;
   text-align: center;
-  text-transform: uppercase;
 }
 .quotes .quote-text {
   color: #fff;
   text-align: center;
   text-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
   -webkit-text-stroke: 1.5px rgba(56, 55, 52, 0.76);
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 25px;
   font-style: normal;
   font-weight: 900;
   line-height: 40px;
-  font-variant: small-caps;
   margin: 0;
 }
 
@@ -14220,7 +14867,7 @@ p {
 }
 .invest .invest-title-wrapper .invest-title {
   text-align: center;
-  font-family: "Odor Mean Chey", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 35px;
   font-style: normal;
   font-weight: 400;
@@ -14247,7 +14894,7 @@ p {
 .invest .invest-content .invest-description {
   color: #000;
   text-align: center;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 18px;
   font-style: normal;
   font-weight: 500;
@@ -14257,7 +14904,7 @@ p {
 .invest .invest-content .invest-cta {
   color: #000;
   text-align: center;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 22px;
   font-style: normal;
   font-weight: 500;
@@ -14300,12 +14947,6 @@ p {
 .cards-section .cards-wrapper .card.dark-card .card-title {
   color: #fff;
 }
-.cards-section .cards-wrapper .card.dark-card:hover {
-  box-shadow: 0px 4px 20px 10px #bda069;
-}
-.cards-section .cards-wrapper .card.dark-card:hover .card-title {
-  color: #d1b06b;
-}
 .cards-section .cards-wrapper .card.light-card {
   border-radius: 5px;
   background: #ccb78f;
@@ -14313,20 +14954,104 @@ p {
 .cards-section .cards-wrapper .card.light-card .card-title {
   color: #000;
 }
-.cards-section .cards-wrapper .card.light-card:hover {
-  box-shadow: 0px 4px 20px 10px #fff;
-}
-.cards-section .cards-wrapper .card.light-card:hover .card-title {
-  color: #fff;
-}
 .cards-section .cards-wrapper .card .card-title {
   text-align: center;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 20px;
   font-style: normal;
   font-weight: 600;
   line-height: 40px;
   text-transform: uppercase;
+}
+.cards-section .cards-wrapper .card .card-image {
+  max-width: 100%;
+  height: auto;
+  margin-top: 15px;
+}
+@media (max-width: 991.98px) {
+  .cards-section {
+    background-color: #fff;
+    margin-top: -200px;
+    padding-bottom: 70px;
+  }
+  .cards-section .container {
+    padding-top: 150px;
+  }
+  .cards-section .cards-wrapper {
+    flex-direction: column;
+    gap: 20px;
+  }
+  .cards-section .cards-wrapper .card {
+    min-height: 180px;
+    padding: 25px;
+  }
+  .cards-section .cards-wrapper .card.dark-card {
+    background: #1e1e1e;
+  }
+  .cards-section .cards-wrapper .card.dark-card .card-title {
+    color: #fff;
+  }
+  .cards-section .cards-wrapper .card.dark-card:hover {
+    box-shadow: 0px 4px 15px 5px rgba(189, 160, 105, 0.7);
+  }
+  .cards-section .cards-wrapper .card.light-card {
+    background: #ccb78f;
+  }
+  .cards-section .cards-wrapper .card.light-card:hover {
+    box-shadow: 0px 4px 15px 5px rgba(255, 255, 255, 0.7);
+  }
+  .cards-section .cards-wrapper .card .card-title {
+    font-size: 18px;
+    line-height: 30px;
+  }
+  .cards-section .cards-wrapper .card .card-image {
+    max-width: 80%;
+    margin-top: 10px;
+  }
+}
+@media (max-width: 767.98px) {
+  .cards-section {
+    margin-top: -180px;
+    padding-bottom: 60px;
+  }
+  .cards-section .container {
+    padding-top: 130px;
+  }
+  .cards-section .cards-wrapper {
+    gap: 15px;
+  }
+  .cards-section .cards-wrapper .card {
+    min-height: 160px;
+    padding: 20px;
+  }
+  .cards-section .cards-wrapper .card .card-title {
+    font-size: 16px;
+    line-height: 26px;
+  }
+}
+@media (max-width: 575.98px) {
+  .cards-section {
+    margin-top: -150px;
+    padding-bottom: 50px;
+  }
+  .cards-section .container {
+    padding-top: 110px;
+  }
+  .cards-section .cards-wrapper {
+    gap: 10px;
+  }
+  .cards-section .cards-wrapper .card {
+    min-height: 140px;
+    padding: 15px;
+  }
+  .cards-section .cards-wrapper .card .card-title {
+    font-size: 14px;
+    line-height: 22px;
+  }
+  .cards-section .cards-wrapper .card .card-image {
+    max-width: 70%;
+    margin-top: 8px;
+  }
 }
 
 /*----------------------------------------------------------
@@ -14339,6 +15064,9 @@ p {
   position: relative;
   height: auto;
   min-height: 637px;
+  background-color: transparent;
+  overflow: visible;
+  margin-bottom: 50px;
 }
 .first-steps .first-steps-bg {
   position: absolute;
@@ -14351,57 +15079,66 @@ p {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  opacity: 0.8;
 }
 .first-steps .container {
   position: relative;
   z-index: 2;
   max-width: 746px;
+  height: auto;
   margin: 0 auto;
-  padding: 150px 0;
+  padding: 50px 0;
   margin-left: 25%;
   margin-right: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 .first-steps .content-box {
   border: 1px solid #000;
-  background: rgba(0, 0, 0, 0.88);
+  background: rgba(0, 0, 0, 0.8);
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-  padding: 10px 40px 50px;
+  padding: 30px 40px 50px;
   position: relative;
-  margin-bottom: 10px;
+  margin-bottom: 40px;
+  border-radius: 5px;
+  width: 100%;
+  height: auto;
+  min-height: auto;
 }
 .first-steps .title {
   color: #bfa573;
   text-align: center;
-  font-family: "Noto Serif", serif;
-  font-size: 30px;
+  font-family: "Poppins", sans-serif;
+  font-size: 35px;
   font-style: normal;
-  font-weight: 600;
-  line-height: 37px;
-  margin-bottom: 10px;
+  font-weight: 700;
+  line-height: 45px;
+  margin-bottom: 20px;
+  text-transform: uppercase;
 }
 .first-steps .description {
   color: #fff;
   text-align: center;
-  font-family: "Noto Serif", serif;
-  font-size: 18px;
+  font-family: "Poppins", sans-serif;
+  font-size: 20px;
   font-style: normal;
-  font-weight: 600;
+  font-weight: 500;
   line-height: 30px;
-  margin-bottom: 10px;
+  margin-bottom: 30px;
   padding: 0 20px;
 }
 .first-steps .cta-button {
   position: absolute;
   left: 50%;
-  bottom: -40px;
+  bottom: -25px;
   transform: translateX(-50%);
   border-radius: 5px;
   background: #bfa573;
-  box-shadow: 0px 4px 4px 1px #fff;
   color: #000;
   text-align: center;
-  font-family: "Noto Serif", serif;
-  font-size: 16px;
+  font-family: "Poppins", sans-serif;
+  font-size: 18px;
   font-style: normal;
   font-weight: 700;
   line-height: 25px;
@@ -14409,9 +15146,10 @@ p {
   border: none;
   padding: 15px 30px;
   cursor: pointer;
+  min-width: 300px;
+  z-index: 10;
 }
 .first-steps .cta-button:hover {
-  box-shadow: 0px 4px 10px 3px #fff;
   color: #fff;
 }
 .first-steps .logo-big {
@@ -14419,10 +15157,110 @@ p {
   top: 50px;
   right: 50px;
   z-index: 2;
+  display: block;
 }
 .first-steps .logo-big .logo-image {
   max-width: 150px;
   height: auto;
+}
+@media (max-width: 991.98px) {
+  .first-steps {
+    min-height: auto;
+    margin-bottom: 40px;
+  }
+  .first-steps::after {
+    height: 40px;
+  }
+  .first-steps .container {
+    margin: 0 auto;
+    padding: 40px 20px;
+    max-width: 100%;
+  }
+  .first-steps .content-box {
+    padding: 25px 20px 40px;
+    min-height: auto;
+    background: rgba(0, 0, 0, 0.7);
+    margin-bottom: 30px;
+  }
+  .first-steps .title {
+    font-size: 28px;
+    line-height: 36px;
+  }
+  .first-steps .description {
+    font-size: 18px;
+    line-height: 28px;
+    padding: 0 10px;
+  }
+  .first-steps .cta-button {
+    min-width: 250px;
+    font-size: 16px;
+    padding: 12px 20px;
+    bottom: -22px;
+  }
+  .first-steps .logo-big {
+    display: none;
+  }
+}
+@media (max-width: 767.98px) {
+  .first-steps {
+    margin-bottom: 35px;
+  }
+  .first-steps::after {
+    height: 35px;
+  }
+  .first-steps .container {
+    padding: 30px 15px;
+  }
+  .first-steps .content-box {
+    padding: 20px 15px 40px;
+    background: rgba(0, 0, 0, 0.6);
+    margin-bottom: 25px;
+  }
+  .first-steps .title {
+    font-size: 24px;
+    line-height: 32px;
+  }
+  .first-steps .description {
+    font-size: 16px;
+    line-height: 26px;
+  }
+  .first-steps .cta-button {
+    min-width: 220px;
+    font-size: 14px;
+    padding: 10px 15px;
+    bottom: -20px;
+  }
+}
+@media (max-width: 575.98px) {
+  .first-steps {
+    margin-bottom: 30px;
+  }
+  .first-steps::after {
+    height: 30px;
+  }
+  .first-steps .container {
+    padding: 20px 10px;
+  }
+  .first-steps .content-box {
+    padding: 15px 10px 35px;
+    background: rgba(0, 0, 0, 0.5);
+    margin-bottom: 20px;
+  }
+  .first-steps .title {
+    font-size: 22px;
+    line-height: 28px;
+  }
+  .first-steps .description {
+    font-size: 14px;
+    line-height: 22px;
+    padding: 0 5px;
+  }
+  .first-steps .cta-button {
+    min-width: 200px;
+    font-size: 13px;
+    padding: 8px 12px;
+    bottom: -18px;
+  }
 }
 
 /*----------------------------------------------------------
@@ -14435,6 +15273,7 @@ p {
 .newsletter-card-section .container {
   margin: 0 auto;
   padding: 0 15px;
+  max-width: 1200px;
 }
 .newsletter-card-section .newsletter-card {
   background: #fff;
@@ -14449,21 +15288,45 @@ p {
 }
 .newsletter-card-section .newsletter-card .card-title {
   color: #000;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 32px;
   font-style: normal;
   font-weight: 800;
   line-height: 30px; /* 93.75% */
   margin-bottom: 20px;
 }
+@media (max-width: 767px) {
+  .newsletter-card-section .newsletter-card .card-title {
+    font-size: 28px;
+    line-height: 1.2;
+  }
+}
+@media (max-width: 566px) {
+  .newsletter-card-section .newsletter-card .card-title {
+    font-size: 24px;
+  }
+}
 .newsletter-card-section .newsletter-card .card-description {
   color: #000;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 20px;
   font-style: normal;
   font-weight: 800;
   line-height: 30px; /* 150% */
   margin-bottom: 30px;
+}
+@media (max-width: 767px) {
+  .newsletter-card-section .newsletter-card .card-description {
+    font-size: 18px;
+    line-height: 1.5;
+    padding: 0 10px;
+  }
+}
+@media (max-width: 566px) {
+  .newsletter-card-section .newsletter-card .card-description {
+    font-size: 16px;
+    padding: 0;
+  }
 }
 .newsletter-card-section .newsletter-card .newsletter-form {
   display: flex;
@@ -14471,28 +15334,78 @@ p {
   justify-content: center;
   gap: 10px;
 }
+@media (max-width: 566px) {
+  .newsletter-card-section .newsletter-card .newsletter-form {
+    flex-direction: column;
+    width: 100%;
+  }
+}
 .newsletter-card-section .newsletter-card .newsletter-form input {
   border: none;
   padding: 10px;
   border-radius: 5px;
   background: #d4d0d0;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 16px;
   width: 60%;
   min-height: 50px;
+}
+@media (max-width: 767px) {
+  .newsletter-card-section .newsletter-card .newsletter-form input {
+    width: 70%;
+  }
+}
+@media (max-width: 566px) {
+  .newsletter-card-section .newsletter-card .newsletter-form input {
+    width: 100%;
+    margin-bottom: 10px;
+  }
 }
 .newsletter-card-section .newsletter-card .newsletter-form button {
   border: none;
   border-radius: 5px;
   background: #bfa573;
   color: #000;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 20px;
   font-style: normal;
   font-weight: 400;
   line-height: 30px; /* 150% */
   padding: 10px 20px;
   cursor: pointer;
+  transition: all 0.3s ease;
+}
+@media (max-width: 566px) {
+  .newsletter-card-section .newsletter-card .newsletter-form button {
+    width: 100%;
+    font-size: 18px;
+  }
+}
+.newsletter-card-section .newsletter-card .newsletter-form button:hover {
+  background: rgb(175, 142.5, 80);
+  transform: translateY(-2px);
+}
+@media (max-width: 767px) {
+  .newsletter-card-section .newsletter-card {
+    min-height: 300px;
+    padding: 25px 20px;
+  }
+}
+@media (max-width: 566px) {
+  .newsletter-card-section .newsletter-card {
+    min-height: auto;
+    padding: 20px 15px;
+  }
+}
+@media (max-width: 767px) {
+  .newsletter-card-section {
+    padding: 40px 0;
+  }
+}
+@media (max-width: 566px) {
+  .newsletter-card-section {
+    padding: 30px 0;
+  }
 }
 
 /*----------------------------------------------------------
@@ -16003,7 +16916,7 @@ p {
 .main-section-otp {
   /* Styling untuk section OTP wrapper */
   background-color: #272626;
-  height: 100vh;
+  min-height: 100vh;
   overflow: hidden;
   bottom: 0;
 }
@@ -17662,6 +18575,14 @@ input:-moz-placeholder {
 .dark-bg-sections > section:last-child {
   margin-bottom: 0;
 }
+@media (max-width: 991px) {
+  .dark-bg-sections {
+    padding: 0;
+  }
+  .dark-bg-sections > section {
+    margin: 0;
+  }
+}
 
 .advanced-training {
   position: relative;
@@ -17671,7 +18592,7 @@ input:-moz-placeholder {
 }
 .advanced-training .section-title {
   color: #bfa573;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 30px;
   font-style: normal;
   font-weight: 800;
@@ -17680,7 +18601,7 @@ input:-moz-placeholder {
 }
 .advanced-training .section-subtitle {
   color: #fff;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 20px;
   font-style: normal;
   font-weight: 600;
@@ -17689,7 +18610,7 @@ input:-moz-placeholder {
 }
 .advanced-training .section-description {
   color: #fff;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 18px;
   font-style: normal;
   font-weight: 500;
@@ -17703,6 +18624,22 @@ input:-moz-placeholder {
   position: relative;
   z-index: 3;
 }
+@media (max-width: 991px) {
+  .advanced-training .section-title {
+    padding-top: 50px;
+    text-align: center;
+  }
+  .advanced-training img {
+    margin-bottom: 0;
+    min-width: 100%;
+    min-height: auto;
+    max-width: 473px;
+    max-height: 418px;
+    margin-left: auto;
+    display: block;
+    transform: translateX(20%);
+  }
+}
 
 .course-content {
   padding: 30px 0;
@@ -17711,7 +18648,7 @@ input:-moz-placeholder {
 }
 .course-content .section-title {
   color: #fff;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 30px;
   font-style: normal;
   font-weight: 600;
@@ -17731,7 +18668,7 @@ input:-moz-placeholder {
 }
 .course-content .section-description {
   color: #fff;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 18px;
   font-style: normal;
   font-weight: 400;
@@ -17740,11 +18677,16 @@ input:-moz-placeholder {
 }
 .course-content .section-description strong {
   color: #bfa573;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 18px;
   font-style: normal;
   font-weight: 600;
   line-height: 25px;
+}
+@media (max-width: 991px) {
+  .course-content .section-description {
+    text-align: center;
+  }
 }
 
 .aspiring-entrepreneurs {
@@ -17753,7 +18695,7 @@ input:-moz-placeholder {
 }
 .aspiring-entrepreneurs .section-title {
   color: rgba(56, 55, 52, 0.82);
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 30px;
   font-style: normal;
   font-weight: 600;
@@ -17772,7 +18714,7 @@ input:-moz-placeholder {
 }
 .aspiring-entrepreneurs .section-subtitle {
   color: #1e1e1e;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 25px;
   font-style: normal;
   font-weight: 600;
@@ -17782,11 +18724,16 @@ input:-moz-placeholder {
 }
 .aspiring-entrepreneurs .section-description {
   color: #000;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 18px;
   font-style: normal;
   font-weight: 400;
   line-height: 30px;
+}
+@media (max-width: 991px) {
+  .aspiring-entrepreneurs .section-subtitle {
+    margin-top: 1rem;
+  }
 }
 
 .understand-bitcoin {
@@ -17801,7 +18748,7 @@ input:-moz-placeholder {
 }
 .understand-bitcoin .section-description {
   color: #bfa573;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 18px;
   font-style: normal;
   font-weight: 600;
@@ -17810,7 +18757,7 @@ input:-moz-placeholder {
 }
 .understand-bitcoin .section-content {
   color: #fff;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 18px;
   font-style: normal;
   font-weight: 400;
@@ -17818,7 +18765,7 @@ input:-moz-placeholder {
 }
 .understand-bitcoin .bitcoin-title {
   color: #fff;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 25px;
   font-style: normal;
   font-weight: 600;
@@ -17843,6 +18790,23 @@ input:-moz-placeholder {
   margin-bottom: -50px;
   z-index: 2;
 }
+@media (max-width: 991px) {
+  .understand-bitcoin .row {
+    display: flex;
+    flex-direction: column;
+  }
+  .understand-bitcoin .col-12.col-lg-6:last-child {
+    order: -1;
+    margin-bottom: 2rem;
+  }
+  .understand-bitcoin .bitcoin-title {
+    text-align: center;
+    margin: 0 auto 1rem;
+  }
+  .understand-bitcoin img {
+    margin-bottom: 2rem;
+  }
+}
 
 .blockchain-design {
   padding: 30px 0 0;
@@ -17856,7 +18820,7 @@ input:-moz-placeholder {
 }
 .blockchain-design .section-description {
   color: #bfa573;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 18px;
   font-style: normal;
   font-weight: 600;
@@ -17865,7 +18829,7 @@ input:-moz-placeholder {
 }
 .blockchain-design .section-content {
   color: #fff;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 18px;
   font-style: normal;
   font-weight: 400;
@@ -17873,7 +18837,7 @@ input:-moz-placeholder {
 }
 .blockchain-design .blockchain-title {
   color: #fff;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 25px;
   font-style: normal;
   font-weight: 600;
@@ -17911,7 +18875,7 @@ input:-moz-placeholder {
 }
 .bitcoin-mining .section-description {
   color: #fff;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 18px;
   font-style: normal;
   font-weight: 600;
@@ -17920,7 +18884,7 @@ input:-moz-placeholder {
 }
 .bitcoin-mining .section-content {
   color: #1e1e1e;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 18px;
   font-style: normal;
   font-weight: 400;
@@ -17928,7 +18892,7 @@ input:-moz-placeholder {
 }
 .bitcoin-mining .mining-title {
   color: #1e1e1e;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 25px;
   font-style: normal;
   font-weight: 600;
@@ -17953,6 +18917,23 @@ input:-moz-placeholder {
   margin-bottom: -50px;
   z-index: 2;
 }
+@media (max-width: 991px) {
+  .bitcoin-mining .row {
+    display: flex;
+    flex-direction: column;
+  }
+  .bitcoin-mining .col-12.col-lg-6:last-child {
+    order: -1;
+    margin-bottom: 2rem;
+  }
+  .bitcoin-mining .mining-title {
+    text-align: center;
+    margin: 0 auto 1rem;
+  }
+  .bitcoin-mining img {
+    margin-bottom: 2rem;
+  }
+}
 
 .dark-bg-sections > * {
   margin: 0;
@@ -17969,7 +18950,7 @@ input:-moz-placeholder {
 }
 .benefits-training .section-description {
   color: #000;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 18px;
   font-style: normal;
   font-weight: 400;
@@ -17987,7 +18968,7 @@ input:-moz-placeholder {
 }
 .benefits-training .benefits-title {
   color: #000;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 30px;
   font-style: normal;
   font-weight: 600;
@@ -18004,6 +18985,20 @@ input:-moz-placeholder {
   height: 3px;
   background: #bfa573;
   margin: 10px -15px;
+}
+@media (max-width: 991px) {
+  .benefits-training .row {
+    display: flex;
+    flex-direction: column;
+  }
+  .benefits-training .col-12.col-lg-6:last-child {
+    order: -1;
+    margin-bottom: 2rem;
+  }
+  .benefits-training .benefits-title {
+    text-align: center;
+    margin: 0 auto 2rem;
+  }
 }
 
 .training-features {
@@ -18046,7 +19041,7 @@ input:-moz-placeholder {
 }
 .training-features .section-title {
   color: #bfa573;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 25px;
   font-weight: 600;
   line-height: 40px;
@@ -18054,7 +19049,7 @@ input:-moz-placeholder {
 }
 .training-features .section-subtitle {
   color: #bfa573;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 18px;
   font-weight: 600;
   line-height: 25px;
@@ -18062,10 +19057,56 @@ input:-moz-placeholder {
 }
 .training-features .section-description {
   color: #fff;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 16px;
   font-weight: 500;
   line-height: 30px;
+}
+@media (max-width: 991px) {
+  .training-features {
+    position: relative;
+    padding: 50px 0;
+  }
+  .training-features:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("../../../../assets/img/ic_bitcoin_cat.png");
+    background-size: cover;
+    background-position: center;
+    opacity: 0.3;
+    z-index: 0;
+  }
+  .training-features .container {
+    position: relative;
+    z-index: 1;
+  }
+  .training-features .col-12.col-lg-6 {
+    padding: 0 15px;
+  }
+  .training-features .feature-card {
+    background: none;
+    padding: 20px;
+    text-align: center;
+    max-height: none;
+  }
+  .training-features .col-12.col-lg-6:last-child {
+    display: none;
+  }
+  .training-features .section-title {
+    font-size: 28px;
+    margin-bottom: 1.5rem;
+  }
+  .training-features .section-subtitle {
+    font-size: 20px;
+  }
+  .training-features .section-description {
+    font-size: 18px;
+    line-height: 32px;
+  }
 }
 
 .online-training {
@@ -18107,7 +19148,7 @@ input:-moz-placeholder {
 }
 .online-training .section-title {
   color: #bfa573;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 30px;
   font-weight: 600;
   line-height: 40px;
@@ -18123,7 +19164,7 @@ input:-moz-placeholder {
 }
 .online-training .section-subtitle {
   color: #eccf98;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 18px;
   font-style: normal;
   font-weight: 600;
@@ -18157,7 +19198,7 @@ input:-moz-placeholder {
 }
 .online-training .step-text {
   color: #fff;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 18px;
   font-weight: 400;
   line-height: 30px;
@@ -18181,11 +19222,10 @@ input:-moz-placeholder {
 .online-training .follow-button {
   border-radius: 5px;
   background: #bda069;
-  box-shadow: 0px 4px 15px 6px #fff;
   border: none;
   padding: 10px 30px;
   color: #000;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 18px;
   font-weight: 600;
   cursor: pointer;
@@ -18194,6 +19234,22 @@ input:-moz-placeholder {
 .online-training .follow-button:hover {
   background: #fff;
   color: #000;
+}
+@media (max-width: 991px) {
+  .online-training {
+    min-height: auto;
+    padding: 0;
+  }
+  .online-training .content-wrapper {
+    max-width: 100%;
+    border-radius: 0;
+    padding: 30px 15px;
+  }
+  .online-training .container {
+    max-width: 100%;
+    padding: 0;
+    margin: 0;
+  }
 }
 
 .banner-about {
@@ -18471,7 +19527,7 @@ input:-moz-placeholder {
   }
 }
 .banner-luxbtc .wrapper-banner-luxbtc .logo-banner .text-wrapper .logo-text-banner .goal-text {
-  font-family: "Odor Mean Chey", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 40px;
   font-style: normal;
   font-weight: 400;
@@ -18496,7 +19552,7 @@ input:-moz-placeholder {
 }
 .banner-luxbtc .wrapper-banner-luxbtc .logo-banner .text-wrapper .discover-text {
   color: #fff;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 22px;
   font-style: normal;
   font-weight: 600;
@@ -18511,7 +19567,6 @@ input:-moz-placeholder {
 }
 .banner-luxbtc .wrapper-banner-luxbtc .logo-banner .button-wrapper .btn-primary {
   background: #bda069;
-  box-shadow: 0px 4px 4px rgba(255, 255, 255, 0.9);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -18520,13 +19575,11 @@ input:-moz-placeholder {
   border-radius: 5px;
 }
 .banner-luxbtc .wrapper-banner-luxbtc .logo-banner .button-wrapper .btn-primary:hover {
-  transform: translateY(-5px);
   background: #fff;
-  box-shadow: 0px 4px 20px 10px #fff;
 }
 .banner-luxbtc .wrapper-banner-luxbtc .logo-banner .button-wrapper .btn-primary .btn-text {
   color: #000;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 18px;
   font-weight: 700;
   line-height: 25px;
@@ -18571,7 +19624,7 @@ input:-moz-placeholder {
 }
 .exclusive-trading .container .row .main-desc {
   color: #fff;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 20px;
   font-style: normal;
   font-weight: 500;
@@ -18584,7 +19637,7 @@ input:-moz-placeholder {
 }
 .exclusive-trading .container .row .sub-desc {
   color: #fff;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 20px;
   font-style: normal;
   font-weight: 500;
@@ -18643,7 +19696,7 @@ input:-moz-placeholder {
 }
 .optimized-security .container .security-content .content-block .main-text {
   color: #bda069;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 20px;
   font-style: normal;
   font-weight: 700;
@@ -18652,7 +19705,7 @@ input:-moz-placeholder {
 }
 .optimized-security .container .security-content .content-block .sub-text {
   color: #fff;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 18px;
   font-style: normal;
   font-weight: 500;
@@ -18714,7 +19767,7 @@ input:-moz-placeholder {
 }
 .expertise-section .container .expertise-content .main-text {
   color: #bda069;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 20px;
   font-style: normal;
   font-weight: 700;
@@ -18723,7 +19776,7 @@ input:-moz-placeholder {
 }
 .expertise-section .container .expertise-content .sub-text {
   color: #fff;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 18px;
   font-style: normal;
   font-weight: 500;
@@ -18773,7 +19826,7 @@ input:-moz-placeholder {
 }
 .benefits-section .container .benefit-item h3 {
   color: #bda069;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 20px;
   font-style: normal;
   font-weight: 600;
@@ -18789,7 +19842,7 @@ input:-moz-placeholder {
 }
 .benefits-section .container .benefit-item p {
   color: #fff;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 18px;
   font-style: normal;
   font-weight: 500;
@@ -18884,7 +19937,7 @@ input:-moz-placeholder {
 }
 .opportunities-section .container .opportunities-content h3 {
   color: #fff;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 18px;
   font-style: normal;
   font-weight: 700;
@@ -18894,7 +19947,7 @@ input:-moz-placeholder {
 }
 .opportunities-section .container .opportunities-content .main-text {
   color: #fff;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 18px;
   font-style: normal;
   font-weight: 500;
@@ -18903,7 +19956,7 @@ input:-moz-placeholder {
 }
 .opportunities-section .container .opportunities-content .sub-text {
   color: #fff;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 18px;
   font-style: normal;
   font-weight: 500;
@@ -18926,7 +19979,7 @@ input:-moz-placeholder {
 }
 .opportunities-section .container .opportunities-content .button-wrapper .btn-primary .btn-text {
   color: #000;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 18px;
   font-style: normal;
   font-weight: 600;
@@ -18934,9 +19987,7 @@ input:-moz-placeholder {
   text-transform: uppercase;
 }
 .opportunities-section .container .opportunities-content .button-wrapper .btn-primary:hover {
-  transform: translateY(-5px);
   background: #fff;
-  box-shadow: 0px 4px 15px 0px #fff;
 }
 
 .page-wrapper {
@@ -18984,7 +20035,7 @@ input:-moz-placeholder {
   color: #fff;
 }
 .banner-btcelite .wrapper-banner-btcelite .logo-banner .text-wrapper .logo-text-banner .goal-text {
-  font-family: "Odor Mean Chey", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 40px;
   font-style: normal;
   font-weight: 400;
@@ -19009,7 +20060,7 @@ input:-moz-placeholder {
 }
 .banner-btcelite .wrapper-banner-btcelite .logo-banner .text-wrapper .discover-text {
   color: #fff;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 22px;
   font-weight: 600;
   line-height: 144.687%;
@@ -19023,7 +20074,6 @@ input:-moz-placeholder {
 }
 .banner-btcelite .wrapper-banner-btcelite .logo-banner .button-wrapper .btn-primary {
   background: #bda069;
-  box-shadow: 0px 4px 4px rgba(255, 255, 255, 0.9);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -19033,13 +20083,11 @@ input:-moz-placeholder {
   transition: all 0.3s ease;
 }
 .banner-btcelite .wrapper-banner-btcelite .logo-banner .button-wrapper .btn-primary:hover {
-  transform: translateY(-5px);
   background: #fff;
-  box-shadow: 0px 4px 20px 10px #fff;
 }
 .banner-btcelite .wrapper-banner-btcelite .logo-banner .button-wrapper .btn-primary .btn-text {
   color: #000;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 18px;
   font-weight: 700;
   line-height: 25px;
@@ -19059,7 +20107,7 @@ input:-moz-placeholder {
 .security-section .container h2 {
   color: #bda069;
   text-align: center;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 25px;
   font-style: normal;
   font-weight: 800;
@@ -19069,7 +20117,7 @@ input:-moz-placeholder {
 .security-section .container h3 {
   color: #fff;
   text-align: center;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 20px;
   font-style: normal;
   font-weight: 600;
@@ -19079,7 +20127,7 @@ input:-moz-placeholder {
 .security-section .container .description {
   color: #fff;
   text-align: center;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 20px;
   font-style: normal;
   font-weight: 500;
@@ -19138,7 +20186,7 @@ input:-moz-placeholder {
 }
 .total-security-section .container h2 {
   color: #bda069;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 25px;
   font-style: normal;
   font-weight: 700;
@@ -19147,7 +20195,7 @@ input:-moz-placeholder {
 }
 .total-security-section .container h3 {
   color: #fff;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 20px;
   font-style: normal;
   font-weight: 800;
@@ -19156,7 +20204,7 @@ input:-moz-placeholder {
 }
 .total-security-section .container .description {
   color: #fff;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 18px;
   font-style: normal;
   font-weight: 500;
@@ -19208,7 +20256,7 @@ input:-moz-placeholder {
 .personal-broker-section .container h2 {
   color: #d1b06b;
   text-align: center;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 25px;
   font-style: normal;
   font-weight: 700;
@@ -19218,7 +20266,7 @@ input:-moz-placeholder {
 }
 .personal-broker-section .container h3 {
   color: #bda069;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 20px;
   font-style: normal;
   font-weight: 800;
@@ -19227,7 +20275,7 @@ input:-moz-placeholder {
 }
 .personal-broker-section .container .description {
   color: #fff;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 18px;
   font-style: normal;
   font-weight: 500;
@@ -19248,7 +20296,7 @@ input:-moz-placeholder {
 }
 .freedom-section .container .row h2 {
   color: #bda069;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 25px;
   font-style: normal;
   font-weight: 700;
@@ -19272,7 +20320,7 @@ input:-moz-placeholder {
 }
 .freedom-section .container .row .col-5:last-of-type h3 {
   color: #bda069;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 20px;
   font-style: normal;
   font-weight: 800;
@@ -19281,7 +20329,7 @@ input:-moz-placeholder {
 }
 .freedom-section .container .row .col-5:last-of-type .description {
   color: #fff;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 18px;
   font-style: normal;
   font-weight: 500;
@@ -19308,7 +20356,7 @@ input:-moz-placeholder {
 }
 .start-growing-section .container .row .col-6:last-child h2 {
   color: #bda069;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 25px;
   font-style: normal;
   font-weight: 700;
@@ -19318,7 +20366,7 @@ input:-moz-placeholder {
 }
 .start-growing-section .container .row .col-6:last-child .description {
   color: #fff;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 18px;
   font-style: normal;
   font-weight: 500;
@@ -19333,7 +20381,7 @@ input:-moz-placeholder {
   color: #000;
   text-decoration: none;
   text-align: center;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 18px;
   font-style: normal;
   font-weight: 600;
@@ -19344,7 +20392,6 @@ input:-moz-placeholder {
 }
 .start-growing-section .container .row .col-6:last-child .btn-activate:hover {
   background: #fff;
-  box-shadow: 0px 4px 15px 0px #fff;
   color: #000;
 }
 
@@ -19411,7 +20458,7 @@ input:-moz-placeholder {
 .banner-satoshi .wrapper-banner-satoshi .logo-banner .text-wrapper .logo-text-banner .goal-text {
   color: #bda069;
   text-align: center;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 35px;
   font-style: normal;
   font-weight: 800;
@@ -19420,7 +20467,7 @@ input:-moz-placeholder {
 }
 .banner-satoshi .wrapper-banner-satoshi .logo-banner .text-wrapper .discover-text {
   color: #fff;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 25px;
   font-style: normal;
   font-weight: 600;
@@ -19444,7 +20491,7 @@ input:-moz-placeholder {
 }
 .success-section .container h2 {
   color: #000;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 30px;
   font-weight: 800;
   line-height: 30px;
@@ -19452,7 +20499,7 @@ input:-moz-placeholder {
 }
 .success-section .container .description {
   color: #000;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 20px;
   font-weight: 600;
   line-height: 30px;
@@ -19470,7 +20517,7 @@ input:-moz-placeholder {
   border-radius: 5px;
   background: #bda069;
   color: #000;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 18px;
   font-weight: 600;
   line-height: 30px;
@@ -19482,9 +20529,6 @@ input:-moz-placeholder {
 .success-section .container .button-wrapper .activate-button:hover {
   background: #000;
   color: #bda069;
-  font-size: 19px;
-  font-weight: 700;
-  box-shadow: 0px 4px 15px 5px #bda069;
 }
 
 .revolutionize-section .top-content {
@@ -19499,7 +20543,7 @@ input:-moz-placeholder {
 .revolutionize-section .top-content .container h2 {
   color: #bda069;
   text-align: center;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 35px;
   font-weight: 600;
   line-height: 144.687%;
@@ -19509,7 +20553,7 @@ input:-moz-placeholder {
 .revolutionize-section .top-content .container .description {
   color: #fff;
   text-align: center;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 20px;
   font-weight: 500;
   line-height: 35px;
@@ -19517,7 +20561,7 @@ input:-moz-placeholder {
 }
 .revolutionize-section .top-content .container .description .highlight {
   color: #fff;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 20px;
   font-weight: 800;
   line-height: 35px;
@@ -19576,7 +20620,7 @@ input:-moz-placeholder {
 .revolutionize-section .bottom-content .signal-card .card-title h3 {
   color: #bda069;
   text-align: center;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 18px;
   font-weight: 900;
   line-height: 144.687%;
@@ -19584,7 +20628,7 @@ input:-moz-placeholder {
 }
 .revolutionize-section .bottom-content .signal-card .card-text {
   color: #000;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 20px;
   font-weight: 500;
   line-height: 25px;
@@ -19603,7 +20647,7 @@ input:-moz-placeholder {
 }
 .app-features-section .top-content .container .main-title {
   color: #bda069;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 40px;
   font-weight: 900;
   line-height: 144.687%;
@@ -19612,7 +20656,7 @@ input:-moz-placeholder {
 }
 .app-features-section .top-content .container .sub-title {
   color: #fff;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 40px;
   font-weight: 900;
   line-height: 144.687%;
@@ -19656,7 +20700,7 @@ input:-moz-placeholder {
 .app-features-section .bottom-content .feature-card-title h3 {
   color: #eccf98;
   text-align: center;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 20px;
   font-weight: 900;
   line-height: 144.687%;
@@ -19676,7 +20720,7 @@ input:-moz-placeholder {
 .app-features-section .bottom-content .feature-card-content p {
   color: #000;
   text-align: center;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 20px;
   font-weight: 700;
   line-height: 144.687%;
@@ -19711,7 +20755,7 @@ input:-moz-placeholder {
 }
 .farewell-section .text-content h2 {
   color: #bfa573;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 35px;
   font-weight: 600;
   line-height: 45px;
@@ -19720,7 +20764,7 @@ input:-moz-placeholder {
 }
 .farewell-section .text-content .description {
   color: #fff;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 25px;
   font-weight: 600;
   line-height: 150%;
@@ -19729,7 +20773,7 @@ input:-moz-placeholder {
 }
 .farewell-section .text-content .highlight {
   color: #fff;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 25px;
   font-weight: 700;
   line-height: 150%;
@@ -19743,7 +20787,7 @@ input:-moz-placeholder {
   border: none;
   background: linear-gradient(95deg, #bda069 68.96%, #fff 100.93%);
   color: #000;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 18px;
   font-weight: 700;
   text-transform: uppercase;
@@ -19782,7 +20826,7 @@ input:-moz-placeholder {
 }
 .referral-section .top-content .container h2 {
   text-align: center;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 35px;
   font-weight: 600;
   line-height: 40px;
@@ -19812,14 +20856,14 @@ input:-moz-placeholder {
 }
 .referral-section .top-content .container .referral-card h3 {
   color: #000;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 20px;
   font-weight: 900;
   line-height: 30px;
   margin-bottom: 20px;
 }
 .referral-section .top-content .container .referral-card .card-text {
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 18px;
   font-weight: 500;
   line-height: 30px;
@@ -19862,7 +20906,7 @@ input:-moz-placeholder {
   position: relative;
   margin-bottom: 20px;
   color: #000;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 18px;
   font-weight: 500;
   line-height: 30px;
@@ -19892,7 +20936,7 @@ input:-moz-placeholder {
 }
 .subscription-section .top-content .container h2 {
   color: #bda069;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 30px;
   font-weight: 700;
   line-height: 40px;
@@ -19904,7 +20948,7 @@ input:-moz-placeholder {
 }
 .subscription-section .top-content .container .description {
   color: #fff;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 18px;
   font-weight: 600;
   line-height: 30px;
@@ -20018,7 +21062,7 @@ input:-moz-placeholder {
 }
 .sharing-section .sharing-content h2 {
   color: #000;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 25px;
   font-weight: 800;
   line-height: 30px;
@@ -20026,7 +21070,7 @@ input:-moz-placeholder {
 }
 .sharing-section .sharing-content .description {
   color: #000;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 18px;
   font-weight: 600;
   line-height: 30px;
@@ -20041,7 +21085,7 @@ input:-moz-placeholder {
   padding: 10px 20px;
   cursor: pointer;
   box-shadow: 0px 4px 10px 0px rgba(56, 55, 52, 0.88);
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 18px;
   font-weight: 600;
   line-height: 30px;
@@ -20051,9 +21095,7 @@ input:-moz-placeholder {
 .sharing-section .sharing-content .share-button:hover {
   border-radius: 5px;
   background: #000;
-  box-shadow: 0px 4px 10px 10px #fff;
   color: #c4a46f;
-  font-family: "Noto Serif";
   font-size: 19px;
   font-weight: 700;
   line-height: 30px;
@@ -20076,7 +21118,7 @@ input:-moz-placeholder {
 }
 .payout-section .top-content .container h2 {
   color: #000;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 25px;
   font-weight: 800;
   line-height: 30px;
@@ -20090,7 +21132,7 @@ input:-moz-placeholder {
 }
 .payout-section .top-content .container .payout-list li {
   color: #000;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 18px;
   font-weight: 600;
   line-height: 30px;
@@ -20123,7 +21165,7 @@ input:-moz-placeholder {
 }
 .payout-section .bottom-content .text-content h3 {
   color: #bda069;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 22px;
   font-weight: 800;
   line-height: 30px;
@@ -20131,7 +21173,7 @@ input:-moz-placeholder {
 }
 .payout-section .bottom-content .text-content .description {
   color: #000;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 18px;
   font-weight: 600;
   line-height: 30px;
@@ -20143,7 +21185,7 @@ input:-moz-placeholder {
 .payout-section .bottom-content .text-content .withdraw-list li {
   list-style: disc;
   color: #000;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 18px;
   font-weight: 400;
   line-height: 45px;
@@ -20180,7 +21222,7 @@ input:-moz-placeholder {
 .payout-section .opportunity-content .opportunity-text {
   color: #fff;
   text-align: center;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 20px;
   font-weight: 600;
   line-height: 30px;
@@ -20209,7 +21251,7 @@ input:-moz-placeholder {
 }
 .binance-section .container h2 {
   color: #fff;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 30px;
   font-weight: 700;
   line-height: 22px;
@@ -20221,7 +21263,7 @@ input:-moz-placeholder {
 }
 .binance-section .container .description {
   color: #fff;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 20px;
   font-weight: 500;
   line-height: 30px;
@@ -20232,7 +21274,7 @@ input:-moz-placeholder {
 }
 .binance-section .container .link-text {
   color: #fff;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 20px;
   font-weight: 600;
   line-height: 35px;
@@ -20246,7 +21288,7 @@ input:-moz-placeholder {
 }
 .binance-section .container .warning-text {
   color: #fff;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 18px;
   font-weight: 600;
   line-height: 25px;
@@ -20273,7 +21315,7 @@ input:-moz-placeholder {
 }
 .formula-section .top-content .container h2 {
   color: #bd9f69;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 40px;
   font-weight: 900;
   line-height: 144.687%;
@@ -20282,7 +21324,7 @@ input:-moz-placeholder {
 }
 .formula-section .top-content .container .description {
   color: #fff;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 25px;
   font-weight: 600;
   line-height: 140%;
@@ -20313,7 +21355,7 @@ input:-moz-placeholder {
 }
 .formula-section .bottom-content .text-content h3 {
   color: #bda069;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 25px;
   font-weight: 700;
   line-height: 150%;
@@ -20322,7 +21364,7 @@ input:-moz-placeholder {
 }
 .formula-section .bottom-content .text-content .description {
   color: #fff;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 20px;
   font-weight: 600;
   line-height: 40px;
@@ -20333,9 +21375,8 @@ input:-moz-placeholder {
   border: none;
   border-radius: 5px;
   background: #bda069;
-  box-shadow: 0px 4px 30px 10px #fff;
   color: #000;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 18px;
   font-weight: 700;
   padding: 15px 30px;
@@ -20344,7 +21385,6 @@ input:-moz-placeholder {
 }
 .formula-section .bottom-content .text-content .discover-our-secret-formula-button:hover {
   background: #fff;
-  box-shadow: 0px 4px 35px 20px #bda069;
 }
 .formula-section .bottom-content .image-content {
   position: relative;
@@ -20392,7 +21432,7 @@ input:-moz-placeholder {
 }
 .crypto-consulting .container-fluid .row .consulting-content .title {
   color: #d1b06b;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 35px;
   font-weight: 800;
   line-height: 25px;
@@ -20401,7 +21441,7 @@ input:-moz-placeholder {
 }
 .crypto-consulting .container-fluid .row .consulting-content .subtitle {
   color: #bfa573;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 20px;
   font-weight: 700;
   line-height: 35px;
@@ -20410,7 +21450,7 @@ input:-moz-placeholder {
 }
 .crypto-consulting .container-fluid .row .consulting-content .description {
   color: #fff;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 20px;
   font-weight: 500;
   line-height: 30px;
@@ -20418,7 +21458,7 @@ input:-moz-placeholder {
 }
 .crypto-consulting .container-fluid .row .consulting-content .cta-button {
   color: #000;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 16px;
   font-weight: 600;
   line-height: 25px;
@@ -20434,7 +21474,6 @@ input:-moz-placeholder {
 }
 .crypto-consulting .container-fluid .row .consulting-content .cta-button:hover {
   background: #fff;
-  box-shadow: 0px 4px 15px 0px #fff;
 }
 @media (min-width: 768px) {
   .crypto-consulting .consulting-content {
@@ -20466,7 +21505,7 @@ input:-moz-placeholder {
 }
 .advisor-section .title-wrapper .advisor-title {
   color: #fff;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 25px;
   font-weight: 700;
   line-height: 35px;
@@ -20486,7 +21525,7 @@ input:-moz-placeholder {
 }
 .advisor-section .content-title {
   color: #bda069;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 20px;
   font-weight: 700;
   line-height: 25px;
@@ -20494,7 +21533,7 @@ input:-moz-placeholder {
 }
 .advisor-section .content-description {
   color: #fff;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 18px;
   font-weight: 500;
   line-height: 30px;
@@ -20530,7 +21569,7 @@ input:-moz-placeholder {
 }
 .service-cards-consulting .service-card .title-container .card-title {
   color: #d1b06b;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 22px;
   font-weight: 700;
   line-height: 35px;
@@ -20551,7 +21590,7 @@ input:-moz-placeholder {
 }
 .service-cards-consulting .service-card .card-description {
   color: #fff;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 18px;
   font-weight: 500;
   line-height: 28px;
@@ -20577,14 +21616,14 @@ input:-moz-placeholder {
 }
 .service-cards-consulting .service-card .feature-list.primary li {
   color: #d1b06b;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 18px;
   font-weight: 600;
   line-height: 35px;
 }
 .service-cards-consulting .service-card .feature-list.secondary li {
   color: #bda069;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 18px;
   font-weight: 600;
   line-height: 35px;
@@ -20619,7 +21658,7 @@ input:-moz-placeholder {
 }
 .starting-section .middle-content .description {
   color: #fff;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 20px;
   font-weight: 500;
   line-height: 30px;
@@ -20629,7 +21668,7 @@ input:-moz-placeholder {
 }
 .starting-section .section-title {
   color: #bfa573;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 30px;
   font-weight: 700;
   line-height: 40px;
@@ -20654,7 +21693,7 @@ input:-moz-placeholder {
 }
 .starting-section .content-block .content-title {
   color: #d1b06b;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 20px;
   font-weight: 600;
   line-height: 25px;
@@ -20662,7 +21701,7 @@ input:-moz-placeholder {
 }
 .starting-section .content-block .content-description {
   color: #fff;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 20px;
   font-weight: 500;
   line-height: 30px;
@@ -20682,7 +21721,7 @@ input:-moz-placeholder {
 }
 .knowledge-section .section-title {
   color: #bda069;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 25px;
   font-weight: 700;
   line-height: 35px;
@@ -20691,7 +21730,7 @@ input:-moz-placeholder {
 }
 .knowledge-section .main-description {
   color: #fff;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 20px;
   font-weight: 500;
   line-height: 30px;
@@ -20699,7 +21738,7 @@ input:-moz-placeholder {
 }
 .knowledge-section .subtitle {
   color: #bda069;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 20px;
   font-weight: 700;
   line-height: 45px;
@@ -20708,7 +21747,7 @@ input:-moz-placeholder {
 }
 .knowledge-section .sub-description {
   color: #fff;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 20px;
   font-weight: 500;
   line-height: 30px;
@@ -20716,7 +21755,7 @@ input:-moz-placeholder {
 }
 .knowledge-section .cta-button {
   color: #000;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 16px;
   font-weight: 700;
   line-height: 25px;
@@ -20730,7 +21769,6 @@ input:-moz-placeholder {
 }
 .knowledge-section .cta-button:hover {
   background: #fff;
-  box-shadow: 0px 4px 15px 0px #fff;
 }
 
 .passive-income {
@@ -20763,7 +21801,7 @@ input:-moz-placeholder {
 }
 .passive-income .container-fluid .row .passive-content .title {
   color: #fff;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 30px;
   font-weight: 800;
   line-height: 25px;
@@ -20772,7 +21810,7 @@ input:-moz-placeholder {
 }
 .passive-income .container-fluid .row .passive-content .subtitle {
   color: #fff;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 20px;
   font-weight: 700;
   line-height: 35px;
@@ -20781,7 +21819,7 @@ input:-moz-placeholder {
 }
 .passive-income .container-fluid .row .passive-content .description {
   color: #000;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 20px;
   font-weight: 500;
   line-height: 30px;
@@ -20789,7 +21827,7 @@ input:-moz-placeholder {
 }
 .passive-income .container-fluid .row .passive-content .cta-button {
   color: #fff;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 16px;
   font-weight: 600;
   line-height: 25px;
@@ -20806,7 +21844,6 @@ input:-moz-placeholder {
 }
 .passive-income .container-fluid .row .passive-content .cta-button:hover {
   background: #fff;
-  box-shadow: 0px 4px 15px 0px #fff;
   color: #000;
 }
 @media (min-width: 768px) {
@@ -20829,7 +21866,7 @@ input:-moz-placeholder {
 .transform-section .transform-title {
   color: #d1b06b;
   text-align: center;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 25px;
   font-weight: 800;
   line-height: 40px;
@@ -20839,7 +21876,7 @@ input:-moz-placeholder {
 .transform-section .transform-description {
   color: #fff;
   text-align: center;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 20px;
   font-weight: 500;
   line-height: 30px;
@@ -20860,7 +21897,7 @@ input:-moz-placeholder {
 .choose-section .choose-title {
   color: #bda069;
   text-align: center;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 25px;
   font-weight: 700;
   line-height: 25px;
@@ -20880,7 +21917,7 @@ input:-moz-placeholder {
 .choose-section .choose-card h3 {
   color: #d1b06b;
   text-align: center;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 20px;
   font-weight: 700;
   line-height: 30px;
@@ -20890,7 +21927,7 @@ input:-moz-placeholder {
 .choose-section .choose-card p {
   color: #fff;
   text-align: center;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 18px;
   font-weight: 500;
   line-height: 30px;
@@ -20903,7 +21940,7 @@ input:-moz-placeholder {
 .invest-section .invest-title {
   color: #d1b06b;
   text-align: center;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 25px;
   font-weight: 800;
   line-height: 40px;
@@ -20912,7 +21949,7 @@ input:-moz-placeholder {
 .invest-section .invest-description {
   color: #fff;
   text-align: center;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 18px;
   font-weight: 500;
   line-height: 35px;
@@ -20947,7 +21984,7 @@ input:-moz-placeholder {
 .investment-section .investment-card h3 {
   color: #eccf98;
   text-align: center;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 20px;
   font-weight: 900;
   line-height: 140%;
@@ -20957,7 +21994,7 @@ input:-moz-placeholder {
 .investment-section .investment-card p {
   color: #fff;
   text-align: center;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 20px;
   font-weight: 600;
   line-height: 144.687%;
@@ -20973,7 +22010,7 @@ input:-moz-placeholder {
 .collateral-section .collateral-title {
   color: #d1b06b;
   text-align: center;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 25px;
   font-weight: 800;
   line-height: 40px; /* 160% */
@@ -20983,7 +22020,7 @@ input:-moz-placeholder {
 .collateral-section .collateral-description {
   color: #fff;
   text-align: center;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 18px;
   font-weight: 600;
   line-height: 30px; /* 166.667% */
@@ -20994,7 +22031,7 @@ input:-moz-placeholder {
   border-radius: 5px;
   background: #d1b06b;
   color: #161513;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   padding: 0.75rem 3rem;
   cursor: pointer;
   color: #000;
@@ -21008,7 +22045,6 @@ input:-moz-placeholder {
 }
 .collateral-section .collateral-btn:hover {
   background: #fff;
-  box-shadow: 0px 4px 15px 0px #fff;
 }
 .collateral-section .collateral-image {
   max-width: 100%;
@@ -21048,7 +22084,7 @@ input:-moz-placeholder {
 }
 .portfolio-creation .container-fluid .row .portfolio-content .title {
   color: #bda069;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 30px;
   font-weight: 800;
   line-height: 25px;
@@ -21057,7 +22093,7 @@ input:-moz-placeholder {
 }
 .portfolio-creation .container-fluid .row .portfolio-content .subtitle {
   color: #bfa573;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 20px;
   font-weight: 700;
   line-height: 35px;
@@ -21066,7 +22102,7 @@ input:-moz-placeholder {
 }
 .portfolio-creation .container-fluid .row .portfolio-content .description {
   color: #fff;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 20px;
   font-weight: 500;
   line-height: 30px;
@@ -21074,7 +22110,7 @@ input:-moz-placeholder {
 }
 .portfolio-creation .container-fluid .row .portfolio-content .cta-button {
   color: #000;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 16px;
   font-weight: 600;
   line-height: 25px;
@@ -21092,7 +22128,6 @@ input:-moz-placeholder {
 }
 .portfolio-creation .container-fluid .row .portfolio-content .cta-button:hover {
   background: #fff;
-  box-shadow: 0px 4px 15px 0px #fff;
 }
 @media (min-width: 768px) {
   .portfolio-creation .portfolio-content {
@@ -21119,7 +22154,7 @@ input:-moz-placeholder {
 }
 .profile-priority .container .profile-content .profile-title {
   color: #d1b06b;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 25px;
   font-style: normal;
   font-weight: 800;
@@ -21129,7 +22164,7 @@ input:-moz-placeholder {
 }
 .profile-priority .container .profile-content .profile-description {
   color: #fff;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 20px;
   font-style: normal;
   font-weight: 500;
@@ -21172,7 +22207,7 @@ input:-moz-placeholder {
 }
 .tailored-section .tailored-card .tailored-title {
   color: #d1b06b;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 22px;
   font-weight: 700;
   line-height: 40px;
@@ -21193,7 +22228,7 @@ input:-moz-placeholder {
 }
 .tailored-section .tailored-card .bullet-points .bullet-item .bullet-title {
   color: #bda069;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 20px;
   font-weight: 600;
   line-height: 35px;
@@ -21215,7 +22250,7 @@ input:-moz-placeholder {
 }
 .tailored-section .tailored-card .bullet-points .bullet-item .bullet-desc {
   color: #fff;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 18px;
   font-weight: 500;
   line-height: 28px;
@@ -21231,7 +22266,7 @@ input:-moz-placeholder {
 }
 .future-section .future-content .future-title {
   color: #d1b06b;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 20px;
   font-weight: 800;
   line-height: 35px;
@@ -21240,7 +22275,7 @@ input:-moz-placeholder {
 }
 .future-section .future-content .future-description {
   color: #fff;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 18px;
   font-weight: 500;
   line-height: 28px;
@@ -21253,7 +22288,7 @@ input:-moz-placeholder {
 }
 .future-section .keeps-content .keeps-title {
   color: #d1b06b;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 25px;
   font-weight: 800;
   line-height: 35px;
@@ -21295,7 +22330,7 @@ input:-moz-placeholder {
 }
 .custom-portfolio-section .container-fluid .custom-portfolio-content .custom-title {
   color: #d1b06b;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 25px;
   font-weight: 800;
   line-height: 40px;
@@ -21304,7 +22339,7 @@ input:-moz-placeholder {
 }
 .custom-portfolio-section .container-fluid .custom-portfolio-content .custom-description {
   color: #fff;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 18px;
   font-weight: 600;
   line-height: 30px;
@@ -21312,7 +22347,7 @@ input:-moz-placeholder {
 }
 .custom-portfolio-section .container-fluid .custom-portfolio-content .custom-highlight {
   color: #fff;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 20px;
   font-weight: 600;
   line-height: 30px;
@@ -21324,7 +22359,7 @@ input:-moz-placeholder {
   background: #d1b06b;
   color: #000;
   text-align: center;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 18px;
   font-weight: 600;
   line-height: 30px;
@@ -21335,7 +22370,6 @@ input:-moz-placeholder {
 }
 .custom-portfolio-section .container-fluid .custom-portfolio-content .custom-button:hover {
   background: #fff;
-  box-shadow: 0px 4px 15px 0px #fff;
 }
 
 .accumulation-wrapper {
@@ -21378,7 +22412,7 @@ input:-moz-placeholder {
 }
 .accumulation-plans .container-fluid .row .accumulation-content .title {
   color: #fff;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 30px;
   font-weight: 800;
   line-height: 25px;
@@ -21387,7 +22421,7 @@ input:-moz-placeholder {
 }
 .accumulation-plans .container-fluid .row .accumulation-content .subtitle {
   color: #fff;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 20px;
   font-weight: 700;
   line-height: 35px;
@@ -21396,7 +22430,7 @@ input:-moz-placeholder {
 }
 .accumulation-plans .container-fluid .row .accumulation-content .description {
   color: #000;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 20px;
   font-weight: 500;
   line-height: 30px;
@@ -21404,7 +22438,7 @@ input:-moz-placeholder {
 }
 .accumulation-plans .container-fluid .row .accumulation-content .cta-button {
   color: #fff;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 16px;
   font-weight: 600;
   line-height: 25px;
@@ -21421,7 +22455,6 @@ input:-moz-placeholder {
 }
 .accumulation-plans .container-fluid .row .accumulation-content .cta-button:hover {
   background: #fff;
-  box-shadow: 0px 4px 15px 0px #fff;
   color: #000;
 }
 @media (min-width: 768px) {
@@ -21448,7 +22481,7 @@ input:-moz-placeholder {
   color: #d1b06b;
   text-align: center;
   text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 25px;
   font-weight: 800;
   line-height: 40px;
@@ -21458,7 +22491,7 @@ input:-moz-placeholder {
 .systematic-section .systematic-description {
   color: #fff;
   text-align: center;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 20px;
   font-weight: 500;
   line-height: 30px;
@@ -21473,7 +22506,7 @@ input:-moz-placeholder {
 .why-choose-section .why-choose-content .why-title {
   color: #d1b06b;
   text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 25px;
   font-weight: 800;
   line-height: 40px;
@@ -21493,7 +22526,7 @@ input:-moz-placeholder {
 }
 .why-choose-section .benefits-content .benefits-description {
   color: #fff;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 18px;
   font-weight: 500;
   line-height: 28px;
@@ -21506,7 +22539,7 @@ input:-moz-placeholder {
 }
 .why-choose-section .benefits-content .benefits-list li {
   color: #d1b06b;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 18px;
   font-weight: 600;
   line-height: 35px;
@@ -21536,7 +22569,7 @@ input:-moz-placeholder {
 .transparency-section .transparency-content .transparency-title {
   color: #d1b06b;
   text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 20px;
   font-weight: 800;
   line-height: 30px;
@@ -21545,7 +22578,7 @@ input:-moz-placeholder {
 }
 .transparency-section .transparency-content .transparency-description p {
   color: #fff;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 18px;
   font-weight: 500;
   line-height: 28px;
@@ -21581,7 +22614,7 @@ input:-moz-placeholder {
 }
 .prosperity-section .prosperity-content .prosperity-title {
   color: #bda069;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 29px;
   font-weight: 600;
   line-height: 30px;
@@ -21590,7 +22623,7 @@ input:-moz-placeholder {
 }
 .prosperity-section .prosperity-content .prosperity-subtitle {
   color: #fff;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 18px;
   font-weight: 700;
   line-height: 30px;
@@ -21598,7 +22631,7 @@ input:-moz-placeholder {
 }
 .prosperity-section .prosperity-content .prosperity-description {
   color: #fff;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 18px;
   font-weight: 600;
   line-height: 30px;
@@ -21606,7 +22639,7 @@ input:-moz-placeholder {
 }
 .prosperity-section .prosperity-content .prosperity-button {
   color: #000;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 18px;
   font-weight: 600;
   line-height: 25px;
@@ -21621,7 +22654,6 @@ input:-moz-placeholder {
 }
 .prosperity-section .prosperity-content .prosperity-button:hover {
   background: #fff;
-  box-shadow: 0px 4px 15px 0px #fff;
 }
 
 .funds-reallocation {
@@ -21660,7 +22692,7 @@ input:-moz-placeholder {
 }
 .funds-reallocation .container-fluid .row .fr-content .fr-title {
   color: #fff;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 30px;
   font-style: normal;
   font-weight: 800;
@@ -21670,7 +22702,7 @@ input:-moz-placeholder {
 }
 .funds-reallocation .container-fluid .row .fr-content .fr-subtitle {
   color: #fff;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 20px;
   font-style: normal;
   font-weight: 700;
@@ -21680,7 +22712,7 @@ input:-moz-placeholder {
 }
 .funds-reallocation .container-fluid .row .fr-content .fr-description {
   color: #000;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 20px;
   font-style: normal;
   font-weight: 500;
@@ -21690,7 +22722,7 @@ input:-moz-placeholder {
 .funds-reallocation .container-fluid .row .fr-content .fr-button {
   color: #fff;
   text-align: center;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 16px;
   font-style: normal;
   font-weight: 600;
@@ -21708,7 +22740,6 @@ input:-moz-placeholder {
 }
 .funds-reallocation .container-fluid .row .fr-content .fr-button:hover {
   background: #fff;
-  box-shadow: 0px 4px 15px 0px #fff;
   color: #000;
 }
 
@@ -21729,7 +22760,7 @@ input:-moz-placeholder {
   color: #d1b06b;
   text-align: center;
   text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 25px;
   font-weight: 800;
   line-height: 40px;
@@ -21740,7 +22771,7 @@ input:-moz-placeholder {
   color: #fff;
   text-align: center;
   text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 20px;
   font-weight: 800;
   line-height: 40px;
@@ -21754,7 +22785,7 @@ input:-moz-placeholder {
 }
 .funds-solution-section .container-fluid .bottom-row .fs-content p {
   color: #fff;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 20px;
   font-weight: 500;
   line-height: 30px;
@@ -21779,7 +22810,7 @@ input:-moz-placeholder {
 .how-it-works-section .hiw-title {
   color: #bda069;
   text-align: center;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 25px;
   font-weight: 700;
   line-height: 25px;
@@ -21788,7 +22819,7 @@ input:-moz-placeholder {
 .how-it-works-section .hiw-description {
   color: #fff;
   text-align: center;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 20px;
   font-weight: 500;
   line-height: 30px;
@@ -21802,7 +22833,7 @@ input:-moz-placeholder {
 }
 .how-it-works-section .process-card .card-title {
   color: #d1b06b;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 18px;
   font-weight: 600;
   line-height: 30px;
@@ -21811,7 +22842,7 @@ input:-moz-placeholder {
 }
 .how-it-works-section .process-card .card-description {
   color: #fff;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 18px;
   font-weight: 500;
   line-height: 30px;
@@ -21825,7 +22856,7 @@ input:-moz-placeholder {
 .advantages-section .adv-title {
   color: #d1b06b;
   text-align: center;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 25px;
   font-weight: 700;
   line-height: 40px;
@@ -21841,7 +22872,7 @@ input:-moz-placeholder {
 .advantages-section .adv-subtitle {
   color: #fff;
   text-align: center;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 20px;
   font-weight: 500;
   line-height: 30px;
@@ -21877,14 +22908,14 @@ input:-moz-placeholder {
 }
 .advantages-section .advantages-list li .list-title {
   color: #d1b06b;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 18px;
   font-weight: 600;
   line-height: 30px;
 }
 .advantages-section .advantages-list li .list-desc {
   color: #fff;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 18px;
   font-weight: 500;
   line-height: 30px;
@@ -21897,7 +22928,7 @@ input:-moz-placeholder {
 .complex-regulations-section .cr-title {
   color: #bda069;
   text-align: center;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 29px;
   font-weight: 600;
   line-height: 30px;
@@ -21907,7 +22938,7 @@ input:-moz-placeholder {
 .complex-regulations-section .cr-subtitle {
   color: #fff;
   text-align: center;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 18px;
   font-weight: 700;
   line-height: 30px;
@@ -21922,7 +22953,7 @@ input:-moz-placeholder {
 }
 .complex-regulations-section .cr-content .cr-description {
   color: #fff;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 18px;
   font-weight: 500;
   line-height: 30px;
@@ -21934,7 +22965,7 @@ input:-moz-placeholder {
 .complex-regulations-section .cr-content .cr-button {
   color: #000;
   text-align: center;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 16px;
   font-weight: 600;
   line-height: 25px;
@@ -21948,7 +22979,6 @@ input:-moz-placeholder {
 }
 .complex-regulations-section .cr-content .cr-button:hover {
   background: #fff;
-  box-shadow: 0px 4px 15px 0px #fff;
 }
 .complex-regulations-section .cr-image {
   height: 100%;
@@ -21997,7 +23027,7 @@ input:-moz-placeholder {
 }
 .wealth-consulting .container-fluid .row .wc-content .wc-title {
   color: #bda069;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 30px;
   font-weight: 800;
   line-height: 25px;
@@ -22006,7 +23036,7 @@ input:-moz-placeholder {
 }
 .wealth-consulting .container-fluid .row .wc-content .wc-subtitle {
   color: #bfa573;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 20px;
   font-weight: 700;
   line-height: 35px;
@@ -22015,7 +23045,7 @@ input:-moz-placeholder {
 }
 .wealth-consulting .container-fluid .row .wc-content .wc-description {
   color: #fff;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 20px;
   font-weight: 500;
   line-height: 30px;
@@ -22024,7 +23054,7 @@ input:-moz-placeholder {
 .wealth-consulting .container-fluid .row .wc-content .wc-button {
   color: #000;
   text-align: center;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 16px;
   font-weight: 600;
   line-height: 25px;
@@ -22042,7 +23072,6 @@ input:-moz-placeholder {
 }
 .wealth-consulting .container-fluid .row .wc-content .wc-button:hover {
   background: #fff;
-  box-shadow: 0px 4px 15px 0px #fff;
 }
 
 .personalized-path-section {
@@ -22053,7 +23082,7 @@ input:-moz-placeholder {
 .personalized-path-section .pp-title {
   color: #d1b06b;
   text-align: center;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 25px;
   font-weight: 800;
   line-height: 40px;
@@ -22063,7 +23092,7 @@ input:-moz-placeholder {
 .personalized-path-section .pp-description {
   color: #fff;
   text-align: center;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 20px;
   font-weight: 500;
   line-height: 30px;
@@ -22075,7 +23104,7 @@ input:-moz-placeholder {
 .personalized-path-section .pp-subtitle {
   color: #fff;
   text-align: center;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 20px;
   font-weight: 600;
   line-height: 30px;
@@ -22091,7 +23120,7 @@ input:-moz-placeholder {
 .personalized-path-section .service-card .card-title {
   color: #d1b06b;
   text-align: center;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 20px;
   font-weight: 700;
   line-height: 30px;
@@ -22108,7 +23137,7 @@ input:-moz-placeholder {
 .personalized-path-section .service-card .card-description {
   color: #fff;
   text-align: center;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 20px;
   font-weight: 700;
   line-height: 30px;
@@ -22141,7 +23170,7 @@ input:-moz-placeholder {
 }
 .partnership-section .partnership-content .partnership-title {
   color: #bda069;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 25px;
   font-weight: 800;
   line-height: 40px;
@@ -22150,7 +23179,7 @@ input:-moz-placeholder {
 }
 .partnership-section .partnership-content .partnership-subtitle {
   color: #bda069;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 20px;
   font-weight: 800;
   line-height: 40px;
@@ -22159,7 +23188,7 @@ input:-moz-placeholder {
 }
 .partnership-section .partnership-content .partnership-description {
   color: #fff;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 18px;
   font-weight: 600;
   line-height: 30px;
@@ -22171,7 +23200,7 @@ input:-moz-placeholder {
 .partnership-section .partnership-content .partnership-button {
   color: #000;
   text-align: center;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 18px;
   font-weight: 600;
   line-height: 30px;
@@ -22185,7 +23214,6 @@ input:-moz-placeholder {
 }
 .partnership-section .partnership-content .partnership-button:hover {
   background: #fff;
-  box-shadow: 0px 4px 15px 0px #fff;
 }
 
 .tax-reduction {
@@ -22224,7 +23252,7 @@ input:-moz-placeholder {
 }
 .tax-reduction .container-fluid .row .tr-content .tr-title {
   color: #bda069;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 30px;
   font-weight: 800;
   line-height: 25px;
@@ -22233,7 +23261,7 @@ input:-moz-placeholder {
 }
 .tax-reduction .container-fluid .row .tr-content .tr-subtitle {
   color: #bfa573;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 20px;
   font-weight: 700;
   line-height: 35px;
@@ -22242,7 +23270,7 @@ input:-moz-placeholder {
 }
 .tax-reduction .container-fluid .row .tr-content .tr-description {
   color: #fff;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 20px;
   font-weight: 500;
   line-height: 30px;
@@ -22251,7 +23279,7 @@ input:-moz-placeholder {
 .tax-reduction .container-fluid .row .tr-content .tr-button {
   color: #000;
   text-align: center;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 16px;
   font-weight: 600;
   line-height: 25px;
@@ -22268,7 +23296,6 @@ input:-moz-placeholder {
 }
 .tax-reduction .container-fluid .row .tr-content .tr-button:hover {
   background: #fff;
-  box-shadow: 0px 4px 15px 0px #fff;
 }
 
 .optimize-finances-section {
@@ -22278,7 +23305,7 @@ input:-moz-placeholder {
 .optimize-finances-section .of-title {
   color: #d1b06b;
   text-align: center;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 25px;
   font-weight: 800;
   line-height: 40px;
@@ -22288,7 +23315,7 @@ input:-moz-placeholder {
 .optimize-finances-section .of-description {
   color: #fff;
   text-align: center;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 20px;
   font-weight: 500;
   line-height: 30px;
@@ -22303,7 +23330,7 @@ input:-moz-placeholder {
 .key-services-section .ks-title {
   color: #bda069;
   text-align: center;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 25px;
   font-weight: 800;
   line-height: 40px;
@@ -22324,7 +23351,7 @@ input:-moz-placeholder {
 .key-services-section .service-card .card-title {
   color: #bda069;
   text-align: left;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 20px;
   font-weight: 600;
   line-height: 35px;
@@ -22332,7 +23359,7 @@ input:-moz-placeholder {
 }
 .key-services-section .service-card .card-description {
   color: #fff;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 18px;
   font-weight: 500;
   line-height: 28px;
@@ -22347,7 +23374,7 @@ input:-moz-placeholder {
 }
 .benefits-section .benefits-content .benefits-title {
   color: #bda069;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 25px;
   font-weight: 800;
   line-height: 40px;
@@ -22357,7 +23384,7 @@ input:-moz-placeholder {
 }
 .benefits-section .benefits-content .benefits-description {
   color: #fff;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 18px;
   font-weight: 600;
   line-height: 30px;
@@ -22399,7 +23426,7 @@ input:-moz-placeholder {
 }
 .increased-net-worth-section .inw-content .inw-list .list-title {
   color: #bda069;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 20px;
   font-weight: 700;
   line-height: 35px;
@@ -22414,7 +23441,7 @@ input:-moz-placeholder {
 }
 .increased-net-worth-section .inw-content .inw-description {
   color: #fff;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 18px;
   font-weight: 500;
   line-height: 28px;
@@ -22432,7 +23459,7 @@ input:-moz-placeholder {
 }
 .say-goodbye-section .sg-content .sg-title {
   color: #bda069;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 25px;
   font-weight: 800;
   line-height: 40px;
@@ -22441,7 +23468,7 @@ input:-moz-placeholder {
 }
 .say-goodbye-section .sg-content .sg-description {
   color: #fff;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 18px;
   font-weight: 600;
   line-height: 30px;
@@ -22450,7 +23477,7 @@ input:-moz-placeholder {
 .say-goodbye-section .sg-content .sg-button {
   color: #000;
   text-align: center;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 18px;
   font-weight: 600;
   line-height: 30px;
@@ -22464,7 +23491,6 @@ input:-moz-placeholder {
 }
 .say-goodbye-section .sg-content .sg-button:hover {
   background: #fff;
-  box-shadow: 0px 4px 15px 0px #fff;
 }
 .say-goodbye-section .sg-image {
   height: 100%;
@@ -22512,7 +23538,7 @@ input:-moz-placeholder {
 }
 .capital-protection .container-fluid .row .cp-content .cp-title {
   color: #fff;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 30px;
   font-weight: 800;
   line-height: 25px;
@@ -22521,7 +23547,7 @@ input:-moz-placeholder {
 }
 .capital-protection .container-fluid .row .cp-content .cp-subtitle {
   color: #fff;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 20px;
   font-weight: 700;
   line-height: 35px;
@@ -22530,7 +23556,7 @@ input:-moz-placeholder {
 }
 .capital-protection .container-fluid .row .cp-content .cp-description {
   color: #000;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 20px;
   font-weight: 500;
   line-height: 30px;
@@ -22539,7 +23565,7 @@ input:-moz-placeholder {
 .capital-protection .container-fluid .row .cp-content .cp-button {
   color: #fff;
   text-align: center;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 16px;
   font-weight: 600;
   line-height: 25px;
@@ -22557,7 +23583,6 @@ input:-moz-placeholder {
 .capital-protection .container-fluid .row .cp-content .cp-button:hover {
   color: #000;
   background: #fff;
-  box-shadow: 0px 4px 15px 0px #fff;
 }
 
 .secure-future-section {
@@ -22567,7 +23592,7 @@ input:-moz-placeholder {
 .secure-future-section .sf-title {
   color: #d1b06b;
   text-align: center;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 25px;
   font-weight: 800;
   line-height: 40px;
@@ -22577,7 +23602,7 @@ input:-moz-placeholder {
 .secure-future-section .sf-description {
   color: #fff;
   text-align: center;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 20px;
   font-weight: 500;
   line-height: 30px;
@@ -22591,7 +23616,7 @@ input:-moz-placeholder {
 }
 .secure-future-section .sf-left-content .sf-subtitle {
   color: #d1b06b;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 22px;
   font-weight: 700;
   line-height: 40px;
@@ -22620,7 +23645,7 @@ input:-moz-placeholder {
 }
 .secure-future-section .sf-list li {
   color: #bda069;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 20px;
   font-weight: 600;
   line-height: 35px;
@@ -22636,7 +23661,7 @@ input:-moz-placeholder {
 }
 .secure-future-section .sf-list .sf-list-description {
   color: #fff;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 18px;
   font-weight: 500;
   line-height: 28px;
@@ -22656,7 +23681,7 @@ input:-moz-placeholder {
 }
 .protection-plan-section .pp-title-content .pp-title {
   color: #bda069;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 25px;
   font-weight: 800;
   line-height: 40px;
@@ -22678,7 +23703,7 @@ input:-moz-placeholder {
 }
 .protection-plan-section .pp-content .pp-description {
   color: #fff;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 18px;
   font-weight: 500;
   line-height: 30px;
@@ -22702,7 +23727,7 @@ input:-moz-placeholder {
 .capital-benefits-section .benefit-card .card-title {
   color: #bda069;
   text-align: center;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 20px;
   font-weight: 900;
   line-height: 140%;
@@ -22712,7 +23737,7 @@ input:-moz-placeholder {
 .capital-benefits-section .benefit-card .card-description {
   color: #fff;
   text-align: center;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 20px;
   font-weight: 600;
   line-height: 144.687%;
@@ -22740,7 +23765,7 @@ input:-moz-placeholder {
 }
 .legacy-protection-section .lp-content .lp-title {
   color: #bda069;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 20px;
   font-weight: 900;
   line-height: 144.687%;
@@ -22749,7 +23774,7 @@ input:-moz-placeholder {
 }
 .legacy-protection-section .lp-content .lp-description {
   color: #fff;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 20px;
   font-weight: 700;
   line-height: 30px;
@@ -22758,7 +23783,7 @@ input:-moz-placeholder {
 .legacy-protection-section .lp-content .lp-button {
   color: #000;
   text-align: center;
-  font-family: "Noto Serif", serif;
+  font-family: "Poppins", sans-serif;
   font-size: 18px;
   font-weight: 600;
   line-height: 25px;
@@ -22799,7 +23824,10 @@ input:-moz-placeholder {
   margin-bottom: 30px;
 }
 .investment-capital .investment-description,
-.investment-capital .payment-description {
+.investment-capital .payment-description,
+.investment-capital .min-capital-text,
+.investment-capital .additional-capital-text,
+.investment-capital .total-capital-text {
   color: #fff;
   text-align: center;
   font-family: "Noto Serif", serif;
@@ -22807,65 +23835,172 @@ input:-moz-placeholder {
   font-style: normal;
   font-weight: 700;
   line-height: 25px;
-  margin-bottom: 10px;
+  margin-bottom: 15px;
 }
-.investment-capital input.investment-input,
-.investment-capital input.payment-input {
-  display: block;
-  padding: 10px;
-  margin: 0 auto 15px;
-  font-family: "Noto Serif", serif;
-  font-size: 24px;
-  font-weight: bold;
+.investment-capital .min-capital-value,
+.investment-capital .total-capital-display {
+  background-color: #e0e0e0;
+  border: none;
+  height: 60px;
+  font-size: 32px;
+  font-weight: 700;
+  color: #000;
   text-align: center;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  background-color: #f0f0f0;
-}
-.investment-capital .input-group {
-  gap: 3px;
-}
-.investment-capital .input-group .btn {
-  padding: 10px 20px;
-  font-size: 24px;
-  font-weight: bold;
-  border: 1px solid #bda069;
-  border-radius: 5px;
-  background-color: #bda069;
-  margin: 0;
-  color: #fff;
+  margin-bottom: 30px;
   display: flex;
   align-items: center;
   justify-content: center;
+  border-radius: 5px;
+  max-width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  font-family: "Noto Serif", serif;
+}
+.investment-capital .total-capital-display {
+  background-color: #bda069;
+  color: #000;
+  border: 2px solid #fff;
+}
+.investment-capital .membership-days {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 20px;
+  text-align: center;
+  color: #ffffff;
+  font-family: "Noto Serif", serif;
+}
+.investment-capital input.investment-input,
+.investment-capital input.payment-input,
+.investment-capital input.additional-capital-input {
+  background-color: #e0e0e0;
+  border: none;
+  height: 60px;
+  font-size: 32px;
+  font-weight: 700;
+  color: #000;
+  text-align: center;
+  border-radius: 5px;
+  font-family: "Noto Serif", serif;
+}
+.investment-capital input.payment-input {
+  max-width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  margin-bottom: 10px;
+}
+.investment-capital .input-group {
+  margin-bottom: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+}
+.investment-capital .input-group .form-control {
+  width: 100%;
+  border-radius: 5px;
+  margin: 0;
+}
+.investment-capital .input-group .additional-capital-input {
+  margin-bottom: 0 !important;
+}
+.investment-capital .input-group .input-group-prepend,
+.investment-capital .input-group .input-group-append {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+.investment-capital .input-group .input-group-prepend {
+  left: -75px;
+}
+.investment-capital .input-group .input-group-append {
+  right: -75px;
+}
+.investment-capital .input-group .input-group-prepend button,
+.investment-capital .input-group .input-group-append button {
+  background-color: #e0e0e0;
+  color: #000 !important;
+  font-size: 28px;
+  font-weight: 700;
+  border: none;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+  margin: 0;
+  font-family: "Noto Serif", serif;
 }
 .investment-capital .confirm-button {
-  display: block;
-  width: 200px;
-  padding: 10px 0;
-  margin: 15px auto;
-  text-align: center;
-  color: #000;
-  font-family: "Noto Serif", serif;
-  font-size: 24px;
-  font-style: normal;
-  font-weight: 500;
-  line-height: 25px;
-  text-transform: capitalize;
+  background: linear-gradient(90deg, #b48b3d 0%, #bfa573 100%);
+  color: #000 !important;
   border: none;
-  border-radius: 10px;
-  background: #bda069;
-  cursor: pointer;
+  font-size: 24px;
+  font-weight: 600;
+  padding: 10px 0;
+  width: 100%;
+  margin: 20px auto 30px;
+  border-radius: 5px;
+  max-width: 200px;
+  display: block;
+  font-family: "Noto Serif", serif;
+}
+.investment-capital .confirm-button:hover {
+  background: linear-gradient(90deg, #a37b2d 0%, #af9563 100%);
 }
 .investment-capital .investment-note {
   color: #fff;
   font-family: "Noto Serif", serif;
-  font-size: 16px;
+  font-size: 14px;
   font-style: normal;
   font-weight: 500;
   line-height: 25px;
   margin-top: 20px;
+  max-width: 80%;
+  margin-left: auto;
+  margin-right: auto;
 }
 
+/* Tambahan untuk total capital display */
+#additional-capital::-webkit-inner-spin-button,
+#additional-capital::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+#additional-capital {
+  -moz-appearance: textfield;
+}
+
+/* Styling khusus untuk halaman set investment capital */
+.set-investment-container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px 0;
+  transition: all 0.3s ease;
+  width: 100%;
+  font-family: "Noto Serif", serif;
+}
+
+/* Responsif untuk sidebar collapse */
+body.sidebar-main .content-page .set-investment-container {
+  max-width: 800px;
+  transition: all 0.3s ease;
+}
+
+/* Media query untuk layar yang lebih kecil */
+@media (max-width: 992px) {
+  .set-investment-container {
+    max-width: 100%;
+    padding: 20px 15px;
+  }
+}
 /* _login.scss */
 .forgot-password {
   text-align: right;
@@ -22892,6 +24027,895 @@ input:-moz-placeholder {
 .register-section a {
   color: #3d33fd;
   text-decoration: none;
+}
+
+.payment-option-page {
+  background: #272626;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.payment-option-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 2rem 0;
+  max-width: 400px;
+  margin: 0 auto;
+  transition: all 0.3s ease;
+}
+
+.payment-option-title {
+  color: #b48b3d;
+  font-family: "Noto Serif", serif;
+  font-size: 36px;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 3rem;
+  text-transform: uppercase;
+}
+
+.payment-buttons {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  width: 100%;
+}
+
+.payment-btn {
+  background-color: #bfa573;
+  color: #000;
+  border: none;
+  border-radius: 10px;
+  padding: 1.5rem 0;
+  font-size: 24px;
+  font-weight: 600;
+  font-family: "Noto Serif", serif;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  width: 100%;
+  text-align: center;
+}
+.payment-btn:hover {
+  background: linear-gradient(90deg, #a37b2d 0%, #af9563 100%);
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.usdt-payment-info {
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.usdt-qr-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.usdt-qr-code {
+  width: 250px;
+  height: 250px;
+  margin: 0 auto;
+  padding: 10px;
+  background-color: white;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+.usdt-qr-code img {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.usdt-payment-details {
+  width: 100%;
+  margin-top: 25px;
+}
+.usdt-payment-details input.form-control {
+  color: #fff !important;
+  background-color: transparent !important;
+  background: linear-gradient(107deg, rgba(180, 139, 61, 0.1) 50.42%, rgba(191, 165, 115, 0.1) 100%) !important;
+  border: 2px solid #b48b3d !important;
+  box-shadow: none !important;
+}
+.usdt-payment-details input[readonly] {
+  background-color: transparent !important;
+  background-image: linear-gradient(107deg, rgba(180, 139, 61, 0.1) 50.42%, rgba(191, 165, 115, 0.1) 100%) !important;
+}
+
+.address-label,
+.amount-label,
+.instructions-title {
+  color: #fff;
+  font-family: "Poppins", sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.address-value,
+.amount-value {
+  display: flex;
+  align-items: center;
+  position: relative;
+  width: 100%;
+}
+
+.address-value {
+  display: flex !important;
+  position: relative !important;
+  align-items: center !important;
+  gap: 10px !important; /* Jarak antara input dan tombol */
+}
+.address-value input.form-control {
+  width: 100% !important; /* Mengembalikan lebar input menjadi 100% */
+  padding-right: 15px !important;
+}
+.address-value input {
+  background-color: transparent !important;
+  height: 45px;
+  font-size: 16px;
+  font-weight: 500;
+  font-family: "Poppins", sans-serif !important;
+  color: #fff !important;
+  padding: 0 15px;
+  width: 100% !important;
+  border-radius: 5px;
+  border: 2px solid #b48b3d;
+  background: linear-gradient(107deg, rgba(180, 139, 61, 0.1) 50.42%, rgba(191, 165, 115, 0.1) 100%) !important;
+}
+
+.amount-value input {
+  background-color: transparent !important;
+  height: 45px;
+  font-size: 16px;
+  font-weight: 500;
+  font-family: "Poppins", sans-serif !important;
+  color: #fff !important;
+  padding: 0 15px;
+  width: 100% !important;
+  border-radius: 5px;
+  border: 2px solid #b48b3d;
+  background: linear-gradient(107deg, rgba(180, 139, 61, 0.1) 50.42%, rgba(191, 165, 115, 0.1) 100%) !important;
+}
+
+.copy-btn {
+  position: absolute !important;
+  right: -45px !important;
+  top: 50% !important;
+  transform: translateY(-50%) !important;
+  height: 45px !important;
+  width: 45px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  background: transparent !important;
+  border: none !important;
+  color: #b48b3d !important;
+  font-size: 20px !important;
+  cursor: pointer !important;
+  z-index: 1 !important;
+}
+.copy-btn:hover {
+  color: #a37b2d !important;
+}
+
+.instructions-list {
+  color: #ffffff !important;
+  font-family: "Poppins", sans-serif !important;
+  font-size: 16px !important;
+  line-height: 1.6 !important;
+  padding-left: 0 !important;
+  list-style-type: none !important;
+  text-align: center !important;
+}
+.instructions-list li {
+  margin-bottom: 10px !important;
+  color: #ffffff !important;
+}
+
+.confirm-payment-btn {
+  background: linear-gradient(90deg, #b48b3d 0%, #bfa573 100%) !important;
+  color: #000 !important;
+  border: none !important;
+  border-radius: 10px !important;
+  padding: 15px 30px !important;
+  font-size: 24px !important;
+  font-weight: 500 !important;
+  font-family: "Noto Serif", serif !important;
+  cursor: pointer !important;
+  transition: all 0.3s ease !important;
+  width: auto !important;
+  margin: 0 auto !important;
+  display: block !important;
+  text-align: center !important;
+  leading-trim: both !important;
+  text-edge: cap !important;
+  font-style: normal !important;
+  line-height: 25px !important;
+  text-transform: capitalize !important;
+}
+.confirm-payment-btn:hover {
+  background: linear-gradient(90deg, #a37b2d 0%, #af9563 100%) !important;
+  transform: translateY(-3px) !important;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2) !important;
+}
+
+.payment-confirmation {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  width: 100% !important;
+}
+
+.usdt-wallet-address {
+  position: relative !important;
+  margin-bottom: 15px !important;
+}
+.usdt-wallet-address .form-control {
+  background-color: transparent !important;
+  background: linear-gradient(107deg, rgba(180, 139, 61, 0.1) 50.42%, rgba(191, 165, 115, 0.1) 100%) !important;
+}
+
+@media (max-width: 992px) {
+  .payment-option-container {
+    max-width: 90%;
+    padding: 20px 15px;
+  }
+}
+@media (max-width: 768px) {
+  .usdt-qr-container {
+    flex-direction: column;
+  }
+  .usdt-qr-code {
+    width: 200px;
+    height: 200px;
+    margin-bottom: 5px;
+  }
+  .usdt-payment-details {
+    margin-top: 20px;
+  }
+  .copy-btn {
+    right: -35px !important;
+    width: 35px !important;
+    height: 35px !important;
+    font-size: 16px !important;
+  }
+  .usdt-wallet-address {
+    padding-right: 35px !important;
+  }
+}
+@media (max-width: 480px) {
+  .copy-btn {
+    right: -30px !important;
+    width: 30px !important;
+    height: 30px !important;
+  }
+  .usdt-wallet-address {
+    padding-right: 30px !important;
+  }
+}
+.card-payment-page {
+  background: #272626;
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+.usdt-payment-page {
+  background: #272626;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.usdt-payment-info {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.usdt-payment-info .usdt-qr-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.usdt-payment-info .usdt-qr-code {
+  width: 250px;
+  height: 250px;
+  margin: 0 auto;
+  padding: 10px;
+  background-color: white;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+.usdt-payment-info .usdt-qr-code img {
+  max-width: 100%;
+  max-height: 100%;
+}
+.usdt-payment-info .usdt-payment-details {
+  width: 100%;
+  margin-top: 25px;
+}
+.usdt-payment-info .usdt-payment-details .address-label,
+.usdt-payment-info .usdt-payment-details .amount-label,
+.usdt-payment-info .usdt-payment-details .instructions-title {
+  color: #fff;
+  font-family: "Poppins", sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+.usdt-payment-info .usdt-payment-details .address-value,
+.usdt-payment-info .usdt-payment-details .amount-value {
+  display: flex;
+  align-items: center;
+  position: relative;
+  width: 100%;
+}
+.usdt-payment-info .usdt-payment-details .address-value {
+  display: flex !important;
+  position: relative !important;
+  align-items: center !important;
+  gap: 10px !important; /* Jarak antara input dan tombol */
+}
+.usdt-payment-info .usdt-payment-details .amount-value {
+  display: flex;
+  align-items: center;
+  position: relative;
+  width: 100%;
+}
+.usdt-payment-info .usdt-payment-details .address-value input,
+.usdt-payment-info .usdt-payment-details .amount-value input {
+  background-color: transparent !important;
+  height: 45px;
+  font-size: 16px;
+  font-weight: 500;
+  font-family: "Poppins", sans-serif !important;
+  color: #fff !important;
+  padding: 0 15px;
+  width: 100% !important;
+  border-radius: 5px;
+  border: 2px solid #b48b3d;
+  background: linear-gradient(107deg, rgba(180, 139, 61, 0.1) 50.42%, rgba(191, 165, 115, 0.1) 100%) !important;
+}
+.usdt-payment-info .usdt-payment-details .copy-btn {
+  position: absolute !important;
+  right: -45px !important;
+  top: 50% !important;
+  transform: translateY(-50%) !important;
+  height: 45px !important;
+  width: 45px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  background: transparent !important;
+  border: none !important;
+  color: #b48b3d !important;
+  font-size: 20px !important;
+  cursor: pointer !important;
+  z-index: 1 !important;
+}
+.usdt-payment-info .usdt-payment-details .copy-btn i {
+  color: #b48b3d !important;
+}
+.usdt-payment-info .usdt-payment-details .copy-btn:hover {
+  color: #a37b2d !important;
+}
+.usdt-payment-info .usdt-payment-details .copy-btn:hover i {
+  color: #a37b2d !important;
+}
+.usdt-payment-info .instructions-list {
+  color: #ffffff !important;
+  font-family: "Poppins", sans-serif !important;
+  font-size: 16px !important;
+  line-height: 1.6 !important;
+  padding-left: 0 !important;
+  list-style-type: none !important;
+  text-align: center !important;
+}
+.usdt-payment-info .instructions-list li {
+  margin-bottom: 10px !important;
+  color: #ffffff !important;
+}
+.usdt-payment-info .confirm-payment-btn {
+  background: linear-gradient(90deg, #b48b3d 0%, #bfa573 100%) !important;
+  color: #000 !important;
+  border: none !important;
+  border-radius: 10px !important;
+  padding: 15px 30px !important;
+  font-size: 24px !important;
+  font-weight: 500 !important;
+  font-family: "Noto Serif", serif !important;
+  cursor: pointer !important;
+  transition: all 0.3s ease !important;
+  width: auto !important;
+  margin: 0 auto !important;
+  display: block !important;
+  text-align: center !important;
+  leading-trim: both !important;
+  text-edge: cap !important;
+  font-style: normal !important;
+  line-height: 25px !important;
+  text-transform: capitalize !important;
+}
+.usdt-payment-info .confirm-payment-btn:hover {
+  background: linear-gradient(90deg, #a37b2d 0%, #af9563 100%) !important;
+  transform: translateY(-3px) !important;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2) !important;
+}
+
+.usdt-payment-details .form-control {
+  background-color: transparent !important;
+  background-image: linear-gradient(107deg, rgba(180, 139, 61, 0.1) 50.42%, rgba(191, 165, 115, 0.1) 100%) !important;
+  border: 2px solid #b48b3d !important;
+  color: #fff !important;
+  box-shadow: none !important;
+}
+.usdt-payment-details input[readonly] {
+  background-color: transparent !important;
+  background-image: linear-gradient(107deg, rgba(180, 139, 61, 0.1) 50.42%, rgba(191, 165, 115, 0.1) 100%) !important;
+}
+
+.usdt-wallet-address {
+  position: relative !important;
+  margin-bottom: 15px !important;
+}
+
+.payment-confirmation {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  width: 100% !important;
+}
+
+button.copy-btn {
+  color: #b48b3d !important;
+}
+button.copy-btn i {
+  color: #b48b3d !important;
+}
+button.copy-btn:hover {
+  color: #a37b2d !important;
+}
+button.copy-btn:hover i {
+  color: #a37b2d !important;
+}
+
+.usdt-wallet-address .address-value .copy-btn i.ri-file-copy-line {
+  color: #b48b3d !important;
+}
+
+.usdt-wallet-address .address-value .copy-btn:hover i.ri-file-copy-line {
+  color: #a37b2d !important;
+}
+
+@media (max-width: 768px) {
+  .usdt-qr-container {
+    flex-direction: column;
+  }
+  .usdt-qr-code {
+    width: 200px;
+    height: 200px;
+    margin-bottom: 5px;
+  }
+  .usdt-payment-details {
+    margin-top: 20px;
+  }
+  .copy-btn {
+    right: -35px !important;
+    width: 35px !important;
+    height: 35px !important;
+    font-size: 16px !important;
+  }
+  .usdt-wallet-address {
+    padding-right: 35px !important;
+  }
+}
+@media (max-width: 480px) {
+  .copy-btn {
+    right: -30px !important;
+    width: 30px !important;
+    height: 30px !important;
+  }
+  .usdt-wallet-address {
+    padding-right: 30px !important;
+  }
+}
+/* Tutorial Page Styling */
+.tutorial-page {
+  background: #272626;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.tutorial-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  color: #fff;
+}
+@media (max-width: 768px) {
+  .tutorial-container {
+    padding: 20px 15px;
+  }
+}
+
+.tutorial-title {
+  text-align: center;
+  color: #fff;
+  font-family: "Noto Serif";
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 800;
+  line-height: 25px; /* 104.167% */
+  text-transform: uppercase;
+  margin-bottom: 40px;
+}
+@media (max-width: 768px) {
+  .tutorial-title {
+    font-size: 22px;
+    margin-bottom: 30px;
+  }
+}
+
+.api-title {
+  text-align: center;
+  color: #bfa573;
+  font-family: "Noto Serif";
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 800;
+  line-height: 25px; /* 104.167% */
+  text-transform: uppercase;
+  margin-bottom: 40px;
+}
+@media (max-width: 768px) {
+  .api-title {
+    font-size: 22px;
+    margin-bottom: 30px;
+  }
+}
+
+/* Tab Navigation */
+.tutorial-tabs {
+  overflow: hidden;
+}
+
+.tab-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-bottom: 30px;
+}
+@media (max-width: 576px) {
+  .tab-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+.tab-button {
+  background-color: #4d4c48;
+  border: none;
+  border-radius: 10px;
+  padding: 12px 30px;
+  font-family: "Noto Serif";
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  min-width: 300px;
+  min-height: 70px;
+  color: #fff;
+  text-align: center;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 25px; /* 104.167% */
+  text-transform: capitalize;
+}
+.tab-button:hover {
+  background-color: #333;
+  color: #ccc;
+}
+.tab-button.active {
+  background-color: #bda069;
+  color: #000000;
+}
+@media (max-width: 768px) {
+  .tab-button {
+    font-size: 14px;
+    padding: 10px 20px;
+    min-width: 120px;
+  }
+}
+
+/* Tab Content */
+.tab-content {
+  padding: 20px 0;
+}
+
+.tab-pane {
+  display: none;
+}
+.tab-pane.active {
+  display: block;
+  animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+/* Tutorial Steps */
+.tutorial-steps {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.tutorial-step h3 {
+  color: #fff;
+  font-family: "Noto Serif";
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 800;
+  line-height: 25px; /* 125% */
+  font-variant: small-caps;
+  margin-bottom: 20px;
+  text-align: left;
+}
+@media (max-width: 768px) {
+  .tutorial-step h3 {
+    font-size: 18px;
+  }
+}
+.tutorial-step .highlight {
+  color: #ffe440;
+  font-family: "Noto Serif";
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 800;
+  line-height: 25px;
+  font-variant: small-caps;
+}
+
+/* Images */
+.tutorial-image {
+  margin-top: 10px;
+  position: relative;
+  border-radius: 8px;
+  overflow: hidden;
+}
+.tutorial-image img {
+  width: auto;
+  height: auto;
+  margin: 0 auto;
+  display: block;
+  max-width: 100%;
+}
+.tutorial-image .image-label {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background-color: #ffe440;
+  color: #000;
+  font-weight: 700;
+  padding: 5px 10px;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+.tutorial-image-container {
+  display: flex;
+  margin-top: 10px;
+  gap: 0;
+}
+@media (max-width: 768px) {
+  .tutorial-image-container {
+    flex-direction: column;
+    gap: 5px;
+  }
+}
+.tutorial-image-container .tutorial-image {
+  flex: 1;
+  margin-top: 0;
+}
+
+/* Register Button Styling */
+.register-button-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+  margin-bottom: 20px;
+}
+
+.register-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5px 40px;
+  border-radius: 10px;
+  background: #bda069;
+  color: #000;
+  font-size: 20px;
+  text-decoration: none;
+  color: #000;
+  text-align: center;
+  font-family: "Noto Serif";
+  font-style: normal;
+  font-weight: 400;
+  font-variant: small-caps;
+  min-width: 200px;
+  min-height: 70px;
+  transition: all 0.3s ease;
+}
+.register-button:hover {
+  background: rgb(168.75, 136.125, 74.25);
+  transform: translateY(-2px);
+}
+@media (max-width: 768px) {
+  .register-button {
+    font-size: 18px;
+    padding: 12px 30px;
+  }
+}
+
+/* Binance Card Styling */
+.binance-fullcard {
+  width: 100%;
+  min-width: 800px;
+  border: 2px solid #bfa573;
+  border-radius: 10px;
+  padding: 1rem;
+  margin-bottom: 2rem;
+}
+
+.binance-fullcard-header {
+  font-weight: bold;
+  color: #bfa573;
+  padding: 8px 20px;
+  text-align: center;
+  font-size: 18px;
+}
+
+.binance-detailcard {
+  display: grid;
+  grid-template-columns: minmax(100px, 1fr) minmax(300px, 3fr);
+  gap: 0.5rem;
+  margin: 1rem auto;
+  width: 80%;
+}
+.binance-detailcard .label {
+  margin: 0;
+  color: #bfa573;
+  justify-content: start;
+  font-weight: 600;
+  padding: 10px 15px;
+  border: 1px solid #bfa573;
+  display: flex;
+  align-items: center;
+}
+.binance-detailcard .value {
+  padding: 8px 20px;
+  border: 1px solid #bfa573;
+  display: flex;
+  align-items: center;
+  margin: 0;
+}
+.binance-detailcard input {
+  width: 100%;
+  padding: 8px;
+  background: transparent;
+  border: none;
+  color: #bfa573;
+  font-size: inherit;
+  font-family: inherit;
+  outline: none;
+}
+.binance-detailcard input:focus {
+  outline: none;
+}
+.binance-detailcard input:disabled {
+  background: transparent;
+  cursor: not-allowed;
+}
+
+.wallet-detailcard {
+  display: grid;
+  grid-template-columns: minmax(150px, 1fr) minmax(300px, 3fr);
+  gap: 0.5rem;
+  margin: 1rem 0;
+  width: 90%;
+  max-width: 800px;
+}
+.wallet-detailcard .label,
+.wallet-detailcard .value {
+  padding: 8px 20px;
+  border: 1px solid #bfa573;
+  display: flex;
+  align-items: center;
+  margin: 0;
+  margin-left: 0;
+  margin-right: 0;
+  color: #bfa573;
+  justify-content: start;
+  text-align: left;
+  font-weight: bold;
+}
+
+.binance-fullcard-footer {
+  text-align: center;
+  margin-top: 20px;
+}
+.binance-fullcard-footer .save-btn {
+  background: linear-gradient(90deg, #b48b3d 0%, #bfa573 100%);
+  color: black;
+  border: none;
+  padding: 8px 30px;
+  border-radius: 5px;
+  color: #000;
+  text-align: center;
+  font-family: "Noto Serif";
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  cursor: pointer;
+  margin: 0 5px;
+  transition: all 0.3s ease;
+}
+.binance-fullcard-footer .save-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+.binance-fullcard-footer .save-btn:disabled {
+  background-color: #575757;
+  color: black;
+  border: none;
+  cursor: not-allowed;
+}
+
+.binance-button-row {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  gap: 1rem;
+  margin: 2rem 0;
+}
+.binance-button-row a {
+  border: 1px solid #bfa573;
+  background: transparent;
+  color: #000;
+  background: linear-gradient(90deg, #b48b3d 0%, #bfa573 100%);
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  font-family: "Noto Serif";
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
 }
 
 /*----------------------------------------------------------
@@ -22921,7 +24945,6 @@ input:-moz-placeholder {
 .btn-navbar-contactform:hover {
   background-color: #bfa573;
   color: #1e1e1e;
-  box-shadow: 0px 4px 4px 0px #E8D9BD;
   font-weight: 700;
 }
 
@@ -22937,7 +24960,7 @@ input:-moz-placeholder {
 .btn-navbar-about:hover {
   background-color: #1e1e1e;
   color: #bfa573;
-  box-shadow: 0px 4px 4px 0px #E8D9BD;
+  box-shadow: 0px 4px 4px 0px #e8d9bd;
   font-weight: 700;
 }
 
@@ -22953,7 +24976,6 @@ input:-moz-placeholder {
 .btn-navbar-referral:hover {
   background-color: #ffffff;
   color: #bfa573;
-  box-shadow: 0px 4px 4px 0px #E8D9BD;
   font-weight: 700;
 }
 
@@ -22980,6 +25002,7 @@ input:-moz-placeholder {
 .btn-footer-contactform {
   background-color: #bfa573;
   color: #1e1e1e;
+  font-family: "Poppins", sans-serif;
   padding: 0.8rem 1rem !important;
   border-radius: 10px;
   font-size: 13px;
@@ -22988,13 +25011,13 @@ input:-moz-placeholder {
 .btn-footer-contactform:hover {
   background-color: #bfa573;
   color: #ffffff;
-  box-shadow: 0px 4px 4px 0px #E8D9BD;
   font-weight: 700;
 }
 
 .btn-footer-enrollnow {
   background-color: #1e1e1e;
   color: #ffffff;
+  font-family: "Poppins", sans-serif;
   padding: 0.8rem 1rem !important;
   border-radius: 10px;
   font-size: 13px;
@@ -23003,7 +25026,7 @@ input:-moz-placeholder {
 .btn-footer-enrollnow:hover {
   background-color: #1e1e1e;
   color: #ffffff;
-  box-shadow: 0px 4px 4px 0px #E8D9BD;
+  box-shadow: 0px 4px 4px 0px #e8d9bd;
   font-weight: 700;
 }
 
@@ -23017,10 +25040,10 @@ input:-moz-placeholder {
 }
 
 .btn-satoshi-price-register {
-  background-color: #C5A571;
+  background-color: #c5a571;
   color: #000000;
   font-weight: 900;
-  -webkit-text-stroke: 0.3px #ECCF98;
+  -webkit-text-stroke: 0.3px #eccf98;
   font-weight: 800;
   font-size: 22px;
 }

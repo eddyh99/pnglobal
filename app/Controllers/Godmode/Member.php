@@ -51,7 +51,7 @@ class Member extends BaseController
 
 
         $mdata = [
-            'title'     => 'Dashboard - ' . SATOSHITITLE,
+            'title'     => 'Dashboard - ' . NAMETITLE,
             'content'   => 'godmode/dashboard/index',
             'extra'     => 'godmode/dashboard/js/_js_index',
             'active_dash'    => 'active',
@@ -77,7 +77,16 @@ class Member extends BaseController
     public function get_freemember()
     {
         // Call Endpoin Get Free Member
-        $url = URLAPI . "/v1/member/free_member";
+        $url = URLAPI2 . "/v1/member/freemember";
+        $result = satoshiAdmin($url)->result;
+
+        echo json_encode($result);
+    }
+
+    public function get_allmember()
+    {
+        // Mengambil data untuk Satoshi Signal menggunakan URLAPI2
+        $url = URLAPI2 . "/v1/member/allmember";
         $result = satoshiAdmin($url)->result;
 
         echo json_encode($result);
@@ -96,6 +105,30 @@ class Member extends BaseController
     {
         // Call Endpoin Get Referral Member
         $url = URLAPI . "/v1/member/detailreferral?id=" . $id;
+        $result = satoshiAdmin($url)->result->message;
+        echo json_encode($result);
+    }
+
+    public function get_totalmember_satoshi()
+    {
+        // Call Endpoin Get Total Member
+        $url = URLAPI2 . "/v1/member/allmember";
+        $result = satoshiAdmin($url)->result->message;
+        echo json_encode($result);
+    }
+
+    public function get_freemember_satoshi()
+    {
+        // Call Endpoin Get Free Member
+        $url = URLAPI2 . "/v1/member/freemember";
+        $result = satoshiAdmin($url)->result->message;
+        echo json_encode($result);
+    }
+
+    public function get_referralmember_satoshi()
+    {
+        // Call Endpoin Get Referral Member
+        $url = URLAPI2 . "/v1/member/referralmember";
         $result = satoshiAdmin($url)->result->message;
         echo json_encode($result);
     }

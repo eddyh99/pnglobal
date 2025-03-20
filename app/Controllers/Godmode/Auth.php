@@ -18,7 +18,7 @@ class Auth extends BaseController
     public function signin()
     {
         $mdata = [
-            'title'     => 'Sign in - ' . SATOSHITITLE,
+            'title'     => 'Sign in - ' . NAMETITLE,
             'content'   => 'godmode/auth/index',
             'extra'     => 'godmode/auth/js/_js_index',
         ];
@@ -63,18 +63,13 @@ class Auth extends BaseController
         $response = satoshiAdmin($url, json_encode($mdata));
         $result = $response->result;
 
-
         if ($response->status != 200 || $result->code != 200) {
             session()->setFlashdata('failed', $result->message);
             return redirect()->to(BASE_URL . 'godmode/auth/signin');
         } else {
             $this->session->set('logged_user', $result->message);
             session()->setFlashdata('success', 'Welcome to admin panel');
-            if ($_SESSION["logged_user"]->role == "admin") {
-                return redirect()->to(BASE_URL . 'godmode/dashboard');
-            } elseif ($_SESSION["logged_user"]->role == "manager") {
-                return redirect()->to(BASE_URL . 'godmode/signal');
-            }
+            return redirect()->to(BASE_URL . 'godmode/dashboard');
         }
     }
 

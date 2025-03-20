@@ -195,6 +195,11 @@
     padding: 0rem 1rem;
 }
 
+/* CSS khusus untuk dash statistics di tab Satoshi Signal */
+#satoshi-signal .dash-statistics .statistics {
+    width: 20%;
+}
+
 .send-signals {
     border: 2px solid #b48b3d;
     border-radius: 10px;
@@ -235,7 +240,6 @@
 .send-signals .main-send-signal .signal-preview {
     width: 100%;
     padding: 1.5rem;
-    background-color: #121212;
     border-radius: 10px;
     margin-bottom: 20px;
 }
@@ -854,6 +858,12 @@ div.dataTables_wrapper div.dataTables_filter input {
     color: #ffffff;
 }
 
+.form-addreferral .wrapper-addreferral input[readonly] {
+    text-align: center;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
 .form-addreferral .wrapper-addreferral input[type='radio'] {
     width: auto; /* Hilangkan lebar 100% */
     margin: 0 1rem; /* Berikan margin 1rem */
@@ -912,8 +922,8 @@ div.dataTables_wrapper div.dataTables_filter input {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    width: 100%;
-    padding: 1rem;
+    /* width: 100%; */
+    padding: 1rem 0;
 }
 
 .withdraw-comission {
@@ -934,13 +944,14 @@ div.dataTables_wrapper div.dataTables_filter input {
     gap: 20px; /* Jarak antara referral link dan referral-qr */
     border: 2px solid #bfa573;
     border-radius: 5px;
-    padding: 0.5rem 1rem;
-    width: fit-content; /* Lebar hanya sepanjang kontennya */
+    padding: 0.75rem;
+    width: 100%; /* Lebar hanya sepanjang kontennya */
 }
 
 /* Pengaturan untuk referral link */
 .referral-link {
     text-align: left;
+    font-size: 12px;
 }
 
 /* Pengaturan elemen di dalam referral-qr */
@@ -969,7 +980,7 @@ div.dataTables_wrapper div.dataTables_filter input {
     border-radius: 5px;
     border: 1px solid #b48b3d;
     background: rgba(180, 139, 61, 0.25);
-    padding: 0.5rem 1rem;
+    padding: 0.5rem;
     text-align: center;
     /* Lebar akan mengikuti grid system (col-md-2) */
 }
@@ -1026,6 +1037,9 @@ div.dataTables_wrapper div.dataTables_filter input {
 @media (max-width: 991px) {
 }
 @media (max-width: 767px) {
+    .referral-card {
+        margin-bottom: 15px; /* Jarak bawah */
+    }
 }
 @media (max-width: 580px) {
     .dash-statistics .statistics {
@@ -1077,12 +1091,22 @@ div.dataTables_wrapper div.dataTables_filter input {
     font-size: 16px;
     font-weight: 400;
     line-height: normal;
+    text-align: center;
 }
 
 .right-card .card-bottom {
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+
+.left-column {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    text-align: center;
+    flex: 1; /* Membagi ruang secara proporsional */
 }
 
 /* Kolom kiri pada row bawah card kanan */
@@ -1527,7 +1551,6 @@ div.dataTables_wrapper div.dataTables_filter input {
 
 .signal-section {
     width: 100%;
-    background-color: #121212;
     border-radius: 10px;
     padding: 0 20px;
 }
@@ -1567,8 +1590,29 @@ div.dataTables_wrapper div.dataTables_filter input {
 /* Styling untuk tabel */
 .signal-table {
     width: 100%;
-    border-collapse: separate;
-    border-spacing: 0 10px;
+    border-collapse: collapse;
+    border-spacing: 0;
+    margin-top: 20px;
+}
+
+.signal-table th {
+    color: #ffffff;
+    font-weight: 600;
+    font-size: 16px;
+    text-transform: uppercase;
+    padding: 0 12px 0 12px !important;
+    line-height: 1;
+    height: 20px;
+}
+
+.signal-table td {
+    padding: 0 12px;
+    vertical-align: middle;
+}
+
+/* Mengurangi jarak antara header dan input */
+.signal-table thead + tbody {
+    margin-top: -10px;
 }
 
 .signal-table th,
@@ -1582,6 +1626,7 @@ div.dataTables_wrapper div.dataTables_filter input {
     font-weight: 600;
     font-size: 16px;
     text-transform: uppercase;
+    padding-bottom: 0 !important;
 }
 
 /* Kolom label (A, B, C, D) */
@@ -1633,6 +1678,7 @@ div.dataTables_wrapper div.dataTables_filter input {
     align-items: center;
     justify-content: center;
     color: #000000;
+    min-width: 100px;
 }
 
 /* Tombol aksi */
@@ -1674,6 +1720,14 @@ div.dataTables_wrapper div.dataTables_filter input {
     color: #ffffff;
 }
 
+.btn-del:disabled,
+.btn-del.disabled-btn {
+    border: 2px solid #6c757d;
+    background-color: transparent;
+    color: #6c757d;
+    cursor: not-allowed;
+}
+
 /* Responsif */
 @media (max-width: 768px) {
     .signal-table th {
@@ -1708,4 +1762,1484 @@ div.dataTables_wrapper div.dataTables_filter input {
         height: 35px;
         font-size: 11px;
     }
+}
+
+/* Styling untuk role checkbox */
+.role-wrapper {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    margin-top: 10px;
+    border: 1px solid #bfa573;
+    border-radius: 10px;
+    padding: 15px;
+}
+
+.role-item {
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.role-item input[type='checkbox'] {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+.role-item label {
+    position: relative;
+    padding-left: 35px;
+    cursor: pointer;
+    font-size: 16px;
+    color: #ffffff;
+    margin-bottom: 0;
+    user-select: none;
+    width: 100%;
+}
+
+.role-item label:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 22px;
+    height: 22px;
+    border: 2px solid #bfa573;
+    background-color: transparent;
+    border-radius: 5px;
+}
+
+.role-item input[type='checkbox']:checked + label:before {
+    background-color: #bfa573;
+}
+
+.role-item input[type='checkbox']:checked + label:after {
+    content: '✓';
+    position: absolute;
+    left: 5px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #000;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+/* Responsif untuk role checkbox */
+@media (max-width: 768px) {
+    .role-wrapper {
+        gap: 10px;
+        padding: 12px;
+    }
+
+    .role-item label {
+        font-size: 14px;
+        padding-left: 30px;
+    }
+
+    .role-item label:before {
+        width: 18px;
+        height: 18px;
+    }
+
+    .role-item input[type='checkbox']:checked + label:after {
+        left: 4px;
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 576px) {
+    .role-wrapper {
+        grid-template-columns: 1fr;
+        gap: 8px;
+        padding: 10px;
+    }
+}
+
+/* Card Full Width dengan 3 row (header, detail, dan footer) – Kelas unik menggunakan prefix "binance-" */
+.binance-fullcard {
+    width: 100%;
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+    border: 2px solid #bfa573;
+    border-radius: 10px;
+    padding: 1rem;
+    margin-bottom: 2rem;
+    transition: all 0.3s ease;
+}
+
+/* Responsif untuk sidebar collapse */
+body.sidebar-main .content-page .binance-fullcard {
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+    transition: all 0.3s ease;
+}
+
+/* Media query untuk layar yang lebih kecil */
+@media (max-width: 992px) {
+    .binance-fullcard {
+        max-width: 100%;
+        min-width: auto;
+    }
+}
+
+.binance-fullcard-header {
+    font-weight: bold;
+    color: #bfa573;
+    padding: 8px 20px;
+    text-align: center;
+    font-size: 18px;
+}
+
+/* Grid container untuk binance detail card dengan gap antar kolom dan baris */
+.binance-detailcard {
+    display: grid;
+    grid-template-columns: minmax(100px, 1fr) minmax(300px, 3fr);
+    gap: 0.5rem;
+    margin: 1rem auto;
+    width: 90%;
+    max-width: 800px;
+    transition: all 0.3s ease;
+}
+
+/* Responsif untuk sidebar collapse */
+body.sidebar-main .content-page .binance-detailcard {
+    width: 90%;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    transition: all 0.3s ease;
+}
+
+/* Media query untuk layar yang lebih kecil */
+@media (max-width: 992px) {
+    .binance-detailcard {
+        width: 100%;
+        grid-template-columns: 1fr 3fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .binance-detailcard {
+        grid-template-columns: 1fr;
+    }
+}
+
+.binance-detailcard .label {
+    margin: 0;
+    color: #bfa573;
+    justify-content: start;
+    font-weight: 600;
+    padding: 10px 15px;
+    border: 1px solid #bfa573;
+    display: flex;
+    align-items: center;
+}
+
+.binance-detailcard .value {
+    padding: 8px 20px;
+    border: 1px solid #bfa573;
+    display: flex;
+    align-items: center;
+    margin: 0;
+}
+
+.binance-detailcard input {
+    width: 100%;
+    padding: 8px;
+    background: transparent;
+    border: none;
+    color: #bfa573;
+    font-size: inherit;
+    font-family: inherit;
+    outline: none;
+}
+
+.binance-detailcard input:focus {
+    outline: none;
+}
+
+.binance-detailcard input:disabled {
+    background: transparent;
+    cursor: not-allowed;
+}
+
+/* Grid container untuk wallet detail card dengan gap antar kolom dan baris */
+.wallet-detailcard {
+    display: grid;
+    grid-template-columns: minmax(150px, 1fr) minmax(300px, 3fr);
+    gap: 0.5rem;
+    margin: 1rem auto;
+    width: 90%;
+    max-width: 800px;
+    transition: all 0.3s ease;
+}
+
+/* Responsif untuk sidebar collapse */
+body.sidebar-main .content-page .wallet-detailcard {
+    width: 90%;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    transition: all 0.3s ease;
+}
+
+/* Media query untuk layar yang lebih kecil */
+@media (max-width: 992px) {
+    .wallet-detailcard {
+        width: 100%;
+        grid-template-columns: 1fr 3fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .wallet-detailcard {
+        grid-template-columns: 1fr;
+    }
+}
+
+.wallet-detailcard .label,
+.wallet-detailcard .value {
+    padding: 8px 20px;
+    border: 1px solid #bfa573;
+    display: flex;
+    align-items: center;
+    margin: 0;
+    margin-left: 0;
+    margin-right: 0;
+    color: #bfa573;
+    justify-content: start;
+    text-align: left;
+    font-weight: bold;
+}
+
+.binance-fullcard-footer {
+    text-align: center;
+    margin-top: 20px;
+    width: 100%;
+}
+
+.binance-fullcard-footer .save-btn {
+    background: linear-gradient(90deg, #b48b3d 0%, #bfa573 100%);
+    color: black;
+    border: none;
+    padding: 8px 30px;
+    border-radius: 5px;
+    color: #000;
+    text-align: center;
+    font-family: 'Noto Serif';
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    cursor: pointer;
+    margin: 0 5px;
+    transition: all 0.3s ease;
+}
+
+@media (max-width: 768px) {
+    .binance-fullcard-footer .save-btn {
+        padding: 8px 20px;
+        font-size: 16px;
+        width: 100%;
+        max-width: 200px;
+    }
+}
+
+.binance-fullcard-footer .save-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.binance-fullcard-footer .save-btn:disabled {
+    background-color: #575757;
+    color: black;
+    border: none;
+    cursor: not-allowed;
+}
+
+/* Row button baru di bawah header Connect Binance API */
+.binance-button-row {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    gap: 1rem;
+    margin: 2rem 0;
+    flex-wrap: wrap;
+}
+
+@media (max-width: 768px) {
+    .binance-button-row {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+}
+
+.binance-button-row a,
+.binance-button-row button {
+    border: 1px solid #bfa573;
+    background: transparent;
+    color: #000;
+    background: linear-gradient(90deg, #b48b3d 0%, #bfa573 100%);
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    font-family: 'Noto Serif';
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    transition: all 0.3s ease;
+}
+
+.binance-button-row a:hover,
+.binance-button-row button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+@media (max-width: 768px) {
+    .binance-button-row a,
+    .binance-button-row button {
+        width: 100%;
+        max-width: 200px;
+    }
+}
+
+/* Container yang membungkus seluruh checkbox dengan border */
+.role-wrapper {
+    grid-template-columns: repeat(3, 1fr); /* Dua kolom sama lebar */
+    gap: 1rem;
+    width: 100%;
+    padding: 1rem;
+    border: 1px solid #bfa573;
+    border-radius: 5px;
+}
+
+.binance-detailcard .value {
+    margin-left: 0;
+    margin-right: 0;
+    color: #bfa573;
+    justify-content: start;
+    text-align: center;
+}
+
+/* Label untuk wallet-detailcard dengan margin yang berbeda */
+.wallet-detailcard .label {
+    margin-left: 0;
+    margin-right: 0;
+    color: #bfa573;
+    justify-content: start;
+    text-align: left;
+    font-weight: bold;
+}
+
+/* Label untuk wallet-detailcard dengan margin yang berbeda */
+.wallet-detailcard .value {
+    margin-left: 0;
+    margin-right: 0;
+    color: #bfa573;
+    justify-content: start;
+    text-align: left;
+    font-weight: bold;
+}
+
+/* Card untuk Account Status tanpa border luar */
+.account-status-card {
+    width: 100%;
+    margin-bottom: 1rem;
+    padding: 1rem;
+}
+
+.account-status-header {
+    font-weight: bold;
+    color: #bfa573;
+    padding: 8px 0;
+    text-align: left;
+    font-size: 18px;
+}
+
+/* Grid container untuk account status detail dengan gap antar kolom dan baris */
+.account-status-detail {
+    display: grid;
+    grid-template-columns: minmax(120px, 1fr) minmax(300px, 3fr);
+    gap: 0.5rem;
+    margin: 1rem 0;
+    width: 100%;
+}
+
+/* Styling setiap item detail */
+.account-status-detail > div {
+    padding: 8px 20px;
+    border: 1px solid #bfa573;
+    display: flex;
+    align-items: center;
+    margin: 0;
+}
+
+/* Label untuk account status dengan align left */
+.account-status-detail .label {
+    margin-left: 0;
+    margin-right: 0;
+    color: #bfa573;
+    justify-content: flex-start;
+    text-align: left;
+    font-weight: bold;
+}
+
+/* Value untuk account status dengan margin yang berbeda */
+.account-status-detail .value {
+    margin-left: 0;
+    margin-right: 0;
+    color: #bfa573;
+    padding-left: 1.5rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.account-status-footer {
+    padding: 10px 0;
+    text-align: center;
+}
+
+/* Button untuk extend/new membership */
+.membership-btn {
+    background: linear-gradient(90deg, #b48b3d 0%, #bfa573 100%);
+    color: #000;
+    border: none;
+    padding: 2px 20px;
+    border-radius: 5px;
+    font-size: 24px;
+    font-weight: 600;
+    font-family: 'Poppins', sans-serif;
+    font-style: normal;
+    line-height: normal;
+    cursor: pointer;
+    min-height: 125px;
+    min-width: 460px;
+    text-transform: capitalize;
+    text-align: center;
+}
+
+.membership-btn:hover {
+    background: linear-gradient(90deg, #a37b2d 0%, #af9563 100%);
+}
+
+.membership-btn:disabled {
+    background-color: #575757;
+    color: black;
+    border: none;
+}
+
+/* SET INVESTMENT CAPITAL STYLING */
+.investment-title {
+    color: #bfa573;
+    font-size: 32px;
+    font-weight: 700;
+    text-align: center;
+    text-transform: uppercase;
+    font-family: 'Noto Serif', serif;
+    margin-bottom: 30px;
+}
+
+.min-capital-text,
+.additional-capital-text,
+.total-capital-text,
+.payment-description {
+    color: #ffffff;
+    font-size: 20px;
+    margin-bottom: 15px;
+    text-align: center;
+    font-family: 'Noto Serif', serif;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 25px; /* 125% */
+    leading-trim: both;
+
+    text-edge: cap;
+}
+
+.min-capital-value {
+    background-color: #e0e0e0;
+    border: none;
+    height: 60px;
+    font-size: 32px;
+    font-weight: 700;
+    color: #000;
+    text-align: center;
+    margin-bottom: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+    max-width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    font-family: 'Noto Serif', serif;
+}
+
+.additional-capital-input,
+.payment-input {
+    background-color: #e0e0e0;
+    border: none;
+    height: 60px;
+    font-size: 32px;
+    font-weight: 700;
+    color: #000;
+    text-align: center;
+    border-radius: 5px;
+    font-family: 'Noto Serif', serif;
+}
+
+.payment-input {
+    max-width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    margin-bottom: 10px;
+}
+
+/* Styling untuk input group */
+.input-group {
+    margin-bottom: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+}
+
+.input-group .form-control {
+    width: 100%;
+    border-radius: 5px;
+    margin: 0;
+}
+
+.additional-capital-input {
+    margin-bottom: 0 !important;
+}
+
+/* Styling untuk tombol + dan - */
+.input-group-prepend,
+.input-group-append {
+    position: absolute;
+    top: 0;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.input-group-prepend {
+    left: -75px;
+}
+
+.input-group-append {
+    right: -75px;
+}
+
+.input-group-prepend button,
+.input-group-append button {
+    background-color: #e0e0e0;
+    color: #000 !important;
+    font-size: 28px;
+    font-weight: 700;
+    border: none;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+    margin: 0;
+    font-family: 'Noto Serif', serif;
+}
+
+/* Styling untuk tampilan total capital */
+.total-capital-display {
+    background-color: #bda069;
+    color: #000;
+    padding: 0 15px;
+    font-size: 32px;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 30px;
+    border-radius: 5px;
+    max-width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    border: 2px solid #fff;
+    font-family: 'Noto Serif', serif;
+}
+
+.membership-days {
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    text-align: center;
+    color: #ffffff;
+    font-family: 'Noto Serif', serif;
+}
+
+.confirm-button {
+    background: linear-gradient(90deg, #b48b3d 0%, #bfa573 100%);
+    color: #000 !important;
+    border: none;
+    font-size: 24px;
+    font-weight: 600;
+    padding: 10px 0;
+    width: 100%;
+    margin: 20px auto 30px;
+    border-radius: 5px;
+    max-width: 200px;
+    display: block;
+    font-family: 'Noto Serif', serif;
+}
+
+.confirm-button:hover {
+    background: linear-gradient(90deg, #a37b2d 0%, #af9563 100%);
+}
+
+.investment-note {
+    color: #bfa573;
+    font-size: 14px;
+    line-height: 1.5;
+    margin-top: 20px;
+    max-width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    font-family: 'Noto Serif', serif;
+    color: #fff;
+    leading-trim: both;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 25px; /* 125% */
+}
+
+/* Tambahan untuk total capital display */
+#additional-capital::-webkit-inner-spin-button,
+#additional-capital::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+#additional-capital {
+    -moz-appearance: textfield;
+}
+
+/* Styling khusus untuk halaman set investment capital */
+.set-investment-container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px 0;
+    transition: all 0.3s ease;
+    width: 100%;
+    font-family: 'Noto Serif', serif;
+}
+
+/* Responsif untuk sidebar collapse */
+body.sidebar-main .content-page .set-investment-container {
+    max-width: 800px;
+    transition: all 0.3s ease;
+}
+
+/* Media query untuk layar yang lebih kecil */
+@media (max-width: 992px) {
+    .set-investment-container {
+        max-width: 100%;
+        padding: 20px 15px;
+    }
+}
+
+/* PAYMENT OPTION STYLING */
+.payment-option-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 2rem 0;
+    max-width: 400px;
+    margin: 0 auto;
+    transition: all 0.3s ease;
+}
+
+.payment-option-title {
+    color: #b48b3d;
+    font-family: 'Noto Serif', serif;
+    font-size: 36px;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 3rem;
+    text-transform: uppercase;
+}
+
+.payment-buttons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    width: 100%;
+}
+
+.payment-btn {
+    background-color: #bfa573;
+    color: #000;
+    border: none;
+    border-radius: 10px;
+    padding: 1.5rem 0;
+    font-size: 24px;
+    font-weight: 600;
+    font-family: 'Noto Serif', serif;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: 100%;
+    text-align: center;
+}
+
+.payment-btn:hover {
+    background: linear-gradient(90deg, #a37b2d 0%, #af9563 100%);
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Responsif untuk sidebar collapse */
+body.sidebar-main .content-page .payment-option-container {
+    max-width: 500px;
+    transition: all 0.3s ease;
+}
+
+/* Media query untuk layar yang lebih kecil */
+@media (max-width: 992px) {
+    .payment-option-container {
+        max-width: 90%;
+        padding: 20px 15px;
+    }
+}
+
+.usdt-payment-info {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.usdt-qr-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.usdt-qr-code {
+    width: 250px;
+    height: 250px;
+    margin: 0 auto;
+    padding: 10px;
+    background-color: white;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+.usdt-qr-code img {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.usdt-payment-details {
+    width: 100%;
+    margin-top: 25px;
+}
+
+.address-label,
+.amount-label,
+.instructions-title {
+    color: #fff;
+    font-family: 'Poppins', sans-serif;
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.address-value,
+.amount-value {
+    display: flex;
+    align-items: center;
+    position: relative;
+    width: 100%;
+}
+
+.address-value {
+    display: flex !important;
+    position: relative !important;
+    align-items: center !important;
+    gap: 10px !important; /* Jarak antara input dan tombol */
+}
+
+.amount-value {
+    display: flex;
+    align-items: center;
+    position: relative;
+    width: 100%;
+}
+
+.address-value input,
+.amount-value input {
+    background-color: transparent !important;
+    height: 45px;
+    font-size: 16px;
+    font-weight: 500;
+    font-family: 'Poppins', sans-serif !important;
+    color: #fff !important;
+    padding: 0 15px;
+    width: 100% !important;
+    border-radius: 5px;
+    border: 2px solid #b48b3d;
+    background: linear-gradient(
+        107deg,
+        rgba(180, 139, 61, 0.1) 50.42%,
+        rgba(191, 165, 115, 0.1) 100%
+    ) !important;
+}
+
+.copy-btn {
+    position: absolute !important; /* Mengubah kembali menjadi absolute */
+    right: -45px !important; /* Memposisikan tombol di luar form input */
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    height: 45px !important;
+    width: 45px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    background: transparent !important;
+    border: none !important;
+    color: #b48b3d !important;
+    font-size: 20px !important;
+    cursor: pointer !important;
+    z-index: 1 !important;
+}
+
+.copy-btn:hover {
+    color: #a37b2d !important;
+}
+
+.instructions-list {
+    color: #ffffff !important;
+    font-family: 'Poppins', sans-serif !important;
+    font-size: 16px !important;
+    line-height: 1.6 !important;
+    padding-left: 0 !important;
+    list-style-type: none !important;
+    text-align: center !important;
+}
+
+.instructions-list li {
+    margin-bottom: 10px !important;
+    color: #ffffff !important;
+}
+
+.confirm-payment-btn {
+    background: linear-gradient(90deg, #b48b3d 0%, #bfa573 100%) !important;
+    color: #000 !important;
+    border: none !important;
+    border-radius: 10px !important;
+    padding: 15px 30px !important;
+    font-size: 24px !important;
+    font-weight: 500 !important;
+    font-family: 'Noto Serif', serif !important;
+    cursor: pointer !important;
+    transition: all 0.3s ease !important;
+    width: auto !important;
+    margin: 0 auto !important;
+    display: block !important;
+    text-align: center !important;
+    leading-trim: both !important;
+    text-edge: cap !important;
+    font-style: normal !important;
+    line-height: 25px !important; /* 104.167% */
+    text-transform: capitalize !important;
+}
+
+.confirm-payment-btn:hover {
+    background: linear-gradient(90deg, #a37b2d 0%, #af9563 100%) !important;
+    transform: translateY(-3px) !important;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2) !important;
+}
+
+@media (max-width: 768px) {
+    .usdt-qr-container {
+        flex-direction: column;
+    }
+
+    .usdt-qr-code {
+        width: 200px;
+        height: 200px;
+        margin-bottom: 5px;
+    }
+
+    .usdt-payment-details {
+        margin-top: 20px;
+    }
+}
+
+/* Menambahkan class khusus untuk form-control agar tidak terpengaruh oleh styling lain */
+.usdt-wallet-address .form-control,
+.usdt-amount .form-control {
+    background-color: transparent !important;
+    background: linear-gradient(
+        107deg,
+        rgba(180, 139, 61, 0.1) 50.42%,
+        rgba(191, 165, 115, 0.1) 100%
+    ) !important;
+}
+
+/* Override untuk form-control di usdt payment */
+.usdt-payment-details .form-control {
+    background-color: transparent !important;
+    background-image: linear-gradient(
+        107deg,
+        rgba(180, 139, 61, 0.1) 50.42%,
+        rgba(191, 165, 115, 0.1) 100%
+    ) !important;
+    border: 2px solid #b48b3d !important;
+    color: #000 !important;
+    box-shadow: none !important;
+}
+
+/* Pastikan tidak ada background lain yang mengganggu */
+.usdt-payment-details input[readonly] {
+    background-color: transparent !important;
+    background-image: linear-gradient(
+        107deg,
+        rgba(180, 139, 61, 0.1) 50.42%,
+        rgba(191, 165, 115, 0.1) 100%
+    ) !important;
+}
+
+/* Styling tambahan untuk memastikan tombol copy berada di luar form input */
+.address-value {
+    display: flex !important;
+    position: relative !important;
+    align-items: center !important;
+    width: 100% !important;
+}
+
+.address-value input.form-control {
+    width: 100% !important; /* Mengembalikan lebar input menjadi 100% */
+    padding-right: 15px !important;
+}
+
+/* Styling untuk warna teks */
+.usdt-payment-details input.form-control {
+    color: #fff !important;
+}
+
+/* Styling tambahan untuk background form input */
+.usdt-payment-details input.form-control {
+    background-color: transparent !important;
+    background: linear-gradient(
+        107deg,
+        rgba(180, 139, 61, 0.1) 50.42%,
+        rgba(191, 165, 115, 0.1) 100%
+    ) !important;
+    border: 2px solid #b48b3d !important;
+    box-shadow: none !important;
+}
+
+/* Styling tambahan untuk tombol konfirmasi */
+.payment-confirmation {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    width: 100% !important;
+}
+
+.confirm-payment-btn {
+    background: linear-gradient(90deg, #b48b3d 0%, #bfa573 100%) !important;
+    color: #000 !important;
+    border: none !important;
+    border-radius: 10px !important;
+    padding: 15px 30px !important;
+    font-size: 24px !important;
+    font-weight: 500 !important;
+    font-family: 'Noto Serif', serif !important;
+    cursor: pointer !important;
+    transition: all 0.3s ease !important;
+    width: auto !important;
+    margin: 0 auto !important;
+    display: block !important;
+    text-align: center !important;
+    leading-trim: both !important;
+    text-edge: cap !important;
+    font-style: normal !important;
+    line-height: 25px !important; /* 104.167% */
+    text-transform: capitalize !important;
+}
+
+/* Styling tambahan untuk container address-value */
+.usdt-wallet-address {
+    position: relative !important;
+    margin-bottom: 15px !important;
+}
+
+.address-value {
+    display: flex !important;
+    position: relative !important;
+    align-items: center !important;
+    width: 100% !important;
+}
+
+/* Styling untuk responsive */
+@media (max-width: 768px) {
+    .copy-btn {
+        right: -35px !important; /* Mengurangi jarak pada layar kecil */
+        width: 35px !important;
+        height: 35px !important;
+        font-size: 16px !important;
+    }
+
+    .usdt-wallet-address {
+        padding-right: 35px !important; /* Memberikan ruang untuk tombol pada layar kecil */
+    }
+}
+
+@media (max-width: 480px) {
+    .copy-btn {
+        right: -30px !important; /* Mengurangi jarak lagi pada layar sangat kecil */
+        width: 30px !important;
+        height: 30px !important;
+    }
+
+    .usdt-wallet-address {
+        padding-right: 30px !important; /* Memberikan ruang untuk tombol pada layar sangat kecil */
+    }
+}
+
+.withdraw-options {
+    text-align: center;
+    margin-bottom: 50px;
+    width: 100%;
+}
+
+.withdraw-title {
+    color: #fff;
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: normal;
+    text-transform: uppercase;
+    margin-bottom: 15px;
+}
+
+.withdraw-buttons {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.transfer-btn {
+    border-radius: 10px;
+    border: 2px solid #b48b3d;
+    background: linear-gradient(107deg, #b48b3d 50.42%, #bfa573 100%);
+    color: #000;
+    font-family: 'Poppins', sans-serif;
+    font-size: 24px;
+    font-weight: 600;
+    line-height: normal;
+    text-align: center;
+    padding: 10px 20px;
+    cursor: pointer;
+    min-width: 400px;
+}
+
+.transfer-btn:hover {
+    color: #000 !important;
+}
+
+.withdraw-usdt .send-signals {
+    border: none !important;
+    box-shadow: none !important;
+}
+
+.withdraw-usdt .send-signals .title-signal-preview {
+    padding: 1rem;
+    justify-content: center !important;
+    border-bottom: none !important;
+}
+
+/* Container untuk opsi account type gunakan flex dengan gap */
+.account-type .account-options {
+    display: flex;
+    gap: 1rem; /* Atur jarak antar opsi, bisa disesuaikan */
+}
+
+/* Setiap opsi akan menempati ruang yang sama */
+.account-type .account-option {
+    flex: 1;
+    border: 1px solid #bfa573; /* Warna gold sesuai style lainnya */
+    border-radius: 5px;
+    padding: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-sizing: border-box;
+}
+
+/* Jika ingin radio button berwarna hijau secara penuh */
+.account-type .account-option input[type='radio'] {
+    accent-color: green; /* Pastikan browser mendukung properti ini */
+}
+
+/* Contoh tambahan styling di "@custom.css" */
+.form-control#address {
+    border: 1px solid #bfa573;
+    border-radius: 5px;
+    height: 45px;
+    padding-left: 10px;
+}
+
+.address-wrapper {
+    margin: 1rem 0 !important;
+}
+
+.address-group {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.address-group .form-control {
+    flex: 1;
+    min-width: 150px;
+}
+
+/* Styling untuk modal */
+.modal-content {
+    background-color: #bfa573; /* Warna latar belakang */
+    color: #000; /* Warna teks */
+    border-radius: 10px; /* Membuat sudut membulat */
+    padding: 20px; /* Memberikan padding di dalam modal */
+    text-align: center; /* Memusatkan teks */
+}
+
+.modal-header {
+    border-bottom: none; /* Menghilangkan garis bawah header */
+}
+
+.modal-title {
+    font-weight: bold; /* Membuat teks judul tebal */
+}
+
+.modal-body {
+    font-size: 16px; /* Ukuran font untuk konten modal */
+    margin: 20px 0; /* Memberikan margin atas dan bawah */
+}
+
+.close {
+    color: #000; /* Warna tombol close */
+    opacity: 1; /* Mengatur opasitas tombol close */
+}
+
+.close:hover {
+    color: #333; /* Warna tombol close saat hover */
+}
+
+.modal-body h2,
+.modal-body h5 {
+    color: #000; /* Warna teks */
+    font-family: 'Noto Sans', sans-serif; /* Pastikan font sesuai */
+}
+
+.modal-body h2 {
+    font-size: 30px;
+    font-weight: 800;
+    line-height: 30px;
+}
+
+.modal-body h5 {
+    font-size: 20px;
+    font-weight: 600;
+    margin-top: 20px;
+}
+
+.modal-dialog {
+    display: flex;
+    align-items: center;
+    min-height: 100vh; /* Memastikan modal berada di tengah secara vertikal */
+}
+
+.modal-content {
+    margin: auto; /* Memastikan modal berada di tengah secara horizontal */
+}
+
+/* Styling untuk tab */
+.tab-navigation {
+    display: flex;
+    margin: 30px auto; /* Mengubah dari margin: 30px 0 menjadi margin: 30px auto */
+    width: 100%;
+    max-width: 600px;
+}
+
+/* Khusus untuk tab-navigation di halaman payment */
+.payment-page .tab-navigation {
+    margin-bottom: 0;
+}
+
+.tab-item {
+    flex: 1;
+    padding: 12px 20px;
+    text-align: center;
+    font-weight: 600;
+    font-size: 16px;
+    color: #fff;
+    background-color: #444;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.tab-item:hover {
+    color: #fff; /* Mempertahankan warna teks putih saat hover */
+    text-decoration: none; /* Menghilangkan garis bawah */
+}
+
+.tab-item:first-child {
+    border-right: 1px solid #222;
+}
+
+.tab-item.active {
+    background-color: #bfa573;
+    color: #000;
+}
+
+.tab-content {
+    display: none;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+@media (max-width: 768px) {
+    .tab-navigation {
+        flex-direction: column;
+    }
+
+    .tab-item {
+        width: 100%;
+        margin-bottom: 5px;
+    }
+
+    .tab-item:first-child {
+        border-right: none;
+        border-bottom: 1px solid #222;
+    }
+}
+
+/* Label Satoshi Signal */
+.satoshi-signal-label {
+    display: inline-block;
+    padding: 12px 20px;
+    text-align: center;
+    font-weight: 600;
+    font-size: 16px;
+    background-color: #bfa573;
+    color: #000;
+    margin: 30px auto 0;
+    max-width: 300px;
+    width: 100%;
+}
+
+/* Tambahan style untuk container label jika diperlukan */
+.satoshi-signal-container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+@media (max-width: 768px) {
+    .satoshi-signal-label {
+        width: 100%;
+        max-width: 100%;
+    }
+}
+
+/* Styling untuk peringatan ketika day remaining kurang dari 60 hari */
+.warning-card {
+    border: 2px solid #f80d0d !important;
+}
+
+.warning-text {
+    color: #f80d0d !important;
+}
+
+.warning-days {
+    color: #f80d0d !important;
+    font-weight: 600 !important;
+}
+
+/* Animasi berkedip untuk peringatan */
+@keyframes blink {
+    0% {
+        opacity: 1;
+    }
+    20% {
+        opacity: 0.2;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.blink {
+    animation: blink 0.5s linear infinite;
+}
+
+/* NEW STYLE: QR Code Container styling and hover cursor enhancements */
+.qr-code-container {
+    cursor: default;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    background: #fff;
+    padding: 20px;
+    border: 1px solid #000;
+    z-index: 10000;
+}
+
+.qr-code-container img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+.qr-code-container button {
+    cursor: pointer;
+    background-color: #bfa573;
+    border: none;
+    color: #000;
+    padding: 5px 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    margin-top: 10px;
+}
+
+.qr-code-container button:hover {
+    background-color: #a37b2d;
+}
+
+/* Set cursor pointer for referral icons and text on hover */
+.referral-qr svg:hover,
+.referral-qr p:hover {
+    cursor: pointer;
+}
+
+#table_totalmember_wrapper > div:nth-child(1) > div:nth-child(2) {
+    display: flex;
+    justify-content: flex-end !important;
+    align-items: center;
+}
+
+#table_totalmember_satoshi_wrapper > div:nth-child(1) > div:nth-child(2) {
+    display: flex;
+    justify-content: flex-end !important;
+    align-items: center;
+}
+
+#table_freemember_wrapper > div:nth-child(1) > div:nth-child(2) {
+    display: flex;
+    justify-content: flex-end !important;
+    align-items: center;
+}
+
+#table_freemember_satoshi_wrapper > div:nth-child(1) > div:nth-child(2) {
+    display: flex;
+    justify-content: flex-end !important;
+    align-items: center;
+}
+
+#table_referralmember_satoshi_wrapper > div:nth-child(1) > div:nth-child(2) {
+    display: flex;
+    justify-content: flex-end !important;
+    align-items: center;
+}
+
+#table_satoshi_requestpayment_wrapper > div:nth-child(1) > div:nth-child(2) {
+    display: flex;
+    justify-content: flex-end !important;
+    align-items: center;
+}
+
+#table_referralmember_wrapper > div:nth-child(1) > div:nth-child(2) {
+    display: flex;
+    justify-content: flex-end !important;
+    align-items: center;
+}
+
+#tbl_freemember_wrapper > div:nth-child(1) > div:nth-child(2) {
+    display: flex;
+    justify-content: flex-end !important;
+    align-items: center;
+}
+
+#table_referral_wrapper > div:nth-child(1) > div:nth-child(2) {
+    display: flex;
+    justify-content: flex-end !important;
+    align-items: center;
+}
+
+#table_commission_wrapper > div:nth-child(1) > div:nth-child(2) {
+    display: flex;
+    justify-content: flex-end !important;
+    align-items: center;
+}
+
+/* Styling untuk search bar table withdraw */
+#table_withdraw_wrapper > div:nth-child(1) > div:nth-child(2) {
+    display: flex;
+    justify-content: flex-end !important;
+    align-items: center;
+}
+
+#table_level_wrapper > div:nth-child(1) > div:nth-child(2) {
+    display: flex;
+    justify-content: flex-end !important;
+    align-items: center;
+}
+
+/* Styling untuk tombol back */
+.back-button {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: #ffffff;
+    font-weight: bold;
+    padding: 10px 20px;
+    margin: 20px 0;
+    width: fit-content;
+    border: 2px solid #b48b3d;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+.back-button:hover {
+    background: rgba(180, 139, 61, 0.1);
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.back-button svg {
+    margin-right: 10px;
 }

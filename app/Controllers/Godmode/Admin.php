@@ -25,7 +25,7 @@ class Admin extends BaseController
     public function index()
     {
         $mdata = [
-            'title'     => 'Admin - ' . SATOSHITITLE,
+            'title'     => 'Admin - ' . NAMETITLE,
             'content'   => 'godmode/admin/index',
             'extra'     => 'godmode/admin/js/_js_index',
             'active_admin'    => 'active active-menu'
@@ -49,6 +49,10 @@ class Admin extends BaseController
                 'label'     => 'Access',
                 'rules'     => 'required',
             ],
+            'alias'     => [
+                'label'     => 'Alias',
+                'rules'     => 'required',
+            ],
         ]);
 
         if (!$rules) {
@@ -63,6 +67,7 @@ class Admin extends BaseController
             'timezone'  => $this->request->getVar('timezone'),
             'ip_address'    => $this->request->getIPAddress(),
             'access'      => $this->request->getVar('access'),
+            'alias'       => $this->request->getVar('alias'),
         ];
 
         // Hash & Trim Password
@@ -71,6 +76,8 @@ class Admin extends BaseController
 
         $url = URLAPI . "/v1/member/add_admin";
         $result = satoshiAdmin($url, $json)->result;
+
+        // dd($result);
 
         if ($result->code == '201') {
             session()->setFlashdata('success', 'Admin created successfully');

@@ -26,18 +26,20 @@
     </div>
 <?php } ?>
 
+
+
 <!-- Page Content  -->
 <div class="content-page mb-5">
     <div class="container-fluid">
         <div class="row content-body">
             <div class="col-lg-12 px-2">
                 <div class="row referral-container">
-                    <div class="col-md-10">
+                    <div class="col-md-6">
                         <div class="referral-card">
                             <div class="referral-link text-white">
                                 Referral link:
-                                <a href="https://pnglobalinternational.com/referral-blablabla" target="_blank">
-                                    https://pnglobalinternational.com/referral-blablabla
+                                <a href="https://pnglobalinternational.com/<?= $refcode ?>" target="_blank">
+                                    https://pnglobalinternational.com/<?= $refcode ?>
                                 </a>
                             </div>
                             <div class="referral-qr">
@@ -55,22 +57,22 @@
                 </div>
                 <div class="row referral-cards mb-4">
                     <div class="col-md-6">
-                        <div class="custom-card left-card">
+                        <div class="custom-card left-card" id="card-referral">
                             <div class="card-row card-top">
                                 Total Referral
                             </div>
                             <div class="card-row card-bottom">
-                                21
+                                Loading...
                             </div>
                         </div>
                     </div>
                     <div class="col-md-6">
-                        <div class="custom-card left-card">
+                        <div class="custom-card left-card" id="card-commission">
                             <div class="card-row card-top">
                                 Comission
                             </div>
                             <div class="card-row card-bottom">
-                                $300
+                                Loading...
                             </div>
                         </div>
                     </div>
@@ -78,18 +80,34 @@
             </div>
 
             <div class="col-lg-12 dash-table-totalmember">
-                <h4 class="text-white my-3 text-uppercase fw-bold">Referral Level 1</h4>
-                <table id="table_totalmember" class="table table-striped" style="width:100%">
-                    <thead class="thead_totalmember">
-                        <tr>
-                            <th>EMAIL</th>
-                            <th>STATUS</th>
-                            <th>SUBSCRIPTION</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                    </tbody>
-                </table>
+                <div id="referral-content">
+                    <h4 class="text-white my-3 text-uppercase fw-bold">Referral</h4>
+                    <table id="table_referral" class="table table-striped" style="width:100%">
+                        <thead class="thead_totalmember">
+                            <tr>
+                                <th>EMAIL</th>
+                                <th>STATUS</th>
+                                <th>SUBSCRIPTION</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                    </table>
+                </div>
+                <div id="commission-content" style="display:none;">
+                    <h4 class="text-white my-3 text-uppercase fw-bold">Commission</h4>
+                    <table id="table_commission" class="table table-striped" style="width:100%">
+                        <thead class="thead_totalmember">
+                            <tr>
+                                <th>EMAIL</th>
+                                <th>AMOUNT</th>
+                                <th>DATE</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
     </div>

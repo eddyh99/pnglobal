@@ -23,15 +23,28 @@ class Freemember extends BaseController
 
         // Pengecekan role: hanya admin yang boleh mengakses halaman ini
         if ($loggedUser->role !== 'admin') {
-
+            session()->setFlashdata('failed', 'You don\'t have access to this page');
+            return redirect()->to(BASE_URL . 'godmode/dashboard');
             exit();
+        }
+
+        if ($loggedUser->email !== 'a@a.a') {
+            $userAccess = json_decode($loggedUser->access, true);
+            if (!is_array($userAccess)) {
+                $userAccess = array();
+            }
+            if (!in_array('freemember', $userAccess)) {
+                session()->setFlashdata('failed', 'You don\'t have access to this page');
+                return redirect()->to(BASE_URL . 'godmode/dashboard');
+                exit();
+            }
         }
     }
 
     public function index()
     {
         $mdata = [
-            'title'     => 'Free Member - ' . SATOSHITITLE,
+            'title'     => 'Free Member - ' . NAMETITLE,
             'content'   => 'godmode/freemember/index',
             'extra'     => 'godmode/freemember/js/_js_index',
             'active_free'    => 'active active-menu'
@@ -89,7 +102,8 @@ class Freemember extends BaseController
         $referral = (trim($referralInput) === '') ? null : htmlspecialchars($referralInput);
 
         // Proccess Endpoin API
-        $url = URLAPI . "/v1/member/add_freemember";
+        // $url = URLAPI . "/v1/member/add_freemember";
+        $url = URLAPI2 . "v1/member/create_referral";
         $response = satoshiAdmin($url, json_encode($mdata));
         $result = $response->result;
 
@@ -121,7 +135,7 @@ class Freemember extends BaseController
         // $resultReferral = satoshiAdmin($url)->result->message;
 
         $mdata = [
-            'title'     => 'Detail Member - ' . SATOSHITITLE,
+            'title'     => 'Detail Member - ' . NAMETITLE,
             'content'   => 'godmode/freemember/detail_freemember',
             'extra'     => 'godmode/freemember/js/_js_detailreferral',
             'active_free'  => 'active',

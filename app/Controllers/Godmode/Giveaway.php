@@ -28,7 +28,7 @@ class Giveaway extends BaseController
     public function index()
     {
         $mdata = [
-            'title'     => 'Giveaway - ' . SATOSHITITLE,
+            'title'     => 'Giveaway - ' . NAMETITLE,
             'content'   => 'godmode/giveaway/index',
             'extra'     => 'godmode/giveaway/js/_js_index',
             'active_giveaway'    => 'active active-menu'
@@ -40,9 +40,9 @@ class Giveaway extends BaseController
     public function get_giveaway()
     {
         // Call Endpoin Get Total Member
-        // $url = URLAPI . "/v1/referral/get_giveaway";
-        // $result = satoshiAdmin($url)->result->message;
-        // echo json_encode($result);
+        $url = URLAPI2 . "/v1/referral/get_giveaway";
+        $result = satoshiAdmin($url)->result->message;
+        echo json_encode($result);
     }
 
     public function sendbonus()
@@ -53,5 +53,18 @@ class Giveaway extends BaseController
             'email'   => htmlspecialchars($this->request->getVar('email')),
             'amount'  => htmlspecialchars($this->request->getVar('amount')),
         ];
+
+        // Proccess Endpoin API
+        $url = URLAPI2 . "/v1/payment/send_bonus?type=giveaway&idgive=" . $gid;
+        $response = satoshiAdmin($url, json_encode($mdata));
+        $result = $response->result;
+
+        if ($result->code != '200') {
+            session()->setFlashdata('failed', "Something Wrong, Please Try Again!");
+            return redirect()->to(BASE_URL . 'godmode/giveaway');
+        } else {
+            session()->setFlashdata('success', "Bonus has been successfully sent");
+            return redirect()->to(BASE_URL . 'godmode/giveaway');
+        }
     }
 }

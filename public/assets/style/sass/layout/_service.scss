@@ -1669,7 +1669,7 @@
 .main-section-otp {
     /* Styling untuk section OTP wrapper */
     background-color: #272626;
-    height: 100vh;
+    min-height: 100vh;
     overflow: hidden;
     bottom: 0;
 }

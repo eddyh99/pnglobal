@@ -3,7 +3,7 @@
     Desc       : File ini merupakan styling untuk 
                  Component Button yang akan dipakai berulang
 
-------------------------------------------------------------*/ 
+------------------------------------------------------------*/
 
 /**
  * TABLE OF CONTENTS
@@ -12,12 +12,11 @@
  *
  */
 
- @use '../abstracts/variables' as var;
+@use '../abstracts/variables' as var;
 
-
- /*----------------------------------------------------------
+/*----------------------------------------------------------
 1. Buttons Landing page Start 
-------------------------------------------------------------*/ 
+------------------------------------------------------------*/
 .btn-navbar-contactform {
     display: block;
     background-color: var.$bg-primary-pnglobal;
@@ -26,11 +25,10 @@
     border-radius: 5px;
     font-size: 13px;
     font-weight: 500;
-    
+
     &:hover {
         background-color: var.$bg-primary-pnglobal;
         color: var.$text-black-pnglobal;
-        box-shadow: 0px 4px 4px 0px #E8D9BD;
         font-weight: 700;
     }
 }
@@ -43,11 +41,11 @@
     border-radius: 5px;
     font-size: 13px;
     font-weight: 500;
-    
+
     &:hover {
         background-color: var.$bg-black-pnglobal;
         color: var.$text-primary-pnglobal;
-        box-shadow: 0px 4px 4px 0px #E8D9BD;
+        box-shadow: 0px 4px 4px 0px #e8d9bd;
         font-weight: 700;
     }
 }
@@ -60,11 +58,11 @@
     border-radius: 5px;
     font-size: 13px;
     font-weight: 500;
-    
+
     &:hover {
         background-color: var.$bg-white-pnglobal;
         color: var.$text-primary-pnglobal;
-        box-shadow: 0px 4px 4px 0px #E8D9BD;
+        // box-shadow: 0px 4px 4px 0px #E8D9BD;
         font-weight: 700;
     }
 }
@@ -81,7 +79,7 @@
 .btn-zoom {
     width: 100%;
     background-color: var.$bg-primary-pnglobal;
-    padding: 1.0rem 0.5rem;
+    padding: 1rem 0.5rem;
     border-radius: 999999px;
     text-transform: uppercase;
     color: var.$text-white-pnglobal;
@@ -92,15 +90,15 @@
 .btn-footer-contactform {
     background-color: var.$bg-primary-pnglobal;
     color: var.$text-black-pnglobal;
+    font-family: var.$f-poppins;
     padding: 0.8rem 1rem !important;
     border-radius: 10px;
     font-size: 13px;
     font-weight: 500;
-    
+
     &:hover {
         background-color: var.$bg-primary-pnglobal;
         color: var.$text-white-pnglobal;
-        box-shadow: 0px 4px 4px 0px #E8D9BD;
         font-weight: 700;
     }
 }
@@ -108,15 +106,16 @@
 .btn-footer-enrollnow {
     background-color: var.$bg-black-pnglobal;
     color: var.$text-white-pnglobal;
+    font-family: var.$f-poppins;
     padding: 0.8rem 1rem !important;
     border-radius: 10px;
     font-size: 13px;
     font-weight: 500;
-    
+
     &:hover {
         background-color: var.$bg-black-pnglobal;
         color: var.$text-white-pnglobal;
-        box-shadow: 0px 4px 4px 0px #E8D9BD;
+        box-shadow: 0px 4px 4px 0px #e8d9bd;
         font-weight: 700;
     }
 }
@@ -131,10 +130,10 @@
 }
 
 .btn-satoshi-price-register {
-    background-color: #C5A571;
+    background-color: #c5a571;
     color: #000000;
     font-weight: 900;
-    -webkit-text-stroke: 0.3px #ECCF98;
+    -webkit-text-stroke: 0.3px #eccf98;
     font-weight: 800;
     font-size: 22px;
 }
@@ -148,16 +147,16 @@
     padding: 10px 20px;
     cursor: pointer;
 
-    input[type="radio"]{
-        appearance: auto; 
-        accent-color: green; 
-        
+    input[type='radio'] {
+        appearance: auto;
+        accent-color: green;
+
         &:hover {
-            accent-color: green; 
+            accent-color: green;
         }
     }
 
-    input[type="radio"]:checked + span {
+    input[type='radio']:checked + span {
         color: rgb(1, 1, 1);
     }
 
@@ -167,10 +166,6 @@
     }
 }
 
- /*----------------------------------------------------------
+/*----------------------------------------------------------
 1. Buttons Landing page End 
-------------------------------------------------------------*/ 
-
-
-
-
+------------------------------------------------------------*/

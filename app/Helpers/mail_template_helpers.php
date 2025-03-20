@@ -297,7 +297,7 @@ function emailtemplate_activation_account($otp, $email)
             <head>
                 <meta name='color-scheme' content='light'>
                 <meta name='supported-color-schemes' content='light'>
-                <title>Activation Account Satoshi Signal</title>
+                <title>Activation Account PN Global</title>
             </head>
     
             <body>
@@ -332,7 +332,7 @@ function emailtemplate_activation_account($otp, $email)
                         font-size: 14px;
                         color: #000000;
                         '>
-                            Thank you for register Satoshi Signal. To proceed with your request, enter OTP for Active Account Below
+                            Thank you for register PN Global. To proceed with your request, enter OTP for Active Account Below
                         </p>
                         <h1 style='letter-spacing: 12px;'>" . $otp . "</h1>
                         <br><br>
@@ -348,7 +348,7 @@ function emailtemplate_activation_account($otp, $email)
                         color: #000000;
                         '>
                             Best regards,<br>  
-                            Satoshi Signal Team
+                            PN Global Team
                         </p>
                     </div>
                     <hr>
@@ -409,7 +409,7 @@ function emailtemplate_resend_token($otp, $email)
                         font-size: 14px;
                         color: #000000;
                         '>
-                            Thank you for register Satoshi Signal. To proceed with your request, enter OTP for Active Account Below
+                            Thank you for register PN Global. To proceed with your request, enter OTP for Active Account Below
                         </p>
                         <h1 style='letter-spacing: 12px;'>" . $otp . "</h1>
                         <br><br>
@@ -425,7 +425,7 @@ function emailtemplate_resend_token($otp, $email)
                         color: #000000;
                         '>
                             Best regards,<br>  
-                            Satoshi Signal Team
+                            PN Global Team
                         </p>
                     </div>
                     <hr>

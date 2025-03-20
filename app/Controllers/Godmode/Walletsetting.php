@@ -29,7 +29,7 @@ class Walletsetting extends BaseController
     public function index()
     {
         $mdata = [
-            'title'     => 'Wallet Setting - ' . SATOSHITITLE,
+            'title'     => 'Wallet Setting - ' . NAMETITLE,
             'content'   => 'godmode/walletsetting/index',
             'extra'     => 'godmode/walletsetting/js/_js_index',
             'active_walletsetting' => 'active',

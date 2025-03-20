@@ -12,7 +12,7 @@ class Dashboard extends BaseController
 
         // Jika belum login, redirect ke halaman signin
         if (!$session->has('logged_user')) {
-            header("Location: " . BASE_URL . 'member/auth/login');
+            header("Location: " . BASE_URL . 'godmode/auth/signin');
             exit();
         }
 
@@ -21,29 +21,64 @@ class Dashboard extends BaseController
 
         // Pengecekan role: hanya admin yang boleh mengakses halaman ini
         if ($loggedUser->role !== 'admin') {
-
-            exit();
+            session()->setFlashdata('failed', "You don't have access to this page");
+            return redirect()->to(BASE_URL . 'godmode/auth/signin');
         }
     }
 
     public function index()
     {
-        $url = URLAPI . "/v1/member/get_membership";
-        $resultMembership = satoshiAdmin($url)->result;
-        $totalmember = $resultMembership->message->total_members ?? 0;
-        $totalfreemember = $resultMembership->message->total_free_members ?? 0;
-        $totalsubscription = $resultMembership->message->total_subscriptions ?? 0;
-        $totalsignal = $resultMembership->message->total_signals ?? 0;
+        $urlglobal = URLAPI . "/v1/member/get_membership";
+        $resultglobal = satoshiAdmin($urlglobal)->result;
+
+        // Call Endpoin total_member
+        $url = URLAPI2 . "/v1/member/total_member";
+        $resultTotalMember = satoshiAdmin($url)->result;
+
+        // Call Endpoin total free member
+        $url = URLAPI2 . "/v1/member/total_freemember";
+        $resultFreemember = satoshiAdmin($url)->result;
+
+        // Call Endpoin total Referral
+        $url = URLAPI2 . "/v1/subscription/subscribe_active";
+        $resultSubscriber = satoshiAdmin($url)->result;
+
+        // Call Endpoin total Message
+        $url = URLAPI2 . "/v1/signal/total_message";
+        $resultMessage = satoshiAdmin($url)->result;
+
+        // Call Endpoin total Signal
+        $url = URLAPI2 . "/v1/member/total_signal";
+        $resultSignal = satoshiAdmin($url)->result;
+
+
+        // PN Global
+        $totalmemberpnglobal = $resultglobal->message->total_members ?? 0;
+        $totalfreememberpnglobal = $resultglobal->message->total_free_members ?? 0;
+        $totalsubscriptionpnglobal = $resultglobal->message->total_subscriptions ?? 0;
+        $totalsignalpnglobal = $resultglobal->message->total_signals ?? 0;
+
+        // Satoshi Signal
+        $totalmembersatoshi = $resultTotalMember->message ?? 0;
+        $totalfreemembersatoshi = $resultFreemember->message ?? 0;
+        $totalsubscriptionsatoshi = $resultSubscriber->message ?? 0;
+        $totalsignalsatoshi = $resultSignal->message ?? 0;
+        $totalmessagesatoshi = $resultMessage->message ?? 0;
 
         $mdata = [
-            'title'     => 'Dashboard - ' . SATOSHITITLE,
+            'title'     => 'Dashboard - ' . NAMETITLE,
             'content'   => 'godmode/dashboard/index',
             'extra'     => 'godmode/dashboard/js/_js_index',
             'active_dash'    => 'active',
-            'totalmember' => $totalmember,
-            'freemember' => $totalfreemember,
-            'subscriber' => $totalsubscription,
-            'signal' => $totalsignal,
+            'totalmemberpnglobal' => $totalmemberpnglobal,
+            'freememberpnglobal' => $totalfreememberpnglobal,
+            'subscriberpnglobal' => $totalsubscriptionpnglobal,
+            'signalpnglobal' => $totalsignalpnglobal,
+            'totalmembersatoshi' => $totalmembersatoshi,
+            'freemembersatoshi' => $totalfreemembersatoshi,
+            'subscriptionsatoshi' => $totalsubscriptionsatoshi,
+            'signalsatoshi' => $totalsignalsatoshi,
+            'messagesatoshi' => $totalmessagesatoshi,
         ];
 
         return view('godmode/layout/admin_wrapper', $mdata);
@@ -51,25 +86,42 @@ class Dashboard extends BaseController
 
     public function detailmember($email, $id_member)
     {
-
         // Decode Email
         $finalemail = base64_decode($email);
 
-        // Call Get Memeber By Email
-        $url = URLAPI . "/v1/member/get_detailmember";
-        $resultMember = satoshiAdmin($url, json_encode(['email' => $finalemail]))->result;
+        // Get tab parameter with default value
+        $tab = $this->request->getGet('tab') ?? 'pn-global';
+
+        // Log untuk debugging
+        log_message('debug', 'Detail member - Raw tab parameter: ' . $this->request->getGet('tab'));
+        log_message('debug', 'Detail member - Processed tab value: ' . $tab);
+        log_message('debug', 'Detail member - Email: ' . $finalemail);
+
+        // Determine which API endpoint to use based on active tab
+        $url = $tab === 'satoshi-signal'
+            ? URLAPI2 . "/auth/getmember_byemail?email=" . $finalemail
+            : URLAPI . "/v1/member/get_detailmember";
+
+        log_message('debug', 'Detail member - Using API URL: ' . $url);
+
+        $resultMember = $tab === 'satoshi-signal'
+            ? satoshiAdmin($url)->result
+            : satoshiAdmin($url, json_encode(['email' => $finalemail]))->result;
+
+        log_message('debug', 'Detail member - API Response received');
 
         $mdata = [
-            'title'     => 'Detail Member - ' . SATOSHITITLE,
+            'title'     => 'Detail Member - ' . NAMETITLE,
             'content'   => 'godmode/dashboard/detail_member',
             'extra'     => 'godmode/dashboard/js/_js_detailmember',
             'member'    => $resultMember,
             'active_dash'   => 'active',
             'email' => $finalemail,
             'id_member' => $id_member,
-            // 'type'      => $finaltype,
+            'tab' => $tab // Pass tab to view
         ];
 
+        log_message('debug', 'Detail member - View data prepared with tab: ' . $tab);
         return view('godmode/layout/admin_wrapper', $mdata);
     }
 
@@ -92,7 +144,7 @@ class Dashboard extends BaseController
         $resultReferral = null;
 
         $mdata = [
-            'title'     => 'Detail Member - ' . SATOSHITITLE,
+            'title'     => 'Detail Member - ' . NAMETITLE,
             'content'   => 'godmode/dashboard/detail_referral',
             'extra'     => 'godmode/dashboard/js/_js_detailreferral',
             'active_dash'  => 'active',
@@ -150,12 +202,20 @@ class Dashboard extends BaseController
         }
     }
 
+    public function get_downline($id)
+    {
+        // Call Endpoin Get Referral Member
+        $url = URLAPI2 . "/v1/referral/getDownline?id=" . $id;
+        $result = satoshiAdmin($url)->result->message;
+        echo json_encode($result);
+    }
+
     public function getlevel_downline($id, $level)
     {
         // Call Endpoin Get Referral Member
-        // $url = URLAPI . "/v1/referral/getlevel_downline?id=".$id."&level=".$level;
-        // $result = satoshiAdmin($url)->result->message;
-        // echo json_encode($result);
+        $url = URLAPI2 . "/v1/referral/getlevel_downline?id=" . $id . "&level=" . $level;
+        $result = satoshiAdmin($url)->result->message;
+        echo json_encode($result);
     }
 
     public function set_statusMember($email, $status)

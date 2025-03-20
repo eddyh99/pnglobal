@@ -8,22 +8,36 @@ class Payment extends BaseController
 {
     public function __construct()
     {
-        // $session = session();
-        // if(!$session->has('logged_user')){
-        //     header("Location: ". BASE_URL . 'godmode/auth/signin');
-        //     exit();
-        // }
-        // if ($_SESSION["logged_user"]->role!='admin'){
-        //     header('HTTP/1.0 403 Forbidden');
-        //     exit();
-        // }
+        $session = session();
+        if (!$session->has('logged_user')) {
+            header("Location: " . BASE_URL . 'godmode/auth/signin');
+            exit();
+        }
 
+        $loggedUser = $session->get('logged_user');
+        if ($loggedUser->role != 'admin') {
+            session()->setFlashdata('failed', 'You don\'t have access to this page');
+            return redirect()->to(BASE_URL . 'godmode/dashboard');
+            exit();
+        }
+
+        if ($loggedUser->email !== 'a@a.a') {
+            $userAccess = json_decode($loggedUser->access, true);
+            if (!is_array($userAccess)) {
+                $userAccess = array();
+            }
+            if (!in_array('payment', $userAccess)) {
+                session()->setFlashdata('failed', 'You don\'t have access to this page');
+                header("Location: " . BASE_URL . 'godmode/dashboard');
+                exit();
+            }
+        }
     }
 
     public function index()
     {
         $mdata = [
-            'title'     => 'Payment - ' . SATOSHITITLE,
+            'title'     => 'Payment - ' . NAMETITLE,
             'content'   => 'godmode/payment/index',
             'extra'     => 'godmode/payment/js/_js_index',
             'active_payment'    => 'active active-menu'
@@ -46,19 +60,24 @@ class Payment extends BaseController
         return json_encode($data);
     }
 
-    public function detailpayment($id, $email)
+    public function detailpayment($id, $email, $amount, $requested_at = null)
     {
-        // Call Get Detail Request
-        // $url = URLAPI . "/v1/payment/detailpayment?email=".base64_decode($email)."&id=".$id;
-        // $resultPayment = satoshiAdmin($url)->result->message;
-        $resultPayment = [];
+        $email = base64_decode($email);
+        $amount = base64_decode($amount);
+        $requested_at = $requested_at ? base64_decode($requested_at) : null;
+        $url = URLAPI . "/v1/withdraw/detail_request_payment?id=" . $id;
+        $resultPayment = satoshiAdmin($url)->result->message;
 
         $mdata = [
-            'title'     => 'Detail Member - ' . SATOSHITITLE,
+            'title'     => 'Detail Payment - ' . NAMETITLE,
             'content'   => 'godmode/payment/detail_payment',
             'extra'     => 'godmode/payment/js/_js_detailpayment',
             'active_payment'  => 'active',
             'payment'    => $resultPayment,
+            'id'    => $id,
+            'email'    => $email,
+            'amount'    => $amount,
+            'requested_at' => $requested_at,
         ];
 
         return view('godmode/layout/admin_wrapper', $mdata);
@@ -80,5 +99,19 @@ class Payment extends BaseController
             'email'    => htmlspecialchars($this->request->getVar('email')),
             'amount'  => htmlspecialchars($this->request->getVar('amount')),
         ];
+    }
+
+    public function get_satoshi_requestpayment()
+    {
+        // Call Endpoint Get Satoshi Request Payment
+        $url = URLAPI2 . "/v1/payment/requestpayment";
+        $response = satoshiAdmin($url);
+        $result = $response->result;
+
+        $data = [
+            'code' => $result->code,
+            'message' => $result->message
+        ];
+        return json_encode($data);
     }
 }

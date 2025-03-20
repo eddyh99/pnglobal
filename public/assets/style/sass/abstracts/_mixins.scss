@@ -9,7 +9,7 @@
                  @include mix.sm {...property}
                  
 
-------------------------------------------------------------*/ 
+------------------------------------------------------------*/
 
 @use './variables' as var;
 
@@ -21,11 +21,10 @@
  * 3. Animation
  *
  */
- 
 
 /*----------------------------------------------------------
 1. Layouting Start
-------------------------------------------------------------*/ 
+------------------------------------------------------------*/
 
 @mixin flex-tengah {
     display: flex;
@@ -46,7 +45,6 @@
     align-items: start;
     flex-direction: column;
 }
-
 
 @mixin flex-kiri {
     display: flex;
@@ -71,17 +69,16 @@
 
 /*----------------------------------------------------------
 1. Layouting End
-------------------------------------------------------------*/ 
+------------------------------------------------------------*/
 
 /*----------------------------------------------------------
 2. Breakpoints Start
-------------------------------------------------------------*/ 
-
+------------------------------------------------------------*/
 
 /*----------------------------------------------------------
 //  Untuk Media Query Min Width untuk mengubah suatu
 // ukuran tertentu dan seterusnya sampai ukuran terbesar
-------------------------------------------------------------*/ 
+------------------------------------------------------------*/
 
 // 375
 @mixin xs {
@@ -125,7 +122,6 @@
     }
 }
 
-
 // 1024
 @mixin xl {
     @media (min-width: #{var.$screen-1024}) {
@@ -162,13 +158,52 @@
 }
 
 /*----------------------------------------------------------
-2. Breakpoints End
-------------------------------------------------------------*/ 
+//  Untuk Media Query Max Width untuk mengubah suatu
+// ukuran tertentu dan seterusnya sampai ukuran terkecil
+------------------------------------------------------------*/
 
+// Max 576px (untuk perangkat mobile)
+@mixin sm-down {
+    @media (max-width: #{var.$screen-567 - 1px}) {
+        @content;
+    }
+}
+
+// Max 768px (untuk perangkat tablet kecil)
+@mixin md-down {
+    @media (max-width: #{var.$screen-768 - 1px}) {
+        @content;
+    }
+}
+
+// Max 992px (untuk perangkat tablet besar)
+@mixin lg-down {
+    @media (max-width: #{var.$screen-992 - 1px}) {
+        @content;
+    }
+}
+
+// Max 1024px (untuk laptop kecil)
+@mixin xl-down {
+    @media (max-width: #{var.$screen-1024 - 1px}) {
+        @content;
+    }
+}
+
+// Max 1200px (untuk laptop)
+@mixin xl2-down {
+    @media (max-width: #{var.$screen-1200 - 1px}) {
+        @content;
+    }
+}
+
+/*----------------------------------------------------------
+2. Breakpoints End
+------------------------------------------------------------*/
 
 /*----------------------------------------------------------
 3. Animation Start
-------------------------------------------------------------*/ 
+------------------------------------------------------------*/
 @mixin animation-reveal {
     display: inline-block;
     transform: translateY(115px);
@@ -176,13 +211,12 @@
     -moz-transform: translateY(115px);
     -ms-transform: translateY(115px);
     -o-transform: translateY(115px);
-    transition: transform .5s;
-    -webkit-transition: transform .5s;
-    -moz-transition: transform .5s;
-    -ms-transition: transform .5s;
-    -o-transition: transform .5s;
+    transition: transform 0.5s;
+    -webkit-transition: transform 0.5s;
+    -moz-transition: transform 0.5s;
+    -ms-transition: transform 0.5s;
+    -o-transition: transform 0.5s;
 }
-
 
 @mixin animation-reveal-to-right {
     display: inline-block;
@@ -191,13 +225,13 @@
     -moz-transform: translateX(-115px);
     -ms-transform: translateX(-115px);
     -o-transform: translateX(-115px);
-    transition: transform .5s;
-    -webkit-transition: transform .5s;
-    -moz-transition: transform .5s;
-    -ms-transition: transform .5s;
-    -o-transition: transform .5s;
+    transition: transform 0.5s;
+    -webkit-transition: transform 0.5s;
+    -moz-transition: transform 0.5s;
+    -ms-transition: transform 0.5s;
+    -o-transition: transform 0.5s;
     opacity: 0;
 }
 /*----------------------------------------------------------
 3. Animation End
-------------------------------------------------------------*/ 
+------------------------------------------------------------*/

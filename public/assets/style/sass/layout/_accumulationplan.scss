@@ -43,7 +43,7 @@
 
                 .title {
                     color: #fff;
-                    font-family: var.$f-noto;
+                    font-family: var.$f-poppins;
                     font-size: 30px;
                     font-weight: 800;
                     line-height: 25px;
@@ -53,7 +53,7 @@
 
                 .subtitle {
                     color: #fff;
-                    font-family: var.$f-noto;
+                    font-family: var.$f-poppins;
                     font-size: 20px;
                     font-weight: 700;
                     line-height: 35px;
@@ -63,7 +63,7 @@
 
                 .description {
                     color: #000;
-                    font-family: var.$f-noto;
+                    font-family: var.$f-poppins;
                     font-size: 20px;
                     font-weight: 500;
                     line-height: 30px;
@@ -72,7 +72,7 @@
 
                 .cta-button {
                     color: #fff;
-                    font-family: var.$f-noto;
+                    font-family: var.$f-poppins;
                     font-size: 16px;
                     font-weight: 600;
                     line-height: 25px;
@@ -89,7 +89,6 @@
 
                     &:hover {
                         background: #fff;
-                        box-shadow: 0px 4px 15px 0px #fff;
                         color: #000;
                     }
                 }
@@ -124,7 +123,7 @@
         color: #d1b06b;
         text-align: center;
         text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-        font-family: var.$f-noto;
+        font-family: var.$f-poppins;
         font-size: 25px;
         font-weight: 800;
         line-height: 40px;
@@ -135,7 +134,7 @@
     .systematic-description {
         color: #fff;
         text-align: center;
-        font-family: var.$f-noto;
+        font-family: var.$f-poppins;
         font-size: 20px;
         font-weight: 500;
         line-height: 30px;
@@ -163,7 +162,7 @@
         .why-title {
             color: #d1b06b;
             text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-            font-family: var.$f-noto;
+            font-family: var.$f-poppins;
             font-size: 25px;
             font-weight: 800;
             line-height: 40px;
@@ -188,7 +187,7 @@
     .benefits-content {
         .benefits-description {
             color: #fff;
-            font-family: var.$f-noto;
+            font-family: var.$f-poppins;
             font-size: 18px;
             font-weight: 500;
             line-height: 28px;
@@ -202,7 +201,7 @@
 
             li {
                 color: #d1b06b;
-                font-family: var.$f-noto;
+                font-family: var.$f-poppins;
                 font-size: 18px;
                 font-weight: 600;
                 line-height: 35px;
@@ -242,7 +241,7 @@
         .transparency-title {
             color: #d1b06b;
             text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-            font-family: var.$f-noto;
+            font-family: var.$f-poppins;
             font-size: 20px;
             font-weight: 800;
             line-height: 30px;
@@ -253,7 +252,7 @@
         .transparency-description {
             p {
                 color: #fff;
-                font-family: var.$f-noto;
+                font-family: var.$f-poppins;
                 font-size: 18px;
                 font-weight: 500;
                 line-height: 28px;
@@ -306,7 +305,7 @@
 
         .prosperity-title {
             color: #bda069;
-            font-family: var.$f-noto;
+            font-family: var.$f-poppins;
             font-size: 29px;
             font-weight: 600;
             line-height: 30px;
@@ -316,7 +315,7 @@
 
         .prosperity-subtitle {
             color: #fff;
-            font-family: var.$f-noto;
+            font-family: var.$f-poppins;
             font-size: 18px;
             font-weight: 700;
             line-height: 30px;
@@ -325,7 +324,7 @@
 
         .prosperity-description {
             color: #fff;
-            font-family: var.$f-noto;
+            font-family: var.$f-poppins;
             font-size: 18px;
             font-weight: 600;
             line-height: 30px;
@@ -334,7 +333,7 @@
 
         .prosperity-button {
             color: #000;
-            font-family: var.$f-noto;
+            font-family: var.$f-poppins;
             font-size: 18px;
             font-weight: 600;
             line-height: 25px;
@@ -349,7 +348,6 @@
 
             &:hover {
                 background: #fff;
-                box-shadow: 0px 4px 15px 0px #fff;
             }
         }
     }

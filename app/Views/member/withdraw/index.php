@@ -32,12 +32,12 @@
         <div class="row content-body">
             <div class="col-lg-12 px-2">
                 <div class="row referral-container">
-                    <div class="col-md-10">
+                    <div class="col-md-6">
                         <div class="referral-card">
                             <div class="referral-link text-white">
                                 Referral link:
-                                <a href="https://pnglobalinternational.com/referral-blablabla" target="_blank">
-                                    https://pnglobalinternational.com/referral-blablabla
+                                <a href="https://pnglobalinternational.com/<?= $refcode ?>" target="_blank">
+                                    https://pnglobalinternational.com/<?= $refcode ?>
                                 </a>
                             </div>
                             <div class="referral-qr">
@@ -82,7 +82,7 @@
 
             <div class="col-lg-12 dash-table-totalmember">
                 <h4 class="text-white my-3 text-uppercase fw-bold">WITHDRAW HISTORY</h4>
-                <table id="table_totalmember" class="table table-striped" style="width:100%">
+                <table id="table_withdraw" class="table table-striped" style="width:100%">
                     <thead class="thead_totalmember">
                         <tr>
                             <th>DATE</th>

@@ -18,7 +18,7 @@
 1. Navbar Homepage Start
 ------------------------------------------------------------*/
 .navbar {
-    // background-color: rgba(217, 217, 217, 0.15);
+    /* background-color: rgba(217, 217, 217, 0.15); */
     background-color: rgba(9, 9, 9, 0.75);
     position: absolute;
     top: 0;
@@ -53,20 +53,38 @@
         }
     }
 
+    .navbar-collapse {
+        @include mix.lg-down {
+            padding: 1rem;
+            border-radius: 8px;
+            margin-top: 1rem;
+        }
+    }
+
     .navbar-nav {
         @include mix.flex-tengah;
         width: 100%;
         gap: 2rem;
 
+        @include mix.lg-down {
+            flex-direction: column;
+            gap: 1rem;
+        }
+
         // Regular nav items
         .nav-item {
             .nav-link {
                 color: var.$text-white-pnglobal;
+                font-family: var.$f-poppins;
                 font-size: 15px;
                 text-align: center;
 
                 &:hover {
                     color: #bda069;
+                }
+
+                @include mix.lg-down {
+                    padding: 0.5rem 0;
                 }
             }
         }
@@ -80,6 +98,31 @@
                     opacity: 1;
                     visibility: visible;
                     transform: translateX(-50%);
+
+                    @include mix.lg-down {
+                        display: none;
+                        transform: none;
+                    }
+                }
+            }
+
+            @include mix.lg-down {
+                width: 100%;
+            }
+
+            .dropdown-toggle {
+                @include mix.lg-down {
+                    width: 100%;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    gap: 0.5rem;
+                }
+
+                &::after {
+                    @include mix.lg-down {
+                        margin-left: auto;
+                    }
                 }
             }
 
@@ -88,15 +131,7 @@
                 left: 50%;
                 transform: translateX(-50%);
                 text-align: center;
-                background: linear-gradient(
-                    120deg,
-                    #0b0a08 0%,
-                    #0b0a08 60%,
-                    #5c5240 80%,
-                    #ccb78f 95%,
-                    #ccb78f 100%
-                );
-
+                background: #0b0a08;
                 border: none;
                 text-align: center;
                 min-width: 350px;
@@ -104,6 +139,24 @@
                 max-width: 600px;
                 visibility: hidden;
                 transition: all 0.3s ease;
+
+                @include mix.lg-down {
+                    position: static;
+                    transform: none;
+                    background: transparent;
+                    min-width: 100%;
+                    max-width: 100%;
+                    padding: 0;
+                    margin-top: 0;
+                    display: none;
+                    visibility: visible;
+                }
+
+                &.show {
+                    @include mix.lg-down {
+                        display: block;
+                    }
+                }
 
                 .dropdown-item {
                     color: #d1b06b;
@@ -114,13 +167,19 @@
                     white-space: nowrap;
                     overflow: hidden;
                     text-overflow: ellipsis;
+                    font-family: var.$f-poppins;
                     width: 100%;
+
+                    @include mix.lg-down {
+                        padding: 8px 0;
+                    }
+
                     &:hover {
                         background-color: #d1b06b;
                         color: #0b0a08;
                         width: 100%;
                         font-weight: 800;
-                        line-height: 25px; /* 192.308% */
+                        line-height: 25px;
                     }
                 }
             }
@@ -133,24 +192,32 @@
         gap: 1rem;
         margin-left: auto;
 
+        @include mix.lg-down {
+            width: 100%;
+            margin-top: 1rem;
+        }
+
         .btn-navbar-referral {
             width: 122px;
             height: 43px;
-            background-color: white;
-            border-radius: 5px;
-            box-shadow: 0px 4px 4px 0px rgba(189, 160, 105, 1);
+            background-color: #bfa573;
             display: flex;
             align-items: center;
             font-size: 13px;
             text-decoration: none;
             text-align: center;
-            color: var.$text-primary-pnglobal;
             font-size: 14px;
-            transition: all 0.3s ease;
+            font-family: var.$f-poppins;
+            color: #ffffff;
+
+            @include mix.lg-down {
+                width: 100%;
+                justify-content: center;
+            }
 
             &:hover {
                 color: #0b0a08;
-                box-shadow: 0px 4px 4px #ffffff;
+                background-color: #ffffff;
             }
         }
     }
