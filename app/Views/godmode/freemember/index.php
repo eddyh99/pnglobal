@@ -49,10 +49,6 @@
                                         <input type="email" name="email" class="form-control">
                                     </div>
                                     <div class="wrapper-addreferral">
-                                        <label for="referral">Amount</label>
-                                        <input type="number" name="amount" class="form-control">
-                                    </div>
-                                    <div class="wrapper-addreferral">
                                         <label for="referral">Upline Referral</label>
                                         <input type="text" name="referral" class="form-control">
                                     </div>
