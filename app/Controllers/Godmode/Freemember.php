@@ -28,7 +28,7 @@ class Freemember extends BaseController
             exit();
         }
 
-        if ($loggedUser->email !== 'a@a.a') {
+        if ($loggedUser->role !== 'superadmin') {
             $userAccess = json_decode($loggedUser->access, true);
             if (!is_array($userAccess)) {
                 $userAccess = array();

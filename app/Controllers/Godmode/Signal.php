@@ -27,7 +27,7 @@ class Signal extends BaseController
         }
 
         // Pengecekan akses: hanya yang memiliki akses "signal" yang boleh mengakses halaman ini
-        if ($loggedUser->email !== 'a@a.a') {
+        if ($loggedUser->role !== 'superadmin') {
             $userAccess = json_decode($loggedUser->access, true);
             if (!is_array($userAccess)) {
                 $userAccess = array();
@@ -367,7 +367,7 @@ class Signal extends BaseController
         $mdata['limit'] = str_replace(',', '', $mdata['limit']);
 
         // Call Endpoint read signal untuk mendapatkan daftar signal
-        $url = URLAPI . "/v1/signal/readsignal";
+        $url = URLAPI . "/v1/signal/latestsignal";
         $readsignal = satoshiAdmin($url)->result->message;
 
         // Initial Alphabet
