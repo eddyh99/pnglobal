@@ -379,7 +379,7 @@ class Signal extends BaseController
         log_message('info', 'Memulai proses sell dengan tipe: ' . $typesignal);
 
         // Check Condition Signal Type
-        if ($typesignal == 'Sell A') {
+        if ($typesignal == 'SELL A') {
             foreach ($readsignal as $key => $val) {
                 // Assign value sell signal
                 $mdata['type'] = 'Sell ' . $alphabet[$key];
@@ -398,7 +398,7 @@ class Signal extends BaseController
                 $result = $response1->result;
                 sleep(1);
             }
-        } else if ($typesignal == 'Sell B') {
+        } else if ($typesignal == 'SELL B') {
             // initial Flag Buy B
             $startCheck = false;
             foreach ($readsignal as $key => $val) {
@@ -427,7 +427,7 @@ class Signal extends BaseController
                     sleep(1);
                 }
             }
-        } else if ($typesignal == 'Sell C') {
+        } else if ($typesignal == 'SELL C') {
             // initial Flag Buy C
             $startCheck = false;
             foreach ($readsignal as $key => $val) {
@@ -456,7 +456,7 @@ class Signal extends BaseController
                     sleep(1);
                 }
             }
-        } else if ($typesignal == 'Sell D') {
+        } else if ($typesignal == 'SELL D') {
             // initial Flag Buy D
             $startCheck = false;
             foreach ($readsignal as $key => $val) {
