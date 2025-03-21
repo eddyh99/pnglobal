@@ -728,23 +728,35 @@ class Signal extends BaseController
 
     public function cancel_sell()
     {
-        $signal_id  = htmlspecialchars($_GET['id']);
-        $pair_id    = htmlspecialchars($_GET['pair_id']);
-        // $url = URLAPI . "/v1/signal/cancel_sell?id=".$signal_id."&pair_id=".$pair_id;
-        // $result = satoshiAdmin($url)->result->message;
+        $signal_id = htmlspecialchars($_GET['id']);
 
-        // Untuk testing, kita buat respons dummy
-        $result = (object)[
-            'code' => '200',
-            'message' => 'Signal berhasil dibatalkan'
-        ];
+        // Panggil endpoint untuk membatalkan sinyal
+        $url = URLAPI . "/v1/order/delete?id_signal=" . $signal_id;
 
-        if ($result->code != '200') {
-            session()->setFlashdata('failed', $result->message);
-            return redirect()->to(BASE_URL . 'godmode/signal');
+        // Kirim request ke API
+        $response = satoshiAdmin($url);
+
+        // Log untuk debugging
+        log_message('info', 'Response dari endpoint cancel: ' . json_encode($response));
+
+        // Periksa response
+        if (isset($response->result) && isset($response->result->code)) {
+            $result = $response->result;
         } else {
-            session()->setFlashdata('success', $result->message);
-            return redirect()->to(BASE_URL . 'godmode/signal');
+            $result = (object)[
+                'code' => isset($response->error) ? '400' : '200',
+                'message' => isset($response->error->message) ? $response->error->message : 'Failed to cancel signal'
+            ];
         }
+
+        // Set flash message berdasarkan response
+        if ($result->code == '200' || $result->code == '201') {
+            session()->setFlashdata('success', $result->message ?? 'Signal cancelled successfully');
+        } else {
+            session()->setFlashdata('failed', $result->message ?? 'Failed to cancel signal');
+        }
+
+        // Redirect kembali ke halaman signal
+        return redirect()->to(BASE_URL . 'godmode/signal');
     }
 }

@@ -796,11 +796,45 @@
                     data: "time",
                 },
                 {
+                    data: "status",
+                },
+                {
                     data: "admin",
                 },
-
+                {
+                    data: null,
+                    "render": function(data, type, row) {
+                        // Tampilkan button cancel hanya jika ini adalah sell signal terbaru
+                        if (row.type.toLowerCase().includes('sell') && row.isFirstSell) {
+                            return '<button class="btn btn-danger btn-sm cancel-signal" data-id="' + row.id + '" data-pair-id="' + row.pair_id + '">Cancel</button>';
+                        }
+                        return '';
+                    }
+                }
             ],
 
+        });
+
+        // Event handler untuk tombol cancel
+        $('#table_message').on('click', '.cancel-signal', function() {
+            const signalId = $(this).data('id');
+
+            // Konfirmasi sebelum cancel
+            Swal.fire({
+                title: 'Confirmation',
+                text: 'Are you sure you want to cancel this signal?',
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#d33',
+                cancelButtonColor: '#3085d6',
+                confirmButtonText: 'Yes, cancel it!',
+                cancelButtonText: 'No'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    // Redirect ke endpoint cancel_sell dengan parameter yang diperlukan
+                    window.location.href = '<?= BASE_URL ?>godmode/signal/cancel_sell?id=' + signalId;
+                }
+            });
         });
 
         // Fungsi untuk menangani tombol FILL pada BUY
