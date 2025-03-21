@@ -385,14 +385,18 @@ class Signal extends BaseController
                 $mdata['type'] = 'SELL ' . $alphabet[$key];
                 $mdata['pair_id'] = $val->id;
 
-                // Send ke endpoint pertama (URLAPI)
+                // Send ke endpoint pertama (URLAPI) untuk SELL
                 $url1 = URLAPI . "/v1/order/limit_sell";
                 $response1 = satoshiAdmin($url1, json_encode($mdata));
                 log_message('info', 'Response dari endpoint limit_sell: ' . json_encode($response1));
 
-                // Send ke endpoint kedua (URLAPI2)
+                // Modifikasi data untuk endpoint kedua (hanya mengubah tipe)
+                $mdata2 = $mdata;
+                $mdata2['type'] = str_replace('SELL', 'Sell', $mdata2['type']);
+
+                // Send ke endpoint kedua (URLAPI2) untuk Sell
                 $url2 = URLAPI2 . "/v1/signal/sendsignal";
-                $response2 = satoshiAdmin($url2, json_encode($mdata));
+                $response2 = satoshiAdmin($url2, json_encode($mdata2));
                 log_message('info', 'Response dari endpoint sendsignal: ' . json_encode($response2));
 
                 $result = $response1->result;
@@ -413,14 +417,18 @@ class Signal extends BaseController
                     $mdata['type'] = 'SELL ' . $alphabet[$key];
                     $mdata['pair_id'] = $val->id;
 
-                    // Send ke endpoint pertama (URLAPI)
+                    // Send ke endpoint pertama (URLAPI) untuk SELL
                     $url1 = URLAPI . "/v1/order/limit_sell";
                     $response1 = satoshiAdmin($url1, json_encode($mdata));
                     log_message('info', 'Response dari endpoint limit_sell: ' . json_encode($response1));
 
-                    // Send ke endpoint kedua (URLAPI2)
+                    // Modifikasi data untuk endpoint kedua (hanya mengubah tipe)
+                    $mdata2 = $mdata;
+                    $mdata2['type'] = str_replace('SELL', 'Sell', $mdata2['type']);
+
+                    // Send ke endpoint kedua (URLAPI2) untuk Sell
                     $url2 = URLAPI2 . "/v1/signal/sendsignal";
-                    $response2 = satoshiAdmin($url2, json_encode($mdata));
+                    $response2 = satoshiAdmin($url2, json_encode($mdata2));
                     log_message('info', 'Response dari endpoint sendsignal: ' . json_encode($response2));
 
                     $result = $response1->result;
@@ -442,14 +450,18 @@ class Signal extends BaseController
                     $mdata['type'] = 'SELL ' . $alphabet[$key];
                     $mdata['pair_id'] = $val->id;
 
-                    // Send ke endpoint pertama (URLAPI)
+                    // Send ke endpoint pertama (URLAPI) untuk SELL
                     $url1 = URLAPI . "/v1/order/limit_sell";
                     $response1 = satoshiAdmin($url1, json_encode($mdata));
                     log_message('info', 'Response dari endpoint limit_sell: ' . json_encode($response1));
 
-                    // Send ke endpoint kedua (URLAPI2)
+                    // Modifikasi data untuk endpoint kedua (hanya mengubah tipe)
+                    $mdata2 = $mdata;
+                    $mdata2['type'] = str_replace('SELL', 'Sell', $mdata2['type']);
+
+                    // Send ke endpoint kedua (URLAPI2) untuk Sell
                     $url2 = URLAPI2 . "/v1/signal/sendsignal";
-                    $response2 = satoshiAdmin($url2, json_encode($mdata));
+                    $response2 = satoshiAdmin($url2, json_encode($mdata2));
                     log_message('info', 'Response dari endpoint sendsignal: ' . json_encode($response2));
 
                     $result = $response1->result;
@@ -471,14 +483,18 @@ class Signal extends BaseController
                     $mdata['type'] = 'SELL ' . $alphabet[$key];
                     $mdata['pair_id'] = $val->id;
 
-                    // Send ke endpoint pertama (URLAPI)
+                    // Send ke endpoint pertama (URLAPI) untuk SELL
                     $url1 = URLAPI . "/v1/order/limit_sell";
                     $response1 = satoshiAdmin($url1, json_encode($mdata));
                     log_message('info', 'Response dari endpoint limit_sell: ' . json_encode($response1));
 
-                    // Send ke endpoint kedua (URLAPI2)
+                    // Modifikasi data untuk endpoint kedua (hanya mengubah tipe)
+                    $mdata2 = $mdata;
+                    $mdata2['type'] = str_replace('SELL', 'Sell', $mdata2['type']);
+
+                    // Send ke endpoint kedua (URLAPI2) untuk Sell
                     $url2 = URLAPI2 . "/v1/signal/sendsignal";
-                    $response2 = satoshiAdmin($url2, json_encode($mdata));
+                    $response2 = satoshiAdmin($url2, json_encode($mdata2));
                     log_message('info', 'Response dari endpoint sendsignal: ' . json_encode($response2));
 
                     $result = $response1->result;
