@@ -382,7 +382,7 @@ class Signal extends BaseController
         if ($typesignal == 'SELL A') {
             foreach ($readsignal as $key => $val) {
                 // Assign value sell signal
-                $mdata['type'] = 'Sell ' . $alphabet[$key];
+                $mdata['type'] = 'SELL ' . $alphabet[$key];
                 $mdata['pair_id'] = $val->id;
 
                 // Send ke endpoint pertama (URLAPI)
@@ -410,7 +410,7 @@ class Signal extends BaseController
                 // Checking Flag Buy B and other
                 if ($startCheck) {
                     // Assign value sell signal
-                    $mdata['type'] = 'Sell ' . $alphabet[$key];
+                    $mdata['type'] = 'SELL ' . $alphabet[$key];
                     $mdata['pair_id'] = $val->id;
 
                     // Send ke endpoint pertama (URLAPI)
@@ -439,7 +439,7 @@ class Signal extends BaseController
                 // Checking Flag Buy C and other
                 if ($startCheck) {
                     // Assign value sell signal
-                    $mdata['type'] = 'Sell ' . $alphabet[$key];
+                    $mdata['type'] = 'SELL ' . $alphabet[$key];
                     $mdata['pair_id'] = $val->id;
 
                     // Send ke endpoint pertama (URLAPI)
@@ -468,7 +468,7 @@ class Signal extends BaseController
                 // Checking Flag Buy D and other
                 if ($startCheck) {
                     // Assign value sell signal
-                    $mdata['type'] = 'Sell ' . $alphabet[$key];
+                    $mdata['type'] = 'SELL ' . $alphabet[$key];
                     $mdata['pair_id'] = $val->id;
 
                     // Send ke endpoint pertama (URLAPI)
