@@ -730,33 +730,56 @@ class Signal extends BaseController
     {
         $signal_id = htmlspecialchars($_GET['id']);
 
-        // Panggil endpoint untuk membatalkan sinyal
-        $url = URLAPI . "/v1/order/delete?id_signal=" . $signal_id;
+        // Panggil endpoint pertama (URLAPI)
+        $url1 = URLAPI . "/v1/order/delete?id_signal=" . $signal_id;
+        $response1 = satoshiAdmin($url1);
 
-        // Kirim request ke API
-        $response = satoshiAdmin($url);
+        // Log response dari endpoint pertama
+        log_message('info', 'Response from first endpoint: ' . json_encode($response1));
 
-        // Log untuk debugging
-        log_message('info', 'Response dari endpoint cancel: ' . json_encode($response));
+        // Panggil endpoint kedua (URLAPI2)
+        $url2 = URLAPI2 . "/v1/signal/cancelsignal?id=" . $signal_id;
+        $response2 = satoshiAdmin($url2);
 
-        // Periksa response
-        if (isset($response->result) && isset($response->result->code)) {
-            $result = $response->result;
+        // Log response dari endpoint kedua
+        log_message('info', 'Response from second endpoint: ' . json_encode($response2));
+
+        // Determine the primary response based on both endpoints
+        if (
+            isset($response1->result) && isset($response1->result->code) &&
+            isset($response2->result) && isset($response2->result->code)
+        ) {
+            // Both endpoints successful
+            if (($response1->result->code == '200' || $response1->result->code == '201') &&
+                ($response2->result->code == '200' || $response2->result->code == '201')
+            ) {
+                $result = (object)[
+                    'code' => '200',
+                    'message' => 'Signal cancelled successfully'
+                ];
+            } else {
+                // At least one endpoint failed
+                $result = (object)[
+                    'code' => '400',
+                    'message' => 'Failed to cancel signal on one or more endpoints'
+                ];
+            }
         } else {
+            // Handle case where at least one endpoint returned unexpected response
             $result = (object)[
-                'code' => isset($response->error) ? '400' : '200',
-                'message' => isset($response->error->message) ? $response->error->message : 'Failed to cancel signal'
+                'code' => '400',
+                'message' => 'Failed to cancel signal: Unexpected response from endpoints'
             ];
         }
 
-        // Set flash message berdasarkan response
-        if ($result->code == '200' || $result->code == '201') {
-            session()->setFlashdata('success', $result->message ?? 'Signal cancelled successfully');
+        // Set flash message based on result
+        if ($result->code == '200') {
+            session()->setFlashdata('success', $result->message);
         } else {
-            session()->setFlashdata('failed', $result->message ?? 'Failed to cancel signal');
+            session()->setFlashdata('failed', $result->message);
         }
 
-        // Redirect kembali ke halaman signal
+        // Redirect back to signal page
         return redirect()->to(BASE_URL . 'godmode/signal');
     }
 }
