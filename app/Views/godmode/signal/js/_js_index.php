@@ -138,17 +138,20 @@
                 if (buyStatus === 'filled') {
                     // Jika status buy adalah filled, disable tombol FILL
                     $(`#fill-buy-${letter}`).prop('disabled', true).addClass('filled');
-                } else if (buyStatus === 'new' || buyStatus === 'pending') {
-                    // Jika status buy adalah new atau pending, enable tombol FILL
+                } else if (buyStatus === 'new') {
+                    // Jika status buy adalah new, enable tombol FILL
                     $(`#fill-buy-${letter}`).prop('disabled', false).removeClass('filled');
                 }
 
-                if (sellStatus === 'filled') {
-                    // Jika status sell adalah filled, disable tombol FILL
-                    $(`#fill-sell-${letter}`).prop('disabled', true).addClass('filled');
-                } else if (sellStatus === 'pending') {
-                    // Jika status sell adalah pending, enable tombol FILL
-                    $(`#fill-sell-${letter}`).prop('disabled', false).removeClass('filled');
+                // Untuk sell, kita hanya mengatur tombol berdasarkan status yang ada dari server
+                if (sellStatus) {
+                    if (sellStatus === 'filled') {
+                        // Jika status sell adalah filled, disable tombol FILL
+                        $(`#fill-sell-${letter}`).prop('disabled', true).addClass('filled');
+                    } else {
+                        // Untuk status lainnya, enable tombol FILL
+                        $(`#fill-sell-${letter}`).prop('disabled', false).removeClass('filled');
+                    }
                 }
 
                 // Jika status buy masih new, disable tombol SELL
@@ -304,12 +307,12 @@
 
                     // Check if response success
                     if (result.code == '200') {
-                        // Sweet Alert
+                        // Sweet Alert Success dengan warna hijau
                         Swal.fire({
                             text: `${result.message}`,
                             showCloseButton: true,
                             showConfirmButton: false,
-                            background: '#E1FFF7',
+                            background: '#E1FFF7', // Warna hijau muda untuk success
                             color: '#000000',
                             position: 'top-end',
                             timer: 3000,
@@ -361,12 +364,12 @@
                         });
 
                     } else {
-                        // Sweet Alert
+                        // Sweet Alert Error dengan warna merah
                         Swal.fire({
                             text: `${result.message}`,
                             showCloseButton: true,
                             showConfirmButton: false,
-                            background: '#FFE4DC',
+                            background: '#FFE4DC', // Warna merah muda untuk error
                             color: '#000000',
                             position: 'top-end',
                             timer: 3000,
@@ -421,12 +424,12 @@
 
                     // Check if response success
                     if (result.code == '200') {
-                        // Sweet Alert
+                        // Sweet Alert Success dengan warna hijau
                         Swal.fire({
                             text: `${result.message}`,
                             showCloseButton: true,
                             showConfirmButton: false,
-                            background: '#E1FFF7',
+                            background: '#E1FFF7', // Warna hijau muda untuk success
                             color: '#000000',
                             position: 'top-end',
                             timer: 3000,
@@ -485,12 +488,12 @@
                         $('#buy-c').autoNumeric('set', values.buyC);
 
                     } else {
-                        // Sweet Alert
+                        // Sweet Alert Error dengan warna merah
                         Swal.fire({
                             text: `${result.message}`,
                             showCloseButton: true,
                             showConfirmButton: false,
-                            background: '#FFE4DC',
+                            background: '#FFE4DC', // Warna merah muda untuk error
                             color: '#000000',
                             position: 'top-end',
                             timer: 3000,
@@ -545,12 +548,12 @@
 
                     // Check if response success
                     if (result.code == '200') {
-                        // Sweet Alert
+                        // Sweet Alert Success dengan warna hijau
                         Swal.fire({
                             text: `${result.message}`,
                             showCloseButton: true,
                             showConfirmButton: false,
-                            background: '#E1FFF7',
+                            background: '#E1FFF7', // Warna hijau muda untuk success
                             color: '#000000',
                             position: 'top-end',
                             timer: 3000,
@@ -611,12 +614,12 @@
                         $('#buy-d').autoNumeric('set', values.buyD);
 
                     } else {
-                        // Sweet Alert
+                        // Sweet Alert Error dengan warna merah
                         Swal.fire({
                             text: `${result.message}`,
                             showCloseButton: true,
                             showConfirmButton: false,
-                            background: '#FFE4DC',
+                            background: '#FFE4DC', // Warna merah muda untuk error
                             color: '#000000',
                             position: 'top-end',
                             timer: 3000,
@@ -639,9 +642,6 @@
                         position: 'top-end',
                         timer: 3000,
                         timerProgressBar: true,
-                        didClose: () => {
-                            window.location.reload();
-                        }
                     });
                     removeButtonLoading(document.querySelector('#send-buy-c'));
                 }
@@ -670,12 +670,12 @@
 
                     // Check if response success
                     if (result.code == '200') {
-                        // Sweet Alert
+                        // Sweet Alert Success dengan warna hijau
                         Swal.fire({
                             text: `${result.message}`,
                             showCloseButton: true,
                             showConfirmButton: false,
-                            background: '#E1FFF7',
+                            background: '#E1FFF7', // Warna hijau muda untuk success
                             color: '#000000',
                             position: 'top-end',
                             timer: 3000,
@@ -719,12 +719,12 @@
                         });
 
                     } else {
-                        // Sweet Alert
+                        // Sweet Alert Error dengan warna merah
                         Swal.fire({
                             text: `${result.message}`,
                             showCloseButton: true,
                             showConfirmButton: false,
-                            background: '#FFE4DC',
+                            background: '#FFE4DC', // Warna merah muda untuk error
                             color: '#000000',
                             position: 'top-end',
                             timer: 3000,
@@ -796,11 +796,45 @@
                     data: "time",
                 },
                 {
+                    data: "status",
+                },
+                {
                     data: "admin",
                 },
-
+                {
+                    data: null,
+                    "render": function(data, type, row) {
+                        // Tampilkan button cancel hanya jika ini adalah sell signal terbaru
+                        if (row.type.toLowerCase().includes('sell') && row.isFirstSell) {
+                            return '<button class="btn btn-danger btn-sm cancel-signal" data-id="' + row.id + '" data-pair-id="' + row.pair_id + '">Cancel</button>';
+                        }
+                        return '';
+                    }
+                }
             ],
 
+        });
+
+        // Event handler untuk tombol cancel
+        $('#table_message').on('click', '.cancel-signal', function() {
+            const signalId = $(this).data('id');
+
+            // Konfirmasi sebelum cancel
+            Swal.fire({
+                title: 'Confirmation',
+                text: 'Are you sure you want to cancel this signal?',
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#d33',
+                cancelButtonColor: '#3085d6',
+                confirmButtonText: 'Yes, cancel it!',
+                cancelButtonText: 'No'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    // Redirect ke endpoint cancel_sell dengan parameter yang diperlukan
+                    window.location.href = '<?= BASE_URL ?>godmode/signal/cancel_sell?id=' + signalId;
+                }
+            });
         });
 
         // Fungsi untuk menangani tombol FILL pada BUY
@@ -872,12 +906,12 @@
                                 // Update status tombol
                                 updateButtonStatus();
 
-                                // Sweet Alert
+                                // Sweet Alert Success dengan warna hijau
                                 Swal.fire({
                                     text: `${result.message}`,
                                     showCloseButton: true,
                                     showConfirmButton: false,
-                                    background: '#E1FFF7',
+                                    background: '#E1FFF7', // Warna hijau muda untuk success
                                     color: '#000000',
                                     position: 'top-end',
                                     timer: 3000,
@@ -887,12 +921,12 @@
                                     }
                                 });
                             } else {
-                                // Sweet Alert
+                                // Sweet Alert Error dengan warna merah
                                 Swal.fire({
                                     text: `${result.message}`,
                                     showCloseButton: true,
                                     showConfirmButton: false,
-                                    background: '#FFE4DC',
+                                    background: '#FFE4DC', // Warna merah muda untuk error
                                     color: '#000000',
                                     position: 'top-end',
                                     timer: 3000,
@@ -1050,16 +1084,21 @@
 
                             // Check if response success
                             if (result.code == '200') {
-                                // Update UI
+                                // Update UI berdasarkan response dari server
+                                if (result.status) {
+                                    statusElement.text(result.status);
+                                }
+
+                                // Update tombol dan input berdasarkan response
                                 priceInput.prop('readonly', true);
                                 $(`#${buttonId}`).prop('disabled', true);
 
-                                // Sweet Alert dengan pesan yang lebih informatif
+                                // Sweet Alert Success dengan warna hijau
                                 Swal.fire({
                                     text: `${result.message}`,
                                     showCloseButton: true,
                                     showConfirmButton: false,
-                                    background: '#E1FFF7',
+                                    background: '#E1FFF7', // Warna hijau muda untuk success
                                     color: '#000000',
                                     position: 'top-end',
                                     timer: 3000,
@@ -1072,12 +1111,12 @@
                                 // Refresh tabel history
                                 $('#table_message').DataTable().ajax.reload();
                             } else {
-                                // Sweet Alert
+                                // Sweet Alert Error dengan warna merah
                                 Swal.fire({
                                     text: `${result.message}`,
                                     showCloseButton: true,
                                     showConfirmButton: false,
-                                    background: '#FFE4DC',
+                                    background: '#FFE4DC', // Warna merah muda untuk error
                                     color: '#000000',
                                     position: 'top-end',
                                     timer: 3000,

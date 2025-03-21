@@ -21,7 +21,7 @@ class Payment extends BaseController
             exit();
         }
 
-        if ($loggedUser->email !== 'a@a.a') {
+        if ($loggedUser->role !== 'superadmin') {
             $userAccess = json_decode($loggedUser->access, true);
             if (!is_array($userAccess)) {
                 $userAccess = array();
@@ -99,6 +99,24 @@ class Payment extends BaseController
             'email'    => htmlspecialchars($this->request->getVar('email')),
             'amount'  => htmlspecialchars($this->request->getVar('amount')),
         ];
+
+        $url = URLAPI2 . "/v1/payment/send_bonus";
+        $response = satoshiAdmin($url, json_encode($mdata));
+        $result = $response->result;
+
+        if ($result->code != '200') {
+            session()->setFlashdata('failed', "Something Wrong, Please Try Again!");
+            if ($_GET["type"] == "free") {
+                return redirect()->to(BASE_URL . 'godmode/freemember/detailmember/' . base64_encode($mdata["email"]));
+            } elseif ($_GET["type"] == "ref") {
+                return redirect()->to(BASE_URL . 'godmode/referral/detailmember/' . base64_encode($mdata["email"]));
+            } else {
+                return redirect()->to(BASE_URL . 'godmode/dashboard/detailmember/' . base64_encode("totalmember") . '/' . base64_encode($mdata["email"]));
+            }
+        } else {
+            session()->setFlashdata('success', "Bonus has been successfully sent");
+            return redirect()->to(BASE_URL . 'godmode/dashboard');
+        }
     }
 
     public function get_satoshi_requestpayment()

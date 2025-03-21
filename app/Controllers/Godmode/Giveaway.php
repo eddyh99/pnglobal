@@ -21,8 +21,19 @@ class Giveaway extends BaseController
 
         // Pengecekan role: hanya admin yang boleh mengakses halaman ini
         if ($loggedUser->role !== 'admin') {
-
             exit();
+        }
+
+        if ($loggedUser->role !== 'superadmin') {
+            $userAccess = json_decode($loggedUser->access, true);
+            if (!is_array($userAccess)) {
+                $userAccess = array();
+            }
+            if (!in_array('giveaway', $userAccess)) {
+                session()->setFlashdata('failed', 'You don\'t have access to this page');
+                return redirect()->to(BASE_URL . 'godmode/dashboard');
+                exit();
+            }
         }
     }
     public function index()

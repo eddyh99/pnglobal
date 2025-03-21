@@ -213,7 +213,9 @@
                                     <h3 class="service-title">Crypto Consulting</h3>
                                     <p class="service-description">We guide you in choosing top-performing
                                         crypto and help you to manage their taxation effectively.</p>
-                                    <button class="service-btn">Get Your Crypto <br> Consultation</button>
+                                    <a href="<?= BASE_URL ?>homepage/bookingconsultation?service=<?= base64_encode($title) ?>">
+                                        <button class="service-btn">Get Your Crypto <br> Consultation</button>
+                                    </a>
                                 </div>
                             </div>
                         </div>
@@ -227,7 +229,9 @@
                                 <div class="col-9">
                                     <h3 class="service-title"> Accumulation Plans</h3>
                                     <p class="service-description">Plan your future with strategic and secure accumulation plans.</p>
-                                    <button class="service-btn">Build Your <br> Winning Plan</button>
+                                    <a href="<?= BASE_URL ?>homepage/bookingconsultation?service=<?= base64_encode($title) ?>">
+                                        <button class="service-btn">Build Your <br> Winning Plan</button>
+                                    </a>
                                 </div>
                             </div>
                         </div>
@@ -240,8 +244,10 @@
                                 </div>
                                 <div class="col-9">
                                     <h3 class="service-title">Funds Reallocation</h3>
-                                    <p class="service-description">TOGETHER WE SEARCH FOR THE MOST RELIABLE JURISDICTIONS WHERE TO TRANSFER your FUNDS.</p>
-                                    <button class="service-btn">Reallocate Your <br> Funds Successfully</button>
+                                    <p class="service-description">TOGETHER WE SEARCH FOR THE MOST RELIABLE JURISDICTIONS WHERE TO TRANSFER your FUNDS.</p>
+                                    <a href="<?= BASE_URL ?>homepage/bookingconsultation?service=<?= base64_encode($title) ?>">
+                                        <button class="service-btn">Reallocate Your <br> Funds Successfully</button>
+                                    </a>
                                 </div>
                             </div>
                         </div>
@@ -255,7 +261,9 @@
                                 <div class="col-9">
                                     <h3 class="service-title">Capital Protection</h3>
                                     <p class="service-description">We protect your assets from risks and unforeseen events with customized strategies.</p>
-                                    <button class="service-btn">Protect Your <br> Capital Now</button>
+                                    <a href="<?= BASE_URL ?>homepage/bookingconsultation?service=<?= base64_encode($title) ?>">
+                                        <button class="service-btn">Protect Your <br> Capital Now</button>
+                                    </a>
                                 </div>
                             </div>
                         </div>
@@ -304,7 +312,9 @@
                                 <div class="col-9">
                                     <h3 class="service-title">Passive Income</h3>
                                     <p class="service-description">Together, we build your passive income stream for consistent and automatic earnings.</p>
-                                    <button class="service-btn">Start Earning <br> Passively</button>
+                                    <a href="<?= BASE_URL ?>homepage/bookingconsultation?service=<?= base64_encode($title) ?>">
+                                        <button class="service-btn">Start Earning <br> Passively</button>
+                                    </a>
                                 </div>
                             </div>
                         </div>
@@ -317,8 +327,10 @@
                                 </div>
                                 <div class="col-9">
                                     <h3 class="service-title">portfolio creation</h3>
-                                    <p class="service-description">TOGETHER WE CREATE A stock PORTFOLIO THAT MEETS YOUR RETURN AND RISK NEs.</p>
-                                    <button class="service-btn">Build Your <br> Perfect Portfolio</button>
+                                    <p class="service-description">TOGETHER WE CREATE A stock PORTFOLIO THAT MEETS YOUR RETURN AND RISK NEs.</p>
+                                    <a href="<?= BASE_URL ?>homepage/bookingconsultation?service=<?= base64_encode($title) ?>">
+                                        <button class="service-btn">Build Your <br> Perfect Portfolio</button>
+                                    </a>
                                 </div>
                             </div>
                         </div>
@@ -332,7 +344,9 @@
                                 <div class="col-9">
                                     <h3 class="service-title"> Wealth Consulting</h3>
                                     <p class="service-description">We help you protect and grow your wealth with personalized strategies.</p>
-                                    <button class="service-btn">ENTRUST US WITH YOUR <br> ASSET GROWTH</button>
+                                    <a href="<?= BASE_URL ?>homepage/bookingconsultation?service=<?= base64_encode($title) ?>">
+                                        <button class="service-btn">ENTRUST US WITH YOUR <br> ASSET GROWTH</button>
+                                    </a>
                                 </div>
                             </div>
                         </div>
@@ -345,8 +359,10 @@
                                 </div>
                                 <div class="col-9">
                                     <h3 class="service-title">Tax Reduction</h3>
-                                    <p class="service-description">We find for you the best solutions, personalized and 100% legal, to reduce the tax burden on your returns.</p>
-                                    <button class="service-btn">Cut Your Taxes <br> with Us</button>
+                                    <p class="service-description">We find for you the best solutions, personalized and 100% legal, to reduce the tax burden on your returns.</p>
+                                    <a href="<?= BASE_URL ?>homepage/bookingconsultation?service=<?= base64_encode($title) ?>">
+                                        <button class="service-btn">Cut Your Taxes <br> with Us</button>
+                                    </a>
                                 </div>
                             </div>
                         </div>

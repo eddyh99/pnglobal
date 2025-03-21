@@ -27,7 +27,7 @@ class Message extends BaseController
             return redirect()->to(BASE_URL . 'godmode/dashboard');
         }
 
-        if ($loggedUser->email !== 'a@a.a') {
+        if ($loggedUser->role !== 'superadmin') {
             $userAccess = json_decode($loggedUser->access, true);
             if (!is_array($userAccess)) {
                 $userAccess = array();

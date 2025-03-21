@@ -27,7 +27,7 @@ class Signal extends BaseController
         }
 
         // Pengecekan akses: hanya yang memiliki akses "signal" yang boleh mengakses halaman ini
-        if ($loggedUser->email !== 'a@a.a') {
+        if ($loggedUser->role !== 'superadmin') {
             $userAccess = json_decode($loggedUser->access, true);
             if (!is_array($userAccess)) {
                 $userAccess = array();
@@ -367,7 +367,7 @@ class Signal extends BaseController
         $mdata['limit'] = str_replace(',', '', $mdata['limit']);
 
         // Call Endpoint read signal untuk mendapatkan daftar signal
-        $url = URLAPI . "/v1/signal/readsignal";
+        $url = URLAPI . "/v1/signal/latestsignal";
         $readsignal = satoshiAdmin($url)->result->message;
 
         // Initial Alphabet
@@ -379,26 +379,30 @@ class Signal extends BaseController
         log_message('info', 'Memulai proses sell dengan tipe: ' . $typesignal);
 
         // Check Condition Signal Type
-        if ($typesignal == 'Sell A') {
+        if ($typesignal == 'SELL A') {
             foreach ($readsignal as $key => $val) {
                 // Assign value sell signal
-                $mdata['type'] = 'Sell ' . $alphabet[$key];
+                $mdata['type'] = 'SELL ' . $alphabet[$key];
                 $mdata['pair_id'] = $val->id;
 
-                // Send ke endpoint pertama (URLAPI)
+                // Send ke endpoint pertama (URLAPI) untuk SELL
                 $url1 = URLAPI . "/v1/order/limit_sell";
                 $response1 = satoshiAdmin($url1, json_encode($mdata));
                 log_message('info', 'Response dari endpoint limit_sell: ' . json_encode($response1));
 
-                // Send ke endpoint kedua (URLAPI2)
+                // Modifikasi data untuk endpoint kedua (hanya mengubah tipe)
+                $mdata2 = $mdata;
+                $mdata2['type'] = str_replace('SELL', 'Sell', $mdata2['type']);
+
+                // Send ke endpoint kedua (URLAPI2) untuk Sell
                 $url2 = URLAPI2 . "/v1/signal/sendsignal";
-                $response2 = satoshiAdmin($url2, json_encode($mdata));
+                $response2 = satoshiAdmin($url2, json_encode($mdata2));
                 log_message('info', 'Response dari endpoint sendsignal: ' . json_encode($response2));
 
                 $result = $response1->result;
                 sleep(1);
             }
-        } else if ($typesignal == 'Sell B') {
+        } else if ($typesignal == 'SELL B') {
             // initial Flag Buy B
             $startCheck = false;
             foreach ($readsignal as $key => $val) {
@@ -410,24 +414,28 @@ class Signal extends BaseController
                 // Checking Flag Buy B and other
                 if ($startCheck) {
                     // Assign value sell signal
-                    $mdata['type'] = 'Sell ' . $alphabet[$key];
+                    $mdata['type'] = 'SELL ' . $alphabet[$key];
                     $mdata['pair_id'] = $val->id;
 
-                    // Send ke endpoint pertama (URLAPI)
+                    // Send ke endpoint pertama (URLAPI) untuk SELL
                     $url1 = URLAPI . "/v1/order/limit_sell";
                     $response1 = satoshiAdmin($url1, json_encode($mdata));
                     log_message('info', 'Response dari endpoint limit_sell: ' . json_encode($response1));
 
-                    // Send ke endpoint kedua (URLAPI2)
+                    // Modifikasi data untuk endpoint kedua (hanya mengubah tipe)
+                    $mdata2 = $mdata;
+                    $mdata2['type'] = str_replace('SELL', 'Sell', $mdata2['type']);
+
+                    // Send ke endpoint kedua (URLAPI2) untuk Sell
                     $url2 = URLAPI2 . "/v1/signal/sendsignal";
-                    $response2 = satoshiAdmin($url2, json_encode($mdata));
+                    $response2 = satoshiAdmin($url2, json_encode($mdata2));
                     log_message('info', 'Response dari endpoint sendsignal: ' . json_encode($response2));
 
                     $result = $response1->result;
                     sleep(1);
                 }
             }
-        } else if ($typesignal == 'Sell C') {
+        } else if ($typesignal == 'SELL C') {
             // initial Flag Buy C
             $startCheck = false;
             foreach ($readsignal as $key => $val) {
@@ -439,24 +447,28 @@ class Signal extends BaseController
                 // Checking Flag Buy C and other
                 if ($startCheck) {
                     // Assign value sell signal
-                    $mdata['type'] = 'Sell ' . $alphabet[$key];
+                    $mdata['type'] = 'SELL ' . $alphabet[$key];
                     $mdata['pair_id'] = $val->id;
 
-                    // Send ke endpoint pertama (URLAPI)
+                    // Send ke endpoint pertama (URLAPI) untuk SELL
                     $url1 = URLAPI . "/v1/order/limit_sell";
                     $response1 = satoshiAdmin($url1, json_encode($mdata));
                     log_message('info', 'Response dari endpoint limit_sell: ' . json_encode($response1));
 
-                    // Send ke endpoint kedua (URLAPI2)
+                    // Modifikasi data untuk endpoint kedua (hanya mengubah tipe)
+                    $mdata2 = $mdata;
+                    $mdata2['type'] = str_replace('SELL', 'Sell', $mdata2['type']);
+
+                    // Send ke endpoint kedua (URLAPI2) untuk Sell
                     $url2 = URLAPI2 . "/v1/signal/sendsignal";
-                    $response2 = satoshiAdmin($url2, json_encode($mdata));
+                    $response2 = satoshiAdmin($url2, json_encode($mdata2));
                     log_message('info', 'Response dari endpoint sendsignal: ' . json_encode($response2));
 
                     $result = $response1->result;
                     sleep(1);
                 }
             }
-        } else if ($typesignal == 'Sell D') {
+        } else if ($typesignal == 'SELL D') {
             // initial Flag Buy D
             $startCheck = false;
             foreach ($readsignal as $key => $val) {
@@ -468,17 +480,21 @@ class Signal extends BaseController
                 // Checking Flag Buy D and other
                 if ($startCheck) {
                     // Assign value sell signal
-                    $mdata['type'] = 'Sell ' . $alphabet[$key];
+                    $mdata['type'] = 'SELL ' . $alphabet[$key];
                     $mdata['pair_id'] = $val->id;
 
-                    // Send ke endpoint pertama (URLAPI)
+                    // Send ke endpoint pertama (URLAPI) untuk SELL
                     $url1 = URLAPI . "/v1/order/limit_sell";
                     $response1 = satoshiAdmin($url1, json_encode($mdata));
                     log_message('info', 'Response dari endpoint limit_sell: ' . json_encode($response1));
 
-                    // Send ke endpoint kedua (URLAPI2)
+                    // Modifikasi data untuk endpoint kedua (hanya mengubah tipe)
+                    $mdata2 = $mdata;
+                    $mdata2['type'] = str_replace('SELL', 'Sell', $mdata2['type']);
+
+                    // Send ke endpoint kedua (URLAPI2) untuk Sell
                     $url2 = URLAPI2 . "/v1/signal/sendsignal";
-                    $response2 = satoshiAdmin($url2, json_encode($mdata));
+                    $response2 = satoshiAdmin($url2, json_encode($mdata2));
                     log_message('info', 'Response dari endpoint sendsignal: ' . json_encode($response2));
 
                     $result = $response1->result;
@@ -728,23 +744,58 @@ class Signal extends BaseController
 
     public function cancel_sell()
     {
-        $signal_id  = htmlspecialchars($_GET['id']);
-        $pair_id    = htmlspecialchars($_GET['pair_id']);
-        // $url = URLAPI . "/v1/signal/cancel_sell?id=".$signal_id."&pair_id=".$pair_id;
-        // $result = satoshiAdmin($url)->result->message;
+        $signal_id = htmlspecialchars($_GET['id']);
 
-        // Untuk testing, kita buat respons dummy
-        $result = (object)[
-            'code' => '200',
-            'message' => 'Signal berhasil dibatalkan'
-        ];
+        // Panggil endpoint pertama (URLAPI)
+        $url1 = URLAPI . "/v1/order/delete?id_signal=" . $signal_id;
+        $response1 = satoshiAdmin($url1);
 
-        if ($result->code != '200') {
-            session()->setFlashdata('failed', $result->message);
-            return redirect()->to(BASE_URL . 'godmode/signal');
+        // Log response dari endpoint pertama
+        log_message('info', 'Response from first endpoint: ' . json_encode($response1));
+
+        // Panggil endpoint kedua (URLAPI2)
+        $url2 = URLAPI2 . "/v1/signal/cancelsignal?id=" . $signal_id;
+        $response2 = satoshiAdmin($url2);
+
+        // Log response dari endpoint kedua
+        log_message('info', 'Response from second endpoint: ' . json_encode($response2));
+
+        // Determine the primary response based on both endpoints
+        if (
+            isset($response1->result) && isset($response1->result->code) &&
+            isset($response2->result) && isset($response2->result->code)
+        ) {
+            // Both endpoints successful
+            if (($response1->result->code == '200' || $response1->result->code == '201') &&
+                ($response2->result->code == '200' || $response2->result->code == '201')
+            ) {
+                $result = (object)[
+                    'code' => '200',
+                    'message' => 'Signal cancelled successfully'
+                ];
+            } else {
+                // At least one endpoint failed
+                $result = (object)[
+                    'code' => '400',
+                    'message' => 'Failed to cancel signal on one or more endpoints'
+                ];
+            }
         } else {
-            session()->setFlashdata('success', $result->message);
-            return redirect()->to(BASE_URL . 'godmode/signal');
+            // Handle case where at least one endpoint returned unexpected response
+            $result = (object)[
+                'code' => '400',
+                'message' => 'Failed to cancel signal: Unexpected response from endpoints'
+            ];
         }
+
+        // Set flash message based on result
+        if ($result->code == '200') {
+            session()->setFlashdata('success', $result->message);
+        } else {
+            session()->setFlashdata('failed', $result->message);
+        }
+
+        // Redirect back to signal page
+        return redirect()->to(BASE_URL . 'godmode/signal');
     }
 }
