@@ -230,7 +230,7 @@ class Signal extends BaseController
         // Process Call to First Endpoint API (limit_buy)
         $url = URLAPI . "/v1/order/limit_buy";
         $response = satoshiAdmin($url, json_encode($mdata));
-
+        log_message('info', 'Response dari endpoint limit_buy: ' . json_encode($response));
         // Determine response code from first endpoint
         $code = isset($response->result->code) ? $response->result->code : (isset($response->status) ? $response->status : 500);
         $message = '';
@@ -257,27 +257,28 @@ class Signal extends BaseController
             if ($response->status == 200 || $response->status == 201) {
                 $message = 'Buy order successfully processed';
                 $code = $response->status;
-            } else if ($response->status == 400) {
-                $message = 'Failed to process buy order: Invalid parameters';
-                $code = 400;
-            } else if ($response->status == 401) {
-                $message = 'Failed to process buy order: Unauthorized';
-                $code = 401;
-            } else if ($response->status == 403) {
-                $message = 'Failed to process buy order: Access denied';
-                $code = 403;
-            } else if ($response->status == 404) {
-                $message = 'Failed to process buy order: Endpoint not found';
-                $code = 404;
-            } else if ($response->status == 500) {
-                $message = 'Failed to process buy order: Server error occurred';
-                $code = 500;
+
+                // Set response->result jika tidak ada
+                if (!isset($response->result)) {
+                    $response->result = (object) [
+                        'id' => null,
+                        'code' => $response->status,
+                        'message' => $message
+                    ];
+                }
             } else {
-                $message = 'Failed to process buy order: Unknown error occurred';
+                $message = match ($response->status) {
+                    400 => 'Failed to process buy order: Invalid parameters',
+                    401 => 'Failed to process buy order: Unauthorized',
+                    403 => 'Failed to process buy order: Access denied',
+                    404 => 'Failed to process buy order: Endpoint not found',
+                    500 => 'Failed to process buy order: Server error occurred',
+                    default => 'Failed to process buy order: Unknown error occurred'
+                };
                 $code = $response->status;
+                echo json_encode(['code' => $code, 'message' => $message]);
+                exit();
             }
-            echo json_encode(['code' => $code, 'message' => $message]);
-            exit();
         } else {
             $message = 'Invalid response format from limit_buy endpoint';
             echo json_encode(['code' => 500, 'message' => $message]);
@@ -290,12 +291,15 @@ class Signal extends BaseController
             $mdata2 = [
                 'entry' => floatval($mdata['limit']),
                 'type' => $mdata['type'],
-                'pair_id' => isset($response->result->id) ? $response->result->id : null
+                'pair_id' => null
             ];
+
+            log_message('info', 'Data untuk endpoint kedua: ' . json_encode($mdata2));
 
             // Process Call to Second Endpoint API
             $url2 = URLAPI2 . "/v1/signal/sendsignal";
             $response2 = satoshiAdmin($url2, json_encode($mdata2));
+            log_message('info', 'Response dari endpoint sendsignal: ' . json_encode($response2));
 
             // Check second endpoint response
             if (isset($response2->result) && isset($response2->result->code)) {
@@ -396,8 +400,13 @@ class Signal extends BaseController
                 log_message('info', 'Response dari endpoint limit_sell: ' . json_encode($response1));
 
                 // Modifikasi data untuk endpoint kedua (hanya mengubah tipe)
-                $mdata2 = $mdata;
-                $mdata2['type'] = str_replace('SELL', 'Sell', $mdata2['type']);
+                $mdata2 = [
+                    'entry' => floatval($mdata['limit']),
+                    'type' => str_replace('SELL', 'Sell', $mdata['type']),
+                    'pair_id' => $mdata['pair_id']
+                ];
+
+                log_message('info', 'Data untuk endpoint kedua: ' . json_encode($mdata2));
 
                 // Send ke endpoint kedua (URLAPI2) untuk Sell
                 $url2 = URLAPI2 . "/v1/signal/sendsignal";
@@ -428,8 +437,13 @@ class Signal extends BaseController
                     log_message('info', 'Response dari endpoint limit_sell: ' . json_encode($response1));
 
                     // Modifikasi data untuk endpoint kedua (hanya mengubah tipe)
-                    $mdata2 = $mdata;
-                    $mdata2['type'] = str_replace('SELL', 'Sell', $mdata2['type']);
+                    $mdata2 = [
+                        'entry' => floatval($mdata['limit']),
+                        'type' => str_replace('SELL', 'Sell', $mdata['type']),
+                        'pair_id' => $mdata['pair_id']
+                    ];
+
+                    log_message('info', 'Data untuk endpoint kedua: ' . json_encode($mdata2));
 
                     // Send ke endpoint kedua (URLAPI2) untuk Sell
                     $url2 = URLAPI2 . "/v1/signal/sendsignal";
@@ -461,8 +475,13 @@ class Signal extends BaseController
                     log_message('info', 'Response dari endpoint limit_sell: ' . json_encode($response1));
 
                     // Modifikasi data untuk endpoint kedua (hanya mengubah tipe)
-                    $mdata2 = $mdata;
-                    $mdata2['type'] = str_replace('SELL', 'Sell', $mdata2['type']);
+                    $mdata2 = [
+                        'entry' => floatval($mdata['limit']),
+                        'type' => str_replace('SELL', 'Sell', $mdata['type']),
+                        'pair_id' => $mdata['pair_id']
+                    ];
+
+                    log_message('info', 'Data untuk endpoint kedua: ' . json_encode($mdata2));
 
                     // Send ke endpoint kedua (URLAPI2) untuk Sell
                     $url2 = URLAPI2 . "/v1/signal/sendsignal";
@@ -494,8 +513,13 @@ class Signal extends BaseController
                     log_message('info', 'Response dari endpoint limit_sell: ' . json_encode($response1));
 
                     // Modifikasi data untuk endpoint kedua (hanya mengubah tipe)
-                    $mdata2 = $mdata;
-                    $mdata2['type'] = str_replace('SELL', 'Sell', $mdata2['type']);
+                    $mdata2 = [
+                        'entry' => floatval($mdata['limit']),
+                        'type' => str_replace('SELL', 'Sell', $mdata['type']),
+                        'pair_id' => $mdata['pair_id']
+                    ];
+
+                    log_message('info', 'Data untuk endpoint kedua: ' . json_encode($mdata2));
 
                     // Send ke endpoint kedua (URLAPI2) untuk Sell
                     $url2 = URLAPI2 . "/v1/signal/sendsignal";
