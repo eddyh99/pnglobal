@@ -13,32 +13,36 @@ class Message extends BaseController
             header("Location: " . BASE_URL . 'godmode/auth/signin');
             exit();
         }
-
+    
         $loggedUser = $session->get('logged_user');
-        if ($loggedUser->role != 'admin') {
-            session()->setFlashdata('failed', 'You don\'t have access to this page');
-            return redirect()->to(BASE_URL . 'godmode/dashboard');
-            exit();
+    
+        // Superadmin has full access
+        if ($loggedUser->role === 'superadmin') {
+            return;
         }
-
-        $loggedUser = $session->get('logged_user');
-        if ($loggedUser->role != 'admin') {
-            session()->setFlashdata('failed', 'You don\'t have access to this page');
-            return redirect()->to(BASE_URL . 'godmode/dashboard');
-        }
-
-        if ($loggedUser->role !== 'superadmin') {
+    
+        // If admin, check access permissions
+        if ($loggedUser->role === 'admin') {
             $userAccess = json_decode($loggedUser->access, true);
             if (!is_array($userAccess)) {
-                $userAccess = array();
+                $userAccess = [];
             }
+    
+            // Example: check if they have 'message' access or customize this key as needed
             if (!in_array('message', $userAccess)) {
                 session()->setFlashdata('failed', 'You don\'t have access to this page');
-                return redirect()->to(BASE_URL . 'godmode/dashboard');
+                header("Location: " . BASE_URL . 'godmode/dashboard');
                 exit();
             }
+            return;
         }
+    
+        // If neither superadmin nor admin
+        session()->setFlashdata('failed', 'You don\'t have access to this page');
+        header("Location: " . BASE_URL . 'godmode/dashboard');
+        exit();
     }
+
 
     public function index()
     {

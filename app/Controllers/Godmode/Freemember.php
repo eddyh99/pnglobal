@@ -11,35 +11,25 @@ class Freemember extends BaseController
     public function __construct()
     {
         $session = session();
-
+    
         // Jika belum login, redirect ke halaman signin
         if (!$session->has('logged_user')) {
-            header("Location: " . BASE_URL . 'member/auth/login');
+            header("Location: " . BASE_URL . 'godmode/auth/signin');
             exit();
         }
-
+    
         // Mendapatkan data user yang tersimpan (sudah login)
         $loggedUser = $session->get('logged_user');
-
-        // Pengecekan role: hanya admin yang boleh mengakses halaman ini
-        if ($loggedUser->role !== 'admin') {
-            session()->setFlashdata('failed', 'You don\'t have access to this page');
-            return redirect()->to(BASE_URL . 'godmode/dashboard');
+    
+        // Hanya superadmin yang bisa mengakses
+        if ($loggedUser->role !== 'superadmin') {
+            session()->setFlashdata('failed', "You don't have access to this page");
+            session()->unset();
+            header("Location: " . BASE_URL . 'godmode/auth/signin');
             exit();
         }
-
-        if ($loggedUser->role !== 'superadmin') {
-            $userAccess = json_decode($loggedUser->access, true);
-            if (!is_array($userAccess)) {
-                $userAccess = array();
-            }
-            if (!in_array('freemember', $userAccess)) {
-                session()->setFlashdata('failed', 'You don\'t have access to this page');
-                return redirect()->to(BASE_URL . 'godmode/dashboard');
-                exit();
-            }
-        }
     }
+
 
     public function index()
     {
@@ -61,10 +51,6 @@ class Freemember extends BaseController
                 'label' => 'Email',
                 'rules' => 'required|valid_email'
             ],
-            'amount' => [
-                'label' => 'Amount',
-                'rules' => 'required|numeric'
-            ],
             'referral' => [
                 'label' => 'Referral',
                 'rules' => 'permit_empty'
@@ -77,35 +63,31 @@ class Freemember extends BaseController
 
         // Checking Validation
         if (!$rules) {
-            session()->setFlashdata('error_validation', $this->validation->listErrors());
+            session()->setFlashdata('failed', $this->validation->listErrors());
             return redirect()->to(BASE_URL . 'godmode/freemember');
         }
 
         // Ambil nilai dari input
         $email    = htmlspecialchars($this->request->getVar('email'));
-        $amount   = htmlspecialchars($this->request->getVar('amount'));
         $referralInput = $this->request->getVar('referral');
         $expired  = htmlspecialchars($this->request->getVar('expired'));
 
         // Jika referral tidak diisi atau kosong, set menjadi null
         $referral = (trim($referralInput) === '') ? null : htmlspecialchars($referralInput);
 
-        // Siapkan data yang akan dikirim
+        // Init Data
         $mdata = [
-            'email'    => $email,
-            'referral' => $referral,
-            'amount'   => $amount,
-            'expired'  => $expired,
+            'email'   => $email,
+            'upline'  => $referral,
+            'expired' => $expired,
         ];
-
-        // Jika referral kosong, set menjadi null
-        $referral = (trim($referralInput) === '') ? null : htmlspecialchars($referralInput);
-
-        // Proccess Endpoin API
-        // $url = URLAPI . "/v1/member/add_freemember";
-        $url = URLAPI2 . "v1/member/create_referral";
+    
+        // Process API Request
+        $url = URLAPI2 . "/v1/member/create_freemember";
         $response = satoshiAdmin($url, json_encode($mdata));
         $result = $response->result;
+        log_message('error', json_encode($result));
+
 
         if ($result->code == 201) {
             // session()->setFlashdata('success', $result->message);
@@ -127,12 +109,12 @@ class Freemember extends BaseController
     {
 
         // Call Get Memeber By Email
-        // $url = URLAPI . "/auth/getmember_byemail?email=" . base64_decode($email);
-        // $resultMember = satoshiAdmin($url)->result->message;
+        $url = URLAPI2 . "/auth/getmember_byemail?email=" . base64_decode($email);
+        $resultMember = satoshiAdmin($url)->result->message;
 
         // Call Get Detail Referral
-        // $url = URLAPI . "/v1/member/detailreferral?id=" . $resultMember->id;
-        // $resultReferral = satoshiAdmin($url)->result->message;
+        $url = URLAPI2 . "/v1/member/detailreferral?id=" . $resultMember->id;
+        $resultReferral = satoshiAdmin($url)->result->message;
 
         $mdata = [
             'title'     => 'Detail Member - ' . NAMETITLE,

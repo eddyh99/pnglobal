@@ -28,7 +28,7 @@
                                         <div class="role-wrapper">
                                             <div class="role-item">
                                                 <input type="checkbox" id="access_dashboard" name="access[]" value="subscriber">
-                                                <label for="access_dashboard">Subscriber</label>
+                                                <label for="access_dashboard">Dashboard</label>
                                             </div>
                                             <div class="role-item">
                                                 <input type="checkbox" id="access_signal" name="access[]" value="signal">

@@ -11,16 +11,25 @@ class Admin extends BaseController
     public function __construct()
     {
         $session = session();
+    
+        // Jika belum login, redirect ke halaman signin
         if (!$session->has('logged_user')) {
-            header("Location: " . BASE_URL . 'member/auth/login');
+            header("Location: " . BASE_URL . 'godmode/auth/signin');
             exit();
         }
-
-        if ($_SESSION["logged_user"]->role != 'admin') {
-            header('HTTP/1.0 403 Forbidden');
+    
+        // Mendapatkan data user yang tersimpan (sudah login)
+        $loggedUser = $session->get('logged_user');
+    
+        // Hanya superadmin yang bisa mengakses
+        if ($loggedUser->role !== 'superadmin') {
+            session()->setFlashdata('failed', "You don't have access to this page");
+            session()->unset();
+            header("Location: " . BASE_URL . 'godmode/auth/signin');
             exit();
         }
     }
+
 
     public function index()
     {

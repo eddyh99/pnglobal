@@ -55,21 +55,6 @@
                                 </div>
                             </div>
                         </a>
-                        <a href="<?= BASE_URL ?>godmode/dashboard?type=<?= base64_encode("free_member") ?>" class="statistics">
-                            <div class="iq-card">
-                                <div class="iq-card-body">
-                                    <div class="d-flex flex-column justify-content-center align-items-start">
-                                        <div>
-                                            <h5 class="text-black">Free Member</h5>
-                                        </div>
-                                        <div class="mt-3 w-100 d-flex justify-content-end">
-                                            <h1 class="text-black fw-bold"><?= @$freememberpnglobal ?></h1>
-                                        </div>
-                                    </div>
-                                    <div class="<?= ((base64_decode(@$_GET["type"]) == "free_member") ? "active" : "disable") ?>"></div>
-                                </div>
-                            </div>
-                        </a>
                         <a href="" class="statistics">
                             <div class="iq-card">
                                 <div class="iq-card-body">

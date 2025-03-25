@@ -9,36 +9,40 @@ class Signal extends BaseController
     public function __construct()
     {
         $session = session();
-
-        // Jika belum login, redirect ke halaman signin
         if (!$session->has('logged_user')) {
             header("Location: " . BASE_URL . 'godmode/auth/signin');
             exit();
         }
-
-        // Mendapatkan data user yang tersimpan (sudah login)
+    
         $loggedUser = $session->get('logged_user');
-
-        // Pengecekan role: hanya admin yang boleh mengakses halaman ini
-        if ($loggedUser->role !== 'admin') {
-            session()->setFlashdata('failed', 'You don\'t have access to this page');
-            return redirect()->to(BASE_URL . 'godmode/dashboard');
-            exit();
+    
+        // If role is superadmin, allow full access
+        if ($loggedUser->role === 'superadmin') {
+            return;
         }
-
-        // Pengecekan akses: hanya yang memiliki akses "signal" yang boleh mengakses halaman ini
-        if ($loggedUser->role !== 'superadmin') {
+    
+        // If role is admin, check access
+        if ($loggedUser->role === 'admin') {
             $userAccess = json_decode($loggedUser->access, true);
             if (!is_array($userAccess)) {
-                $userAccess = array();
+                $userAccess = [];
             }
+    
             if (!in_array('signal', $userAccess)) {
                 session()->setFlashdata('failed', 'You don\'t have access to this page');
-                return redirect()->to(BASE_URL . 'godmode/dashboard');
+                header("Location: " . BASE_URL . 'godmode/dashboard');
                 exit();
             }
+    
+            return;
         }
+    
+        // For other roles, deny access
+        session()->setFlashdata('failed', 'You don\'t have access to this page');
+        header("Location: " . BASE_URL . 'godmode/dashboard');
+        exit();
     }
+
 
     public function index()
     {
@@ -367,9 +371,10 @@ class Signal extends BaseController
         $mdata['limit'] = str_replace(',', '', $mdata['limit']);
 
         // Call Endpoint read signal untuk mendapatkan daftar signal
-        $url = URLAPI . "/v1/signal/latestsignal";
+        $url = URLAPI . "/v1/order/latestsignal";
         $readsignal = satoshiAdmin($url)->result->message;
-
+        log_message('info', 'Sinyal Akhir: ' . json_encode($readsignal));
+        
         // Initial Alphabet
         $alphabet = ['A', 'B', 'C', 'D'];
         $result = null;
@@ -501,11 +506,60 @@ class Signal extends BaseController
                 }
             }
         }
+        
+        $response=$response1;
+        
+        log_message('info', 'Akhir Respond diterima: ' . json_encode($response));
 
+        $code = isset($response->result->code) ? $response->result->code : (isset($response->status) ? $response->status : 500);
+        $message = '';
+
+        // Handle response from first endpoint
+        if (isset($response->result) && isset($response->result->code)) {
+            if ($response->result->code == 200 || $response->result->code == 201) {
+                $message = isset($response->result->message) ? $response->result->message : 'Sell order successfully processed';
+                $code = $response->result->code;
+            } else {
+                $message = isset($response->error->message) ? $response->error->message : 'Failed to process sell order';
+                // Return early if first endpoint fails
+                echo json_encode(['code' => $code, 'message' => $message]);
+                exit();
+            }
+        } else if (isset($response->status)) {
+            // Handle kasus dimana hanya ada status tanpa result
+            if ($response->status == 200 || $response->status == 201) {
+                $message = 'Sell order successfully processed';
+                $code = $response->status;
+            } else if ($response->status == 400) {
+                $message = 'Failed to process sell order: Invalid parameters';
+                $code = 400;
+            } else if ($response->status == 401) {
+                $message = 'Failed to process sell order: Unauthorized';
+                $code = 401;
+            } else if ($response->status == 403) {
+                $message = 'Failed to process sell order: Access denied';
+                $code = 403;
+            } else if ($response->status == 404) {
+                $message = 'Failed to process sell order: Endpoint not found';
+                $code = 404;
+            } else if ($response->status == 500) {
+                $message = 'Failed to process sell order: Server error occurred';
+                $code = 500;
+            } else {
+                $message = 'Failed to process sell order: Unknown error occurred';
+                $code = $response->status;
+            }
+            echo json_encode(['code' => $code, 'message' => $message]);
+            exit();
+        } else {
+            $message = 'Invalid response format from limit_sell endpoint';
+            echo json_encode(['code' => 500, 'message' => $message]);
+            exit();
+        }
         // Buat response array
-        $response = [
-            'code' => isset($result->code) ? $result->code : '400',
-            'message' => isset($result->message) ? $result->message : 'Failed to process sell order'
+       $result = [
+            'code' => $code,
+            'message' => $message
         ];
 
         // Log hasil akhir

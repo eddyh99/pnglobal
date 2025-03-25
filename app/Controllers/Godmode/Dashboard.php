@@ -9,6 +9,7 @@ class Dashboard extends BaseController
     public function __construct()
     {
         $session = session();
+        $loggedUser = $session->get('logged_user');
 
         // Jika belum login, redirect ke halaman signin
         if (!$session->has('logged_user')) {
@@ -16,13 +17,13 @@ class Dashboard extends BaseController
             exit();
         }
 
-        // Mendapatkan data user yang tersimpan (sudah login)
-        $loggedUser = $session->get('logged_user');
 
         // Pengecekan role: hanya admin yang boleh mengakses halaman ini
-        if ($loggedUser->role !== 'admin') {
+        if ($loggedUser->role == 'member') {
             session()->setFlashdata('failed', "You don't have access to this page");
-            return redirect()->to(BASE_URL . 'godmode/auth/signin');
+            session()->unset();
+            header("Location: " . BASE_URL . 'godmode/auth/signin');
+            exit();
         }
     }
 
