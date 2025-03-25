@@ -13,30 +13,30 @@ class Signal extends BaseController
             header("Location: " . BASE_URL . 'godmode/auth/signin');
             exit();
         }
-    
+
         $loggedUser = $session->get('logged_user');
-    
+
         // If role is superadmin, allow full access
         if ($loggedUser->role === 'superadmin') {
             return;
         }
-    
+
         // If role is admin, check access
         if ($loggedUser->role === 'admin') {
             $userAccess = json_decode($loggedUser->access, true);
             if (!is_array($userAccess)) {
                 $userAccess = [];
             }
-    
+
             if (!in_array('signal', $userAccess)) {
                 session()->setFlashdata('failed', 'You don\'t have access to this page');
                 header("Location: " . BASE_URL . 'godmode/dashboard');
                 exit();
             }
-    
+
             return;
         }
-    
+
         // For other roles, deny access
         session()->setFlashdata('failed', 'You don\'t have access to this page');
         header("Location: " . BASE_URL . 'godmode/dashboard');
@@ -374,7 +374,7 @@ class Signal extends BaseController
         $url = URLAPI . "/v1/order/latestsignal";
         $readsignal = satoshiAdmin($url)->result->message;
         log_message('info', 'Sinyal Akhir: ' . json_encode($readsignal));
-        
+
         // Initial Alphabet
         $alphabet = ['A', 'B', 'C', 'D'];
         $result = null;
@@ -506,67 +506,49 @@ class Signal extends BaseController
                 }
             }
         }
-        
-        $response=$response1;
-        
+
+        $response = $response1;
+
         log_message('info', 'Akhir Respond diterima: ' . json_encode($response));
 
-        $code = isset($response->result->code) ? $response->result->code : (isset($response->status) ? $response->status : 500);
-        $message = '';
-
-        // Handle response from first endpoint
-        if (isset($response->result) && isset($response->result->code)) {
-            if ($response->result->code == 200 || $response->result->code == 201) {
-                $message = isset($response->result->message) ? $response->result->message : 'Sell order successfully processed';
-                $code = $response->result->code;
+        // Periksa apakah response memiliki result dan code
+        if (isset($response->result)) {
+            if (isset($response->result->code) && ($response->result->code == 200 || $response->result->code == 201)) {
+                $result = [
+                    'code' => $response->result->code,
+                    'message' => isset($response->result->message) ? $response->result->message : 'Sell order successfully processed'
+                ];
             } else {
-                $message = isset($response->error->message) ? $response->error->message : 'Failed to process sell order';
-                // Return early if first endpoint fails
-                echo json_encode(['code' => $code, 'message' => $message]);
-                exit();
+                $result = [
+                    'code' => isset($response->result->code) ? $response->result->code : 400,
+                    'message' => isset($response->result->message) ? $response->result->message : 'Failed to process sell order'
+                ];
             }
         } else if (isset($response->status)) {
-            // Handle kasus dimana hanya ada status tanpa result
+            // Handle kasus dimana hanya ada status
             if ($response->status == 200 || $response->status == 201) {
-                $message = 'Sell order successfully processed';
-                $code = $response->status;
-            } else if ($response->status == 400) {
-                $message = 'Failed to process sell order: Invalid parameters';
-                $code = 400;
-            } else if ($response->status == 401) {
-                $message = 'Failed to process sell order: Unauthorized';
-                $code = 401;
-            } else if ($response->status == 403) {
-                $message = 'Failed to process sell order: Access denied';
-                $code = 403;
-            } else if ($response->status == 404) {
-                $message = 'Failed to process sell order: Endpoint not found';
-                $code = 404;
-            } else if ($response->status == 500) {
-                $message = 'Failed to process sell order: Server error occurred';
-                $code = 500;
+                $result = [
+                    'code' => $response->status,
+                    'message' => 'Sell order successfully processed'
+                ];
             } else {
-                $message = 'Failed to process sell order: Unknown error occurred';
-                $code = $response->status;
+                $result = [
+                    'code' => $response->status,
+                    'message' => 'Failed to process sell order'
+                ];
             }
-            echo json_encode(['code' => $code, 'message' => $message]);
-            exit();
         } else {
-            $message = 'Invalid response format from limit_sell endpoint';
-            echo json_encode(['code' => 500, 'message' => $message]);
-            exit();
+            $result = [
+                'code' => 500,
+                'message' => 'Invalid response format from server'
+            ];
         }
-        // Buat response array
-       $result = [
-            'code' => $code,
-            'message' => $message
-        ];
 
         // Log hasil akhir
-        log_message('info', 'Hasil akhir proses sell: ' . json_encode($response));
+        log_message('info', 'Hasil akhir proses sell: ' . json_encode($result));
 
         // Return result as JSON
-        echo json_encode($response);
+        echo json_encode($result);
     }
 
     public function fillsignal()
@@ -799,6 +781,7 @@ class Signal extends BaseController
     public function cancel_sell()
     {
         $signal_id = htmlspecialchars($_GET['id']);
+        log_message('info', 'Signal ID: ' . $signal_id);
 
         // Panggil endpoint pertama (URLAPI)
         $url1 = URLAPI . "/v1/order/delete?id_signal=" . $signal_id;

@@ -88,17 +88,30 @@
             ['a', 'b', 'c', 'd'].forEach(letter => {
                 const buyInput = $(`#buy-${letter}`);
                 const buyValue = buyInput.val();
-                const buyStatus = buyInput.closest('tr').find('.signal-status').text().trim().toLowerCase();
+                const buyRow = buyInput.closest('tr');
+                const buyStatus = buyRow.find('.signal-status').text().trim().toLowerCase();
                 const sellInput = $(`#sell-${letter}`);
                 const sellValue = sellInput.val();
-                const sellStatus = sellInput.closest('tr').find('.signal-status').text().trim().toLowerCase();
+                const sellRow = sellInput.closest('tr');
+                const sellStatus = sellRow.find('.signal-status').text().trim().toLowerCase();
                 const delBuyBtn = $(`#del-buy-${letter}`);
                 const delSellBtn = $(`#del-sell-${letter}`);
+                const sendSellBtn = $(`#send-sell-${letter}`);
+                const buyStatusElement = buyRow.find('.signal-status');
+                const sellStatusElement = sellRow.find('.signal-status');
 
                 console.log(`Buy ${letter.toUpperCase()} status:`, buyStatus);
                 console.log(`Buy ${letter.toUpperCase()} value:`, buyValue);
                 console.log(`Sell ${letter.toUpperCase()} status:`, sellStatus);
                 console.log(`Sell ${letter.toUpperCase()} value:`, sellValue);
+
+                // Reset status jika price kosong
+                if (!buyValue || buyValue === '') {
+                    buyStatusElement.text('');
+                }
+                if (!sellValue || sellValue === '') {
+                    sellStatusElement.text('');
+                }
 
                 // Atur tombol DEL BUY berdasarkan nilai input
                 if (!buyValue || buyValue === '') {
@@ -134,34 +147,42 @@
                     });
                 }
 
-                // Atur tombol FILL berdasarkan status
-                if (buyStatus === 'filled') {
-                    // Jika status buy adalah filled, disable tombol FILL
+                // Atur tombol FILL berdasarkan status dan price
+                if (buyValue && buyStatus === 'filled') {
+                    // Jika ada price dan status buy adalah filled, disable tombol FILL
                     $(`#fill-buy-${letter}`).prop('disabled', true).addClass('filled');
-                } else if (buyStatus === 'new') {
-                    // Jika status buy adalah new, enable tombol FILL
+                } else if (buyValue && buyStatus === 'new') {
+                    // Jika ada price dan status buy adalah new, enable tombol FILL
                     $(`#fill-buy-${letter}`).prop('disabled', false).removeClass('filled');
+                } else {
+                    // Jika tidak ada price, disable tombol FILL
+                    $(`#fill-buy-${letter}`).prop('disabled', true).removeClass('filled');
                 }
 
                 // Untuk sell, kita hanya mengatur tombol berdasarkan status yang ada dari server
-                if (sellStatus) {
+                if (sellValue && sellStatus) {
                     if (sellStatus === 'filled') {
-                        // Jika status sell adalah filled, disable tombol FILL
+                        // Jika ada price dan status sell adalah filled, disable tombol FILL dan SELL
                         $(`#fill-sell-${letter}`).prop('disabled', true).addClass('filled');
+                        sendSellBtn.prop('disabled', true);
+                        sellInput.prop('readonly', true);
                     } else {
-                        // Untuk status lainnya, enable tombol FILL
+                        // Untuk status lainnya dan ada price, enable tombol FILL
                         $(`#fill-sell-${letter}`).prop('disabled', false).removeClass('filled');
                     }
+                } else {
+                    // Jika tidak ada price, disable tombol FILL
+                    $(`#fill-sell-${letter}`).prop('disabled', true).removeClass('filled');
                 }
 
-                // Jika status buy masih new, disable tombol SELL
-                if (buyStatus === 'new') {
-                    $(`#sell-${letter}`).prop('readonly', true);
-                    $(`#send-sell-${letter}`).prop('disabled', true);
-                } else if (buyStatus === 'filled') {
-                    // Jika status buy adalah filled, enable tombol SELL
-                    $(`#sell-${letter}`).prop('readonly', false);
-                    $(`#send-sell-${letter}`).prop('disabled', false);
+                // Jika status buy masih new atau tidak ada price, disable tombol SELL
+                if (buyStatus === 'new' || !buyValue) {
+                    sellInput.prop('readonly', true);
+                    sendSellBtn.prop('disabled', true);
+                } else if (buyValue && buyStatus === 'filled' && (!sellStatus || sellStatus !== 'filled')) {
+                    // Jika ada price buy, status buy filled, dan sell belum filled, enable tombol SELL
+                    sellInput.prop('readonly', false);
+                    sendSellBtn.prop('disabled', false);
                 }
             });
         }
@@ -804,8 +825,8 @@
                 {
                     data: null,
                     "render": function(data, type, row) {
-                        // Tampilkan button cancel hanya jika ini adalah sell signal terbaru
-                        if (row.type.toLowerCase().includes('sell') && row.isFirstSell) {
+                        // Tampilkan button cancel hanya jika ini adalah sell signal terbaru dan statusnya bukan filled
+                        if (row.type.toLowerCase().includes('sell') && row.isFirstSell && row.status.toLowerCase() !== 'filled') {
                             return '<button class="btn btn-danger btn-sm cancel-signal" data-id="' + row.id + '" data-pair-id="' + row.pair_id + '">Cancel</button>';
                         }
                         return '';
@@ -1083,7 +1104,7 @@
                             }
 
                             // Check if response success
-                            if (result.code == '200') {
+                            if (result.code == '200' || result.code == '201' || result.code == 200 || result.code == 201) {
                                 // Update UI berdasarkan response dari server
                                 if (result.status) {
                                     statusElement.text(result.status);
