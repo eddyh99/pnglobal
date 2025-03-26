@@ -180,7 +180,7 @@
                                             </thead>
                                             <tbody>
                                                 <!-- SELL A -->
-                                                <tr data-pair-id="<?php echo (!empty($buy_a) ? $buy_a['pair_id'] : '') ?>">
+                                                <tr data-pair-id="<?php echo (!empty($buy_a) ? $buy_a['id'] : '') ?>">
                                                     <td>
                                                         <div class="signal-label sell-label">A</div>
                                                     </td>
@@ -203,7 +203,7 @@
                                                     </td>
                                                 </tr>
                                                 <!-- SELL B -->
-                                                <tr data-pair-id="<?php echo (!empty($buy_b) ? $buy_b['pair_id'] : '') ?>">
+                                                <tr data-pair-id="<?php echo (!empty($buy_b) ? $buy_b['id'] : '') ?>">
                                                     <td>
                                                         <div class="signal-label sell-label">B</div>
                                                     </td>
@@ -226,7 +226,7 @@
                                                     </td>
                                                 </tr>
                                                 <!-- SELL C -->
-                                                <tr data-pair-id="<?php echo (!empty($buy_c) ? $buy_c['pair_id'] : '') ?>">
+                                                <tr data-pair-id="<?php echo (!empty($buy_c) ? $buy_c['id'] : '') ?>">
                                                     <td>
                                                         <div class="signal-label sell-label">C</div>
                                                     </td>
@@ -249,7 +249,7 @@
                                                     </td>
                                                 </tr>
                                                 <!-- SELL D -->
-                                                <tr data-pair-id="<?php echo (!empty($buy_d) ? $buy_d['pair_id'] : '') ?>">
+                                                <tr data-pair-id="<?php echo (!empty($buy_d) ? $buy_d['id'] : '') ?>">
                                                     <td>
                                                         <div class="signal-label sell-label">D</div>
                                                     </td>
