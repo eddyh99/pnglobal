@@ -165,6 +165,7 @@
             // Siapkan data untuk dikirim ke server
             const formData = new FormData();
             formData.append('amount', paymentAmount);
+            formData.append('totalcapital', totalCapital);
 
             // Tampilkan loading
             const confirmButton = document.querySelector('.confirm-button');

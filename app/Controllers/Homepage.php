@@ -494,6 +494,7 @@ class Homepage extends BaseController
             // Simpan data ke dalam session
             $paymentData = [
                 'amount' => $this->request->getPost('amount'),
+                'totalcapital' => $this->request->getPost('totalcapital'),
                 'timestamp' => date('Y-m-d H:i:s')
             ];
 
@@ -712,6 +713,7 @@ class Homepage extends BaseController
 
             // Ambil data dari request
             $amount = $this->request->getPost('amount');
+            $totalcapital = $_SESSION["payment_data"]["totalcapital"];
             $paymentMethodId = $this->request->getPost('payment_method_id');
 
             // Bersihkan nilai amount dari karakter non-numerik kecuali titik desimal
@@ -759,7 +761,7 @@ class Homepage extends BaseController
                         // Siapkan data untuk API
                         $postData = [
                             'email' => $email,
-                            'amount' => $amount,
+                            'amount' => $totalcapital,
                             'payment_method' => 'card',
                             'transaction_id' => $confirmedPaymentIntent->id
                         ];
