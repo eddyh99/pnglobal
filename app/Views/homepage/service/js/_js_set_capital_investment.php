@@ -4,9 +4,7 @@
         let config = {
             minCapital: 0,
             additionalStep: 0,
-            percentageMultiplier: 0,
             percentageFee: 0,
-            euroConversionRate: 0,
             membershipDays: 0
         };
 
@@ -23,9 +21,9 @@
         // Elemen tambahan untuk menampilkan nilai dinamis
         const additionalStepDisplay = document.getElementById('additional-step-display');
         const percentageFeeDisplay = document.getElementById('percentage-fee-display');
-        const percentageMultiplierDisplay = document.getElementById('percentage-multiplier-display');
         const membershipDaysDisplay = document.getElementById('membership-days-display');
         const membershipDaysDisplay2 = document.getElementById('membership-days-display2');
+        let totalCapital;
 
         // Format currency function
         function formatCurrency(amount, currency = '$') {
@@ -34,7 +32,7 @@
 
         // Format percentage function
         function formatPercentage(value) {
-            return `${(value * 100).toFixed(0)}%`;
+            return `${(value * 100).toFixed(2)}%`;
         }
 
         // Parse currency string to number
@@ -46,20 +44,17 @@
         function updateDisplays() {
             additionalCapitalInput.value = formatCurrency(additionalCapital);
 
-            const totalCapital = config.minCapital + additionalCapital;
+            totalCapital = config.minCapital + additionalCapital;
             totalCapitalDisplay.textContent = formatCurrency(totalCapital);
 
             // Debug untuk melihat nilai yang digunakan dalam perhitungan
             console.log('Total Capital:', totalCapital);
-            console.log('Percentage Multiplier:', config.percentageMultiplier);
             console.log('Percentage Fee:', config.percentageFee);
 
             // Perhitungan payment amount: total capital * percentageMultiplier * percentageFee, dikonversi ke Euro
-            const calculationBase = totalCapital * config.percentageMultiplier;
-            const paymentAmountUSD = calculationBase * config.percentageFee;
-            const paymentAmountEuro = Math.round(paymentAmountUSD * config.euroConversionRate);
+            const paymentAmountUSD = totalCapital * config.percentageFee;
+            const paymentAmountEuro = paymentAmountUSD;
 
-            console.log('Calculation Base:', calculationBase);
             console.log('Payment Amount USD:', paymentAmountUSD);
             console.log('Payment Amount Euro:', paymentAmountEuro);
 
@@ -103,6 +98,7 @@
             // Siapkan data untuk dikirim ke server
             const formData = new FormData();
             formData.append('amount', paymentAmount);
+            formData.append('totalcapital', totalCapital);
 
             // Tampilkan loading
             const confirmButton = document.querySelector('.confirm-button');
@@ -154,9 +150,7 @@
                     // Simpan data konfigurasi dengan memastikan tipe data yang benar
                     config.minCapital = parseFloat(data.min_capital);
                     config.additionalStep = parseFloat(data.additional_step);
-                    config.percentageMultiplier = parseFloat(data.percentage_multiplier);
                     config.percentageFee = parseFloat(data.percentage_fee);
-                    config.euroConversionRate = parseFloat(data.euro_conversion_rate);
                     config.membershipDays = parseInt(data.membership_days);
 
                     console.log('Config setelah parsing:', config);
@@ -165,7 +159,6 @@
                     minCapitalValue.textContent = formatCurrency(config.minCapital);
                     additionalStepDisplay.textContent = formatCurrency(config.additionalStep);
                     percentageFeeDisplay.textContent = formatPercentage(config.percentageFee);
-                    percentageMultiplierDisplay.textContent = formatPercentage(config.percentageMultiplier);
                     membershipDaysElement.textContent = `${config.membershipDays} Days Membership`;
                     membershipDaysDisplay.textContent = config.membershipDays;
                     membershipDaysDisplay2.textContent = config.membershipDays;

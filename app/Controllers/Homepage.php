@@ -454,6 +454,7 @@ class Homepage extends BaseController
         return view('homepage/layout/wrapper', $mdata);
     }
 
+
     public function get_investment_config()
     {
         $url = URLAPI . "/v1/price";
@@ -467,9 +468,7 @@ class Homepage extends BaseController
         $data = [
             'min_capital' => $minCapital,
             'additional_step' => 2000,
-            'percentage_multiplier' => $commission,
-            'percentage_fee' => 0.11,
-            'euro_conversion_rate' => 0.844,
+            'percentage_fee' => $commission,
             'membership_days' => 30
         ];
 
@@ -515,6 +514,28 @@ class Homepage extends BaseController
         }
     }
 
+    private function getExchange($amountEUR){
+        // Your Open Exchange Rates API key
+        //tdalgo@thedarkalgo.com : Banana69%
+        $apiKey = 'e79bf324d5a1443b8e06c33c67c3b444';
+        $url = "https://openexchangerates.org/api/latest.json?app_id=$apiKey";
+        
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL, $url);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        $response = curl_exec($ch);
+        curl_close($ch);
+        
+        $data = json_decode($response, true);
+        
+        // Extract the exchange rate for USD to IDR
+        $usdToEUR = $data['rates']['EUR'];
+        $eurToUSD = 1 / $usdToEUR;
+            
+        $amountUSD = $amountEUR * $eurToUSD;
+        return $amountUSD;
+    }
+    
     public function payment_option()
     {
         $mdata = [
@@ -529,494 +550,581 @@ class Homepage extends BaseController
 
         return view('homepage/layout/wrapper', $mdata);
     }
+    
+    function createCoinPaymentTransaction($amount, $currency, $invoiceNumber,$buyer_email,$description)
+    {
+        $publicKey  = "61b29c2e66e2720b3d4c2906df6e0fe61b3809094e94322f6a7da99bb5645aa9";
+        $privateKey = "7eBb4a5fbb1F4A24dea25c58883d7A19ae111F5C822392dB352a2c2f8285703A";
+        $url = 'https://www.coinpayments.net/api.php';
+        $payload = [
+                'cmd'        => 'create_transaction',
+                'amount'     => $amount,
+                'currency1'  => 'USD',
+                'currency2'  => $currency,
+                'invoice'    => $invoiceNumber,
+                'buyer_email'=> $buyer_email,
+                'item_name'  => $description,
+                'key'        => $publicKey,
+                'ipn_url'    => base_url().'homepage/coinpayment_notify',
+                'success_url'=> base_url().'homepage/returncrypto?email='.$buyer_email,
+                'cancel_url' => base_url()."homepage/set_capital_investment",
+                'version'    => 1,
+                'format'     => 'json', // Ensure JSON response
+            ];
+        
+            // Generate HMAC signature
+            $postData = http_build_query($payload, '', '&');
+            $hmac = hash_hmac('sha512', $postData, $privateKey);
+        
+            // Send request
+            $ch = curl_init();
+            curl_setopt($ch, CURLOPT_URL, $url);
+            curl_setopt($ch, CURLOPT_POST, 1);
+            curl_setopt($ch, CURLOPT_POSTFIELDS, $postData);
+            curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+            curl_setopt($ch, CURLOPT_HTTPHEADER, ['HMAC: ' . $hmac]);
+        
+            $response = curl_exec($ch);
+            curl_close($ch);
+        
+            return json_decode($response, true);
+    }    
+
+    public function coinpayment_notify()
+    {
+        $data = $_POST;
+        log_message('error', "data cointpayment : ".json_encode($data));
+
+        if ($data["status"] === "100") {
+            $merchantOrderId = $data['invoice'] ?? null;
+            $reference = $data['txn_id'] ?? null;
+        
+            // Callback tervalidasi
+            $code = "pending";
+            if ($data['status_text'] == 'Complete') {
+                $code = "active";
+            } elseif ($data['status_text'] == 'Failed') {
+                $code = "failed";
+            }
+        
+            $postData = array(
+                "invoice"   => $merchantOrderId,
+                "references"=> $reference,
+                "status"    => $code
+            );
+            // Debugging sebelum kirim request
+
+            log_message('error',"Sending data". json_encode($postData));
+        
+            $url = URLAPI . "/non/notify_payment";
+            $response = satoshiAdmin($url, json_encode($postData));
+            log_message('error',"Response: " . json_encode($response));
+        }
+    }
+
+    public function returncrypto(){
+        $this->session->setFlashdata('success', 'Your payment is being processed and your account will be ready within 48 hours. We will send you an email when your account is active.');
+        return redirect()->to(base_url().'homepage/payment_option'); 
+    }
 
     public function usdt_payment()
     {
-        $session = session();
-        $paymentdata = $session->get('payment_data');
-
-        $mdata = [
-            'title'     => 'USDT Payment - ' . NAMETITLE,
-            'content'   => 'homepage/service/usdt_payment',
-            'extra'     => 'homepage/service/js/_js_usdt_payment',
-            // 'navoption' => true,
-            // 'darkNav'   => true,
-            'footer'    => false,
-            'nav'       => false,
-            'payment_data' => $paymentdata,
+        $payamount  = $_SESSION["payment_data"]["amount"];
+        $netprice   = $this->getExchange($payamount);
+        $customerEmail = $_SESSION["logged_user"]->email;
+        $postData = [
+            'email' => $customerEmail,
+            'amount' => $_SESSION["payment_data"]["totalcapital"],
         ];
 
-        return view('homepage/layout/wrapper', $mdata);
+        $url        = URLAPI . "/non/paid_subscribe";
+        $response   = satoshiAdmin($url, json_encode($postData))->result->message;
+
+        $orderId    = $response->invoice;
+        $description= "Monthly subscription LUX BTC Broker";
+
+        $paymentResponse = $this->createCoinPaymentTransaction(10,'LTCT', $orderId,$customerEmail,$description);
+        if ($paymentResponse['error'] !== 'ok') {
+            $this->session->setFlashdata('error', 'There was a problem processing your purchase please try again');
+            return redirect()->to(base_url().'homepage/set_capital_investment'); 
+        }
+        
+        return redirect()->to($paymentResponse['result']['checkout_url']); 
     }
 
     public function usdc_payment()
     {
-        $session = session();
-        $paymentdata = $session->get('payment_data');
-
-        $mdata = [
-            'title'     => 'USDC Payment - ' . NAMETITLE,
-            'content'   => 'homepage/service/usdc_payment',
-            'extra'     => 'homepage/service/js/_js_usdc_payment',
-            // 'navoption' => true,
-            // 'darkNav'   => true,
-            'footer'    => false,
-            'nav'       => false,
-            'payment_data' => $paymentdata,
+        $payamount  = $_SESSION["payment_data"]["amount"];
+        $netprice   = $this->getExchange($payamount);
+        $customerEmail = $_SESSION["logged_user"]->email;
+        $postData = [
+            'email' => $customerEmail,
+            'amount' => $_SESSION["payment_data"]["totalcapital"],
         ];
 
-        return view('homepage/layout/wrapper', $mdata);
-    }
+        $url        = URLAPI . "/non/paid_subscribe";
+        $response   = satoshiAdmin($url, json_encode($postData))->result->message;
+        $orderId    = $response->invoice;
+        $description= "Monthly subscription LUX BTC Broker";
 
-    public function card_payment()
-    {
-        $session = session();
-        $paymentdata = $session->get('payment_data');
-
-        $mdata = [
-            'title'     => 'Card Payment - ' . NAMETITLE,
-            'content'   => 'homepage/service/card_payment',
-            'extra'     => 'homepage/service/js/_js_card_payment',
-            // 'navoption' => true,
-            // 'darkNav'   => true,
-            'footer'    => false,
-            'nav'       => false,
-            'payment_data' => $paymentdata,
-        ];
-
-        return view('homepage/layout/wrapper', $mdata);
-    }
-
-    public function confirm_crypto_payment()
-    {
-        try {
-            // Validasi request
-            $rules = [
-                'amount' => 'required',
-            ];
-
-            if (!$this->validate($rules)) {
-                return $this->response->setJSON([
-                    'status' => 'error',
-                    'message' => $this->validator->getErrors()
-                ])->setStatusCode(400);
-            }
-
-            $amount = $this->request->getPost('amount');
-
-            // Jika amount berisi string "USDT" atau "usdt", hilangkan  
-            $amount = str_replace(['USDT', 'usdt', 'USDC', 'usdc'], '', $amount);
-
-            // Bersihkan nilai amount dari karakter non-numerik kecuali titik desimal
-            $amount = preg_replace('/[^0-9.]/', '', $amount);
-
-            // Konversi ke tipe data float
-            $amount = (float) $amount;
-
-            // Ambil email dari session
-            $session = session();
-            if (!$session->has('logged_user')) {
-                return $this->response->setJSON([
-                    'status' => 'error',
-                    'message' => 'User tidak terautentikasi'
-                ])->setStatusCode(401);
-            }
-
-            $email = $session->get('logged_user')->email;
-
-            // Siapkan data untuk API
-            $postData = [
-                'email' => $email,
-                'amount' => $amount
-            ];
-
-            $url = URLAPI . "/v1/subscribe/paid_subscribe";
-            $response = satoshiAdmin($url, json_encode($postData));
-
-            $result = $response->result;
-
-            if (isset($result->code) && $result->code != 201) {
-                return $this->response->setJSON([
-                    'status' => 'error',
-                    'message' => '<p>' . ($result->message ?? 'An error occurred on the API server') . '</p><p>Please try again or contact customer support.</p>'
-                ])->setStatusCode(400);
-            }
-
-            // Hapus data pembayaran dari session
-            $session->remove('payment_data');
-
-            // Perbarui data pengguna dalam session dengan data terbaru dari API
-            $userData = [
-                'email' => $email,
-                'password' => $session->get('logged_user')->passwd
-            ];
-
-            // Ambil data pengguna terbaru dari API
-            $userUrl = URLAPI . "/auth/signin";
-            $userResponse = satoshiAdmin($userUrl, json_encode($userData));
-            $userResult = $userResponse->result;
-
-            // Jika berhasil mendapatkan data pengguna terbaru, perbarui session
-            if (isset($userResult->code) && $userResult->code == 200) {
-                $session->set('logged_user', $userResult->message);
-            }
-
-            return $this->response->setJSON([
-                'status' => 'success',
-                'message' => '<p>Your payment is being processed and your account will be ready within 48 hours.</p><p>We will send you an email when your account is active.</p>',
-                'data' => [
-                    'email' => $email, // Gunakan email dari session jika tidak ada dalam respons
-                    'amount' => $amount, // Gunakan amount dari request jika tidak ada dalam respons
-                ]
-            ]);
-
-            // Tambahkan end_date jika ada dalam respons
-            if (isset($result->end_date)) {
-                $responseData['data']['end_date'] = $result->end_date;
-            }
-
-            // Perbarui dengan data dari respons jika tersedia
-            if (isset($result->email)) {
-                $responseData['data']['email'] = $result->email;
-            }
-
-            if (isset($result->amount)) {
-                $responseData['data']['amount'] = $result->amount;
-            }
-
-            return $this->response->setJSON($responseData)->setStatusCode(201);
-        } catch (\Exception $e) {
-            log_message('error', 'Exception: ' . $e->getMessage());
-            return $this->response->setJSON([
-                'status' => 'error',
-                'message' => 'An error occurred while processing the payment'
-            ])->setStatusCode(500);
+        $paymentResponse = $this->createCoinPaymentTransaction($netprice,'USDC.BEP20', $orderId,$customerEmail,$description);
+        if ($paymentResponse['error'] !== 'ok') {
+            $this->session->setFlashdata('error', 'There was a problem processing your purchase please try again');
+            return redirect()->to(base_url().'homepage/set_capital_investment'); 
         }
+        
+        return redirect()->to($paymentResponse['result']['checkout_url']); 
     }
 
-    public function confirm_card_payment()
-    {
-        try {
-            // Validasi request
-            $rules = [
-                'amount' => 'required',
-                'payment_method_id' => 'required'
-            ];
+    // public function card_payment()
+    // {
+    //     $session = session();
+    //     $paymentdata = $session->get('payment_data');
 
-            if (!$this->validate($rules)) {
-                session()->setFlashdata('failed', $this->validator->getErrors());
-                return $this->response->setJSON([
-                    'status' => 'error',
-                    'message' => $this->validator->getErrors()
-                ])->setStatusCode(400);
-            }
+    //     $mdata = [
+    //         'title'     => 'Card Payment - ' . NAMETITLE,
+    //         'content'   => 'homepage/service/card_payment',
+    //         'extra'     => 'homepage/service/js/_js_card_payment',
+    //         // 'navoption' => true,
+    //         // 'darkNav'   => true,
+    //         'footer'    => false,
+    //         'nav'       => false,
+    //         'payment_data' => $paymentdata,
+    //     ];
 
-            // Ambil data dari request
-            $amount = $this->request->getPost('amount');
-            $totalcapital = $_SESSION["payment_data"]["totalcapital"];
-            $paymentMethodId = $this->request->getPost('payment_method_id');
+    //     return view('homepage/layout/wrapper', $mdata);
+    // }
 
-            // Bersihkan nilai amount dari karakter non-numerik kecuali titik desimal
-            $amount = preg_replace('/[^0-9.]/', '', $amount);
+    // public function confirm_crypto_payment()
+    // {
+    //     try {
+    //         // Validasi request
+    //         $rules = [
+    //             'amount' => 'required',
+    //         ];
 
-            // Konversi ke tipe data float
-            $amount = (float) $amount;
+    //         if (!$this->validate($rules)) {
+    //             return $this->response->setJSON([
+    //                 'status' => 'error',
+    //                 'message' => $this->validator->getErrors()
+    //             ])->setStatusCode(400);
+    //         }
 
-            // Konversi ke sen untuk Stripe (Stripe menggunakan satuan sen)
-            $amountInCents = $amount * 100;
+    //         $amount = $this->request->getPost('amount');
 
-            // Ambil email dari session
-            $session = session();
-            if (!$session->has('logged_user')) {
-                session()->setFlashdata('failed', 'User not authenticated');
-                return $this->response->setJSON([
-                    'status' => 'error',
-                    'message' => 'User not authenticated'
-                ])->setStatusCode(401);
-            }
+    //         // Jika amount berisi string "USDT" atau "usdt", hilangkan  
+    //         $amount = str_replace(['USDT', 'usdt', 'USDC', 'usdc'], '', $amount);
 
-            $loggedUser = $session->get('logged_user');
-            $email = $loggedUser->email;
+    //         // Bersihkan nilai amount dari karakter non-numerik kecuali titik desimal
+    //         $amount = preg_replace('/[^0-9.]/', '', $amount);
 
-            // Inisialisasi Stripe
-            \Stripe\Stripe::setApiKey(SECRET_KEY);
+    //         // Konversi ke tipe data float
+    //         $amount = (float) $amount;
 
-            try {
-                // Buat payment intent di Stripe
-                $paymentIntent = \Stripe\PaymentIntent::create([
-                    'amount' => $amountInCents,
-                    'currency' => 'eur',
-                    'payment_method' => $paymentMethodId,
-                    'automatic_payment_methods' => [
-                        'enabled' => true,
-                        'allow_redirects' => 'never', // Nonaktifkan metode pembayaran berbasis redirect
-                    ],
-                ]);
+    //         // Ambil email dari session
+    //         $session = session();
+    //         if (!$session->has('logged_user')) {
+    //             return $this->response->setJSON([
+    //                 'status' => 'error',
+    //                 'message' => 'User tidak terautentikasi'
+    //             ])->setStatusCode(401);
+    //         }
 
-                if ($paymentIntent->status === 'requires_confirmation') {
-                    $confirmedPaymentIntent = $paymentIntent->confirm();
+    //         $email = $session->get('logged_user')->email;
 
-                    // Jika pembayaran berhasil, simpan ke API
-                    if ($confirmedPaymentIntent->status === 'succeeded') {
-                        // Siapkan data untuk API
-                        $postData = [
-                            'email' => $email,
-                            'amount' => $totalcapital,
-                            'payment_method' => 'card',
-                            'transaction_id' => $confirmedPaymentIntent->id
-                        ];
+    //         // Siapkan data untuk API
+    //         $postData = [
+    //             'email' => $email,
+    //             'amount' => $amount
+    //         ];
 
-                        $url = URLAPI . "/v1/subscribe/paid_subscribe";
-                        $response = satoshiAdmin($url, json_encode($postData));
+    //         $url = URLAPI . "/v1/subscribe/paid_subscribe";
+    //         $response = satoshiAdmin($url, json_encode($postData));
 
-                        $result = $response->result;
+    //         $result = $response->result;
 
-                        // Periksa kode response dari API
-                        if (isset($result->code) && $result->code != 201) {
-                            // Jika API gagal, refund pembayaran
-                            \Stripe\Refund::create([
-                                'payment_intent' => $confirmedPaymentIntent->id
-                            ]);
+    //         if (isset($result->code) && $result->code != 201) {
+    //             return $this->response->setJSON([
+    //                 'status' => 'error',
+    //                 'message' => '<p>' . ($result->message ?? 'An error occurred on the API server') . '</p><p>Please try again or contact customer support.</p>'
+    //             ])->setStatusCode(400);
+    //         }
 
-                            session()->setFlashdata('failed', $result->message ?? 'An error occurred on the API server. Please try again or contact customer support.');
-                            return $this->response->setJSON([
-                                'status' => 'error',
-                                'message' => $result->message ?? 'An error occurred on the API server. Please try again or contact customer support.'
-                            ])->setStatusCode(400);
-                        }
+    //         // Hapus data pembayaran dari session
+    //         $session->remove('payment_data');
 
-                        // Hapus data pembayaran dari session
-                        $session->remove('payment_data');
+    //         // Perbarui data pengguna dalam session dengan data terbaru dari API
+    //         $userData = [
+    //             'email' => $email,
+    //             'password' => $session->get('logged_user')->passwd
+    //         ];
 
-                        // Perbarui data pengguna dalam session dengan data terbaru dari API
-                        $userData = [
-                            'email' => $email,
-                            'password' => $loggedUser->passwd
-                        ];
+    //         // Ambil data pengguna terbaru dari API
+    //         $userUrl = URLAPI . "/auth/signin";
+    //         $userResponse = satoshiAdmin($userUrl, json_encode($userData));
+    //         $userResult = $userResponse->result;
 
-                        // Ambil data pengguna terbaru dari API
-                        $userUrl = URLAPI . "/auth/signin";
-                        $userResponse = satoshiAdmin($userUrl, json_encode($userData));
-                        $userResult = $userResponse->result;
+    //         // Jika berhasil mendapatkan data pengguna terbaru, perbarui session
+    //         if (isset($userResult->code) && $userResult->code == 200) {
+    //             $session->set('logged_user', $userResult->message);
+    //         }
 
-                        // Jika berhasil mendapatkan data pengguna terbaru, perbarui session
-                        if (isset($userResult->code) && $userResult->code == 200) {
-                            $session->set('logged_user', $userResult->message);
-                        }
+    //         return $this->response->setJSON([
+    //             'status' => 'success',
+    //             'message' => '<p>Your payment is being processed and your account will be ready within 48 hours.</p><p>We will send you an email when your account is active.</p>',
+    //             'data' => [
+    //                 'email' => $email, // Gunakan email dari session jika tidak ada dalam respons
+    //                 'amount' => $amount, // Gunakan amount dari request jika tidak ada dalam respons
+    //             ]
+    //         ]);
 
-                        // Set flash data untuk sukses
-                        session()->setFlashdata('success', 'Your payment is being processed and your account will be ready within 48 hours. We will send you an email when your account is active.');
-                        return $this->response->setJSON([
-                            'status' => 'success',
-                            'message' => 'Your payment is being processed and your account will be ready within 48 hours. We will send you an email when your account is active.'
-                        ])->setStatusCode(200);
-                    } else {
-                        session()->setFlashdata('failed', 'Payment failed: ' . $confirmedPaymentIntent->status);
-                        return $this->response->setJSON([
-                            'status' => 'error',
-                            'message' => 'Payment failed: ' . $confirmedPaymentIntent->status
-                        ])->setStatusCode(400);
-                    }
-                } else {
-                    session()->setFlashdata('failed', 'Payment failed: ' . $paymentIntent->status);
-                    return $this->response->setJSON([
-                        'status' => 'error',
-                        'message' => 'Payment failed: ' . $paymentIntent->status
-                    ])->setStatusCode(400);
-                }
-            } catch (\Stripe\Exception\CardException $e) {
-                // Kartu ditolak
-                session()->setFlashdata('failed', 'Card declined: ' . $e->getError()->message);
-                return $this->response->setJSON([
-                    'status' => 'error',
-                    'message' => 'Card declined: ' . $e->getError()->message
-                ])->setStatusCode(400);
-            } catch (\Stripe\Exception\RateLimitException $e) {
-                // Terlalu banyak request
-                session()->setFlashdata('failed', 'Too many requests to Stripe. Please try again later.');
-                return $this->response->setJSON([
-                    'status' => 'error',
-                    'message' => 'Too many requests to Stripe. Please try again later.'
-                ])->setStatusCode(400);
-            } catch (\Stripe\Exception\InvalidRequestException $e) {
-                // Parameter tidak valid
-                session()->setFlashdata('failed', 'Invalid parameters: ' . $e->getError()->message);
-                return $this->response->setJSON([
-                    'status' => 'error',
-                    'message' => 'Invalid parameters: ' . $e->getError()->message
-                ])->setStatusCode(400);
-            } catch (\Stripe\Exception\AuthenticationException $e) {
-                // Autentikasi gagal
-                session()->setFlashdata('failed', 'Stripe authentication failed. Please contact administrator.');
-                return $this->response->setJSON([
-                    'status' => 'error',
-                    'message' => 'Stripe authentication failed. Please contact administrator.'
-                ])->setStatusCode(400);
-            } catch (\Stripe\Exception\ApiConnectionException $e) {
-                // Koneksi ke Stripe gagal
-                session()->setFlashdata('failed', 'Connection to Stripe failed. Please try again later.');
-                return $this->response->setJSON([
-                    'status' => 'error',
-                    'message' => 'Connection to Stripe failed. Please try again later.'
-                ])->setStatusCode(400);
-            } catch (\Stripe\Exception\ApiErrorException $e) {
-                // Error API Stripe lainnya
-                session()->setFlashdata('failed', 'Stripe error: ' . $e->getError()->message);
-                return $this->response->setJSON([
-                    'status' => 'error',
-                    'message' => 'Stripe error: ' . $e->getError()->message
-                ])->setStatusCode(400);
-            }
-        } catch (\Exception $e) {
-            log_message('error', 'Exception: ' . $e->getMessage());
-            session()->setFlashdata('failed', 'An internal error occurred: ' . $e->getMessage());
-            return $this->response->setJSON([
-                'status' => 'error',
-                'message' => 'An internal error occurred: ' . $e->getMessage()
-            ])->setStatusCode(500);
-        }
-    }
+    //         // Tambahkan end_date jika ada dalam respons
+    //         if (isset($result->end_date)) {
+    //             $responseData['data']['end_date'] = $result->end_date;
+    //         }
 
-    public function satoshi_register_payment($email)
-    {
-        $email = base64_decode($email);
-        // Call Endpoin Get Member By Email
-        $url = URLAPI . "/auth/getmember_byemail?email=" . $email;
-        $result = satoshiAdmin($url)->result->message;
+    //         // Perbarui dengan data dari respons jika tersedia
+    //         if (isset($result->email)) {
+    //             $responseData['data']['email'] = $result->email;
+    //         }
 
-        $price = [
-            "1m"    => 250,
-            "3m"    => 600,
-            "6m"    => 1050,
-            "1y"    => 1800
-        ];
+    //         if (isset($result->amount)) {
+    //             $responseData['data']['amount'] = $result->amount;
+    //         }
 
-        $selisihReferral = [
-            "1m"    => 25,
-            "3m"    => 75,
-            "6m"    => 150,
-            "1y"    => 300
-        ];
+    //         return $this->response->setJSON($responseData)->setStatusCode(201);
+    //     } catch (\Exception $e) {
+    //         log_message('error', 'Exception: ' . $e->getMessage());
+    //         return $this->response->setJSON([
+    //             'status' => 'error',
+    //             'message' => 'An error occurred while processing the payment'
+    //         ])->setStatusCode(500);
+    //     }
+    // }
 
-        $mdata = [
-            'title'     => 'Active Account - ' . NAMETITLE,
-            'content'   => 'homepage/service/satoshi-payment',
-            'extra'     => 'homepage/service/js/_js_satoshi_payment',
-            'navoption' => true,
-            'member'    => $result,
-            'price'     => $price,
-            'disc'      => $selisihReferral
-        ];
+    // public function confirm_card_payment()
+    // {
+    //     try {
+    //         // Validasi request
+    //         $rules = [
+    //             'amount' => 'required',
+    //             'payment_method_id' => 'required'
+    //         ];
 
-        return view('homepage/layout/wrapper', $mdata);
-    }
+    //         if (!$this->validate($rules)) {
+    //             session()->setFlashdata('failed', $this->validator->getErrors());
+    //             return $this->response->setJSON([
+    //                 'status' => 'error',
+    //                 'message' => $this->validator->getErrors()
+    //             ])->setStatusCode(400);
+    //         }
 
-    public function satoshi_register_process($email)
-    {
-        $email = base64_decode($email);
-        // Call Endpoin Get Member By Email
-        $url = URLAPI . "/auth/getmember_byemail?email=" . $email;
-        $result = satoshiAdmin($url)->result->message;
+    //         // Ambil data dari request
+    //         $amount = $this->request->getPost('amount');
+    //         $totalcapital = $_SESSION["payment_data"]["totalcapital"];
+    //         $paymentMethodId = $this->request->getPost('payment_method_id');
 
-        // Stripe secret key
-        \Stripe\Stripe::setApiKey(SECRET_KEY);
-        $paymentMethodId = $_POST['payment_method_id'];
+    //         // Bersihkan nilai amount dari karakter non-numerik kecuali titik desimal
+    //         $amount = preg_replace('/[^0-9.]/', '', $amount);
 
-        $getprice = htmlspecialchars($this->request->getVar('price'));
-        $currency = 'eur';
-        $mdata = [
-            "email" => $result->email,
-            "referral"  => $result->id_referral
-        ];
+    //         // Konversi ke tipe data float
+    //         $amount = (float) $amount;
 
-        if (!empty($result->id_referral)) {
-            $discount = [
-                "1m"    => 25,
-                "3m"    => 75,
-                "6m"    => 150,
-                "1y"    => 300
-            ];
-        } else {
-            $discount = [
-                "1m"    => 0,
-                "3m"    => 0,
-                "6m"    => 0,
-                "1y"    => 0
-            ];
-        }
+    //         // Konversi ke sen untuk Stripe (Stripe menggunakan satuan sen)
+    //         $amountInCents = $amount * 100;
+
+    //         // Ambil email dari session
+    //         $session = session();
+    //         if (!$session->has('logged_user')) {
+    //             session()->setFlashdata('failed', 'User not authenticated');
+    //             return $this->response->setJSON([
+    //                 'status' => 'error',
+    //                 'message' => 'User not authenticated'
+    //             ])->setStatusCode(401);
+    //         }
+
+    //         $loggedUser = $session->get('logged_user');
+    //         $email = $loggedUser->email;
+
+    //         // Inisialisasi Stripe
+    //         \Stripe\Stripe::setApiKey(SECRET_KEY);
+
+    //         try {
+    //             // Buat payment intent di Stripe
+    //             $paymentIntent = \Stripe\PaymentIntent::create([
+    //                 'amount' => $amountInCents,
+    //                 'currency' => 'eur',
+    //                 'payment_method' => $paymentMethodId,
+    //                 'automatic_payment_methods' => [
+    //                     'enabled' => true,
+    //                     'allow_redirects' => 'never', // Nonaktifkan metode pembayaran berbasis redirect
+    //                 ],
+    //             ]);
+
+    //             if ($paymentIntent->status === 'requires_confirmation') {
+    //                 $confirmedPaymentIntent = $paymentIntent->confirm();
+
+    //                 // Jika pembayaran berhasil, simpan ke API
+    //                 if ($confirmedPaymentIntent->status === 'succeeded') {
+    //                     // Siapkan data untuk API
+    //                     $postData = [
+    //                         'email' => $email,
+    //                         'amount' => $totalcapital,
+    //                         'payment_method' => 'card',
+    //                         'transaction_id' => $confirmedPaymentIntent->id
+    //                     ];
+
+    //                     $url = URLAPI . "/v1/subscribe/paid_subscribe";
+    //                     $response = satoshiAdmin($url, json_encode($postData));
+
+    //                     $result = $response->result;
+
+    //                     // Periksa kode response dari API
+    //                     if (isset($result->code) && $result->code != 201) {
+    //                         // Jika API gagal, refund pembayaran
+    //                         \Stripe\Refund::create([
+    //                             'payment_intent' => $confirmedPaymentIntent->id
+    //                         ]);
+
+    //                         session()->setFlashdata('failed', $result->message ?? 'An error occurred on the API server. Please try again or contact customer support.');
+    //                         return $this->response->setJSON([
+    //                             'status' => 'error',
+    //                             'message' => $result->message ?? 'An error occurred on the API server. Please try again or contact customer support.'
+    //                         ])->setStatusCode(400);
+    //                     }
+
+    //                     // Hapus data pembayaran dari session
+    //                     $session->remove('payment_data');
+
+    //                     // Perbarui data pengguna dalam session dengan data terbaru dari API
+    //                     $userData = [
+    //                         'email' => $email,
+    //                         'password' => $loggedUser->passwd
+    //                     ];
+
+    //                     // Ambil data pengguna terbaru dari API
+    //                     $userUrl = URLAPI . "/auth/signin";
+    //                     $userResponse = satoshiAdmin($userUrl, json_encode($userData));
+    //                     $userResult = $userResponse->result;
+
+    //                     // Jika berhasil mendapatkan data pengguna terbaru, perbarui session
+    //                     if (isset($userResult->code) && $userResult->code == 200) {
+    //                         $session->set('logged_user', $userResult->message);
+    //                     }
+
+    //                     // Set flash data untuk sukses
+    //                     session()->setFlashdata('success', 'Your payment is being processed and your account will be ready within 48 hours. We will send you an email when your account is active.');
+    //                     return $this->response->setJSON([
+    //                         'status' => 'success',
+    //                         'message' => 'Your payment is being processed and your account will be ready within 48 hours. We will send you an email when your account is active.'
+    //                     ])->setStatusCode(200);
+    //                 } else {
+    //                     session()->setFlashdata('failed', 'Payment failed: ' . $confirmedPaymentIntent->status);
+    //                     return $this->response->setJSON([
+    //                         'status' => 'error',
+    //                         'message' => 'Payment failed: ' . $confirmedPaymentIntent->status
+    //                     ])->setStatusCode(400);
+    //                 }
+    //             } else {
+    //                 session()->setFlashdata('failed', 'Payment failed: ' . $paymentIntent->status);
+    //                 return $this->response->setJSON([
+    //                     'status' => 'error',
+    //                     'message' => 'Payment failed: ' . $paymentIntent->status
+    //                 ])->setStatusCode(400);
+    //             }
+    //         } catch (\Stripe\Exception\CardException $e) {
+    //             // Kartu ditolak
+    //             session()->setFlashdata('failed', 'Card declined: ' . $e->getError()->message);
+    //             return $this->response->setJSON([
+    //                 'status' => 'error',
+    //                 'message' => 'Card declined: ' . $e->getError()->message
+    //             ])->setStatusCode(400);
+    //         } catch (\Stripe\Exception\RateLimitException $e) {
+    //             // Terlalu banyak request
+    //             session()->setFlashdata('failed', 'Too many requests to Stripe. Please try again later.');
+    //             return $this->response->setJSON([
+    //                 'status' => 'error',
+    //                 'message' => 'Too many requests to Stripe. Please try again later.'
+    //             ])->setStatusCode(400);
+    //         } catch (\Stripe\Exception\InvalidRequestException $e) {
+    //             // Parameter tidak valid
+    //             session()->setFlashdata('failed', 'Invalid parameters: ' . $e->getError()->message);
+    //             return $this->response->setJSON([
+    //                 'status' => 'error',
+    //                 'message' => 'Invalid parameters: ' . $e->getError()->message
+    //             ])->setStatusCode(400);
+    //         } catch (\Stripe\Exception\AuthenticationException $e) {
+    //             // Autentikasi gagal
+    //             session()->setFlashdata('failed', 'Stripe authentication failed. Please contact administrator.');
+    //             return $this->response->setJSON([
+    //                 'status' => 'error',
+    //                 'message' => 'Stripe authentication failed. Please contact administrator.'
+    //             ])->setStatusCode(400);
+    //         } catch (\Stripe\Exception\ApiConnectionException $e) {
+    //             // Koneksi ke Stripe gagal
+    //             session()->setFlashdata('failed', 'Connection to Stripe failed. Please try again later.');
+    //             return $this->response->setJSON([
+    //                 'status' => 'error',
+    //                 'message' => 'Connection to Stripe failed. Please try again later.'
+    //             ])->setStatusCode(400);
+    //         } catch (\Stripe\Exception\ApiErrorException $e) {
+    //             // Error API Stripe lainnya
+    //             session()->setFlashdata('failed', 'Stripe error: ' . $e->getError()->message);
+    //             return $this->response->setJSON([
+    //                 'status' => 'error',
+    //                 'message' => 'Stripe error: ' . $e->getError()->message
+    //             ])->setStatusCode(400);
+    //         }
+    //     } catch (\Exception $e) {
+    //         log_message('error', 'Exception: ' . $e->getMessage());
+    //         session()->setFlashdata('failed', 'An internal error occurred: ' . $e->getMessage());
+    //         return $this->response->setJSON([
+    //             'status' => 'error',
+    //             'message' => 'An internal error occurred: ' . $e->getMessage()
+    //         ])->setStatusCode(500);
+    //     }
+    // }
+
+    // public function satoshi_register_payment($email)
+    // {
+    //     $email = base64_decode($email);
+    //     // Call Endpoin Get Member By Email
+    //     $url = URLAPI . "/auth/getmember_byemail?email=" . $email;
+    //     $result = satoshiAdmin($url)->result->message;
+
+    //     $price = [
+    //         "1m"    => 250,
+    //         "3m"    => 600,
+    //         "6m"    => 1050,
+    //         "1y"    => 1800
+    //     ];
+
+    //     $selisihReferral = [
+    //         "1m"    => 25,
+    //         "3m"    => 75,
+    //         "6m"    => 150,
+    //         "1y"    => 300
+    //     ];
+
+    //     $mdata = [
+    //         'title'     => 'Active Account - ' . NAMETITLE,
+    //         'content'   => 'homepage/service/satoshi-payment',
+    //         'extra'     => 'homepage/service/js/_js_satoshi_payment',
+    //         'navoption' => true,
+    //         'member'    => $result,
+    //         'price'     => $price,
+    //         'disc'      => $selisihReferral
+    //     ];
+
+    //     return view('homepage/layout/wrapper', $mdata);
+    // }
+
+    // public function satoshi_register_process($email)
+    // {
+    //     $email = base64_decode($email);
+    //     // Call Endpoin Get Member By Email
+    //     $url = URLAPI . "/auth/getmember_byemail?email=" . $email;
+    //     $result = satoshiAdmin($url)->result->message;
+
+    //     // Stripe secret key
+    //     \Stripe\Stripe::setApiKey(SECRET_KEY);
+    //     $paymentMethodId = $_POST['payment_method_id'];
+
+    //     $getprice = htmlspecialchars($this->request->getVar('price'));
+    //     $currency = 'eur';
+    //     $mdata = [
+    //         "email" => $result->email,
+    //         "referral"  => $result->id_referral
+    //     ];
+
+    //     if (!empty($result->id_referral)) {
+    //         $discount = [
+    //             "1m"    => 25,
+    //             "3m"    => 75,
+    //             "6m"    => 150,
+    //             "1y"    => 300
+    //         ];
+    //     } else {
+    //         $discount = [
+    //             "1m"    => 0,
+    //             "3m"    => 0,
+    //             "6m"    => 0,
+    //             "1y"    => 0
+    //         ];
+    //     }
 
 
 
-        if ($getprice == 250) {
-            $mdata['amount'] = $getprice - $discount['1m'];
-            $mdata['period'] = 30;
-        } else if ($getprice == 600) {
-            $mdata['amount'] = $getprice - $discount['3m'];
-            $mdata['period'] = 30 * 3;
-        } else if ($getprice == 1050) {
-            $mdata['amount'] = $getprice - $discount['6m'];
-            $mdata['period'] = 30 * 6;
-        } else if ($getprice == 1800) {
-            $mdata['amount'] = $getprice - $discount['1y'];
-            $mdata['period'] = 365;
-        } else {
-            session()->setFlashdata('failed', "Invalid Amount, Please Try Again");
-            return redirect()->to(BASE_URL . 'homepage/satoshi_register_payment/' .  base64_encode($result->email));
-        }
+    //     if ($getprice == 250) {
+    //         $mdata['amount'] = $getprice - $discount['1m'];
+    //         $mdata['period'] = 30;
+    //     } else if ($getprice == 600) {
+    //         $mdata['amount'] = $getprice - $discount['3m'];
+    //         $mdata['period'] = 30 * 3;
+    //     } else if ($getprice == 1050) {
+    //         $mdata['amount'] = $getprice - $discount['6m'];
+    //         $mdata['period'] = 30 * 6;
+    //     } else if ($getprice == 1800) {
+    //         $mdata['amount'] = $getprice - $discount['1y'];
+    //         $mdata['period'] = 365;
+    //     } else {
+    //         session()->setFlashdata('failed', "Invalid Amount, Please Try Again");
+    //         return redirect()->to(BASE_URL . 'homepage/satoshi_register_payment/' .  base64_encode($result->email));
+    //     }
 
 
-        try {
+    //     try {
 
-            $paymentIntent = \Stripe\PaymentIntent::create([
-                'amount' => $mdata['amount'],
-                'currency' => $currency,
-                'payment_method' => $paymentMethodId,
-                'automatic_payment_methods' => [
-                    'enabled' => true,
-                    'allow_redirects' => 'never', // Disable redirect-based payment methods
-                ],
-            ]);
+    //         $paymentIntent = \Stripe\PaymentIntent::create([
+    //             'amount' => $mdata['amount'],
+    //             'currency' => $currency,
+    //             'payment_method' => $paymentMethodId,
+    //             'automatic_payment_methods' => [
+    //                 'enabled' => true,
+    //                 'allow_redirects' => 'never', // Disable redirect-based payment methods
+    //             ],
+    //         ]);
 
-            if ($paymentIntent->status === 'requires_confirmation') {
-                $confirmedPaymentIntent = $paymentIntent->confirm();
+    //         if ($paymentIntent->status === 'requires_confirmation') {
+    //             $confirmedPaymentIntent = $paymentIntent->confirm();
 
-                // If the payment was successful, proceed with creating the calendar event
-                if ($confirmedPaymentIntent->status === 'succeeded') {
-                    // POST subscribe member
-                    $url = URLAPI . "/v1/subscription/paidsubscribe";
-                    $result = satoshiAdmin($url, json_encode($mdata))->result->message;
+    //             // If the payment was successful, proceed with creating the calendar event
+    //             if ($confirmedPaymentIntent->status === 'succeeded') {
+    //                 // POST subscribe member
+    //                 $url = URLAPI . "/v1/subscription/paidsubscribe";
+    //                 $result = satoshiAdmin($url, json_encode($mdata))->result->message;
 
-                    // Perbarui data pengguna dalam session jika pengguna sudah login
-                    $session = session();
-                    if ($session->has('logged_user')) {
-                        $loggedUser = $session->get('logged_user');
-                        $userData = [
-                            'email' => $loggedUser->email,
-                            'password' => $loggedUser->passwd
-                        ];
+    //                 // Perbarui data pengguna dalam session jika pengguna sudah login
+    //                 $session = session();
+    //                 if ($session->has('logged_user')) {
+    //                     $loggedUser = $session->get('logged_user');
+    //                     $userData = [
+    //                         'email' => $loggedUser->email,
+    //                         'password' => $loggedUser->passwd
+    //                     ];
 
-                        // Ambil data pengguna terbaru dari API
-                        $userUrl = URLAPI . "/auth/signin";
-                        $userResponse = satoshiAdmin($userUrl, json_encode($userData));
-                        $userResult = $userResponse->result;
+    //                     // Ambil data pengguna terbaru dari API
+    //                     $userUrl = URLAPI . "/auth/signin";
+    //                     $userResponse = satoshiAdmin($userUrl, json_encode($userData));
+    //                     $userResult = $userResponse->result;
 
-                        // Jika berhasil mendapatkan data pengguna terbaru, perbarui session
-                        if (isset($userResult->code) && $userResult->code == 200) {
-                            $session->set('logged_user', $userResult->message);
-                        }
-                    }
+    //                     // Jika berhasil mendapatkan data pengguna terbaru, perbarui session
+    //                     if (isset($userResult->code) && $userResult->code == 200) {
+    //                         $session->set('logged_user', $userResult->message);
+    //                     }
+    //                 }
 
-                    session()->setFlashdata('successPayment', 'Thank you for your register, wait 1-5 minutes our team will be contact');
-                    header("Location: " . BASE_URL . "homepage/service?service=" . base64_encode("satoshi_signal"));
-                    exit();
-                }
-            }
-        } catch (\Stripe\Exception\CardException $e) {
-            session()->setFlashdata('failed', 'Payment Failed: ' . $e->getError()->message);
-            header("Location: " . BASE_URL . 'homepage/satoshi_register_payment/' .  base64_encode($result->email));
-            exit();
-        }
-    }
+    //                 session()->setFlashdata('successPayment', 'Thank you for your register, wait 1-5 minutes our team will be contact');
+    //                 header("Location: " . BASE_URL . "homepage/service?service=" . base64_encode("satoshi_signal"));
+    //                 exit();
+    //             }
+    //         }
+    //     } catch (\Stripe\Exception\CardException $e) {
+    //         session()->setFlashdata('failed', 'Payment Failed: ' . $e->getError()->message);
+    //         header("Location: " . BASE_URL . 'homepage/satoshi_register_payment/' .  base64_encode($result->email));
+    //         exit();
+    //     }
+    // }
 
     public function contact_success()
     {
