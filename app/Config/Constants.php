@@ -112,6 +112,8 @@ $parts = explode('.', $host);
 if ($parts[0] === 'sandbox') {
     define("URLAPI", 'https://api2-sandbox.pnglobalinternational.com');
     define("URLAPI2", 'https://sandbox-api.pnglobalinternational.com');
+    define("URL_ELITE", 'https://elite-sandbox.pnglobalinternational.com');
+
     //email DEMO
     define("EMAIL_ONE", 'demo@gmail.com');
     define("EMAIL_TWO", 'demo@gmail.com');
@@ -123,7 +125,9 @@ if ($parts[0] === 'sandbox') {
     define('COINPAYMENTS_PRIVATE_KEY', '8faac89a76434A6D538cBb14D2500F60377f4Ac2E8d164DacdCEAc130628Cdbf');
     define('COINPAYMENTS_API_URL', 'https://www.coinpayments.net/api.php');
 } else {
-    define("URLAPI", 'https://api2.pnglobalinternational.com');
+    define("URLAPI", 'https://broker.pnglobalinternational.com');
+    define("URLAPI2", 'https://api.pnglobalinternational.com');
+    define("URL_ELITE", 'https://elite.pnglobalinternational.com');
 
     //email live
     define("EMAIL_ONE", 'pnglobal.usa@gmail.com');

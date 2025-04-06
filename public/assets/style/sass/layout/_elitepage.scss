@@ -1,0 +1,192 @@
+@use '../abstracts/variables' as var;
+
+/* ==================== */
+/* Global Styles        */
+/* ==================== */
+.elite-page {
+    body {
+        background-color: var.$background-color !important;
+        color: var.$secondary-color;
+        overflow-x: hidden;
+    }
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    text-align: center;
+    padding: 20px;
+
+    .container {
+        min-height: 90vh;
+        margin-top: -30px;
+    }
+
+    /* ==================== */
+    /* Header Styling       */
+    /* ==================== */
+    .site-title {
+        font-size: 3.5rem;
+        font-weight: bold;
+        color: var.$secondary-color;
+        span {
+            color: var.$primary-color;
+        }
+    }
+
+    .site-subtitle {
+        font-size: 1rem;
+        color: rgba(255, 255, 255, 0.85);
+        font-weight: 500;
+    }
+
+    /* ==================== */
+    /* Sign-in Box          */
+    /* ==================== */
+    .sign-in-box {
+        background: var.$secondary-color;
+        padding: 20px 60px;
+        border-radius: 12px;
+        width: 100%;
+        height: 100vh;
+        max-height: 500px;
+        max-width: 800px;
+        text-align: left;
+    }
+
+    .sign-in-text {
+        color: black;
+        text-align: center;
+        font-size: 1.5rem;
+        font-weight: bold;
+    }
+
+    /* ==================== */
+    /* Form Styling         */
+    /* ==================== */
+    .form-label {
+        font-weight: bold;
+        color: black;
+        display: block;
+    }
+
+    .form-control {
+        background-color: var.$form-bg;
+        border: none;
+        border-radius: 6px;
+        padding: 10px;
+        font-size: 1rem;
+        &:focus {
+            background-color: var.$form-bg !important;
+            box-shadow: none;
+            border: none;
+        }
+    }
+
+    /* ==================== */
+    /* Button Styling       */
+    /* ==================== */
+    .btn-primary {
+        background-color: var.$primary-color;
+        border: none;
+        font-size: 18px;
+        font-weight: bold;
+        width: 150px;
+        padding: 12px;
+        border-radius: 6px;
+        transition: background-color 0.3s ease-in-out;
+        &:hover {
+            background-color: var.$primary-hover;
+        }
+    }
+
+    .text-muted {
+        color: var.$muted-color;
+        text-decoration: none;
+        &:hover {
+            color: var.$muted-hover;
+        }
+    }
+
+    .dont-have-account {
+        color: black;
+        font-weight: bold;
+        text-align: center;
+    }
+
+    .register-link {
+        color: #3D33FD;
+        font-weight: bold;
+        text-decoration: none;
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+
+    /* ==================== */
+    /* Bottom Button        */
+    /* ==================== */
+    .bottom-button {
+        margin-top: auto;
+        padding-top: 20px;
+        text-align: center;
+        width: 100%;
+        .btn {
+            border: 1px solid var.$primary-color;
+            padding: 12px 24px;
+            font-size: 18px;
+            font-weight: bold;
+            border-radius: 6px;
+        }
+    }
+
+    .btn-dark:hover {
+        background-color: var.$btn-dark-hover;
+        color: white;
+    }
+
+    .bottom-button span {
+        color: var.$primary-color;
+        font-weight: bold;
+    }
+
+    /* ==================== */
+    /* Responsive Styling   */
+    /* ==================== */
+    @media (max-width: 1024px) {
+        .sign-in-box {
+            padding: 20px 40px;
+        }
+        .site-title {
+            font-size: 3rem;
+        }
+    }
+
+    @media (max-width: 768px) {
+        .sign-in-box {
+            padding: 20px 30px;
+        }
+        .site-title {
+            font-size: 2.5rem;
+        }
+        .site-subtitle {
+            font-size: 0.9rem;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .sign-in-box {
+            padding: 20px;
+        }
+        .site-title {
+            font-size: 2rem;
+        }
+        .site-subtitle {
+            font-size: 0.8rem;
+        }
+        .btn-primary {
+            width: 100%;
+        }
+    }
+}

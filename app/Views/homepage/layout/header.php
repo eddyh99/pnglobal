@@ -60,9 +60,9 @@
                                 PRODUCTS
                             </a>
                             <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="<?= BASE_URL ?>homepage/service?service=<?= base64_encode('btc_elite_management') ?>">BTC Elite Management</a></li>
-                                <li><a class="dropdown-item" href="<?= BASE_URL ?>homepage/service?service=<?= base64_encode('satoshi_signal') ?>">SATOSHI SIGNAL</a></li>
-                                <li><a class="dropdown-item" href="<?= BASE_URL ?>homepage/service?service=<?= base64_encode('lux_btc_brokers') ?>">Lux BTC Brokers </a></li>
+                                <li><a class="dropdown-item" href="<?= BASE_URL ?>homepage/service?service=<?= base64_encode('btc_elite_management') ?>">ELITE</a></li>
+                                <li><a class="dropdown-item" href="<?= BASE_URL ?>homepage/service?service=<?= base64_encode('satoshi_signal') ?>">SATOSHI</a></li>
+                                <li><a class="dropdown-item" href="<?= BASE_URL ?>homepage/service?service=<?= base64_encode('lux_btc_brokers') ?>">BROKER LUX</a></li>
                             </ul>
                         </li>
                         <li class="nav-item dropdown me-0 me-xl-2">
@@ -94,7 +94,7 @@
                     </li> -->
                     </ul>
                     <div class="nav-buttons">
-                        <a class="btn-navbar-referral" href="<?= BASE_URL ?>member/auth/login">MEMBER LOGIN</a>
+                        <a class="btn-navbar-referral" href="<?= BASE_URL ?>auth">LOGIN/SIGNUP</a>
                         <!-- <a class="btn-navbar-contactform" href="<?= BASE_URL ?>homepage/contactreferral">Get Referral</a> -->
                     </div>
                 </div>

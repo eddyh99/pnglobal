@@ -1,0 +1,191 @@
+@use '../abstracts/variables' as var;
+
+.elite-investment {
+    margin: 0 auto;
+    padding: 20px;
+    background: var.$secondary-color;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    .container {
+        max-width: 850px;
+    }
+
+    .investment-title {
+        color: var.$primary-color;
+        text-align: center;
+        font-size: 32px;
+        font-weight: 700;
+        line-height: 25px;
+        text-transform: uppercase;
+        margin-bottom: 30px;
+    }
+
+    .investment-description,
+    .payment-description,
+    .min-capital-text,
+    .additional-capital-text,
+    .total-capital-text {
+        color: var.$background-color;
+        text-align: center;
+        font-size: 20px;
+        font-weight: 700;
+        line-height: 25px;
+        margin-bottom: 15px;
+    }
+
+    .min-capital-value,
+    .total-capital-display {
+        background-color: var.$muted-color;
+        border: none;
+        height: 60px;
+        font-size: 32px;
+        font-weight: 700;
+        color: var.$background-color;
+        text-align: center;
+        margin-bottom: 30px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 5px;
+        max-width: 80%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .total-capital-display {
+        background-color: var.$primary-color;
+        color: var.$background-color;
+        border: 2px solid var.$secondary-color;
+    }
+
+    .membership-days {
+        font-size: 20px;
+        font-weight: 600;
+        margin-bottom: 20px;
+        text-align: center;
+        color: var.$secondary-color;
+    }
+
+    input.investment-input,
+    input.payment-input,
+    input.additional-capital-input {
+        background-color: var.$muted-color;
+        border: none;
+        height: 60px;
+        font-size: 32px;
+        font-weight: 700;
+        color: var.$background-color;
+        text-align: center;
+        border-radius: 5px;
+    }
+
+    input.payment-input {
+        max-width: 80%;
+        margin-left: auto;
+        margin-right: auto;
+        display: block;
+        margin-bottom: 10px;
+    }
+
+    .input-group {
+        margin-bottom: 30px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        max-width: 80%;
+        margin-left: auto;
+        margin-right: auto;
+        position: relative;
+
+        .form-control {
+            width: 100%;
+            border-radius: 5px;
+            margin: 0;
+        }
+
+        .input-group-prepend,
+        .input-group-append {
+            position: absolute;
+            top: 0;
+            height: 100%;
+            display: flex;
+            align-items: center;
+        }
+
+        .input-group-prepend {
+            left: -75px;
+        }
+
+        .input-group-append {
+            right: -75px;
+        }
+
+        .input-group-prepend button,
+        .input-group-append button {
+            background-color: var.$muted-color;
+            color: var.$background-color !important;
+            font-size: 28px;
+            font-weight: 700;
+            border: none;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 5px;
+        }
+    }
+
+    .confirm-button {
+        background: linear-gradient(90deg, var.$primary-color 0%, var.$primary-hover 100%);
+        color: var.$background-color !important;
+        border: none;
+        font-size: 24px;
+        font-weight: 600;
+        padding: 10px 0;
+        width: 100%;
+        margin: 20px auto 30px;
+        border-radius: 5px;
+        max-width: 200px;
+        display: block;
+
+        &:hover {
+            background: linear-gradient(90deg, var.$primary-hover 0%, var.$muted-hover 100%);
+        }
+    }
+
+    .investment-note {
+        color: var.$secondary-color;
+        font-size: 14px;
+        font-weight: 500;
+        line-height: 25px;
+        margin-top: 20px;
+        max-width: 80%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+#set-investment-container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px 0;
+    transition: all 0.3s ease;
+    width: 100%;
+}
+
+body.sidebar-main .content-page .set-investment-container {
+    max-width: 800px;
+    transition: all 0.3s ease;
+}
+
+@media (max-width: 992px) {
+    .set-investment-container {
+        max-width: 100%;
+        padding: 20px 15px;
+    }
+}

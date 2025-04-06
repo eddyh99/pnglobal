@@ -514,28 +514,7 @@ class Homepage extends BaseController
         }
     }
 
-    private function getExchange($amountEUR){
-        // Your Open Exchange Rates API key
-        //tdalgo@thedarkalgo.com : Banana69%
-        $apiKey = 'e79bf324d5a1443b8e06c33c67c3b444';
-        $url = "https://openexchangerates.org/api/latest.json?app_id=$apiKey";
-        
-        $ch = curl_init();
-        curl_setopt($ch, CURLOPT_URL, $url);
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-        $response = curl_exec($ch);
-        curl_close($ch);
-        
-        $data = json_decode($response, true);
-        
-        // Extract the exchange rate for USD to IDR
-        $usdToEUR = $data['rates']['EUR'];
-        $eurToUSD = 1 / $usdToEUR;
-            
-        $amountUSD = $amountEUR * $eurToUSD;
-        return $amountUSD;
-    }
-    
+
     public function payment_option()
     {
         $mdata = [
@@ -566,7 +545,7 @@ class Homepage extends BaseController
                 'item_name'  => $description,
                 'key'        => $publicKey,
                 'ipn_url'    => base_url().'homepage/coinpayment_notify',
-                'success_url'=> base_url().'homepage/returncrypto?email='.$buyer_email,
+                'success_url'=> base_url().'homepage/returncrypto',
                 'cancel_url' => base_url()."homepage/set_capital_investment",
                 'version'    => 1,
                 'format'     => 'json', // Ensure JSON response
@@ -630,7 +609,7 @@ class Homepage extends BaseController
     public function usdt_payment()
     {
         $payamount  = $_SESSION["payment_data"]["amount"];
-        $netprice   = $this->getExchange($payamount);
+        $netprice   = getExchange($payamount);
         $customerEmail = $_SESSION["logged_user"]->email;
         $postData = [
             'email' => $customerEmail,
@@ -643,7 +622,7 @@ class Homepage extends BaseController
         $orderId    = $response->invoice;
         $description= "Monthly subscription LUX BTC Broker";
 
-        $paymentResponse = $this->createCoinPaymentTransaction(10,'LTCT', $orderId,$customerEmail,$description);
+        $paymentResponse = $this->createCoinPaymentTransaction($netprice,'USDT.BEP20', $orderId,$customerEmail,$description);
         if ($paymentResponse['error'] !== 'ok') {
             $this->session->setFlashdata('error', 'There was a problem processing your purchase please try again');
             return redirect()->to(base_url().'homepage/set_capital_investment'); 
@@ -655,7 +634,7 @@ class Homepage extends BaseController
     public function usdc_payment()
     {
         $payamount  = $_SESSION["payment_data"]["amount"];
-        $netprice   = $this->getExchange($payamount);
+        $netprice   = getExchange($payamount);
         $customerEmail = $_SESSION["logged_user"]->email;
         $postData = [
             'email' => $customerEmail,

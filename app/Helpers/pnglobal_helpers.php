@@ -32,6 +32,28 @@ function satoshiAdmin($url, $postData = NULL)
     return $result;
 }
 
+function getExchange($amountEUR){
+    // Your Open Exchange Rates API key
+    //tdalgo@thedarkalgo.com : Banana69%
+    $apiKey = 'e79bf324d5a1443b8e06c33c67c3b444';
+    $url = "https://openexchangerates.org/api/latest.json?app_id=$apiKey";
+    
+    $ch = curl_init();
+    curl_setopt($ch, CURLOPT_URL, $url);
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    $response = curl_exec($ch);
+    curl_close($ch);
+    
+    $data = json_decode($response, true);
+    
+    // Extract the exchange rate for USD to IDR
+    $usdToEUR = $data['rates']['EUR'];
+    $eurToUSD = 1 / $usdToEUR;
+        
+    $amountUSD = $amountEUR * $eurToUSD;
+    return $amountUSD;
+}
+
 
 function sendmail_booking($subject, $mdata)
 {
