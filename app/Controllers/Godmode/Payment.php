@@ -3,6 +3,7 @@
 namespace App\Controllers\Godmode;
 
 use App\Controllers\BaseController;
+use CodeIgniter\Exceptions\PageNotFoundException;
 
 class Payment extends BaseController
 {
@@ -72,10 +73,20 @@ class Payment extends BaseController
 
     public function detailpayment($id, $email, $amount, $requested_at = null)
     {
+        $type = $this->request->getVar('type');
+        switch ($type) {
+            case 'elite':
+                $endpoint = URL_ELITE;
+                break;
+            default:
+                $endpoint = URLAPI;
+                break;
+        }
+
         $email = base64_decode($email);
         $amount = base64_decode($amount);
         $requested_at = $requested_at ? base64_decode($requested_at) : null;
-        $url = URLAPI . "/v1/withdraw/detail_request_payment?id=" . $id;
+        $url = $endpoint . "/v1/withdraw/detail_request_payment?id=" . $id;
         $resultPayment = satoshiAdmin($url)->result->message;
 
         $mdata = [
@@ -89,6 +100,10 @@ class Payment extends BaseController
             'amount'    => $amount,
             'requested_at' => $requested_at,
         ];
+
+        if (empty($resultPayment)) {
+            throw PageNotFoundException::forPageNotFound();
+        }        
 
         return view('godmode/layout/admin_wrapper', $mdata);
     }
