@@ -3,7 +3,8 @@
     <div class="container-fluid payment-page">
 
         <div class="tab-navigation">
-            <a href="javascript:void(0);" class="tab-item" data-tab="pn-global">PN GLOBAL</a>
+            <a href="javascript:void(0);" class="tab-item" data-tab="pn-global">LUX BTC</a>
+            <a href="javascript:void(0);" class="tab-item" data-tab="elite-btc">ELITE BTC</a>
             <a href="javascript:void(0);" class="tab-item" data-tab="satoshi-signal">SATOSHI SIGNAL</a>
         </div>
 
@@ -28,6 +29,30 @@
                 </div>
             </div>
         </div>
+
+        <!-- elite btc -->
+        <div id="elite-btc" class="tab-content" style="display: none;">
+
+        <div class="row content-body">
+            <div class="col-lg-12 dash-table-referralmember mt-5">
+                <h4 class="text-white my-3 text-uppercase fw-bold">Request Payment</h4>
+                <table id="table_elitebtc_requestpayment" class="table table-striped" style="width:100%">
+                    <thead class="thead_referralmember">
+                        <tr>
+                            <th>EMAIL</th>
+                            <th>REQUEST DATE</th>
+                            <th>AMOUNT</th>
+                            <th>METHOD</th>
+                            <th>DETAIL</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        </div>
+         <!-- end -->
 
         <div id="satoshi-signal" class="tab-content" style="display: none;">
             <div class="row content-body">

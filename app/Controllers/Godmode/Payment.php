@@ -142,4 +142,18 @@ class Payment extends BaseController
         ];
         return json_encode($data);
     }
+
+    public function get_elitebtc_requestpayment()
+    {
+        // Call Endpoint Get Satoshi Request Payment
+        $url = URL_ELITE . "/v1/withdraw/request_payment";
+        $response = satoshiAdmin($url);
+        $result = $response->result;
+
+        $data = [
+            'code' => $result->code,
+            'message' => $result->message
+        ];
+        return json_encode($data);
+    }
 }
