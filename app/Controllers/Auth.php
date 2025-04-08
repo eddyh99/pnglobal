@@ -8,12 +8,16 @@ class Auth extends BaseController
 {
 	public function index()
 	{
-		$mdata = [
-			'title'     => 'Active Account - Satoshi Signal',
-			'content'   => 'widget/auth/active_account_success',
-			'extra'     => 'widget/js/_js_subcription',
-		];
-		return view('widget/layout/wrapper', $mdata);
+		 $mdata = [
+            'title'     => 'Our Products - ' . NAMETITLE,
+            'content'   => 'homepage/login',
+            // 'navoption' => true,
+            // 'darkNav'   => true,
+            'footer'    => false,
+            'nav'       => false,
+        ];
+
+        return view('homepage/layout/wrapper', $mdata);
 	}
 
 	public function active_account($token)

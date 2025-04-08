@@ -28,8 +28,8 @@
         </div>
 
         <div class="binance-button-row">
-            <a href="/homepage/tutorial" class="get-api-btn">How to get API?</a>
-            <a href="#" class="support-btn">Contact Support</a>
+            <a href="/homepage/tutorial" target="_blank" class="get-api-btn">How to get API?</a>
+            <a href="/homepage/contactform?service=SG9tZXBhZ2UgLSBQTiBHbG9iYWw="  target="_blank" class="support-btn">Contact Support</a>
         </div>
 
         <!-- Alert messages -->

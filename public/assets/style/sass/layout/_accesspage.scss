@@ -1,0 +1,111 @@
+@use '../abstracts/variables' as var;
+
+// Mixins
+@mixin responsive($size) {
+    @media (max-width: $size) {
+        @content;
+    }
+}
+
+/* Video Background */
+.video-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    overflow: hidden;
+
+    video {
+        min-width: 100%;
+        min-height: 100%;
+        object-fit: cover;
+    }
+}
+
+.video-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var.$overlay-color;
+}
+
+/* Access Portal Styling */
+.access-page {
+    min-height: 100vh;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+}
+
+.access-options {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    align-items: center;
+}
+
+.access-card {
+    background: var.$card-access;
+    backdrop-filter: blur(10px);
+    border: 2px solid var.$primary-color;
+    border-radius: 8px;
+    padding: 30px 40px;
+    width: 800px;
+    cursor: pointer;
+    transition: all 0.4s ease;
+
+    &:hover {
+        transform: translateY(-5px);
+        background: var.$card-hover-access;
+    }
+
+    h2 {
+        font-size: 3rem;
+        font-weight: bold;
+        color: white;
+
+        span {
+            color: var.$primary-color;
+        }
+    }
+
+    p {
+        font-size: 1rem;
+        color: var.$text-color;
+        font-weight: 500;
+    }
+
+    // Responsive styles
+    @include responsive(599px) {
+        width: 90%;
+        padding: 20px 30px;
+
+        h2 {
+            font-size: 2rem;
+        }
+
+        p {
+            font-size: 0.9rem;
+        }
+    }
+
+    @include responsive(400px) {
+        width: 95%;
+        padding: 15px 20px;
+
+        h2 {
+            font-size: 1.8rem;
+        }
+
+        p {
+            font-size: 0.85rem;
+        }
+    }
+}

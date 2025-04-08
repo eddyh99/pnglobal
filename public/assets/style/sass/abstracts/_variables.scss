@@ -73,7 +73,27 @@ $bg-silver-pnglobal: #e0e0e0;
 ------------------------------------------------------------*/
 
 /*----------------------------------------------------------
-4. Breakpoints Start
+4. Additional Color
+------------------------------------------------------------*/
+$primary-color: #B48B3D;
+$primary-hover: #a07a30;
+$secondary-color: white;
+$background-color: black;
+$muted-color: #ccc;
+$muted-hover: #fff;
+$form-bg: #d6d6d6;
+$btn-dark-hover: rgb(30, 31, 41);
+$overlay-color: rgba(0, 0, 0, 0.6);
+$card-access: rgba(0, 0, 0, 0.5);
+$card-hover-access: rgba(255, 255, 255, 0.1);
+$text-color: rgba(255, 255, 255, 0.85);
+/*----------------------------------------------------------
+4. Additional Color
+------------------------------------------------------------*/
+
+
+/*----------------------------------------------------------
+5. Breakpoints Start
 ------------------------------------------------------------*/
 $screen-375: 375px;
 $screen-425: 425px;
