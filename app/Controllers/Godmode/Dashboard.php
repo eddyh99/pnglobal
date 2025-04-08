@@ -32,6 +32,9 @@ class Dashboard extends BaseController
         $urlglobal = URLAPI . "/v1/member/get_membership";
         $resultglobal = satoshiAdmin($urlglobal)->result;
 
+        $urlelite = URL_ELITE . "/v1/member/get_statistics";
+        $resultElite = satoshiAdmin($urlelite)->result;
+
         // Call Endpoin total_member
         $url = URLAPI2 . "/v1/member/total_member";
         $resultTotalMember = satoshiAdmin($url)->result;
@@ -59,6 +62,12 @@ class Dashboard extends BaseController
         $totalsubscriptionpnglobal = $resultglobal->message->total_subscriptions ?? 0;
         $totalsignalpnglobal = $resultglobal->message->total_signals ?? 0;
 
+        // ELITE
+        $totalmemberelite = $resultElite->message->members ?? 0;
+        $subscriberelite = $resultElite->message->subscribers ?? 0;
+        $referralelite = $resultElite->message->referrals ?? 0;
+        $signalelite = $resultElite->message->signals ?? 0;
+
         // Satoshi Signal
         $totalmembersatoshi = $resultTotalMember->message ?? 0;
         $totalfreemembersatoshi = $resultFreemember->message ?? 0;
@@ -80,6 +89,11 @@ class Dashboard extends BaseController
             'subscriptionsatoshi' => $totalsubscriptionsatoshi,
             'signalsatoshi' => $totalsignalsatoshi,
             'messagesatoshi' => $totalmessagesatoshi,
+            'totalmemberelite' => $totalmemberelite,
+            'subscriberelite' => $subscriberelite,
+            'referralelite' => $referralelite,
+            'signalelite' => $signalelite 
+
         ];
 
         return view('godmode/layout/admin_wrapper', $mdata);

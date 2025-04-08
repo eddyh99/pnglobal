@@ -135,6 +135,14 @@ class Member extends BaseController
         echo json_encode($result);
     }
 
+    public function get_totalmember_elite()
+    {
+        // Call Endpoin Get Total Member
+        $url = URL_ELITE . "/v1/member/get_all";
+        $result = satoshiAdmin($url)->result->message;
+        echo json_encode($result);
+    }
+
     public function get_freemember_satoshi()
     {
         // Call Endpoin Get Free Member
