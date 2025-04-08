@@ -225,7 +225,7 @@
                                     <th>REF CODE</th>
                                     <!-- <th>REG. DATE</th> -->
                                     <th>STATUS</th>
-                                    <th>SUBSCRIPTION</th>
+                                    <!-- <th>SUBSCRIPTION</th> -->
                                     <th>REFERRAL</th>
                                     <th>CAPITAL</th>
                                     <th>ACTION</th>

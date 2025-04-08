@@ -568,9 +568,6 @@
                 }
             },
             {
-                data: 'subscription'
-            },
-            {
                 data: 'referral'
             },
             {
