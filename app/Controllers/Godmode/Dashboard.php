@@ -64,7 +64,7 @@ class Dashboard extends BaseController
 
         // ELITE
         $totalmemberelite = $resultElite->message->members ?? 0;
-        $subscriberelite = $resultElite->message->subscribers ?? 0;
+        $subscriberelite = $resultElite->message->active_members ?? 0;
         $referralelite = $resultElite->message->referrals ?? 0;
         $signalelite = $resultElite->message->signals ?? 0;
 

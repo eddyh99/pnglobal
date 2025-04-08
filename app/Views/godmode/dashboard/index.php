@@ -173,7 +173,7 @@
                                 <div class="iq-card-body">
                                     <div class="d-flex flex-column justify-content-center align-items-start">
                                         <div>
-                                            <h5 class="text-black">Subscriber</h5>
+                                            <h5 class="text-black">Active Member</h5>
                                         </div>
                                         <div class="mt-3 w-100 d-flex justify-content-end">
                                             <h1 class="text-black fw-bold"><?= @$subscriberelite?></h1>

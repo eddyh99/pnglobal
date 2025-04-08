@@ -568,30 +568,13 @@
                 }
             },
             {
-                data: null,
-                "mRender": function(data, type, full, meta) {
-                    if (full.membership === 'active') {
-                        let totalDays = full.remaining_days;
-                        let months = Math.floor(totalDays / 30); // Approximate months
-                        let days = totalDays % 30; // Remaining days after months
-
-                        if (months > 0 && days > 0) {
-                            return `${months} month${months > 1 ? 's' : ''} ${days} day${days !== 1 ? 's' : ''}`;
-                        } else if (months > 0) {
-                            return `${months} month${months > 1 ? 's' : ''}`;
-                        } else {
-                            return `${days} day${days !== 1 ? 's' : ''}`;
-                        }
-                    } else {
-                        return full.membership;
-                    }
-                }
+                data: 'subscription'
             },
             {
-                data: 'downline_count'
+                data: 'referral'
             },
             {
-                data: 'unpaid_commission'
+                data: 'initial_capital'
             },
             {
                 data: null,
