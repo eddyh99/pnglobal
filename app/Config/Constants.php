@@ -109,7 +109,7 @@ define("SATOSHITITLE", 'Satoshi Signal');
 $host = $_SERVER['HTTP_HOST']; // e.g., sandbox.satoshisignal.app
 
 $parts = explode('.', $host);
-if ($parts[0] === 'sandbox') {
+if ($parts[0] === 'sandbox' || $host === 'localhost:8080') {
     define("URLAPI", 'https://api2-sandbox.pnglobalinternational.com');
     define("URLAPI2", 'https://sandbox-api.pnglobalinternational.com');
     define("URL_ELITE", 'https://elite-sandbox.pnglobalinternational.com');
