@@ -47,4 +47,24 @@ class Subscriber extends BaseController
         echo json_encode(is_array($result) ? $result : []);
 
     }
+
+    public function satoshi()
+    {
+        $mdata = [
+            'title'     => 'Subscriber - ' . NAMETITLE,
+            'content'   => 'godmode/subscriber/index',
+            'extra'     => 'godmode/subscriber/js/_js_index_satoshi',
+            'subs_free'    => 'active active-menu'
+        ];
+
+        return view('godmode/layout/admin_wrapper', $mdata);
+    }
+
+    public function get_activesubscription_satoshi(){
+        // Call Endpoin Get active subscriber
+        $url = URLAPI2 . "/v1/subscription/active_member";
+        $result = satoshiAdmin($url)->result->message;
+        echo json_encode(is_array($result) ? $result : []);
+
+    }
 }
