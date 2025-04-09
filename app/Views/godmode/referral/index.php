@@ -43,6 +43,7 @@
                             <th>REFERRAL CODE</th>
                             <th>REFERRAL</th>
                             <th>UNPAID COMMISSION</th>
+                            <th>PRODUCT</th>
                             <th>DETAIL</th>
                         </tr>
                     </thead>

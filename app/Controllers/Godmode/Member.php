@@ -114,7 +114,20 @@ class Member extends BaseController
     {
         // Call Endpoin Get Referral Member
         $url = URLAPI . "/v1/member/referralmember";
-        $result = satoshiAdmin($url)->result->message;
+        $pnglobal = satoshiAdmin($url)->result->message;
+
+        $url = URLAPI2 . "/v1/member/referralmember";
+        $satoshi = satoshiAdmin($url)->result->message;
+
+        $url = URL_ELITE . "/v1/member/referralmember";
+        $elite = satoshiAdmin($url)->result->message;
+
+        $result = array_merge(
+            is_array($satoshi) ? $satoshi : [],
+            is_array($elite) ? $elite : [],
+            is_array($pnglobal) ? $pnglobal : []
+        );
+
         echo json_encode($result);
     }
 
