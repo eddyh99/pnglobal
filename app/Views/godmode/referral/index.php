@@ -1,3 +1,32 @@
+<?php if (!empty(session('success'))) { ?>
+    <div class="alert alert-success fade show position-absolute" style="top: 1rem; right: 1rem; width: 30%; z-index: 99999;" role="alert">
+        <div class="iq-alert-icon">
+            <i class="ri-information-line"></i>
+        </div>
+        <div class="iq-alert-text text-black">
+            <?= session('success') ?>
+        </div>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <i class="ri-close-line text-black"></i>
+        </button>
+    </div>
+<?php } ?>
+
+<?php if (!empty(session('failed'))) { ?>
+    <div class="alert alert-danger fade show position-absolute" style="top: 1rem; right: 1rem; width: 30%; z-index: 99999;" role="alert">
+        <div class="iq-alert-icon">
+            <i class="ri-information-line"></i>
+        </div>
+        <div class="iq-alert-text text-black">
+            <?= session('failed') ?>
+        </div>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <i class="ri-close-line text-black"></i>
+        </button>
+    </div>
+<?php } ?>
+
+
 <!-- Page Content  -->
 <div class="content-page mb-5">
     <div class="container-fluid">
@@ -12,6 +41,15 @@
                             <form action="" method="POST">
                                 <div class="row w-100">
                                     <div class="form-addreferral col-8 mx-auto">
+                                    <div class="wrapper-addreferral">
+                                    <input type="hidden" id="timezone" class="form-control" name="timezone" readonly value="<?= set_value('timezone') ?>">
+                                            <label for="product">Product</label>
+                                            <select name="product" class="form-control">
+                                                <option value="pnglobal">PN GLOBAL</option>
+                                                <option value="elitebtc">ELITE BTC</option>
+                                                <option value="satoshi">SATOSHI</option>
+                                            </select>
+                                        </div>
                                         <div class="wrapper-addreferral">
                                             <label for="email">Email</label>
                                             <input type="email" name="email" class="form-control" >
@@ -20,7 +58,7 @@
                                             <label for="referral">Upline Referral</label>
                                             <input type="text" name="upline" class="form-control" >
                                         </div>
-                                        <div class="wrapper-addreferral">
+                                        <div class="wrapper-addreferral d-none">
                                             <label for="referral">Referral Code</label>
                                             <input type="text" name="refcode" class="form-control" >
                                         </div>
