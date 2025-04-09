@@ -70,10 +70,10 @@ class Referral extends BaseController
                 'label'     => 'Email',
                 'rules'     => 'required|valid_email'
             ],
-            // 'refcode'     => [
-            //     'label'     => 'Referral Code',
-            //     'rules'     => 'required'
-            // ],
+            'refcode'     => [
+                'label'     => 'Referral Code',
+                'rules'     => 'required'
+            ],
         ]);
 
         // Checking Validation
@@ -102,8 +102,8 @@ class Referral extends BaseController
             'status'      => 'referral',
             'referral'    => htmlspecialchars($this->request->getVar('upline')),
             'timezone'    => 'Asia/Makassar',
-            'ip_address'  => htmlspecialchars($this->request->getIPAddress())
-            // 'refcode'   => htmlspecialchars($this->request->getVar('refcode')),
+            'ip_address'  => htmlspecialchars($this->request->getIPAddress()),
+            'refcode'   => htmlspecialchars($this->request->getVar('refcode'))
         ];
 
 

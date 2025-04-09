@@ -58,7 +58,7 @@
                                             <label for="referral">Upline Referral</label>
                                             <input type="text" name="upline" class="form-control" >
                                         </div>
-                                        <div class="wrapper-addreferral d-none">
+                                        <div class="wrapper-addreferral">
                                             <label for="referral">Referral Code</label>
                                             <input type="text" name="refcode" class="form-control" >
                                         </div>
