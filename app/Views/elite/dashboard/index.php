@@ -57,7 +57,7 @@
                         <div class="card-row card-top text-center" style="font-weight: bold;">Funding Wallet</div>
                             <div class="card-row card-top">USDT</div>
                             <div class="card-row card-bottom">
-                                <?= '$ ' . @number_format($capital, 0, '.', ',') ?>
+                                <?= '$ ' . @number_format($balance['fund']->usdt ?? 0, 0, '.', ',') ?>
                             </div>
                         </div>
                         <div class="d-flex justify-content-between flex-row flex-wrap gap-2">
@@ -72,7 +72,7 @@
                         <div class="card-row card-top text-center" style="font-weight: bold;">Unified Trading Wallet</div>
                             <div class="card-row card-top">USDT</div>
                             <div class="card-row card-bottom">
-                                <?= '$ ' . @number_format($capital, 0, '.', ',') ?>
+                                <?= '$ ' . @number_format($balance['trade']->usdt ?? 0, 0, '.', ',') ?>
                             </div>
                         </div>
                         <div class="d-flex justify-content-end flex-row flex-wrap gap-2">
