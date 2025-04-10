@@ -201,7 +201,7 @@ class Deposit extends BaseController
         return redirect()->to($paymentResponse['result']['checkout_url']); 
     }
 
-    public function get_member_history()
+    public function get_history()
     {
         $id_member  = $_SESSION['logged_user']->id;
         $url = URL_ELITE . '/v1/member/history_deposit?id_member=' . $id_member;

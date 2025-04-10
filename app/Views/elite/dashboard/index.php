@@ -109,7 +109,7 @@
                     <button class="support-btn">Contact Support</button>
                 </div> -->
                 <div class="col-lg-12 mt-3 dash-table-totalmember">
-                    <h4 class="text-white my-3 text-uppercase fw-bold">Transaction History</h4>
+                    <h4 class="text-white my-3 text-uppercase fw-bold">Trade History</h4>
                     <table id="table_tradehistory" class="table table-striped" style="width:100%">
                         <thead class="thead_totalmember">
                             <tr>
