@@ -90,4 +90,12 @@ class Dashboard extends BaseController
             'message' => $apiResponse->result->message
         ])->setStatusCode(200);
     }
+
+    public function get_trade_history() {
+        $id_member  = $_SESSION['logged_user']->id;
+        $url = URL_ELITE . '/v1/member/history_trade?id_member=' . $id_member;
+        $result = satoshiAdmin($url);
+
+        return $this->response->setJSON(['status' => true, 'message' => $result->result->message])->setStatusCode(200);
+    }
 }

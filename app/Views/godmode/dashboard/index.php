@@ -56,7 +56,7 @@
                                 </div>
                             </div>
                         </a>
-                        <a href="" class="statistics">
+                        <a href="<?= BASE_URL ?>godmode/subscriber" class="statistics">
                             <div class="iq-card">
                                 <div class="iq-card-body">
                                     <div class="d-flex flex-column justify-content-center align-items-start">
@@ -310,7 +310,7 @@
                                 </div>
                             </div>
                         </a>
-                        <a href="<?= BASE_URL ?>godmode/subscriber" class="statistics">
+                        <a href="<?= BASE_URL ?>godmode/subscriber/satoshi" class="statistics">
                             <div class="iq-card">
                                 <div class="iq-card-body">
                                     <div class="d-flex flex-column justify-content-center align-items-start">

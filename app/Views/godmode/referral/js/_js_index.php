@@ -15,8 +15,11 @@
         "columns": [
             { data: 'email'},
             { data: 'refcode'},
-            { data: 'downline'},
-            { data: 'unpaid_commission'},
+            { data: 'referral'},
+            { data: 'commission'},
+            { data: 'product',
+                className: 'text-uppercase'
+            },
             { 
                 data: null, 
                 "mRender": function(data, type, full, meta) {

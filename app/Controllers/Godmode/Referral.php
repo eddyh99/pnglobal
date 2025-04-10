@@ -62,6 +62,10 @@ class Referral extends BaseController
     {
         // Validation Field
         $rules = $this->validate([
+            'product'     => [
+                'label'     => 'Product',
+                'rules'     => 'required|in_list[pnglobal, elitebtc, satoshi]'
+            ],
             'email'     => [
                 'label'     => 'Email',
                 'rules'     => 'required|valid_email'
@@ -78,12 +82,41 @@ class Referral extends BaseController
             return redirect()->to(BASE_URL . 'godmode/referral');
         }
 
+        switch ($this->request->getVar('product')) {
+            case 'pnglobal':
+                $api = URLAPI;
+                break;
+            case 'elitebtc':
+                $api = URL_ELITE;
+                break;
+            case 'satoshi':
+                $api = URLAPI2;
+                break;
+        }
+
         // Init Data
         $mdata = [
-            'email'     => htmlspecialchars($this->request->getVar('email')),
-            'refcode'   => htmlspecialchars($this->request->getVar('refcode')),
-            'upline'    => htmlspecialchars($this->request->getVar('upline')),
+            'email'       => htmlspecialchars($this->request->getVar('email')),
+            'password'    => sha1('12345678'),
+            'role'        => 'member',
+            'status'      => 'referral',
+            'referral'    => htmlspecialchars($this->request->getVar('upline')),
+            'timezone'    => 'Asia/Makassar',
+            'ip_address'  => htmlspecialchars($this->request->getIPAddress()),
+            'refcode'   => htmlspecialchars($this->request->getVar('refcode'))
         ];
+
+
+        $url = $api . "/auth/register";
+        $result = satoshiAdmin($url, json_encode($mdata, JSON_UNESCAPED_SLASHES))->result;
+
+        if($result->code != 201) {
+            session()->setFlashdata('failed', $result->message);
+            return redirect()->to(BASE_URL . 'godmode/referral');
+        }
+
+        session()->setFlashdata('success', 'User successfully added.');
+        return redirect()->to(BASE_URL . 'godmode/referral');
     }
 
     public function detailreferral($type, $email)
