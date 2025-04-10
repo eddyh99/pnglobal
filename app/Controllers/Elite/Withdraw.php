@@ -181,4 +181,76 @@ class Withdraw extends BaseController
             'message' => $result->message
         ]);
     }
+
+    public function transfer() {
+        $session = session();
+
+        // Jika belum login, redirect ke halaman signin
+        if (!$session->has('logged_user')) {
+            header("Location: " . BASE_URL . 'elite/auth/login');
+            exit();
+        }
+
+        $balance = $this->get_balance();
+        $loggedUser = $session->get('logged_user');
+        $mdata = [
+            'title' => 'Transfer - ' . NAMETITLE,
+            'content' => 'elite/transfer/index',
+            'balance' => $balance,
+            // 'extra' => 'elite/withdraw/js/_js_btc',
+            'active_dash' => 'active',
+            'refcode'   => $loggedUser->refcode,
+        ];
+
+        return view('elite/layout/dashboard_wrapper', $mdata);
+    }
+
+    public function transfer_confirm() {
+        $member_id = $_SESSION["logged_user"]->id;
+        $url = URL_ELITE . "/v1/member/transfer_commission";
+
+        $from = $this->request->getVar('from');
+        $to = $this->request->getVar('to');
+
+        if($from == 'commission' && $to == 'fund') {
+            $result = satoshiAdmin($url, json_encode([
+                'id_member' => $member_id,
+                'destination' => 'balance'
+            ]))->result;
+
+        } else {
+            session()->setFlashdata('failed', 'Transfer type not supported.');
+            return redirect()->to(BASE_URL . 'elite/withdraw/transfer');
+        }
+
+
+        if($result->code != 201) {
+            session()->setFlashdata('failed', $result->message);
+            return redirect()->to(BASE_URL . 'elite/withdraw/transfer');
+        }
+
+        session()->setFlashdata('success', $result->message);
+        return redirect()->to(BASE_URL . 'elite/withdraw/transfer');
+    }
+
+    public function get_balance()
+    {
+        $member_id = $_SESSION["logged_user"]->id;
+        $url = URL_ELITE . "/v1/member/balance";
+    
+        $types = ['fund', 'trade', 'commission'];
+        $balances = [];
+    
+        foreach ($types as $type) {
+            $response = satoshiAdmin($url, json_encode([
+                'id_member' => $member_id,
+                'type' => $type
+            ]));
+    
+            $balances[$type] = $response->result->message ?? null;
+        }
+    
+        return $balances;
+    }
+    
 }
