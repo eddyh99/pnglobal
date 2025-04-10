@@ -207,15 +207,23 @@ class Withdraw extends BaseController
 
     public function transfer_confirm() {
         $member_id = $_SESSION["logged_user"]->id;
-        $url = URL_ELITE . "/v1/member/transfer_commission";
 
         $from = $this->request->getVar('from');
         $to = $this->request->getVar('to');
 
         if($from == 'commission' && $to == 'fund') {
+            $url = URL_ELITE . "/v1/member/transfer_commission";
             $result = satoshiAdmin($url, json_encode([
                 'id_member' => $member_id,
                 'destination' => 'balance'
+            ]))->result;
+
+        } else if(($from == 'fund' && $to == 'trade') || $from == 'trade' && $to == 'fund') {
+            $url = URL_ELITE . "/v1/withdraw/transfer_balance";
+            $result = satoshiAdmin($url, json_encode([
+                'id_member' => $member_id,
+                'destination' => $to,
+                'amount' => $this->request->getVar('amount')
             ]))->result;
 
         } else {
@@ -223,9 +231,8 @@ class Withdraw extends BaseController
             return redirect()->to(BASE_URL . 'elite/withdraw/transfer');
         }
 
-
-        if($result->code != 201) {
-            session()->setFlashdata('failed', $result->message);
+        if(!isset($result->code) || $result->code != 201) {
+            session()->setFlashdata('failed', $result->message ?? $result->messages);
             return redirect()->to(BASE_URL . 'elite/withdraw/transfer');
         }
 
