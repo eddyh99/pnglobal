@@ -98,7 +98,7 @@
                 }
             },
             ajax: {
-                url: '<?= BASE_URL ?>member/dashboard/get_membership_history',
+                url: '<?= BASE_URL ?>elite/deposit/get_member_history',
                 type: 'GET',
                 dataSrc: function(response) {
                     console.log('API Response:', response);
@@ -120,7 +120,7 @@
                 }
             },
             columns: [{
-                    data: 'start_date',
+                    data: 'date',
                     render: function(data) {
                         // Format tanggal jika diperlukan
                         if (!data) return 'N/A';
@@ -130,7 +130,7 @@
                     }
                 },
                 {
-                    data: 'initial_capital',
+                    data: 'capital',
                     render: function(data) {
                         // Format angka dengan $ dan koma
                         if (!data) return '0';
@@ -141,7 +141,7 @@
                     data: 'amount_paid',
                     render: function(data) {
                         // Format angka dengan € dan koma
-                        if (!data) return '0';
+                        if (!data) return '€0';
                         return '€ ' + parseFloat(data).toLocaleString('en-US');
                     }
                 },

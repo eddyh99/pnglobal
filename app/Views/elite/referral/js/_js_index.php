@@ -210,9 +210,16 @@
                     }
                 }
             },
-            columns: [{
+            columns: [
+                {
                     data: 'email'
                 },
+                {
+                    data: 'status'
+                },
+                // {
+                //     data: 'subscription'
+                // },
             ]
         });
 

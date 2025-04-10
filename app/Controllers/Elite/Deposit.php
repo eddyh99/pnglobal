@@ -201,4 +201,13 @@ class Deposit extends BaseController
         return redirect()->to($paymentResponse['result']['checkout_url']); 
     }
 
+    public function get_member_history()
+    {
+        $id_member  = $_SESSION['logged_user']->id;
+        $url = URL_ELITE . '/v1/member/history_deposit?id_member=' . $id_member;
+        $result = satoshiAdmin($url);
+
+        return $this->response->setJSON(['status' => true, 'message' => $result->result->message])->setStatusCode(200);
+    }
+
 }
