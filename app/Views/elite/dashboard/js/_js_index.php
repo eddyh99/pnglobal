@@ -70,7 +70,7 @@
         });
 
         // Inisialisasi DataTable untuk tabel total member
-        var tableTotalMember = $('#table_totalmember').DataTable({
+        var tableTotalMember = $('#table_tradehistory').DataTable({
             // processing: true,
             serverSide: false,
             responsive: true,
@@ -98,7 +98,7 @@
                 }
             },
             ajax: {
-                url: '<?= BASE_URL ?>elite/deposit/get_member_history',
+                url: '<?= BASE_URL ?>elite/dashboard/get_trade_history',
                 type: 'GET',
                 dataSrc: function(response) {
                     console.log('API Response:', response);
@@ -130,7 +130,7 @@
                     }
                 },
                 {
-                    data: 'capital',
+                    data: 'usdt',
                     render: function(data) {
                         // Format angka dengan $ dan koma
                         if (!data) return '0';
@@ -138,15 +138,19 @@
                     }
                 },
                 {
-                    data: 'amount_paid',
+                    data: 'entry_price',
                     render: function(data) {
                         // Format angka dengan € dan koma
-                        if (!data) return '€0';
-                        return '€ ' + parseFloat(data).toLocaleString('en-US');
+                        if (!data) return '0';
+                        return parseFloat(data).toLocaleString('en-US');
                     }
                 },
                 {
-                    data: 'status',
+                    data: 'amount_btc',
+                },
+                {
+                    data: 'position',
+                    className: 'text-uppercase'
                 }
             ],
             // Tambahkan error handling untuk AJAX request
