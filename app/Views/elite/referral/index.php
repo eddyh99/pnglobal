@@ -68,7 +68,7 @@
                     <div class="col-lg-6">
                         <div class="custom-card left-card" id="card-commission">
                             <div class="card-row card-top">
-                                Comission
+                                USDT Comission
                             </div>
                             <div class="card-row card-bottom">
                                 Loading...
@@ -81,7 +81,7 @@
                     </div>
 
                 <div class="col-lg-12 mt-3 dash-table-totalmember">
-                    <div id="referral-content">
+                    <div id="referral-content" style="display: none;">
                         <h4 class="text-white my-3 text-uppercase fw-bold">Referral</h4>
                         <table id="table_referral" class="table table-striped" style="width:100%">
                             <thead class="thead_totalmember">
@@ -95,7 +95,7 @@
                             </tbody>
                         </table>
                     </div>
-                    <div id="commission-content" style="display:none;">
+                    <div id="commission-content">
                         <h4 class="text-white my-3 text-uppercase fw-bold">Commission</h4>
                         <table id="table_commission" class="table table-striped" style="width:100%">
                             <thead class="thead_totalmember">
@@ -103,7 +103,6 @@
                                     <th>DESCRIPTION</th>
                                     <th>DATE</th>
                                     <th>AMOUNT</th>
-                                    <th>STATUS</th>
                                 </tr>
                             </thead>
                             <tbody>

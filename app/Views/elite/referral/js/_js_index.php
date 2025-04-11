@@ -258,9 +258,6 @@
                         // Format jumlah dengan $ dan pemisah ribuan
                         return '$ ' + parseFloat(data).toLocaleString('en-US');
                     }
-                },
-                {
-                    data: 'status'
                 }
             ]
         });
