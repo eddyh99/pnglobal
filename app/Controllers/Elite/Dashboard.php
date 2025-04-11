@@ -40,6 +40,7 @@ class Dashboard extends BaseController
 
         // Mendapatkan data user yang tersimpan (sudah login)
         $loggedUser = $session->get('logged_user');
+        $wd = new Withdraw;
 
         $mdata = [
             'title'     => 'Dashboard - ' . NAMETITLE,
@@ -47,7 +48,9 @@ class Dashboard extends BaseController
             'extra'     => 'elite/dashboard/js/_js_index',
             'active_dash'    => 'active',
             'refcode'   => $loggedUser->refcode,
+            'balance'   => $wd->get_balance()
         ];
+
         return view('elite/layout/dashboard_wrapper', $mdata);
     }
 
