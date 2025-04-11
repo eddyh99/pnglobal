@@ -197,7 +197,7 @@ class Withdraw extends BaseController
             'title' => 'Transfer - ' . NAMETITLE,
             'content' => 'elite/transfer/index',
             'balance' => $balance,
-            // 'extra' => 'elite/withdraw/js/_js_btc',
+            'extra' => 'elite/transfer/js/_js_index',
             'active_dash' => 'active',
             'refcode'   => $loggedUser->refcode,
         ];
@@ -207,35 +207,28 @@ class Withdraw extends BaseController
 
     public function transfer_confirm() {
         $member_id = $_SESSION["logged_user"]->id;
-
         $from = $this->request->getVar('from');
         $to = $this->request->getVar('to');
-
-        if($from == 'commission' && $to == 'fund') {
+        $amount = $this->request->getVar('amount');
+    
+        if ($from === 'commission' && $to === 'fund') {
             $url = URL_ELITE . "/v1/member/transfer_commission";
-            $result = satoshiAdmin($url, json_encode([
-                'id_member' => $member_id,
-                'destination' => 'balance'
-            ]))->result;
-
-        } else if(($from == 'fund' && $to == 'trade') || $from == 'trade' && $to == 'fund') {
+            $data = ['id_member' => $member_id, 'destination' => 'balance'];
+        } elseif (($from === 'fund' && $to === 'trade') || ($from === 'trade' && $to === 'fund')) {
             $url = URL_ELITE . "/v1/withdraw/transfer_balance";
-            $result = satoshiAdmin($url, json_encode([
-                'id_member' => $member_id,
-                'destination' => $to,
-                'amount' => $this->request->getVar('amount')
-            ]))->result;
-
+            $data = ['id_member' => $member_id, 'destination' => $to, 'amount' => $amount];
         } else {
             session()->setFlashdata('failed', 'Transfer type not supported.');
             return redirect()->to(BASE_URL . 'elite/withdraw/transfer');
         }
-
-        if(!isset($result->code) || $result->code != 201) {
+    
+        $result = satoshiAdmin($url, json_encode($data))->result;
+    
+        if (!isset($result->code) || $result->code !== 201) {
             session()->setFlashdata('failed', $result->message ?? $result->messages);
             return redirect()->to(BASE_URL . 'elite/withdraw/transfer');
         }
-
+    
         session()->setFlashdata('success', $result->message);
         return redirect()->to(BASE_URL . 'elite/withdraw/transfer');
     }
