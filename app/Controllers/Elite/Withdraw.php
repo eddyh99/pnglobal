@@ -70,10 +70,12 @@ class Withdraw extends BaseController
 
     public function btc()
     {
+        $balance = $this->get_balance();
         $mdata = [
             'title' => 'Withdraw - ' . NAMETITLE,
             'content' => 'elite/withdraw/btc',
             'extra' => 'elite/withdraw/js/_js_btc',
+            'balance' => $balance,
             'active_withdraw' => 'active',
         ];
 
@@ -143,10 +145,19 @@ class Withdraw extends BaseController
         $session = session();
         $loggedUser = $session->get('logged_user');
         $member_id = $loggedUser->id;
+        $amount = $this->request->getVar('amount');
+        $type = $this->request->getVar('type');
+
+        // validasi balance
+        if (!$this->check_balance($type, $amount)) {
+            return $this->response->setJSON([
+                'code' => 400
+            ]);
+        }        
 
         $mdata = [
-            'amount' => $this->request->getVar('amount'),
-            'type' => $this->request->getVar('type'),
+            'amount' => $amount,
+            'type' => $type,
             'member_id' => $member_id,
             'recipient' => $this->request->getVar('recipient'),
             'routing_number' => $this->request->getVar('routing_number'),
@@ -178,6 +189,19 @@ class Withdraw extends BaseController
         //     'message' => $result->message
         // ]);
     }
+
+    private function check_balance($type, $amount) {
+        $balance = $this->get_balance();
+    
+        $availableBalances = [
+            'usdt' => $balance['fund']->usdt,
+            'usdc' => $balance['fund']->usdt,
+            'btc'  => $balance['fund']->btc,
+        ];
+    
+        return isset($availableBalances[$type]) && $amount <= $availableBalances[$type];
+    }
+    
 
     public function get_withdraw_history()
     {

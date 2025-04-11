@@ -53,6 +53,7 @@
                 <div class="text-center">
                     <a href="<?= BASE_URL ?>elite/withdraw/usdt" class="transfer-btn mb-2 btn-lg w-50 d-inline-block">USDT</a><br>
                     <a href="<?= BASE_URL ?>elite/withdraw/usdc" class="transfer-btn mb-2 btn-lg w-50 d-inline-block">USDC</a>
+                    <a href="<?= BASE_URL ?>elite/withdraw/btc" class="transfer-btn mb-2 btn-lg w-50 d-inline-block">BTC</a>
                 </div>
             </div>
 
