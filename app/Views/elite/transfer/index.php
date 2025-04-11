@@ -70,7 +70,7 @@
                     <div class="mb-4">
                         <div class="input-group mb-3">
                             <span class="input-group-text" id="basic-addon3" style="background-color: #b48b3d; color: white;">FROM</span>
-                            <select class="form-control" name="from" aria-label="Default select example" style="border-color: #b48b3d;">
+                            <select class="form-control" name="from" id="from" aria-label="Default select example" style="border-color: #b48b3d;">
                                 <option value="fund">Funding Wallet</option>
                                 <option value="trade">Unified Trading Wallet</option>
                                 <option value="commission">Commission</option>
@@ -78,7 +78,7 @@
                         </div>
                         <div class="input-group mb-3">
                             <span class="input-group-text" id="basic-addon3" style="background-color: #b48b3d; color: white;">To</span>
-                            <select class="form-control" name="to" aria-label="Default select example" style="border-color: #b48b3d;">
+                            <select class="form-control" name="to" id="to" aria-label="Default select example" style="border-color: #b48b3d;">
                                 <option value="fund">Funding Wallet</option>
                                 <option value="trade">Unified Trading Wallet</option>
                             </select>

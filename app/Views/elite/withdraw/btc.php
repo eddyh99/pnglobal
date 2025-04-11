@@ -31,7 +31,7 @@
     <div class="container-fluid">
         <div class="row content-body">
             <div class="col-lg-12 px-2">
-                <a href="<?= BASE_URL ?>elite/dashboard" class="back-button" style="display: flex; align-items: center; justify-content: center; text-decoration: none; color: #FFFFFF; font-weight: bold;">
+                <a href="<?= BASE_URL ?>elite/withdraw" class="back-button" style="display: flex; align-items: center; justify-content: center; text-decoration: none; color: #FFFFFF; font-weight: bold;">
                     <svg xmlns="http://www.w3.org/2000/svg" width="11" height="14" viewBox="0 0 11 14" fill="none" style="margin-right: 10px;">
                         <path d="M0 7L10.5 0.937822V13.0622L0 7Z" fill="#B48B3D" />
                     </svg>
@@ -46,7 +46,7 @@
                                     Available BTC to Withdraw
                                 </div>
                                 <div class="card-row card-bottom">
-                                    Loading...
+                                <?= @number_format($balance['fund']->btc ?? 0, 0, '.', ',') ?>
                                 </div>
                             </div>
                         </div>
@@ -77,7 +77,7 @@
                                         <input type="text" name="network" class="form-control text-center" value="Bitcoin" readonly>
                                     </div>
                                     <div class="wrapper-addreferral d-flex justify-content-center">
-                                        <button type="submit" id="submitBtn" class="btn btn-primary text-black">Confirm</button>
+                                        <button type="submit" id="submitBtn" class="btn btn-primary text-black" disabled>Confirm</button>
                                     </div>
                                 </div>
                             </div>

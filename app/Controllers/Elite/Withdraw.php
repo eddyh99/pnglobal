@@ -28,10 +28,12 @@ class Withdraw extends BaseController
 
     public function index()
     {
+        $balance = $this->get_balance();
         $mdata = [
             'title' => 'Withdraw - ' . NAMETITLE,
             'content' => 'elite/withdraw/index',
             'extra' => 'elite/withdraw/js/_js_index',
+            'balance' => $balance,
             'active_withdraw' => 'active',
         ];
 
@@ -40,10 +42,12 @@ class Withdraw extends BaseController
 
     public function usdt()
     {
+        $balance = $this->get_balance();
         $mdata = [
             'title' => 'Withdraw - ' . NAMETITLE,
             'content' => 'elite/withdraw/usdt',
             'extra' => 'elite/withdraw/js/_js_usdt',
+            'balance' => $balance,
             'active_withdraw' => 'active',
         ];
 
@@ -52,10 +56,12 @@ class Withdraw extends BaseController
 
     public function usdc()
     {
+        $balance = $this->get_balance();
         $mdata = [
             'title' => 'Withdraw - ' . NAMETITLE,
             'content' => 'elite/withdraw/usdc',
             'extra' => 'elite/withdraw/js/_js_usdc',
+            'balance' => $balance,
             'active_withdraw' => 'active',
         ];
 
@@ -64,10 +70,12 @@ class Withdraw extends BaseController
 
     public function btc()
     {
+        $balance = $this->get_balance();
         $mdata = [
             'title' => 'Withdraw - ' . NAMETITLE,
             'content' => 'elite/withdraw/btc',
             'extra' => 'elite/withdraw/js/_js_btc',
+            'balance' => $balance,
             'active_withdraw' => 'active',
         ];
 
@@ -91,7 +99,7 @@ class Withdraw extends BaseController
         $rules = $this->validate([
             'type' => [
                 'label' => 'Type',
-                'rules' => 'required|in_list[fiat,usdt]'
+                'rules' => 'required|in_list[fiat,usdt,usdc, btc]'
             ],
             'recipient' => [
                 'label' => 'Recipient',
@@ -121,6 +129,10 @@ class Withdraw extends BaseController
                 'label' => 'Network',
                 'rules' => 'permit_empty'
             ],
+            'amount' => [
+                'label' => 'Amount',
+                'rules' => 'required'
+            ],
         ]);
 
         if (!$rules) {
@@ -133,10 +145,19 @@ class Withdraw extends BaseController
         $session = session();
         $loggedUser = $session->get('logged_user');
         $member_id = $loggedUser->id;
+        $amount = $this->request->getVar('amount');
+        $type = $this->request->getVar('type');
+
+        // validasi balance
+        if (!$this->check_balance($type, $amount)) {
+            return $this->response->setJSON([
+                'code' => 400
+            ]);
+        }        
 
         $mdata = [
-            'amount' => $this->request->getVar('amount'),
-            'type' => $this->request->getVar('type'),
+            'amount' => $amount,
+            'type' => $type,
             'member_id' => $member_id,
             'recipient' => $this->request->getVar('recipient'),
             'routing_number' => $this->request->getVar('routing_number'),
@@ -147,7 +168,7 @@ class Withdraw extends BaseController
             'network' => $this->request->getVar('network'),
         ];
 
-        $url = URLAPI . "/v1/withdraw/request_payment";
+        $url = URL_ELITE . "/v1/withdraw/request_payment";
         $result = satoshiAdmin($url, json_encode($mdata))->result;
 
         // Jika kode respons adalah 201, redirect ke halaman withdraw
@@ -168,6 +189,19 @@ class Withdraw extends BaseController
         //     'message' => $result->message
         // ]);
     }
+
+    private function check_balance($type, $amount) {
+        $balance = $this->get_balance();
+    
+        $availableBalances = [
+            'usdt' => $balance['fund']->usdt,
+            'usdc' => $balance['fund']->usdt,
+            'btc'  => $balance['fund']->btc,
+        ];
+    
+        return isset($availableBalances[$type]) && $amount <= $availableBalances[$type];
+    }
+    
 
     public function get_withdraw_history()
     {
@@ -197,7 +231,7 @@ class Withdraw extends BaseController
             'title' => 'Transfer - ' . NAMETITLE,
             'content' => 'elite/transfer/index',
             'balance' => $balance,
-            // 'extra' => 'elite/withdraw/js/_js_btc',
+            'extra' => 'elite/transfer/js/_js_index',
             'active_dash' => 'active',
             'refcode'   => $loggedUser->refcode,
         ];
@@ -207,35 +241,28 @@ class Withdraw extends BaseController
 
     public function transfer_confirm() {
         $member_id = $_SESSION["logged_user"]->id;
-
         $from = $this->request->getVar('from');
         $to = $this->request->getVar('to');
-
-        if($from == 'commission' && $to == 'fund') {
+        $amount = $this->request->getVar('amount');
+    
+        if ($from === 'commission' && $to === 'fund') {
             $url = URL_ELITE . "/v1/member/transfer_commission";
-            $result = satoshiAdmin($url, json_encode([
-                'id_member' => $member_id,
-                'destination' => 'balance'
-            ]))->result;
-
-        } else if(($from == 'fund' && $to == 'trade') || $from == 'trade' && $to == 'fund') {
+            $data = ['id_member' => $member_id, 'destination' => 'balance'];
+        } elseif (($from === 'fund' && $to === 'trade') || ($from === 'trade' && $to === 'fund')) {
             $url = URL_ELITE . "/v1/withdraw/transfer_balance";
-            $result = satoshiAdmin($url, json_encode([
-                'id_member' => $member_id,
-                'destination' => $to,
-                'amount' => $this->request->getVar('amount')
-            ]))->result;
-
+            $data = ['id_member' => $member_id, 'destination' => $to, 'amount' => $amount];
         } else {
             session()->setFlashdata('failed', 'Transfer type not supported.');
             return redirect()->to(BASE_URL . 'elite/withdraw/transfer');
         }
-
-        if(!isset($result->code) || $result->code != 201) {
+    
+        $result = satoshiAdmin($url, json_encode($data))->result;
+    
+        if (!isset($result->code) || $result->code !== 201) {
             session()->setFlashdata('failed', $result->message ?? $result->messages);
             return redirect()->to(BASE_URL . 'elite/withdraw/transfer');
         }
-
+    
         session()->setFlashdata('success', $result->message);
         return redirect()->to(BASE_URL . 'elite/withdraw/transfer');
     }

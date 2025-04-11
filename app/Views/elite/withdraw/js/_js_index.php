@@ -40,30 +40,6 @@
     }
 </style>
 <script>
-    $.ajax({
-        url: "<?= BASE_URL ?>elite/withdraw/available_commission",
-        method: "POST",
-        dataType: "json",
-        success: function(response) {
-            console.log(response.code)
-            // Cek jika response berhasil dan memiliki properti message.balance
-            if (response && response.code === 200 && response.message && typeof response.message.commission !== "undefined") {
-                // Format angka: hilangkan koma desimal dan tambahkan pemisah ribuan
-                var balance = parseFloat(response.message.commission);
-                console.log(balance);
-                var formattedBalance = "$ " + balance.toLocaleString('en-US', {
-                    maximumFractionDigits: 0
-                });
-                $(".custom-card.left-card .card-bottom").text(formattedBalance);
-            } else {
-                $(".custom-card.left-card .card-bottom").text("$ 0");
-            }
-        },
-        error: function(xhr, status, error) {
-            console.error("Error fetching available commission:", error);
-            $(".custom-card.left-card .card-bottom").text("Error");
-        }
-    });
 
     var tableWithdraw = $('#table_withdraw').DataTable({
         serverSide: false,
@@ -89,6 +65,8 @@
             data: 'date'
         }, {
             data: 'amount'
+        }, {
+            data: 'wallet_address'
         }, {
             data: 'status'
         }],
