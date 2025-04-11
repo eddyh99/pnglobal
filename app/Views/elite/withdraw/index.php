@@ -37,10 +37,10 @@
                         <div class="col-md-6">
                             <div class="custom-card left-card">
                                 <div class="card-row card-top">
-                                    Available USDT to Withdraw
+                                    Fund Balance
                                 </div>
                                 <div class="card-row card-bottom">
-                                    Loading...
+                                <?= '$ ' . @number_format($balance['fund']->usdt ?? 0, 0, '.', ',') ?>
                                 </div>
                             </div>
                         </div>
@@ -51,8 +51,8 @@
            <div class="withdraw-options">
                 <div class="withdraw-title">Withdraw Option</div>
                 <div class="text-center">
-                    <a href="<?= BASE_URL ?>member/withdraw/usdt" class="transfer-btn mb-2 btn-lg w-50 d-inline-block">USDT</a><br>
-                    <a href="<?= BASE_URL ?>member/withdraw/usdc" class="transfer-btn mb-2 btn-lg w-50 d-inline-block">USDC</a>
+                    <a href="<?= BASE_URL ?>elite/withdraw/usdt" class="transfer-btn mb-2 btn-lg w-50 d-inline-block">USDT</a><br>
+                    <a href="<?= BASE_URL ?>elite/withdraw/usdc" class="transfer-btn mb-2 btn-lg w-50 d-inline-block">USDC</a>
                 </div>
             </div>
 
@@ -66,6 +66,7 @@
                             <th>DESCRIPTION</th>
                             <th>DATE</th>
                             <th>AMOUNT</th>
+                            <th>ADDRESS</th>
                             <th>STATUS</th>
                         </tr>
                     </thead>

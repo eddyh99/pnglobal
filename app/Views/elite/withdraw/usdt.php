@@ -46,7 +46,7 @@
                                     Available USDT to Withdraw
                                 </div>
                                 <div class="card-row card-bottom">
-                                    Loading...
+                                <?= '$ ' . @number_format($balance['fund']->usdt ?? 0, 0, '.', ',') ?>
                                 </div>
                             </div>
                         </div>
@@ -76,6 +76,10 @@
                                         <div class="wrapper-addreferral">
                                             <label for="network">Network</label>
                                             <input type="text" name="network" class="form-control text-center" value="TRC20" readonly>
+                                        </div>
+                                        <div class="wrapper-addreferral">
+                                            <label for="wallet_address">Amount</label>
+                                            <input type="number" name="amount" class="form-control">
                                         </div>
                                         <div class="wrapper-addreferral d-flex justify-content-center">
                                             <button type="submit" id="submitBtn" class="btn btn-primary text-black">Confirm</button>

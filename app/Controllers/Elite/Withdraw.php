@@ -28,10 +28,12 @@ class Withdraw extends BaseController
 
     public function index()
     {
+        $balance = $this->get_balance();
         $mdata = [
             'title' => 'Withdraw - ' . NAMETITLE,
             'content' => 'elite/withdraw/index',
             'extra' => 'elite/withdraw/js/_js_index',
+            'balance' => $balance,
             'active_withdraw' => 'active',
         ];
 
@@ -40,10 +42,12 @@ class Withdraw extends BaseController
 
     public function usdt()
     {
+        $balance = $this->get_balance();
         $mdata = [
             'title' => 'Withdraw - ' . NAMETITLE,
             'content' => 'elite/withdraw/usdt',
             'extra' => 'elite/withdraw/js/_js_usdt',
+            'balance' => $balance,
             'active_withdraw' => 'active',
         ];
 
@@ -121,6 +125,10 @@ class Withdraw extends BaseController
                 'label' => 'Network',
                 'rules' => 'permit_empty'
             ],
+            'amount' => [
+                'label' => 'Amount',
+                'rules' => 'required'
+            ],
         ]);
 
         if (!$rules) {
@@ -147,7 +155,7 @@ class Withdraw extends BaseController
             'network' => $this->request->getVar('network'),
         ];
 
-        $url = URLAPI . "/v1/withdraw/request_payment";
+        $url = URL_ELITE . "/v1/withdraw/request_payment";
         $result = satoshiAdmin($url, json_encode($mdata))->result;
 
         // Jika kode respons adalah 201, redirect ke halaman withdraw
