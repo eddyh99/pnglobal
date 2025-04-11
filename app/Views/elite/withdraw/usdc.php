@@ -31,7 +31,7 @@
     <div class="container-fluid">
         <div class="row content-body">
             <div class="col-lg-12 px-2">
-                <a href="<?= BASE_URL ?>member/withdraw" class="back-button" style="display: flex; align-items: center; justify-content: center; text-decoration: none; color: #FFFFFF; font-weight: bold;">
+                <a href="<?= BASE_URL ?>elite/withdraw" class="back-button" style="display: flex; align-items: center; justify-content: center; text-decoration: none; color: #FFFFFF; font-weight: bold;">
                     <svg xmlns="http://www.w3.org/2000/svg" width="11" height="14" viewBox="0 0 11 14" fill="none" style="margin-right: 10px;">
                         <path d="M0 7L10.5 0.937822V13.0622L0 7Z" fill="#B48B3D" />
                     </svg>
@@ -43,10 +43,10 @@
                         <div class="col-md-6">
                             <div class="custom-card left-card">
                                 <div class="card-row card-top">
-                                    Available Commission to Withdraw
+                                Available USDT to Withdraw
                                 </div>
                                 <div class="card-row card-bottom">
-                                    Loading...
+                                <?= '$ ' . @number_format($balance['fund']->usdt ?? 0, 0, '.', ',') ?>
                                 </div>
                             </div>
                         </div>
@@ -55,7 +55,7 @@
             </div>
 
             <div class="col-lg-12">
-                <form action="<?= BASE_URL ?>member/withdraw/request_withdraw" method="POST">
+                <form action="<?= BASE_URL ?>elite/withdraw/request_withdraw" method="POST">
                     <div class="send-signals">
                         <div class="title-signal-preview d-flex justify-content-between align-items-center">
                             <h4>Withdraw Form</h4>
@@ -64,7 +64,7 @@
                             <form action="" method="POST">
                                 <div class="row w-100">
                                     <div class="form-addreferral col-8 mx-auto">
-                                        <input type="hidden" name="type" value="usdt">
+                                        <input type="hidden" name="type" value="usdc">
                                         <!-- <div class="wrapper-addreferral">
                                             <label for="amount">Amount To Withdraw</label>
                                             <input type="number" name="amount" class="form-control">
@@ -76,6 +76,10 @@
                                         <div class="wrapper-addreferral">
                                             <label for="network">Network</label>
                                             <input type="text" name="network" class="form-control text-center" value="BLOCKCHAIN" readonly>
+                                        </div>
+                                        <div class="wrapper-addreferral">
+                                            <label for="wallet_address">Amount</label>
+                                            <input type="number" name="amount" class="form-control">
                                         </div>
                                         <div class="wrapper-addreferral d-flex justify-content-center">
                                             <button type="submit" id="submitBtn" class="btn btn-primary text-black">Confirm</button>

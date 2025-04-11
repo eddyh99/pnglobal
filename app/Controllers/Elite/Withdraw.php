@@ -56,10 +56,12 @@ class Withdraw extends BaseController
 
     public function usdc()
     {
+        $balance = $this->get_balance();
         $mdata = [
             'title' => 'Withdraw - ' . NAMETITLE,
             'content' => 'elite/withdraw/usdc',
             'extra' => 'elite/withdraw/js/_js_usdc',
+            'balance' => $balance,
             'active_withdraw' => 'active',
         ];
 
@@ -95,7 +97,7 @@ class Withdraw extends BaseController
         $rules = $this->validate([
             'type' => [
                 'label' => 'Type',
-                'rules' => 'required|in_list[fiat,usdt]'
+                'rules' => 'required|in_list[fiat,usdt,usdc, btc]'
             ],
             'recipient' => [
                 'label' => 'Recipient',
