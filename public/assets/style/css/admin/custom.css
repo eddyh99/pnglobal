@@ -3243,3 +3243,9 @@ body.sidebar-main .content-page .payment-option-container {
 .back-button svg {
     margin-right: 10px;
 }
+
+.text-gold {
+  color: #b48b3d;
+  font-weight: bold;
+}
+

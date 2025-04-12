@@ -1,5 +1,10 @@
 <script>
-    
+    let balance = parseFloat("<?= $balance['fund']->btc ?? 0 ?>") || 0;
+
+    $("#maxbalance").on("click", function () {
+        $("#amount").val(balance);
+    });
+
     $(document).ready(function() {
         // Fungsi untuk menutup modal dan redirect
         function closeModalAndRedirect(redirectUrl, delay) {

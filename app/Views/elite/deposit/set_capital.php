@@ -50,19 +50,4 @@
         </div>
 
     </div>
-    <div class="col-lg-12 mt-3 dash-table-totalmember">
-                <h4 class="text-white my-3 text-uppercase fw-bold">History</h4>
-                <table id="table_deposithistory" class="table table-striped" style="width:100%">
-                    <thead class="thead_totalmember">
-                        <tr>
-                            <th>DATE</th>
-                            <th>AMOUNT</th>
-                            <th>DESCRIPTION</th>
-                            <th>STATUS</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                    </tbody>
-                </table>
-            </div>
 </div>

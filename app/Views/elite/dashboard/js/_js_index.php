@@ -81,6 +81,7 @@
             lengthChange: true,
             pageLength: 10,
             lengthMenu: [10, 25, 50, 100],
+            dom: '<"top"f>rt<"bottom"lp><"clear">',
             language: {
                 // processing: 'Loading data...',
                 search: 'Search:',
