@@ -76,7 +76,7 @@
                         </div>
 
                         <div class="d-flex justify-content-end flex-row flex-wrap gap-2">
-                            <a href="<?= BASE_URL ?>elite/withdraw/commission" class="btn-withdraw btn-lg ms-1">WITHDRAW</a>
+                            <a href="<?= BASE_URL ?>elite/withdraw/commission" class="btn-withdraw btn-lg ms-1" style="min-width:350px !important">Transfer to Funds Wallet</a>
                         </div>
                     </div>
 
