@@ -53,103 +53,100 @@
     }
 </style>
 <script>
-    let balance = parseFloat("<?= $balance['fund']->usdt ?? 0 ?>") || 0;
-
+    let balanceUSDT = parseFloat("<?= $balance['fund']->usdt ?? 0 ?>") || 0;
+    let balanceBTC = parseFloat("<?= $balance['fund']->btc ?? 0 ?>") || 0;
+    
+    // Update #pairusdt text based on selected coin
+    function updatePairText() {
+        const selectedCoin = $('#coin').val().toUpperCase();
+        $('#pairusdt').text(selectedCoin);
+    }
+    
+    // Handle MAX button click
     $("#maxbalance").on("click", function () {
-        $("#amount").val(balance);
+        const selectedCoin = $('#coin').val();
+    
+        let balance = 0;
+        if (selectedCoin === 'usdt') {
+            balance = balanceUSDT;
+        } else if (selectedCoin === 'btc') {
+            balance = balanceBTC;
+        }
+    
+        if (balance === 0) {
+            alert("Your balance is zero.");
+            return;
+        }
+    
+        // Format BTC with 4 decimals
+        const formatted = selectedCoin === 'btc'
+            ? balance.toFixed(4)
+            : balance;
+    
+        $("#amount").val(formatted);
     });
 
     
-    $(document).ready(function() {
-        $('#from').on('change', function () {
-            const fromVal = this.value;
-            const isCommission = fromVal === 'commission';
-        
-            // Update amount input
-            $('#amount')
-                .val('')
-                .attr('placeholder', isCommission ? 'Full of balance' : 'Enter amount')
-                .prop('readonly', isCommission);
-        
-            // Adjust 'to' value and disable options accordingly
-            if (isCommission) {
-                $('#to').val('fund');
-                $('#to option[value="trade"]').prop('disabled', true);
-            } else {
-                $('#to option[value="trade"]').prop('disabled', false);
-        
-                if (fromVal === 'fund') {
-                    $('#to').val('trade');
-                } else if (fromVal === 'trade') {
-                    $('#to').val('fund');
-                }
-            }
-        });
-        
-        
+    // Handle coin change
+    $('#coin').on('change', function () {
+        const selectedCoin = $(this).val();
+
+        let balance = 0;
+        let formatted = '';
+    
+        if (selectedCoin === 'usdt') {
+            balance = balanceUSDT;
+            formatted = Number(balance).toLocaleString(undefined, { minimumFractionDigits: 0, maximumFractionDigits: 2 }) + ' USDT';
+            $("#amount").val('');
+        } else if (selectedCoin === 'btc') {
+            balance = balanceBTC;
+            formatted = Number(balance).toFixed(4) + ' BTC';
+            $("#amount").val('');
+        }
+    
+        $("#textbalance").text(formatted);
+        updatePairText();
     });
+    
+    // Handle 'from' change and coin UI logic
+    $('#from').on('change', function () { 
+        const fromVal = this.value;
+        const isCommission = fromVal === 'commission';
+    
+        // Update amount input
+        $('#amount')
+            .val('')
+            .attr('placeholder', isCommission ? 'Entire balance' : 'Enter amount')
+            .prop('readonly', isCommission);
+    
+        // Adjust 'to' value and disable options accordingly
+        if (isCommission) {
+            $('#to').val('fund');
+            $('#availablebalance').css('visibility', 'hidden');
+            $("#maxbalance").hide();
+        } else {
+            $('#availablebalance').css('visibility', 'visible');
+            $("#maxbalance").show();
 
-
-        // NEW FEATURE: Tambahkan fungsi untuk icon share, icon copy, dan Show QR Code
-        var referralLink = $('.referral-link a').attr('href');
-
-        // Event listener untuk icon share (svg pertama di .referral-qr)
-        $('.referral-qr svg').eq(0).on('click', function() {
-            if (navigator.share) {
-                navigator.share({
-                    title: 'Referral Link',
-                    url: referralLink
-                }).then(function() {
-                    console.log('Referral link shared successfully');
-                }).catch(function(error) {
-                    console.error('Error sharing referral link:', error);
-                });
-            } else {
-                alert('Your browser does not support the Share feature.');
+    
+            if (fromVal === 'fund') {
+                $('#to').val('trade');
+            } else if (fromVal === 'trade') {
+                $('#to').val('fund');
             }
-        });
+        }
+    
+        // Coin selection logic (disable or enable)
+        if (fromVal === 'fund' || fromVal === 'commission') {
+            $('#coin').val('usdt').prop('disabled', true);
+        } else if (fromVal === 'trade') {
+            $('#coin').prop('disabled', false);
+        }
+    
+        updatePairText(); // update pair text in all cases
+    });
+    
+    // Initial call on page load to sync UI
+    updatePairText();
 
-        // Event listener untuk icon copy (svg kedua di .referral-qr)
-        $('.referral-qr svg').eq(1).on('click', function() {
-            navigator.clipboard.writeText(referralLink).then(function() {
-                alert('Referral link copied to clipboard!');
-            }).catch(function(err) {
-                alert('Failed to copy referral link.');
-            });
-        });
-
-        // Event listener untuk teks 'Show QR Code' (p element di .referral-qr)
-        $('.referral-qr p').on('click', function() {
-            var qrDiv = $('.qr-code-container');
-            var buttonPosition = $(this).offset(); // Get the position of the clicked button
-            var buttonWidth = $(this).outerWidth(); // Get the width of the button
-            var qrContainerWidth = 200; // Pertahankan lebar QR code container yang asli
-            var additionalOffset = 20; // Additional downward offset in pixels (adjust as needed)
-            var rightShift = 30; // Jarak tambahan ke kanan (dalam pixel)
-
-            if (qrDiv.length === 0) {
-                qrDiv = $('<div class="qr-code-container" style="position: fixed; top: ' + (buttonPosition.top + $(this).outerHeight() + additionalOffset) + 'px; left: ' + (buttonPosition.left + buttonWidth + rightShift - qrContainerWidth) + 'px; background: #fff; padding: 20px; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.15); z-index: 10000; width: ' + qrContainerWidth + 'px;"></div>');
-
-                // QR Code image dengan ukuran yang sama
-                var qrImg = $('<img style="display: block; margin: 0 auto; width: 150px; height: 150px;">').attr('src', 'https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=' + encodeURIComponent(referralLink));
-
-                // Tombol yang lebih menarik
-                var closeBtn = $('<button style="display: block; margin: 10px auto 0; padding: 6px 15px; background-color: #c9a95b; color: #000; border: none; border-radius: 4px; cursor: pointer; width: 80px;">Close</button>');
-
-                closeBtn.on('click', function() {
-                    qrDiv.remove();
-                });
-
-                qrDiv.append(qrImg).append(closeBtn);
-                $('body').append(qrDiv);
-            } else {
-                qrDiv.toggle();
-            }
-
-            // Mengatur posisi setelah element ditambahkan ke DOM
-            qrDiv.css({
-                'top': buttonPosition.top + $(this).outerHeight() + 30, // Mengubah offset top menjadi 30px
-                'left': buttonPosition.left + $(this).outerWidth() - qrDiv.outerWidth()
-            });
-        });
 </script>

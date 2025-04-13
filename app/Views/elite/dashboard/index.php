@@ -110,7 +110,7 @@
                             </div>
                         </div>
                         <div class="d-flex justify-content-end flex-row flex-wrap gap-2">
-                            <a href="<?= BASE_URL ?>elite/withdraw/transfer" class="btn-withdraw btn-lg" style="max-width:350px !important">Transfer to Fund Wallet</a>
+                            <a href="<?= BASE_URL ?>elite/withdraw/transfer" class="btn-withdraw btn-lg" style="max-width:350px !important">Transfer to Funds Wallet</a>
                         </div>
                     </div>
 
