@@ -230,7 +230,7 @@ class Signal extends BaseController
         // Change format price
         $mdata['limit'] = str_replace(',', '', $mdata['limit']);
 
-        Process Call to First Endpoint API (limit_buy)
+        // Process Call to First Endpoint API (limit_buy)
         $url = URLAPI . "/v1/order/limit_buy";
         $response = satoshiAdmin($url, json_encode($mdata));
         log_message('info', 'Response dari endpoint limit_buy: ' . json_encode($response));
