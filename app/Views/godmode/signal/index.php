@@ -89,6 +89,8 @@
                                                         <button id="del-buy-a" class="signal-btn btn-del">DEL</button>
                                                     </td>
                                                 </tr>
+
+
                                                 <!-- BUY B -->
                                                 <tr data-pair-id="<?php echo (!empty($buy_b) ? $buy_b['pair_id'] : '') ?>">
                                                     <td>
@@ -112,6 +114,8 @@
                                                         <button id="del-buy-b" class="signal-btn btn-del">DEL</button>
                                                     </td>
                                                 </tr>
+
+
                                                 <!-- BUY C -->
                                                 <tr data-pair-id="<?php echo (!empty($buy_c) ? $buy_c['pair_id'] : '') ?>">
                                                     <td>
@@ -135,6 +139,8 @@
                                                         <button id="del-buy-c" class="signal-btn btn-del">DEL</button>
                                                     </td>
                                                 </tr>
+
+                                                
                                                 <!-- BUY D -->
                                                 <tr data-pair-id="<?php echo (!empty($buy_d) ? $buy_d['pair_id'] : '') ?>">
                                                     <td>

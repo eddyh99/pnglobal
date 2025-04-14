@@ -318,6 +318,34 @@ class Signal extends BaseController
             }
         }
 
+        // If second endpoint succeeds, call the third endpoint (sendsignal)
+
+        if ($code == 200 || $code == 201) {
+
+            log_message('info', 'Data untuk endpoint ketiga: ' . json_encode($mdata));
+
+            // Process Call to Second Endpoint API
+            $url2 = URL_ELITE . "/v1/order/limit_buy";
+            $response2 = satoshiAdmin($url2, json_encode($mdata));
+            log_message('info', 'Response dari endpoint sendsignal: ' . json_encode($response2));
+
+            // Check second endpoint response
+            if (isset($response2->result) && isset($response2->result->code)) {
+                if ($response2->result->code == 200 || $response2->result->code == 201) {
+                    $message = isset($response2->result->message) ? $response2->result->message : 'Signal successfully saved';
+                    $code = $response2->result->code;
+                }
+            } else if (isset($response2->status)) {
+                // Handle kasus dimana hanya ada status tanpa result untuk endpoint kedua
+                if ($response2->status == 200 || $response2->status == 201) {
+                    $message = 'Signal successfully saved';
+                    $code = $response2->status;
+                } else {
+                    $message = 'Signal created but failed to save to second endpoint';
+                }
+            }
+        }
+
         // Create response array
         $result = [
             'code' => $code,
