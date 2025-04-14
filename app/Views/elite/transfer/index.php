@@ -90,7 +90,7 @@
                                 <label for="to" class="text-gold fw-bold mb-0 text-center d-flex align-items-center justify-content-center label-destination">
                                     To
                                 </label>
-                                <select class="form-control text-white ms-2" disabled
+                                <select class="form-control text-white ms-2"
                                     name="to"
                                     id="to"
                                     style="background-color: #1c1c1c; border: 1px solid #b48b3d;">
