@@ -86,6 +86,10 @@ class Signal extends BaseController
                         $buy_a['status'] = $dt->status;
                         // Gunakan id sebagai pair_id karena tidak ada lagi pair_id dalam respons
                         $buy_a['pair_id'] = $dt->id;
+
+                        $buy_a['sell_id'] = $dt->sell_id ?? null;
+                        $buy_a['sell_entry_price'] = floatval($dt->sell_entry_price ?? null);
+                        $buy_a['sell_status'] = $dt->sell_status ?? null;
                         if (isset($dt->created_at)) $buy_a['created_at'] = $dt->created_at;
                     }
                     // Type Buy B
@@ -97,6 +101,9 @@ class Signal extends BaseController
                         $buy_b['status'] = $dt->status;
                         // Gunakan id sebagai pair_id karena tidak ada lagi pair_id dalam respons
                         $buy_b['pair_id'] = $dt->id;
+                        $buy_b['sell_id'] = $dt->sell_id ?? null;
+                        $buy_b['sell_entry_price'] = floatval($dt->sell_entry_price ?? null);
+                        $buy_b['sell_status'] = $dt->sell_status ?? null;
                         if (isset($dt->created_at)) $buy_b['created_at'] = $dt->created_at;
                     }
                     // Type Buy C
@@ -108,6 +115,9 @@ class Signal extends BaseController
                         $buy_c['status'] = $dt->status;
                         // Gunakan id sebagai pair_id karena tidak ada lagi pair_id dalam respons
                         $buy_c['pair_id'] = $dt->id;
+                        $buy_c['sell_id'] = $dt->sell_id ?? null;
+                        $buy_c['sell_entry_price'] = floatval($dt->sell_entry_price ?? null);
+                        $buy_c['sell_status'] = $dt->sell_status ?? null;
                         if (isset($dt->created_at)) $buy_c['created_at'] = $dt->created_at;
                     }
                     // Type Buy D
@@ -119,6 +129,9 @@ class Signal extends BaseController
                         $buy_d['status'] = $dt->status;
                         // Gunakan id sebagai pair_id karena tidak ada lagi pair_id dalam respons
                         $buy_d['pair_id'] = $dt->id;
+                        $buy_d['sell_id'] = $dt->sell_id ?? null;
+                        $buy_d['sell_entry_price'] = floatval($dt->sell_entry_price ?? null);
+                        $buy_d['sell_status'] = $dt->sell_status ?? null;
                         if (isset($dt->created_at)) $buy_d['created_at'] = $dt->created_at;
                     }
                 }
@@ -804,6 +817,14 @@ class Signal extends BaseController
         // Log response dari endpoint kedua
         log_message('info', 'Response dari endpoint delete kedua: ' . json_encode($response2));
 
+
+         // Process Call to Second Endpoint API (ELITE)
+         $url3 = URL_ELITE . "/v1/order/delete?id_signal=" . $signal_id;
+         $response3 = satoshiAdmin($url3);
+ 
+         // Log response dari endpoint ketiga
+         log_message('info', 'Response dari endpoint delete ketiga: ' . json_encode($response3));
+
         // Determine the primary response based on first endpoint
         if (isset($response1->result) && isset($response1->result->code)) {
             $result = [
@@ -825,10 +846,22 @@ class Signal extends BaseController
             log_message('error', 'Second endpoint failed or returned unexpected response: ' . json_encode($response2));
         }
 
+        // Log 3rd endpoint response for debugging, but don't override primary result unless necessary
+        if (isset($response3->result) && isset($response3->result->code)) {
+            log_message('info', 'third endpoint response: ' . json_encode($response3->result));
+        } else {
+            log_message('error', 'third endpoint failed or returned unexpected response: ' . json_encode($response3));
+        }
+
         // If first endpoint succeeds but second fails, log it but don't change the success response
         if ($result['code'] == '200' || $result['code'] == '201') {
             if (!isset($response2->result) || !isset($response2->result->code) || ($response2->result->code != '200' && $response2->result->code != '201')) {
                 log_message('warning', 'First endpoint succeeded but second endpoint failed: ' . json_encode($response2));
+            }
+            
+            // Check if third endpoint failed
+            if (!isset($response3->result) || !isset($response3->result->code) || ($response3->result->code != '200' && $response3->result->code != '201')) {
+                log_message('warning', 'First endpoint succeeded, but third endpoint failed: ' . json_encode($response3));
             }
         }
 
