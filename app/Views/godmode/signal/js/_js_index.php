@@ -151,7 +151,7 @@
                 if (buyValue && buyStatus === 'filled') {
                     // Jika ada price dan status buy adalah filled, disable tombol FILL
                     $(`#fill-buy-${letter}`).prop('disabled', true).addClass('filled');
-                } else if (buyValue && buyStatus === 'new') {
+                } else if (buyValue && buyStatus === 'pending') {
                     // Jika ada price dan status buy adalah new, enable tombol FILL
                     $(`#fill-buy-${letter}`).prop('disabled', false).removeClass('filled');
                 } else {
@@ -176,7 +176,7 @@
                 }
 
                 // Jika status buy masih new atau tidak ada price, disable tombol SELL
-                if (buyStatus === 'new' || !buyValue) {
+                if (buyStatus === 'pending' || !buyValue) {
                     sellInput.prop('readonly', true);
                     sendSellBtn.prop('disabled', true);
                 } else if (buyValue && buyStatus === 'filled' && (!sellStatus || sellStatus !== 'filled')) {
@@ -239,28 +239,28 @@
         // Pastikan tombol sell tidak disabled jika sudah ada nilai buy yang diinput
         if ($('#buy-a').val() && $('#buy-a').prop('disabled')) {
             const buyStatusA = $('#buy-a').closest('tr').find('.signal-status').text().trim().toLowerCase();
-            if (buyStatusA !== 'new') {
+            if (buyStatusA !== 'pending') {
                 $('#sell-a').removeAttr('readonly');
                 $('#send-sell-a').removeAttr('disabled');
             }
         }
         if ($('#buy-b').val() && $('#buy-b').prop('disabled')) {
             const buyStatusB = $('#buy-b').closest('tr').find('.signal-status').text().trim().toLowerCase();
-            if (buyStatusB !== 'new') {
+            if (buyStatusB !== 'pending') {
                 $('#sell-b').removeAttr('readonly');
                 $('#send-sell-b').removeAttr('disabled');
             }
         }
         if ($('#buy-c').val() && $('#buy-c').prop('disabled')) {
             const buyStatusC = $('#buy-c').closest('tr').find('.signal-status').text().trim().toLowerCase();
-            if (buyStatusC !== 'new') {
+            if (buyStatusC !== 'pending') {
                 $('#sell-c').removeAttr('readonly');
                 $('#send-sell-c').removeAttr('disabled');
             }
         }
         if ($('#buy-d').val() && $('#buy-d').prop('disabled')) {
             const buyStatusD = $('#buy-d').closest('tr').find('.signal-status').text().trim().toLowerCase();
-            if (buyStatusD !== 'new') {
+            if (buyStatusD !== 'pending') {
                 $('#sell-d').removeAttr('readonly');
                 $('#send-sell-d').removeAttr('disabled');
             }
@@ -879,7 +879,7 @@
             const currentStatus = statusElement.text().trim().toLowerCase();
 
             // Hanya bisa FILL jika status New atau Pending
-            if (currentStatus !== 'new' && currentStatus !== 'pending') {
+            if (currentStatus !== 'pending' && currentStatus !== 'pending') {
                 Swal.fire({
                     text: 'Only signals with New or Pending status can be filled',
                     showCloseButton: true,
