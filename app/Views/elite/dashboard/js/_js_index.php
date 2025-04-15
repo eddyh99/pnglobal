@@ -124,7 +124,7 @@
                 }
             },
             {
-                data: 'usdt',
+                data: 'amount_usdt',
                 render: function(data) {
                     // Format angka dengan $ dan koma
                     if (!data) return '0';
