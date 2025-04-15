@@ -297,7 +297,7 @@
                             <th>TIME</th>
                             <th>STATUS</th>
                             <th>ADMIN</th>
-                            <th>ACTION</th>
+                            <!-- <th>ACTION</th> -->
                         </tr>
                     </thead>
                     <tbody>

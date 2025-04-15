@@ -822,16 +822,16 @@
                 {
                     data: "admin",
                 },
-                {
-                    data: null,
-                    "render": function(data, type, row) {
-                        // Tampilkan button cancel hanya jika ini adalah sell signal terbaru dan statusnya bukan filled
-                        if (row.type.toLowerCase().includes('sell') && row.isFirstSell && row.status.toLowerCase() !== 'filled') {
-                            return '<button class="btn btn-danger btn-sm cancel-signal" data-id="' + row.id + '" data-pair-id="' + row.pair_id + '">Cancel</button>';
-                        }
-                        return '';
-                    }
-                }
+                // {
+                //     data: null,
+                //     "render": function(data, type, row) {
+                //         // Tampilkan button cancel hanya jika ini adalah sell signal terbaru dan statusnya bukan filled
+                //         if (row.type.toLowerCase().includes('sell') && row.isFirstSell && row.status.toLowerCase() !== 'filled') {
+                //             return '<button class="btn btn-danger btn-sm cancel-signal" data-id="' + row.id + '" data-pair-id="' + row.pair_id + '">Cancel</button>';
+                //         }
+                //         return '';
+                //     }
+                // }
             ],
 
         });
