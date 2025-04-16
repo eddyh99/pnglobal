@@ -697,6 +697,11 @@ class Signal extends BaseController
                 'code' => $response1->result->code,
                 'message' => $response1->result->message
             ];
+
+            if ($response1->result->code == 200 || $response1->result->code == 201) {
+                $this->send_signal_cancel($signal_id);
+            }
+            
         } else {
             // Fallback if first endpoint response is unexpected
             $result = [
@@ -810,7 +815,20 @@ class Signal extends BaseController
         // send to pnglobal
         $url = URLAPI . '/v1/order/limit_sell';
         $response = satoshiAdmin($url, json_encode($mdata));
-        log_message('info', 'Response dari endpoint limit_buy PNGLOBAL: ' . json_encode($response));
+        log_message('info', 'Response dari endpoint limit_sell PNGLOBAL: ' . json_encode($response));
+
+        // send to satoshi
+        // $url = URLAPI . '/v1/order/limit_buy';
+        // $response = satoshiAdmin($url, json_encode($mdata));
+        // log_message('info', 'Response dari endpoint limit_buy Satoshi: ' . json_encode($response));
+    }
+
+    private function send_signal_cancel($signal_id) {
+
+        // send to pnglobal
+        $url = URLAPI . '/v1/order/delete?id_signal=' . $signal_id;
+        $response = satoshiAdmin($url);
+        log_message('info', 'Response dari endpoint cancel PNGLOBAL: ' . json_encode($response));
 
         // send to satoshi
         // $url = URLAPI . '/v1/order/limit_buy';
