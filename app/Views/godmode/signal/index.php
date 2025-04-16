@@ -186,16 +186,16 @@
                                             </thead>
                                             <tbody>
                                                 <!-- SELL A -->
-                                                <tr data-pair-id="<?php echo (!empty($buy_a) ? $buy_a['id'] : '') ?>">
+                                                <tr data-pair-id="<?php echo (!empty($buy_a) ? $buy_a['sell_id'] : '') ?>">
                                                     <td>
                                                         <div class="signal-label sell-label">A</div>
                                                     </td>
                                                     <td>
-                                                        <input type="text" id="sell-a" class="signal-price" value="" <?php echo (empty($buy_a) || (isset($buy_a['status']) && strtolower($buy_a['status']) === 'pending') ? "readonly" : "") ?>>
+                                                        <input type="text" id="sell-a" class="signal-price" value="<?php echo (!empty($buy_a) ? number_format($buy_a['sell_entry_price'], 2, '.', ',') : '') ?>" <?php echo (empty($buy_a) || (isset($buy_a['status']) && strtolower($buy_a['status']) === 'pending') ? "readonly" : "") ?>>
                                                     </td>
                                                     <td>
                                                         <div class="signal-status">
-                                                            <?php echo (!empty($buy_a) ? $buy_a['status'] : '') ?>
+                                                            <?= (!empty($buy_a) ? $buy_a['sell_status'] : '') ?>
                                                         </div>
                                                     </td>
                                                     <td>
@@ -209,16 +209,16 @@
                                                     </td>
                                                 </tr>
                                                 <!-- SELL B -->
-                                                <tr data-pair-id="<?php echo (!empty($buy_b) ? $buy_b['id'] : '') ?>">
+                                                <tr data-pair-id="<?php echo (!empty($buy_b) ? $buy_b['sell_id'] : '') ?>">
                                                     <td>
                                                         <div class="signal-label sell-label">B</div>
                                                     </td>
                                                     <td>
-                                                        <input type="text" id="sell-b" class="signal-price" value="" <?php echo (empty($buy_b) || (isset($buy_b['status']) && strtolower($buy_b['status']) === 'pending') ? "readonly" : "") ?>>
+                                                        <input type="text" id="sell-b" class="signal-price" value="<?php echo (!empty($buy_b) ? number_format($buy_b['sell_entry_price'], 2, '.', ',') : '') ?>" <?php echo (empty($buy_b) || (isset($buy_b['status']) && strtolower($buy_b['status']) === 'pending') ? "readonly" : "") ?>>
                                                     </td>
                                                     <td>
                                                         <div class="signal-status">
-                                                            <?php echo (!empty($buy_b) ? $buy_b['status'] : '') ?>
+                                                        <?= (!empty($buy_b) ? $buy_b['sell_status'] : '') ?>
                                                         </div>
                                                     </td>
                                                     <td>
@@ -232,16 +232,16 @@
                                                     </td>
                                                 </tr>
                                                 <!-- SELL C -->
-                                                <tr data-pair-id="<?php echo (!empty($buy_c) ? $buy_c['id'] : '') ?>">
+                                                <tr data-pair-id="<?php echo (!empty($buy_c) ? $buy_c['sell_id'] : '') ?>">
                                                     <td>
                                                         <div class="signal-label sell-label">C</div>
                                                     </td>
                                                     <td>
-                                                        <input type="text" id="sell-c" class="signal-price" value="" <?php echo (empty($buy_c) || (isset($buy_c['status']) && strtolower($buy_c['status']) === 'pending') ? "readonly" : "") ?>>
+                                                        <input type="text" id="sell-c" class="signal-price" value="<?php echo (!empty($buy_c) ? number_format($buy_c['sell_entry_price'], 2, '.', ',') : '') ?>" <?php echo (empty($buy_c) || (isset($buy_c['status']) && strtolower($buy_c['status']) === 'pending') ? "readonly" : "") ?>>
                                                     </td>
                                                     <td>
                                                         <div class="signal-status">
-                                                            <?php echo (!empty($buy_c) ? $buy_c['status'] : '') ?>
+                                                        <?= (!empty($buy_c) ? $buy_c['sell_status'] : '') ?>
                                                         </div>
                                                     </td>
                                                     <td>
@@ -255,16 +255,16 @@
                                                     </td>
                                                 </tr>
                                                 <!-- SELL D -->
-                                                <tr data-pair-id="<?php echo (!empty($buy_d) ? $buy_d['id'] : '') ?>">
+                                                <tr data-pair-id="<?php echo (!empty($buy_d) ? $buy_d['sell_id'] : '') ?>">
                                                     <td>
                                                         <div class="signal-label sell-label">D</div>
                                                     </td>
                                                     <td>
-                                                        <input type="text" id="sell-d" class="signal-price" value="" <?php echo (empty($buy_d) || (isset($buy_d['status']) && strtolower($buy_d['status']) === 'pending') ? "readonly" : "") ?>>
+                                                        <input type="text" id="sell-d" class="signal-price"  value="<?php echo (!empty($buy_d) ? number_format($buy_d['sell_entry_price'], 2, '.', ',') : '') ?>" <?php echo (empty($buy_d) || (isset($buy_d['status']) && strtolower($buy_d['status']) === 'pending') ? "readonly" : "") ?>>
                                                     </td>
                                                     <td>
                                                         <div class="signal-status">
-                                                            <?php echo (!empty($buy_d) ? $buy_d['status'] : '') ?>
+                                                        <?= (!empty($buy_d) ? $buy_d['sell_status'] : '') ?>
                                                         </div>
                                                     </td>
                                                     <td>
@@ -297,7 +297,7 @@
                             <th>TIME</th>
                             <th>STATUS</th>
                             <th>ADMIN</th>
-                            <th>ACTION</th>
+                            <!-- <th>ACTION</th> -->
                         </tr>
                     </thead>
                     <tbody>
