@@ -46,11 +46,9 @@ class Signal extends BaseController
 
     public function index()
     {
-        // ELITE OR PNGLOBAL
-        // the Signal ID must be the same
 
-        // Call Endpoint read latest signal
-        $url = URLAPI . "/v1/order/latestsignal";
+        // Call Endpoint read latest signal from elite
+        $url = URL_ELITE . "/v1/order/latestsignal";
         $response = satoshiAdmin($url);
 
         // Initial Array Buy A, Buy B, Buy C, dan Buy D
@@ -244,7 +242,7 @@ class Signal extends BaseController
         $mdata['limit'] = str_replace(',', '', $mdata['limit']);
 
         // Process Call to First Endpoint API (limit_buy)
-        $url = URLAPI . "/v1/order/limit_buy";
+        $url = URL_ELITE . "/v1/order/limit_buy";
         $response = satoshiAdmin($url, json_encode($mdata));
         log_message('info', 'Response dari endpoint limit_buy: ' . json_encode($response));
         // Determine response code from first endpoint
@@ -301,68 +299,6 @@ class Signal extends BaseController
             exit();
         }
 
-        // If first endpoint succeeds, call the second endpoint (sendsignal)
-        if ($code == 200 || $code == 201) {
-            // Prepare data for second endpoint
-            $mdata2 = [
-                'entry' => floatval($mdata['limit']),
-                'type' => $mdata['type'],
-                'pair_id' => null
-            ];
-
-            log_message('info', 'Data untuk endpoint kedua: ' . json_encode($mdata2));
-
-            // Process Call to Second Endpoint API
-            $url2 = URLAPI2 . "/v1/signal/sendsignal";
-            $response2 = satoshiAdmin($url2, json_encode($mdata2));
-            log_message('info', 'Response dari endpoint sendsignal: ' . json_encode($response2));
-
-            // Check second endpoint response
-            if (isset($response2->result) && isset($response2->result->code)) {
-                if ($response2->result->code == 200 || $response2->result->code == 201) {
-                    $message = isset($response2->result->message) ? $response2->result->message : 'Signal successfully saved';
-                    $code = $response2->result->code;
-                }
-            } else if (isset($response2->status)) {
-                // Handle kasus dimana hanya ada status tanpa result untuk endpoint kedua
-                if ($response2->status == 200 || $response2->status == 201) {
-                    $message = 'Signal successfully saved';
-                    $code = $response2->status;
-                } else {
-                    $message = 'Signal created but failed to save to second endpoint';
-                }
-            }
-        }
-
-        // If second endpoint succeeds, call the third endpoint (sendsignal)
-        // $code = 200;
-
-        if ($code == 200 || $code == 201) {
-
-            log_message('info', 'Data untuk endpoint ketiga: ' . json_encode($mdata));
-
-            // Process Call to Second Endpoint API
-            $url2 = URL_ELITE . "/v1/order/limit_buy";
-            $response2 = satoshiAdmin($url2, json_encode($mdata));
-            log_message('info', 'Response dari endpoint sendsignal: ' . json_encode($response2));
-
-            // Check second endpoint response
-            if (isset($response2->result) && isset($response2->result->code)) {
-                if ($response2->result->code == 200 || $response2->result->code == 201) {
-                    $message = isset($response2->result->message) ? $response2->result->message : 'Signal successfully saved';
-                    $code = $response2->result->code;
-                }
-            } else if (isset($response2->status)) {
-                // Handle kasus dimana hanya ada status tanpa result untuk endpoint kedua
-                if ($response2->status == 200 || $response2->status == 201) {
-                    $message = 'Signal successfully saved';
-                    $code = $response2->status;
-                } else {
-                    $message = 'Signal created but failed to save to second endpoint';
-                }
-            }
-        }
-
         // Create response array
         $result = [
             'code' => $code,
@@ -411,7 +347,7 @@ class Signal extends BaseController
         $mdata = [
             'admin_id'  => $admin_id,
             'ip_address' => $ip_address,
-            'id_signal' => $this->request->getVar('pair_id'),
+            // 'id_signal' => $this->request->getVar('pair_id'),
             'type'      => htmlspecialchars($this->request->getVar('type')),
             'limit'     => htmlspecialchars($this->request->getVar('price')),
         ];
@@ -422,8 +358,7 @@ class Signal extends BaseController
         // Call Endpoint read signal untuk mendapatkan daftar signal
         // ELITE API OR URL API FOR READ SIGNAL?
 
-        $url = URLAPI . "/v1/order/latestsignal";
-        // $url = URL_ELITE . "/v1/order/latestsignal";
+        $url = URL_ELITE . "/v1/order/latestsignal";
         $readsignal = satoshiAdmin($url)->result->message;
         log_message('info', 'Sinyal Akhir: ' . json_encode($readsignal));
 
@@ -440,27 +375,7 @@ class Signal extends BaseController
             foreach ($readsignal as $key => $val) {
                 // Assign value sell signal
                 $mdata['type'] = 'SELL ' . $alphabet[$key];
-                $mdata['pair_id'] = $val->id;
-
-                // Send ke endpoint pertama (URLAPI) untuk SELL
-                $url1 = URLAPI . "/v1/order/limit_sell";
-                $response1 = satoshiAdmin($url1, json_encode($mdata));
-                log_message('info', 'Response dari endpoint limit_sell: ' . json_encode($response1));
-
-                // Modifikasi data untuk endpoint kedua (hanya mengubah tipe)
-                $mdata2 = [
-                    'entry' => floatval($mdata['limit']),
-                    'type' => str_replace('SELL', 'Sell', $mdata['type']),
-                    'pair_id' => $mdata['pair_id']
-                ];
-
-                log_message('info', 'Data untuk endpoint kedua: ' . json_encode($mdata2));
-
-                // Send ke endpoint kedua (URLAPI2) untuk Sell
-                $url2 = URLAPI2 . "/v1/signal/sendsignal";
-                $response2 = satoshiAdmin($url2, json_encode($mdata2));
-                log_message('info', 'Response dari endpoint sendsignal: ' . json_encode($response2));
-
+                $mdata['id_signal'] = $val->id;
 
                 // Send ke endpoint ketiga (URLAPI) untuk SELL
                 $url3 = URL_ELITE . "/v1/order/limit_sell";
@@ -483,27 +398,7 @@ class Signal extends BaseController
                 if ($startCheck) {
                     // Assign value sell signal
                     $mdata['type'] = 'SELL ' . $alphabet[$key];
-                    $mdata['pair_id'] = $val->id;
-
-                    // Send ke endpoint pertama (URLAPI) untuk SELL
-                    $url1 = URLAPI . "/v1/order/limit_sell";
-                    $response1 = satoshiAdmin($url1, json_encode($mdata));
-                    log_message('info', 'Response dari endpoint limit_sell: ' . json_encode($response1));
-
-                    // Modifikasi data untuk endpoint kedua (hanya mengubah tipe)
-                    $mdata2 = [
-                        'entry' => floatval($mdata['limit']),
-                        'type' => str_replace('SELL', 'Sell', $mdata['type']),
-                        'pair_id' => $mdata['pair_id']
-                    ];
-
-                    log_message('info', 'Data untuk endpoint kedua: ' . json_encode($mdata2));
-
-                    // Send ke endpoint kedua (URLAPI2) untuk Sell
-                    $url2 = URLAPI2 . "/v1/signal/sendsignal";
-                    $response2 = satoshiAdmin($url2, json_encode($mdata2));
-                    log_message('info', 'Response dari endpoint sendsignal: ' . json_encode($response2));
-
+                    $mdata['id_signal'] = $val->id;
 
                     // Send ke endpoint pertama (URLAPI) untuk SELL
                     $url3 = URL_ELITE . "/v1/order/limit_sell";
@@ -527,27 +422,7 @@ class Signal extends BaseController
                 if ($startCheck) {
                     // Assign value sell signal
                     $mdata['type'] = 'SELL ' . $alphabet[$key];
-                    $mdata['pair_id'] = $val->id;
-
-                    // Send ke endpoint pertama (URLAPI) untuk SELL
-                    $url1 = URLAPI . "/v1/order/limit_sell";
-                    $response1 = satoshiAdmin($url1, json_encode($mdata));
-                    log_message('info', 'Response dari endpoint limit_sell: ' . json_encode($response1));
-
-                    // Modifikasi data untuk endpoint kedua (hanya mengubah tipe)
-                    $mdata2 = [
-                        'entry' => floatval($mdata['limit']),
-                        'type' => str_replace('SELL', 'Sell', $mdata['type']),
-                        'pair_id' => $mdata['pair_id']
-                    ];
-
-                    log_message('info', 'Data untuk endpoint kedua: ' . json_encode($mdata2));
-
-                    // Send ke endpoint kedua (URLAPI2) untuk Sell
-                    $url2 = URLAPI2 . "/v1/signal/sendsignal";
-                    $response2 = satoshiAdmin($url2, json_encode($mdata2));
-                    log_message('info', 'Response dari endpoint sendsignal: ' . json_encode($response2));
-
+                    $mdata['id_signal'] = $val->id;
 
                     // Send ke endpoint ketika (URL_ELITE) untuk SELL
                     $url3 = URL_ELITE . "/v1/order/limit_sell";
@@ -571,27 +446,7 @@ class Signal extends BaseController
                 if ($startCheck) {
                     // Assign value sell signal
                     $mdata['type'] = 'SELL ' . $alphabet[$key];
-                    $mdata['pair_id'] = $val->id;
-
-                    // Send ke endpoint pertama (URLAPI) untuk SELL
-                    $url1 = URLAPI . "/v1/order/limit_sell";
-                    $response1 = satoshiAdmin($url1, json_encode($mdata));
-                    log_message('info', 'Response dari endpoint limit_sell: ' . json_encode($response1));
-
-                    // Modifikasi data untuk endpoint kedua (hanya mengubah tipe)
-                    $mdata2 = [
-                        'entry' => floatval($mdata['limit']),
-                        'type' => str_replace('SELL', 'Sell', $mdata['type']),
-                        'pair_id' => $mdata['pair_id']
-                    ];
-
-                    log_message('info', 'Data untuk endpoint kedua: ' . json_encode($mdata2));
-
-                    // Send ke endpoint kedua (URLAPI2) untuk Sell
-                    $url2 = URLAPI2 . "/v1/signal/sendsignal";
-                    $response2 = satoshiAdmin($url2, json_encode($mdata2));
-                    log_message('info', 'Response dari endpoint sendsignal: ' . json_encode($response2));
-
+                    $mdata['id_signal'] = $val->id;
 
                     // Send ke endpoint pertama (URLAPI) untuk SELL
                     $url3 = URL_ELITE . "/v1/order/limit_sell";
@@ -603,7 +458,7 @@ class Signal extends BaseController
             }
         }
 
-        $response = $response1;
+        $response = $response3;
 
         log_message('info', 'Akhir Respond diterima: ' . json_encode($response));
 
@@ -803,29 +658,14 @@ class Signal extends BaseController
         // Log untuk debugging
         log_message('info', 'Mencoba menghapus signal dengan ID: ' . $signal_id);
 
-        // Process Call to First Endpoint API
-        $url1 = URLAPI . "/v1/order/delete?id_signal=" . $signal_id;
-        $response1 = satoshiAdmin($url1);
-
-        // Log response dari endpoint pertama
-        log_message('info', 'Response dari endpoint delete pertama: ' . json_encode($response1));
-
-        // Process Call to Second Endpoint API
-        $url2 = URLAPI2 . "/v1/signal/cancelsignal?id=" . $signal_id;
-        $response2 = satoshiAdmin($url2);
-
-        // Log response dari endpoint kedua
-        log_message('info', 'Response dari endpoint delete kedua: ' . json_encode($response2));
-
-
          // Process Call to Second Endpoint API (ELITE)
          $url3 = URL_ELITE . "/v1/order/delete?id_signal=" . $signal_id;
-         $response3 = satoshiAdmin($url3);
+         $response1 = satoshiAdmin($url3);
  
          // Log response dari endpoint ketiga
-         log_message('info', 'Response dari endpoint delete ketiga: ' . json_encode($response3));
+         log_message('info', 'Response dari endpoint delete ketiga: ' . json_encode($response1));
 
-        // Determine the primary response based on first endpoint
+        // // Determine the primary response based on first endpoint
         if (isset($response1->result) && isset($response1->result->code)) {
             $result = [
                 'code' => $response1->result->code,
@@ -839,39 +679,13 @@ class Signal extends BaseController
             ];
         }
 
-        // Log second endpoint response for debugging, but don't override primary result unless necessary
-        if (isset($response2->result) && isset($response2->result->code)) {
-            log_message('info', 'Second endpoint response: ' . json_encode($response2->result));
-        } else {
-            log_message('error', 'Second endpoint failed or returned unexpected response: ' . json_encode($response2));
-        }
-
-        // Log 3rd endpoint response for debugging, but don't override primary result unless necessary
-        if (isset($response3->result) && isset($response3->result->code)) {
-            log_message('info', 'third endpoint response: ' . json_encode($response3->result));
-        } else {
-            log_message('error', 'third endpoint failed or returned unexpected response: ' . json_encode($response3));
-        }
-
-        // If first endpoint succeeds but second fails, log it but don't change the success response
-        if ($result['code'] == '200' || $result['code'] == '201') {
-            if (!isset($response2->result) || !isset($response2->result->code) || ($response2->result->code != '200' && $response2->result->code != '201')) {
-                log_message('warning', 'First endpoint succeeded but second endpoint failed: ' . json_encode($response2));
-            }
-            
-            // Check if third endpoint failed
-            if (!isset($response3->result) || !isset($response3->result->code) || ($response3->result->code != '200' && $response3->result->code != '201')) {
-                log_message('warning', 'First endpoint succeeded, but third endpoint failed: ' . json_encode($response3));
-            }
-        }
-
         echo json_encode($result);
     }
 
     public function list_history_order()
     {
         // Call Endpoin List History Order
-        $url = URLAPI . "/v1/order/get_all";
+        $url = URL_ELITE . "/v1/order/get_all";
         $response = satoshiAdmin($url);
 
         // Periksa apakah respons valid dan berisi data
