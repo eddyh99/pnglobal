@@ -251,15 +251,14 @@ class Signal extends BaseController
 
         // Handle response from first endpoint
         if (isset($response->result) && isset($response->result->code)) {
-            if ($response->result->code == 200 || $response->result->code == 201) {
-                // Pastikan id ada sebelum menggunakannya
-                if (isset($response->result->id)) {
-                    $response->result->pair_id = $response->result->id;
-                } else {
-                    $response->result->pair_id = null;
-                }
-                $message = isset($response->result->message) ? $response->result->message : 'Buy order successfully processed';
+            if (($response->result->code == 200 || $response->result->code == 201) && isset($response->result->message)) {
+                $mdata['signal_id'] = $response->result->message->id;
+                $message = $response->result->message->text;
                 $code = $response->result->code;
+
+                // send to pn and satoshi
+                $this->send_signal_buy($mdata); 
+                
             } else {
                 $message = isset($response->error->message) ? $response->error->message : 'Failed to process buy order';
                 // Return early if first endpoint fails
@@ -383,6 +382,13 @@ class Signal extends BaseController
                 log_message('info', 'Response dari endpoint elite limit_sell: ' . json_encode($response3));
 
                 $result = $response3->result;
+
+                // send signal to pn &satoshi
+                if (isset($result->message) && isset($result->message->id)) {
+                    $mdata['id_signal'] = $result->message->id;
+                    $mdata['pair_id'] = $val->id;
+                    $this->send_signal_sell($mdata);
+                }                
                 sleep(1);
             }
         } else if ($typesignal == 'SELL B') {
@@ -406,6 +412,13 @@ class Signal extends BaseController
                     log_message('info', 'Response dari endpoint limit_sell: ' . json_encode($response3));
 
                     $result = $response3->result;
+                     // send signal to pn &satoshi
+                    if (isset($result->message) && isset($result->message->id)) {
+                        $mdata['id_signal'] = $result->message->id;
+                        $mdata['pair_id'] = $val->id;
+                        $this->send_signal_sell($mdata);
+                    }                
+
                     sleep(1);
                 }
             }
@@ -430,6 +443,13 @@ class Signal extends BaseController
                     log_message('info', 'Response dari endpoint limit_sell: ' . json_encode($response3));
 
                     $result = $response3->result;
+                     // send signal to pn &satoshi
+                    if (isset($result->message) && isset($result->message->id)) {
+                        $mdata['id_signal'] = $result->message->id;
+                        $mdata['pair_id'] = $val->id;
+                        $this->send_signal_sell($mdata);
+                    }            
+
                     sleep(1);
                 }
             }
@@ -454,6 +474,12 @@ class Signal extends BaseController
                     log_message('info', 'Response dari endpoint limit_sell: ' . json_encode($response3));
 
                     $result = $response3->result;
+                     // send signal to pn &satoshi
+                    if (isset($result->message) && isset($result->message->id)) {
+                        $mdata['id_signal'] = $result->message->id;
+                        $mdata['pair_id'] = $val->id;
+                        $this->send_signal_sell($mdata);
+                    }                
                 }
             }
         }
@@ -467,7 +493,7 @@ class Signal extends BaseController
             if (isset($response->result->code) && ($response->result->code == 200 || $response->result->code == 201)) {
                 $result = [
                     'code' => $response->result->code,
-                    'message' => isset($response->result->message) ? $response->result->message : 'Sell order successfully processed'
+                    'message' => isset($response->result->message) ? $response->result->message->text : 'Sell order successfully processed'
                 ];
             } else {
                 $result = [
@@ -671,6 +697,11 @@ class Signal extends BaseController
                 'code' => $response1->result->code,
                 'message' => $response1->result->message
             ];
+
+            if ($response1->result->code == 200 || $response1->result->code == 201) {
+                $this->send_signal_cancel($signal_id);
+            }
+            
         } else {
             // Fallback if first endpoint response is unexpected
             $result = [
@@ -764,5 +795,44 @@ class Signal extends BaseController
 
         // Redirect back to signal page
         return redirect()->to(BASE_URL . 'godmode/signal');
+    }
+
+    private function send_signal_buy($mdata) {
+
+        // send to pnglobal
+        $url = URLAPI . '/v1/order/limit_buy';
+        $response = satoshiAdmin($url, json_encode($mdata));
+        log_message('info', 'Response dari endpoint limit_buy PNGLOBAL: ' . json_encode($response));
+
+        // send to satoshi
+        // $url = URLAPI . '/v1/order/limit_buy';
+        // $response = satoshiAdmin($url, json_encode($mdata));
+        // log_message('info', 'Response dari endpoint limit_buy Satoshi: ' . json_encode($response));
+    }
+
+    private function send_signal_sell($mdata) {
+
+        // send to pnglobal
+        $url = URLAPI . '/v1/order/limit_sell';
+        $response = satoshiAdmin($url, json_encode($mdata));
+        log_message('info', 'Response dari endpoint limit_sell PNGLOBAL: ' . json_encode($response));
+
+        // send to satoshi
+        // $url = URLAPI . '/v1/order/limit_buy';
+        // $response = satoshiAdmin($url, json_encode($mdata));
+        // log_message('info', 'Response dari endpoint limit_buy Satoshi: ' . json_encode($response));
+    }
+
+    private function send_signal_cancel($signal_id) {
+
+        // send to pnglobal
+        $url = URLAPI . '/v1/order/delete?id_signal=' . $signal_id;
+        $response = satoshiAdmin($url);
+        log_message('info', 'Response dari endpoint cancel PNGLOBAL: ' . json_encode($response));
+
+        // send to satoshi
+        // $url = URLAPI . '/v1/order/limit_buy';
+        // $response = satoshiAdmin($url, json_encode($mdata));
+        // log_message('info', 'Response dari endpoint limit_buy Satoshi: ' . json_encode($response));
     }
 }

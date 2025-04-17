@@ -21,7 +21,7 @@ class Dashboard extends BaseController
         // Pengecekan role: hanya admin yang boleh mengakses halaman ini
         if ($loggedUser->role == 'member') {
             session()->setFlashdata('failed', "You don't have access to this page");
-            session()->unset();
+            $session->remove('logged_user');
             header("Location: " . BASE_URL . 'godmode/auth/signin');
             exit();
         }
