@@ -32,7 +32,7 @@
         <!-- Tab Navigation -->
         <div class="tab-navigation">
             <a href="javascript:void(0);" class="tab-item" data-tab="pn-global">LUX BTC</a>
-            <a href="javascript:void(0);" class="tab-item" data-tab="elite-btc">ELITE BTC</a>
+            <a href="javascript:void(0);" class="tab-item" data-tab="elite-btc">HEDGE FUND</a>
             <a href="javascript:void(0);" class="tab-item" data-tab="satoshi-signal">SATOSHI SIGNAL</a>
         </div>
 

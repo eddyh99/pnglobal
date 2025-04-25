@@ -113,9 +113,9 @@ class Deposit extends BaseController
     
     function createCoinPaymentTransaction($amount, $currency, $invoiceNumber,$buyer_email,$description)
     {
-        $publicKey  = "61b29c2e66e2720b3d4c2906df6e0fe61b3809094e94322f6a7da99bb5645aa9";
-        $privateKey = "7eBb4a5fbb1F4A24dea25c58883d7A19ae111F5C822392dB352a2c2f8285703A";
-        $url = 'https://www.coinpayments.net/api.php';
+        $publicKey  = COINPAYMENTS_PUBLIC_KEY;
+        $privateKey = COINPAYMENTS_PRIVATE_KEY;
+        $url        = COINPAYMENTS_API_URL;
         $payload = [
                 'cmd'        => 'create_transaction',
                 'amount'     => $amount,
@@ -130,6 +130,7 @@ class Deposit extends BaseController
                 'cancel_url' => base_url()."elite/deposit/set_capital",
                 'version'    => 1,
                 'format'     => 'json', // Ensure JSON response
+                'nonce'      => time()
             ];
         
             // Generate HMAC signature

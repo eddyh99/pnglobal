@@ -121,8 +121,8 @@ if ($parts[0] === 'sandbox' || $host === 'localhost:8080') {
     define("PUBLIC_KEY", 'pk_test_51Ph1A4RpjQaOZ7NCQcbJtlXTgcbQm5ulhsm1YgkkfS5LHvHKVZ79p1qP0lOJaxz1XsDMpALi1aUeoxocxD6Can5900DCqNrIHS');
     define("SECRET_KEY", 'sk_test_51Ph1A4RpjQaOZ7NCuVCzdyyy342tNGnlrfnDyox5YirDorblTYDPP7dXK9K4fGqJazDRwyReh9HnLf5MWS7hOUsA00GtKiFgQQ');
 
-    define('COINPAYMENTS_PUBLIC_KEY', 'ee95036fbef27591a317acdf9e744b37759fa7de8c274a57cdc6f195aaa6c0eb');
-    define('COINPAYMENTS_PRIVATE_KEY', '8faac89a76434A6D538cBb14D2500F60377f4Ac2E8d164DacdCEAc130628Cdbf');
+    define('COINPAYMENTS_PUBLIC_KEY', 'c89831da697578dd7eb65a1ec04036d3fbf553f655687a83679d142f0961a5a8');
+    define('COINPAYMENTS_PRIVATE_KEY', 'aBe347D4164F2e44d0999Be209C73810F34B9B5caA4273269499AF0fB771aB2a');
     define('COINPAYMENTS_API_URL', 'https://www.coinpayments.net/api.php');
 } else {
     define("URLAPI", 'https://broker.pnglobalinternational.com');
@@ -137,8 +137,8 @@ if ($parts[0] === 'sandbox' || $host === 'localhost:8080') {
     define("PUBLIC_KEY", 'pk_live_51OHVdwC8KQHLEjXQ88yk2DqcZUQtLIAAWJYumnMwHJC4tQi95Cu514mFtxPD8ezJMOJI6NhTgDy9T5GJJ7dSRyyR00RLGJMXU9');
     define("SECRET_KEY", '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');
 
-    define('COINPAYMENTS_PUBLIC_KEY', 'ee95036fbef27591a317acdf9e744b37759fa7de8c274a57cdc6f195aaa6c0eb');
-    define('COINPAYMENTS_PRIVATE_KEY', '8faac89a76434A6D538cBb14D2500F60377f4Ac2E8d164DacdCEAc130628Cdbf');
+    define('COINPAYMENTS_PUBLIC_KEY', 'c89831da697578dd7eb65a1ec04036d3fbf553f655687a83679d142f0961a5a8');
+    define('COINPAYMENTS_PRIVATE_KEY', 'aBe347D4164F2e44d0999Be209C73810F34B9B5caA4273269499AF0fB771aB2a');
     define('COINPAYMENTS_API_URL', 'https://www.coinpayments.net/api.php');
 }
 
