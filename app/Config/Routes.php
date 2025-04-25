@@ -8,3 +8,4 @@ use CodeIgniter\Router\RouteCollection;
 
 // HOMEPAGE
 $routes->get('/', 'Homepage::index');
+$routes->get('course/detail/(:any)', 'Course\Home::detail/$1');
