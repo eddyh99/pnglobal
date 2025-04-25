@@ -98,28 +98,28 @@
     <!-- Benefits Section -->
     <section class="benefits-section">
         <div class="container">
-            <h2>Key Benefits</h2>
+            <h2>COnditions</h2>
             <div class="divider"></div>
             <div class="benefits-wrapper">
                 <div class="row">
                     <div class="col-6">
                         <div class="benefit-item">
-                            <h3>Secure Operations</h3>
-                            <p>Brokers manage trades only; withdrawals are impossible without your personal authorization.</p>
+                            <h3>Investment</h3>
+                            <p>Minimum investment $6,000, increase by $2,000 at a time.</p>
                         </div>
                         <div class="benefit-item">
-                            <h3>Always in Control</h3>
-                            <p>Monitor all activities in real-time and withdraw at any moment</p>
+                            <h3>Earning</h3>
+                            <p>Our minimum guaranteed operation is 90% with a net ranging from 18% to 42% per year see table</p>
                         </div>
                     </div>
                     <div class="col-6">
                         <div class="benefit-item">
-                            <h3>Expert-Driven Growth</h3>
-                            <p>Leverage years of BTC market expertise to boost your portfolio, risk-free.</p>
+                            <h3>Guaranteed Capital</h3>
+                            <p>Clients' capital is 100% guaranteed against any possible loss.</p>
                         </div>
                         <div class="benefit-item">
-                            <h3>Transparent and Compliant</h3>
-                            <p>Every move is clear, compliant, and aligned with your investment goals.</p>
+                            <h3>Safe Earnings</h3>
+                            <p>If the results expected in the table are not achieved by the 13th month, the customer will receive the missing difference.</p>
                         </div>
                     </div>
                 </div>

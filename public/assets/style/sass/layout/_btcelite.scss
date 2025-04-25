@@ -402,6 +402,77 @@
                     font-style: normal;
                     font-weight: 500;
                     line-height: 30px;
+
+                    li{
+                        list-style-type: disc;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.nocost-section {
+    position: relative;
+    margin-top: 80px;
+    width: 100%;
+    background-color: #ADADAD;
+    padding: 55px 0;
+
+    .container {
+        .row {
+            display: flex;
+            align-items: center;
+
+            h2 {
+                font-family: var.$f-poppins;
+                font-size: 25px;
+                font-style: normal;
+                font-weight: 700;
+                line-height: 40px;
+                text-transform: uppercase;
+
+                &:after {
+                    content: '';
+                    display: block;
+                    width: 350px;
+                    height: 2px;
+                    background: black;
+                    margin-top: 20px;
+                }
+            }
+
+            .col-2 {
+                img {
+                    width: 100%;
+                    height: auto;
+                }
+            }
+
+            .col-5:last-of-type {
+                padding: 0 40px;
+
+                h3 {
+                    color: #bda069;
+                    font-family: var.$f-poppins;
+                    font-size: 20px;
+                    font-style: normal;
+                    font-weight: 800;
+                    line-height: 30px;
+                    margin-bottom: 20px;
+                }
+
+                .description {
+                    color: #fff;
+                    font-family: var.$f-poppins;
+                    font-size: 18px;
+                    font-style: normal;
+                    font-weight: 500;
+                    line-height: 30px;
+
+                    li{
+                        list-style-type: disc;
+                    }
                 }
             }
         }

@@ -14,8 +14,8 @@
                         </span>
                     </p>
                     <p class="discover-text">
-                        Direct and Personalized Bitcoin Wallet Management.
-                        Entrust the management of your Bitcoin portfolio to top industry professionals.
+                        Direct and personalized management of the Bitcoin wallet. The management of your 
+                        Bitcoin wallet will be ONE TO ONE with a specialized broker dedicated to you.
                     </p>
                 </div>
                 <div class="button-wrapper">
@@ -39,7 +39,8 @@
                 <div class="col-8">
                     <h2>Maximum Security, Guaranteed Returns</h2>
                     <h3>Your assets, always under control. No worries, just results</h3>
-                    <p class="description">With PN Global's BTC Elite Management, a dedicated expert broker will operate directly on your Binance wallet, using your credentials to maximize returns. Security is ensured through two-factor authentication (2FA), keeping full control of your capital.</p>
+                    <p class="description"> With PN Global's BTC Elite Management, a dedicated expert broker will operate directly on your Binance wallet, using your credentials to maximize your profits. 
+                    Security is ensured through two-factor authentication (2FA), allowing you to maintain full control of your capital.</p>
                 </div>
                 <div class="col-2">
                     <img src="<?= BASE_URL ?>assets/img/ic_laptop.png" alt="Security" class="security-image">
@@ -58,6 +59,8 @@
                     <h2>Total Security, Full Control</h2>
                     <h3>We operate for you, but the control is always in your hands</h3>
                     <p class="description">Even by entrusting your username and password to the broker, your funds remain protected. All withdrawals, both in Fiat and Crypto, require verification codes sent via email and Google Authenticator, accessible only by you. This guarantees that no transaction can occur without your approval.</p>
+
+                    <p class="text-danger">WARNING: NEVER PROVIDE OTP CODES OR GOOGLE AUTHENTICATORS FOR ANY REASON, EVEN TO YOUR BROKER</p>
                 </div>
             </div>
         </div>
@@ -88,15 +91,33 @@
     <section class="freedom-section">
         <div class="container">
             <div class="row">
-                <div class="col-2">
+                <!-- <div class="col-2">
                     <img src="<?= BASE_URL ?>assets/img/ic_total_freedom.png" alt="Total Freedom">
-                </div>
+                </div> -->
                 <div class="col-5">
                     <h2>Flexible and Secure <br> Management</h2>
                 </div>
                 <div class="col-5">
-                    <h3>Total Freedom and Autonomy</h3>
-                    <p class="description">Even with active wallet management, you can access your funds at any time. There are no restrictions or constraints, your capital is always available for withdrawals or further investments.</p>
+                     <ul class="description">The product is reserved for large investors only
+                        <li>minimum capital 4 BTC increaseable by 4 BTC at a time</li>
+                        <li>dedicated broker</li>
+                        <li>tailor-made strategy</li>
+                        <li>maximum flexibility as the broker will be able to operate on the Exchange and on the BTC pair chosen by the customer</li>
+                     </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="nocost-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-5">
+                    <h2>No Activation Cost</h2>
+                </div>
+                <div class="col-5">
+                    <p>Once a week the customer, to keep the service active, will schedule a call with his broker to make the payment of 33% of the accrued profits</p>
+                    <p><b>“ It is recommended to make the payment directly online, during the call with your broker, to avoid a temporary suspension of the service”.</b></p>
                 </div>
             </div>
         </div>

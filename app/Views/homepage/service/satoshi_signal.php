@@ -9,12 +9,11 @@
                 <div class="text-wrapper">
                     <p class="logo-text-banner">
                         <span class="goal-text">
-                            THE REVOLUTIONARY Satoshi Signal App
+                        PN GLOBAL HEDGE FUND
                         </span>
                     </p>
                     <p class="discover-text">
-                        Privileged access to the best signals, directly on your device. <br>
-                        Follow Expert Brokers, Earn Risk-Free, and Get Guaranteed Profits
+                    THE FIRST HEDGE FUND OPERATED ON BINANCE IN BTC\USDT
                     </p>
                 </div>
             </div>
@@ -25,13 +24,14 @@
     <!-- Start of Success Section -->
     <div class="success-section">
         <div class="container">
-            <h2>Enter the World of Successful Investing!</h2>
+            <h2>Enter the world of investing successfully!</h2>
             <p class="description">
-                With the Satoshi Signal app, you connect directly with the best PN Global brokers who analyze the market 24/7. Using our proven method, you receive precise buy and sell signals to maximize your profits without risks.
+            With only $1000 investment you will enter a hedge fund operated directly by the best brokers of PN global that analyze the market 24 hours a day, 7 days a week. 
+            Thanks to our proven method, you will see your capital grow effortlessly, maximizing your earnings thanks to compound interest.
             </p>
             <div class="button-wrapper">
                 <a href="<?= BASE_URL ?>homepage/satoshi_price#register" class="activate-button">
-                    Activate Now and Receive the Exclusive Discount!
+                INVEST WITH US AND START EARNING NOW
                 </a>
             </div>
         </div>
@@ -42,10 +42,10 @@
     <div class="revolutionize-section">
         <div class="top-content">
             <div class="container">
-                <h2>Revolutionize Your Bitcoin <br> Brokerage with Expert Signals</h2>
+                <h2>BTC\USDT BROKERAGE</h2>
                 <p class="description">
-                    Operations of BTC/USDT pair are made by PN Global skilled brokers (<span class="highlight">not algorithms</span>). <br>
-                    Our brokers proven strategies and risk management techniques help you to capitalize on market opportunities.
+                BTC/USDT trading is handled by PN Global's qualified brokers (not algorithms). <br>
+                Our brokers' proven strategies and risk management techniques will make the most of market opportunities.
                 </p>
             </div>
         </div>
@@ -55,28 +55,28 @@
                 <div class="row top-row">
                     <div class="signal-card">
                         <div class="card-title">
-                            <h3>Real-Time, Expert-Driven Signals</h3>
+                            <h3>START EARNING NOW</h3>
                         </div>
                         <p class="card-text">
-                            Receive instant buy and sell signals from our brokers, who analyze market trends 24/7.
+                        Your funds will be processed immediately, once they arrive, and you will be able to monitor your earnings in real time.
                         </p>
                     </div>
                     <div class="signal-card">
                         <div class="card-title">
-                            <h3>Transparent and Detailed Explanations</h3>
+                            <h3>TOTAL TRANSPARENCY AND MAXIMUM SECURITY</h3>
                         </div>
                         <p class="card-text">
-                            Understand why behind every signal, empowering you to make informed decisions.
+                        you can withdraw your funds in USDT and BTC at any time, even during operations.
                         </p>
                     </div>
                 </div>
                 <div class="row bottom-row">
                     <div class="signal-card">
                         <div class="card-title">
-                            <h3>Multilingual Support</h3>
+                            <h3>COMPOUND INTEREST</h3>
                         </div>
                         <p class="card-text">
-                            Access real-time market insights and expert analysis in your preferred language.
+                        The service has no expiration date and your earnings will constantly increase thanks to the compound interest system until you withdraw.
                         </p>
                     </div>
                 </div>
@@ -89,8 +89,8 @@
     <div class="app-features-section">
         <div class="top-content">
             <div class="container">
-                <h2 class="main-title">Tired of guessing the market?</h2>
-                <h3 class="sub-title">Our app provides you with:</h3>
+                <h2 class="main-title">TIRED OF RESTRICTIONS IN THE COUNTRY WHERE YOU LIVE?</h2>
+                <h3 class="sub-title">OUR BROKERS ARE LOCATED IN VARIOUS JURISDICTIONS IN ORDER TO ENSURE 24/7 OPERATION AND OPERATE ON THE MOST PROFITABLE MARKET IN THE WORLD</h3>
             </div>
         </div>
 
@@ -128,9 +128,13 @@
         <div class="container">
             <div class="content-wrapper">
                 <div class="text-content">
-                    <h2>Say Farewell to slow, inaccurate, <br> and confusing signals</h2>
-                    <p class="description">Enjoy the financial freedom you've always dreamed. Our reliable returns, backed by our deep market knowledge and real-time analysis, ensure your financial success.</p>
-                    <p class="highlight">Join us today and start earning consistent profits.</p>
+                    <h2>SAY FAREWELL TO HIGH MANAGEMENT COSTS AND ENJOY HIGH PROFITS</h2>
+                    <ul class="description"> Enjoy the financial freedom you've always dreamed of. Our reliable returns, backed by our deep market knowledge and real-time analysis, guarantee your financial success.
+                        <li>0.5% PAYMENT GATEWAY (cost only for depositing funds)</li>
+                        <li>1% REFERRAL (on the capital injection and on the profits from operations)</li>
+                        <li>$5 FIXED COST (capital injection and withdrawal)</li>
+                    </ul>
+                    <!-- <p class="highlight">Join us today and start earning consistent profits.</p> -->
                     <div class="button-wrapper">
                         <a href="<?= BASE_URL ?>homepage/satoshi_price#register" class="btn profit-button">
                             Turn your savings <br> into profits
@@ -280,10 +284,10 @@
     <div class="payout-section">
         <div class="top-content">
             <div class="container">
-                <h2>Payout Timing</h2>
+                <h2>WITHDRAWAL</h2>
                 <ul class="payout-list">
-                    <li>Your commissions will be credited on the 15th of the second month following the subscriptions with your referral link.<br>(Ex.:All activations made between September 1st and 30th will be credited to your referral balance on November 15th).</li>
-                    <li>You can easily track your earnings and referral balance directly from the dashboard on our website.</li>
+                    <li>your commissions will be credited immediately</li>
+                    <li>You can easily track your earnings and referral balance directly from our website dashboard</li>
                 </ul>
             </div>
         </div>
@@ -291,16 +295,16 @@
             <div class="container">
                 <div class="content-wrapper">
                     <div class="text-content">
-                        <h3>Choose How to Withdraw Your Earnings</h3>
+                        <h3 class="text-black">Withdrawal of Funds</h3>
                         <p class="description">
-                            To ensure maximum convenience and flexibility, you can withdraw your earnings through various, secure and fast methods directly from the website dashboard:
+                        To ensure maximum security and transparency, you can withdraw your USDC\USDT and your BTC at any time.
                         </p>
                         <ul class="withdraw-list">
                             <li><strong>Domestic Bank Transfer</strong> to American bank accounts.</li>
                             <li><strong>International Bank Transfer</strong> to any global account.</li>
                             <li><strong>Cryptocurrency in USDT (TRC20)</strong> for quick and secure transfers.</li>
                         </ul>
-                        <p class="note">⚠️ Transfer fees will be charged to the user withdrawing the balance.</p>
+                        <!-- <p class="note">⚠️ Transfer fees will be charged to the user withdrawing the balance.</p> -->
                     </div>
                     <div class="image-content">
                         <img src="<?= BASE_URL ?>assets/img/ic_payout.png" alt="Payout">
