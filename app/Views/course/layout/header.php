@@ -58,7 +58,7 @@
         <li>
           <hr class="dropdown-divider">
         </li>
-        <li><a class="dropdown-item text-white" href="<?= BASE_URL ?>course/auth/login">Logout</a></li>
+        <li><a class="dropdown-item text-white" href="<?= BASE_URL ?>course/auth/logout">Logout</a></li>
       </ul>
     </div>
 
