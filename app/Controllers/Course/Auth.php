@@ -116,6 +116,112 @@ class Auth extends BaseController
         ];
     }
 
+    public function forgot_password($email = null)
+	{
+        if(!$email) {
+            throw \CodeIgniter\Exceptions\PageNotFoundException::forPageNotFound();
+        }
+		$emailuser = urldecode($email);
+		$mdata = [
+			'title'     => 'Forgot Password - Satoshi Signal',
+			'content'   => 'course/login/forgot_pass',
+			'emailuser' => $emailuser
+		];
+
+		return view('member/layout/login_wrapper', $mdata);
+	}
+
+    public function reset_password_confirmation()
+	{
+		$email = $this->request->getPost('email') ?? old('email');
+		$otp   = $this->request->getPost('otp') ?? old('otp');
+
+		if (empty($email) || empty($otp)) {
+			session()->setFlashdata('failed', 'Email or token could not be found.');
+			return redirect()->to(BASE_URL . 'course/auth/forgot_password/' . base64_encode($email));
+		}
+
+        if(!$this->checkotp($email, $otp)) {
+            session()->setFlashdata('failed', 'Invalid token');
+			return redirect()->to(BASE_URL . 'course/auth/forgot_password/' . base64_encode($email));
+        };
+
+		$mdata = [
+			'title' => 'Reset Password Confirmation',
+			'content' => 'course/login/reset_password_confirmation',
+			// 'extra' => 'course/reset/js/_js_reset_password_confirmation',
+			'email' => $email,
+			'otp'   => $otp
+		];
+
+		return view('member/layout/login_wrapper', $mdata);
+	}
+
+    private function checkotp($email, $otp)
+    {
+        $url = URLAPI . "/auth/otp_check";
+        $response = satoshiAdmin($url, json_encode([
+            'email' => $email,
+            'otp'   => $otp
+        ]));
+    
+        return isset($response->result->code, $response->result->message)
+        && $response->result->code == 200
+        && $response->result->message == true;
+    }
+    
+
+    public function update_password()
+	{
+
+        $isValid = $this->validate([
+            'email' => [
+                'label' => 'Email',
+                'rules' => 'required|valid_email',
+            ],
+            'otp' => [
+                'label' => 'Kode OTP',
+                'rules' => 'required|numeric|exact_length[4]',
+            ],
+            'password' => [
+                'label' => 'Password',
+                'rules' => 'required|min_length[6]',
+            ],
+            'confirm_password' => [
+                'label' => 'Konfirmasi Password',
+                'rules' => 'required|matches[password]',
+            ],
+        ]);
+
+        // Checking Validation
+        if (!$isValid) {
+            session()->setFlashdata('failed', $this->validation->listErrors());
+            return redirect()->to(BASE_URL . 'course/auth/reset_password_confirmation')->withInput();
+        }
+
+        $email = $this->request->getPost('email');
+		$otp   = $this->request->getPost('otp');
+		$password = $this->request->getPost('password');
+
+		$mdata = [
+			'email' => $email,
+			'otp'   => $otp,
+			'password' => sha1($password)
+		];
+
+		$url = URLAPI . "/auth/resetpassword_course";
+		$response = satoshiAdmin($url, json_encode($mdata));
+		$result = $response->result;
+
+		if ($result->code == 201) {
+			session()->setFlashdata('success', 'Password berhasil diubah.');
+			return redirect()->to(BASE_URL . 'course/login/member');
+		} else {
+			session()->setFlashdata('failed', $result->message);
+			return redirect()->to(BASE_URL . 'course/auth/reset_password_confirmation')->withInput();
+		}
+	}
+
 
     public function logout()
     {
