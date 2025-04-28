@@ -116,4 +116,24 @@ class Course extends BaseController
             return redirect()->to(BASE_URL . 'godmode/course/user');
         }
     }
+
+    public function setstatus_user($email, $status)
+    {
+        $url = URLAPI . "/v1/course/setstatus_user";
+        $email = base64_decode($email);
+        $mdata = [
+            'email' => $email,
+            'status' => $status
+        ];
+        $response = satoshiAdmin($url, json_encode($mdata));
+        $result = $response->result;
+
+        if ($result->code != '201') {
+            session()->setFlashdata('failed', $result->message);
+            return redirect()->to(BASE_URL . 'godmode/course/user');
+        } else {
+            session()->setFlashdata('success', $result->message);
+            return redirect()->to(BASE_URL . 'godmode/course/user');
+        }
+    }
 }
