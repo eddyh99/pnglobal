@@ -15,7 +15,7 @@ class Auth extends BaseController
 
         $session = session();
         if($session->has('logged_usercourse')){
-            return redirect()->to(BASE_URL . "course");
+            return redirect()->to(BASE_URL . "course/" . $role);
             exit();
         }
 
@@ -70,7 +70,7 @@ class Auth extends BaseController
     
         session()->set('logged_usercourse', $loggedUser);
         session()->setFlashdata('success', 'Welcome to course');
-        return redirect()->to(BASE_URL . 'course');
+        return redirect()->to(BASE_URL . 'course/member');
     }
     
     private function handleLogin() {

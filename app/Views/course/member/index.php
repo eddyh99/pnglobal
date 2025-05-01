@@ -4,7 +4,7 @@
         <div class="row">
             <?php foreach($courses as $course): ?>
             <div class="col-3 mb-4">
-                <a class="text-white" href="<?= BASE_URL?>course/detail/<?= base64_encode($course['id']) ?>">
+                <a class="text-white" href="<?= BASE_URL?>course/member/detail/<?= base64_encode($course['id']) ?>">
                     <div class="card" style="width: 18rem;background-color: transparent;">
                         <img src=<?= $course['image'] ?> class="card-img-top" alt="...">
                         <div class="card-body p-1">

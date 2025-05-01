@@ -26,38 +26,78 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 </head>
 
+<style>
+  .nav-link.active {
+    font-weight: bold;
+    background-color: #B48B3D;
+    border-radius: 4px;
+  }
+
+  .table-bordered {
+    border: 3px solid #B48B3D;
+    /* Mengatur warna border menjadi biru dan menebalkan */
+    border-collapse: collapse;
+  }
+
+  .table-bordered td,
+  .table-bordered th {
+    border: 3px solid #B48B3D;
+    /* Menebalkan border pada sel dan mengubah warnanya */
+    padding: 10px;
+  }
+
+  .table-bordered td {
+    border-left: none;
+    /* Menghilangkan garis kiri pada setiap sel */
+    border-right: none;
+    /* Menghilangkan garis kanan pada setiap sel */
+  }
+
+  .table-bordered td:nth-child(2) {
+    border-right: none;
+    /* Menghilangkan garis kanan pada kolom kedua */
+  }
+
+  .table-bordered td:first-child {
+    border-left: 3px solid #B48B3D;
+    /* Menambahkan border kiri pada kolom pertama */
+  }
+
+  .table-bordered td:last-child {
+    border-right: 3px solid #B48B3D;
+    /* Menambahkan border kanan pada kolom terakhir */
+  }
+</style>
+
 <nav class="navbar navbar-expand-lg navbar-dark px-3">
-  <a class="navbar-brand d-flex align-items-center" href="<?= BASE_URL ?>course">
+  <a class="navbar-brand d-flex align-items-center" href="<?= BASE_URL ?>course/member">
     <img src="<?= BASE_URL ?>assets/img/logo.png" class="logo-sidebar-admin mr-3" alt="Logo">
     <span>Online Course</span>
   </a>
 
   <div class="collapse navbar-collapse justify-content-end">
     <ul class="navbar-nav mb-2 mb-lg-0">
-      <li class="nav-item ">
-        <a class="nav-link text-white" href="#">LIVE</a>
+      <li class="nav-item">
+        <a class="nav-link text-white <?= $active_live ?? '' ?>" href="<?= BASE_URL ?>course/member/live">LIVE</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link text-white" href="#">Explore</a>
+        <a class="nav-link text-white <?= $active_explore ?? '' ?>" href="<?= BASE_URL ?>course/member/explore">Explore</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link text-white" href="#">My Learning</a>
+        <a class="nav-link text-white <?= $active_learning ?? '' ?>" href="<?= BASE_URL ?>course/member/mycourse">My Learning</a>
       </li>
     </ul>
   </div>
 
   <div class="d-flex align-items-center gap-3">
-    <a href="#" class="nav-link"><i class="bi bi-envelope" style="font-size: 1.5rem;"></i></a>
+    <a href="<?= BASE_URL ?>course/message/inbox" class="nav-link"><i class="bi bi-envelope <?= $active_message ?? 'text-white' ?>" style="font-size: 1.5rem;"></i></a>
     <div class="dropdown">
       <a href="#" class="nav-link dropdown-toggle" id="profileMenu" data-bs-toggle="dropdown">
         <i class="bi bi-person-circle" style="font-size: 1.5rem;"></i>
       </a>
       <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="profileMenu">
-        <li><a class="dropdown-item text-white" href="#profile">Profile</a></li>
-        <li><a class="dropdown-item text-white" href="#settings">Settings</a></li>
-        <li>
-          <hr class="dropdown-divider">
-        </li>
+        <!-- <li><a class="dropdown-item text-white" href="#profile">Profile</a></li>
+        <li><a class="dropdown-item text-white" href="#settings">Settings</a></li> -->
         <li><a class="dropdown-item text-white" href="<?= BASE_URL ?>course/auth/logout">Logout</a></li>
       </ul>
     </div>

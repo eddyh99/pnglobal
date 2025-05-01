@@ -108,7 +108,7 @@ class Filters extends BaseFilters
     public array $filters = [
         'isLoggedInCourse' => [
             'before' => [
-                'course/',
+                'course/member/*',
             ],
         ],
     ];    
