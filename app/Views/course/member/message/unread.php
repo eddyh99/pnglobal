@@ -2,6 +2,9 @@
     <?= view($sidebar); ?>
     <!-- Konten utama -->
     <div class="flex-grow-1 p-4 text-center">
+        <div class="mx-2 w-25 ml-auto">
+            <input type="search" class="form-control border-primary border-2" placeholder="search message...">
+        </div>
         <h3>Message</h3>
         <div class="container">
             <table class="table table-bordered mt-5">
