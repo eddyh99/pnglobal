@@ -1,5 +1,20 @@
+</style>
 <div class="container-fluid">
-    <h2 class="text-center my-3">Explore Course</h2>
+    <div class="d-flex justify-content-between">
+        <div class="d-flex w-50">
+            <span class="btn btn-primary rounded-0 py-2 mr-1" style="pointer-events: none;">Category</span>
+            <select class="form-control bg-primary text-white text-center border-0 rounded-0 w-25 h-100">
+                <option class="text-center">ALL</option>
+                <option class="text-center">CATEGORY 1</option>
+                <option class="text-center">CATEGORY 2</option>
+                <option class="text-center">CATEGORY 3</option>
+            </select>
+        </div>
+        <div>
+            <input type="search" class="form-control border-primary border-2 mt-1" placeholder="search video">
+        </div>
+    </div>
+    <h2 class="text-center mt-3 mb-5">Wishlist</h2>
     <div class="mx-4 text-left">
         <div class="row">
             <?php foreach ($courses as $course): ?>
@@ -13,6 +28,7 @@
                                     <small>By <?= $course['author'] ?></small>
                                     <div>
                                         <i class="bi bi-check-square-fill"></i>
+                                        <button class="btn p-0"><i class="bi bi-heart-fill text-danger"></i></button>
                                     </div>
                                 </div>
                             </div>

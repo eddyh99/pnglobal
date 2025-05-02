@@ -69,7 +69,7 @@
   }
 </style>
 
-<nav class="navbar navbar-expand-lg navbar-dark px-3">
+<nav class="navbar navbar-expand-lg navbar-dark px-3 <?= $liveroom ?? '' ?>">
   <a class="navbar-brand d-flex align-items-center" href="<?= BASE_URL ?>course/member">
     <img src="<?= BASE_URL ?>assets/img/logo.png" class="logo-sidebar-admin mr-3" alt="Logo">
     <span>Online Course</span>
@@ -105,7 +105,7 @@
   </div>
 
 </nav>
-<hr class="m-0" style="border: 1px solid #c79a3a;">
+<hr class="m-0 <?= $liveroom ?? '' ?>" style="border: 1px solid #c79a3a;">
 
 <body style="background-color: #070707;">
   <!-- Wrapper Start -->

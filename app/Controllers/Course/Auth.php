@@ -119,7 +119,8 @@ class Auth extends BaseController
     public function forgot_password($email = null)
 	{
         if(!$email) {
-            throw \CodeIgniter\Exceptions\PageNotFoundException::forPageNotFound();
+            session()->setFlashdata('failed', 'The request has failed. Please try again later.');
+            return redirect()->to(BASE_URL . 'course/login/member')->withInput();
         }
 		$emailuser = urldecode($email);
 		$mdata = [

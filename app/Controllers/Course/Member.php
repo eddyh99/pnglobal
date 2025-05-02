@@ -105,5 +105,39 @@ class Member extends BaseController
         return view('course/layout/wrapper', $mdata);
     }
 
+    public function wishlist() {
+        $course = [
+            'title' => 'Analysis Pattern',
+            'description' => "Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique, expedita.",
+            'image' => BASE_URL . 'assets/img/course/course-1.png',
+            'author' => 'AC'
+        ];
+
+        $courses = array_map(function($index) use ($course) {
+            $course['id'] = $index;
+            return $course;
+        }, range(1, 10));
+        
+        $mdata = [
+            'title'     => 'Course - ' . NAMETITLE,
+            'content'   => 'course/member/wishlist',
+            'courses' => $courses
+        ];
+
+        return view('course/layout/wrapper', $mdata);
+    }
+
+    public function joinlive() {
+
+        $mdata = [
+            'title'     => 'Live Course - ' . NAMETITLE,
+            'content'   => 'course/member/liveroom',
+            'active_live'    => 'active',
+            'liveroom' => 'd-none'
+        ];
+
+        return view('course/layout/wrapper', $mdata);
+    }
+
 
 }
