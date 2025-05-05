@@ -50,7 +50,7 @@
                 </div>
 
                 <div class="d-flex justify-content-end mb-3">
-                    <a href="<?= BASE_URL ?>elite/auth/forgot_password" class="text-muted">Forgot Password?</a>
+                    <a href="<?= BASE_URL ?>course/auth/forgot_password" class="text-muted">Forgot Password?</a>
                 </div>
 
                 <div class="d-flex justify-content-center">

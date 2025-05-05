@@ -116,7 +116,7 @@ class Auth extends BaseController
         ];
     }
 
-    public function forgot_password($email = null)
+    public function verify_token($email = null)
 	{
         if(!$email) {
             session()->setFlashdata('failed', 'The request has failed. Please try again later.');
@@ -125,12 +125,44 @@ class Auth extends BaseController
 		$emailuser = urldecode($email);
 		$mdata = [
 			'title'     => 'Forgot Password - Satoshi Signal',
-			'content'   => 'course/login/forgot_pass',
+			'content'   => 'course/login/verify_token',
 			'emailuser' => $emailuser
 		];
 
 		return view('member/layout/login_wrapper', $mdata);
 	}
+
+    public function send_token() {
+        $isValid = $this->validate([
+            'email' => [
+                'label' => 'Email',
+                'rules' => 'required|valid_email',
+            ],
+        ]);
+
+        // Checking Validation
+        if (!$isValid) {
+            session()->setFlashdata('failed', $this->validation->listErrors());
+            return redirect()->to(BASE_URL . 'course/auth/forgot_password')->withInput();
+        }
+
+        $email = $this->request->getVar('email');
+        $url = URLAPI . "/auth/resendtoken_course";
+        $response = satoshiAdmin($url, json_encode([
+            'email' => $email
+        ]));
+        $result = $response->result;
+
+        if($result->code != 201) {
+            session()->setFlashdata('failed', $result->message);
+            return redirect()->to(BASE_URL . 'course/auth/forgot_password')->withInput();
+        }
+        
+        // $email_template = emailtemplate_activation_course($otp, $email);
+        // sendmail_satoshi($email, "Activation Account Satoshi Signal", $email_template);
+        session()->setFlashdata('success', $result->message->text ?? '');
+        return redirect()->to(BASE_URL . 'course/auth/verify_token/' . base64_encode($email));
+    }
 
     public function reset_password_confirmation()
 	{
@@ -139,12 +171,12 @@ class Auth extends BaseController
 
 		if (empty($email) || empty($otp)) {
 			session()->setFlashdata('failed', 'Email or token could not be found.');
-			return redirect()->to(BASE_URL . 'course/auth/forgot_password/' . base64_encode($email));
+			return redirect()->to(BASE_URL . 'course/auth/verify_token/' . base64_encode($email));
 		}
 
         if(!$this->checkotp($email, $otp)) {
             session()->setFlashdata('failed', 'Invalid token');
-			return redirect()->to(BASE_URL . 'course/auth/forgot_password/' . base64_encode($email));
+			return redirect()->to(BASE_URL . 'course/auth/verify_token/' . base64_encode($email));
         };
 
 		$mdata = [
@@ -229,4 +261,14 @@ class Auth extends BaseController
         $this->session->remove('logged_usercourse');
         return redirect()->to(BASE_URL . 'course/login/member');
     }
+
+    public function forgot_password()
+	{
+		$mdata = [
+			'title'     => 'Reset Password - ' . NAMETITLE,
+			'content'   => 'course/login/forgot_password',
+		];
+
+		return view('member/layout/login_wrapper', $mdata);
+	}
 }
