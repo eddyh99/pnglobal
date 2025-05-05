@@ -1,5 +1,6 @@
+<div class="container-fluid min-vh-100 d-flex flex-column justify-content-center align-items-center" style="background-color: black;">
 <?php if (!empty(session('failed'))) { ?>
-    <div id="failed-alert" class="alert alert-danger fade show position-absolute" style="top: 1rem;" role="alert">
+    <div id="failed-alert" class="alert alert-danger fade show position-absolute w-50" style="top: 1rem;" role="alert">
         <div class="iq-alert-icon">
             <i class="ri-information-line"></i>
         </div>
@@ -12,7 +13,7 @@
     </div>
 <?php } ?>
 <?php if (!empty(session('success'))) { ?>
-    <div id="success-alert" class="alert alert-success fade show position-absolute" style="top: 1rem;" role="alert">
+    <div id="success-alert" class="alert alert-success fade show position-absolute w-50" style="top: 1rem;" role="alert">
         <div class="iq-alert-icon">
             <i class="ri-information-line"></i>
         </div>
@@ -24,7 +25,6 @@
         </button>
     </div>
 <?php } ?>
-<div class="container-fluid min-vh-100 d-flex flex-column justify-content-center align-items-center" style="background-color: black;">
     <div class="w-100" style="max-width: 400px;">
         <h3 class="text-center mb-4">Create Password</h3>
         <form action="<?= BASE_URL ?>course/auth/update_password" method="POST">
