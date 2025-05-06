@@ -19662,7 +19662,7 @@ input:-moz-placeholder {
 .optimized-security {
   position: relative;
   padding: 30px 0;
-  background: radial-gradient(circle at 80% top, #000 70%, #514734 85%, #76684c 92%, rgba(189, 160, 105, 0.7) 98%);
+  background: black;
 }
 .optimized-security::before {
   content: "";
@@ -19728,7 +19728,7 @@ input:-moz-placeholder {
   position: relative;
   padding: 36px 0;
   margin-top: 40px;
-  background: linear-gradient(130deg, rgba(18, 18, 18, 0.88) 0%, rgba(28, 28, 27, 0.88) 79.85%, rgba(255, 255, 255, 0.88) 104.42%);
+  background: rgba(18, 18, 18, 0.88);
 }
 .expertise-section::before {
   content: "";
@@ -19790,17 +19790,18 @@ input:-moz-placeholder {
   margin-bottom: 1rem;
 }
 
-.benefits-section {
+.benefit-section {
   position: relative;
   padding: 36px 0;
   margin-top: 40px;
-  background: conic-gradient(from 248deg at 71.37% 85.14%, #0b0a08 0deg, rgba(0, 0, 0, 0.2) 124.56deg, rgba(92, 82, 64, 0.45) 171.36deg, rgba(204, 183, 143, 0.7) 220deg);
+  background: black;
 }
-.benefits-section .container {
+.benefit-section .container {
+  background: rgb(11, 10, 8);
   position: relative;
   z-index: 2;
 }
-.benefits-section .container h2 {
+.benefit-section .container h2 {
   color: #bda069;
   font-family: "Odor Mean Chey", serif;
   text-align: center;
@@ -19810,7 +19811,7 @@ input:-moz-placeholder {
   line-height: 40px; /* 181.818% */
   text-transform: uppercase;
 }
-.benefits-section .container .divider {
+.benefit-section .container .divider {
   width: 100%;
   height: 3px;
   background: #bda069;
@@ -19819,18 +19820,18 @@ input:-moz-placeholder {
   margin-left: auto;
   margin-right: auto;
 }
-.benefits-section .container .benefits-wrapper {
+.benefit-section .container .benefits-wrapper {
   margin: 0 auto;
 }
-.benefits-section .container .benefits-wrapper .row {
+.benefit-section .container .benefits-wrapper .row {
   display: flex;
   justify-content: center;
 }
-.benefits-section .container .benefit-item {
+.benefit-section .container .benefit-item {
   margin-bottom: 2.5rem;
   padding: 0 4rem;
 }
-.benefits-section .container .benefit-item h3 {
+.benefit-section .container .benefit-item h3 {
   color: #bda069;
   font-family: "Poppins", sans-serif;
   font-size: 20px;
@@ -19840,13 +19841,13 @@ input:-moz-placeholder {
   position: relative;
   padding-left: 25px;
 }
-.benefits-section .container .benefit-item h3::before {
+.benefit-section .container .benefit-item h3::before {
   content: "•";
   position: absolute;
   left: 0;
   color: #bda069;
 }
-.benefits-section .container .benefit-item p {
+.benefit-section .container .benefit-item p {
   color: #fff;
   font-family: "Poppins", sans-serif;
   font-size: 18px;

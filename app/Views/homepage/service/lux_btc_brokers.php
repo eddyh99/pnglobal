@@ -96,9 +96,9 @@
     </section>
 
     <!-- Benefits Section -->
-    <section class="benefits-section">
+    <section class="benefit-section">
+        <h2 class="text-center text-uppercase" style="color: #D1B06B;">Conditions</h2>
         <div class="container">
-            <h2>COnditions</h2>
             <div class="divider"></div>
             <div class="benefits-wrapper">
                 <div class="row">

@@ -203,13 +203,7 @@
 .optimized-security {
     position: relative;
     padding: 30px 0;
-    background: radial-gradient(
-        circle at 80% top,
-        #000 70%,
-        #514734 85%,
-        #76684c 92%,
-        rgba(189, 160, 105, 0.7) 98%
-    );
+    background: black;
 
     // background: #fff;
 
@@ -287,12 +281,7 @@
     position: relative;
     padding: 36px 0;
     margin-top: 40px;
-    background: linear-gradient(
-        130deg,
-        rgba(18, 18, 18, 0.88) 0%,
-        rgba(28, 28, 27, 0.88) 79.85%,
-        rgba(255, 255, 255, 0.88) 104.42%
-    );
+    background: rgba(18, 18, 18, 0.88);
 
     &::before {
         content: '';
@@ -363,19 +352,14 @@
     }
 }
 
-.benefits-section {
+.benefit-section {
     position: relative;
     padding: 36px 0;
     margin-top: 40px;
-    background: conic-gradient(
-        from 248deg at 71.37% 85.14%,
-        #0b0a08 0deg,
-        rgba(0, 0, 0, 0.2) 124.56deg,
-        rgba(92, 82, 64, 0.45) 171.36deg,
-        rgba(204, 183, 143, 0.7) 220deg
-    );
+    background: black;
 
     .container {
+        background: rgba(11, 10, 8, 1);
         position: relative;
         z-index: 2;
 
