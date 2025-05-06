@@ -94,7 +94,7 @@
                     </li> -->
                     </ul>
                     <div class="nav-buttons">
-                        <a class="btn-navbar-referral" href="<?= BASE_URL ?>auth">LOGIN/SIGNUP</a>
+                        <a class="btn-navbar-referral" href="<?= BASE_URL ?>auth">MEMBER LOGIN</a>
                         <!-- <a class="btn-navbar-contactform" href="<?= BASE_URL ?>homepage/contactreferral">Get Referral</a> -->
                     </div>
                 </div>

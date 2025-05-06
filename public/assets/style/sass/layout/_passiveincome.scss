@@ -102,12 +102,7 @@
 .transform-section {
     position: relative;
     padding: 100px 0;
-    background: radial-gradient(
-        circle farthest-corner at top left,
-        #0b0a08 0%,
-        #0b0a08 50%,
-        #ccb78f 100%
-    );
+    background: rgba(11, 10, 8, 1);
     overflow: visible;
 
     .transform-title {
@@ -154,12 +149,7 @@
     }
 
     .choose-card {
-        background: linear-gradient(
-            to bottom right,
-            #161513 0%,
-            #161513 60%,
-            #ccb78f 100%
-        );
+        background: #0B0A08;
         border-radius: 10px;
         height: 100%;
         min-height: 200px;
@@ -231,19 +221,9 @@
 .investment-section {
     position: relative;
     padding: 100px 0;
-    background: radial-gradient(
-        circle farthest-corner at top left,
-        #0b0a08 0%,
-        #0b0a08 50%,
-        #ccb78f 100%
-    );
+    background: #76684C;
     .investment-card {
-        background: linear-gradient(
-            97deg,
-            rgba(0, 0, 0, 0.88) 9.22%,
-            rgba(28, 28, 27, 0.88) 51.53%,
-            rgba(56, 55, 53, 0.88) 93.41%
-        );
+        background: rgba(28, 28, 27, 0.88);
         border-radius: 10px;
         padding: 3rem 2rem;
         margin-bottom: 2rem;
@@ -280,7 +260,7 @@
 .collateral-section {
     position: relative;
     padding: 40px 0;
-    background: radial-gradient(circle at top center, #0b0a08 0%, #161513 100%);
+    background: rgba(42, 41, 40, 0.88);
 
     .collateral-title {
         color: #d1b06b;

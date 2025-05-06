@@ -13941,7 +13941,7 @@ p {
   left: 0;
   right: 75px;
   bottom: 0;
-  background: linear-gradient(180deg, rgba(189, 160, 105, 0.54) 0%, rgba(87, 74, 48, 0.54) 80.1%);
+  background: rgba(189, 160, 105, 0.54);
   z-index: -1;
 }
 .newsletter .newsletter-content .mt-4 .col-md-6:last-child .opportunity,
@@ -19029,7 +19029,7 @@ input:-moz-placeholder {
   margin-right: auto;
 }
 .training-features .feature-card {
-  background: linear-gradient(321deg, #fff 7.82%, #656262 24.88%, #1e1e1e 47.94%);
+  background: #1e1e1e;
   padding: 40px;
   border-radius: 10px;
   height: 100%;
@@ -19606,7 +19606,7 @@ input:-moz-placeholder {
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(rgba(189, 160, 105, 0.1), rgba(0, 0, 0, 0.9));
+  background: black;
   z-index: 1;
 }
 .exclusive-trading .container {
@@ -21467,7 +21467,7 @@ input:-moz-placeholder {
 }
 
 .advisor-section {
-  background: linear-gradient(91deg, rgba(0, 0, 0, 0.88) 6.66%, rgba(107, 105, 100, 0.88) 85.96%, rgba(158, 154, 148, 0.88) 100%);
+  background: rgba(56, 55, 52, 0.6);
   padding: 60px 0;
 }
 .advisor-section .row {
@@ -21523,7 +21523,7 @@ input:-moz-placeholder {
   padding: 50px 70px 100px;
 }
 .service-cards-consulting .service-card {
-  background: linear-gradient(to bottom right, rgba(56, 55, 52, 0.49) 0%, rgba(40, 40, 39, 0.6) 50%, rgba(158, 154, 148, 0.6) 100%);
+  background: rgba(56, 55, 52, 0.6);
   border-radius: 10px;
   padding: 40px 100px;
   height: 100%;
@@ -21622,7 +21622,7 @@ input:-moz-placeholder {
   padding: 60px 0;
   position: relative;
   overflow: visible;
-  background: radial-gradient(circle farthest-corner at top left, #000 0%, #454242 60%, #adadad 100%);
+  background: rgb(45, 44, 43);
 }
 .starting-section .top-content {
   text-align: center;
@@ -21840,7 +21840,7 @@ input:-moz-placeholder {
 .transform-section {
   position: relative;
   padding: 100px 0;
-  background: radial-gradient(circle farthest-corner at top left, #0b0a08 0%, #0b0a08 50%, #ccb78f 100%);
+  background: rgb(11, 10, 8);
   overflow: visible;
 }
 .transform-section .transform-title {
@@ -21883,7 +21883,7 @@ input:-moz-placeholder {
   line-height: 25px;
 }
 .choose-section .choose-card {
-  background: linear-gradient(to bottom right, #161513 0%, #161513 60%, #ccb78f 100%);
+  background: #0B0A08;
   border-radius: 10px;
   height: 100%;
   min-height: 200px;
@@ -21948,10 +21948,10 @@ input:-moz-placeholder {
 .investment-section {
   position: relative;
   padding: 100px 0;
-  background: radial-gradient(circle farthest-corner at top left, #0b0a08 0%, #0b0a08 50%, #ccb78f 100%);
+  background: #76684C;
 }
 .investment-section .investment-card {
-  background: linear-gradient(97deg, rgba(0, 0, 0, 0.88) 9.22%, rgba(28, 28, 27, 0.88) 51.53%, rgba(56, 55, 53, 0.88) 93.41%);
+  background: rgba(28, 28, 27, 0.88);
   border-radius: 10px;
   padding: 3rem 2rem;
   margin-bottom: 2rem;
@@ -21985,7 +21985,7 @@ input:-moz-placeholder {
 .collateral-section {
   position: relative;
   padding: 40px 0;
-  background: radial-gradient(circle at top center, #0b0a08 0%, #161513 100%);
+  background: rgba(42, 41, 40, 0.88);
 }
 .collateral-section .collateral-title {
   color: #d1b06b;
@@ -22121,7 +22121,7 @@ input:-moz-placeholder {
 }
 
 .profile-priority {
-  background: linear-gradient(45deg, #171716 85%, #76684c 88%, #ccb78f 90%), linear-gradient(225deg, #171716 85%, #76684c 88%, #ccb78f 90%);
+  background: rgb(23, 23, 22);
   padding: 4rem 0;
   background-blend-mode: screen;
 }
@@ -22159,7 +22159,7 @@ input:-moz-placeholder {
   margin: 0 auto;
 }
 .tailored-section .tailored-card {
-  background: linear-gradient(135deg, rgba(0, 0, 0, 0.8) 0%, rgba(56, 55, 52, 0.7) 70%, rgba(158, 154, 148, 0.6) 100%);
+  background: rgb(23, 23, 22);
   padding: 3rem;
   border-radius: 10px;
   position: relative;
@@ -22239,7 +22239,7 @@ input:-moz-placeholder {
 
 .future-section {
   padding: 4rem 0;
-  background: radial-gradient(ellipse farthest-corner at bottom right, #adadad 0%, #454242 60%, #000 100%);
+  background: rgb(23, 23, 22);
 }
 .future-section .future-content {
   padding-right: 2rem;
@@ -22481,7 +22481,7 @@ input:-moz-placeholder {
 
 .why-choose-section {
   padding: 4rem 0;
-  background: linear-gradient(to top left, rgba(158, 154, 148, 0.6) 0%, rgba(56, 55, 52, 0.6) 50%, rgba(0, 0, 0, 0.8) 100%);
+  background: rgba(56, 55, 52, 0.82);
 }
 .why-choose-section .why-choose-content .why-title {
   color: #d1b06b;
@@ -22541,7 +22541,7 @@ input:-moz-placeholder {
 
 .transparency-section {
   padding: 4rem 0;
-  background: radial-gradient(circle at bottom right, #ccb78f 0%, rgba(92, 82, 64, 0.45) 40%, rgba(0, 0, 0, 0.2) 70%, #0b0a08 100%);
+  background: rgba(0, 0, 0, 0.2);
 }
 .transparency-section .transparency-content {
   padding-right: 2rem;
@@ -22578,7 +22578,7 @@ input:-moz-placeholder {
 .prosperity-section {
   margin: 75px 0 0;
   padding: 50px 0;
-  background: radial-gradient(circle at top right, #0b0a08 0%, #0b0a08 5%, rgba(0, 0, 0, 0.2) 20%, rgba(92, 82, 64, 0.3) 30%, #ccb78f 100%);
+  background: rgba(204, 183, 143, 0.5);
 }
 .prosperity-section .prosperity-image img {
   width: 100%;
@@ -22725,7 +22725,7 @@ input:-moz-placeholder {
 
 .funds-solution-section {
   margin-top: 55px;
-  background: radial-gradient(circle at bottom right, rgba(158, 154, 148, 0.6) 0%, rgba(40, 40, 39, 0.6) 40%, rgba(56, 55, 52, 0.49) 100%);
+  background: rgba(40, 40, 39, 0.6);
   padding: 2rem 0;
 }
 .funds-solution-section .container-fluid {
@@ -22806,7 +22806,7 @@ input:-moz-placeholder {
   margin-bottom: 3rem;
 }
 .how-it-works-section .process-card {
-  background: linear-gradient(to bottom right, #1a1917 0%, #1a1917 50%, #5c5240 80%, #ccb78f 100%);
+  background: #1a1917;
   padding: 3rem;
   height: 100%;
   border-radius: 10px;
@@ -22830,7 +22830,7 @@ input:-moz-placeholder {
 }
 
 .advantages-section {
-  background: linear-gradient(130deg, rgba(18, 18, 18, 0.88) 5.98%, rgba(28, 28, 27, 0.88) 79.85%, rgba(255, 255, 255, 0.88) 104.42%);
+  background: rgba(18, 18, 18, 0.88);
   padding: 2rem 0;
 }
 .advantages-section .adv-title {
@@ -23055,7 +23055,7 @@ input:-moz-placeholder {
 }
 
 .personalized-path-section {
-  background: linear-gradient(135deg, #171716 85%, #76684c 88%, #ccb78f 90%), linear-gradient(315deg, #171716 85%, #76684c 88%, #ccb78f 90%);
+  background: rgba(56, 55, 52, 0.5);
   background-blend-mode: screen;
   padding: 4rem 0;
 }
@@ -23091,7 +23091,7 @@ input:-moz-placeholder {
   margin-bottom: 3rem;
 }
 .personalized-path-section .service-card {
-  background: radial-gradient(circle at bottom right, #ccb78f 0%, rgba(92, 82, 64, 0.45) 40%, rgba(0, 0, 0, 0.2) 70%, #0b0a08 100%);
+  background: #0b0a08;
   padding: 3rem;
   height: 100%;
   border-radius: 10px;
@@ -23126,7 +23126,7 @@ input:-moz-placeholder {
 
 .partnership-section {
   margin-top: 50px;
-  background: radial-gradient(circle at bottom right, #bda069 0%, #76684c 15%, #514734 30%, #000 60%);
+  background: black;
 }
 .partnership-section .row {
   min-height: 600px;
@@ -23279,7 +23279,7 @@ input:-moz-placeholder {
 }
 
 .optimize-finances-section {
-  background: linear-gradient(to bottom left, #0b0a08 0%, rgba(92, 82, 64, 0.45) 50%, #ccb78f 100%);
+  background: rgba(92, 82, 64, 0.45);
   padding: 4rem 0;
 }
 .optimize-finances-section .of-title {
@@ -23324,7 +23324,7 @@ input:-moz-placeholder {
   margin: 0 auto 3rem;
 }
 .key-services-section .service-card {
-  background: linear-gradient(to bottom right, #0b0a08 0%, rgba(92, 82, 64, 0.45) 50%, #ccb78f 100%);
+  background: rgba(92, 82, 64, 0.45);
   padding: 2rem;
   border-radius: 10px;
 }
@@ -23350,7 +23350,7 @@ input:-moz-placeholder {
 }
 
 .benefits-section {
-  background: radial-gradient(circle at top right, #0b0a08 0%, rgba(92, 82, 64, 0.45) 20%, #8a795a 100%);
+  background: rgba(92, 82, 64, 0.5);
 }
 .benefits-section .benefits-content .benefits-title {
   color: #bda069;
@@ -23429,7 +23429,7 @@ input:-moz-placeholder {
 }
 
 .say-goodbye-section {
-  background: radial-gradient(circle at bottom left, #0b0a08 0%, rgba(92, 82, 64, 0.45) 40%, #a89773 100%);
+  background: rgba(92, 82, 64, 0.4);
 }
 .say-goodbye-section .sg-content {
   padding: 4rem 6rem 4rem 4rem;
@@ -23615,7 +23615,7 @@ input:-moz-placeholder {
   object-fit: contain;
 }
 .secure-future-section .row:last-child {
-  background: radial-gradient(circle at top left, #000 0%, #514734 40%, #76684c 70%, #bda069 100%);
+  background: #76684c;
   padding: 2rem;
   margin: 0;
 }
@@ -23650,7 +23650,7 @@ input:-moz-placeholder {
 }
 
 .protection-plan-section {
-  background: radial-gradient(circle at bottom right, rgba(158, 154, 148, 0.6) 0%, rgba(40, 40, 39, 0.6) 40%, rgba(56, 55, 52, 0.49) 100%);
+  background: rgba(40, 40, 39, 0.6);
   padding: 4rem 0;
 }
 .protection-plan-section .pp-title-content {
@@ -23698,7 +23698,7 @@ input:-moz-placeholder {
   padding: 4rem 0;
 }
 .capital-benefits-section .benefit-card {
-  background: linear-gradient(120deg, rgba(28, 28, 27, 0.88) 9.22%, rgba(40, 40, 39, 0.88) 58.45%, rgba(255, 255, 255, 0.88) 93.41%);
+  background: rgba(40, 40, 39, 0.88);
   padding: 2rem;
   border-radius: 10px;
   height: 100%;
@@ -23726,7 +23726,7 @@ input:-moz-placeholder {
 }
 
 .legacy-protection-section {
-  background: radial-gradient(circle at top left, #bda069 0%, #76684c 20%, #514734 50%, #000 100%);
+  background: #bda069;
   min-height: 500px;
 }
 .legacy-protection-section .row {
