@@ -114,12 +114,7 @@
 
 .security-section {
     position: relative;
-    background: radial-gradient(
-        circle at 18.41% 61.27%,
-        rgba(56, 55, 52, 0.82) 0%,
-        #282827 45%,
-        #9e9a94 100%
-    );
+    background: rgba(56, 55, 52, 0.82) 0%;
     width: 100%;
 
     .container {
@@ -170,13 +165,7 @@
 .total-security-section {
     position: relative;
     margin-top: 80px;
-    background: radial-gradient(
-        circle at 18.41% 76.14%,
-        #0b0a08 0%,
-        rgba(0, 0, 0, 0.2) 35%,
-        rgba(92, 82, 64, 0.45) 65%,
-        #ccb78f 100%
-    );
+    background: rgba(56, 55, 52, 0.2) 0%;
     width: 100%;
 
     .container {
@@ -274,13 +263,7 @@
             margin: 0;
             // padding: 0 calc((100vw - 1320px) / 2);
             min-height: 400px;
-            background: linear-gradient(
-                to top left,
-                #ccb78f 0%,
-                rgba(92, 82, 64, 0.45) 35%,
-                rgba(0, 0, 0, 0.2) 65%,
-                #0b0a08 100%
-            );
+            background: black;
 
             .col-6:first-child {
                 padding: 0 70px;
@@ -343,12 +326,7 @@
     position: relative;
     margin-top: 80px;
     width: 100%;
-    background: radial-gradient(
-        120.33% 374.93% at 90% 0%,
-        #000 0%,
-        #454242 63.84%,
-        #adadad 97.98%
-    );
+    background: black;
     padding: 55px 0;
 
     .container {
@@ -484,15 +462,7 @@
     margin-top: 80px;
     width: 100%;
     padding: 55px 0;
-    background: radial-gradient(
-        120.33% 374.93% at 0% 100%,
-        #bda069 0%,
-        #bda069 25%,
-        #514734 45%,
-        #76684c 65%,
-        rgba(0, 0, 0, 0.6) 85%,
-        #000 100%
-    );
+    background: #514734 45%;
     .container {
         .row {
             display: flex;

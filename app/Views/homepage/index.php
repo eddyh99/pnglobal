@@ -130,54 +130,6 @@
     </section>
     <!-- End of Cosulting -->
 
-    <!-- Start of Earning -->
-    <section class="earning-title">
-        <div class="container">
-            <div class="title-wrapper">
-                <h2 class="title">
-                    Want to Profit from Bitcoin Without ANY Stress?
-                </h2>
-                <p class="subtitle">Satoshi Signal Earn with the Power of Our Expert Brokers</p>
-            </div>
-        </div>
-    </section>
-
-    <section class="content earning-section">
-        <div class="earning-bg">
-            <video autoplay loop muted playsinline>
-                <source src="<?php echo BASE_URL; ?>assets/vid/bg-start-earning.mp4" type="video/mp4">
-            </video>
-        </div>
-        <div class="container">
-            <!-- Pembungkus baru khusus untuk Card dan Button -->
-            <div class="cards-container">
-                <div class="row">
-                    <!-- Card Kiri -->
-                    <div class="col-md-6 mb-3 mb-md-0">
-                        <div class="custom-card">
-                            <p class="card-text">
-                                Accurate buy and sell signals to maximize your profits, risk-free. Rely on PN Global brokers and our exclusive app for guaranteed results. </p>
-                            <div class="divider"></div>
-                        </div>
-                    </div>
-                    <!-- Card Kanan -->
-                    <div class="col-md-6">
-                        <div class="custom-card">
-                            <p class="card-text">
-                                With Satoshi Signal, you are connected to our brokers who work 24/7 to provide infallible buy and sell signals. We do the hard work; you collect the profits. No more uncertainties: maximize your gains with a proven and zero risk strategy. </p>
-                            <div class="divider"></div>
-                        </div>
-                    </div>
-                </div>
-                <!-- Button di bawah card, posisinya di tengah -->
-                <div class="button-wrapper">
-                    <button class="cta">Activate Satoshi Signal and Start Earning Now!</button>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- End of Earning -->
-
     <!-- Start of Service -->
     <section class="service-homepage">
         <div class="section-title-bg">
