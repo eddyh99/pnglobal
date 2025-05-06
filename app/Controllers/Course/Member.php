@@ -11,24 +11,12 @@ class Member extends BaseController
         return redirect()->to(BASE_URL . 'course/member/explore');
     }
 
-    public function explore() {
-        $course = [
-            'title' => 'Analysis Pattern',
-            'description' => "Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique, expedita.",
-            'image' => BASE_URL . 'assets/img/course/course-1.png',
-            'author' => 'AC'
-        ];
-
-        $courses = array_map(function($index) use ($course) {
-            $course['id'] = $index;
-            return $course;
-        }, range(1, 10));
-        
+    public function explore() {        
         $mdata = [
             'title'     => 'Course - ' . NAMETITLE,
             'content'   => 'course/member/index',
+            'extra'   => 'course/member/js/_js_index',
             'active_explore'    => 'active',
-            'courses' => $courses
         ];
 
         return view('course/layout/wrapper', $mdata);
@@ -137,6 +125,19 @@ class Member extends BaseController
         ];
 
         return view('course/layout/wrapper', $mdata);
+    }
+
+    public function getall_course()
+    {
+        $url = URLAPI . "/v1/course/all_course";
+        $response = satoshiAdmin($url);
+        $result = $response->result;
+        dd($result);
+        $data = [
+            'code' => $result->code,
+            'message' => $result->message
+        ];
+        return json_encode($data);
     }
 
 
