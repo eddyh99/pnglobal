@@ -56,7 +56,8 @@
                         font-size: 40px;
                         font-style: normal;
                         font-weight: 400;
-                        line-height: 50px; /* 125% */
+                        line-height: 50px;
+                        /* 125% */
                         text-transform: uppercase;
 
                         .lux {
@@ -85,7 +86,8 @@
                     font-size: 22px;
                     font-style: normal;
                     font-weight: 600;
-                    line-height: 144.687%; /* 31.831px */
+                    line-height: 144.687%;
+                    /* 31.831px */
                     text-align: center;
                     margin-top: 1rem;
                 }
@@ -155,7 +157,8 @@
                 font-size: 25px;
                 font-style: normal;
                 font-weight: 800;
-                line-height: 40px; /* 160% */
+                line-height: 40px;
+                /* 160% */
                 text-transform: uppercase;
                 margin-bottom: 1rem;
                 text-align: center;
@@ -181,7 +184,8 @@
                 font-size: 20px;
                 font-style: normal;
                 font-weight: 500;
-                line-height: 30px; /* 150% */
+                line-height: 30px;
+                /* 150% */
                 text-align: center;
             }
 
@@ -225,7 +229,8 @@
             font-size: 25px;
             font-style: normal;
             font-weight: 700;
-            line-height: 40px; /* 160% */
+            line-height: 40px;
+            /* 160% */
             text-transform: uppercase;
             text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
         }
@@ -250,7 +255,8 @@
                     font-size: 20px;
                     font-style: normal;
                     font-weight: 700;
-                    line-height: 30px; /* 150% */
+                    line-height: 30px;
+                    /* 150% */
                     margin-bottom: 1rem;
                 }
 
@@ -260,7 +266,8 @@
                     font-size: 18px;
                     font-style: normal;
                     font-weight: 500;
-                    line-height: 30px; /* 166.667% */
+                    line-height: 30px;
+                    /* 166.667% */
                 }
             }
         }
@@ -301,7 +308,8 @@
             font-size: 25px;
             font-style: normal;
             font-weight: 700;
-            line-height: 40px; /* 160% */
+            line-height: 40px;
+            /* 160% */
             text-transform: uppercase;
             max-width: 484px;
             margin-left: auto;
@@ -367,7 +375,8 @@
             font-size: 22px;
             font-style: normal;
             font-weight: 700;
-            line-height: 40px; /* 181.818% */
+            line-height: 40px;
+            /* 181.818% */
             text-transform: uppercase;
         }
 
@@ -400,7 +409,8 @@
                 font-size: 20px;
                 font-style: normal;
                 font-weight: 600;
-                line-height: 35px; /* 175% */
+                line-height: 35px;
+                /* 175% */
                 position: relative;
                 padding-left: 25px;
 
@@ -418,7 +428,8 @@
                 font-size: 18px;
                 font-style: normal;
                 font-weight: 500;
-                line-height: 28px; /* 155.556% */
+                line-height: 28px;
+                /* 155.556% */
             }
         }
     }
@@ -446,6 +457,7 @@
 
             @include mix.xs {
                 flex-direction: column;
+
                 .col-6 {
                     width: 100%;
                     margin-left: 0;
@@ -454,6 +466,7 @@
 
             @include mix.md {
                 flex-direction: row;
+
                 .col-6 {
                     width: 50%;
 
@@ -467,6 +480,7 @@
             @include mix.lg {
                 display: flex;
                 justify-content: flex-start;
+
                 .col-6:first-child {
                     margin-left: -20vw;
                     width: calc(50% + 20vw);
@@ -505,7 +519,8 @@
                 font-size: 29px;
                 font-style: normal;
                 font-weight: 600;
-                line-height: 30px; /* 103.448% */
+                line-height: 30px;
+                /* 103.448% */
                 text-transform: capitalize;
                 margin-bottom: 1rem;
             }
@@ -516,7 +531,8 @@
                 font-size: 18px;
                 font-style: normal;
                 font-weight: 700;
-                line-height: 30px; /* 166.667% */
+                line-height: 30px;
+                /* 166.667% */
                 text-transform: capitalize;
                 margin-bottom: 1.5rem;
             }
@@ -527,7 +543,8 @@
                 font-size: 18px;
                 font-style: normal;
                 font-weight: 500;
-                line-height: 30px; /* 166.667% */
+                line-height: 30px;
+                /* 166.667% */
                 margin-bottom: 1.5rem;
             }
 
@@ -537,7 +554,8 @@
                 font-size: 18px;
                 font-style: normal;
                 font-weight: 500;
-                line-height: 30px; /* 166.667% */
+                line-height: 30px;
+                /* 166.667% */
                 margin-bottom: 2rem;
 
                 .highlight {
@@ -563,7 +581,8 @@
                         font-size: 18px;
                         font-style: normal;
                         font-weight: 600;
-                        line-height: 25px; /* 138.889% */
+                        line-height: 25px;
+                        /* 138.889% */
                         text-transform: uppercase;
                     }
 

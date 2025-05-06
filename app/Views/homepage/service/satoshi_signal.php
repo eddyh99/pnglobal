@@ -98,7 +98,7 @@
             <div class="container">
                 <div class="row top-row">
                     <div class="feature-card-title">
-                        <h3>Precision Timing</h3>
+                        <h3>NO LOSSES TO THE <br>MARKET</h3>
                     </div>
                     <div class="feature-card-title">
                         <h3>Consistent <br> Profitability</h3>
@@ -109,13 +109,14 @@
                 </div>
                 <div class="row bottom-row">
                     <div class="feature-card-content">
-                        <p>Our experts provide precise buy and sell signals, ensuring you capitalize on market opportunities and minimize risk</p>
+                        <p>we guarantee that there will never be any loss of the capital sent and the accrued interests.</p>
                     </div>
                     <div class="feature-card-content">
-                        <p>With our 24/7 market analysis, you can generate steady income.</p>
+                        <p>Thanks to our 24/7 active market analysis, you can generate a constant income.
+                        </p>
                     </div>
                     <div class="feature-card-content">
-                        <p>Thanks to our in-depth knowledge of the market and real-time analyses, our clients obtain certain and safe profits.</p>
+                        <p>Thanks to our in-depth knowledge of the market and real-time analysis, our clients obtain certain and secure profits.</p>
                     </div>
                 </div>
             </div>
@@ -159,7 +160,7 @@
             <div class="referral-card">
                 <h3 class="mb-4">Share and Grow Your Capital</h3>
                 <p class="card-text">
-                With the default referral code included, you can start earning right away. Every person who signs up through your referral will allow you to receive an extra commission on the deposit and a constant 1% on the earnings.
+                    With the default referral code included, you can start earning right away. Every person who signs up through your referral will allow you to receive an extra commission on the deposit and a constant 1% on the earnings.
                 </p>
             </div>
             <a href="<?= BASE_URL ?>homepage/satoshi_price#register" class="share-button">

@@ -31,6 +31,7 @@
                 flex-direction: column;
                 justify-content: center;
                 height: 100%;
+
                 .title {
                     color: #fff;
                     font-family: var.$f-poppins;
@@ -222,6 +223,7 @@
     position: relative;
     padding: 100px 0;
     background: #76684C;
+
     .investment-card {
         background: rgba(28, 28, 27, 0.88);
         border-radius: 10px;
@@ -268,7 +270,8 @@
         font-family: var.$f-poppins;
         font-size: 25px;
         font-weight: 800;
-        line-height: 40px; /* 160% */
+        line-height: 40px;
+        /* 160% */
         text-transform: uppercase;
         margin-bottom: 1.5rem;
     }
@@ -279,7 +282,8 @@
         font-family: var.$f-poppins;
         font-size: 18px;
         font-weight: 600;
-        line-height: 30px; /* 166.667% */
+        line-height: 30px;
+        /* 166.667% */
         margin-bottom: 2rem;
     }
 
@@ -296,7 +300,8 @@
         font-size: 16px;
         font-style: normal;
         font-weight: 700;
-        line-height: 25px; /* 156.25% */
+        line-height: 25px;
+        /* 156.25% */
         text-transform: uppercase;
         transition: background 0.3s ease, box-shadow 0.3s ease;
 

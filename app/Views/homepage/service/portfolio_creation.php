@@ -82,8 +82,9 @@
                     <div class="future-content">
                         <h2 class="future-title">Build the Future You Deserve</h2>
                         <p class="future-description">
-                            Our goal is to create a portfolio that not only aligns with your objectives but also gives you the confidence of investing wisely and strategically.<br><br>
-                            With a constant focus on the market and the most innovative financial instruments, your portfolio will always be optimized to meet future challenges and seize opportunities.
+                            Our goal is to create a portfolio that not only aligns with your objectives but also gives you the confidence of investing wisely and strategically. With a constant focus on the market and the most innovative financial instruments, your portfolio will always be optimized to meet future challenges and seize opportunities.<br><br>
+                            With Portfolio Creation, your financial success begins with a solid foundation and a winning strategy. Trust PN Global LLC's expertise to build a portfolio that works for you.
+
                         </p>
                     </div>
                 </div>
