@@ -22,14 +22,16 @@ class Member extends BaseController
         return view('course/layout/wrapper', $mdata);
     }
 
-    public function detail($id) {
-        $course = [
-            'id' => base64_decode($id),
-            'title' => 'Analysis Pattern',
-            'description' => "Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique, expedita.",
-            'video' => BASE_URL . 'assets/img/course/course-1.png',
-            'author' => 'AC'
-        ];
+    public function detail_course($id) {
+        $url = URLAPI . "/v1/course/course_byid?id=".base64_decode($id);
+        $response = courseAdmin($url);
+        $result = $response->result;
+        $course = [];
+
+        if($result->code == 200) {
+            $course = $result->message;
+        }
+
         $mdata = [
             'title'     => 'Detail Course - ' . NAMETITLE,
             'content'   => 'course/member/detail',
@@ -130,15 +132,17 @@ class Member extends BaseController
     public function getall_course()
     {
         $url = URLAPI . "/v1/course/all_course";
-        $response = satoshiAdmin($url);
+        $response = courseAdmin($url);
         $result = $response->result;
-        dd($result);
+    
         $data = [
             'code' => $result->code,
-            'message' => $result->message
+            'message' => $result->message ?? [],
         ];
-        return json_encode($data);
+    
+        return $this->response->setJSON($data);
     }
+    
 
 
 }

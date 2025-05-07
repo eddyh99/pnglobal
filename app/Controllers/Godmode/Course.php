@@ -54,7 +54,7 @@ class Course extends BaseController
         ];
 
         // Process API Request
-        $url = URLAPI . "/v1/course/add_user";
+        $url = URL_COURSE . "/v1/user/add_user";
         $response = satoshiAdmin($url, json_encode($mdata));
         $result = $response->result;
         log_message('error', json_encode($result));
@@ -78,7 +78,7 @@ class Course extends BaseController
     public function get_user()
     {
         // Call Endpoin Get Free Member
-        $url = URLAPI . "/v1/course/users";
+        $url = URL_COURSE . "/v1/user/all";
         $result = satoshiAdmin($url)->result;
 
         echo json_encode($result);
@@ -88,7 +88,7 @@ class Course extends BaseController
     {
 
         // Call Get Memeber By Email
-        $url = URLAPI . "/v1/course/user_byemail?email=" . base64_decode($email);
+        $url = URL_COURSE . "/v1/user/user_byemail?email=" . base64_decode($email);
         $user = satoshiAdmin($url)->result->message;
 
         $mdata = [
@@ -103,7 +103,7 @@ class Course extends BaseController
 
     public function setuser_paid($email)
     {
-        $url = URLAPI . "/v1/course/setpaid_member?email=" . base64_decode($email);
+        $url = URL_COURSE . "/v1/user/setpaid_member?email=" . base64_decode($email);
         $response = satoshiAdmin($url);
         $result = $response->result;
 
@@ -119,7 +119,7 @@ class Course extends BaseController
 
     public function setstatus_user($email, $status)
     {
-        $url = URLAPI . "/v1/course/setstatus_user";
+        $url = URL_COURSE . "/v1/user/setstatus_user";
         $email = base64_decode($email);
         $mdata = [
             'email' => $email,

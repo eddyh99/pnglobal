@@ -2,6 +2,7 @@
 function displayCourses(courses) {
     // If no courses are available, show the "No course available" message
     if (courses.length === 0) {
+        $('#noCourseText').text('No courses available');
         $('#listcourse').hide(); // Hide the courses container
         $('#noCourseText').show(); // Show the "No course available" message
     } else {
@@ -14,15 +15,17 @@ function displayCourses(courses) {
         // Loop through the courses and add them to the list
         courses.forEach(course => {
             const courseCard = `
-                <div class="col-md-4 mb-4">
-                    <div class="card">
-                        <img src="${course.image}" class="card-img-top" alt="${course.title}">
-                        <div class="card-body">
-                            <h5 class="card-title">${course.title}</h5>
-                            <p class="card-text">${course.description}</p>
+            <div class="col-3 mb-4">
+                <a class="text-white" href="<?= BASE_URL?>course/member/detail_course/${btoa(course.id)}">
+                    <div class="card" style="width: 18rem;background-color: transparent;">
+                        <img src="<?= BASE_URL ?>assets/img/${course.banner}" class="card-img-top" alt="...">
+                        <div class="card-body p-1">
+                            <p class="card-text mb-1">${course.title}</p>
+                            <small>By ${course.email}</small>
                         </div>
                     </div>
-                </div>
+                </a>
+            </div>
             `;
             $('#listcourse').append(courseCard);
         });
@@ -34,17 +37,21 @@ $.ajax({
     type: 'GET',
     dataType: 'json',
     success: function(response) {
+    
         if (response.code == 200) {
             // If the request is successful, display the courses
-            displayCourses(response.courses);
+            displayCourses(response.message);
+            
         } else {
             // Handle case when courses are not available
+            $('#noCourseText').text('No courses available');
             $('#listcourse').hide();
             $('#noCourseText').show();
         }
     },
     error: function() {
         // Handle errors such as server issues
+        $('#noCourseText').text('No courses available');
         $('#listcourse').hide();
         $('#noCourseText').show();
         console.error("Error fetching courses.");

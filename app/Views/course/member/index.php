@@ -6,4 +6,4 @@
         </div>
     </div>
 </div>
-<h4 id="noCourseText" class="text-center">No course available.</h4>
+<h4 id="noCourseText" class="text-center">Loading courses..</h4>

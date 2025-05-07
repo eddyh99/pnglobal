@@ -109,7 +109,7 @@ class Auth extends BaseController
 
         // Proccess Endpoin API
         $url = URL_COURSE . "/auth/signin";
-        $response = satoshiAdmin($url, json_encode($mdata));
+        $response = courseAdmin($url, json_encode($mdata));
 
         return (object) [
             'success' => true,
@@ -149,7 +149,7 @@ class Auth extends BaseController
 
         $email = $this->request->getVar('email');
         $url = URL_COURSE . "/auth/resendtoken";
-        $response = satoshiAdmin($url, json_encode([
+        $response = courseAdmin($url, json_encode([
             'email' => $email
         ]));
         $result = $response->result;
@@ -194,7 +194,7 @@ class Auth extends BaseController
     private function checkotp($email, $otp)
     {
         $url = URL_COURSE . "/auth/otp_check";
-        $response = satoshiAdmin($url, json_encode([
+        $response = courseAdmin($url, json_encode([
             'email' => $email,
             'otp'   => $otp
         ]));
@@ -244,7 +244,7 @@ class Auth extends BaseController
 		];
 
 		$url = URL_COURSE . "/auth/resetpassword";
-		$response = satoshiAdmin($url, json_encode($mdata));
+		$response = courseAdmin($url, json_encode($mdata));
 		$result = $response->result;
 
 		if ($result->code == 201) {
