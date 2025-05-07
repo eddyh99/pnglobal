@@ -21,9 +21,10 @@ class Auth extends BaseController
 
         $mdata = [
             'title'     => 'Login Course - ' . NAMETITLE,
-            'content'   => 'course/login/' . $role,
+            'content'   => 'course/login/index',
             'active_dashboard'    => 'active active-menu',
-            'extra'     => 'course/login/js/_js_index'
+            'extra'     => 'course/login/js/_js_index',
+            'role'      => $role
         ];
 
         return view('elite/layout/wrapper', $mdata);
@@ -48,7 +49,7 @@ class Auth extends BaseController
     
         session()->set('logged_usercourse', $loggedUser);
         session()->setFlashdata('success', 'Welcome to course');
-        return redirect()->to(BASE_URL . 'course');
+        return redirect()->to(BASE_URL . 'course/mentor');
     }
 
     public function memberlogin_proccess()
@@ -107,7 +108,7 @@ class Auth extends BaseController
         $mdata['password'] = sha1($mdata['password']);
 
         // Proccess Endpoin API
-        $url = URLAPI . "/auth/signin_course";
+        $url = URL_COURSE . "/auth/signin";
         $response = satoshiAdmin($url, json_encode($mdata));
 
         return (object) [
@@ -147,7 +148,7 @@ class Auth extends BaseController
         }
 
         $email = $this->request->getVar('email');
-        $url = URLAPI . "/auth/resendtoken_course";
+        $url = URL_COURSE . "/auth/resendtoken";
         $response = satoshiAdmin($url, json_encode([
             'email' => $email
         ]));
@@ -192,7 +193,7 @@ class Auth extends BaseController
 
     private function checkotp($email, $otp)
     {
-        $url = URLAPI . "/auth/otp_check";
+        $url = URL_COURSE . "/auth/otp_check";
         $response = satoshiAdmin($url, json_encode([
             'email' => $email,
             'otp'   => $otp
@@ -218,7 +219,7 @@ class Auth extends BaseController
             ],
             'password' => [
                 'label' => 'Password',
-                'rules' => 'required|min_length[6]',
+                'rules' => 'required|min_length[8]',
             ],
             'confirm_password' => [
                 'label' => 'Konfirmasi Password',
@@ -242,7 +243,7 @@ class Auth extends BaseController
 			'password' => sha1($password)
 		];
 
-		$url = URLAPI . "/auth/resetpassword_course";
+		$url = URL_COURSE . "/auth/resetpassword";
 		$response = satoshiAdmin($url, json_encode($mdata));
 		$result = $response->result;
 
@@ -258,8 +259,9 @@ class Auth extends BaseController
 
     public function logout()
     {
+        $role = $this->session->get('logged_usercourse')->role ?? null;
         $this->session->remove('logged_usercourse');
-        return redirect()->to(BASE_URL . 'course/login/member');
+        return redirect()->to(BASE_URL . 'course/login/' . ($role ?? 'member'));
     }
 
     public function forgot_password()

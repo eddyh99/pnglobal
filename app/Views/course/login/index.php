@@ -38,10 +38,10 @@
 
         <div class="sign-in-box" style="background-color: #101010;">
             <h2 class="text-center sign-in-text mt-5 text-white">SIGN IN</h2>
-            <form action="<?= BASE_URL ?>course/auth/memberlogin_proccess" method="POST">
+            <form action="<?= BASE_URL ?>course/auth/<?= $role == 'member' ? 'member' : 'mentor' ?>login_proccess" method="POST">
                 <div class="form-group mb-3 text-start">
                     <label for="email" class="form-label text-left text-white">Email</label>
-                    <input type="email" class="form-control" name="email" id="email" placeholder="Enter email">
+                    <input type="email" class="form-control" name="email" id="email" placeholder="Enter email" value="<?= old('email') ?>">
                 </div>
 
                 <div class="form-group mb-3 text-start">
@@ -58,7 +58,7 @@
                 </div>
 
                 <div class="text-center mt-3 dont-have-account text-white">
-                    Login as <a href="<?=BASE_URL?>course/login/mentor"><span style="color: #B48B3D;">Mentor</span></a>
+                    Login as <a href="<?=BASE_URL?>course/login/<?= $role == 'member' ? 'mentor' : 'member' ?>"><span style="color: #B48B3D;"><?= $role == 'member' ? 'Mentor' : 'member' ?></span></a>
                 </div>
             </form>
         </div>
