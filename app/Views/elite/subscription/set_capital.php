@@ -1,7 +1,7 @@
 <section class="elite-page">
     <div class="container mt-2">
         <div class="text-center mb-4">
-            <h1 class="site-title"><span>BTC ELITE</span> MANAGEMENT</h1>
+            <h1 class="site-title"><span>HEDGE</span> FUND</h1>
             <p class="site-subtitle">Direct and Personalized Bitcoin Wallet Management.</p>
         </div>
 

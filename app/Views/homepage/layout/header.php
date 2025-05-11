@@ -60,8 +60,8 @@
                                 PRODUCTS
                             </a>
                             <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="<?= BASE_URL ?>homepage/service?service=<?= base64_encode('btc_elite_management') ?>">ELITE</a></li>
                                 <li><a class="dropdown-item" href="<?= BASE_URL ?>homepage/service?service=<?= base64_encode('satoshi_signal') ?>">HEDGE FUND</a></li>
+                                <li><a class="dropdown-item" href="<?= BASE_URL ?>homepage/service?service=<?= base64_encode('btc_elite_management') ?>">ELITE</a></li>
                                 <li><a class="dropdown-item" href="<?= BASE_URL ?>homepage/service?service=<?= base64_encode('lux_btc_brokers') ?>">BROKER LUX</a></li>
                             </ul>
                         </li>

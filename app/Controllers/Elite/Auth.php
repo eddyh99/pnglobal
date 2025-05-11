@@ -340,41 +340,49 @@ class Auth extends BaseController
     
     function createCoinPaymentTransaction($amount, $currency, $invoiceNumber,$buyer_email,$description)
     {
-        $publicKey  = "61b29c2e66e2720b3d4c2906df6e0fe61b3809094e94322f6a7da99bb5645aa9";
-        $privateKey = "7eBb4a5fbb1F4A24dea25c58883d7A19ae111F5C822392dB352a2c2f8285703A";
-        $url = 'https://www.coinpayments.net/api.php';
+        $publicKey  = COINPAYMENTS_PUBLIC_KEY;
+        $privateKey = COINPAYMENTS_PRIVATE_KEY;
+        $url = COINPAYMENTS_API_URL; // use actual API URL
+        $nonce = get_coinpayments_nonce();
+
         $payload = [
-                'cmd'        => 'create_transaction',
-                'amount'     => $amount,
-                'currency1'  => 'USD',
-                'currency2'  => $currency,
-                'invoice'    => $invoiceNumber,
-                'buyer_email'=> $buyer_email,
-                'item_name'  => $description,
-                'key'        => $publicKey,
-                'ipn_url'    => base_url().'elite/auth/coinpayment_notify',
-                'success_url'=> base_url().'elite/auth/returncrypto',
-                'cancel_url' => base_url()."elite/auth/set_capital",
-                'version'    => 1,
-                'format'     => 'json', // Ensure JSON response
-            ];
+            'cmd'        => 'create_transaction',
+            'amount'     => $amount,
+            'currency1'  => 'USD',
+            'currency2'  => $currency,
+            'invoice'    => $invoiceNumber,
+            'buyer_email'=> $buyer_email,
+            'item_name'  => $description,
+            'key'        => $publicKey,
+            'ipn_url'    => base_url().'elite/auth/coinpayment_notify',
+            'success_url'=> base_url().'elite/auth/returncrypto',
+            'cancel_url' => base_url()."elite/auth/set_capital",
+            'version'    => 1,
+            'format'     => 'json',
+            'nonce'       => $nonce
+        ];
         
-            // Generate HMAC signature
-            $postData = http_build_query($payload, '', '&');
-            $hmac = hash_hmac('sha512', $postData, $privateKey);
+        $postData = http_build_query($payload, '', '&');
+        $hmac = hash_hmac('sha512', $postData, $privateKey);
         
-            // Send request
-            $ch = curl_init();
-            curl_setopt($ch, CURLOPT_URL, $url);
-            curl_setopt($ch, CURLOPT_POST, 1);
-            curl_setopt($ch, CURLOPT_POSTFIELDS, $postData);
-            curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-            curl_setopt($ch, CURLOPT_HTTPHEADER, ['HMAC: ' . $hmac]);
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL, $url);
+        curl_setopt($ch, CURLOPT_POST, 1);
+        curl_setopt($ch, CURLOPT_POSTFIELDS, $postData);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+        curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);
+        curl_setopt($ch, CURLOPT_HTTPHEADER, ['HMAC: ' . $hmac]);
         
-            $response = curl_exec($ch);
-            curl_close($ch);
+        $response = curl_exec($ch);
         
-            return json_decode($response, true);
+        if (curl_errno($ch)) {
+            return 'Curl error: ' . curl_error($ch);
+        }
+        
+        curl_close($ch);
+        return json_decode($response, true);
+
     }    
 
     public function coinpayment_notify()
@@ -426,9 +434,9 @@ class Auth extends BaseController
         $url        = URL_ELITE . "/non/deposit";
         $invoice   = satoshiAdmin($url, json_encode($postData))->result->message;
         $orderId    = $invoice;
-        $description= "ELITE BTC MANAGEMENT";
-
-        $paymentResponse = $this->createCoinPaymentTransaction($payamount,'USDT.BEP20', $orderId,$customerEmail,$description);
+        $description= "HEDGE FUND - PNGLOBAL";
+        //USDT.BEP20
+        $paymentResponse = $this->createCoinPaymentTransaction(15,'LTCT', $orderId,$customerEmail,$description);
         if ($paymentResponse['error'] !== 'ok') {
             $this->session->setFlashdata('error', 'There was a problem processing your purchase please try again');
             return redirect()->to(base_url().'elite/auth/set_capital'); 
@@ -449,7 +457,7 @@ class Auth extends BaseController
         $url        = URL_ELITE . "/non/deposit";
         $invoice   = satoshiAdmin($url, json_encode($postData))->result->message;
         $orderId    = $invoice;
-        $description= "ELITE BTC MANAGEMENT";
+        $description= "HEDGE FUND - PNGLOBAL";
 
         $paymentResponse = $this->createCoinPaymentTransaction($payamount,'USDC.BEP20', $orderId,$customerEmail,$description);
         if ($paymentResponse['error'] !== 'ok') {

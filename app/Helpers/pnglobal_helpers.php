@@ -82,6 +82,36 @@ function getExchange($amountEUR){
     return $amountUSD;
 }
 
+function get_coinpayments_nonce(): int
+{
+    $filePath = WRITEPATH . 'coinpayments_nonce.txt';
+
+    // Create the file if it doesn't exist
+    if (!file_exists($filePath)) {
+        file_put_contents($filePath, time());
+    }
+
+    // Lock the file to avoid race conditions
+    $fp = fopen($filePath, 'c+');
+    if (flock($fp, LOCK_EX)) {
+        $lastNonce = (int)trim(fread($fp, 100));
+        $newNonce = max($lastNonce + 1, time()); // ensure monotonic increase
+
+        // Reset pointer and write
+        ftruncate($fp, 0);
+        rewind($fp);
+        fwrite($fp, $newNonce);
+        fflush($fp);
+        flock($fp, LOCK_UN);
+        fclose($fp);
+
+        return $newNonce;
+    } else {
+        fclose($fp);
+        throw new \RuntimeException('Unable to acquire nonce file lock.');
+    }
+}
+
 
 function sendmail_booking($subject, $mdata)
 {

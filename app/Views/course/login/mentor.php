@@ -31,41 +31,44 @@
 <?php } ?>
 <section class="elite-page">
     <div class="container">
-        <div class="text-center mb-4">
-            <h1 class="site-title"><span>HEDGE</span> FUND</h1>
-            <p class="site-subtitle">Direct and Personalized Bitcoin Wallet Management.</p>
+        <div class="text-center mb-4" id="login">
+            <h1 class="site-title"><span>PN</span> Online Course</h1>
+            <p class="site-subtitle">Small Steps Today, Big Success Tomorrow</p>
         </div>
 
-        <div class="sign-in-box">
-            <h2 class="text-center sign-in-text mt-5">SIGN IN</h2>
-            <form action="<?= BASE_URL ?>elite/auth/postLogin" method="POST">
+        <div class="sign-in-box" style="background-color: #101010;">
+            <h2 class="text-center sign-in-text mt-5 text-white">SIGN IN</h2>
+            <form action="<?= BASE_URL ?>course/auth/mentorlogin_proccess" method="POST">
                 <div class="form-group mb-3 text-start">
-                    <label for="email" class="form-label text-left">Email</label>
+                    <label for="email" class="form-label text-left text-white">Email</label>
                     <input type="email" class="form-control" name="email" id="email" placeholder="Enter email">
                 </div>
 
                 <div class="form-group mb-3 text-start">
-                    <label for="password" class="form-label text-left">Password</label>
+                    <label for="password" class="form-label text-left text-white">Password</label>
                     <input type="password" class="form-control" name="password" id="password" placeholder="Password">
                 </div>
 
                 <div class="d-flex justify-content-end mb-3">
-                    <a href="<?= BASE_URL ?>elite/auth/forgot_password" class="text-muted">Forgot Password?</a>
+                    <a href="<?= BASE_URL ?>course/auth/forgot_password" class="text-muted">Forgot Password?</a>
                 </div>
 
                 <div class="d-flex justify-content-center">
-                    <button type="submit" class="btn btn-primary">Sign in</button>
+                    <button type="submit" class="btn btn-primary text-black">Sign in</button>
                 </div>
 
-                <div class="text-center mt-3 dont-have-account">
-                    Don't have an account? <a href="<?=BASE_URL?>elite/auth/register" class="register-link">REGISTER</a>
+                <div class="text-center mt-3 dont-have-account text-white">
+                Login as <a href="<?=BASE_URL?>course/login/member"><span style="color: #B48B3D;">Member</span></a>
                 </div>
             </form>
         </div>
 
         <!-- Bottom button is inside container, ensuring it's below sign-in box -->
         <div class="bottom-button">
-            <a href="<?=BASE_URL?>member/auth/login" class="btn btn-dark"><span>LUX BTC</span> BROKER</a>
+            <span class="d-block mb-2">Select a website to log in</span>
+            <a href="#login" class="btn btn-dark"><span>ONLINE</span> COURSE</a>
+            <a href="<?=BASE_URL?>member/auth/login" class="btn btn-dark mx-3"><span>HEDGE</span> FUND</a>
+            <a href="<?=BASE_URL?>member/auth/login" class="btn btn-dark"><span>LUX</span> BTC</a>
         </div>
     </div>
 </section>

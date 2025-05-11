@@ -9,13 +9,17 @@
     </div>
     
     <div class="access-options">
-        <div class="access-card" onclick="window.location.href='<?= BASE_URL ?>member/auth/login'">
-            <h2><span>LUX</span> BTC BROKER</h2>
+        <div class="access-card" onclick="window.location.href='<?= BASE_URL ?>elite/auth/login'">
+            <h2><span>HEDGE</span> FUND</h2>
+            <p>Direct and Personalized <strong>Bitcoin Wallet Management.</strong></p>
+        </div>
+        <div class="access-card">
+            <h2><span>ELITE</span></h2>
             <p>Automate Bitcoin Operations: Entrust Our Brokers <strong>Through API Integration</strong></p>
         </div>
-        <div class="access-card" onclick="window.location.href='<?= BASE_URL ?>elite/auth/login'">
-            <h2><span>BTC ELITE</span> MANAGEMENT</h2>
-            <p>Direct and Personalized <strong>Bitcoin Wallet Management.</strong></p>
+        <div class="access-card" onclick="window.location.href='<?= BASE_URL ?>member/auth/login'">
+            <h2><span>BROKER</span> LUX</h2>
+            <p>Automate Bitcoin Operations: Entrust Our Brokers <strong>Through API Integration</strong></p>
         </div>
     </div>
 </section>

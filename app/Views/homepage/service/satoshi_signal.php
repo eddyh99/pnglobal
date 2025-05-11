@@ -30,7 +30,7 @@
                 Thanks to our proven method, you will see your capital grow effortlessly, maximizing your earnings thanks to compound interest.
             </p>
             <div class="button-wrapper">
-                <a href="<?= BASE_URL ?>homepage/satoshi_price#register" class="activate-button">
+                <a href="<?= BASE_URL ?>auth" class="activate-button">
                     INVEST WITH US AND START EARNING NOW
                 </a>
             </div>
