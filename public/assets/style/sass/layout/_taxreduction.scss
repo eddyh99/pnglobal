@@ -94,12 +94,7 @@
 }
 
 .optimize-finances-section {
-    background: linear-gradient(
-        to bottom left,
-        #0b0a08 0%,
-        rgba(92, 82, 64, 0.45) 50%,
-        #ccb78f 100%
-    );
+    background: rgba(92, 82, 64, 0.45);
     padding: 4rem 0;
 
     .of-title {
@@ -148,12 +143,7 @@
     }
 
     .service-card {
-        background: linear-gradient(
-            to bottom right,
-            #0b0a08 0%,
-            rgba(92, 82, 64, 0.45) 50%,
-            #ccb78f 100%
-        );
+        background: rgba(92, 82, 64, 0.45);
         padding: 2rem;
         border-radius: 10px;
 
@@ -185,12 +175,7 @@
 }
 
 .benefits-section {
-    background: radial-gradient(
-        circle at top right,
-        #0b0a08 0%,
-        rgba(92, 82, 64, 0.45) 20%,
-        #8a795a 100%
-    );
+    background: rgba(92, 82, 64, 0.5) ;
     // padding: 2rem 0;
 
     .benefits-content {
@@ -287,12 +272,7 @@
 }
 
 .say-goodbye-section {
-    background: radial-gradient(
-        circle at bottom left,
-        #0b0a08 0%,
-        rgba(92, 82, 64, 0.45) 40%,
-        #a89773 100%
-    );
+    background: rgba(92, 82, 64, 0.4);
     .sg-content {
         padding: 4rem 6rem 4rem 4rem;
         display: flex;

@@ -196,8 +196,8 @@
                     <div class="list ps-md-4">
                         <div class="d-flex flex-column gap-2">
                             <p></p>
-                            <a class="footer-link" href="<?= BASE_URL ?>homepage">Product</a>
-                            <a class="footer-link" href="<?= BASE_URL ?>homepage/service?service=<?= base64_encode('satoshi_signal') ?>">Services</a>
+                            <a class="footer-link" href="<?= BASE_URL ?>homepage">Hot Deal</a>
+                            <a class="footer-link" href="<?= BASE_URL ?>homepage/service?service=<?= base64_encode('satoshi_signal') ?>">Services Infoarmation</a>
                             <a class="footer-link" href="<?= BASE_URL ?>homepage">Training Courses</a>
                             <a class="footer-link" href="<?= BASE_URL ?>homepage/about">About Pn Global</a>
                             <p></p>
@@ -213,7 +213,7 @@
                                     <strong>Company incorporation:</strong> 16192 Coastal Highway, Lewes Delaware 19958 (USA)
                                 </li>
                                 <li class="mb-4">
-                                    <strong>International finance department:</strong> Financial Centre, Singapore 049319
+                                    <strong>International finance department:</strong> 12 Collyer Quay, Ocean Financial Centre, Singapore 049319
                                 </li>
                                 <li class="mb-4">
                                     <strong>International monetary departments:</strong> 109 Bismarckia Way - George Town Cayman Islands (Business Location)

@@ -151,13 +151,7 @@
     //     rgba(56, 55, 52, 0.6) 50%,
     //     rgba(0, 0, 0, 0.8) 100%
     // );
-    background: linear-gradient(
-        to top left,
-        rgba(158, 154, 148, 0.6) 0%,
-        rgba(56, 55, 52, 0.6) 50%,
-        rgba(0, 0, 0, 0.8) 100%
-    );
-
+    background: rgba(56, 55, 52, 0.82);
     .why-choose-content {
         .why-title {
             color: #d1b06b;
@@ -227,14 +221,7 @@
 
 .transparency-section {
     padding: 4rem 0;
-    background: radial-gradient(
-        circle at bottom right,
-        #ccb78f 0%,
-        rgba(92, 82, 64, 0.45) 40%,
-        rgba(0, 0, 0, 0.2) 70%,
-        #0b0a08 100%
-    );
-
+    background: rgba(0, 0, 0, 0.2);
     .transparency-content {
         padding-right: 2rem;
 
@@ -278,16 +265,7 @@
 .prosperity-section {
     margin: 75px 0 0;
     padding: 50px 0;
-    background: radial-gradient(
-        circle at top right,
-        #0b0a08 0%,
-        #0b0a08 5%,
-        // Black area reduced to 5%
-        rgba(0, 0, 0, 0.2) 20%,
-        rgba(92, 82, 64, 0.3) 30%,
-        #ccb78f 100% // Gold now covers more area
-    );
-
+    background: rgba(204, 183, 143, 0.5);
     .prosperity-image {
         img {
             width: 100%;

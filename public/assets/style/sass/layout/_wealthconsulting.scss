@@ -95,8 +95,7 @@
 }
 
 .personalized-path-section {
-    background: linear-gradient(135deg, #171716 85%, #76684c 88%, #ccb78f 90%),
-        linear-gradient(315deg, #171716 85%, #76684c 88%, #ccb78f 90%);
+    background: rgba(56, 55, 52, 0.5);
     background-blend-mode: screen;
 
     padding: 4rem 0;
@@ -136,13 +135,7 @@
     }
 
     .service-card {
-        background: radial-gradient(
-            circle at bottom right,
-            #ccb78f 0%,
-            rgba(92, 82, 64, 0.45) 40%,
-            rgba(0, 0, 0, 0.2) 70%,
-            #0b0a08 100%
-        );
+        background: #0b0a08;
         padding: 3rem;
         height: 100%;
         border-radius: 10px;
@@ -181,13 +174,7 @@
 
 .partnership-section {
     margin-top: 50px;
-    background: radial-gradient(
-        circle at bottom right,
-        #bda069 0%,
-        #76684c 15%,
-        #514734 30%,
-        #000 60%
-    );
+    background: black;
 
     .row {
         min-height: 600px; // Set minimum height for vertical alignment

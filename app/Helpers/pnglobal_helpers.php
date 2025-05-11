@@ -32,6 +32,34 @@ function satoshiAdmin($url, $postData = NULL)
     return $result;
 }
 
+function courseAdmin($url, $postData = NULL)
+{
+    $token = @sha1($_SESSION["logged_usercourse"]->email . $_SESSION["logged_usercourse"]->password);
+
+    $ch     = curl_init($url);
+    $headers    = array(
+        'Authorization: Bearer ' . $token,
+        'Content-Type: application/json'
+    );
+
+    curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
+    curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);
+    curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+    // curl_setopt($ch, CURLOPT_POSTFIELDS, $postData);
+
+    if (!is_null($postData)) {
+        curl_setopt($ch, CURLOPT_POSTFIELDS, $postData);
+    }
+
+    $result = (object) array(
+        'result'        => json_decode(curl_exec($ch)),
+        'status'        => curl_getinfo($ch)['http_code']
+    );
+    curl_close($ch);
+    return $result;
+}
+
 function getExchange($amountEUR){
     // Your Open Exchange Rates API key
     //tdalgo@thedarkalgo.com : Banana69%

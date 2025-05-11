@@ -100,12 +100,7 @@
 
 .funds-solution-section {
     margin-top: 55px;
-    background: radial-gradient(
-        circle at bottom right,
-        rgba(158, 154, 148, 0.6) 0%,
-        rgba(40, 40, 39, 0.6) 40%,
-        rgba(56, 55, 52, 0.49) 100%
-    );
+    background: rgba(40, 40, 39, 0.6);
     padding: 2rem 0;
 
     .container-fluid {
@@ -198,13 +193,7 @@
     }
 
     .process-card {
-        background: linear-gradient(
-            to bottom right,
-            #1a1917 0%,
-            #1a1917 50%,
-            #5c5240 80%,
-            #ccb78f 100%
-        );
+        background: #1a1917;
         padding: 3rem;
         height: 100%;
         border-radius: 10px;
@@ -231,12 +220,7 @@
 }
 
 .advantages-section {
-    background: linear-gradient(
-        130deg,
-        rgba(18, 18, 18, 0.88) 5.98%,
-        rgba(28, 28, 27, 0.88) 79.85%,
-        rgba(255, 255, 255, 0.88) 104.42%
-    );
+    background: rgba(18, 18, 18, 0.88);
     padding: 2rem 0;
 
     .adv-title {

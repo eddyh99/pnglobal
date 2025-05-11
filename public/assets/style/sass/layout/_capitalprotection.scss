@@ -151,13 +151,7 @@
 
     .row:last-child {
         // Bottom content row
-        background: radial-gradient(
-            circle at top left,
-            #000 0%,
-            #514734 40%,
-            #76684c 70%,
-            #bda069 100%
-        );
+        background: #76684c;
         padding: 2rem;
         margin: 0; // Remove default margin
     }
@@ -197,12 +191,7 @@
 }
 
 .protection-plan-section {
-    background: radial-gradient(
-        circle at bottom right,
-        rgba(158, 154, 148, 0.6) 0%,
-        rgba(40, 40, 39, 0.6) 40%,
-        rgba(56, 55, 52, 0.49) 100%
-    );
+    background: rgba(40, 40, 39, 0.6);
     padding: 4rem 0;
 
     .pp-title-content {
@@ -259,12 +248,7 @@
     padding: 4rem 0;
 
     .benefit-card {
-        background: linear-gradient(
-            120deg,
-            rgba(28, 28, 27, 0.88) 9.22%,
-            rgba(40, 40, 39, 0.88) 58.45%,
-            rgba(255, 255, 255, 0.88) 93.41%
-        );
+        background: rgba(40, 40, 39, 0.88);
         padding: 2rem;
         border-radius: 10px;
         height: 100%;
@@ -295,15 +279,7 @@
 }
 
 .legacy-protection-section {
-    background: radial-gradient(
-        circle at top left,
-        #bda069 0%,
-        #76684c 20%,
-        // Reduced gold spread
-        #514734 50%,
-        // Adjusted middle color
-        #000 100%
-    );
+    background: rgba(81, 71, 52, 1);
     min-height: 500px;
 
     .row {
