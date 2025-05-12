@@ -275,7 +275,9 @@ class Membership extends BaseController
     {
         $publicKey  = "61b29c2e66e2720b3d4c2906df6e0fe61b3809094e94322f6a7da99bb5645aa9";
         $privateKey = "7eBb4a5fbb1F4A24dea25c58883d7A19ae111F5C822392dB352a2c2f8285703A";
-        $url = 'https://www.coinpayments.net/api.php';
+        $url = COINPAYMENTS_API_URL;
+        $nonce = get_coinpayments_nonce();
+        
         $payload = [
                 'cmd'        => 'create_transaction',
                 'amount'     => $amount,
@@ -290,6 +292,7 @@ class Membership extends BaseController
                 'cancel_url' => base_url()."member/membership/set_capital_investment",
                 'version'    => 1,
                 'format'     => 'json', // Ensure JSON response
+                'nonce'       => $nonce
             ];
         
             // Generate HMAC signature

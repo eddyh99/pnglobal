@@ -476,7 +476,7 @@ class Auth extends BaseController
 			'extra'     => 'elite/subscription/js/_js_forgot_password',
 		];
 
-        return view('elite/layout/wrapper', $mdata);
+        return view('member/layout/login_wrapper', $mdata);
 	}
 
 

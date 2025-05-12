@@ -342,7 +342,7 @@ class Homepage extends BaseController
             'password'      => sha1(htmlspecialchars($this->request->getVar('pass'))),
             'timezone'      => htmlspecialchars($this->request->getVar('timezone')),
             'referral'      => htmlspecialchars($this->request->getVar('referral')),
-            'role'          => htmlspecialchars($this->request->getVar('role')),
+            'role'          => htmlspecialchars($this->request->getVar('role')) ,
             'ip_address'    => htmlspecialchars($this->request->getIPAddress()),
         ];
 
@@ -534,40 +534,47 @@ class Homepage extends BaseController
     {
         $publicKey  = COINPAYMENTS_PUBLIC_KEY;
         $privateKey = COINPAYMENTS_PRIVATE_KEY;
-        $url        = COINPAYMENTS_API_URL;
+        $url = COINPAYMENTS_API_URL; // use actual API URL
+        $nonce = get_coinpayments_nonce();
+
         $payload = [
-                'cmd'        => 'create_transaction',
-                'amount'     => $amount,
-                'currency1'  => 'USD',
-                'currency2'  => $currency,
-                'invoice'    => $invoiceNumber,
-                'buyer_email'=> $buyer_email,
-                'item_name'  => $description,
-                'key'        => $publicKey,
-                'ipn_url'    => base_url().'homepage/coinpayment_notify',
-                'success_url'=> base_url().'homepage/returncrypto',
-                'cancel_url' => base_url()."homepage/set_capital_investment",
-                'version'    => 1,
-                'format'     => 'json', // Ensure JSON response
-                'nonce'      => time()
-            ];
+            'cmd'        => 'create_transaction',
+            'amount'     => $amount,
+            'currency1'  => 'USD',
+            'currency2'  => $currency,
+            'invoice'    => $invoiceNumber,
+            'buyer_email'=> $buyer_email,
+            'item_name'  => $description,
+            'key'        => $publicKey,
+            'ipn_url'    => base_url().'elite/auth/coinpayment_notify',
+            'success_url'=> base_url().'elite/auth/returncrypto',
+            'cancel_url' => base_url()."elite/auth/set_capital",
+            'version'    => 1,
+            'format'     => 'json',
+            'nonce'       => $nonce
+        ];
         
-            // Generate HMAC signature
-            $postData = http_build_query($payload, '', '&');
-            $hmac = hash_hmac('sha512', $postData, $privateKey);
+        $postData = http_build_query($payload, '', '&');
+        $hmac = hash_hmac('sha512', $postData, $privateKey);
         
-            // Send request
-            $ch = curl_init();
-            curl_setopt($ch, CURLOPT_URL, $url);
-            curl_setopt($ch, CURLOPT_POST, 1);
-            curl_setopt($ch, CURLOPT_POSTFIELDS, $postData);
-            curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-            curl_setopt($ch, CURLOPT_HTTPHEADER, ['HMAC: ' . $hmac]);
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL, $url);
+        curl_setopt($ch, CURLOPT_POST, 1);
+        curl_setopt($ch, CURLOPT_POSTFIELDS, $postData);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+        curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);
+        curl_setopt($ch, CURLOPT_HTTPHEADER, ['HMAC: ' . $hmac]);
         
-            $response = curl_exec($ch);
-            curl_close($ch);
+        $response = curl_exec($ch);
         
-            return json_decode($response, true);
+        if (curl_errno($ch)) {
+            return 'Curl error: ' . curl_error($ch);
+        }
+        
+        curl_close($ch);
+        return json_decode($response, true);
+
     }    
 
     public function coinpayment_notify()
@@ -622,7 +629,8 @@ class Homepage extends BaseController
         $orderId    = $response->invoice;
         $description= "Monthly subscription LUX BTC Broker";
 
-        $paymentResponse = $this->createCoinPaymentTransaction($netprice,'USDT.BEP20', $orderId,$customerEmail,$description);
+        $paymentResponse = $this->createCoinPaymentTransaction($netprice,'LTCT', $orderId,$customerEmail,$description);
+
         if ($paymentResponse['error'] !== 'ok') {
             $this->session->setFlashdata('error', 'There was a problem processing your purchase please try again');
             return redirect()->to(base_url().'homepage/set_capital_investment'); 
