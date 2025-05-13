@@ -76,7 +76,7 @@ class Payment extends BaseController
         $type = $this->request->getVar('type');
         switch ($type) {
             case 'elite':
-                $endpoint = URL_ELITE;
+                $endpoint = URL_HEDGEFUND;
                 break;
             default:
                 $endpoint = URLAPI;
@@ -161,7 +161,7 @@ class Payment extends BaseController
     public function get_elitebtc_requestpayment()
     {
         // Call Endpoint Get Satoshi Request Payment
-        $url = URL_ELITE . "/v1/withdraw/request_payment";
+        $url = URL_HEDGEFUND . "/v1/withdraw/request_payment";
         $response = satoshiAdmin($url);
         $result = $response->result;
 

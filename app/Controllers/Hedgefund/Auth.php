@@ -80,7 +80,7 @@ class Auth extends BaseController
         session()->set('logged_user', $tempUser);
 
 
-        $url = URL_ELITE . "/auth/register";
+        $url = URL_HEDGEFUND . "/auth/register";
         $result = satoshiAdmin($url, json_encode($mdata))->result;
         // Check if the result code is not 201
         if ($result->code != '201') {
@@ -147,7 +147,7 @@ class Auth extends BaseController
 		session()->set('logged_user', $tempUser);
 
 		// Proccess Endpoin API
-		$url = URL_ELITE . "/auth/signin";
+		$url = URL_HEDGEFUND . "/auth/signin";
 		$response = satoshiAdmin($url, json_encode($mdata));
 		$result = $response->result;
 
@@ -221,7 +221,7 @@ class Auth extends BaseController
 			];
 
 			// Call Endpoint Activate Member
-			$url = URL_ELITE . "/auth/activate_member";
+			$url = URL_HEDGEFUND . "/auth/activate_member";
 			$response = satoshiAdmin($url, json_encode($mdata));
 
 			return $this->response->setJSON([
@@ -265,7 +265,7 @@ class Auth extends BaseController
 	
 	public function get_investment_config()
     {
-        $url = URL_ELITE . "/v1/price";
+        $url = URL_HEDGEFUND . "/v1/price";
         $result = satoshiAdmin($url)->result;
         $minCapital = (float) $result->message->price;
         $fee        = (float) $result->message->cost;
@@ -411,7 +411,7 @@ class Auth extends BaseController
 
             log_message('error',"Sending data". json_encode($postData));
         
-            $url = URL_ELITE . "/non/notify_payment";
+            $url = URL_HEDGEFUND . "/non/notify_payment";
             $response = satoshiAdmin($url, json_encode($postData));
             log_message('error',"Response: " . json_encode($response));
         }
@@ -431,7 +431,7 @@ class Auth extends BaseController
             'amount' => $_SESSION["payment_data"]["totalcapital"],
         ];
 
-        $url        = URL_ELITE . "/non/deposit";
+        $url        = URL_HEDGEFUND . "/non/deposit";
         $invoice   = satoshiAdmin($url, json_encode($postData))->result->message;
         $orderId    = $invoice;
         $description= "HEDGE FUND - PNGLOBAL";
@@ -454,7 +454,7 @@ class Auth extends BaseController
             'amount' => $_SESSION["payment_data"]["totalcapital"],
         ];
 
-        $url        = URL_ELITE . "/non/deposit";
+        $url        = URL_HEDGEFUND . "/non/deposit";
         $invoice   = satoshiAdmin($url, json_encode($postData))->result->message;
         $orderId    = $invoice;
         $description= "HEDGE FUND - PNGLOBAL";

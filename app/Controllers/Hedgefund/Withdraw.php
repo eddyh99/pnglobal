@@ -85,7 +85,7 @@ class Withdraw extends BaseController
     public function available_commission()
     {
         $id_member  = $_SESSION['logged_user']->id;
-        $url        =  URL_ELITE . '/v1/member/referral_summary?id_member='. $id_member;
+        $url        =  URL_HEDGEFUND . '/v1/member/referral_summary?id_member='. $id_member;
         $result     = satoshiAdmin($url)->result;
 
         return $this->response->setJSON([
@@ -168,7 +168,7 @@ class Withdraw extends BaseController
             'network' => $this->request->getVar('network'),
         ];
 
-        $url = URL_ELITE . "/v1/withdraw/request_payment";
+        $url = URL_HEDGEFUND . "/v1/withdraw/request_payment";
         $result = satoshiAdmin($url, json_encode($mdata))->result;
 
         // Jika kode respons adalah 201, redirect ke halaman withdraw
@@ -207,7 +207,7 @@ class Withdraw extends BaseController
     {
         $member_id = $_SESSION["logged_user"]->id;
 
-        $url = URL_ELITE . "/v1/member/history_payment?id_member=" . $member_id;
+        $url = URL_HEDGEFUND . "/v1/member/history_payment?id_member=" . $member_id;
         $result = satoshiAdmin($url)->result;
 
         return $this->response->setJSON([
@@ -246,10 +246,10 @@ class Withdraw extends BaseController
         $amount = $this->request->getVar('amount');
     
         if ($from === 'commission' && $to === 'fund') {
-            $url = URL_ELITE . "/v1/member/transfer_commission";
+            $url = URL_HEDGEFUND . "/v1/member/transfer_commission";
             $data = ['id_member' => $member_id, 'destination' => 'balance'];
         } elseif (($from === 'fund' && $to === 'trade') || ($from === 'trade' && $to === 'fund')) {
-            $url = URL_ELITE . "/v1/withdraw/transfer_balance";
+            $url = URL_HEDGEFUND . "/v1/withdraw/transfer_balance";
             $data = ['id_member' => $member_id, 'destination' => $to, 'amount' => $amount];
         } else {
             session()->setFlashdata('failed', 'Transfer type not supported.');
@@ -270,7 +270,7 @@ class Withdraw extends BaseController
     public function get_balance()
     {
         $member_id = $_SESSION["logged_user"]->id;
-        $url = URL_ELITE . "/v1/member/balance";
+        $url = URL_HEDGEFUND . "/v1/member/balance";
     
         $types = ['fund', 'trade', 'commission'];
         $balances = [];

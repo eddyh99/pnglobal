@@ -87,7 +87,7 @@ class Referral extends BaseController
                 $api = URLAPI;
                 break;
             case 'elitebtc':
-                $api = URL_ELITE;
+                $api = URL_HEDGEFUND;
                 break;
             case 'satoshi':
                 $api = URLAPI2;

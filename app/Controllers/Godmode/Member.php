@@ -119,7 +119,7 @@ class Member extends BaseController
         $url = URLAPI2 . "/v1/member/referralmember";
         $satoshi = satoshiAdmin($url)->result->message;
 
-        $url = URL_ELITE . "/v1/member/referralmember";
+        $url = URL_HEDGEFUND . "/v1/member/referralmember";
         $elite = satoshiAdmin($url)->result->message;
 
         $result = array_merge(
@@ -151,7 +151,7 @@ class Member extends BaseController
     public function get_totalmember_elite()
     {
         // Call Endpoin Get Total Member
-        $url = URL_ELITE . "/v1/member/get_all";
+        $url = URL_HEDGEFUND . "/v1/member/get_all";
         $result = satoshiAdmin($url)->result->message;
         echo json_encode($result);
     }

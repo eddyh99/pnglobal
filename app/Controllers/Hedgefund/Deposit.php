@@ -41,7 +41,7 @@ class Deposit extends BaseController
     
     public function get_investment_config()
     {
-        $url = URL_ELITE . "/v1/price";
+        $url = URL_HEDGEFUND . "/v1/price";
         $result = satoshiAdmin($url)->result;
         $minCapital = (float) $result->message->price;
         $fee        = (float) $result->message->cost;
@@ -165,7 +165,7 @@ class Deposit extends BaseController
             'amount' => $_SESSION["payment_data"]["totalcapital"],
         ];
 
-        $url        = URL_ELITE . "/non/deposit";
+        $url        = URL_HEDGEFUND . "/non/deposit";
         $invoice   = satoshiAdmin($url, json_encode($postData))->result->message;
         $orderId    = $invoice;
         $description= "ELITE BTC MANAGEMENT";
@@ -188,7 +188,7 @@ class Deposit extends BaseController
             'amount' => $_SESSION["payment_data"]["totalcapital"],
         ];
 
-        $url        = URL_ELITE . "/non/deposit";
+        $url        = URL_HEDGEFUND . "/non/deposit";
         $invoice   = satoshiAdmin($url, json_encode($postData))->result->message;
         $orderId    = $invoice;
         $description= "ELITE BTC MANAGEMENT";
@@ -205,7 +205,7 @@ class Deposit extends BaseController
     public function get_history()
     {
         $id_member  = $_SESSION['logged_user']->id;
-        $url = URL_ELITE . '/v1/member/history_deposit?id_member=' . $id_member;
+        $url = URL_HEDGEFUND . '/v1/member/history_deposit?id_member=' . $id_member;
         $result = satoshiAdmin($url);
 
         return $this->response->setJSON(['status' => true, 'message' => $result->result->message])->setStatusCode(200);
