@@ -9,7 +9,7 @@
     </div>
     
     <div class="access-options">
-        <div class="access-card" onclick="window.location.href='<?= BASE_URL ?>elite/auth/login'">
+        <div class="access-card" onclick="window.location.href='<?= BASE_URL ?>hedgefund/auth/login'">
             <h2><span>HEDGE</span> FUND</h2>
             <p>Direct and Personalized <strong>Bitcoin Wallet Management.</strong></p>
         </div>

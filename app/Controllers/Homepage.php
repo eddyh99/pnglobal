@@ -546,9 +546,9 @@ class Homepage extends BaseController
             'buyer_email'=> $buyer_email,
             'item_name'  => $description,
             'key'        => $publicKey,
-            'ipn_url'    => base_url().'elite/auth/coinpayment_notify',
-            'success_url'=> base_url().'elite/auth/returncrypto',
-            'cancel_url' => base_url()."elite/auth/set_capital",
+            'ipn_url'    => base_url().'hedgefund/auth/coinpayment_notify',
+            'success_url'=> base_url().'hedgefund/auth/returncrypto',
+            'cancel_url' => base_url()."hedgefund/auth/set_capital",
             'version'    => 1,
             'format'     => 'json',
             'nonce'       => $nonce
