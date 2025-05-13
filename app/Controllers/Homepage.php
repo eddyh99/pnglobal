@@ -547,7 +547,7 @@ class Homepage extends BaseController
             'item_name'  => $description,
             'key'        => $publicKey,
             'ipn_url'    => base_url().'hedgefund/auth/coinpayment_notify',
-            'success_url'=> base_url().'hedgefund/auth/returncrypto',
+            'success_url'=> base_url().'homepage/payment_option',
             'cancel_url' => base_url()."hedgefund/auth/set_capital",
             'version'    => 1,
             'format'     => 'json',
