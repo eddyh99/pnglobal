@@ -216,7 +216,7 @@ class Membership extends BaseController
         $orderId    = $response->invoice;
         $description= "Monthly subscription LUX BTC Broker";
 
-        $paymentResponse = $this->createCoinPaymentTransaction(10,'LTCT', $orderId,$customerEmail,$description);
+        $paymentResponse = $this->createCoinPaymentTransaction(10,'USDT.BEP20', $orderId,$customerEmail,$description);
         if ($paymentResponse['error'] !== 'ok') {
             $this->session->setFlashdata('error', 'There was a problem processing your purchase please try again');
             return redirect()->to(base_url().'member/membership/set_investment_capital'); 
