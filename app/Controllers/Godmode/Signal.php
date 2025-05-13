@@ -48,7 +48,7 @@ class Signal extends BaseController
     {
 
         // Call Endpoint read latest signal from elite
-        $url = URL_ELITE . "/v1/order/latestsignal";
+        $url = URL_HEDGEFUND . "/v1/order/latestsignal";
         $response = satoshiAdmin($url);
 
         // Initial Array Buy A, Buy B, Buy C, dan Buy D
@@ -242,7 +242,7 @@ class Signal extends BaseController
         $mdata['limit'] = str_replace(',', '', $mdata['limit']);
 
         // Process Call to First Endpoint API (limit_buy)
-        $url = URL_ELITE . "/v1/order/limit_buy";
+        $url = URL_HEDGEFUND . "/v1/order/limit_buy";
         $response = satoshiAdmin($url, json_encode($mdata));
         log_message('info', 'Response dari endpoint limit_buy: ' . json_encode($response));
         // Determine response code from first endpoint
@@ -357,7 +357,7 @@ class Signal extends BaseController
         // Call Endpoint read signal untuk mendapatkan daftar signal
         // ELITE API OR URL API FOR READ SIGNAL?
 
-        $url = URL_ELITE . "/v1/order/latestsignal";
+        $url = URL_HEDGEFUND . "/v1/order/latestsignal";
         $readsignal = satoshiAdmin($url)->result->message;
         log_message('info', 'Sinyal Akhir: ' . json_encode($readsignal));
 
@@ -377,7 +377,7 @@ class Signal extends BaseController
                 $mdata['id_signal'] = $val->id;
 
                 // Send ke endpoint ketiga (URLAPI) untuk SELL
-                $url3 = URL_ELITE . "/v1/order/limit_sell";
+                $url3 = URL_HEDGEFUND . "/v1/order/limit_sell";
                 $response3 = satoshiAdmin($url3, json_encode($mdata));
                 log_message('info', 'Response dari endpoint elite limit_sell: ' . json_encode($response3));
 
@@ -407,7 +407,7 @@ class Signal extends BaseController
                     $mdata['id_signal'] = $val->id;
 
                     // Send ke endpoint pertama (URLAPI) untuk SELL
-                    $url3 = URL_ELITE . "/v1/order/limit_sell";
+                    $url3 = URL_HEDGEFUND . "/v1/order/limit_sell";
                     $response3 = satoshiAdmin($url3, json_encode($mdata));
                     log_message('info', 'Response dari endpoint limit_sell: ' . json_encode($response3));
 
@@ -437,8 +437,8 @@ class Signal extends BaseController
                     $mdata['type'] = 'SELL ' . $alphabet[$key];
                     $mdata['id_signal'] = $val->id;
 
-                    // Send ke endpoint ketika (URL_ELITE) untuk SELL
-                    $url3 = URL_ELITE . "/v1/order/limit_sell";
+                    // Send ke endpoint ketika (URL_HEDGEFUND) untuk SELL
+                    $url3 = URL_HEDGEFUND . "/v1/order/limit_sell";
                     $response3 = satoshiAdmin($url3, json_encode($mdata));
                     log_message('info', 'Response dari endpoint limit_sell: ' . json_encode($response3));
 
@@ -469,7 +469,7 @@ class Signal extends BaseController
                     $mdata['id_signal'] = $val->id;
 
                     // Send ke endpoint pertama (URLAPI) untuk SELL
-                    $url3 = URL_ELITE . "/v1/order/limit_sell";
+                    $url3 = URL_HEDGEFUND . "/v1/order/limit_sell";
                     $response3 = satoshiAdmin($url3, json_encode($mdata));
                     log_message('info', 'Response dari endpoint limit_sell: ' . json_encode($response3));
 
@@ -685,7 +685,7 @@ class Signal extends BaseController
         log_message('info', 'Mencoba menghapus signal dengan ID: ' . $signal_id);
 
          // Process Call to Second Endpoint API (ELITE)
-         $url3 = URL_ELITE . "/v1/order/delete?id_signal=" . $signal_id;
+         $url3 = URL_HEDGEFUND . "/v1/order/delete?id_signal=" . $signal_id;
          $response1 = satoshiAdmin($url3);
  
          // Log response dari endpoint ketiga
@@ -716,7 +716,7 @@ class Signal extends BaseController
     public function list_history_order()
     {
         // Call Endpoin List History Order
-        $url = URL_ELITE . "/v1/order/get_all";
+        $url = URL_HEDGEFUND . "/v1/order/get_all";
         $response = satoshiAdmin($url);
 
         // Periksa apakah respons valid dan berisi data

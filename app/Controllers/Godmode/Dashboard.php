@@ -32,7 +32,7 @@ class Dashboard extends BaseController
         $urlglobal = URLAPI . "/v1/member/get_membership";
         $resultglobal = satoshiAdmin($urlglobal)->result;
 
-        $urlelite = URL_ELITE . "/v1/member/get_statistics";
+        $urlelite = URL_HEDGEFUND . "/v1/member/get_statistics";
         $resultElite = satoshiAdmin($urlelite)->result;
 
         // Call Endpoin total_member

@@ -18305,7 +18305,7 @@ input:-moz-placeholder {
 
 .inp-fname {
   height: 45px;
-  width: 100%;
+  width: 400px;
   border-radius: 10px;
   box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.08);
   background-color: transparent;
@@ -18315,7 +18315,7 @@ input:-moz-placeholder {
 
 .inp-file-identity {
   height: 45px;
-  width: 100%;
+  width: 100px;
   border-radius: 10px;
   box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.08);
   background-color: transparent;
@@ -18326,8 +18326,7 @@ input:-moz-placeholder {
 .inp-email,
 .inp-email2 {
   height: 45px;
-  width: 100%;
-  max-width: 520px;
+  width: 400px;
   border-radius: 10px;
   box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.08);
   background-color: transparent;
@@ -18337,8 +18336,7 @@ input:-moz-placeholder {
 
 .nohp-select.input-nohp {
   height: 45px;
-  width: 100% !important;
-  max-width: 520px !important;
+  width: 20px;
   border-radius: 10px;
   padding: 20px 20px;
   box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.08);
@@ -18348,8 +18346,7 @@ input:-moz-placeholder {
 }
 
 .textarea-desc {
-  width: 100%;
-  max-width: 520px;
+  width: 750px;
   height: 120px;
   padding: 20px 20px;
   border-radius: 8px;
@@ -18362,8 +18359,7 @@ input:-moz-placeholder {
 .inp-date {
   border: 2px solid #BFA573;
   height: 45px;
-  width: 100%;
-  max-width: 520px;
+  width: 500px;
   border-radius: 8px;
   box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.08);
   background-color: #F0EADE;
@@ -18393,7 +18389,7 @@ input:-moz-placeholder {
   border: 2px solid #BFA573 !important;
   border-radius: 4px !important;
   height: 45px !important;
-  max-width: 520px !important;
+  max-width: 500px !important;
   -webkit-border-radius: 4px !important;
   -moz-border-radius: 4px !important;
   -ms-border-radius: 4px !important;
@@ -18475,8 +18471,8 @@ input:-moz-placeholder {
 }
 .contact form .wrapper-field .bg-field {
   background-color: #F0EADE;
+  padding: 2rem 3rem;
   border-radius: 15px;
-  width: 100%;
 }
 
 /*----------------------------------------------------------

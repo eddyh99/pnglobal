@@ -546,9 +546,9 @@ class Homepage extends BaseController
             'buyer_email'=> $buyer_email,
             'item_name'  => $description,
             'key'        => $publicKey,
-            'ipn_url'    => base_url().'elite/auth/coinpayment_notify',
-            'success_url'=> base_url().'elite/auth/returncrypto',
-            'cancel_url' => base_url()."elite/auth/set_capital",
+            'ipn_url'    => base_url().'hedgefund/auth/coinpayment_notify',
+            'success_url'=> base_url().'homepage/payment_option',
+            'cancel_url' => base_url()."hedgefund/auth/set_capital",
             'version'    => 1,
             'format'     => 'json',
             'nonce'       => $nonce
@@ -629,7 +629,7 @@ class Homepage extends BaseController
         $orderId    = $response->invoice;
         $description= "Monthly subscription LUX BTC Broker";
 
-        $paymentResponse = $this->createCoinPaymentTransaction($netprice,'LTCT', $orderId,$customerEmail,$description);
+        $paymentResponse = $this->createCoinPaymentTransaction($netprice,'USDT.BEP20', $orderId,$customerEmail,$description);
 
         if ($paymentResponse['error'] !== 'ok') {
             $this->session->setFlashdata('error', 'There was a problem processing your purchase please try again');

@@ -54,13 +54,16 @@
                         One of our experts will contact you as soon as possible to discuss your needs and provide you with a tailored solution.
                     </p>
                     <div class="bg-field">
-                        <div class="d-flex flex-column flex-lg-row align-items-start align-items-lg-end">
-                            <div class="mt-5 f-poppins pe-4">
+                        <div class="px-2" style="width: fit-content;margin: 0 auto;">
+
+
+                        <div class="d-flex flex-column flex-lg-row align-items-start align-items-lg-end gap-2">
+                            <div class="mt-5 f-poppins w-100">
                                 <label for="fname">Full Name</label> <br>
-                                <input id="fname" name="fname" class="inp-fname mt-1 img-fluid w-100" type="text" required placeholder="Name">
+                                <input id="fname" name="fname" class="inp-fname mt-1 img-fluid" type="text" required placeholder="Name">
                             </div>
-                            <div class="mt-5 f-poppins">
-                                <input id="lname" name="lname" class="inp-fname mt-1 img-fluid w-100" type="text" required placeholder="Last Name">
+                            <div class="mt-5 f-poppins w-100">
+                                <input id="lname" name="lname" class="inp-fname mt-1 img-fluid" type="text" required placeholder="Last Name">
                             </div>
                         </div>
     
@@ -121,6 +124,7 @@
                         -->
                         <div class="mt-5 f-poppins">
                             <button type="submit" class="btn btn-footer-contactform">CONFIRM</button>
+                        </div>
                         </div>
                     </div>
                     

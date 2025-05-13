@@ -27,7 +27,7 @@ class Auth extends BaseController
             'role'      => $role
         ];
 
-        return view('elite/layout/wrapper', $mdata);
+        return view('hedgefund/layout/wrapper', $mdata);
     }
 
     public function mentorlogin_proccess()
