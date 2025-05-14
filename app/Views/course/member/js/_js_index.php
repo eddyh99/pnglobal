@@ -17,7 +17,7 @@ function displayCourses(courses) {
             const courseCard = `
             <div class="col-3 mb-4">
                 <a class="text-white" href="<?= BASE_URL?>course/member/detail_course/${btoa(course.id)}">
-                    <div class="card" style="width: 18rem;background-color: transparent;">
+                    <div class="card w-100" style="width: 18rem;background-color: transparent;">
                         <img src="<?= BASE_URL ?>assets/img/${course.banner}" class="card-img-top" alt="...">
                         <div class="card-body p-1">
                             <p class="card-text mb-1">${course.title}</p>

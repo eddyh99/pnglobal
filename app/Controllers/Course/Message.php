@@ -13,27 +13,37 @@ class Message extends BaseController
             [
                 'sender' => 'john.doe@example.com',
                 'subject' => 'Meeting Schedule',
-                'sent_date' => '2025-04-30'
+                'sent_date' => '2025-04-30',
+                'isread'    => false,
+                'isfav'     => true
             ],
             [
                 'sender' => 'jane.smith@example.com',
                 'subject' => 'Project Update',
-                'sent_date' => '2025-04-29'
+                'sent_date' => '2025-04-29',
+                'isread'    => false,
+                'isfav'     => true
             ],
             [
                 'sender' => 'mark.jones@example.com',
                 'subject' => 'Invoice Details',
-                'sent_date' => '2025-04-28'
+                'sent_date' => '2025-04-28',
+                'isread'    => true,
+                'isfav'     => false
             ],
             [
                 'sender' => 'jane.smith@example.com',
                 'subject' => 'Project Update',
-                'sent_date' => '2025-04-29'
+                'sent_date' => '2025-04-29',
+                'isread'    => true,
+                'isfav'     => false
             ],
             [
                 'sender' => 'mark.jones@example.com',
                 'subject' => 'Invoice Details',
-                'sent_date' => '2025-04-28'
+                'sent_date' => '2025-04-28',
+                'isread'    => true,
+                'isfav'     => false
             ]
         ];
 
