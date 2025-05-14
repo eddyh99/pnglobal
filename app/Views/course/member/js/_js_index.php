@@ -21,7 +21,10 @@ function displayCourses(courses) {
                         <img src="<?= BASE_URL ?>assets/img/${course.banner}" class="card-img-top" alt="...">
                         <div class="card-body p-1">
                             <p class="card-text mb-1">${course.title}</p>
-                            <small>By ${course.email}</small>
+                              <div class="d-flex justify-content-between">
+                                    <small>${course.email}</small>
+                                    <i class="bi bi-check-square-fill" style="color: green;"></i>
+                                </div>
                         </div>
                     </div>
                 </a>
