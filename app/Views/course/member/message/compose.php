@@ -34,7 +34,7 @@
             <div class="input-group mw-100 mb-0">
                     <span class="input-group-text text-white bg-primary rounded-0" style="padding: 0.7rem;" id="basic-addon3">Subject</span>
                     <input type="text" name="subject" class="form-control" id="basic-url" aria-describedby="basic-addon3">
-                    <button type="submit" class="input-group-text btn bg-primary rounded-0" style="padding: 0.8rem;">Send Message</button>
+                    <button type="submit" class="input-group-text btn rounded-0" style="padding: 0.8rem;background-color: #1A73E8;">Send Message</button>
                 </div>
                 <textarea id="editor" class="w-100 form-control" name="message" style="min-height: 350px;" placeholder="Message..."></textarea>
                 </form>
