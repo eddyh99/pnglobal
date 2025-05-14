@@ -59,6 +59,8 @@
                     <thead class="thead_freemember">
                         <tr>
                             <th>EMAIL</th>
+                            <th>NAME</th>
+                            <th>STATUS</th>
                             <th>ACTION</th>
                         </tr>
                     </thead>

@@ -1,5 +1,5 @@
     <!-- Sidebar dengan garis pembatas kanan -->
-    <div id="sidebar" class="bg-black text-white" style="width: 220px;border-right: 4px solid #B48B3D;"">
+    <!-- <div id="sidebar" class="bg-black text-white" style="width: 220px;border-right: 4px solid #B48B3D;"">
         <ul class="nav flex-column text-center mt-2">
             <?php
             $categories = range(1, 13);
@@ -14,4 +14,4 @@
                 </li>
             <?php endforeach; ?>
         </ul>
-    </div>
+    </div> -->

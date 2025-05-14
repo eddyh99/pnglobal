@@ -10,7 +10,7 @@
             <table class="table table-bordered mt-5">
                 <tbody>
                     <?php foreach ($messages as $m): ?>
-                        <tr>
+                        <tr onclick="window.location.href = '<?= BASE_URL ?>course/message/inbox/read';" style="cursor: pointer; <?= !$m['isread'] ? 'background-color: rgba(191, 165, 115, 0.3);' : '' ?>">
                             <td><?= $m['sender'] ?></td>
                             <td><?= $m['subject'] ?></td>
                             <td><?= $m['sent_date'] ?><button class="btn ml-3 p-0"><i><svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">

@@ -11,7 +11,7 @@
         "scrollX": true,
         "order": false,
         "ajax": {
-            "url": "<?= BASE_URL ?>godmode/course/get_user",
+            "url": "<?= BASE_URL ?>godmode/course/user/get_mentor",
             "type": "GET",
             "dataSrc": function(data) {
                 // Pastikan data.message ada dan merupakan array
@@ -28,7 +28,7 @@
                 data: 'email',
             },
             {
-                data: 'role',
+                data: 'name',
             },
             {
                 data: 'status',
