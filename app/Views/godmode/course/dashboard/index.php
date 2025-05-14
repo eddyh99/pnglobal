@@ -1,0 +1,112 @@
+<?php if (!empty(session('success'))) { ?>
+    <div class="alert alert-success fade show position-absolute" style="top: 1rem; right: 1rem; width: 30%; z-index: 99999;" role="alert">
+        <div class="iq-alert-icon">
+            <i class="ri-information-line"></i>
+        </div>
+        <div class="iq-alert-text text-black">
+            <?= session('success') ?>
+        </div>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <i class="ri-close-line text-black"></i>
+        </button>
+    </div>
+<?php } ?>
+
+<?php if (!empty(session('failed'))) { ?>
+    <div class="alert alert-danger fade show position-absolute" style="top: 1rem; right: 1rem; width: 30%; z-index: 99999;" role="alert">
+        <div class="iq-alert-icon">
+            <i class="ri-information-line"></i>
+        </div>
+        <div class="iq-alert-text text-black">
+            <?= session('failed') ?>
+        </div>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <i class="ri-close-line text-black"></i>
+        </button>
+    </div>
+<?php } ?>
+
+<!-- Page Content  -->
+<div class="content-page mb-5">
+    <div class="container-fluid">
+        <!-- Tab Navigation -->
+
+        <!-- Tab Contents -->
+        <div id="pn-global" class="tab-content" style="display: none;">
+            <div class="row content-body">
+                <div class="col-lg-12 px-2">
+                    <div class="dash-statistics">
+                        <a href="<?= BASE_URL ?>godmode/dashboard" class="statistics col-6">
+                            <div class="iq-card">
+                                <div class="iq-card-body">
+                                    <div class="d-flex flex-column justify-content-center align-items-start">
+                                        <div>
+                                            <h5 class="text-black">Total Student</h5>
+                                        </div>
+                                        <div class="mt-3 w-100 d-flex justify-content-end">
+                                            <h1 class="text-black fw-bold"><?= @$totalstudent ?></h1>
+                                        </div>
+                                    </div>
+                                    <div class="active"></div>
+                                </div>
+                            </div>
+                        </a>
+                        <a href="<?= BASE_URL ?>godmode/subscriber" class="statistics col-6">
+                            <div class="iq-card">
+                                <div class="iq-card-body">
+                                    <div class="d-flex flex-column justify-content-center align-items-start">
+                                        <div>
+                                            <h5 class="text-black">Total Mentor</h5>
+                                        </div>
+                                        <div class="mt-3 w-100 d-flex justify-content-end">
+                                            <h1 class="text-black fw-bold"><?= @$totalmentor ?></h1>
+                                        </div>
+                                    </div>
+                                    <div class="active"></div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-12 dash-table-totalmember">
+                    <h4 class="text-white my-3 text-uppercase fw-bold">Create Payment Link</h4>
+                    <form action="<?=BASE_URL?>dashboard/paymentlink">
+                        <div class="row">
+                                <div class="col-8">
+                                    <label class="text-white">Nominal</label>
+                                    <input type="text" name="nominal" class="form-control">
+                                </div>
+                                <div class="col-4">
+                                    <label class="text-white">Currency</label>
+                                    <select name="currency" class="form-control">
+                                        <option name="usd">USD</option>
+                                        <option name="eur">EUR</option>
+                                    </select>
+                                </div>
+                                <div class="col-12 mt-2">
+                                    <label class="text-white">Description</label>
+                                    <input type="text" name="description" class="form-control">
+                                </div>
+                        </div>
+                    </form>
+                    <div class="row">
+                        <div class="col-12 mt-2 text-center">
+                            <button type="button" class="btn btn-primary">CREATE</button>
+                        </div>
+                        <div class="col-12 mt-2 text-center">
+                            <label class="text-white">Payment Link</label>
+                            <input type="text" name="payment" class="form-control" readonly>
+                        </div>
+                        <div class="col-12 mt-2 text-center">
+                            <label class="text-white">Email</label>
+                            <input type="text" name="email" class="form-control">
+                        </div>
+                        <div class="col-12 mt-2 text-center">
+                            <button type="button" class="btn btn-primary">SEND</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

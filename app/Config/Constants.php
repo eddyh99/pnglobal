@@ -113,6 +113,7 @@ if ($parts[0] === 'sandbox' || $host === 'localhost:8080') {
     define("URLAPI", 'https://api2-sandbox.pnglobalinternational.com');
     define("URLAPI2", 'https://sandbox-api.pnglobalinternational.com');
     define("URL_HEDGEFUND", 'https://elite-sandbox.pnglobalinternational.com');
+    define("URL_COURSE", 'https://course-sandbox.pnglobalinternational.com');
 
     //email DEMO
     define("EMAIL_ONE", 'demo@gmail.com');
@@ -127,7 +128,8 @@ if ($parts[0] === 'sandbox' || $host === 'localhost:8080') {
 } else {
     define("URLAPI", 'https://broker.pnglobalinternational.com');
     define("URLAPI2", 'https://api.pnglobalinternational.com');
-    define("URL_HEDGEFUND", 'https://elite.pnglobalinternational.com');
+    define("URL_HEDGEFUND", 'https://hedgefund.pnglobalinternational.com');
+    define("URL_COURSE", 'https://course.pnglobalinternational.com');
 
     //email live
     define("EMAIL_ONE", 'pnglobal.usa@gmail.com');
