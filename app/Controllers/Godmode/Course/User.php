@@ -11,8 +11,8 @@ class User extends BaseController
         $mdata = [
             'title'     => 'Course Member - ' . NAMETITLE,
             'content'   => 'godmode/course/user/member',
-            'extra'     => 'godmode/course/user/js/_js_user',
-            'active_course'    => 'active active-menu'
+            'extra'     => 'godmode/course/user/js/_js_member',
+            'active_member'    => 'active active-menu',
         ];
 
         return view('godmode/course/layout/admin_wrapper', $mdata);
@@ -22,8 +22,8 @@ class User extends BaseController
         $mdata = [
             'title'     => 'Course Mentor - ' . NAMETITLE,
             'content'   => 'godmode/course/user/mentor',
-            'extra'     => 'godmode/course/user/js/_js_user',
-            'active_course'    => 'active active-menu'
+            'extra'     => 'godmode/course/user/js/_js_mentor',
+            'active_mentor'    => 'active active-menu',
         ];
 
         return view('godmode/course/layout/admin_wrapper', $mdata);
@@ -86,10 +86,19 @@ class User extends BaseController
         }
     }
 
-    public function get_user()
+    public function get_member()
     {
-        // Call Endpoin Get Free Member
-        $url = URL_COURSE . "/v1/user/all";
+        // Call Endpoin Get Member
+        $url = URL_COURSE . "/v1/user/member";
+        $result = satoshiAdmin($url)->result;
+
+        echo json_encode($result);
+    }
+
+    public function get_mentor()
+    {
+        // Call Endpoin Get Mentor
+        $url = URL_COURSE . "/v1/user/mentor";
         $result = satoshiAdmin($url)->result;
 
         echo json_encode($result);

@@ -60,8 +60,10 @@
                     <thead class="thead_freemember">
                         <tr>
                             <th>EMAIL</th>
-                            <th>ROLE</th>
                             <th>STATUS</th>
+                            <th>NAME</th>
+                            <th>MATERIAL EXAM SCORE</th>
+                            <th>DEMO TRADE SCORE</th>
                             <th>ACTION</th>
                         </tr>
                     </thead>
