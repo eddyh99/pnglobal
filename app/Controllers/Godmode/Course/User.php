@@ -137,7 +137,7 @@ class User extends BaseController
         }
     }
 
-    public function setstatus_user($email, $status)
+    public function setstatus_user($dest, $email, $status)
     {
         $url = URL_COURSE . "/v1/user/setstatus_user";
         $email = base64_decode($email);
@@ -150,10 +150,10 @@ class User extends BaseController
 
         if ($result->code != '201') {
             session()->setFlashdata('failed', $result->message);
-            return redirect()->to(BASE_URL . 'godmode/course/user');
+            return redirect()->to(BASE_URL . 'godmode/course/user/' . $dest);
         } else {
             session()->setFlashdata('success', $result->message);
-            return redirect()->to(BASE_URL . 'godmode/course/user');
+            return redirect()->to(BASE_URL . 'godmode/course/user/' . $dest);
         }
     }
 }

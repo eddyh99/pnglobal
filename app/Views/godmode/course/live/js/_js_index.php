@@ -28,9 +28,6 @@
                 data: 'email',
             },
             {
-                data: 'material_exam',
-            },
-            {
                 data: 'demo_trade',
             },
             {
@@ -42,14 +39,24 @@
             {
                 data: null,
                 "mRender": function(data, type, full, meta) {
-                    const btndetail = `<a href="<?= BASE_URL ?>godmode/course/detailpayment/${encodeURI(btoa(full.email))}"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M20 3.33333V20H3.33333V3.33333H20ZM17.7778 5.55556H5.55556V17.7778H17.7778V5.55556ZM16.6667 0V2.22222L2.22219 2.22219L2.22222 16.6667H0V0H16.6667ZM15.5556 12.2222V14.4444H7.77778V12.2222H15.5556ZM15.5556 7.77778V10H7.77778V7.77778H15.5556Z" fill="#BFA573"/></svg></a>`
+                    const btnplay = `<a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="30" height="20" viewBox="0 0 30 20" fill="none">
+  <path d="M27.64 1H2.44C1.64471 1 1 1.64471 1 2.44V17.56C1 18.3553 1.64471 19 2.44 19H27.64C28.4353 19 29.08 18.3553 29.08 17.56V2.44C29.08 1.64471 28.4353 1 27.64 1Z" fill="#B48B3D" stroke="#B48B3D" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M19.3602 10.0002L12.1602 5.84326V14.1571L19.3602 10.0002Z" fill="black" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+</svg></a>`;
 
-                    if (full.status != 'disabled') {
-                        setStatus = `&nbsp;&nbsp;<a href="#" onclick="disableduser('` + full.email + `')"><svg  width="20" height="20" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--!Font Awesome Free 6.7.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path fill="#BFA573" d="M368 128c0 44.4-25.4 83.5-64 106.4l0 21.6c0 17.7-14.3 32-32 32l-96 0c-17.7 0-32-14.3-32-32l0-21.6c-38.6-23-64-62.1-64-106.4C80 57.3 144.5 0 224 0s144 57.3 144 128zM168 176a32 32 0 1 0 0-64 32 32 0 1 0 0 64zm144-32a32 32 0 1 0 -64 0 32 32 0 1 0 64 0zM3.4 273.7c7.9-15.8 27.1-22.2 42.9-14.3L224 348.2l177.7-88.8c15.8-7.9 35-1.5 42.9 14.3s1.5 35-14.3 42.9L295.6 384l134.8 67.4c15.8 7.9 22.2 27.1 14.3 42.9s-27.1 22.2-42.9 14.3L224 419.8 46.3 508.6c-15.8 7.9-35 1.5-42.9-14.3s-1.5-35 14.3-42.9L152.4 384 17.7 316.6C1.9 308.7-4.5 289.5 3.4 273.7z"/></svg></a>`
-                    } else {
-                        setStatus = `&nbsp;&nbsp;<a href="#" onclick="enableuser('` + full.email + `')"><svg  width="20" height="20" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path fill="#BFA573" d="M192 96a48 48 0 1 0 0-96 48 48 0 1 0 0 96zm-8 352l0-96 16 0 0 96-16 0zm-64 0l-88 0c-17.7 0-32 14.3-32 32s14.3 32 32 32l120 0 80 0 376 0c17.7 0 32-14.3 32-32s-14.3-32-32-32l-344 0 0-191.1 28.6 47.5c9.1 15.1 28.8 20 43.9 10.9s20-28.8 10.9-43.9l-58.3-97c-17.4-28.9-48.6-46.6-82.3-46.6l-29.7 0c-33.7 0-64.9 17.7-82.3 46.6l-58.3 97c-9.1 15.1-4.2 34.8 10.9 43.9s34.8 4.2 43.9-10.9L120 256.9 120 448zM598.6 121.4l-80-80c-12.5-12.5-32.8-12.5-45.3 0l-80 80c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L464 141.3 464 384c0 17.7 14.3 32 32 32s32-14.3 32-32l0-242.7 25.4 25.4c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3z"/></svg>`
-                    }
-                    return (data.payment_status != 'completed' && data.role == 'member' ? btndetail : '') + setStatus;
+                    const btnshow = `<a href="#" class="mx-2"><svg xmlns="http://www.w3.org/2000/svg" width="30" height="18" viewBox="0 0 30 18" fill="none">
+  <path d="M15 6.41581C16.4355 6.41581 17.6051 7.58594 17.6051 9.01932C17.6051 10.4527 16.4343 11.5854 15 11.5854C13.5657 11.5854 12.4323 10.4527 12.4323 9.01932C12.4323 7.58594 13.5657 6.41581 15 6.41581ZM15 0C23.5343 0 29.6883 8.00013 29.6883 8.00013C30.1039 8.52905 30.1039 9.47216 29.6883 9.99987C29.6883 9.99987 23.5331 18 15 18C6.46689 18 0.311745 9.99987 0.311745 9.99987C-0.103915 9.47095 -0.103915 8.52784 0.311745 8.00013C0.311745 8.00013 6.46689 0 15 0ZM15 15.4726C18.55 15.4726 21.4572 12.5672 21.4572 9.01932C21.4572 5.47149 18.55 2.56608 15 2.56608C11.45 2.56608 8.54277 5.47149 8.54277 9.01932C8.54277 12.5672 11.45 15.4726 15 15.4726Z" fill="#B48B3D"/>
+</svg></a>`;
+
+                    const btndel = `<a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="22" viewBox="0 0 20 22" fill="none">
+  <path d="M7.66675 11V16.5556" stroke="#B48B3D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M12.1111 11V16.5556" stroke="#B48B3D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M1 5.44434H18.7778" stroke="#B48B3D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M3.22217 8.77783V17.6667C3.22217 19.5077 4.71456 21.0001 6.5555 21.0001H13.2222C15.0632 21.0001 16.5555 19.5077 16.5555 17.6667V8.77783" stroke="#B48B3D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M6.55566 3.22222C6.55566 1.99492 7.55059 1 8.77789 1H11.0001C12.2274 1 13.2223 1.99492 13.2223 3.22222V5.44444H6.55566V3.22222Z" stroke="#B48B3D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+</svg></a>`;
+
+                    return btnplay + btnshow + btndel;
                 },
             },
         ],
