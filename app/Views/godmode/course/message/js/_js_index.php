@@ -4,7 +4,7 @@
         console.log("Document ready, initializing tabs");
 
         // Default active tab
-        let activeTab = localStorage.getItem('activeTab') || 'pn-global';
+        let activeTab = localStorage.getItem('activeTabMsg') || 'pn-global';
         console.log("Active tab from localStorage:", activeTab);
 
         // Set active tab on load
@@ -34,7 +34,7 @@
             $('#' + tabId).addClass('active').css('display', 'block');
 
             // Save active tab to localStorage
-            localStorage.setItem('activeTab', tabId);
+            localStorage.setItem('activeTabMsg', tabId);
         });
     });
 </script>

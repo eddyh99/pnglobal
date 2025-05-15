@@ -32,7 +32,7 @@
         <!-- Tab Navigation -->
 
         <!-- Tab Contents -->
-        <div id="pn-global" class="tab-content" style="display: none;">
+        <div id="pn-global" class="tab-content">
             <div class="row content-body">
                 <div class="col-lg-12 px-2">
                     <div class="dash-statistics">
@@ -95,7 +95,7 @@
                         </div>
                         <div class="col-12 mt-2 text-center">
                             <label class="text-white">Payment Link</label>
-                            <input type="text" name="payment" class="form-control" readonly>
+                            <input type="text" name="payment" class="form-control" style="background-color: transparent;" readonly>
                         </div>
                         <div class="col-12 mt-2 text-center">
                             <label class="text-white">Email</label>
