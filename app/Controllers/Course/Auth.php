@@ -49,7 +49,7 @@ class Auth extends BaseController
     
         session()->set('logged_usercourse', $loggedUser);
         session()->setFlashdata('success', 'Welcome to course');
-        return redirect()->to(BASE_URL . 'course/mentor');
+        return redirect()->to(BASE_URL . 'course/mentor/message');
     }
 
     public function memberlogin_proccess()
