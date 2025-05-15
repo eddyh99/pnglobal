@@ -33,7 +33,7 @@
                 <table class="table table-bordered mt-5">
                     <tbody>
                         <?php foreach ($messages as $m): ?>
-                            <tr onclick="window.location.href = '<?= BASE_URL ?>godmode/course/message/read';" style="cursor: pointer; <?= !$m['isread'] ? 'background-color: rgba(191, 165, 115, 0.3);' : '' ?>">
+                            <tr onclick="window.location.href = '<?= BASE_URL . $url  ?>message/read';" style="cursor: pointer; <?= !$m['isread'] ? 'background-color: rgba(191, 165, 115, 0.3);' : '' ?>">
                                 <td><?= $m['sender'] ?></td>
                                 <td><?= $m['subject'] ?></td>
                                 <td><?= $m['sent_date'] ?><button class="btn ml-3 p-0"><i>

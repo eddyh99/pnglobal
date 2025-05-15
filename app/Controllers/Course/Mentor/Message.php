@@ -51,7 +51,8 @@ class Message extends BaseController
             'content'   => 'godmode/course/message/index',
             'extra'     => 'godmode/course/message/js/_js_index',
             'active_message'    => 'active active-menu',
-            'messages'   => $messages
+            'messages'   => $messages,
+            'url'   => 'course/mentor/'
         ];
 
         return view('course/layout/mentor_wrapper', $mdata);
@@ -72,7 +73,8 @@ class Message extends BaseController
             'title'     => 'Message - ' . NAMETITLE,
             'content'   => 'godmode/course/message/read',
             'active_message'    => 'active active-menu',
-            'message'   => $msg
+            'message'   => $msg,
+            'url'   => 'course/mentor/'
         ];
 
         return view('course/layout/mentor_wrapper', $mdata);
