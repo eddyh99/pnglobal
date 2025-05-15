@@ -29,6 +29,8 @@
             },
             {
                 data: 'name',
+                defaultContent: '-',
+                className: 'text-center'
             },
             {
                 data: 'status',

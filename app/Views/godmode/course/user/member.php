@@ -32,7 +32,7 @@
 
         <div class="row content-body">
             <div class="col-lg-12">
-                <form action="<?= BASE_URL ?>godmode/course/adduser" method="POST">
+                <form action="<?= BASE_URL ?>godmode/course/user/adduser" method="POST">
                     <input type="hidden" name="role" value="member">
                     <div class="send-signals">
                         <div class="title-signal-preview d-flex justify-content-between align-items-center">

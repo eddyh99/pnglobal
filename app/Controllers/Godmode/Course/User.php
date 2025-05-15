@@ -31,60 +31,37 @@ class User extends BaseController
 
     public function adduser()
     {
-        // Validation Field
-        $rules = [
-            'email' => [
-                'label' => 'Email',
-                'rules' => 'required|valid_email'
-            ],
-            'role' => [
-                'label' => 'Role',
-                'rules' => 'required|in_list[member,mentor]'
-            ]
-        ];
-
-        if ($this->request->getVar('role') == 'member') {
-            $rules['amount'] = [
-                'label' => 'Payment Amount',
-                'rules' => 'required|numeric'
-            ];
-        }
-
-        // Checking Validation
-        if (!$this->validate($rules)) {
+        $email = $this->request->getVar('email');
+        $role  = $this->request->getVar('role');
+    
+        if (!$this->validate([
+            'email' => 'required|valid_email',
+            'role'  => 'required'
+        ])) {
             session()->setFlashdata('failed', $this->validation->listErrors());
-            return redirect()->to(BASE_URL . 'godmode/course/user');
+            return redirect()->to(BASE_URL . 'godmode/course/user/' . $role);
         }
-
-        // Init Data
-        $role = $this->request->getVar('role');
+    
         $mdata = [
-            'email'   => $this->request->getVar('email'),
-            'role'  => $role,
-            'amount' => $role == 'member' ? $this->request->getVar('amount') : 0
+            'email' => $email,
+            'role'  => $role
         ];
-
-        // Process API Request
-        $url = URL_COURSE . "/v1/user/add_user";
-        $response = satoshiAdmin($url, json_encode($mdata));
+        $response = satoshiAdmin(URL_COURSE . "/v1/user/add_user", json_encode($mdata));
         $result = $response->result;
-        log_message('error', json_encode($result));
-
-
+    
         if ($result->code == 201) {
-            // Kirim email ke member
-            $email = $mdata['email'];
-            $otp = $result->message->otp;
-            // $email_template = emailtemplate_activation_course($otp, $email);
-            // sendmail_satoshi($email, "Activation Account Satoshi Signal", $email_template);
-
+            // Optional: Kirim email aktivasi
+            // $otp = $result->message->otp;
+            // $template = emailtemplate_activation_course($otp, $email);
+            // sendmail_satoshi($email, "Activation Account Satoshi Signal", $template);
+    
             session()->setFlashdata('success', $result->message->text);
-            return redirect()->to(BASE_URL . 'godmode/course/user');
         } else {
             session()->setFlashdata('failed', $result->message);
-            return redirect()->to(BASE_URL . 'godmode/course/user');
         }
-    }
+    
+        return redirect()->to(BASE_URL . 'godmode/course/user/' . $role);
+    }    
 
     public function get_member()
     {
