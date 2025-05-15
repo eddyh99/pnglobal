@@ -95,7 +95,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="d-flex justify-content-end">
+                    <div class="d-flex justify-content-end mx-4">
                         <button type="submit" class="btn btn-primary text-uppercase"><b>Save Schedule</b></button>
                     </div>
                 </div>
