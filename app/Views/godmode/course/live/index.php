@@ -32,48 +32,9 @@
 
         <div class="row content-body">
             <div class="col-lg-12">
-                <h2 class="text-center">Score</h2>
-                <div style="margin-bottom: 2rem;">
-                    <h4 class="mb-3">Give score to student</h4>
-                    <div class="mx-4">
-                        <div class="row">
-                            <div class="col-2 border border-5 border-primary d-flex align-items-center" style="background-color: rgba(180, 139, 61, 0.2);">
-                                <span><b>Name</b></span>
-                            </div>
-                            <div class="col">
-                                <input type="text" class="form-control border-primary" value="Leonardo Da Vinci">
-                            </div>
-                        </div>
-                        <div class="row my-2">
-                            <div class="col-2 border border-5 border-primary d-flex align-items-center" style="background-color: rgba(180, 139, 61, 0.2);">
-                                <span><b>Material Exam</b></span>
-                            </div>
-                            <div class="col">
-                                <input type="text" class="form-control border-primary" value="100">
-                            </div>
-                            <div class="col-2 pl-0 d-flex align-items-center">
-                                <button class="btn btn-primary w-100 py-2" type="button">SEND SCORE</button>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-2 border border-5 border-primary d-flex align-items-center" style="background-color: rgba(180, 139, 61, 0.2);">
-                                <span><b>Demo Trade</b></span>
-                            </div>
-                            <div class="col">
-                                <input type="text" class="form-control border-primary" value="100">
-                            </div>
-                            <div class="col-2 pl-0 d-flex align-items-center">
-                                <button class="btn btn-primary w-100 py-2" type="button">SEND SCORE</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <hr style="border: 2px solid #B48B3D;">
-            </div>
-
-            <div class="col-lg-12">
-                <div style="margin-bottom: 2rem;">
-                    <h4 class="mb-3">Create Exam Schedule</h4>
+                <h2 class="text-center">Live</h2>
+                <div style="margin-bottom: 4rem;">
+                    <h4 class="mb-3">Create Live Schedule</h4>
                     <div class="mx-4">
                         <div class="row">
                             <div class="col-2 border border-5 border-primary d-flex align-items-center" style="background-color: rgba(180, 139, 61, 0.2);">
@@ -141,20 +102,22 @@
                 <hr style="border: 2px solid #B48B3D;">
             </div>
 
-            <div class="col-lg-12 dash-table-referralmember mt-4">
-                <h4 class="text-white my-3 text-uppercase fw-bold">Result Score</h4>
-                <table id="tbl_freemember" class="table table-striped" style="width:100%">
-                    <thead class="thead_freemember">
-                        <tr>
-                            <th>EMAIL</th>
-                            <th>MATERIAL EXAM SCORE</th>
-                            <th>DEMO TRADE SCORE</th>
-                            <th>ACTION</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                    </tbody>
-                </table>
+            <div class="col-lg-12 dash-table-referralmember mt-5">
+                <div class="mt-2">
+                    <table id="tbl_freemember" class="table table-striped" style="width:100%">
+                        <thead class="thead_freemember">
+                            <tr>
+                                <th>NO</th>
+                                <th>TITLE</th>
+                                <th>DATE</th>
+                                <th>MENTOR</th>
+                                <th>ACTION</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
     </div>

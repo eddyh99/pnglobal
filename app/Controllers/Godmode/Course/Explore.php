@@ -34,8 +34,7 @@ class Explore extends BaseController
             'title'     => 'Explore - ' . NAMETITLE,
             'content'   => 'godmode/course/explore/index',
             //'extra'     => 'godmode/course/explore/js/_js_index',
-            'active_dash'    => 'active',
-
+            'active_explore'    => 'active active-menu',
         ];
 
         return view('godmode/course/layout/admin_wrapper', $mdata);
@@ -48,7 +47,7 @@ class Explore extends BaseController
             'title'     => 'Add New - ' . NAMETITLE,
             'content'   => 'godmode/course/explore/addnew',
             //'extra'     => 'godmode/course/explore/js/_js_index',
-            'active_dash'    => 'active',
+            'active_explore'    => 'active active-menu',
 
         ];
 

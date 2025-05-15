@@ -11,7 +11,7 @@
         "scrollX": true,
         "order": false,
         "ajax": {
-            "url": "<?= BASE_URL ?>godmode/course/user/get_mentor",
+            "url": "<?= BASE_URL ?>godmode/course/user/get_member",
             "type": "GET",
             "dataSrc": function(data) {
                 // Pastikan data.message ada dan merupakan array
@@ -28,34 +28,35 @@
                 data: 'email',
             },
             {
-                data: 'name',
-                defaultContent: '-',
-                className: 'text-center'
+                data: 'demo_trade',
             },
             {
-                data: 'status',
+                data: 'demo_trade',
+            },
+            {
+                data: 'demo_trade',
             },
             {
                 data: null,
                 "mRender": function(data, type, full, meta) {
-                    const btndel = `<a href="<?= BASE_URL ?>godmode/course/detailpayment/${encodeURI(btoa(full.email))}" class="ml-3"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="22" viewBox="0 0 20 22" fill="none">
+                    const btnplay = `<a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="30" height="20" viewBox="0 0 30 20" fill="none">
+  <path d="M27.64 1H2.44C1.64471 1 1 1.64471 1 2.44V17.56C1 18.3553 1.64471 19 2.44 19H27.64C28.4353 19 29.08 18.3553 29.08 17.56V2.44C29.08 1.64471 28.4353 1 27.64 1Z" fill="#B48B3D" stroke="#B48B3D" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M19.3602 10.0002L12.1602 5.84326V14.1571L19.3602 10.0002Z" fill="black" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+</svg></a>`;
+
+                    const btnshow = `<a href="#" class="mx-2"><svg xmlns="http://www.w3.org/2000/svg" width="30" height="18" viewBox="0 0 30 18" fill="none">
+  <path d="M15 6.41581C16.4355 6.41581 17.6051 7.58594 17.6051 9.01932C17.6051 10.4527 16.4343 11.5854 15 11.5854C13.5657 11.5854 12.4323 10.4527 12.4323 9.01932C12.4323 7.58594 13.5657 6.41581 15 6.41581ZM15 0C23.5343 0 29.6883 8.00013 29.6883 8.00013C30.1039 8.52905 30.1039 9.47216 29.6883 9.99987C29.6883 9.99987 23.5331 18 15 18C6.46689 18 0.311745 9.99987 0.311745 9.99987C-0.103915 9.47095 -0.103915 8.52784 0.311745 8.00013C0.311745 8.00013 6.46689 0 15 0ZM15 15.4726C18.55 15.4726 21.4572 12.5672 21.4572 9.01932C21.4572 5.47149 18.55 2.56608 15 2.56608C11.45 2.56608 8.54277 5.47149 8.54277 9.01932C8.54277 12.5672 11.45 15.4726 15 15.4726Z" fill="#B48B3D"/>
+</svg></a>`;
+
+                    const btndel = `<a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="22" viewBox="0 0 20 22" fill="none">
   <path d="M7.66675 11V16.5556" stroke="#B48B3D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
   <path d="M12.1111 11V16.5556" stroke="#B48B3D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-  <path d="M1 5.44446H18.7778" stroke="#B48B3D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M1 5.44434H18.7778" stroke="#B48B3D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
   <path d="M3.22217 8.77783V17.6667C3.22217 19.5077 4.71456 21.0001 6.5555 21.0001H13.2222C15.0632 21.0001 16.5555 19.5077 16.5555 17.6667V8.77783" stroke="#B48B3D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
   <path d="M6.55566 3.22222C6.55566 1.99492 7.55059 1 8.77789 1H11.0001C12.2274 1 13.2223 1.99492 13.2223 3.22222V5.44444H6.55566V3.22222Z" stroke="#B48B3D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-</svg></a>`
+</svg></a>`;
 
-                    if (full.status != 'disabled') {
-                        setStatus = `&nbsp;&nbsp;<a href="#" onclick="disableduser('` + full.email + `')"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="20" viewBox="0 0 18 20" fill="none">
-  <path d="M12.5187 2.31456C15.7371 3.70972 18 6.97313 18 10.7944C18 15.8431 13.9638 20 9 20C4.06409 20 0 15.844 0 10.7944C0 6.97313 2.26374 3.70883 5.50926 2.31456V5.41105C3.818 6.58306 2.67303 8.53521 2.67303 10.7944C2.67303 14.3649 5.50926 17.2659 9 17.2659C12.4907 17.2659 15.327 14.3649 15.327 10.7944C15.327 8.53521 14.2091 6.58217 12.5178 5.41105L12.5187 2.31456ZM10.5001 10.7391V0H7.49986V10.7391H10.5001Z" fill="#F80D0D"/>
-</svg></a>`
-                    } else {
-                        setStatus = `&nbsp;&nbsp;<a href="#" onclick="enableuser('` + full.email + `')"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="20" viewBox="0 0 18 20" fill="none">
-  <path d="M12.5187 2.31456C15.7371 3.70972 18 6.97313 18 10.7944C18 15.8431 13.9638 20 9 20C4.06409 20 0 15.844 0 10.7944C0 6.97313 2.26374 3.70883 5.50926 2.31456V5.41105C3.818 6.58306 2.67303 8.53521 2.67303 10.7944C2.67303 14.3649 5.50926 17.2659 9 17.2659C12.4907 17.2659 15.327 14.3649 15.327 10.7944C15.327 8.53521 14.2091 6.58217 12.5178 5.41105L12.5187 2.31456ZM10.5001 10.7391V0H7.49986V10.7391H10.5001Z" fill="#0DB82D"/>
-</svg>`
-                    }
-                    return setStatus + btndel;
+                    return btnplay + btnshow + btndel;
                 },
             },
         ],
@@ -70,13 +71,13 @@
 
     function disableduser(email) {
         if (confirm("Are you sure you want to disabled this user?")) {
-            window.location.replace("<?= BASE_URL ?>godmode/course/user/setstatus_user/mentor/" + encodeURI(btoa(email)) + "/disabled");
+            window.location.replace("<?= BASE_URL ?>godmode/course/setstatus_user/" + encodeURI(btoa(email)) + "/disabled");
         }
     }
 
     function enableuser(email) {
         if (confirm("Are you sure you want to activate this user?")) {
-            window.location.replace("<?= BASE_URL ?>godmode/course/user/setstatus_user/mentor/" + encodeURI(btoa(email)) + "/active");
+            window.location.replace("<?= BASE_URL ?>godmode/course/setstatus_user/" + encodeURI(btoa(email)) + "/active");
         }
     }
 
