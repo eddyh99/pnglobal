@@ -3,6 +3,7 @@
 namespace Config;
 
 use App\Filters\LoginCourseFilter;
+use App\Filters\MentorCourseFilter;
 use CodeIgniter\Config\Filters as BaseFilters;
 use CodeIgniter\Filters\Cors;
 use CodeIgniter\Filters\CSRF;
@@ -36,6 +37,7 @@ class Filters extends BaseFilters
         'pagecache'     => PageCache::class,
         'performance'   => PerformanceMetrics::class,
         'isLoggedInCourse'   => LoginCourseFilter::class,
+        'isMentor'   => MentorCourseFilter::class,
     ];
 
     /**
@@ -111,5 +113,10 @@ class Filters extends BaseFilters
                 'course/member/*',
             ],
         ],
+        'isMentor' => [
+            'before' => [
+                'course/mentor/*',
+            ],
+        ]
     ];    
 }

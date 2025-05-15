@@ -7,6 +7,15 @@ use App\Controllers\BaseController;
 class Member extends BaseController
 {
 
+    public function __construct() {
+        $user = session()->get('logged_usercourse');
+        
+        if (!isset($user) || $user->role != 'member') {
+            throw \CodeIgniter\Exceptions\PageNotFoundException::forPageNotFound();
+        }
+    }
+    
+
     public function index() {
         return redirect()->to(BASE_URL . 'course/member/explore');
     }
