@@ -22,7 +22,17 @@
   <!-- Datatables CSS -->
   <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/dataTables.bootstrap5.min.css" />
   <!-- Custom CSS -->
-  <link rel="stylesheet" href="<?= BASE_URL ?>assets/style/css/admin/custom.css">
+    <?php
+  if (!isset($istrade)) {
+    echo '<link rel="stylesheet" href="' . BASE_URL . 'assets/style/css/admin/custom.css">';
+  } else{
+    echo '<style>
+    .logo-sidebar-admin {
+        width: auto !important;
+        height: 45px !important;
+    }</style>';
+  }
+  ?>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 </head>
 
