@@ -69,6 +69,11 @@
   }
 </style>
 
+<?php 
+$user = $_SESSION['logged_usercourse'];
+?>
+
+<?php if($user->role == 'member'): ?>
 <nav class="navbar navbar-expand-lg navbar-dark px-3 <?= $liveroom ?? '' ?>">
   <a class="navbar-brand d-flex align-items-center" href="<?= BASE_URL ?>course/member">
     <img src="<?= BASE_URL ?>assets/img/logo.png" class="logo-sidebar-admin mr-3" alt="Logo">
@@ -106,6 +111,7 @@
 
 </nav>
 <hr class="m-0 <?= $liveroom ?? '' ?>" style="border: 1px solid #c79a3a;">
+<?php endif ?>
 
 <body style="background-color: #070707;">
   <!-- Wrapper Start -->

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Controllers\Godmode\Course;
+namespace App\Controllers\Course\Mentor;
 
 use App\Controllers\BaseController;
 
@@ -52,10 +52,10 @@ class Message extends BaseController
             'extra'     => 'godmode/course/message/js/_js_index',
             'active_message'    => 'active active-menu',
             'messages'   => $messages,
-            'url'   => 'godmode/course/'
+            'url'   => 'course/mentor/'
         ];
 
-        return view('godmode/course/layout/admin_wrapper', $mdata);
+        return view('course/layout/mentor_wrapper', $mdata);
     }
 
     public function read()
@@ -74,9 +74,9 @@ class Message extends BaseController
             'content'   => 'godmode/course/message/read',
             'active_message'    => 'active active-menu',
             'message'   => $msg,
-            'url'   => 'godmode/course/'
+            'url'   => 'course/mentor/'
         ];
 
-        return view('godmode/course/layout/admin_wrapper', $mdata);
+        return view('course/layout/mentor_wrapper', $mdata);
     }
 }
