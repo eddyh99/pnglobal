@@ -361,8 +361,8 @@ class Homepage extends BaseController
             session()->setFlashdata('failed', $result->message);
             return redirect()->to(BASE_URL . 'homepage/satoshi_price#register')->withInput();
         } else {
-            $subject = "Activation Account - " . SATOSHITITLE;
-            sendmail_satoshi($mdata['email'], $subject,  emailtemplate_activation_account($result->message->otp, $mdata['email']));
+            $subject = "Activation Account - BROKER LUX";
+            sendmail_satoshi($mdata['email'], $subject,  emailtemplate_activation_account($result->message->otp, $mdata['email'],"BROKER LUX"),"BROKER LUX","brokerlux@pnglobalinternational.com");
             return redirect()->to(BASE_URL . 'auth/activate_member/' . base64_encode($mdata['email']));
         }
     }

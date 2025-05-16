@@ -87,8 +87,8 @@ class Auth extends BaseController
             session()->setFlashdata('failed', $result->message);
             return redirect()->to(BASE_URL . 'hedgefund/auth/register')->withInput();
         } else {
-            $subject = "Activation Account - " . SATOSHITITLE;
-            sendmail_satoshi($mdata['email'], $subject,  emailtemplate_activation_account($result->message->otp, $mdata['email']));
+            $subject = "Activation Account - HEDGE FUND";
+            sendmail_satoshi($mdata['email'], $subject,  emailtemplate_activation_account($result->message->otp, $mdata['email'],"HEDGE FUND"),"HEDGE FUND","hedgefund@pnglobalinternational.com");
             return redirect()->to(BASE_URL . 'hedgefund/auth/otp/' . base64_encode($mdata['email']));
         }
     }
@@ -250,6 +250,12 @@ class Auth extends BaseController
 	}
 
 	public function set_capital(){
+	   // $data=(object)array(
+	   //         "email" => "a@a.a",
+	   //         "passwd"=> sha1(123)
+	   //     );
+	   //$_SESSION["logged_user"]=$data;
+	   
 		$mdata = [
 			'title'     => 'Capital - ' . NAMETITLE,
 			'content'   => 'hedgefund/subscription/set_capital',
@@ -275,7 +281,7 @@ class Auth extends BaseController
 
         $data = [
             'min_capital'       => $minCapital,
-            'additional_step'   => 2000,
+            'additional_step'   => 100,
             'percentage_fee'    => $fee,
             'comission'         => $commission,
         ];
@@ -436,7 +442,7 @@ class Auth extends BaseController
         $orderId    = $invoice;
         $description= "HEDGE FUND - PNGLOBAL";
         //USDT.BEP20
-        $paymentResponse = $this->createCoinPaymentTransaction(15,'USDT.BEP20', $orderId,$customerEmail,$description);
+        $paymentResponse = $this->createCoinPaymentTransaction($payamount,'USDT.BEP20', $orderId,$customerEmail,$description);
         if ($paymentResponse['error'] !== 'ok') {
             $this->session->setFlashdata('error', 'There was a problem processing your purchase please try again');
             return redirect()->to(base_url().'hedgefund/auth/set_capital'); 

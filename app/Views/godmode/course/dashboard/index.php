@@ -32,7 +32,7 @@
         <!-- Tab Navigation -->
 
         <!-- Tab Contents -->
-        <div id="pn-global" class="tab-content">
+        <div id="pn-global">
             <div class="row content-body">
                 <div class="col-lg-12 px-2">
                     <div class="dash-statistics">

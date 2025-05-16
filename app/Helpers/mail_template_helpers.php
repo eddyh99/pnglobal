@@ -289,7 +289,7 @@ function emailtemplate_accountdel($mdata)
     </html>";
 }
 
-function emailtemplate_activation_account($otp, $email)
+function emailtemplate_activation_account($otp, $email, $type)
 {
     return "
      <!DOCTYPE html>
@@ -332,7 +332,7 @@ function emailtemplate_activation_account($otp, $email)
                         font-size: 14px;
                         color: #000000;
                         '>
-                            Thank you for register PN Global. To proceed with your request, enter OTP for Active Account Below
+                            Thank you for register PN Global ".$type.". To proceed with your request, enter OTP for Active Account Below
                         </p>
                         <h1 style='letter-spacing: 12px;'>" . $otp . "</h1>
                         <br><br>

@@ -203,7 +203,7 @@ function sendmail_booking($subject, $mdata)
 }
 
 
-function sendmail_satoshi($email, $subject, $message)
+function sendmail_satoshi($email, $subject, $message, $title, $mailsender)
 {
     $mail = new PHPMailer(true);
     try {
@@ -231,7 +231,7 @@ function sendmail_satoshi($email, $subject, $message)
             };
         }
 
-        $mail->setFrom(USERNAME_MAIL, SATOSHITITLE . ' Activation Email');
+        $mail->setFrom($mailsender, $title . ' Activation Email');
         $mail->isHTML(true);
         $mail->ClearAllRecipients();
         $mail->Subject = $subject;
