@@ -48,7 +48,7 @@
                 <?php
                 // }
                 ?>
-                <li class="<?= @$active_referral ?>">
+                <!-- <li class="<?= @$active_referral ?>">
                     <a href="<?= BASE_URL ?>hedgefund/referral" class="iq-waves-effect">
                         <i>
                             <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30" fill="<?= (@$active_referral != null) ? 'black' : 'white' ?>">
@@ -69,7 +69,7 @@
                         </i>
                         <span class="<?= (@$active_referral != null) ? 'text-black' : 'text-white' ?>">Referral</span>
                     </a>
-                </li>
+                </li> -->
                 <?php
                 // if ($_SESSION["logged_user"]->role=="admin"){
                 ?>

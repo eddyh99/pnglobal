@@ -27,7 +27,7 @@
                     </div>
                 </div>
                 
-                <div class="form-group-pass w-100 position-relative mt-3">
+                <div class="form-group-pass w-100 position-relative my-3">
                     <label for="confirmpassword" class="fw-semibold">Confirm Password</label>
                     <div class="wrapper-input position-relative">
                         <input type="password" name="cpass" id="password2" class="form-control pe-5" value="<?= set_value('cpass') ?>" required>
@@ -35,12 +35,12 @@
                     </div>
                 </div>
 
-                <div class="form-group mb-3 text-start">
+                <!-- <div class="form-group mb-3 text-start">
                     <div class="wrapper-input mt-3">
                         <label for="referral" class="fw-semibold">Referral Code</label>
                         <input type="text" id="referral" class="form-control" name="reff">
                     </div>
-                </div>
+                </div> -->
 
                 <input type="hidden" id="timezone" class="form-control" name="timezone" readonly value="<?= set_value('timezone') ?>">
                 <input type="hidden" name="role" value="member">
