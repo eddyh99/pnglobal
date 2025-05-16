@@ -3,12 +3,14 @@
 namespace App\Controllers\Hedgefund;
 
 use App\Controllers\BaseController;
+use CodeIgniter\Exceptions\PageNotFoundException;
 
 class Referral extends BaseController
 {
 
     public function __construct()
     {
+        throw PageNotFoundException::forPageNotFound();
         $session = session();
 
         // Jika belum login, redirect ke halaman signin

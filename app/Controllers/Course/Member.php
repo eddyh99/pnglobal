@@ -32,7 +32,7 @@ class Member extends BaseController
     }
 
     public function detail_course($id) {
-        $url = URLAPI . "/v1/course/course_byid?id=".base64_decode($id);
+        $url = URL_COURSE . "/v1/course/course_byid?id=".base64_decode($id);
         $response = courseAdmin($url);
         $result = $response->result;
         $course = [];
@@ -94,11 +94,13 @@ class Member extends BaseController
     public function mydemo() {
 
         $mdata = [
-            'title'     => 'Live Course - ' . NAMETITLE,
+            'title'     => 'Trade Course - ' . NAMETITLE,
+            'extra'   => 'course/member/js/_js_demo',
             'content'   => 'course/member/my/demo',
             'menu'      => 'course/member/my/menu',
             'active_learning'    => 'active',
             'active_demo'    => 'active',
+            'istrade'   => true
         ];
 
         return view('course/layout/wrapper', $mdata);
@@ -140,7 +142,7 @@ class Member extends BaseController
 
     public function getall_course()
     {
-        $url = URLAPI . "/v1/course/all_course";
+        $url = URL_COURSE . "/v1/course/all_course";
         $response = courseAdmin($url);
         $result = $response->result;
     
