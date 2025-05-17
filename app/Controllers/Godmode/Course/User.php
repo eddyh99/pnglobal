@@ -133,4 +133,21 @@ class User extends BaseController
             return redirect()->to(BASE_URL . 'godmode/course/user/' . $dest);
         }
     }
+
+    public function deleteuser($dest, $email)
+    {
+        $email  = base64_decode($email);
+
+        $url = URL_COURSE . "/v1/user/destroy";
+        $response = satoshiAdmin($url, json_encode(['email' => $email]));
+        $result = $response->result;
+
+        if ($result->code != '201') {
+            session()->setFlashdata('failed', $result->message);
+            return redirect()->to(BASE_URL . 'godmode/course/user/' . $dest);
+        } else {
+            session()->setFlashdata('success', $result->message);
+            return redirect()->to(BASE_URL . 'godmode/course/user/' . $dest);
+        }
+    }
 }
