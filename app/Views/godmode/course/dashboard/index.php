@@ -78,7 +78,7 @@
                             </div>
                             <div class="col-4">
                                 <label class="text-white">Currency</label>
-                                <select name="currency" class="form-control">
+                                <select name="currency" class="form-control text-danger">
                                     <option value="usdt" <?= old('currency') == 'usdt' ? 'selected' : '' ?>>USDT</option>
                                     <option value="usdc" <?= old('currency') == 'usdc' ? 'selected' : '' ?>>USDC</option>
                                     <option value="stripe" <?= old('currency') == 'stripe' ? 'selected' : '' ?>>Stripe</option>
@@ -88,19 +88,24 @@
 
                             <div class="col-12 mt-2">
                                 <label class="text-white">Description</label>
-                                <input type="text" name="description"  value="<?= old('description') ?>" class="form-control">
+                                <input type="text" name="description" value="<?= old('description') ?>" class="form-control">
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-12 my-2 text-center">
-                            <button type="submit" class="btn btn-primary" onclick="this.disabled=true; this.innerText='Processing...'; this.form.submit();">CREATE</button>
+                                <button type="submit" class="btn btn-primary" onclick="this.disabled=true; this.innerText='Processing...'; this.form.submit();">CREATE</button>
                             </div>
                     </form>
                     <div class="col-12 mt-2 text-center">
-                        <label class="text-white">Payment Link</label>
-                        <input type="text" name="payment" class="form-control" style="background-color: transparent;" value="<?= $payment_link ?>" readonly>
+                        <label class="text-white mt-2">Payment Link</label>
+
+                        <div class="input-group mw-100">
+                            <input type="text" id="paymentLink" name="payment" class="form-control" style="background-color: transparent;" value="<?= $payment_link ?>" readonly>
+                            <button class="mx-1 btn btn-primary" type="button" id="copyBtn">Copy</button>
+                        </div>
                     </div>
-                    <div class="col-12 mt-2 text-center">
+
+                    <div class="col-12 text-center">
                         <label class="text-white">Email</label>
                         <input type="text" name="email" class="form-control">
                     </div>

@@ -99,8 +99,13 @@ class Dashboard extends BaseController
                 session()->setFlashdata('paymentlink', $paymentResponse['result']['checkout_url']);
                 return redirect()->to(BASE_URL . 'godmode/course/dashboard')->withInput();
             case 'stripe':
-                session()->setFlashdata('paymentlink', 'stripe.com');
-                return redirect()->to(BASE_URL . 'godmode/course/dashboard')->withInput();
+                $stripeUrl = $this->createStripePayment($mdata);
+                if (!$stripeUrl) {
+                    return redirect()->to(base_url('godmode/course/dashboard'))->withInput();
+                }
+                session()->setFlashdata('paymentlink', $stripeUrl);
+                return redirect()->to(BASE_URL .  'godmode/course/dashboard')->withInput();
+
             case 'banktransfer':
                 session()->setFlashdata('paymentlink', 123);
                 return redirect()->to(BASE_URL . 'godmode/course/dashboard')->withInput();
@@ -156,4 +161,37 @@ class Dashboard extends BaseController
         return json_decode($response, true);
 
     }    
+
+    public function createStripePayment($mdata)
+    {
+        \Stripe\Stripe::setApiKey(SECRET_KEY);
+    
+        try {
+            $checkoutSession = \Stripe\Checkout\Session::create([
+                'payment_method_types' => ['card'], // atau ['card', 'us_bank_account', etc]
+                'line_items' => [[
+                    'price_data' => [
+                        'currency' => 'eur',
+                        'product_data' => [
+                            'name' => $mdata['description'],
+                        ],
+                        'unit_amount' => intval(floatval($mdata['amount']) * 100), // dalam sen. Misal €10 = 1000
+                    ],
+                    'quantity' => 1,
+                ]],
+                'mode' => 'payment',
+                'customer_email' => $mdata['buyer_email'],
+                'invoice_creation' => ['enabled' => true],
+                'success_url'=> base_url().'course/login/member',
+                'cancel_url' => base_url().'course/login/member'
+            ]);
+    
+            return $checkoutSession->url;
+    
+        } catch (\Exception $e) {
+            session()->setFlashdata('failed', 'Stripe error: ' . $e->getMessage());
+            return null;
+        }
+    }
+    
 }
