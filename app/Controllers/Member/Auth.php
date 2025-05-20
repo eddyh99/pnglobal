@@ -43,7 +43,7 @@ class Auth extends BaseController
 		$mdata = [
 			'title'     => 'Reset Password - ' . NAMETITLE,
 			'content'   => 'member/subscription/forgot_password',
-			'extra'     => 'member/subscription/js/_js_forgot_password',
+			// 'extra'     => 'member/subscription/js/_js_forgot_password',
 		];
 
 		return view('member/layout/login_wrapper', $mdata);
@@ -260,18 +260,33 @@ class Auth extends BaseController
 		</body>
 		</html>";
 
-		sendmail_satoshi($email, $subject, $message);
+		// sendmail_satoshi($email, $subject, $message);
 	}
 
-	public function send_resetpassword($email)
+	public function send_resetpassword()
 	{
-		$email = urldecode($email);
+
+		$rules = $this->validate([
+			'email'     => [
+				'label'     => 'Email',
+				'rules'     => 'required|valid_email'
+			],
+		]);
+
+		// Checking Validation
+		if (!$rules) {
+			session()->setFlashdata('failed', $this->validator->listErrors());
+			return redirect()->to(BASE_URL . 'member/auth/forgot_password')->withInput();
+		}
+
+		$email = $this->request->getVar('email');
 		$subject = 	NAMETITLE . " - Reset Password";
 
 
 		// Call Endpoin Member
-		$url = URLAPI . "/auth/getmember_byemail?email=" . $email;
-		$resultMember = satoshiAdmin($url)->result->message;
+		$url = URLAPI . "/auth/resend_token";
+		$resultMember = satoshiAdmin($url, json_encode(['email' => $email]))->result->message;
+		// dd($resultMember);
 
 
 		$message = "
@@ -319,7 +334,7 @@ class Auth extends BaseController
 						Thank you for using Satoshi Signal App. To proceed with your request, please copy token reset password below 
 					</p>
 					<h2 id='copyToken'>
-						" . $resultMember->token . "
+						" . $resultMember->otp . "
 					</h2>
 					<p style='
 					font-weight: 400;
@@ -345,12 +360,14 @@ class Auth extends BaseController
 		</body>
 		</html>";
 
-		sendmail_satoshi($email, $subject, $message);
+		// sendmail_satoshi($email, $subject, $message, 'Reset Password', 'pnglobal.com');
+		session()->setFlashdata('success', $resultMember->text);
+		return redirect()->to(BASE_URL . 'member/auth/forgot_pass_otp/' . base64_encode($email));
 	}
 
 	public function forgot_pass_otp($emailuser)
 	{
-		$emailuser = urldecode($emailuser);
+		// $emailuser = $emailuser;
 
 		$mdata = [
 			'title'     => 'Forgot Password - Satoshi Signal',
@@ -366,16 +383,22 @@ class Auth extends BaseController
 	{
 		$email = $this->request->getPost('email');
 		$otp   = $this->request->getPost('otp');
+		// dd($email);
 
 		if (empty($email) || empty($otp)) {
 			session()->setFlashdata('failed', 'Email atau OTP tidak ditemukan.');
 			return redirect()->to(BASE_URL . 'member/auth/forgot_pass_otp/' . base64_encode($email));
 		}
 
+		if(!$this->checkotp($email, $otp)) {
+            session()->setFlashdata('failed', 'Invalid token');
+			return redirect()->to(BASE_URL . 'member/auth/forgot_pass_otp/' . base64_encode($email));
+        };
+
 		$mdata = [
 			'title' => 'Reset Password Confirmation',
 			'content' => 'member/subscription/reset_password_confirmation',
-			'extra' => 'member/subscription/js/_js_reset_password_confirmation',
+			// 'extra' => 'member/subscription/js/_js_reset_password_confirmation',
 			'email' => $email,
 			'otp'   => $otp
 		];
@@ -403,7 +426,7 @@ class Auth extends BaseController
 		$mdata = [
 			'email' => $email,
 			'otp'   => $otp,
-			'password' => $password
+			'password' => sha1($password)
 		];
 
 		$url = URLAPI . "/auth/reset_password";
@@ -424,4 +447,17 @@ class Auth extends BaseController
 		$this->session->remove('logged_user');
 		return redirect()->to(BASE_URL . 'member/auth/login');
 	}
+
+	private function checkotp($email, $otp)
+    {
+        $url = URLAPI . "/auth/otp_check";
+        $response = courseAdmin($url, json_encode([
+            'email' => $email,
+            'otp'   => $otp
+        ]));
+    
+        return isset($response->result->code, $response->result->message)
+        && $response->result->code == 200
+        && $response->result->message == true;
+    }
 }
