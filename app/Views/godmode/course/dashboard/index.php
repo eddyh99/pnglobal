@@ -98,20 +98,22 @@
                     </form>
                     <div class="col-12 mt-2 text-center">
                         <label class="text-white mt-2">Payment Link</label>
-
+                        
+                        <form action="<?= BASE_URL ?>godmode/course/dashboard/sendpayment">
                         <div class="input-group mw-100">
-                            <input type="text" id="paymentLink" name="payment" class="form-control" style="background-color: transparent;" value="<?= $payment_link ?>" readonly>
+                            <input type="text" id="paymentLink" name="paymentlink" class="form-control" style="background-color: transparent;" value="<?= $payment_link ?>" readonly>
                             <button class="mx-1 btn btn-primary" type="button" id="copyBtn">Copy</button>
                         </div>
                     </div>
 
                     <div class="col-12 text-center">
                         <label class="text-white">Email</label>
-                        <input type="text" name="email" class="form-control">
+                        <input type="text" name="email" class="form-control" value="<?= old('email') ?>">
                     </div>
                     <div class="col-12 my-3 text-center">
-                        <button type="button" class="btn btn-primary">SEND</button>
+                        <button type="submit" class="btn btn-primary" onclick="this.disabled=true; this.innerText='Sending...'; this.form.submit();">SEND</button>
                     </div>
+                    </form>
                 </div>
             </div>
         </div>

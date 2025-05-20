@@ -193,5 +193,34 @@ class Dashboard extends BaseController
             return null;
         }
     }
+
+    public function sendpayment() {
+            // Validation Field
+        $rules = $this->validate([
+                'email' => [
+                    'label' => 'Email',
+                    'rules' => 'required|valid_email'
+                ],
+                'paymentlink' => [
+                    'label' => 'Payment Link',
+                    'rules' => 'required'
+                ],
+        ]);
+
+        if (!$rules) {
+            session()->setFlashdata('failed', $this->validation->listErrors());
+            return redirect()->to(BASE_URL . 'godmode/course/dashboard');
+        }
+        $email = $this->request->getVar('email');
+        $title = 'Payment Request';
+        $subject = 'Please Complete Your Payment';
+
+        // send email
+        // $emailTemplate = emailtemplate_payment_course($this->request->getVar('paymentlink'));
+        // sendmail_satoshi($email, $subject, $emailTemplate, $title, 'pnglobal.com');
+
+        session()->setFlashdata('success', 'Payment link has been sent successfully.');
+        return redirect()->to(BASE_URL . 'godmode/course/dashboard')->withInput();
+    }
     
 }
