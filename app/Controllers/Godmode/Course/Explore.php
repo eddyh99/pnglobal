@@ -33,7 +33,7 @@ class Explore extends BaseController
         $mdata = [
             'title'     => 'Explore - ' . NAMETITLE,
             'content'   => 'godmode/course/explore/index',
-            //'extra'     => 'godmode/course/explore/js/_js_index',
+            'extra'     => 'godmode/course/explore/js/_js_index',
             'active_explore'    => 'active active-menu',
             'url'   => 'godmode/course/'
         ];
@@ -101,6 +101,20 @@ class Explore extends BaseController
 
         session()->setFlashdata('success', $result->message);
         return redirect()->to(BASE_URL . 'godmode/course/explore');
+    }
+
+    public function getall_course()
+    {
+        $url = URL_COURSE . "/v1/course/all_course";
+        $response = satoshiAdmin($url);
+        $result = $response->result;
+    
+        $data = [
+            'code' => $result->code,
+            'message' => $result->message ?? [],
+        ];
+    
+        return $this->response->setJSON($data);
     }
     
 }
