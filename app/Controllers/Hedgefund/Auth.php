@@ -733,8 +733,8 @@ class Auth extends BaseController
 
 	public function reset_password_confirmation()
 	{
-		$email = $this->request->getPost('email');
-		$otp   = $this->request->getPost('otp');
+		$email = $this->request->getPost('email') ?? old('email');
+		$otp   = $this->request->getPost('otp') ?? old('otp');
 
 		if (empty($email) || empty($otp)) {
 			session()->setFlashdata('failed', 'Email atau OTP tidak ditemukan.');
@@ -759,20 +759,34 @@ class Auth extends BaseController
 
 	public function update_password()
 	{
-		$email = $this->request->getPost('email');
+        $isValid = $this->validate([
+            'email' => [
+                'label' => 'Email',
+                'rules' => 'required|valid_email',
+            ],
+            'otp' => [
+                'label' => 'Kode OTP',
+                'rules' => 'required|numeric|exact_length[4]',
+            ],
+            'password' => [
+                'label' => 'Password',
+                'rules' => 'required|min_length[8]',
+            ],
+            'confirm_password' => [
+                'label' => 'Konfirmasi Password',
+                'rules' => 'required|matches[password]',
+            ],
+        ]);
+
+        // Checking Validation
+        if (!$isValid) {
+            session()->setFlashdata('failed', $this->validation->listErrors());
+            return redirect()->to(BASE_URL . 'hedgefund/auth/reset_password_confirmation/')->withInput();
+        }
+
+        $email = $this->request->getPost('email');
 		$otp   = $this->request->getPost('otp');
 		$password = $this->request->getPost('password');
-		$confirm_password = $this->request->getPost('confirm_password');
-
-		if (empty($email) || empty($otp) || empty($password) || empty($confirm_password)) {
-			session()->setFlashdata('failed', 'Email atau OTP tidak ditemukan.');
-			return redirect()->to(BASE_URL . 'hedgefund/auth/reset_password_confirmation/' . base64_encode($email));
-		}
-
-		if ($password !== $confirm_password) {
-			session()->setFlashdata('failed', 'Password tidak sama.');
-			return redirect()->to(BASE_URL . 'hedgefund/auth/reset_password_confirmation/' . base64_encode($email));
-		}
 
 		$mdata = [
 			'email' => $email,
@@ -789,7 +803,7 @@ class Auth extends BaseController
 			return redirect()->to(BASE_URL . 'hedgefund/auth/login');
 		} else {
 			session()->setFlashdata('failed', $result->message);
-			return redirect()->to(BASE_URL . 'hedgefund/auth/reset_password_confirmation/' . base64_encode($email));
+			return redirect()->to(BASE_URL . 'hedgefund/auth/reset_password_confirmation/')->withInput();
 		}
 	}
 	
