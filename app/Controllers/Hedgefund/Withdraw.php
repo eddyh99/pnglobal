@@ -20,7 +20,7 @@ class Withdraw extends BaseController
         $loggedUser = $session->get('logged_user');
 
         // Pengecekan role: hanya admin yang boleh mengakses halaman ini
-        if ($loggedUser->role !== 'member') {
+        if (!in_array($loggedUser->role, ['member', 'referral'])) {
             header("Location: " . BASE_URL . 'hedgefund/auth/login');
             exit();
         }

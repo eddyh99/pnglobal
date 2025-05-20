@@ -20,7 +20,7 @@ class Membership extends BaseController
         $loggedUser = $session->get('logged_user');
 
         // Pengecekan role: hanya member yang boleh mengakses halaman ini
-        if ($loggedUser->role !== 'member') {
+        if (!in_array($loggedUser->role, ['member', 'referral'])) {
             exit();
         }
     }
