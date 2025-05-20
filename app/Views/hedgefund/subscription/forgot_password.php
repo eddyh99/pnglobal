@@ -18,7 +18,7 @@
                             <div class="forgot-password-form w-100">
                                 <h1 class="mb-3 text-center text-black">Reset Password</h1>
                                 <p class="text-center text-capitalize text-black">Enter your email address to reset your password</p>
-                                <form class="mt-4" action="#">
+                                <form class="mt-4"  action="<?= BASE_URL ?>hedgefund/auth/send_resetpassword">
                                     <div class="form-group text-center">
                                         <label for="exampleInputEmail2"><b>Email address</b></label>
                                         <input type="email" class="form-control mb-0 w-50 mx-auto" style="background-color: #d6d6d6;" name="email" id="email" placeholder="Enter email" required>

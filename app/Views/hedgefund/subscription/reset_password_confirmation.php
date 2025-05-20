@@ -32,7 +32,7 @@
                 <div class="forgot-password-form w-100">
                     <h1 class="mb-3 text-center text-black">Create Password</h1>
                     <p class="text-center text-dark text-capitalize">Create your new password</p>
-                    <form action="<?= BASE_URL ?>member/auth/update_password" method="POST" class="mt-4" id="forgotPasswordForm">
+                    <form action="<?= BASE_URL ?>hedgefund/auth/update_password" method="POST" class="mt-4" id="forgotPasswordForm">
                         <input type="hidden" name="email" value="<?= $email ?>">
                         <input type="hidden" name="otp" value="<?= $otp ?>">
                         <div class="form-group">
