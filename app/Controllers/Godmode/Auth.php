@@ -296,6 +296,7 @@ class Auth extends BaseController
 		if ($result->code == 200) {
 			session()->setFlashdata('success', 'Password berhasil diubah.');
             $this->update_password_course($mdata);
+            $this->update_password_hedgefund($mdata);
 			return redirect()->to(BASE_URL . 'godmode/auth/signin');
 		} else {
 			session()->setFlashdata('failed', $result->message);
@@ -311,6 +312,17 @@ class Auth extends BaseController
 
         if ($result->code != 201) {
             session()->setFlashdata('failed', 'Failed to update course account password.');
+        }
+    }
+
+    private function update_password_hedgefund($mdata) {
+        $mdata += ['isgodmode' => true];
+		$url = URL_HEDGEFUND . "/auth/reset_password";
+		$response = satoshiAdmin($url, json_encode($mdata));
+		$result = $response->result;
+
+        if ($result->code != 200) {
+            session()->setFlashdata('failed', 'Failed to update hedge fund account password.');
         }
     }
 }
