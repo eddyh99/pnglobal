@@ -43,6 +43,7 @@ class Auth extends BaseController
 		$mdata = [
 			'title'     => 'Reset Password - ' . NAMETITLE,
 			'content'   => 'member/subscription/forgot_password',
+			'mode'      => 'member'
 			// 'extra'     => 'member/subscription/js/_js_forgot_password',
 		];
 
@@ -285,8 +286,12 @@ class Auth extends BaseController
 
 		// Call Endpoin Member
 		$url = URLAPI . "/auth/resend_token";
-		$resultMember = satoshiAdmin($url, json_encode(['email' => $email]))->result->message;
-		// dd($resultMember);
+		$response = satoshiAdmin($url, json_encode(['email' => $email]))->result;
+        $result = $response->message;
+        if ($response->code != 200) {
+            session()->setFlashdata('failed', $result);
+            return redirect()->to(BASE_URL . 'member/auth/forgot_password')->withInput();
+        }
 
 
 		$message = "
@@ -334,7 +339,7 @@ class Auth extends BaseController
 						Thank you for using Satoshi Signal App. To proceed with your request, please copy token reset password below 
 					</p>
 					<h2 id='copyToken'>
-						" . $resultMember->otp . "
+						" . $result->otp . "
 					</h2>
 					<p style='
 					font-weight: 400;
@@ -361,7 +366,7 @@ class Auth extends BaseController
 		</html>";
 
 		// sendmail_satoshi($email, $subject, $message, 'Reset Password', 'pnglobal.com');
-		session()->setFlashdata('success', $resultMember->text);
+		session()->setFlashdata('success', $result->text);
 		return redirect()->to(BASE_URL . 'member/auth/forgot_pass_otp/'. base64_encode($email));
 	}
 
@@ -373,7 +378,8 @@ class Auth extends BaseController
 			'title'     => 'Forgot Password - Satoshi Signal',
 			'content'   => 'member/subscription/forgot_pass_otp',
 			'extra'     => 'member/subscription/js/_js_forgot_pass_otp',
-			'emailuser' => $emailuser
+			'emailuser' => $emailuser,
+			'mode'      => 'member'
 		];
 
 		return view('member/layout/login_wrapper', $mdata);
@@ -398,9 +404,9 @@ class Auth extends BaseController
 		$mdata = [
 			'title' => 'Reset Password Confirmation',
 			'content' => 'member/subscription/reset_password_confirmation',
-			// 'extra' => 'member/subscription/js/_js_reset_password_confirmation',
 			'email' => $email,
-			'otp'   => $otp
+			'otp'   => $otp,
+			'mode'  => 'member'
 		];
 
 		return view('member/layout/login_wrapper', $mdata);
