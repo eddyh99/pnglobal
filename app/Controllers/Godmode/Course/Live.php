@@ -80,5 +80,36 @@ class Live extends BaseController
         list($hours, $minutes) = explode(':', $duration);
         return ((int)$hours * 60) + (int)$minutes;
     }
+
+    public function get_schedule()
+    {
+        $url = URL_COURSE . "/v1/live/all_schedule";
+        $response = satoshiAdmin($url);
+        $result = $response->result;
+    
+        $data = [
+            'code' => $result->code,
+            'message' => $result->message ?? [],
+        ];
+    
+        return $this->response->setJSON($data);
+    }
+
+    public function deletelive($id)
+    {
+        $id  = base64_decode($id);
+
+        $url = URL_COURSE . "/v1/live/destroy";
+        $response = satoshiAdmin($url, json_encode(['id' => $id]));
+        $result = $response->result;
+
+        if ($result->code != '201') {
+            session()->setFlashdata('failed', $result->message);
+            return redirect()->to(BASE_URL . 'godmode/course/live/');
+        } else {
+            session()->setFlashdata('success', $result->message);
+            return redirect()->to(BASE_URL . 'godmode/course/live/');
+        }
+    }
     
 }

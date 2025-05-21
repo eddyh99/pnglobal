@@ -118,7 +118,7 @@
 
             <div class="col-lg-12 dash-table-referralmember mt-5">
                 <div class="mt-2">
-                    <table id="tbl_freemember" class="table table-striped" style="width:100%">
+                    <table id="tbl_live" class="table table-striped" style="width:100%">
                         <thead class="thead_freemember">
                             <tr>
                                 <th>NO</th>
