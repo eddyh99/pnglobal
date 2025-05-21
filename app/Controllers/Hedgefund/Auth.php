@@ -88,7 +88,7 @@ class Auth extends BaseController
             return redirect()->to(BASE_URL . 'hedgefund/auth/register')->withInput();
         } else {
             $subject = "Activation Account - HEDGE FUND";
-            sendmail_satoshi($mdata['email'], $subject,  emailtemplate_activation_account($result->message->otp, $mdata['email'],"HEDGE FUND"),"HEDGE FUND","hedgefund@pnglobalinternational.com");
+            sendmail_satoshi($mdata['email'], $subject,  emailtemplate_activation_account($result->message->otp, $mdata['email'],"HEDGE FUND"),"HEDGE FUND",USERNAME_MAIL);
             return redirect()->to(BASE_URL . 'hedgefund/auth/otp/' . base64_encode($mdata['email']));
         }
     }
@@ -714,7 +714,7 @@ class Auth extends BaseController
 		</body>
 		</html>";
 
-		// sendmail_satoshi($email, $subject, $message, 'Reset Password', 'pnglobal.com');
+		sendmail_satoshi($email, $subject, $message, 'Reset Password', USERNAME_MAIL);
 		session()->setFlashdata('success', $resultMember->text);
 		return redirect()->to(BASE_URL . 'hedgefund/auth/forgot_pass_otp/' . base64_encode($email));
 	}

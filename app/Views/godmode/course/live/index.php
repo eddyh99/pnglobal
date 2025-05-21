@@ -1,3 +1,8 @@
+<style>
+  #duration::-webkit-datetime-edit-ampm-field {
+    display: none;
+  }
+</style>
 <?php if (!empty(session('success'))) { ?>
     <div class="alert alert-success fade show position-absolute" style="top: 1rem; right: 1rem; width: 30%; z-index: 99999;" role="alert">
         <div class="iq-alert-icon">
@@ -36,12 +41,13 @@
                 <div style="margin-bottom: 4rem;">
                     <h4 class="mb-3">Create Live Schedule</h4>
                     <div class="mx-4">
+                        <form action="<?= BASE_URL ?>godmode/course/live/store">
                         <div class="row">
                             <div class="col-2 border border-5 border-primary d-flex align-items-center" style="background-color: rgba(180, 139, 61, 0.2);">
                                 <span><b>Title</b></span>
                             </div>
                             <div class="col">
-                                <input type="text" class="form-control border-primary text-white" value="Title of course">
+                                <input type="text" name="title" class="form-control border-primary text-white" value="Title of course">
                             </div>
                         </div>
                         <div class="row my-3">
@@ -49,7 +55,14 @@
                                 <span><b>Mentor</b></span>
                             </div>
                             <div class="col">
-                                <input type="text" class="form-control border-primary text-white" value="Leonardo Da Vinci">
+                                <select class="form-control-custom" name="mentor_id">
+                                    <option value="" class="text-center" <?= old('mentor_id') === '' ? 'selected' : '' ?>>--- Select mentor ---</option>
+                                    <?php foreach ($mentor as $m): ?>
+                                        <option value="<?= $m->id ?>" <?= old('mentor_id') == $m->id ? 'selected' : '' ?>>
+                                            <?= $m->name ?? '-' ?>
+                                        </option>
+                                    <?php endforeach ?>
+                                </select>
                             </div>
                         </div>
                         <div class="row">
@@ -57,7 +70,7 @@
                                 <span><b>Start Date</b></span>
                             </div>
                             <div class="col">
-                                <input type="date" class="form-control border-primary text-white" value="<?= date('Y-m-d') ?>">
+                                <input type="date" name="start_date" class="form-control border-primary text-white" value="<?= date('Y-m-d') ?>" min="<?= date('Y-m-d') ?>">
                             </div>
                         </div>
                         <div class="row my-3">
@@ -65,7 +78,7 @@
                                 <span><b>TIme</b></span>
                             </div>
                             <div class="col">
-                                <input type="time" class="form-control border-primary text-white" value="12:00">
+                                <input type="time" name="time" class="form-control border-primary text-white" value="12:00">
                             </div>
                         </div>
                         <div class="row mb-3">
@@ -73,7 +86,7 @@
                                 <span><b>Duration</b></span>
                             </div>
                             <div class="col">
-                                <input type="time" class="form-control border-primary text-white" value="01:00">
+                                <input id="duration" type="time" name="duration" class="form-control border-primary text-white" value="01:00" step="60">
                             </div>
                         </div>
                         <div class="row">
@@ -98,13 +111,14 @@
                     <div class="d-flex justify-content-end mx-4">
                         <button type="submit" class="btn btn-primary text-uppercase"><b>Save Schedule</b></button>
                     </div>
+                    </form>
                 </div>
                 <hr style="border: 2px solid #B48B3D;">
             </div>
 
             <div class="col-lg-12 dash-table-referralmember mt-5">
                 <div class="mt-2">
-                    <table id="tbl_freemember" class="table table-striped" style="width:100%">
+                    <table id="tbl_live" class="table table-striped" style="width:100%">
                         <thead class="thead_freemember">
                             <tr>
                                 <th>NO</th>
