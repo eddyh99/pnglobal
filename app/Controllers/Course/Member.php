@@ -55,7 +55,8 @@ class Member extends BaseController
 
         $mdata = [
             'title'     => 'Live Course - ' . NAMETITLE,
-            'content'   => 'course/member/nolive',
+            'content'   => 'course/member/live',
+            'extra'     => 'course/member/js/_js_live',
             'active_live'    => 'active',
         ];
 
@@ -154,6 +155,19 @@ class Member extends BaseController
         return $this->response->setJSON($data);
     }
     
+    public function get_live()
+    {
+        $url = URL_COURSE . "/v1/live/active_live";
+        $response = courseAdmin($url);
+        $result = $response->result;
+
+        $data = [
+            'code' => $result->code,
+            'message' => $result->message ?? [],
+        ];
+    
+        return $this->response->setJSON($data);
+    }
 
 
 }
