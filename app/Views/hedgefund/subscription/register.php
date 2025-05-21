@@ -38,7 +38,7 @@
                 <div class="form-group mb-3 text-start">
                     <div class="wrapper-input mt-3">
                         <label for="referral" class="fw-semibold">Referral Code</label>
-                        <input type="text" id="referral" class="form-control" name="reff">
+                        <input type="text" id="referral" class="form-control" name="referral">
                     </div>
                 </div>
 
