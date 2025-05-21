@@ -43,7 +43,7 @@
             {
                 data: null,
                 "mRender": function(data, type, full, meta) {
-                    const btnplay = `<a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="30" height="20" viewBox="0 0 30 20" fill="none">
+                    const btnplay = `<a href="<?= BASE_URL ?>godmode/course/live/host?room_id=${full.roomid}" target="__blank"><svg xmlns="http://www.w3.org/2000/svg" width="30" height="20" viewBox="0 0 30 20" fill="none">
   <path d="M27.64 1H2.44C1.64471 1 1 1.64471 1 2.44V17.56C1 18.3553 1.64471 19 2.44 19H27.64C28.4353 19 29.08 18.3553 29.08 17.56V2.44C29.08 1.64471 28.4353 1 27.64 1Z" fill="#B48B3D" stroke="#B48B3D" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
   <path d="M19.3602 10.0002L12.1602 5.84326V14.1571L19.3602 10.0002Z" fill="black" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
 </svg></a>`;

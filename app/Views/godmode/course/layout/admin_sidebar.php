@@ -1,5 +1,5 @@
 <!-- Sidebar  -->
-<div class="iq-sidebar">
+<div class="iq-sidebar <?= $liveroom ?? '' ?>">
     <div class="iq-menu-bt-sidebar d-flex justify-content-end">
         <div class="iq-menu-bt align-self-center">
             <div class="wrapper-menu">
