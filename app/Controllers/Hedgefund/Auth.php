@@ -686,7 +686,7 @@ class Auth extends BaseController
 					font-size: 14px;
 					color: #000000;
 					'>
-						Thank you for using Satoshi Signal App. To proceed with your request, please copy token reset password below 
+						Thank you for using Hedge Fund App. To proceed with your request, please copy token reset password below 
 					</p>
 					<h2 id='copyToken'>
 						" . $resultMember->otp . "
@@ -697,7 +697,7 @@ class Auth extends BaseController
 					color: #000000;
 					'>
 						Best regards,<br>  
-						Satoshi Signal Team
+						Hedge Fund Team
 
 					</p>
 				</div>
