@@ -41,6 +41,9 @@
             localStorage.setItem('activeTab', tabId);
             console.log("Saved tab to localStorage:", tabId);
         });
+
+        const paymentLink = $('#paymentLink').val();
+        $('#copyBtn').prop('disabled', paymentLink.trim() === '');
     });
 
     window.setTimeout(function() {
@@ -595,4 +598,14 @@
         ],
 
     });
+
+    $('#copyBtn').on('click', function () {
+        const $input = $('#paymentLink');
+        $input.select();
+        document.execCommand('copy');
+
+        // Optional feedback (bisa diganti toastr, dll)
+        alert('Payment link copied!');
+    });
+
 </script>

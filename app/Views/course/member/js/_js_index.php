@@ -20,9 +20,9 @@ function displayCourses(courses) {
                     <div class="card w-100" style="width: 18rem;background-color: transparent;">
                         <img src="<?= BASE_URL ?>assets/img/${course.cover}" class="card-img-top" alt="...">
                         <div class="card-body p-1">
-                            <p class="card-text mb-1">${course.title}</p>
+                            <h4 class="card-text mb-1">${course.title}</h4>
                               <div class="d-flex justify-content-between">
-                                    <small>${course.email}</small>
+                                    <small class="text-uppercase">By ${course.name}</small>
                                     <i class="bi bi-check-square-fill" style="color: green;"></i>
                                 </div>
                         </div>

@@ -21,7 +21,7 @@ class Dashboard extends BaseController
         $loggedUser = $session->get('logged_user');
 
         // Pengecekan role: hanya admin yang boleh mengakses halaman ini
-        if ($loggedUser->role !== 'member') {
+        if (!in_array($loggedUser->role, ['member', 'referral'])) {
             header("Location: " . BASE_URL . 'hedgefund/auth/login');
             exit();
         }
@@ -31,6 +31,7 @@ class Dashboard extends BaseController
     {
 
         $wd = new Withdraw;
+        $user = session()->get('logged_user');
 
         $mdata = [
             'title'     => 'Dashboard - ' . NAMETITLE,
@@ -38,7 +39,8 @@ class Dashboard extends BaseController
             'extra'     => 'hedgefund/dashboard/js/_js_index',
             'active_dash'    => 'active',
             'refcode'   => $_SESSION['logged_user']->refcode,
-            'balance'   => $wd->get_balance()
+            'balance'   => $wd->get_balance(),
+            'isreferral'   => $user->role == 'referral' ? 'invisible' : ''
         ];
 
         return view('hedgefund/layout/dashboard_wrapper', $mdata);

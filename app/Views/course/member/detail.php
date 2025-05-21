@@ -1,6 +1,6 @@
 <div class="container-fluid">
     <h2 class="text-center my-3"><?= $course->title ?? 'Untitled' ?></h2>
-    <h5 class="text-center">By <?= $course->email ?? '404' ?></h5>
+    <h5 class="text-center">By <?= $course->name ?? '404' ?></h5>
     <div class="mx-4">
         <div class="mt-4 text-white">
             <h2>Description</h2>

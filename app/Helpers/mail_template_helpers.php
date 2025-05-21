@@ -631,3 +631,74 @@ function emailtemplate_activation_course($otp, $email)
             </body>
         </html>";
 }
+
+function emailtemplate_payment_course($link)
+{
+    return "
+     <!DOCTYPE html>
+        <html lang='en'>
+            <head>
+                <meta name='color-scheme' content='light'>
+                <meta name='supported-color-schemes' content='light'>
+                <title>PN Global Course - Complete Your Payment</title>
+            </head>
+    
+            <body>
+                <div style='
+                max-width: 420px;
+                margin: 0 auto;
+                position: relative;
+                padding: 1rem;
+                '>
+                    <div style='
+                    text-align: center;
+                    padding: 3rem;
+                    '>
+                        <h3 style='
+                        font-weight: 600;
+                        font-size: 30px;
+                        line-height: 45px;
+                        color: #000000;
+                        margin-bottom: 1rem;
+                        text-align: center;
+                        '>
+                            Dear, New User
+                        </h3>
+                    </div>
+    
+                    <div style='
+                    text-align: center;
+                    padding-bottom: 1rem;
+                    '>
+                        <p style='
+                        font-weight: 400;
+                        font-size: 14px;
+                        color: #000000;
+                        '>
+                        Thank you for registering for the PN Global Course. To activate your account, please complete the payment using the link below:
+                    </p>
+                    <a href='" . $link . "' target='_blank'>" . $link . "</a>
+                    <br><br>
+                        <p style='
+                        font-weight: 400;
+                        font-size: 14px;
+                        color: #000000;
+                        '>
+                            Best regards,<br>  
+                            PN Global Team
+                        </p>
+                    </div>
+                    <hr>
+                    <hr>
+                    <p style='
+                    text-align: center;
+                    font-weight: 400;
+                    font-size: 12px;
+                    color: #999999;
+                    '>
+                        Copyright © " . date('Y') . "
+                    </p>
+                </div>
+            </body>
+        </html>";
+}

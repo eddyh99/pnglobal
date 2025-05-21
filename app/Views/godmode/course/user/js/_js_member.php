@@ -42,7 +42,7 @@
             {
                 data: null,
                 "mRender": function(data, type, full, meta) {
-                    const btndel = `<a href="<?= BASE_URL ?>godmode/course/detailpayment/${encodeURI(btoa(full.email))}" class="ml-3"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="22" viewBox="0 0 20 22" fill="none">
+                    const btndel = `<a href="<?= BASE_URL ?>godmode/course/user/deleteuser/member/${encodeURI(btoa(full.email))}" class="ml-3"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="22" viewBox="0 0 20 22" fill="none" onclick="return confirm('Are you sure you want to delete this member?')">
   <path d="M7.66675 11V16.5556" stroke="#B48B3D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
   <path d="M12.1111 11V16.5556" stroke="#B48B3D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
   <path d="M1 5.44446H18.7778" stroke="#B48B3D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>

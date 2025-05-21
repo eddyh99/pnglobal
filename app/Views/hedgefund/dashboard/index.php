@@ -81,7 +81,7 @@
                             </div>
                         </div>
                         <div class="d-flex justify-content-start flex-row flex-wrap gap-2">
-                            <a href="<?= BASE_URL ?>hedgefund/deposit" class="btn-withdraw btn-lg me-1">DEPOSIT</a>
+                            <a href="<?= BASE_URL ?>hedgefund/deposit" class="btn-withdraw btn-lg me-1 <?= $isreferral ?>">DEPOSIT</a>
                         </div>
                     </div>
 

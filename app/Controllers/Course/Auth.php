@@ -273,4 +273,36 @@ class Auth extends BaseController
 
 		return view('member/layout/login_wrapper', $mdata);
 	}
+
+    public function coinpayment_notify()
+    {
+        $data = $_POST;
+        log_message('error', "data cointpayment : ".json_encode($data));
+
+        if ($data["status"] === "100") {
+            $merchantOrderId = $data['invoice'] ?? null;
+            $reference = $data['txn_id'] ?? null;
+        
+            // Callback tervalidasi
+            $code = "pending";
+            if ($data['status_text'] == 'Complete') {
+                $code = "active";
+            } elseif ($data['status_text'] == 'Failed') {
+                $code = "failed";
+            }
+        
+            $postData = array(
+                "invoice"   => $merchantOrderId,
+                "references"=> $reference,
+                "status"    => $code
+            );
+            // Debugging sebelum kirim request
+
+            log_message('error',"Sending data". json_encode($postData));
+        
+            // $url = URLAPI . "/non/notify_payment";
+            // $response = satoshiAdmin($url, json_encode($postData));
+            // log_message('error',"Response: " . json_encode($response));
+        }
+    }
 }

@@ -33,7 +33,7 @@ class Explore extends BaseController
         $mdata = [
             'title'     => 'Explore - ' . NAMETITLE,
             'content'   => 'godmode/course/explore/index',
-            //'extra'     => 'godmode/course/explore/js/_js_index',
+            'extra'     => 'godmode/course/explore/js/_js_index',
             'active_explore'    => 'active active-menu',
             'url'   => 'godmode/course/'
         ];
@@ -43,15 +43,78 @@ class Explore extends BaseController
 
     public function addnew()
     {
+        $url = URL_COURSE . "/v1/user/mentor";
+        $result = satoshiAdmin($url)->result;
 
         $mdata = [
             'title'     => 'Add New - ' . NAMETITLE,
             'content'   => 'godmode/course/explore/addnew',
             //'extra'     => 'godmode/course/explore/js/_js_index',
             'active_explore'    => 'active active-menu',
+            'mentor'    => $result->message ?? []
         ];
 
         return view('godmode/course/layout/admin_wrapper', $mdata);
+    }
+
+    public function store() {
+        $isValid = $this->validate([
+            'title' => [
+                'label' => 'Title Course',
+                'rules' => 'required',
+            ],
+            'mentor_id' => [
+                'label' => 'Mentor',
+                'rules' => 'required',
+            ],
+            'description' => [
+                'label' => 'Description Course',
+                'rules' => 'required',
+            ],
+            'cover' => [
+                'label' => 'Cover Image',
+                'rules' => 'uploaded[cover]|mime_in[cover,image/jpg,image/jpeg,image/png]'
+            ],
+        ]);
+        
+
+        // Checking Validation
+        if (!$isValid) {
+            session()->setFlashdata('failed', $this->validation->listErrors());
+            return redirect()->to(BASE_URL . 'godmode/course/explore/addnew')->withInput();
+        }
+
+            
+        $mdata = [
+            'title'        => $this->request->getVar('title'),
+            'description'  => $this->request->getVar('description'),
+            'mentor_id'    => $this->request->getVar('mentor_id'),
+            'cover'        => 'course/course-1.png'
+        ];
+        $response = satoshiAdmin(URL_COURSE . "/v1/course/store", json_encode($mdata));
+        $result = $response->result;
+    
+        if ($result->code != 201) {    
+            session()->setFlashdata('failed', $result->message);
+            return redirect()->to(BASE_URL . 'godmode/course/explore/addnew')->withInput();
+        } 
+
+        session()->setFlashdata('success', $result->message);
+        return redirect()->to(BASE_URL . 'godmode/course/explore');
+    }
+
+    public function getall_course()
+    {
+        $url = URL_COURSE . "/v1/course/all_course";
+        $response = satoshiAdmin($url);
+        $result = $response->result;
+    
+        $data = [
+            'code' => $result->code,
+            'message' => $result->message ?? [],
+        ];
+    
+        return $this->response->setJSON($data);
     }
     
 }

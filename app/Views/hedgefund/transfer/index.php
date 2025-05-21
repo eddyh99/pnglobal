@@ -81,7 +81,7 @@
                                     style="background-color: #1c1c1c; border: 1px solid #b48b3d;">
                                     <option value="fund">Funding wallet</option>
                                     <option value="trade">Unified Trading wallet</option>
-                                    <!-- <option value="commission">Commission</option> -->
+                                    <option value="commission">Commission</option>
                                 </select>
                             </div>
                     
@@ -108,7 +108,7 @@
                     <!-- Wallet Info -->
                     <div class="row text-start mb-5">
                         <!-- Funding Wallet -->
-                        <div class="col-6">
+                        <div class="col-md-4">
                             <div class="text-gold mb-2 fw-bold">Funding Wallet</div>
                             <div class="d-flex justify-content-between gap-3">
                                 <div class="px-4 py-2 balance-box text-gold w-50 mr-2">
@@ -136,14 +136,14 @@
                         </div>
                     
                         <!-- Commission -->
-                        <!-- <div class="col-md-4">
+                        <div class="col-md-4">
                             <div class="text-gold mb-2 fw-bold">Commission</div>
                             <div class="d-flex justify-content-start">
                                 <div class="px-4 py-2 balance-box text-gold">
                                     <?= number_format($balance['commission']->usdt ?? 0) ?> <strong>USDT</strong>
                                 </div>
                             </div>
-                        </div> -->
+                        </div>
                     </div>
 
                     <div class="col-lg-6 mx-auto text-start mt-5">

@@ -15,6 +15,19 @@
                     </button>
                 </div>
             <?php } ?>
+            <?php if (!empty(session('success'))) { ?>
+                <div id="success-alert" class="alert alert-success fade show position-absolute" style="top: 1rem; left: 1rem; width: 90%;" role="alert">
+                    <div class="iq-alert-icon">
+                        <i class="ri-information-line"></i>
+                    </div>
+                    <div class="iq-alert-text">
+                        <?= session('success') ?>
+                    </div>
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <i class="ri-close-line text-black"></i>
+                    </button>
+                </div>
+            <?php } ?>
             <div class="sign-in-page-data">
                 <div class="sign-in-from w-100 m-auto">
                     <h1 class="mb-3 text-center text-black">Sign in</h1>
@@ -32,7 +45,7 @@
                             <i class="icon-pass-login las la-eye" id="togglePassword"></i>
                         </div>
                         <div class="forgot-password text-right">
-                            <a href="<?= BASE_URL ?>member/auth/forgot_password" class="text-black">Forgot Password</a>
+                            <a href="<?= BASE_URL ?>godmode/auth/forgot_password" class="text-black">Forgot Password</a>
                         </div>
                         <div class="sign-info">
                             <button type="submit" class="btn btn-primary mb-2">Sign in</button>
