@@ -111,5 +111,18 @@ class Live extends BaseController
             return redirect()->to(BASE_URL . 'godmode/course/live/');
         }
     }
+
+    public function host() {
+
+        $mdata = [
+            'title'     => 'Live - ' . NAMETITLE,
+            'content'   => 'godmode/course/live/livestream',
+            // 'extra'     => 'godmode/course/live/js/_js_livestream',
+            'liveroom' => 'd-none',
+            'mentor'    => $result->message ?? []
+        ];
+
+        return view('godmode/course/layout/admin_wrapper', $mdata);
+    }    
     
 }
