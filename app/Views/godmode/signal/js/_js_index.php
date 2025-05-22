@@ -324,16 +324,21 @@
                 data: formData,
                 success: function(ress) {
                     // Parse Data
-                    let result = JSON.parse(ress)
+                    let result = JSON.parse(ress);
+                    console.log(result);
+                    
 
                     // Check if response success
-                    if (result.code == '200') {
+                    if (result.code == '201') {
                         // Sweet Alert Success dengan warna hijau
                         Swal.fire({
-                            text: `${result.message}`,
+                            toast: true,
+                            title: 'Info order',
+                            html: `<ul style="margin:0; padding-left:20px;">${result.message.map(msg => `<li>${msg}</li>`).join('')}</ul>`,
+                            icon: 'warning',
                             showCloseButton: true,
                             showConfirmButton: false,
-                            background: '#E1FFF7', // Warna hijau muda untuk success
+                            background: '#E1FFF7',
                             color: '#000000',
                             position: 'top-end',
                             timer: 3000,
@@ -387,17 +392,16 @@
                     } else {
                         // Sweet Alert Error dengan warna merah
                         Swal.fire({
-                            text: `${result.message}`,
-                            showCloseButton: true,
-                            showConfirmButton: false,
-                            background: '#FFE4DC', // Warna merah muda untuk error
-                            color: '#000000',
+                            toast: true,
+                            icon: 'error',
+                            title: 'Order Failed',
+                            html: result.message.join('<br>'),
                             position: 'top-end',
-                            timer: 3000,
+                            showConfirmButton: false,
+                            timer: 4000,
                             timerProgressBar: true,
-                            didClose: () => {
-                                window.location.reload();
-                            }
+                            background: '#FFE4DC',
+                            color: '#000000'
                         });
                     }
                     removeButtonLoading(document.querySelector('#send-buy-a'));
@@ -405,7 +409,7 @@
                 error: function(jqXHR, textStatus, errorThrown) {
                     // Sweet Alert
                     Swal.fire({
-                        text: `${textStatus}`,
+                        text: 'Something went wrong!',
                         showCloseButton: true,
                         showConfirmButton: false,
                         background: '#FFE4DC',
