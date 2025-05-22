@@ -205,8 +205,116 @@ class Signal extends BaseController
         return view('godmode/layout/admin_wrapper', $mdata);
     }
 
+    // public function buysignal()
+    // {
+    //     // Validation Field
+    //     $rules = $this->validate([
+    //         'price' => [
+    //             'label' => 'Entry Price',
+    //             'rules' => 'required'
+    //         ],
+    //         'type' => [
+    //             'label' => 'Type Signal',
+    //             'rules' => 'required'
+    //         ],
+    //     ]);
+
+    //     // Checking Validation
+    //     if (!$rules) {
+    //         echo json_encode($this->validator->listErrors());
+    //         exit();
+    //     }
+
+    //     $session = session();
+    //     $user = $session->get('logged_user');
+    //     $admin_id = $user->id;
+    //     $ip_address = $this->request->getIPAddress();
+
+    //     // Initial Data
+    //     $mdata = [
+    //         'limit' => htmlspecialchars($this->request->getVar('price')),
+    //         'type' => htmlspecialchars($this->request->getVar('type')),
+    //         'admin_id' => $admin_id,
+    //         'ip_address' => $ip_address,
+    //     ];
+
+    //     // Change format price
+    //     $mdata['limit'] = str_replace(',', '', $mdata['limit']);
+
+    //     // Process Call to First Endpoint API (limit_buy)
+    //     $url = URL_HEDGEFUND . "/v1/order/limit_buy";
+    //     $response = satoshiAdmin($url, json_encode($mdata));
+    //     log_message('info', 'Response dari endpoint limit_buy: ' . json_encode($response));
+    //     // Determine response code from first endpoint
+    //     $code = isset($response->result->code) ? $response->result->code : (isset($response->status) ? $response->status : 500);
+    //     $message = '';
+
+    //     // Handle response from first endpoint
+    //     if (isset($response->result) && isset($response->result->code)) {
+    //         if (($response->result->code == 200 || $response->result->code == 201) && isset($response->result->message)) {
+    //             $mdata['signal_id'] = $response->result->message->id;
+    //             $message = $response->result->message->text;
+    //             $code = $response->result->code;
+
+    //             // send to pn and satoshi
+    //             $this->send_signal_buy($mdata); 
+                
+    //         } else {
+    //             $message = isset($response->error->message) ? $response->error->message : 'Failed to process buy order';
+    //             // Return early if first endpoint fails
+    //             echo json_encode(['code' => $code, 'message' => $message]);
+    //             exit();
+    //         }
+    //     } else if (isset($response->status)) {
+    //         // Handle kasus dimana hanya ada status tanpa result
+    //         if ($response->status == 200 || $response->status == 201) {
+    //             $message = 'Buy order successfully processed';
+    //             $code = $response->status;
+
+    //             // Set response->result jika tidak ada
+    //             if (!isset($response->result)) {
+    //                 $response->result = (object) [
+    //                     'id' => null,
+    //                     'code' => $response->status,
+    //                     'message' => $message
+    //                 ];
+    //             }
+    //         } else {
+    //             $message = match ($response->status) {
+    //                 400 => 'Failed to process buy order: Invalid parameters',
+    //                 401 => 'Failed to process buy order: Unauthorized',
+    //                 403 => 'Failed to process buy order: Access denied',
+    //                 404 => 'Failed to process buy order: Endpoint not found',
+    //                 500 => 'Failed to process buy order: Server error occurred',
+    //                 default => 'Failed to process buy order: Unknown error occurred'
+    //             };
+    //             $code = $response->status;
+    //             echo json_encode(['code' => $code, 'message' => $message]);
+    //             exit();
+    //         }
+    //     } else {
+    //         $message = 'Invalid response format from limit_buy endpoint';
+    //         echo json_encode(['code' => 500, 'message' => $message]);
+    //         exit();
+    //     }
+
+    //     // Create response array
+    //     $result = [
+    //         'code' => $code,
+    //         'message' => $message
+    //     ];
+
+    //     // Return result as JSON
+    //     echo json_encode($result);
+    // }
+
     public function buysignal()
     {
+        $result = [
+            'code' => 201,
+            'message' => []
+        ];
+    
         // Validation Field
         $rules = $this->validate([
             'price' => [
@@ -218,18 +326,22 @@ class Signal extends BaseController
                 'rules' => 'required'
             ],
         ]);
-
+    
         // Checking Validation
         if (!$rules) {
-            echo json_encode($this->validator->listErrors());
+            $result = [
+                'code' => 400,
+                'message' => array_values($this->validator->getErrors())
+            ];
+            echo json_encode($result);
             exit();
         }
-
+    
         $session = session();
         $user = $session->get('logged_user');
         $admin_id = $user->id;
         $ip_address = $this->request->getIPAddress();
-
+    
         // Initial Data
         $mdata = [
             'limit' => htmlspecialchars($this->request->getVar('price')),
@@ -237,76 +349,36 @@ class Signal extends BaseController
             'admin_id' => $admin_id,
             'ip_address' => $ip_address,
         ];
-
-        // Change format price
+    
+        // Change format price (hapus koma jika ada)
         $mdata['limit'] = str_replace(',', '', $mdata['limit']);
+    
+        // Process Call to Hedgefund Endpoint API (limit_buy)
+        $urlHedgefund = URL_HEDGEFUND . "/v1/order/limit_buy";
+        $hedgefund = satoshiAdmin($urlHedgefund, json_encode($mdata));
+        $message = $this->getMessage($hedgefund);
 
-        // Process Call to First Endpoint API (limit_buy)
-        $url = URL_HEDGEFUND . "/v1/order/limit_buy";
-        $response = satoshiAdmin($url, json_encode($mdata));
-        log_message('info', 'Response dari endpoint limit_buy: ' . json_encode($response));
-        // Determine response code from first endpoint
-        $code = isset($response->result->code) ? $response->result->code : (isset($response->status) ? $response->status : 500);
-        $message = '';
+        if($message->signal) {
 
-        // Handle response from first endpoint
-        if (isset($response->result) && isset($response->result->code)) {
-            if (($response->result->code == 200 || $response->result->code == 201) && isset($response->result->message)) {
-                $mdata['signal_id'] = $response->result->message->id;
-                $message = $response->result->message->text;
-                $code = $response->result->code;
-
-                // send to pn and satoshi
-                $this->send_signal_buy($mdata); 
-                
-            } else {
-                $message = isset($response->error->message) ? $response->error->message : 'Failed to process buy order';
-                // Return early if first endpoint fails
-                echo json_encode(['code' => $code, 'message' => $message]);
-                exit();
-            }
-        } else if (isset($response->status)) {
-            // Handle kasus dimana hanya ada status tanpa result
-            if ($response->status == 200 || $response->status == 201) {
-                $message = 'Buy order successfully processed';
-                $code = $response->status;
-
-                // Set response->result jika tidak ada
-                if (!isset($response->result)) {
-                    $response->result = (object) [
-                        'id' => null,
-                        'code' => $response->status,
-                        'message' => $message
-                    ];
-                }
-            } else {
-                $message = match ($response->status) {
-                    400 => 'Failed to process buy order: Invalid parameters',
-                    401 => 'Failed to process buy order: Unauthorized',
-                    403 => 'Failed to process buy order: Access denied',
-                    404 => 'Failed to process buy order: Endpoint not found',
-                    500 => 'Failed to process buy order: Server error occurred',
-                    default => 'Failed to process buy order: Unknown error occurred'
-                };
-                $code = $response->status;
-                echo json_encode(['code' => $code, 'message' => $message]);
-                exit();
-            }
+            array_push($result['message'], 'Hedgefund: ' . $message->text);
+        
+            log_message('info', 'Response Buy dari endpoint Hedgefund: ' . json_encode($hedgefund));
+        
+            // Process Call to Lux Broker Endpoint API (limit_buy)
+            $urlLux = URLAPI . "/v1/order/limit_buy";
+            $mdata['signal_id'] = $message->signal;
+            $lux = satoshiAdmin($urlLux, json_encode($mdata));
+            array_push($result['message'], 'Lux Broker: ' . $this->getMessage($lux)->text);
+    
+            log_message('info', 'Response Buy dari endpoint Lux Broker: ' . json_encode($lux));
         } else {
-            $message = 'Invalid response format from limit_buy endpoint';
-            echo json_encode(['code' => 500, 'message' => $message]);
-            exit();
+            array_push($result['message'], 'Hedgefund: ' . $message->text);
         }
-
-        // Create response array
-        $result = [
-            'code' => $code,
-            'message' => $message
-        ];
-
+    
         // Return result as JSON
         echo json_encode($result);
     }
+    
 
     public function sellsignal()
     {
@@ -797,18 +869,18 @@ class Signal extends BaseController
         return redirect()->to(BASE_URL . 'godmode/signal');
     }
 
-    private function send_signal_buy($mdata) {
+    // private function send_signal_buy($mdata) {
 
         // send to pnglobal
-        $url = URLAPI . '/v1/order/limit_buy';
-        $response = satoshiAdmin($url, json_encode($mdata));
-        log_message('info', 'Response dari endpoint limit_buy PNGLOBAL: ' . json_encode($response));
+        // $url = URLAPI . '/v1/order/limit_buy';
+        // $response = satoshiAdmin($url, json_encode($mdata));
+        // log_message('info', 'Response dari endpoint limit_buy PNGLOBAL: ' . json_encode($response));
 
         // send to satoshi
         // $url = URLAPI . '/v1/order/limit_buy';
         // $response = satoshiAdmin($url, json_encode($mdata));
         // log_message('info', 'Response dari endpoint limit_buy Satoshi: ' . json_encode($response));
-    }
+    // }
 
     private function send_signal_sell($mdata) {
 
@@ -834,5 +906,23 @@ class Signal extends BaseController
         // $url = URLAPI . '/v1/order/limit_buy';
         // $response = satoshiAdmin($url, json_encode($mdata));
         // log_message('info', 'Response dari endpoint limit_buy Satoshi: ' . json_encode($response));
+    }
+
+    private function getMessage($res) {
+        if (isset($res->result->message->text)) {
+            return (object) [
+                'text' => $res->result->message->text,
+                'signal' => $res->result->message->id ?? null
+            ];
+        } elseif (isset($res->result->message) && is_string($res->result->message)) {
+            return (object) [
+                'text' => $res->result->message,
+                'signal' => null
+            ];
+        }
+        return (object) [
+            'text' => 'No response message',
+            'signal' => null
+        ];
     }
 }
