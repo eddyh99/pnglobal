@@ -64,7 +64,7 @@
                 </div>
             </div>
             <div class="col-lg-12 dash-table-referralmember mt-5">
-                <h4 class="text-white my-3 text-uppercase fw-bold">Referral Level 1</h4>
+                <h4 class="text-white my-3 text-uppercase fw-bold">Referral</h4>
                 <table id="table_referralmember" class="table table-striped" style="width:100%">
                     <thead class="thead_referralmember">
                         <tr>
@@ -77,7 +77,7 @@
                     </tbody>
                 </table>
             </div>
-            <div class="col-lg-12 dash-table-referralmember mt-5">
+            <!-- <div class="col-lg-12 dash-table-referralmember mt-5">
                 <h4 class="text-white my-3 text-uppercase fw-bold">Referral Level 2</h4>
                 <table id="table_level" class="table table-striped" style="width:100%">
                     <thead class="thead_referralmember">
@@ -90,7 +90,7 @@
                     <tbody>
                     </tbody>
                 </table>
-            </div>
+            </div> -->
         </div>
     </div>
 </div>

@@ -257,8 +257,21 @@ class Dashboard extends BaseController
 
     public function get_downline($id)
     {
+        $product = $this->request->getVar('product');
         // Call Endpoin Get Referral Member
-        $url = URLAPI2 . "/v1/referral/getDownline?id=" . $id;
+        
+        switch ($product) {
+            case 'hedgefund':
+                $url = URL_HEDGEFUND . "/v1/member/list_downline?id_member=" . $id;
+                break;
+            case 'satoshi-signal':
+                $url = URLAPI2 . "/v1/member/listdownline";
+                break;
+            default:
+                $url = URLAPI . "/v1/member/list_downline?id_member=" . $id;
+                break;
+        }
+        // $url = URLAPI2 . "/v1/referral/getDownline?id=" . $id;
         $result = satoshiAdmin($url)->result->message;
         echo json_encode($result);
     }
@@ -270,6 +283,8 @@ class Dashboard extends BaseController
         $result = satoshiAdmin($url)->result->message;
         echo json_encode($result);
     }
+
+    
 
     public function set_statusMember($email, $status)
     {

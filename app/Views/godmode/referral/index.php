@@ -47,7 +47,7 @@
                                             <select name="product" class="form-control">
                                                 <option value="pnglobal">PN GLOBAL</option>
                                                 <option value="elitebtc">Hedge Fund</option>
-                                                <option value="satoshi">SATOSHI</option>
+                                                <option value="satoshi" disabled>SATOSHI</option>
                                             </select>
                                         </div>
                                         <div class="wrapper-addreferral">

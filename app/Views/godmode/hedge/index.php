@@ -11,7 +11,8 @@
                             <th>REF CODE</th>
                             <th>STATUS</th>
                             <th>REFERRAL</th>
-                            <th>CAPITAL</th>
+                            <th>Fund</th>
+                            <th>Trade</th>
                             <th>ACTION</th>
                         </tr>
                     </thead>

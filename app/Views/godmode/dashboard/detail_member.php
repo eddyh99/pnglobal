@@ -181,7 +181,7 @@
                                     <tr>
                                         <th>EMAIL</th>
                                         <th>STATUS</th>
-                                        <th>SUBSCRIPTION</th>
+                                        <!-- <th>SUBSCRIPTION</th> -->
                                     </tr>
                                 </thead>
                                 <tbody>

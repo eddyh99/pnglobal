@@ -98,8 +98,8 @@ class Referral extends BaseController
         $mdata = [
             'email'       => htmlspecialchars($this->request->getVar('email')),
             'password'    => sha1('12345678'),
-            'role'        => 'member',
-            'status'      => 'referral',
+            'role'        => 'referral',
+            'status'      => 'active',
             'referral'    => htmlspecialchars($this->request->getVar('upline')),
             'timezone'    => 'Asia/Makassar',
             'ip_address'  => htmlspecialchars($this->request->getIPAddress()),
@@ -109,6 +109,7 @@ class Referral extends BaseController
 
         $url = $api . "/auth/register";
         $result = satoshiAdmin($url, json_encode($mdata, JSON_UNESCAPED_SLASHES))->result;
+        // dd($result);
 
         if($result->code != 201) {
             session()->setFlashdata('failed', $result->message);

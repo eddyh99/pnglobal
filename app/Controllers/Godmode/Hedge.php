@@ -34,18 +34,27 @@ class Hedge extends BaseController
             'title'     => 'Subscriber - ' . NAMETITLE,
             'content'   => 'godmode/hedge/index',
             'extra'     => 'godmode/hedge/js/_js_index',
-            'subs_free'    => 'active active-menu'
+            'subs_free'    => 'active active-menu',
+            'active_dash'   => 'active'
         ];
 
         return view('godmode/layout/admin_wrapper', $mdata);
     }
 
-    public function get_activemember(){
-        // Call Endpoin Get active subscriber
-        $url = URL_HEDGEFUND . "/v1/member/list_activemember";
-        $result = satoshiAdmin($url)->result->message;
-        echo json_encode(is_array($result) ? $result : []);
+    // public function get_activemember(){
+    //     // Call Endpoin Get active subscriber
+    //     $url = URL_HEDGEFUND . "/v1/member/list_activemember";
+    //     $result = satoshiAdmin($url)->result->message;
+    //     echo json_encode(is_array($result) ? $result : []);
 
+    // }
+
+    public function get_activemember()
+    {
+        // Call Endpoin Get Total Member
+        $url = URL_HEDGEFUND . "/v1/member/get_all";
+        $result = satoshiAdmin($url)->result->message;
+        echo json_encode($result);
     }
 
 }

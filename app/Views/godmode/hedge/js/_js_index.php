@@ -7,7 +7,7 @@
             "url": "<?= BASE_URL ?>godmode/hedge/get_activemember",
             "type": "POST",
             "dataSrc": function(data) {
-                return data;
+                return data ? data.filter(item => item.status == 'active') : [];
             }
         },
         "columns": [{
@@ -42,7 +42,10 @@
                 data: 'referral'
             },
             {
-                data: 'initial_capital'
+                data: 'fund'
+            },
+            {
+                data: 'trade'
             },
             {
                 data: null,
