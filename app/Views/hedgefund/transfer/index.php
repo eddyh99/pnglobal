@@ -13,25 +13,13 @@
 <?php } ?>
 
 <?php if (!empty(session('failed'))) {
-    $failed = session('failed');
 ?>
     <div class="alert alert-danger fade show position-absolute" style="top: 1rem; right: 1rem; width: 30%; z-index: 99999;" role="alert">
         <div class="iq-alert-icon">
             <i class="ri-information-line"></i>
         </div>
         <div class="iq-alert-text text-black">
-            <?php
-            if (is_object($failed)) {
-                echo '<ul style="margin-bottom:0">';
-                foreach (get_object_vars($failed) as $key => $msg) {
-                    echo '<li>' . htmlspecialchars("{$key}: {$msg}") . '</li>';
-                }
-                echo '</ul>';
-            } else {
-                echo htmlspecialchars($failed);
-            }
-            ?>
-
+        <?= session('failed') ?>
         </div>
         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
             <i class="ri-close-line text-black"></i>
@@ -176,6 +164,9 @@
                             <div>Available Balance</div>
                             <div id="textbalance" class="text-gold"><?= number_format($balance['fund']->usdt ?? 0) ?> USDT</div>
                         </div>
+
+                        <input type="hidden" name="trade" value="<?= $balance['trade']->usdt ?? 0 ?>">
+                        <input type="hidden" name="fund" value="<?= $balance['fund']->usdt ?? 0 ?>">
                     
                         <!-- Confirm Button -->
                         <div class="text-center">
