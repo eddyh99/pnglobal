@@ -46,7 +46,7 @@
                                             <label for="product">Product</label>
                                             <select name="product" class="form-control">
                                                 <option value="pnglobal">PN GLOBAL</option>
-                                                <option value="elitebtc">ELITE BTC</option>
+                                                <option value="elitebtc">Hedge Fund</option>
                                                 <option value="satoshi">SATOSHI</option>
                                             </select>
                                         </div>
