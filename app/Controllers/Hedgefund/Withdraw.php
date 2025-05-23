@@ -240,10 +240,35 @@ class Withdraw extends BaseController
     }
 
     public function transfer_confirm() {
+
+        $rules = $this->validate([
+            'amount'     => [
+                'label'     => 'Amount',
+                'rules' => 'required|greater_than[0]',
+                'validate_max_balance' => 'Insufficient balance.'
+            ],
+            'balance'  => [
+                'label'     => 'Balance',
+                'rules'     => 'required',
+            ]
+        ]);
+
+        if (!$rules) {
+            session()->setFlashdata('failed', $this->validation->listErrors());
+            return redirect()->to(BASE_URL . 'hedgefund/withdraw/transfer');
+        }
+
+        // validate fund balance
+        $amount = $this->request->getVar('amount');
+        $balance = $this->request->getVar('balance');
+        if ($amount > $balance) {
+            session()->setFlashdata('failed', 'Insufficient balance.');
+            return redirect()->to(BASE_URL . 'hedgefund/withdraw/transfer');
+        }
+
         $member_id = $_SESSION["logged_user"]->id;
         $from = $this->request->getVar('from');
         $to = $this->request->getVar('to');
-        $amount = $this->request->getVar('amount');
     
         if ($from === 'commission' && $to === 'fund') {
             $url = URL_HEDGEFUND . "/v1/member/transfer_commission";
