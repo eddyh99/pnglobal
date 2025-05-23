@@ -124,6 +124,19 @@ class Referral extends BaseController
         // Decode Type
         $finaltype = base64_decode($type);
         $email = base64_decode($email);
+        $product = $this->request->getGet('product');
+
+        switch ($product) {
+            case 'satoshi-signal':
+                $url = URLAPI2 . "/auth/getmember_byemail?email=" . $email;
+                break;
+            case 'elite':
+                $url = URL_HEDGEFUND . "/v1/member/get_detailmember";
+                break;
+            default:
+                $url = URLAPI . "/v1/member/get_detailmember";
+                break;
+        }
 
 
         // Call Get Memeber By Email
