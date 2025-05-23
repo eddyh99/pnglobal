@@ -165,7 +165,8 @@
                             <div id="textbalance" class="text-gold"><?= number_format($balance['fund']->usdt ?? 0) ?> USDT</div>
                         </div>
 
-                        <input type="hidden" name="balance" value="<?= $balance['fund']->usdt ?? 0 ?>">
+                        <input type="hidden" name="trade" value="<?= $balance['trade']->usdt ?? 0 ?>">
+                        <input type="hidden" name="fund" value="<?= $balance['fund']->usdt ?? 0 ?>">
                     
                         <!-- Confirm Button -->
                         <div class="text-center">
