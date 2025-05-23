@@ -227,7 +227,8 @@
                                     <th>STATUS</th>
                                     <!-- <th>SUBSCRIPTION</th> -->
                                     <th>REFERRAL</th>
-                                    <th>CAPITAL</th>
+                                    <th>Fund</th>
+                                    <th>Trade</th>
                                     <th>ACTION</th>
                                 </tr>
                             </thead>

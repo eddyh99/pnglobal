@@ -571,7 +571,10 @@
                 data: 'referral'
             },
             {
-                data: 'initial_capital'
+                data: 'fund'
+            },
+            {
+                data: 'trade'
             },
             {
                 data: null,
