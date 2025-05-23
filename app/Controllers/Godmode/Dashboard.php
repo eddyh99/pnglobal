@@ -228,8 +228,21 @@ class Dashboard extends BaseController
     public function deletemember($email)
     {
         $email  = base64_decode($email);
+        $tab = $this->request->getVar('tab');
 
-        $url = URLAPI . "/v1/member/destroy";
+        switch ($tab) {
+            case 'hedgefund':
+                $url = URL_HEDGEFUND . "/v1/member/destroy";
+                break;
+            case 'satoshi-signal':
+                $url = URLAPI2 . "/v1/member/destroy";
+                break;
+            default:
+                $url = URLAPI . "/v1/member/destroy";
+                break;
+        }
+
+        // $url = URLAPI . "/v1/member/destroy";
         $response = satoshiAdmin($url, json_encode(['email' => $email]));
         $result = $response->result;
 
