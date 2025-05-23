@@ -273,7 +273,20 @@ class Dashboard extends BaseController
 
     public function set_statusMember($email, $status)
     {
-        $url = URLAPI . "/v1/member/set_status";
+        $tab = $this->request->getVar('tab');
+
+        switch ($tab) {
+            case 'hedgefund':
+                $url = URL_HEDGEFUND . "/v1/member/set_status";
+                break;
+            case 'satoshi-signal':
+                $url = URLAPI2 . "/v1/member/set_status";
+                break;
+            default:
+                $url = URLAPI . "/v1/member/set_status";
+                break;
+        }
+        // $url = URLAPI . "/v1/member/set_status";
         $email = base64_decode($email);
         $mdata = [
             'email' => $email,
