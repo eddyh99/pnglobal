@@ -168,7 +168,7 @@
                                 </div>
                             </div>
                         </a>
-                        <a href="" class="statistics">
+                        <a href="<?= BASE_URL ?>godmode/hedge" class="statistics">
                             <div class="iq-card">
                                 <div class="iq-card-body">
                                     <div class="d-flex flex-column justify-content-center align-items-start">
