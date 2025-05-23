@@ -27,9 +27,9 @@ class Deposit extends BaseController
             exit();
         }
 
-        if($loggedUser->role == 'referral') {
-            throw PageNotFoundException::forPageNotFound();
-        }
+        // if($loggedUser->role == 'referral') {
+        //     throw PageNotFoundException::forPageNotFound();
+        // }
     }
 
     public function index()

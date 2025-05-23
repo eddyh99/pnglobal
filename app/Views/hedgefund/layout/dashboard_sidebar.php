@@ -48,6 +48,7 @@
                 <?php
                 // }
                 ?>
+                <?php if(session('logged_user')->role == 'referral'): ?> 
                 <li class="<?= @$active_referral ?>">
                     <a href="<?= BASE_URL ?>hedgefund/referral" class="iq-waves-effect">
                         <i>
@@ -70,6 +71,7 @@
                         <span class="<?= (@$active_referral != null) ? 'text-black' : 'text-white' ?>">Referral</span>
                     </a>
                 </li>
+                <?php endif ?>
                 <?php
                 // if ($_SESSION["logged_user"]->role=="admin"){
                 ?>

@@ -26,6 +26,10 @@ class Referral extends BaseController
             header("Location: " . BASE_URL . 'hedgefund/auth/pricing');
             exit();
         }
+
+        if($loggedUser->role != 'referral') {
+            throw PageNotFoundException::forPageNotFound();
+        }
     }
 
     public function index()

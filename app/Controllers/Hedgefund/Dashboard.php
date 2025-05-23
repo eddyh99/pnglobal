@@ -40,7 +40,7 @@ class Dashboard extends BaseController
             'active_dash'    => 'active',
             'refcode'   => $_SESSION['logged_user']->refcode,
             'balance'   => $wd->get_balance(),
-            'isreferral'   => $user->role == 'referral' ? 'invisible' : ''
+            'isreferral'   => $user->role == 'referral'
         ];
 
         return view('hedgefund/layout/dashboard_wrapper', $mdata);

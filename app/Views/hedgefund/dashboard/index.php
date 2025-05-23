@@ -32,6 +32,7 @@
         <div class="row content-body">
             <div class="col-lg-12">
                 <!-- Top Row: Referral Card -->
+                 <?php if($isreferral): ?>
                 <div class="row mb-4">
                     <div class="col-lg-6">
                         <div class="referral-card">
@@ -48,6 +49,7 @@
                         </div>
                     </div>
                 </div>
+                <?php endif ?>
 
                 <!-- Second Row: USDT & BTC Cards Side by Side -->
                 <div class="row mb-4">
@@ -81,7 +83,7 @@
                             </div>
                         </div>
                         <div class="d-flex justify-content-start flex-row flex-wrap gap-2">
-                            <a href="<?= BASE_URL ?>hedgefund/deposit" class="btn-withdraw btn-lg me-1 <?= $isreferral ?>">DEPOSIT</a>
+                            <a href="<?= BASE_URL ?>hedgefund/deposit" class="btn-withdraw btn-lg">DEPOSIT</a>
                         </div>
                     </div>
 
