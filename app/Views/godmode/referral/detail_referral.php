@@ -7,7 +7,7 @@
             </div>
              <div class="col-lg-10 mx-auto">
                 
-                <h4 class="text-center"><?= $member->email; ?></h4>
+                <h4 class="text-center"><?= $emailreferral ?></h4>
 
                 <!-- Detail -->
                 <div class="dash-detailmember">
@@ -20,7 +20,7 @@
                                 Referral Member
                         </span>
                         <a 
-                            href="<?= BASE_URL . 'godmode/referral/cancelreferral/' . base64_encode($member->email)?>"
+                            href="<?= BASE_URL . 'godmode/referral/cancelreferral/' . base64_encode($emailreferral)?>"
                             id="btncancel"
                             class="upgrade-btn">  
                             Change to Member
@@ -31,7 +31,7 @@
                     <div class="label">Registration date</div>
                     <div class="value">
                         <?php
-                            $dateString = $member->created_at;
+                            $dateString = $member->start_date;
                             $date = new DateTime($dateString);
                             $formattedDate = $date->format('d F Y');
                             echo $formattedDate;
@@ -40,7 +40,7 @@
     
                     <!-- Subscription Status -->
                     <div class="label">Referral Code</div>
-                    <div class="value"><?= $member->refercode?></div>
+                    <div class="value"><?= $member->refcode?></div>
     
                     <!-- Subscription Status -->
                     <div class="label">Referral Link</div>
@@ -56,7 +56,7 @@
                     <div class="label">Send Bonus</div>
                     <div class="d-flex flex-row justify-content-start">
                         <form id="frmbonus" action="<?=BASE_URL?>godmode/payment/sendbonus?type=ref" method="POST" onsubmit="return validate()">
-                            <input type="hidden" name="email" value="<?=$member->email?>">
+                            <input type="hidden" name="email" value="<?=$emailreferral?>">
                             <input class="me-2" type="number" name="amount" id="bonus" class="form-control"  style="min-width: 28ch;" required>
                             &nbsp;&nbsp;<button class="btn" style="background-color:#8a6d3b;color:white">Send</button>
                         </form>

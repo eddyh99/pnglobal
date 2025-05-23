@@ -123,15 +123,29 @@ class Referral extends BaseController
     {
         // Decode Type
         $finaltype = base64_decode($type);
+        $email = base64_decode($email);
+        $product = $this->request->getGet('product');
+
+        switch ($product) {
+            case 'satoshi-signal':
+                $url = URLAPI2 . "/auth/getmember_byemail?email=" . $email;
+                break;
+            case 'elite':
+                $url = URL_HEDGEFUND . "/v1/member/get_detailmember";
+                break;
+            default:
+                $url = URLAPI . "/v1/member/get_detailmember";
+                break;
+        }
+
 
         // Call Get Memeber By Email
-        $url = URLAPI . "/auth/getmember_byemail?email=" . base64_decode($email);
-        $resultMember = satoshiAdmin($url)->result->message;
+        $url = URLAPI . "/v1/member/get_detailmember";
+        $resultMember = satoshiAdmin($url, json_encode(['email' => $email]))->result->message;
 
         // Call Get Detail Referral
-        $url = URLAPI . "/v1/member/detailreferral?id=" . $resultMember->id;
-        $resultReferral = satoshiAdmin($url)->result->message;
-
+        // $url = URLAPI . "/v1/member/detailreferral?id=" . $resultMember->id;
+        $resultReferral = [];
         $mdata = [
             'title'     => 'Detail Member - ' . NAMETITLE,
             'content'   => 'godmode/referral/detail_referral',
@@ -140,7 +154,7 @@ class Referral extends BaseController
             'member'    => $resultMember,
             'type'      => $finaltype,
             'referral'  => $resultReferral,
-            'emailreferral' => base64_decode($email),
+            'emailreferral' => $email,
         ];
 
         return view('godmode/layout/admin_wrapper', $mdata);

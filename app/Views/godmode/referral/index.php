@@ -46,7 +46,7 @@
                                             <label for="product">Product</label>
                                             <select name="product" class="form-control">
                                                 <option value="pnglobal">PN GLOBAL</option>
-                                                <option value="elitebtc">ELITE BTC</option>
+                                                <option value="elitebtc">Hedge Fund</option>
                                                 <option value="satoshi">SATOSHI</option>
                                             </select>
                                         </div>
@@ -56,7 +56,7 @@
                                         </div>
                                         <div class="wrapper-addreferral">
                                             <label for="referral">Upline Referral</label>
-                                            <input type="text" name="upline" class="form-control" >
+                                            <input type="text" name="upline" class="form-control" placeholder="(Optional)" >
                                         </div>
                                         <div class="wrapper-addreferral">
                                             <label for="referral">Referral Code</label>

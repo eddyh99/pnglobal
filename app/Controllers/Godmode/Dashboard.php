@@ -103,6 +103,7 @@ class Dashboard extends BaseController
     {
         // Decode Email
         $finalemail = base64_decode($email);
+        // dd($email);
 
         // Get tab parameter with default value
         $tab = $this->request->getGet('tab') ?? 'pn-global';
@@ -113,15 +114,39 @@ class Dashboard extends BaseController
         log_message('debug', 'Detail member - Email: ' . $finalemail);
 
         // Determine which API endpoint to use based on active tab
-        $url = $tab === 'satoshi-signal'
-            ? URLAPI2 . "/auth/getmember_byemail?email=" . $finalemail
-            : URLAPI . "/v1/member/get_detailmember";
+        // $url = $tab === 'satoshi-signal'
+        //     ? URLAPI2 . "/auth/getmember_byemail?email=" . $finalemail
+        //     : URLAPI . "/v1/member/get_detailmember";
+
+        switch ($tab) {
+            case 'satoshi-signal':
+                $url = URLAPI2 . "/auth/getmember_byemail?email=" . $finalemail;
+                break;
+            case 'hedgefund':
+                $url = URL_HEDGEFUND . "/v1/member/get_detailmember";
+                break;
+            default:
+                $url = URLAPI . "/v1/member/get_detailmember";
+                break;
+        }
 
         log_message('debug', 'Detail member - Using API URL: ' . $url);
 
-        $resultMember = $tab === 'satoshi-signal'
-            ? satoshiAdmin($url)->result
-            : satoshiAdmin($url, json_encode(['email' => $finalemail]))->result;
+        // $resultMember = $tab === 'satoshi-signal'
+        //     ? satoshiAdmin($url)->result
+        //     : satoshiAdmin($url, json_encode(['email' => $finalemail]))->result;
+
+        switch ($tab) {
+            case 'satoshi-signal':
+                $resultMember = satoshiAdmin($url)->result;
+                break;
+            case 'hedgefund':
+                $resultMember = satoshiAdmin($url, json_encode(['email' => $finalemail]))->result;
+                break;
+            default:
+                $resultMember = satoshiAdmin($url, json_encode(['email' => $finalemail]))->result;
+                break;
+        }
 
         log_message('debug', 'Detail member - API Response received');
 
@@ -203,8 +228,21 @@ class Dashboard extends BaseController
     public function deletemember($email)
     {
         $email  = base64_decode($email);
+        $tab = $this->request->getVar('tab');
 
-        $url = URLAPI . "/v1/member/destroy";
+        switch ($tab) {
+            case 'hedgefund':
+                $url = URL_HEDGEFUND . "/v1/member/destroy";
+                break;
+            case 'satoshi-signal':
+                $url = URLAPI2 . "/v1/member/destroy";
+                break;
+            default:
+                $url = URLAPI . "/v1/member/destroy";
+                break;
+        }
+
+        // $url = URLAPI . "/v1/member/destroy";
         $response = satoshiAdmin($url, json_encode(['email' => $email]));
         $result = $response->result;
 
@@ -235,7 +273,20 @@ class Dashboard extends BaseController
 
     public function set_statusMember($email, $status)
     {
-        $url = URLAPI . "/v1/member/set_status";
+        $tab = $this->request->getVar('tab');
+
+        switch ($tab) {
+            case 'hedgefund':
+                $url = URL_HEDGEFUND . "/v1/member/set_status";
+                break;
+            case 'satoshi-signal':
+                $url = URLAPI2 . "/v1/member/set_status";
+                break;
+            default:
+                $url = URLAPI . "/v1/member/set_status";
+                break;
+        }
+        // $url = URLAPI . "/v1/member/set_status";
         $email = base64_decode($email);
         $mdata = [
             'email' => $email,
