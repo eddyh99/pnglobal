@@ -56,7 +56,7 @@ class Deposit extends BaseController
 
         $data = [
             'min_capital'       => $minCapital,
-            'additional_step'   => 2000,
+            'additional_step'   => 100,
             'percentage_fee'    => $fee,
             'comission'         => $commission,
         ];
