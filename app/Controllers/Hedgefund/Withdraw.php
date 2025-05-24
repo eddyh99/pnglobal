@@ -234,23 +234,25 @@ class Withdraw extends BaseController
             'extra' => 'hedgefund/transfer/js/_js_index',
             'active_dash' => 'active',
             'refcode'   => $loggedUser->refcode,
+            'isreferral'   => $loggedUser->role == 'referral'            
         ];
 
         return view('hedgefund/layout/dashboard_wrapper', $mdata);
     }
 
     public function transfer_confirm() {
-        $member_id = $_SESSION["logged_user"]->id;
-        $from = $this->request->getVar('from');
-        $to = $this->request->getVar('to');
-        $amount = $this->request->getVar('amount');
+        $member_id  = $_SESSION["logged_user"]->id;
+        $from       = $this->request->getVar('from');
+        $to         = $this->request->getVar('to');
+        $amount     = $this->request->getVar('amount');
+        $coin       = $this->request->getVar('coin');
     
         if ($from === 'commission' && $to === 'fund') {
             $url = URL_HEDGEFUND . "/v1/member/transfer_commission";
             $data = ['id_member' => $member_id, 'destination' => 'balance'];
         } elseif (($from === 'fund' && $to === 'trade') || ($from === 'trade' && $to === 'fund')) {
             $url = URL_HEDGEFUND . "/v1/withdraw/transfer_balance";
-            $data = ['id_member' => $member_id, 'destination' => $to, 'amount' => $amount];
+            $data = ['id_member' => $member_id, 'destination' => $to, 'amount' => $amount, 'coin' => $coin];
         } else {
             session()->setFlashdata('failed', 'Transfer type not supported.');
             return redirect()->to(BASE_URL . 'hedgefund/withdraw/transfer');
