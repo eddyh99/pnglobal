@@ -47,9 +47,9 @@ class Dashboard extends BaseController
     }
 
 
-    public function get_trade_history() {
+    public function get_transaction_history() {
         $id_member  = $_SESSION['logged_user']->id;
-        $url = URL_HEDGEFUND . '/v1/member/history_trade?id_member=' . $id_member;
+        $url = URL_HEDGEFUND . '/v1/member/history_transaction?id_member=' . $id_member;
         $result = satoshiAdmin($url);
 
         return $this->response->setJSON(['status' => true, 'message' => $result->result->message])->setStatusCode(200);
