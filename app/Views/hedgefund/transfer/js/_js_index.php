@@ -100,7 +100,7 @@
             $("#amount").val('');
         } else if (selectedCoin === 'btc') {
             balance = balanceBTC;
-            formatted = Number(balance).toFixed(4) + ' BTC';
+            formatted = Number(balance).toFixed(6) + ' BTC';
             $("#amount").val('');
         }
     
