@@ -271,6 +271,7 @@ class Dashboard extends BaseController
                 $url = URLAPI . "/v1/member/list_downline?id_member=" . $id;
                 break;
         }
+        
         // $url = URLAPI2 . "/v1/referral/getDownline?id=" . $id;
         $result = satoshiAdmin($url)->result->message;
         echo json_encode($result);

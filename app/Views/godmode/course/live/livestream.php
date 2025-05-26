@@ -2,7 +2,7 @@
     <!-- Baris utama: isi sisa tinggi -->
     <div class="row flex-grow-1 my-4">
         <div id="videolive" class="col border border-2 border-primary">
-        <video id="main-video" class="main-live-camera h-100" autoplay="autoplay"></video>
+
         </div>
         <div id="chatlive" class="col-3">
             <div class="d-flex flex-column h-100 border border-primary p-2 text-white">
@@ -59,14 +59,14 @@
 
 
                 </i>Ask</button>
-            <button id="btnopen" class="btn py-0 px-2 d-flex flex-column align-items-center"><i>
+            <button class="btn py-0 px-2 d-flex flex-column align-items-center"><i>
                     <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M36.5654 0H15.1153C13.3432 0 11.9022 1.44081 11.9022 3.213V11.9H3.21267C1.44032 11.9 0 13.3409 0 15.113V36.5658C0 38.3376 1.44032 39.7785 3.21267 39.7785H19.3486C19.3291 39.6805 19.3038 39.5863 19.2919 39.4856L18.8519 35.7067H4.07183V15.972H11.9023V24.6628C11.9023 26.4352 13.3433 27.8756 15.1153 27.8756H17.9414L17.4668 23.8042H15.9741V15.972H23.8065V18.4291L27.8784 20.4255V15.113C27.8784 13.3409 26.4376 11.9 24.6652 11.9H15.974V4.07183H35.7063V23.8042H34.7679L38.7271 25.7458C38.9659 25.8638 39.1818 26.0109 39.3847 26.1727C39.6271 25.7206 39.7779 25.2118 39.7779 24.6628V3.213C39.778 1.44081 38.3375 0 36.5654 0Z" fill="#B48B3D" />
                         <path d="M37.5296 28.1806L21.2317 20.1896C21.1003 20.126 20.9597 20.0941 20.8194 20.0941C20.6286 20.0941 20.4392 20.1512 20.2787 20.2651C19.9989 20.4624 19.8507 20.798 19.89 21.1386L21.9884 39.1717C22.0324 39.5468 22.2974 39.8593 22.6605 39.9629C22.7451 39.9881 22.8328 40 22.9189 40C23.1986 40 23.4703 39.8727 23.6492 39.6476L29.1325 32.7829L37.4235 29.9054C37.7811 29.782 38.0278 29.4559 38.0519 29.0782C38.0742 28.7016 37.8688 28.3477 37.5296 28.1806Z" fill="#B48B3D" />
                     </svg>
 
 
-                </i>Start Live</button>
+                </i>Join Live</button>
         </div>
         <a class="btn p-0 px-2" href="<?= BASE_URL ?>course/member/live"><i>
                 <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
