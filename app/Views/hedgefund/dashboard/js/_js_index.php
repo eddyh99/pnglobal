@@ -125,23 +125,36 @@
             },
             {
                 data: 'amount_usdt',
-                render: function(data) {
-                    // Format angka dengan $ dan koma
-                    if (!data) return '0';
-                    return parseFloat(data).toLocaleString('en-US');
-                }
+                render: function(data, type, row) {
+                            if (!data) return '0';
+                            const formatted = parseFloat(data).toLocaleString('en-US');
+                            return formatted
+                        }
             },
             {
                 data: 'entry_price',
-                render: function(data) {
-                    // Format angka dengan € dan koma
-                    if (!data) return '0';
-                    return parseFloat(data).toLocaleString('en-US');
-                }
+                render: function(data, type, row) {
+                            if (!data) return '0';
+                            const formatted = parseFloat(data).toLocaleString('en-US');
+                            return formatted
+                        }
             },
             {
                 data: 'amount_btc',
+                render: function(data, type, row) {
+                            if (!data) return '0';
+                            const formatted = parseFloat(data).toLocaleString('en-US');
+                            return formatted
+                        }
             },
+                        // {
+            //     data: 'entry_price',
+            //     render: function(data) {
+            //         // Format angka dengan € dan koma
+            //         if (!data) return '0';
+            //         return parseFloat(data).toLocaleString('en-US');
+            //     }
+            // },
             {
                 data: 'position',
                 className: 'text-uppercase'
