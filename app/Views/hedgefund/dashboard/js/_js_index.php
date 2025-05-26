@@ -92,7 +92,7 @@
             }
         },
         ajax: {
-            url: '<?= BASE_URL ?>hedgefund/dashboard/get_trade_history',
+            url: '<?= BASE_URL ?>hedgefund/dashboard/get_transaction_history',
             type: 'GET',
             dataSrc: function(response) {
                 console.log('API Response:', response);
@@ -124,28 +124,31 @@
                 }
             },
             {
-                data: 'amount_usdt',
-                render: function(data) {
-                    // Format angka dengan $ dan koma
-                    if (!data) return '0';
-                    return parseFloat(data).toLocaleString('en-US');
+                data: 'amount',
+                render: function(data, type, row) {
+                            if (!data) return '0';
+                            const formatted = parseFloat(data).toLocaleString('en-US');
+                            return row.type === 'deposit' ? `+${formatted}` : `-${formatted}`;
+                        },
+                createdCell: function(td, cellData, full, row, col) {
+                            full.type == 'deposit' ? td.classList.add('text-success') : td.classList.add('text-danger');
                 }
             },
             {
-                data: 'entry_price',
-                render: function(data) {
-                    // Format angka dengan € dan koma
-                    if (!data) return '0';
-                    return parseFloat(data).toLocaleString('en-US');
-                }
+                data: 'type',
             },
-            {
-                data: 'amount_btc',
-            },
-            {
-                data: 'position',
-                className: 'text-uppercase'
-            }
+                        // {
+            //     data: 'entry_price',
+            //     render: function(data) {
+            //         // Format angka dengan € dan koma
+            //         if (!data) return '0';
+            //         return parseFloat(data).toLocaleString('en-US');
+            //     }
+            // },
+            // {
+            //     data: 'position',
+            //     className: 'text-uppercase'
+            // }
         ],
         // Tambahkan error handling untuk AJAX request
         error: function(xhr, error, thrown) {
