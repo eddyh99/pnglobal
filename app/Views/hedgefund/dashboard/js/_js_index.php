@@ -147,6 +147,10 @@
                             return formatted
                         }
             },
+            {
+                data: 'position',
+                className: 'text-uppercase'
+            },
                         // {
             //     data: 'entry_price',
             //     render: function(data) {
@@ -156,8 +160,7 @@
             //     }
             // },
             {
-                data: 'position',
-                className: 'text-uppercase'
+                data: 'status'
             }
         ],
         // Tambahkan error handling untuk AJAX request
