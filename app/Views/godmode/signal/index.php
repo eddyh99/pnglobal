@@ -69,7 +69,7 @@
                                                 <!-- BUY A -->
                                                 <tr data-pair-id="<?php echo (!empty($buy_a) ? $buy_a['pair_id'] : '') ?>">
                                                     <td>
-                                                        <div class="signal-label buy-label">A</div>
+                                                        <div translate="no"  class="signal-label buy-label">A</div>
                                                     </td>
                                                     <td>
                                                         <input type="text" id="buy-a" class="signal-price" value="<?php echo (!empty($buy_a) ? number_format($buy_a['entry_price'], 2, '.', ',') : '') ?>" <?php echo (!empty($buy_a) ? "readonly" : "") ?>>
@@ -80,13 +80,13 @@
                                                         </div>
                                                     </td>
                                                     <td>
-                                                        <button id="send-buy-a" class="signal-btn btn-ok" <?php echo (!empty($buy_a) ? "disabled" : "") ?>>BUY</button>
+                                                        <button id="send-buy-a" translate="no" class="signal-btn btn-ok" <?php echo (!empty($buy_a) ? "disabled" : "") ?>>BUY</button>
                                                     </td>
                                                     <!-- <td>
                                                         <button id="fill-buy-a" class="signal-btn btn-fill" <?php echo (!empty($buy_a) && strtolower($buy_a['status']) === 'filled' ? "disabled" : "") ?>>FILL</button>
                                                     </td> -->
                                                     <td>
-                                                        <button id="del-buy-a" class="signal-btn btn-del">DEL</button>
+                                                        <button id="del-buy-a" translate="no" class="signal-btn btn-del">DEL</button>
                                                     </td>
                                                 </tr>
 
@@ -94,7 +94,7 @@
                                                 <!-- BUY B -->
                                                 <tr data-pair-id="<?php echo (!empty($buy_b) ? $buy_b['pair_id'] : '') ?>">
                                                     <td>
-                                                        <div class="signal-label buy-label">B</div>
+                                                        <div translate="no"  class="signal-label buy-label">B</div>
                                                     </td>
                                                     <td>
                                                         <input type="text" id="buy-b" class="signal-price" value="<?php echo (!empty($buy_b) ? number_format($buy_b['entry_price'], 2, '.', ',') : '') ?>" <?php echo (!empty($buy_b) || !isset($buy_a['status']) || $buy_a['status'] != 'filled') ? 'readonly' : ''; ?>                                                        >
@@ -105,13 +105,13 @@
                                                         </div>
                                                     </td>
                                                     <td>
-                                                        <button id="send-buy-b" class="signal-btn btn-ok" <?php echo isset($buy_a['status']) && $buy_a['status'] == 'filled' && empty($buy_b) ? '' : 'disabled'; ?>                                                        >BUY</button>
+                                                        <button id="send-buy-b" translate="no" class="signal-btn btn-ok" <?php echo isset($buy_a['status']) && $buy_a['status'] == 'filled' && empty($buy_b) ? '' : 'disabled'; ?>                                                        >BUY</button>
                                                     </td>
                                                     <!-- <td>
                                                         <button id="fill-buy-b" class="signal-btn btn-fill" <?php echo (!empty($buy_b) && strtolower($buy_b['status']) === 'filled' ? "disabled" : "") ?>>FILL</button>
                                                     </td> -->
                                                     <td>
-                                                        <button id="del-buy-b" class="signal-btn btn-del">DEL</button>
+                                                        <button id="del-buy-b" translate="no" class="signal-btn btn-del">DEL</button>
                                                     </td>
                                                 </tr>
 
@@ -119,7 +119,7 @@
                                                 <!-- BUY C -->
                                                 <tr data-pair-id="<?php echo (!empty($buy_c) ? $buy_c['pair_id'] : '') ?>">
                                                     <td>
-                                                        <div class="signal-label buy-label">C</div>
+                                                        <div translate="no"  class="signal-label buy-label">C</div>
                                                     </td>
                                                     <td>
                                                         <input type="text" id="buy-c" class="signal-price" value="<?php echo (!empty($buy_c) ? number_format($buy_c['entry_price'], 2, '.', ',') : '') ?>" <?php echo (!empty($buy_c) || !isset($buy_b['status']) || $buy_b['status'] != 'filled') ? 'readonly' : ''; ?>                                                        >
@@ -130,13 +130,13 @@
                                                         </div>
                                                     </td>
                                                     <td>
-                                                        <button id="send-buy-c" class="signal-btn btn-ok" <?php echo isset($buy_b['status']) && $buy_b['status'] == 'filled' && empty($buy_c) ? '' : 'disabled'; ?>                                                        >BUY</button>
+                                                        <button id="send-buy-c" translate="no" class="signal-btn btn-ok" <?php echo isset($buy_b['status']) && $buy_b['status'] == 'filled' && empty($buy_c) ? '' : 'disabled'; ?>                                                        >BUY</button>
                                                     </td>
                                                     <!-- <td>
                                                         <button id="fill-buy-c" class="signal-btn btn-fill" <?php echo (!empty($buy_c) && strtolower($buy_c['status']) === 'filled' ? "disabled" : "") ?>>FILL</button>
                                                     </td> -->
                                                     <td>
-                                                        <button id="del-buy-c" class="signal-btn btn-del">DEL</button>
+                                                        <button id="del-buy-c" translate="no" class="signal-btn btn-del">DEL</button>
                                                     </td>
                                                 </tr>
 
@@ -144,7 +144,7 @@
                                                 <!-- BUY D -->
                                                 <tr data-pair-id="<?php echo (!empty($buy_d) ? $buy_d['pair_id'] : '') ?>">
                                                     <td>
-                                                        <div class="signal-label buy-label">D</div>
+                                                        <div translate="no"  class="signal-label buy-label">D</div>
                                                     </td>
                                                     <td>
                                                         <input type="text" id="buy-d" class="signal-price" value="<?php echo (!empty($buy_d) ? number_format($buy_d['entry_price'], 2, '.', ',') : '') ?>" <?php echo (!empty($buy_d) || !isset($buy_c['status']) || $buy_c['status'] != 'filled') ? 'readonly' : ''; ?>                                                        >
@@ -155,13 +155,13 @@
                                                         </div>
                                                     </td>
                                                     <td>
-                                                        <button id="send-buy-d" class="signal-btn btn-ok" <?php echo isset($buy_c['status']) && $buy_c['status'] == 'filled' && empty($buy_d) ? '' : 'disabled'; ?>                                                        >BUY</button>
+                                                        <button id="send-buy-d" translate="no" class="signal-btn btn-ok" <?php echo isset($buy_c['status']) && $buy_c['status'] == 'filled' && empty($buy_d) ? '' : 'disabled'; ?>                                                        >BUY</button>
                                                     </td>
                                                     <!-- <td>
                                                         <button id="fill-buy-d" class="signal-btn btn-fill" <?php echo (!empty($buy_d) && strtolower($buy_d['status']) === 'filled' ? "disabled" : "") ?>>FILL</button>
                                                     </td> -->
                                                     <td>
-                                                        <button id="del-buy-d" class="signal-btn btn-del">DEL</button>
+                                                        <button id="del-buy-d" translate="no" class="signal-btn btn-del">DEL</button>
                                                     </td>
                                                 </tr>
                                             </tbody>
@@ -188,7 +188,7 @@
                                                 <!-- SELL A -->
                                                 <tr data-pair-id="<?php echo (!empty($buy_a) ? $buy_a['sell_id'] : '') ?>">
                                                     <td>
-                                                        <div class="signal-label sell-label">A</div>
+                                                        <div translate="no"  class="signal-label sell-label">A</div>
                                                     </td>
                                                     <td>
                                                         <input type="text" id="sell-a" class="signal-price" value="<?php echo (!empty($buy_a) ? number_format($buy_a['sell_entry_price'], 2, '.', ',') : '') ?>" <?php echo (empty($buy_a) || (isset($buy_a['status']) && strtolower($buy_a['status']) === 'pending') ? "readonly" : "") ?>>
@@ -199,19 +199,19 @@
                                                         </div>
                                                     </td>
                                                     <td>
-                                                        <button id="send-sell-a" class="signal-btn btn-ok" <?php echo (empty($buy_a) || (isset($buy_a['status']) && strtolower($buy_a['status']) === 'pending') ? "disabled" : "") ?>>SELL</button>
+                                                        <button id="send-sell-a" translate="no"  class="signal-btn btn-ok" <?php echo (empty($buy_a) || (isset($buy_a['status']) && strtolower($buy_a['status']) === 'pending') ? "disabled" : "") ?>>SELL</button>
                                                     </td>
                                                     <!-- <td>
                                                         <button id="fill-sell-a" class="signal-btn btn-fill" <?php echo (empty($buy_a) ? "disabled" : "") ?>>FILL</button>
                                                     </td> -->
                                                     <td>
-                                                        <button id="del-sell-a" class="signal-btn btn-del" <?php echo (empty($buy_a) ? "disabled" : "") ?>>DEL</button>
+                                                        <button id="del-sell-a" translate="no" class="signal-btn btn-del" <?php echo (empty($buy_a) ? "disabled" : "") ?>>DEL</button>
                                                     </td>
                                                 </tr>
                                                 <!-- SELL B -->
                                                 <tr data-pair-id="<?php echo (!empty($buy_b) ? $buy_b['sell_id'] : '') ?>">
                                                     <td>
-                                                        <div class="signal-label sell-label">B</div>
+                                                        <div translate="no"  class="signal-label sell-label">B</div>
                                                     </td>
                                                     <td>
                                                         <input type="text" id="sell-b" class="signal-price" value="<?php echo (!empty($buy_b) ? number_format($buy_b['sell_entry_price'], 2, '.', ',') : '') ?>" <?php echo (empty($buy_b) || (isset($buy_b['status']) && strtolower($buy_b['status']) === 'pending') ? "readonly" : "") ?>>
@@ -222,19 +222,19 @@
                                                         </div>
                                                     </td>
                                                     <td>
-                                                        <button id="send-sell-b" class="signal-btn btn-ok" <?php echo (empty($buy_b) || (isset($buy_b['status']) && strtolower($buy_b['status']) === 'pending') ? "disabled" : "") ?>>SELL</button>
+                                                        <button id="send-sell-b" translate="no" class="signal-btn btn-ok" <?php echo (empty($buy_b) || (isset($buy_b['status']) && strtolower($buy_b['status']) === 'pending') ? "disabled" : "") ?>>SELL</button>
                                                     </td>
                                                     <!-- <td>
                                                         <button id="fill-sell-b" class="signal-btn btn-fill" <?php echo (empty($buy_b) ? "disabled" : "") ?>>FILL</button>
                                                     </td> -->
                                                     <td>
-                                                        <button id="del-sell-b" class="signal-btn btn-del" <?php echo (empty($buy_b) ? "disabled" : "") ?>>DEL</button>
+                                                        <button id="del-sell-b" translate="no" class="signal-btn btn-del" <?php echo (empty($buy_b) ? "disabled" : "") ?>>DEL</button>
                                                     </td>
                                                 </tr>
                                                 <!-- SELL C -->
                                                 <tr data-pair-id="<?php echo (!empty($buy_c) ? $buy_c['sell_id'] : '') ?>">
                                                     <td>
-                                                        <div class="signal-label sell-label">C</div>
+                                                        <div translate="no"  class="signal-label sell-label">C</div>
                                                     </td>
                                                     <td>
                                                         <input type="text" id="sell-c" class="signal-price" value="<?php echo (!empty($buy_c) ? number_format($buy_c['sell_entry_price'], 2, '.', ',') : '') ?>" <?php echo (empty($buy_c) || (isset($buy_c['status']) && strtolower($buy_c['status']) === 'pending') ? "readonly" : "") ?>>
@@ -245,19 +245,19 @@
                                                         </div>
                                                     </td>
                                                     <td>
-                                                        <button id="send-sell-c" class="signal-btn btn-ok" <?php echo (empty($buy_c) || (isset($buy_c['status']) && strtolower($buy_c['status']) === 'pending') ? "disabled" : "") ?>>SELL</button>
+                                                        <button id="send-sell-c" translate="no" class="signal-btn btn-ok" <?php echo (empty($buy_c) || (isset($buy_c['status']) && strtolower($buy_c['status']) === 'pending') ? "disabled" : "") ?>>SELL</button>
                                                     </td>
                                                     <!-- <td>
                                                         <button id="fill-sell-c" class="signal-btn btn-fill" <?php echo (empty($buy_c) ? "disabled" : "") ?>>FILL</button>
                                                     </td> -->
                                                     <td>
-                                                        <button id="del-sell-c" class="signal-btn btn-del" <?php echo (empty($buy_c) ? "disabled" : "") ?>>DEL</button>
+                                                        <button id="del-sell-c" translate="no" class="signal-btn btn-del" <?php echo (empty($buy_c) ? "disabled" : "") ?>>DEL</button>
                                                     </td>
                                                 </tr>
                                                 <!-- SELL D -->
                                                 <tr data-pair-id="<?php echo (!empty($buy_d) ? $buy_d['sell_id'] : '') ?>">
                                                     <td>
-                                                        <div class="signal-label sell-label">D</div>
+                                                        <div translate="no"  class="signal-label sell-label">D</div>
                                                     </td>
                                                     <td>
                                                         <input type="text" id="sell-d" class="signal-price"  value="<?php echo (!empty($buy_d) ? number_format($buy_d['sell_entry_price'], 2, '.', ',') : '') ?>" <?php echo (empty($buy_d) || (isset($buy_d['status']) && strtolower($buy_d['status']) === 'pending') ? "readonly" : "") ?>>
@@ -268,13 +268,13 @@
                                                         </div>
                                                     </td>
                                                     <td>
-                                                        <button id="send-sell-d" class="signal-btn btn-ok" <?php echo (empty($buy_d) || (isset($buy_d['status']) && strtolower($buy_d['status']) === 'pending') ? "disabled" : "") ?>>SELL</button>
+                                                        <button id="send-sell-d" translate="no" class="signal-btn btn-ok" <?php echo (empty($buy_d) || (isset($buy_d['status']) && strtolower($buy_d['status']) === 'pending') ? "disabled" : "") ?>>SELL</button>
                                                     </td>
                                                     <!-- <td>
                                                         <button id="fill-sell-d" class="signal-btn btn-fill" <?php echo (empty($buy_d) ? "disabled" : "") ?>>FILL</button>
                                                     </td> -->
                                                     <td>
-                                                        <button id="del-sell-d" class="signal-btn btn-del" <?php echo (empty($buy_d) ? "disabled" : "") ?>>DEL</button>
+                                                        <button id="del-sell-d" translate="no" class="signal-btn btn-del" <?php echo (empty($buy_d) ? "disabled" : "") ?>>DEL</button>
                                                     </td>
                                                 </tr>
                                             </tbody>

@@ -95,10 +95,12 @@
         let formatted = '';
     
         if (selectedCoin === 'usdt') {
+            $('#coin-type').val("usdt");
             balance = balanceUSDT;
             formatted = Number(balance).toLocaleString(undefined, { minimumFractionDigits: 0, maximumFractionDigits: 2 }) + ' USDT';
             $("#amount").val('');
         } else if (selectedCoin === 'btc') {
+            $('#coin-type').val("btc");
             balance = balanceBTC;
             formatted = Number(balance).toFixed(6) + ' BTC';
             $("#amount").val('');

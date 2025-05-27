@@ -242,11 +242,11 @@ class Withdraw extends BaseController
 
     public function transfer_confirm() {
         $member_id  = $_SESSION["logged_user"]->id;
-        $from       = $this->request->getVar('from');
-        $to         = $this->request->getVar('to');
-        $amount     = $this->request->getVar('amount');
-        $coin       = $this->request->getVar('coin');
-    
+        $from       = $this->request->getPost('from');
+        $to         = $this->request->getPost('to');
+        $amount     = $this->request->getPost('amount');
+        $coin       = $this->request->getPost('coin-type');
+
         if ($from === 'commission' && $to === 'fund') {
             $url = URL_HEDGEFUND . "/v1/member/transfer_commission";
             $data = ['id_member' => $member_id, 'destination' => 'balance'];

@@ -66,7 +66,7 @@
                     </div>
                 </div>
                 <?php endif ?>
-                <form action="<?= BASE_URL ?>hedgefund/withdraw/transfer_confirm">
+                <form action="<?= BASE_URL ?>hedgefund/withdraw/transfer_confirm" method="post">
 
                     <!-- From & To in one row -->
                     <div class="row justify-content-center mb-4">
@@ -152,7 +152,8 @@
                         <!-- Coin Dropdown -->
                         <label class="form-label fw-bold text-gold w-100">Coin</label>
                         <div class="w-100 mb-3" style="min-width: 400px; margin: 0 auto;">
-                            <select disabled id="coin" name="coin" class="form-control text-center fw-bold"
+                            <input type="hidden" name="coin-type" value="usdt">
+                            <select disabled id="coin" name="coin-type" class="form-control text-center fw-bold"
                                 style="border: 1px solid #b48b3d; background-color: #1c1c1c; color: #b48b3d; height: 45px; border-radius: 5px;">
                                 <option value="usdt" selected>USDT</option>
                                 <option value="btc">BTC</option>

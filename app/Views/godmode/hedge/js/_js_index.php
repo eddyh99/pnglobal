@@ -14,7 +14,10 @@
                 data: 'email'
             },
             {
-                data: 'refcode'
+                data: 'role',
+                render: function (data, type, row) {
+                    return data === 'referral' ? row.refcode : '';
+                }
             },
             {
                 data: null,
@@ -42,10 +45,10 @@
                 data: 'referral'
             },
             {
-                data: 'fund'
+                data: 'fund', render: $.fn.dataTable.render.number( ',', '.', 2, '' )
             },
             {
-                data: 'trade'
+                data: 'trade', render: $.fn.dataTable.render.number( ',', '.', 2, '' )
             },
             {
                 data: null,
