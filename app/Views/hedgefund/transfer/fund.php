@@ -66,7 +66,7 @@
                     </div>
                 </div>
                 <?php endif ?>
-                <form action="<?= BASE_URL ?>hedgefund/withdraw/transfer_confirm" method="post">
+                <form action="<?= BASE_URL ?>hedgefund/withdraw/transfer_confirm/transfer_fund" method="post">
 
                     <!-- From & To in one row -->
                     <div class="row justify-content-center mb-4">
@@ -81,8 +81,8 @@
                                     id="from"
                                     style="background-color: #1c1c1c; border: 1px solid #b48b3d;">
                                     <option value="fund">Funding wallet</option>
-                                    <option value="trade">Unified Trading wallet</option>
-                                    <option value="commission">Commission</option>
+                                    <!-- <option value="trade">Unified Trading wallet</option>
+                                    <option value="commission">Commission</option> -->
                                 </select>
                             </div>
                     
@@ -96,7 +96,7 @@
                                     id="to"
                                     style="background-color: #1c1c1c; border: 1px solid #b48b3d;">
                                     <option value="trade">Unified Trading wallet</option>
-                                    <option value="fund">Funding wallet</option>
+                                    <!-- <option value="fund">Funding wallet</option> -->
                                 </select>
                             </div>
                         </div>
