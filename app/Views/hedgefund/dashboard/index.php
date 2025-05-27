@@ -156,6 +156,7 @@
                                     <th>BTC PRICE</th>
                                     <th>AMOUNT BTC</th>
                                     <th>POSITION</th>
+                                    <th>STATUS</th>
                                     <!-- <th>TYPE</th> -->
                                 </tr>
                             </thead>
