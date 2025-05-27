@@ -121,6 +121,8 @@ class Deposit extends BaseController
         $publicKey  = COINPAYMENTS_PUBLIC_KEY;
         $privateKey = COINPAYMENTS_PRIVATE_KEY;
         $url        = COINPAYMENTS_API_URL;
+        $nonce = get_coinpayments_nonce();
+        
         $payload = [
                 'cmd'        => 'create_transaction',
                 'amount'     => $amount,
@@ -135,7 +137,7 @@ class Deposit extends BaseController
                 'cancel_url' => base_url()."elite/deposit/set_capital",
                 'version'    => 1,
                 'format'     => 'json', // Ensure JSON response
-                'nonce'      => time()
+                'nonce'      => $nonce
             ];
         
             // Generate HMAC signature
@@ -178,7 +180,7 @@ class Deposit extends BaseController
         $paymentResponse = $this->createCoinPaymentTransaction($payamount,'USDT.BEP20', $orderId,$customerEmail,$description);
         if ($paymentResponse['error'] !== 'ok') {
             $this->session->setFlashdata('error', 'There was a problem processing your purchase please try again');
-            return redirect()->to(base_url().'hedgefund/auth/set_capital'); 
+            return redirect()->to(base_url().'hedgefund/deposit/set_capital'); 
         }
         
         return redirect()->to($paymentResponse['result']['checkout_url']); 
@@ -201,7 +203,7 @@ class Deposit extends BaseController
         $paymentResponse = $this->createCoinPaymentTransaction($payamount,'USDC.BEP20', $orderId,$customerEmail,$description);
         if ($paymentResponse['error'] !== 'ok') {
             $this->session->setFlashdata('error', 'There was a problem processing your purchase please try again');
-            return redirect()->to(base_url().'hedgefund/auth/set_capital'); 
+            return redirect()->to(base_url().'hedgefund/deposti/set_capital'); 
         }
         
         return redirect()->to($paymentResponse['result']['checkout_url']); 

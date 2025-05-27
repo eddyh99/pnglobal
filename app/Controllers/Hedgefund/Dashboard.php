@@ -32,7 +32,6 @@ class Dashboard extends BaseController
 
         $wd = new Withdraw;
         $user = session()->get('logged_user');
-
         $mdata = [
             'title'     => 'Dashboard - ' . NAMETITLE,
             'content'   => 'hedgefund/dashboard/index',
