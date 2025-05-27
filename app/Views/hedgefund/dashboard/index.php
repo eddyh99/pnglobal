@@ -82,9 +82,8 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="d-flex justify-content-between flex-row flex-wrap gap-2">
+                        <div class="d-flex justify-content-start flex-row flex-wrap gap-2">
                             <a href="<?= BASE_URL ?>hedgefund/deposit" class="btn-withdraw btn-lg">DEPOSIT</a>
-                            <a href="<?= BASE_URL ?>hedgefund/withdraw/transfer_fund" class="btn-withdraw btn-lg" style="max-width:350px !important">Transfer to Trade Wallet</a>
                         </div>
                     </div>
 
@@ -113,7 +112,7 @@
                             </div>
                         </div>
                         <div class="d-flex justify-content-end flex-row flex-wrap gap-2">
-                            <a href="<?= BASE_URL ?>hedgefund/withdraw/transfer_trade" class="btn-withdraw btn-lg" style="max-width:350px !important">Transfer to Funds Wallet</a>
+                            <a href="<?= BASE_URL ?>hedgefund/withdraw/transfer" class="btn-withdraw btn-lg" style="max-width:350px !important">Transfer to Funds Wallet</a>
                         </div>
                     </div>
 

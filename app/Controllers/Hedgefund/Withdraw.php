@@ -216,7 +216,7 @@ class Withdraw extends BaseController
         ]);
     }
 
-    public function transfer_trade() {
+    public function transfer() {
         $session = session();
 
         // Jika belum login, redirect ke halaman signin
@@ -229,7 +229,7 @@ class Withdraw extends BaseController
         $loggedUser = $session->get('logged_user');
         $mdata = [
             'title' => 'Transfer - ' . NAMETITLE,
-            'content' => 'hedgefund/transfer/trade',
+            'content' => 'hedgefund/transfer/index',
             'balance' => $balance,
             'extra' => 'hedgefund/transfer/js/_js_index',
             'active_dash' => 'active',
@@ -240,31 +240,7 @@ class Withdraw extends BaseController
         return view('hedgefund/layout/dashboard_wrapper', $mdata);
     }
 
-    public function transfer_fund() {
-        $session = session();
-
-        // Jika belum login, redirect ke halaman signin
-        if (!$session->has('logged_user')) {
-            header("Location: " . BASE_URL . 'hedgefund/auth/login');
-            exit();
-        }
-
-        $balance = $this->get_balance();
-        $loggedUser = $session->get('logged_user');
-        $mdata = [
-            'title' => 'Transfer - ' . NAMETITLE,
-            'content' => 'hedgefund/transfer/fund',
-            'balance' => $balance,
-            'extra' => 'hedgefund/transfer/js/_js_index',
-            'active_dash' => 'active',
-            'refcode'   => $loggedUser->refcode,
-            'isreferral'   => $loggedUser->role == 'referral'            
-        ];
-
-        return view('hedgefund/layout/dashboard_wrapper', $mdata);
-    }
-
-    public function transfer_confirm($type) {
+    public function transfer_confirm() {
         $member_id  = $_SESSION["logged_user"]->id;
         $from       = $this->request->getPost('from');
         $to         = $this->request->getPost('to');
@@ -273,7 +249,7 @@ class Withdraw extends BaseController
 
         if ($from === 'commission' && $to === 'fund') {
             $url = URL_HEDGEFUND . "/v1/member/transfer_commission";
-            $data = ['id_member' => $member_id, 'destination' => 'balance'];
+            $data = ['id_member' => $member_id, 'destination' => 'comission'];
         } elseif (($from === 'fund' && $to === 'trade') || ($from === 'trade' && $to === 'fund')) {
             $url = URL_HEDGEFUND . "/v1/withdraw/transfer_balance";
             $data = ['id_member' => $member_id, 'destination' => $to, 'amount' => $amount, 'coin' => $coin];
@@ -286,11 +262,11 @@ class Withdraw extends BaseController
     
         if (!isset($result->code) || $result->code !== 201) {
             session()->setFlashdata('failed', $result->message ?? $result->messages);
-            return redirect()->to(BASE_URL . 'hedgefund/withdraw/' . $type);
+            return redirect()->to(BASE_URL . 'hedgefund/withdraw/transfer');
         }
     
         session()->setFlashdata('success', $result->message);
-        return redirect()->to(BASE_URL . 'hedgefund/withdraw/' . $type);
+        return redirect()->to(BASE_URL . 'hedgefund/withdraw/transfer');
     }
 
     public function get_balance()
