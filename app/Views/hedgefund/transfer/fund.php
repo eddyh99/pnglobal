@@ -66,7 +66,7 @@
                     </div>
                 </div>
                 <?php endif ?>
-                <form action="<?= BASE_URL ?>hedgefund/withdraw/transfer_confirm/transfer_fund" method="post">
+                <form action="<?= BASE_URL ?>hedgefund/withdraw/transfer_confirm/fund" method="post">
 
                     <!-- From & To in one row -->
                     <div class="row justify-content-center mb-4">
