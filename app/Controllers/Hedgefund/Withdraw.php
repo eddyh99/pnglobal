@@ -237,7 +237,7 @@ class Withdraw extends BaseController
             'active_dash' => 'active',
             'refcode'   => $loggedUser->refcode,
             'isreferral'   => $loggedUser->role == 'referral',
-            'type'      => $type == 'index' ? 'commission' : $type
+            'type' => (!$type || $type === 'index') ? 'commission' : $type
         ];
 
         return view('hedgefund/layout/dashboard_wrapper', $mdata);
