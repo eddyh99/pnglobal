@@ -216,7 +216,7 @@ class Withdraw extends BaseController
         ]);
     }
 
-    public function transfer($type) {
+    public function transfer($type=null) {
         $session = session();
 
         // Jika belum login, redirect ke halaman signin
@@ -229,7 +229,7 @@ class Withdraw extends BaseController
         $loggedUser = $session->get('logged_user');
         $mdata = [
             'title' => 'Transfer - ' . NAMETITLE,
-            'content' => 'hedgefund/transfer/' . $type,
+            'content' => 'hedgefund/transfer/' . ($type ?? 'index'),
             'balance' => $balance,
             'extra' => 'hedgefund/transfer/js/_js_index',
             'active_dash' => 'active',
@@ -256,7 +256,7 @@ class Withdraw extends BaseController
             $data = ['id_member' => $member_id, 'destination' => $to, 'amount' => $amount, 'coin' => $coin];
         } else {
             session()->setFlashdata('failed', 'Transfer type not supported.');
-            return redirect()->to(BASE_URL . 'hedgefund/withdraw/transfer');
+            return redirect()->to(BASE_URL . 'hedgefund/withdraw/transfer/'.$type);
         }
     
         $result = satoshiAdmin($url, json_encode($data))->result;
