@@ -104,7 +104,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="wrapper-addreferral">
+                                        <!-- <div class="wrapper-addreferral">
                                             <label for="wallet_address">Amount you receive in USDC</label>
                                             <div class="w-100 mb-1" style="min-width: 400px; margin: 0 auto;">
                                                 <div class="d-flex align-items-center" style="border: 1px solid #b48b3d; background-color: #1c1c1c; height: 45px; border-radius: 5px;">
@@ -116,7 +116,7 @@
                                                     <div class="px-3 fw-bold text-gold">USDC</div>
                                                 </div>
                                             </div>
-                                        </div>
+                                        </div> -->
                                         <div class="wrapper-addreferral">
                                             <label for="network">Network</label>
                                             <input type="text" name="network" class="form-control text-center" value="BEP20" readonly>
