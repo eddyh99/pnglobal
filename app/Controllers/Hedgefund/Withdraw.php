@@ -119,7 +119,10 @@ class Withdraw extends BaseController
             ],
             'wallet_address' => [
                 'label' => 'Wallet Address',
-                'rules' => 'permit_empty'
+                'rules' => 'required|regex_match[/^0x/i]',
+                'errors' => [
+                    'regex_match' => 'The wallet address is not valid.'
+                ]
             ],
             'address' => [
                 'label' => 'Address',
@@ -151,7 +154,8 @@ class Withdraw extends BaseController
         // protect withdraw balance
         if (!$this->check_balance($type, $amount)) {
             return $this->response->setJSON([
-                'code' => 400
+                'code' => 400,
+                'message' => ['Insufficient Balance.']
             ]);
         }
 
