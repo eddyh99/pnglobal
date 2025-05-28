@@ -128,7 +128,7 @@
                         <div class="w-100 mb-1" style="min-width: 400px; margin: 0 auto;">
                             <div class="d-flex align-items-center" style="border: 1px solid #b48b3d; background-color: #1c1c1c; height: 45px; border-radius: 5px;">
                                 <input type="number" id="amount" name="amount"
-                                    class="form-control text-center fw-bold" step="0.000001"
+                                    class="form-control text-center fw-bold no-spinner" step="0.000001"
                                     placeholder="10,000"
                                     style="background-color: transparent; color: #b48b3d; border: none; box-shadow: none;">
                                 <div id="pairusdt" class="px-3 fw-bold text-gold">USDT</div>
@@ -139,7 +139,7 @@
                         <!-- Available Balance -->
                         <div id="availablebalance" class="d-flex justify-content-between text-white px-1 mb-4 small" style="min-width: 400px; margin: 0 auto;">
                             <div>Available Balance</div>
-                            <div id="textbalance" class="text-gold"><?= number_format($balance['fund']->usdt ?? 0) ?> USDT</div>
+                            <div id="textbalance" class="text-gold"><?= number_format($balance['commission']->usdt ?? 0) ?> USDT</div>
                         </div>
                     
                         <!-- Confirm Button -->

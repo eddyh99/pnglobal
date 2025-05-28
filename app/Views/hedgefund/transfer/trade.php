@@ -139,7 +139,7 @@
                         <!-- Available Balance -->
                         <div id="availablebalance" class="d-flex justify-content-between text-white px-1 mb-4 small" style="min-width: 400px; margin: 0 auto;">
                             <div>Available Balance</div>
-                            <div id="textbalance" class="text-gold"><?= number_format($balance['fund']->usdt ?? 0) ?> USDT</div>
+                            <div id="textbalance" class="text-gold"><?= number_format($balance['trade']->usdt ?? 0, 2) ?> USDT</div>
                         </div>
                     
                         <!-- Confirm Button -->

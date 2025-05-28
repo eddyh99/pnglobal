@@ -66,8 +66,10 @@
     }
 </style>
 <script>
-    let balanceUSDT = parseFloat("<?= $balance['fund']->usdt ?? 0 ?>") || 0;
-    let balanceBTC = parseFloat("<?= $balance['fund']->btc ?? 0 ?>") || 0;
+    const type = <?= json_encode($type); ?>;
+    let balanceUSDT = parseFloat("<?= $balance[$type]->usdt ?? 0 ?>") || 0;
+    let balanceBTC = parseFloat("<?= $balance[$type]->btc ?? 0 ?>") || 0;
+    let balanceCommission = parseFloat("<?= $balance[$type]->usdt ?? 0 ?>") || 0;
     
     // Update #pairusdt text based on selected coin
     function updatePairText() {
@@ -91,9 +93,9 @@
             return;
         }
     
-        // Format BTC with 4 decimals
+        // Format BTC with 6 decimals
         const formatted = selectedCoin === 'btc'
-            ? balance.toFixed(4)
+            ? balance.toFixed(6)
             : balance;
     
         $("#amount").val(formatted);
