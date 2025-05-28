@@ -67,45 +67,8 @@
                 </div>
                 <?php endif ?>
                 <form action="<?= BASE_URL ?>hedgefund/withdraw/transfer_confirm/trade" method="post">
-
-                    <!-- From & To in one row -->
-                    <div class="row justify-content-center mb-4">
-                        <div class="col-md-7">
-                            <!-- From -->
-                            <div class="d-flex align-items-center mb-3">
-                                <label for="from" class="text-gold fw-bold mb-0 text-center d-flex align-items-center justify-content-center label-destination">
-                                    From
-                                </label>
-                                <select class="form-control text-white ms-2"
-                                    name="from"
-                                    id="from"
-                                    style="background-color: #1c1c1c; border: 1px solid #b48b3d;">
-                                    <!-- <option value="fund">Funding wallet</option> -->
-                                    <option value="trade">Unified Trading wallet</option>
-                                    <option value="commission">Commission</option>
-                                </select>
-                            </div>
-                    
-                            <!-- To -->
-                            <div class="d-flex align-items-center">
-                                <label for="to" class="text-gold fw-bold mb-0 text-center d-flex align-items-center justify-content-center label-destination">
-                                    To
-                                </label>
-                                <select class="form-control text-white ms-2"
-                                    name="to"
-                                    id="to"
-                                    style="background-color: #1c1c1c; border: 1px solid #b48b3d;">
-                                    <!-- <option value="trade">Unified Trading wallet</option> -->
-                                    <option value="fund">Funding wallet</option>
-                                </select>
-                            </div>
-                        </div>
-                    </div>
-
-        
-                    <!-- Divider -->
-                    <hr style="border-color: #b48b3d; opacity: 0.7;">
-        
+                    <input type="hidden" name="from" value="trade">
+                    <input type="hidden" name="to" value="fund">
                     <!-- Wallet Info -->
                     <div class="row text-start mb-5">
                         <!-- Funding Wallet -->
@@ -165,7 +128,7 @@
                         <div class="w-100 mb-1" style="min-width: 400px; margin: 0 auto;">
                             <div class="d-flex align-items-center" style="border: 1px solid #b48b3d; background-color: #1c1c1c; height: 45px; border-radius: 5px;">
                                 <input type="number" id="amount" name="amount"
-                                    class="form-control text-center fw-bold" step="0.000001"
+                                    class="form-control text-center fw-bold no-spinner" step="0.000001"
                                     placeholder="10,000"
                                     style="background-color: transparent; color: #b48b3d; border: none; box-shadow: none;">
                                 <div id="pairusdt" class="px-3 fw-bold text-gold">USDT</div>
