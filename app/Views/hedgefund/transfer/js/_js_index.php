@@ -116,10 +116,10 @@
         const isCommission = fromVal === 'commission';
     
         // Update amount input
-        $('#amount')
-            .val('')
-            .attr('placeholder', isCommission ? 'Entire balance' : 'Enter amount')
-            .prop('readonly', isCommission);
+        // $('#amount')
+        //     .val('')
+        //     .attr('placeholder', isCommission ? 'Entire balance' : 'Enter amount')
+        //     .prop('readonly', isCommission);
     
         // Adjust 'to' value and disable options accordingly
         if (isCommission) {

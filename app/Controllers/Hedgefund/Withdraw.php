@@ -250,7 +250,7 @@ class Withdraw extends BaseController
 
         if ($from === 'commission' && $to === 'fund') {
             $url = URL_HEDGEFUND . "/v1/member/transfer_commission";
-            $data = ['id_member' => $member_id, 'destination' => 'comission'];
+            $data = ['id_member' => $member_id, 'destination' => 'comission', 'amount' => $amount];
         } elseif (($from === 'fund' && $to === 'trade') || ($from === 'trade' && $to === 'fund')) {
             $url = URL_HEDGEFUND . "/v1/withdraw/transfer_balance";
             $data = ['id_member' => $member_id, 'destination' => $to, 'amount' => $amount, 'coin' => $coin];
