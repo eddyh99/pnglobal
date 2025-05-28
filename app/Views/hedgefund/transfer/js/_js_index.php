@@ -67,9 +67,9 @@
 </style>
 <script>
     const type = <?= json_encode($type); ?>;
-    let balanceUSDT = parseFloat("<?= $balance[$type]->usdt ?? 0 ?>") || 0;
+    let balanceUSDT = parseFloat("<?= $balance[$type == 'commission_trade' ? 'commission' : $type]->usdt ?? 0 ?>") || 0;
     let balanceBTC = parseFloat("<?= $balance[$type]->btc ?? 0 ?>") || 0;
-    let balanceCommission = parseFloat("<?= $balance[$type]->usdt ?? 0 ?>") || 0;
+    // let balanceCommission = parseFloat("<?= $balance['commission']->usdt ?? 0 ?>") || 0;
     
     // Update #pairusdt text based on selected coin
     function updatePairText() {

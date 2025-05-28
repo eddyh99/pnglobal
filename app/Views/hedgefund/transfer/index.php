@@ -68,7 +68,7 @@
                 <?php endif ?>
                 <form action="<?= BASE_URL ?>hedgefund/withdraw/transfer_confirm" method="post">
                     <input type="hidden" name="from" value="commission">
-                    <input type="hidden" name="to" value="fund">
+                    <input type="hidden" name="to" value="<?= $type == 'commission_trade' ? 'trade' : 'fund' ?>">
                     <!-- Wallet Info -->
                     <div class="row text-start mb-5">
                         <!-- Funding Wallet -->
