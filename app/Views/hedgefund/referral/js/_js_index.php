@@ -168,7 +168,7 @@
                 commission = parseFloat(commission);
 
                 // Format angka tanpa desimal
-                var formattedCommission = Math.floor(commission).toLocaleString('en-US');
+                var formattedCommission = commission;
 
                 // Gunakan selector yang lebih spesifik untuk masing-masing card
                 $('#card-referral .card-bottom').text(referral);

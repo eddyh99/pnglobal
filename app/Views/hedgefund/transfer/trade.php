@@ -104,7 +104,7 @@
                             <div class="text-gold mb-2 fw-bold">Commission</div>
                             <div class="d-flex justify-content-start">
                                 <div class="px-4 py-2 balance-box text-gold">
-                                    <?= number_format($balance['commission']->usdt ?? 0) ?> <strong>USDT</strong>
+                                    <?= number_format($balance['commission']->usdt ?? 0, 2) ?> <strong>USDT</strong>
                                 </div>
                             </div>
                         </div>
