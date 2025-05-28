@@ -148,7 +148,7 @@ class Withdraw extends BaseController
         $amount = $this->request->getVar('amount');
         $type = $this->request->getVar('type');
 
-        // validasi balance
+        // protect withdraw balance
         if (!$this->check_balance($type, $amount)) {
             return $this->response->setJSON([
                 'code' => 400
