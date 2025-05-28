@@ -85,7 +85,7 @@ class Withdraw extends BaseController
     public function available_commission()
     {
         $id_member  = $_SESSION['logged_user']->id;
-        $url        =  URL_HEDGEFUND . '/v1/member/referral_summary?id_member='. $id_member;
+        $url        =  URL_HEDGEFUND . '/v1/member/referral_summary?id_member=' . $id_member;
         $result     = satoshiAdmin($url)->result;
 
         return $this->response->setJSON([
@@ -153,7 +153,7 @@ class Withdraw extends BaseController
             return $this->response->setJSON([
                 'code' => 400
             ]);
-        }        
+        }
 
         $mdata = [
             'amount' => $amount,
@@ -190,18 +190,19 @@ class Withdraw extends BaseController
         // ]);
     }
 
-    private function check_balance($type, $amount) {
+    private function check_balance($type, $amount)
+    {
         $balance = $this->get_balance();
-    
+
         $availableBalances = [
             'usdt' => $balance['fund']->usdt,
             'usdc' => $balance['fund']->usdt,
             'btc'  => $balance['fund']->btc,
         ];
-    
+
         return isset($availableBalances[$type]) && $amount <= $availableBalances[$type];
     }
-    
+
 
     public function get_withdraw_history()
     {
@@ -216,7 +217,8 @@ class Withdraw extends BaseController
         ]);
     }
 
-    public function transfer($type=null) {
+    public function transfer($type = null)
+    {
         $session = session();
 
         // Jika belum login, redirect ke halaman signin
@@ -235,14 +237,15 @@ class Withdraw extends BaseController
             'active_dash' => 'active',
             'refcode'   => $loggedUser->refcode,
             'isreferral'   => $loggedUser->role == 'referral',
-            'type'      => $type == 'index' ? 'commission' : $type           
+            'type'      => $type == 'index' ? 'commission' : $type
         ];
 
         return view('hedgefund/layout/dashboard_wrapper', $mdata);
     }
 
 
-    public function transfer_confirm($type = null) {
+    public function transfer_confirm($type = null)
+    {
         $member_id  = $_SESSION["logged_user"]->id;
         $from       = $this->request->getPost('from');
         $to         = $this->request->getPost('to');
@@ -259,14 +262,14 @@ class Withdraw extends BaseController
             session()->setFlashdata('failed', 'Transfer type not supported.');
             return redirect()->to(BASE_URL . 'hedgefund/withdraw/transfer/' . ($type ?? 'index'));
         }
-    
+
         $result = satoshiAdmin($url, json_encode($data))->result;
-    
+
         if (!isset($result->code) || $result->code !== 201) {
             session()->setFlashdata('failed', $result->message ?? $result->messages);
             return redirect()->to(BASE_URL . 'hedgefund/withdraw/transfer/'  . ($type ?? 'index'));
         }
-    
+
         session()->setFlashdata('success', $result->message);
         return redirect()->to(BASE_URL . 'hedgefund/withdraw/transfer/'  . ($type ?? 'index'));
     }
@@ -275,20 +278,19 @@ class Withdraw extends BaseController
     {
         $member_id = $_SESSION["logged_user"]->id;
         $url = URL_HEDGEFUND . "/v1/member/balance";
-    
+
         $types = ['fund', 'trade', 'commission'];
         $balances = [];
-    
+
         foreach ($types as $type) {
             $response = satoshiAdmin($url, json_encode([
                 'id_member' => $member_id,
                 'type' => $type
             ]));
-    
+
             $balances[$type] = $response->result->message ?? null;
         }
-    
+
         return $balances;
     }
-    
 }

@@ -43,7 +43,7 @@ class Deposit extends BaseController
         ];
         return view('hedgefund/layout/dashboard_wrapper', $mdata);
     }
-    
+
     public function get_investment_config()
     {
         $url = URL_HEDGEFUND . "/v1/price";
@@ -115,52 +115,53 @@ class Deposit extends BaseController
 
         return view('hedgefund/layout/dashboard_wrapper', $mdata);
     }
-    
-    function createCoinPaymentTransaction($amount, $currency, $invoiceNumber,$buyer_email,$description)
+
+    function createCoinPaymentTransaction($amount, $currency, $invoiceNumber, $buyer_email, $description)
     {
         $publicKey  = COINPAYMENTS_PUBLIC_KEY;
         $privateKey = COINPAYMENTS_PRIVATE_KEY;
         $url        = COINPAYMENTS_API_URL;
         $nonce = get_coinpayments_nonce();
-        
-        $payload = [
-                'cmd'        => 'create_transaction',
-                'amount'     => $amount,
-                'currency1'  => 'USD',
-                'currency2'  => $currency,
-                'invoice'    => $invoiceNumber,
-                'buyer_email'=> $buyer_email,
-                'item_name'  => $description,
-                'key'        => $publicKey,
-                'ipn_url'    => base_url().'hedgefund/auth/coinpayment_notify',
-                'success_url'=> base_url().'hedgefund/deposit/returncrypto',
-                'cancel_url' => base_url()."elite/deposit/set_capital",
-                'version'    => 1,
-                'format'     => 'json', // Ensure JSON response
-                'nonce'      => $nonce
-            ];
-        
-            // Generate HMAC signature
-            $postData = http_build_query($payload, '', '&');
-            $hmac = hash_hmac('sha512', $postData, $privateKey);
-        
-            // Send request
-            $ch = curl_init();
-            curl_setopt($ch, CURLOPT_URL, $url);
-            curl_setopt($ch, CURLOPT_POST, 1);
-            curl_setopt($ch, CURLOPT_POSTFIELDS, $postData);
-            curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-            curl_setopt($ch, CURLOPT_HTTPHEADER, ['HMAC: ' . $hmac]);
-        
-            $response = curl_exec($ch);
-            curl_close($ch);
-        
-            return json_decode($response, true);
-    }    
 
-    public function returncrypto(){
+        $payload = [
+            'cmd'        => 'create_transaction',
+            'amount'     => $amount,
+            'currency1'  => 'USD',
+            'currency2'  => $currency,
+            'invoice'    => $invoiceNumber,
+            'buyer_email' => $buyer_email,
+            'item_name'  => $description,
+            'key'        => $publicKey,
+            'ipn_url'    => base_url() . 'hedgefund/auth/coinpayment_notify',
+            'success_url' => base_url() . 'hedgefund/deposit/returncrypto',
+            'cancel_url' => base_url() . "elite/deposit/set_capital",
+            'version'    => 1,
+            'format'     => 'json', // Ensure JSON response
+            'nonce'      => $nonce
+        ];
+
+        // Generate HMAC signature
+        $postData = http_build_query($payload, '', '&');
+        $hmac = hash_hmac('sha512', $postData, $privateKey);
+
+        // Send request
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL, $url);
+        curl_setopt($ch, CURLOPT_POST, 1);
+        curl_setopt($ch, CURLOPT_POSTFIELDS, $postData);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+        curl_setopt($ch, CURLOPT_HTTPHEADER, ['HMAC: ' . $hmac]);
+
+        $response = curl_exec($ch);
+        curl_close($ch);
+
+        return json_decode($response, true);
+    }
+
+    public function returncrypto()
+    {
         $this->session->setFlashdata('success', 'Your payment is being processed and your account will be ready within 48 hours. We will send you an email when your account is active.');
-        return redirect()->to(base_url().'hedgefund/auth/payment_option'); 
+        return redirect()->to(base_url() . 'hedgefund/auth/payment_option');
     }
 
     public function usdt_payment()
@@ -175,15 +176,15 @@ class Deposit extends BaseController
         $url        = URL_HEDGEFUND . "/non/deposit";
         $invoice   = satoshiAdmin($url, json_encode($postData))->result->message;
         $orderId    = $invoice;
-        $description= "ELITE BTC MANAGEMENT";
+        $description = "ELITE BTC MANAGEMENT";
 
-        $paymentResponse = $this->createCoinPaymentTransaction($payamount,'USDT.BEP20', $orderId,$customerEmail,$description);
+        $paymentResponse = $this->createCoinPaymentTransaction($payamount, 'USDT.BEP20', $orderId, $customerEmail, $description);
         if ($paymentResponse['error'] !== 'ok') {
             $this->session->setFlashdata('error', 'There was a problem processing your purchase please try again');
-            return redirect()->to(base_url().'hedgefund/deposit/set_capital'); 
+            return redirect()->to(base_url() . 'hedgefund/deposit/set_capital');
         }
-        
-        return redirect()->to($paymentResponse['result']['checkout_url']); 
+
+        return redirect()->to($paymentResponse['result']['checkout_url']);
     }
 
     public function usdc_payment()
@@ -198,15 +199,15 @@ class Deposit extends BaseController
         $url        = URL_HEDGEFUND . "/non/deposit";
         $invoice   = satoshiAdmin($url, json_encode($postData))->result->message;
         $orderId    = $invoice;
-        $description= "ELITE BTC MANAGEMENT";
+        $description = "ELITE BTC MANAGEMENT";
 
-        $paymentResponse = $this->createCoinPaymentTransaction($payamount,'USDC.BEP20', $orderId,$customerEmail,$description);
+        $paymentResponse = $this->createCoinPaymentTransaction($payamount, 'USDC.BEP20', $orderId, $customerEmail, $description);
         if ($paymentResponse['error'] !== 'ok') {
             $this->session->setFlashdata('error', 'There was a problem processing your purchase please try again');
-            return redirect()->to(base_url().'hedgefund/deposti/set_capital'); 
+            return redirect()->to(base_url() . 'hedgefund/deposti/set_capital');
         }
-        
-        return redirect()->to($paymentResponse['result']['checkout_url']); 
+
+        return redirect()->to($paymentResponse['result']['checkout_url']);
     }
 
     public function get_history()
@@ -217,5 +218,4 @@ class Deposit extends BaseController
 
         return $this->response->setJSON(['status' => true, 'message' => $result->result->message])->setStatusCode(200);
     }
-
 }
