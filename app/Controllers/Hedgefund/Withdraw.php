@@ -241,7 +241,7 @@ class Withdraw extends BaseController
     }
 
 
-    public function transfer_confirm($type) {
+    public function transfer_confirm($type = null) {
         $member_id  = $_SESSION["logged_user"]->id;
         $from       = $this->request->getPost('from');
         $to         = $this->request->getPost('to');
@@ -256,18 +256,18 @@ class Withdraw extends BaseController
             $data = ['id_member' => $member_id, 'destination' => $to, 'amount' => $amount, 'coin' => $coin];
         } else {
             session()->setFlashdata('failed', 'Transfer type not supported.');
-            return redirect()->to(BASE_URL . 'hedgefund/withdraw/transfer/'.$type);
+            return redirect()->to(BASE_URL . 'hedgefund/withdraw/transfer/' . ($type ?? 'index'));
         }
     
         $result = satoshiAdmin($url, json_encode($data))->result;
     
         if (!isset($result->code) || $result->code !== 201) {
             session()->setFlashdata('failed', $result->message ?? $result->messages);
-            return redirect()->to(BASE_URL . 'hedgefund/withdraw/transfer/' . $type);
+            return redirect()->to(BASE_URL . 'hedgefund/withdraw/transfer/'  . ($type ?? 'index'));
         }
     
         session()->setFlashdata('success', $result->message);
-        return redirect()->to(BASE_URL . 'hedgefund/withdraw/transfer/' . $type);
+        return redirect()->to(BASE_URL . 'hedgefund/withdraw/transfer/'  . ($type ?? 'index'));
     }
 
     public function get_balance()
