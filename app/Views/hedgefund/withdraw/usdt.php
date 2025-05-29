@@ -96,7 +96,7 @@
                                         <div class="w-100 mb-1" style="min-width: 400px; margin: 0 auto;">
                                             <div class="d-flex align-items-center" style="border: 1px solid #b48b3d; background-color: #1c1c1c; height: 45px; border-radius: 5px;">
                                                 <input type="number" id="amount" name="amount"
-                                                    class="form-control text-center fw-bold"
+                                                    class="form-control text-center fw-bold no-spinner"
                                                     placeholder="10,000"
                                                     style="background-color: transparent; color: #b48b3d; border: none; box-shadow: none;">
                                                 <div class="px-3 fw-bold text-gold">USDT</div>
@@ -106,7 +106,7 @@
                                     </div>
                                     <div class="wrapper-addreferral">
                                         <label for="network">Network</label>
-                                        <input type="text" name="network" class="form-control text-center" value="TRC20" readonly>
+                                        <input type="text" name="network" class="form-control text-center" value="BEP20" readonly>
                                     </div>
                                     <div class="wrapper-addreferral d-flex justify-content-center">
                                         <button type="submit" id="submitBtn" class="btn btn-primary text-black">Confirm</button>

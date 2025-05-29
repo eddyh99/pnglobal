@@ -1,3 +1,16 @@
+<style>
+    /* For Chrome, Safari, Edge, Opera */
+    .no-spinner::-webkit-outer-spin-button,
+    .no-spinner::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+    
+    /* For Firefox */
+    .no-spinner {
+      -moz-appearance: textfield;
+    }
+</style>
 <script>
     let balance = parseFloat("<?= $balance['fund']->usdt ?? 0 ?>") || 0;
 
@@ -37,7 +50,7 @@
                         // Tutup modal dan redirect setelah 3 detik
                         closeModalAndRedirect("<?= BASE_URL ?>hedgefund/withdraw", 3000);
                     } else if (response.code === 400) {
-                        $("#modalAvailableCommission .modal-body").html("Insufficient balance. Please ensure you have enough funds and try again.");
+                        $("#modalAvailableCommission .modal-body").html(response.message);
                         $("#modalAvailableCommission").modal("show");
 
                         // Re-enable the button if there's an error 

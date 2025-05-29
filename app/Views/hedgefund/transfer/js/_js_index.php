@@ -66,8 +66,10 @@
     }
 </style>
 <script>
-    let balanceUSDT = parseFloat("<?= $balance['fund']->usdt ?? 0 ?>") || 0;
-    let balanceBTC = parseFloat("<?= $balance['fund']->btc ?? 0 ?>") || 0;
+    const type = <?= json_encode($type); ?>;
+    let balanceUSDT = parseFloat("<?= $balance[$type == 'commission_trade' ? 'commission' : $type]->usdt ?? 0 ?>") || 0;
+    let balanceBTC = parseFloat("<?= $balance[$type]->btc ?? 0 ?>") || 0;
+    // let balanceCommission = parseFloat("<?= $balance['commission']->usdt ?? 0 ?>") || 0;
     
     // Update #pairusdt text based on selected coin
     function updatePairText() {
@@ -91,9 +93,9 @@
             return;
         }
     
-        // Format BTC with 4 decimals
+        // Format BTC with 6 decimals
         const formatted = selectedCoin === 'btc'
-            ? balance.toFixed(4)
+            ? balance.toFixed(6)
             : balance;
     
         $("#amount").val(formatted);
@@ -129,10 +131,10 @@
         const isCommission = fromVal === 'commission';
     
         // Update amount input
-        $('#amount')
-            .val('')
-            .attr('placeholder', isCommission ? 'Entire balance' : 'Enter amount')
-            .prop('readonly', isCommission);
+        // $('#amount')
+        //     .val('')
+        //     .attr('placeholder', isCommission ? 'Entire balance' : 'Enter amount')
+        //     .prop('readonly', isCommission);
     
         // Adjust 'to' value and disable options accordingly
         if (isCommission) {
