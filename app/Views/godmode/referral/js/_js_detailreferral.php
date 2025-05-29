@@ -1,6 +1,6 @@
  <script>
     const url = new URL(window.location.href);
-    const product = url.searchParams.get("product");
+    const type = <?= json_encode($type) ?>;
     window.setTimeout(function() {
         $(".alert").fadeTo(500, 0).slideUp(500, function(){
             $(this).remove(); 
@@ -12,7 +12,7 @@
         "scrollX": true,
         "order": false,
         "ajax": {
-            "url": "<?= BASE_URL ?>godmode/dashboard/get_downline/<?=$member->id?>?product=" + product ,
+            "url": "<?= BASE_URL ?>godmode/dashboard/get_downline/<?=$member->id?>?product=" + type ,
             "type": "POST",
             "dataSrc":function (data){
                 console.log(data);

@@ -134,18 +134,16 @@ class Referral extends BaseController
         return redirect()->to(BASE_URL . 'godmode/referral');
     }
 
-    public function detailreferral($type, $email)
+    public function detail($type, $email)
     {
-        // Decode Type
-        $finaltype = base64_decode($type);
+        // dd($finaltype);
         $email = base64_decode($email);
-        $product = $this->request->getGet('product');
 
-        switch ($product) {
-            case 'satoshi-signal':
+        switch ($type) {
+            case 'satoshi':
                 $url = URLAPI2 . "/auth/getmember_byemail?email=" . $email;
                 break;
-            case 'elite':
+            case 'hedgefund':
                 $url = URL_HEDGEFUND . "/v1/member/get_detailmember";
                 break;
             default:
@@ -155,7 +153,7 @@ class Referral extends BaseController
 
 
         // Call Get Memeber By Email
-        $url = URLAPI . "/v1/member/get_detailmember";
+        // $url = URLAPI . "/v1/member/get_detailmember";
         $resultMember = satoshiAdmin($url, json_encode(['email' => $email]))->result->message;
 
         // Call Get Detail Referral
@@ -165,9 +163,11 @@ class Referral extends BaseController
             'title'     => 'Detail Member - ' . NAMETITLE,
             'content'   => 'godmode/referral/detail_referral',
             'extra'     => 'godmode/referral/js/_js_detailreferral',
+            'sidebar'   => 'hedgefund_sidebar',
+            'navbar_hedgefund' => 'active',
             'active_reff'  => 'active',
             'member'    => $resultMember,
-            'type'      => $finaltype,
+            'type'      => $type ?? '',
             'referral'  => $resultReferral,
             'emailreferral' => $email,
         ];

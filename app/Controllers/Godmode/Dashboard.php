@@ -194,6 +194,32 @@ class Dashboard extends BaseController
         return view('godmode/layout/admin_wrapper', $mdata);
     }
 
+    public function detailmember_hedgefund($email, $id_member)
+    {
+        // Decode Email
+        $finalemail = base64_decode($email);
+        $url = URL_HEDGEFUND . "/v1/member/get_detailmember";
+
+        log_message('debug', 'Detail member - Using API URL: ' . $url);
+        $resultMember = satoshiAdmin($url, json_encode(['email' => $finalemail]))->result;
+
+        log_message('debug', 'Detail member - API Response received');
+
+        $mdata = [
+            'title'     => 'Detail Member - ' . NAMETITLE,
+            'content'   => 'godmode/dashboard/detailmember_hedgefund',
+            'extra'     => 'godmode/dashboard/js/_js_detailmember',
+            'sidebar'   => 'hedgefund_sidebar',
+            'navbar_hedgefund' => 'active',
+            'member'    => $resultMember,
+            'active_dash'   => 'active',
+            'email' => $finalemail,
+            'id_member' => $id_member
+        ];
+        // dd($resultMember);
+        return view('godmode/layout/admin_wrapper', $mdata);
+    }
+
 
     public function detailreferral($type, $email)
     {
@@ -277,10 +303,10 @@ class Dashboard extends BaseController
 
         if ($result->code != '201') {
             session()->setFlashdata('failed', "Something Wrong, Please Try Again!");
-            return redirect()->to(BASE_URL . 'godmode/dashboard');
+            return redirect()->to(BASE_URL . 'godmode/dashboard/' . $tab);
         } else {
             session()->setFlashdata('success', "Success Disabled Member");
-            return redirect()->to(BASE_URL . 'godmode/dashboard');
+            return redirect()->to(BASE_URL . 'godmode/dashboard/' . $tab);
         }
     }
 
@@ -302,6 +328,13 @@ class Dashboard extends BaseController
         }
         
         // $url = URLAPI2 . "/v1/referral/getDownline?id=" . $id;
+        $result = satoshiAdmin($url)->result->message;
+        echo json_encode($result);
+    }
+
+    public function get_downline_hedgefund($id)
+    {
+        $url = URL_HEDGEFUND . "/v1/member/list_downline?id_member=" . $id;
         $result = satoshiAdmin($url)->result->message;
         echo json_encode($result);
     }
@@ -342,10 +375,10 @@ class Dashboard extends BaseController
 
         if ($result->code != '200') {
             session()->setFlashdata('failed', "Something Wrong, Please Try Again!");
-            return redirect()->to(BASE_URL . 'godmode/dashboard');
+            return redirect()->to(BASE_URL . 'godmode/dashboard/' . $tab);
         } else {
             session()->setFlashdata('success', "Success Change Status Member");
-            return redirect()->to(BASE_URL . 'godmode/dashboard');
+            return redirect()->to(BASE_URL . 'godmode/dashboard/' . $tab);
         }
     }
 

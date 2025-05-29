@@ -115,7 +115,31 @@ class Payment extends BaseController
         return view('godmode/layout/admin_wrapper', $mdata);
     }
 
-    public function payment_process()
+    public function detailpayment_hedgefund($id)
+    {
+
+        $url = URL_HEDGEFUND . "/v1/withdraw/detail_request_payment?id=" . $id;
+        $resultPayment = satoshiAdmin($url)->result->message;
+        $mdata = [
+            'title'     => 'Detail Payment - ' . NAMETITLE,
+            'content'   => 'godmode/payment/detail_payment',
+            'extra'     => 'godmode/payment/js/_js_detailpayment',
+            'sidebar'   => 'hedgefund_sidebar',
+            'navbar_hedgefund' => 'active',
+            'back'      => 'hedgefund',
+            'active_payment'  => 'active',
+            'payment'    => $resultPayment,
+            'id'         => $id,
+        ];
+
+        if (empty($resultPayment)) {
+            throw PageNotFoundException::forPageNotFound();
+        }        
+
+        return view('godmode/layout/admin_wrapper', $mdata);
+    }
+
+    public function payment_process($type = null)
     {
         // Init Data
         $mdata = [
@@ -129,10 +153,10 @@ class Payment extends BaseController
         $result = $response->result;
         if ($result->code != 201) {
             session()->setFlashdata('failed', $result->message);
-            return redirect()->to(BASE_URL . 'godmode/payment/detailpayment/'.$mdata["reqid"]."?type=elite");
+            return redirect()->to(BASE_URL . 'godmode/payment/detailpayment/'. (!empty($type) ? $type . '/' : '') .$mdata["reqid"]);
         } else {
             session()->setFlashdata('success', $result->message);
-            return redirect()->to(BASE_URL . 'godmode/payment');
+            return redirect()->to(BASE_URL . 'godmode/payment/' . $type);
         }
     }
 
