@@ -162,7 +162,7 @@
 
                 console.log(response.message);
                 var referral = response.message.referral;
-                var commission = response.message.commission;
+                var commission = response.message.commission ?? 0;
 
                 // Pastikan commission adalah angka
                 commission = parseFloat(commission);

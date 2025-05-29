@@ -119,9 +119,10 @@ class Withdraw extends BaseController
             ],
             'wallet_address' => [
                 'label' => 'Wallet Address',
-                'rules' => 'required|regex_match[/^0x/i]',
+                'rules' => 'required',
                 'errors' => [
-                    'regex_match' => 'The wallet address is not valid.'
+                    'regex_match' => 'The wallet address is not valid.',
+                    'required'    => 'The wallet address is required'
                 ]
             ],
             'address' => [
@@ -145,11 +146,25 @@ class Withdraw extends BaseController
             ]);
         }
 
-        $session = session();
+        $session    = session();
         $loggedUser = $session->get('logged_user');
-        $member_id = $loggedUser->id;
-        $amount = $this->request->getVar('amount');
-        $type = $this->request->getVar('type');
+        $member_id  = $loggedUser->id;
+        $amount     = $this->request->getVar('amount');
+        $type       = $this->request->getVar('type');
+        $wallet_address = $this->request->getVar('wallet_address');
+        
+        if (($type == "usdc" || $type == "usdt") && !preg_match('/^0x[a-fA-F0-9]{40}$/', $wallet_address)) {
+            return $this->response->setJSON([
+                'code' => 400,
+                'message' => "Invalid wallet address, please use wallet address USDT/USDC BEP20"
+            ]);
+        }
+        if ($type == "btc" && !preg_match('/^(bc1[ac-hj-np-z0-9]{25,39}|[13][a-km-zA-HJ-NP-Z1-9]{25,34})$/', $wallet_address)){
+            return $this->response->setJSON([
+                'code' => 400,
+                'message' => "Invalid wallet address, please use wallet address BTC"
+            ]);
+        }
 
         // protect withdraw balance
         if (!$this->check_balance($type, $amount)) {
@@ -167,7 +182,7 @@ class Withdraw extends BaseController
             'routing_number' => $this->request->getVar('routing_number'),
             'account_type' => $this->request->getVar('account_type'),
             'swift_code' => $this->request->getVar('swift_code'),
-            'wallet_address' => $this->request->getVar('wallet_address'),
+            'wallet_address' =>$wallet_address,
             'address' => $this->request->getVar('address'),
             'network' => $this->request->getVar('network'),
         ];

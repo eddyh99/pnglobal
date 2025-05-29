@@ -1,3 +1,30 @@
+<?php if (!empty(session('failed'))) { ?>
+    <div class="alert alert-danger fade show position-absolute" style="top: 1rem; right: 1rem; width: 30%; z-index: 99999;" role="alert">
+        <div class="iq-alert-icon">
+            <i class="ri-information-line"></i>
+        </div>
+        <div class="iq-alert-text text-black">
+            <?= session('failed') ?>
+        </div>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <i class="ri-close-line text-black"></i>
+        </button>
+    </div>
+<?php } ?>
+<?php if (!empty(session('success'))) { ?>
+    <div class="alert alert-success fade show position-absolute" style="top: 1rem; right: 1rem; width: 30%; z-index: 99999;" role="alert">
+        <div class="iq-alert-icon">
+            <i class="ri-information-line"></i>
+        </div>
+        <div class="iq-alert-text text-black">
+            <?= session('success') ?>
+        </div>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <i class="ri-close-line text-black"></i>
+        </button>
+    </div>
+<?php } ?>
+
 <!-- Page Content  -->
 <div class="content-page mb-5">
     <div class="container-fluid">
@@ -14,14 +41,14 @@
                     <div class="label">Email</div>
                     <div class="value">
                         <span>
-                            <?= $email ?>
+                            <?= $payment->email ?>
                         </span>
                     </div>
 
                     <div class="label">Amount</div>
                     <div class="value">
                         <span>
-                            <?= $amount ?>
+                            <?= $payment->amount ?>
                         </span>
                     </div>
 
@@ -29,16 +56,10 @@
                     <div class="label">Requested At</div>
                     <div class="value">
                         <?php
-                        if (!empty($requested_at)) {
-                            $date = new DateTime($requested_at);
-                            $formattedDate = $date->format('d F Y');
-                            echo $formattedDate;
-                        } else {
                             $dateString = $payment->requested_at;
                             $date = new DateTime($dateString);
                             $formattedDate = $date->format('d F Y');
                             echo $formattedDate;
-                        }
                         ?>
                     </div>
 
@@ -105,7 +126,8 @@
                     <div class="header d-flex justify-content-end">
                         <form action="<?= BASE_URL ?>godmode/payment/payment_process" method="POST">
                             <input type="hidden" name="reqid" value="<?= $id ?>">
-                            <button class="upgrade-btn">Process</button>
+                            <input type="hidden" name="email" value="<?= $payment->email ?>">
+                            <button class="upgrade-btn" <?=($payment->status!="pending" ? "disabled" : "")?>>Process</button>
                         </form>
                     </div>
                 </div>
