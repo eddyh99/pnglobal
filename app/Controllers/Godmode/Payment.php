@@ -61,10 +61,10 @@ class Payment extends BaseController
     {
         $mdata = [
             'title'     => 'Payment - ' . NAMETITLE,
-            'content'   => 'godmode/payment/index',
+            'content'   => 'godmode/payment/hedgefund',
             'sidebar'   => 'hedgefund_sidebar',
             'navbar_hedgefund' => 'active',
-            'extra'     => 'godmode/payment/js/_js_index',
+            'extra'     => 'godmode/payment/js/_js_hedgefund',
             'active_payment'    => 'active active-menu'
         ];
 

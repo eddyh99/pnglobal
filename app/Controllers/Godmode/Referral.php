@@ -62,8 +62,8 @@ class Referral extends BaseController
     {
         $mdata = [
             'title'     => 'Referral - ' . NAMETITLE,
-            'content'   => 'godmode/referral/index',
-            'extra'     => 'godmode/referral/js/_js_index',
+            'content'   => 'godmode/referral/hedgefund',
+            'extra'     => 'godmode/referral/js/_js_hedgefund',
             'sidebar'   => 'hedgefund_sidebar',
             'navbar_hedgefund' => 'active',
             'active_reff'    => 'active active-menu'
