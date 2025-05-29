@@ -58,6 +58,20 @@ class Referral extends BaseController
         return view('godmode/layout/admin_wrapper', $mdata);
     }
 
+    public function hedgefund()
+    {
+        $mdata = [
+            'title'     => 'Referral - ' . NAMETITLE,
+            'content'   => 'godmode/referral/index',
+            'extra'     => 'godmode/referral/js/_js_index',
+            'sidebar'   => 'hedgefund_sidebar',
+            'navbar_hedgefund' => 'active',
+            'active_reff'    => 'active active-menu'
+        ];
+
+        return view('godmode/layout/admin_wrapper', $mdata);
+    }
+
     public function createreferral()
     {
         // Validation Field

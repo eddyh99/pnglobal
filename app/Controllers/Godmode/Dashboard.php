@@ -99,6 +99,80 @@ class Dashboard extends BaseController
         return view('godmode/layout/admin_wrapper', $mdata);
     }
 
+    public function hedgefund()
+    {
+        $urlglobal = URLAPI . "/v1/member/get_membership";
+        $resultglobal = satoshiAdmin($urlglobal)->result;
+
+        $urlelite = URL_HEDGEFUND . "/v1/member/get_statistics";
+        $resultElite = satoshiAdmin($urlelite)->result;
+
+        // Call Endpoin total_member
+        $url = URLAPI2 . "/v1/member/total_member";
+        $resultTotalMember = satoshiAdmin($url)->result;
+
+        // Call Endpoin total free member
+        $url = URLAPI2 . "/v1/member/total_freemember";
+        $resultFreemember = satoshiAdmin($url)->result;
+
+        // Call Endpoin total Referral
+        $url = URLAPI2 . "/v1/subscription/subscribe_active";
+        $resultSubscriber = satoshiAdmin($url)->result;
+
+        // Call Endpoin total Message
+        $url = URLAPI2 . "/v1/signal/total_message";
+        $resultMessage = satoshiAdmin($url)->result;
+
+        // Call Endpoin total Signal
+        $url = URLAPI2 . "/v1/member/total_signal";
+        $resultSignal = satoshiAdmin($url)->result;
+
+
+        // PN Global
+        $totalmemberpnglobal = $resultglobal->message->total_members ?? 0;
+        $totalfreememberpnglobal = $resultglobal->message->total_free_members ?? 0;
+        $totalsubscriptionpnglobal = $resultglobal->message->total_subscriptions ?? 0;
+        $totalsignalpnglobal = $resultglobal->message->total_signals ?? 0;
+
+        // ELITE
+        $totalmemberelite = $resultElite->message->members ?? 0;
+        $subscriberelite = $resultElite->message->active_members ?? 0;
+        $referralelite = $resultElite->message->referrals ?? 0;
+        $signalelite = $resultElite->message->signals ?? 0;
+
+        // Satoshi Signal
+        $totalmembersatoshi = $resultTotalMember->message ?? 0;
+        $totalfreemembersatoshi = $resultFreemember->message ?? 0;
+        $totalsubscriptionsatoshi = $resultSubscriber->message ?? 0;
+        $totalsignalsatoshi = $resultSignal->message ?? 0;
+        $totalmessagesatoshi = $resultMessage->message ?? 0;
+
+        $mdata = [
+            'title'     => 'Dashboard - ' . NAMETITLE,
+            'content'   => 'godmode/dashboard/index',
+            'extra'     => 'godmode/dashboard/js/_js_index',
+            'sidebar'   => 'hedgefund_sidebar',
+            'navbar_hedgefund' => 'active',
+            'active_dash'    => 'active',
+            'totalmemberpnglobal' => $totalmemberpnglobal,
+            'freememberpnglobal' => $totalfreememberpnglobal,
+            'subscriberpnglobal' => $totalsubscriptionpnglobal,
+            'signalpnglobal' => $totalsignalpnglobal,
+            'totalmembersatoshi' => $totalmembersatoshi,
+            'freemembersatoshi' => $totalfreemembersatoshi,
+            'subscriptionsatoshi' => $totalsubscriptionsatoshi,
+            'signalsatoshi' => $totalsignalsatoshi,
+            'messagesatoshi' => $totalmessagesatoshi,
+            'totalmemberelite' => $totalmemberelite,
+            'subscriberelite' => $subscriberelite,
+            'referralelite' => $referralelite,
+            'signalelite' => $signalelite 
+
+        ];
+
+        return view('godmode/layout/admin_wrapper', $mdata);
+    }
+
     public function detailmember($email, $id_member)
     {
         // Decode Email
