@@ -71,7 +71,7 @@ class Payment extends BaseController
         return json_encode($data);
     }
 
-    public function detailpayment($id, $email, $amount, $requested_at = null)
+    public function detailpayment($id)
     {
         $type = $this->request->getVar('type');
         switch ($type) {
@@ -83,22 +83,15 @@ class Payment extends BaseController
                 break;
         }
 
-        $email = base64_decode($email);
-        $amount = base64_decode($amount);
-        $requested_at = $requested_at ? base64_decode($requested_at) : null;
         $url = $endpoint . "/v1/withdraw/detail_request_payment?id=" . $id;
         $resultPayment = satoshiAdmin($url)->result->message;
-
         $mdata = [
             'title'     => 'Detail Payment - ' . NAMETITLE,
             'content'   => 'godmode/payment/detail_payment',
             'extra'     => 'godmode/payment/js/_js_detailpayment',
             'active_payment'  => 'active',
             'payment'    => $resultPayment,
-            'id'    => $id,
-            'email'    => $email,
-            'amount'    => $amount,
-            'requested_at' => $requested_at,
+            'id'         => $id,
         ];
 
         if (empty($resultPayment)) {
@@ -112,9 +105,21 @@ class Payment extends BaseController
     {
         // Init Data
         $mdata = [
-            'member_id'    => htmlspecialchars($this->request->getVar('member_id')),
-            'reqid'  => htmlspecialchars($this->request->getVar('reqid')),
+            'email'     => htmlspecialchars($this->request->getPost('email')),
+            'reqid'     => htmlspecialchars($this->request->getPost('reqid')),
+            'status'    => 'completed'
         ];
+        
+        $url = URL_HEDGEFUND . "/v1/withdraw/update_status";
+        $response = satoshiAdmin($url, json_encode($mdata));
+        $result = $response->result;
+        if ($result->code != 201) {
+            session()->setFlashdata('failed', $result->message);
+            return redirect()->to(BASE_URL . 'godmode/payment/detailpayment/'.$mdata["reqid"]."?type=elite");
+        } else {
+            session()->setFlashdata('success', $result->message);
+            return redirect()->to(BASE_URL . 'godmode/payment');
+        }
     }
 
     public function sendbonus()
