@@ -128,18 +128,13 @@ class Dashboard extends BaseController
         return view('godmode/layout/admin_wrapper', $mdata);
     }
 
-    public function detailmember($email, $id_member)
+    public function detailmember($type, $email, $id_member)
     {
         // Decode Email
         $finalemail = base64_decode($email);
-        // dd($email);
-
-        // Get tab parameter with default value
-        $tab = $this->request->getGet('tab') ?? 'pn-global';
 
         // Log untuk debugging
         log_message('debug', 'Detail member - Raw tab parameter: ' . $this->request->getGet('tab'));
-        log_message('debug', 'Detail member - Processed tab value: ' . $tab);
         log_message('debug', 'Detail member - Email: ' . $finalemail);
 
         // Determine which API endpoint to use based on active tab
@@ -147,8 +142,8 @@ class Dashboard extends BaseController
         //     ? URLAPI2 . "/auth/getmember_byemail?email=" . $finalemail
         //     : URLAPI . "/v1/member/get_detailmember";
 
-        switch ($tab) {
-            case 'satoshi-signal':
+        switch ($type) {
+            case 'satoshi':
                 $url = URLAPI2 . "/auth/getmember_byemail?email=" . $finalemail;
                 break;
             case 'hedgefund':
@@ -165,8 +160,8 @@ class Dashboard extends BaseController
         //     ? satoshiAdmin($url)->result
         //     : satoshiAdmin($url, json_encode(['email' => $finalemail]))->result;
 
-        switch ($tab) {
-            case 'satoshi-signal':
+        switch ($type) {
+            case 'satoshi':
                 $resultMember = satoshiAdmin($url)->result;
                 break;
             case 'hedgefund':
@@ -181,45 +176,18 @@ class Dashboard extends BaseController
 
         $mdata = [
             'title'     => 'Detail Member - ' . NAMETITLE,
-            'content'   => 'godmode/dashboard/detail_member',
+            'content'   => 'godmode/dashboard/detailmember_' . $type,
             'extra'     => 'godmode/dashboard/js/_js_detailmember',
             'member'    => $resultMember,
+            'sidebar'   => 'hedgefund_sidebar',
+            'navbar_hedgefund' => 'active',
             'active_dash'   => 'active',
             'email' => $finalemail,
             'id_member' => $id_member,
-            'tab' => $tab // Pass tab to view
         ];
 
-        log_message('debug', 'Detail member - View data prepared with tab: ' . $tab);
         return view('godmode/layout/admin_wrapper', $mdata);
     }
-
-    public function detailmember_hedgefund($email, $id_member)
-    {
-        // Decode Email
-        $finalemail = base64_decode($email);
-        $url = URL_HEDGEFUND . "/v1/member/get_detailmember";
-
-        log_message('debug', 'Detail member - Using API URL: ' . $url);
-        $resultMember = satoshiAdmin($url, json_encode(['email' => $finalemail]))->result;
-
-        log_message('debug', 'Detail member - API Response received');
-
-        $mdata = [
-            'title'     => 'Detail Member - ' . NAMETITLE,
-            'content'   => 'godmode/dashboard/detailmember_hedgefund',
-            'extra'     => 'godmode/dashboard/js/_js_detailmember',
-            'sidebar'   => 'hedgefund_sidebar',
-            'navbar_hedgefund' => 'active',
-            'member'    => $resultMember,
-            'active_dash'   => 'active',
-            'email' => $finalemail,
-            'id_member' => $id_member
-        ];
-        // dd($resultMember);
-        return view('godmode/layout/admin_wrapper', $mdata);
-    }
-
 
     public function detailreferral($type, $email)
     {

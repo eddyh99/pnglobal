@@ -85,11 +85,11 @@ class Payment extends BaseController
         return json_encode($data);
     }
 
-    public function detailpayment($id)
+    public function detailpayment($type, $id)
     {
-        $type = $this->request->getVar('type');
+
         switch ($type) {
-            case 'elite':
+            case 'hedgefund':
                 $endpoint = URL_HEDGEFUND;
                 break;
             default:
@@ -104,30 +104,9 @@ class Payment extends BaseController
             'content'   => 'godmode/payment/detail_payment',
             'extra'     => 'godmode/payment/js/_js_detailpayment',
             'active_payment'  => 'active',
-            'payment'    => $resultPayment,
-            'id'         => $id,
-        ];
-
-        if (empty($resultPayment)) {
-            throw PageNotFoundException::forPageNotFound();
-        }        
-
-        return view('godmode/layout/admin_wrapper', $mdata);
-    }
-
-    public function detailpayment_hedgefund($id)
-    {
-
-        $url = URL_HEDGEFUND . "/v1/withdraw/detail_request_payment?id=" . $id;
-        $resultPayment = satoshiAdmin($url)->result->message;
-        $mdata = [
-            'title'     => 'Detail Payment - ' . NAMETITLE,
-            'content'   => 'godmode/payment/detail_payment',
-            'extra'     => 'godmode/payment/js/_js_detailpayment',
             'sidebar'   => 'hedgefund_sidebar',
             'navbar_hedgefund' => 'active',
-            'back'      => 'hedgefund',
-            'active_payment'  => 'active',
+            'type'      => $type,
             'payment'    => $resultPayment,
             'id'         => $id,
         ];

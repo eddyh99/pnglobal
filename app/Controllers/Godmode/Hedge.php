@@ -34,6 +34,8 @@ class Hedge extends BaseController
             'title'     => 'Subscriber - ' . NAMETITLE,
             'content'   => 'godmode/hedge/index',
             'extra'     => 'godmode/hedge/js/_js_index',
+            'sidebar'   => 'hedgefund_sidebar',
+            'navbar_hedgefund' => 'active',
             'subs_free'    => 'active active-menu',
             'active_dash'   => 'active'
         ];

@@ -30,7 +30,7 @@
     <div class="container-fluid">
         <div class="row content-body">
             <div class="col-lg-12">
-                <a class="text-white" href="<?= BASE_URL ?>godmode/payment/<?= $back ?? '' ?>">BACK</a>
+                <a class="text-white" href="<?= BASE_URL ?>godmode/payment/<?= $type ?>">BACK</a>
             </div>
             <div class="col-lg-10 mx-auto">
                 <!-- Detail -->
