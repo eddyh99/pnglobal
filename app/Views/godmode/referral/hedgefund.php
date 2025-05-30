@@ -44,7 +44,7 @@
                                     <div class="wrapper-addreferral">
                                     <input type="hidden" id="timezone" class="form-control" name="timezone" readonly value="<?= set_value('timezone') ?>">
                                         </div>
-                                        <input type="hidden" name="product" value="elitebtc">
+                                        <input type="hidden" name="product" value="hedgefund">
                                         <div class="wrapper-addreferral">
                                             <label for="email">Email</label>
                                             <input type="email" name="email" class="form-control" >

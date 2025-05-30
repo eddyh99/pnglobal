@@ -78,7 +78,7 @@ class Referral extends BaseController
         $rules = $this->validate([
             'product'     => [
                 'label'     => 'Product',
-                'rules'     => 'required|in_list[pnglobal, elitebtc, satoshi]'
+                'rules'     => 'required|in_list[pnglobal, hedgefund, satoshi]'
             ],
             'email'     => [
                 'label'     => 'Email',
@@ -90,17 +90,18 @@ class Referral extends BaseController
             ],
         ]);
 
+        $type = $this->request->getVar('product');
         // Checking Validation
         if (!$rules) {
-            session()->setFlashdata('error_validation', $this->validation->listErrors());
-            return redirect()->to(BASE_URL . 'godmode/referral');
+            session()->setFlashdata('failed', $this->validation->listErrors());
+            return redirect()->to(BASE_URL . 'godmode/referral/' . $type);
         }
 
-        switch ($this->request->getVar('product')) {
+        switch ($type) {
             case 'pnglobal':
                 $api = URLAPI;
                 break;
-            case 'elitebtc':
+            case 'hedgefund':
                 $api = URL_HEDGEFUND;
                 break;
             case 'satoshi':
@@ -127,11 +128,11 @@ class Referral extends BaseController
 
         if($result->code != 201) {
             session()->setFlashdata('failed', $result->message);
-            return redirect()->to(BASE_URL . 'godmode/referral');
+            return redirect()->to(BASE_URL . 'godmode/referral/' . $type);
         }
 
         session()->setFlashdata('success', 'User successfully added.');
-        return redirect()->to(BASE_URL . 'godmode/referral');
+        return redirect()->to(BASE_URL . 'godmode/referral/' . $type );
     }
 
     public function detail($type, $email)
