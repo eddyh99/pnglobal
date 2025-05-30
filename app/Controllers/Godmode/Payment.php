@@ -57,6 +57,20 @@ class Payment extends BaseController
         return view('godmode/layout/admin_wrapper', $mdata);
     }
 
+    public function hedgefund()
+    {
+        $mdata = [
+            'title'     => 'Payment - ' . NAMETITLE,
+            'content'   => 'godmode/payment/hedgefund',
+            'extra'     => 'godmode/payment/js/_js_hedgefund',
+            'active_payment'    => 'active active-menu',
+            'sidebar'   => 'hedgefund_sidebar',
+            'navbar_hedgefund' => 'active'
+        ];
+
+        return view('godmode/layout/admin_wrapper', $mdata);
+    }
+
     public function get_requestpayment()
     {
         // Call Endpoin Get Total Member
