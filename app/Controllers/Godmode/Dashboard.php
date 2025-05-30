@@ -156,7 +156,7 @@ class Dashboard extends BaseController
         return view('godmode/layout/admin_wrapper', $mdata);
     }
 
-    public function detailmember($type, $email, $id_member)
+    /*public function detailmember($type, $email, $id_member)
     {
         // Decode Email
         $finalemail = base64_decode($email);
@@ -222,7 +222,7 @@ class Dashboard extends BaseController
 
         log_message('debug', 'Detail member - View data prepared with tab: ' . $tab);
         return view('godmode/layout/admin_wrapper', $mdata);
-    }
+    }*/
 
 
     public function detailreferral($type, $email)
