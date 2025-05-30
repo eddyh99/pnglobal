@@ -102,10 +102,6 @@
                 console.log(data);
                 return data;							
             },
-            "data": function(d) {
-                d.product = tab;
-                // console.log(d.id_member);
-            },
         },
         "columns": [
             { data: 'email'},
