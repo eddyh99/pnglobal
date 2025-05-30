@@ -43,14 +43,8 @@
                                     <div class="form-addreferral col-8 mx-auto">
                                     <div class="wrapper-addreferral">
                                     <input type="hidden" id="timezone" class="form-control" name="timezone" readonly value="<?= set_value('timezone') ?>">
-                                            <label for="product">Product</label>
-                                            <select name="product" class="form-control">
-                                                <option value="pnglobal">PN GLOBAL</option>
-                                                <option value="elitebtc">Hedge Fund</option>
-                                                <option value="satoshi" disabled>SATOSHI</option>
-                                            </select>
                                         </div>
-                                        <input type="hidden" name="product">
+                                        <input type="hidden" name="product" value="elitebtc">
                                         <div class="wrapper-addreferral">
                                             <label for="email">Email</label>
                                             <input type="email" name="email" class="form-control" >
@@ -82,7 +76,6 @@
                             <th>REFERRAL CODE</th>
                             <th>REFERRAL</th>
                             <th>UNPAID COMMISSION</th>
-                            <th>PRODUCT</th>
                             <th>DETAIL</th>
                         </tr>
                     </thead>

@@ -37,6 +37,8 @@ class Admin extends BaseController
             'title'     => 'Admin - ' . NAMETITLE,
             'content'   => 'godmode/admin/index',
             'extra'     => 'godmode/admin/js/_js_index',
+            'sidebar'   => 'console_sidebar',
+            'navbar_console' => 'active',
             'active_admin'    => 'active active-menu'
         ];
 
