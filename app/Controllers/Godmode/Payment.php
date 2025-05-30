@@ -85,11 +85,10 @@ class Payment extends BaseController
         return json_encode($data);
     }
 
-    public function detailpayment($id)
+    public function detailpayment($type, $id)
     {
-        $type = $this->request->getVar('type');
         switch ($type) {
-            case 'elite':
+            case 'hedgefund':
                 $endpoint = URL_HEDGEFUND;
                 break;
             default:
@@ -103,9 +102,12 @@ class Payment extends BaseController
             'title'     => 'Detail Payment - ' . NAMETITLE,
             'content'   => 'godmode/payment/detail_payment',
             'extra'     => 'godmode/payment/js/_js_detailpayment',
+            'sidebar'   => $type . '_sidebar',
+            'navbar_' . $type => 'active',
             'active_payment'  => 'active',
             'payment'    => $resultPayment,
             'id'         => $id,
+            'type'       => $type
         ];
 
         if (empty($resultPayment)) {
@@ -129,10 +131,10 @@ class Payment extends BaseController
         $result = $response->result;
         if ($result->code != 201) {
             session()->setFlashdata('failed', $result->message);
-            return redirect()->to(BASE_URL . 'godmode/payment/detailpayment/'.$mdata["reqid"]."?type=elite");
+            return redirect()->to(BASE_URL . 'godmode/payment/detailpayment/hedgefund/'.$mdata["reqid"]."?type=elite");
         } else {
             session()->setFlashdata('success', $result->message);
-            return redirect()->to(BASE_URL . 'godmode/payment');
+            return redirect()->to(BASE_URL . 'godmode/payment/hedgefund');
         }
     }
 
