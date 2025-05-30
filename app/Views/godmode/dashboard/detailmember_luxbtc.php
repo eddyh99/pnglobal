@@ -49,7 +49,7 @@
                     <div class="label">Registration date</div>
                     <div class="value">
                         <?php
-                        $dateString = $member->message->start_date ?? '';
+                        $dateString = $member->start_date ?? '';
 
                         if ($dateString) {
                             $date = new DateTime($dateString);
@@ -65,7 +65,7 @@
                     <div class="label">Subscription Status</div>
                     <div class="value">
                         <?php
-                        echo $member->message->membership_status ?? 'N/A';
+                        echo $member->membership_status ?? 'N/A';
                         ?>
                     </div>
 
@@ -73,7 +73,7 @@
                     <div class="label">Subscription Plan</div>
                     <div class="value">
                         <?php
-                         echo $member->message->subscription_plan ?? 'N/A';
+                         echo $member->subscription_plan ?? 'N/A';
                         ?>
                     </div>
 
@@ -81,7 +81,7 @@
                     <div class="label">Referral Code</div>
                     <div class="value">
                         <?php
-                        $refcode = $member->message->refcode ?? '';
+                        $refcode = $member->refcode ?? '';
                         echo str_replace('https://satoshisignal.app/register?ref=', '', $refcode);
                         ?>
                     </div>
@@ -90,10 +90,10 @@
                     <!-- Referral Link -->
                     <div class="label">Referral Link</div>
                     <div class="d-flex flex-row justify-content-start text-white">
-                        <?php if ($member->message->role=="referral"):?>
+                        <?php if ($member->role=="referral"):?>
                         <input class="me-2" type="text" name="" id="refcode" class="form-control"
                             value="<?php
-                             echo "https://pnglobalinternational.com/" . ($member->message->refcode ?? '');
+                             echo "https://pnglobalinternational.com/" . ($member->refcode ?? '');
                                     ?>"
                             readonly style="min-width: 28ch;">
                         <a class="btn btn-copy me-2" id="btnref">
@@ -129,4 +129,4 @@
     </div>
 </div>
 
-<input type="hidden" id="id" value="<?= $member->message->id ?>">
+<input type="hidden" id="id" value="<?= $member->id ?>">
