@@ -31,7 +31,7 @@
       <div class="tab-navigation mw-100 mx-4">
             <a href="<?= BASE_URL ?>godmode/dashboard/hedgefund" class="tab-item <?= $navbar_hedgefund ?? '' ?>">HEDGE FUND</a>
             <a href="#" class="tab-item">ELITE BTC</a>
-            <a href="#" class="tab-item">LUX BTC</a>
+            <a href="<?= BASE_URL ?>godmode/dashboard/luxbtc" class="tab-item  <?= $navbar_luxbtc ?? '' ?>">LUX BTC</a>
             <a href="#" class="tab-item">SATOSHI</a>
             <a href="#" class="tab-item">COURSE</a>
         </div>

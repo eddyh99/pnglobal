@@ -34,6 +34,9 @@ class Subscriber extends BaseController
             'title'     => 'Subscriber - ' . NAMETITLE,
             'content'   => 'godmode/subscriber/index',
             'extra'     => 'godmode/subscriber/js/_js_index',
+            'sidebar'   => 'luxbtc_sidebar',
+            'navbar_luxbtc' => 'active',
+            'active_dash'   => 'active',
             'subs_free'    => 'active active-menu'
         ];
 

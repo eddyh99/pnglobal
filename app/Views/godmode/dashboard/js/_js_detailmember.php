@@ -3,6 +3,7 @@
 <script>
 
     const url = new URL(window.location.href);
+    const type = <?= json_encode($type); ?>;
     $("#btnref").on("click", function() {
         const walletInput = document.getElementById('refcode');
         walletInput.select(); // Select the text
@@ -95,7 +96,7 @@
         "scrollX": true,
         "order": false,
         "ajax": {
-            "url": "<?= BASE_URL ?>godmode/dashboard/get_downline_hedgefund/" + $("#id").val(),
+            "url": `<?= BASE_URL ?>godmode/dashboard/get_downline/${type}/` + $("#id").val(),
             "type": "POST",
             "dataSrc":function (data){
                 console.log(data);
