@@ -18,13 +18,44 @@ class Homepage extends BaseController
     public function __construct()
     {
         $this->googleCalendarService = new GoogleCalendarService();
-        $this->validation = \Config\Services::validation();
-        $this->session = \Config\Services::session();
     }
 
-    public function index()
+    public function index($type = null, $code = null)
     {
+        if ($type !== null && $code !== null)
+        {
+            // Map allowed promo types to their cookie names + (optional) redirect paths
+            $promos = [
+                'hf' => [
+                    'cookie_name' => 'ref_hf',
+                    'redirect'    => 'hedgefund/auth/register',
+                ],
+                'bl' => [
+                    'cookie_name' => 'ref_bl',
+                    // no redirect, will fall through to homepage below
+                ],
+                // add more types here...
+            ];
 
+            // If this type is in our list, set the cookie (and maybe redirect)
+            if (isset($promos[$type]))
+            {
+                $cfg  = $promos[$type];
+                $name = $cfg['cookie_name'];
+                $expire = time() + 7 * 86400;
+
+                // Set site-wide cookie
+                setcookie($name, $code, $expire, '/');
+
+                // If this promo has its own landing page, go there:
+                if (! empty($cfg['redirect']))
+                {
+                    return redirect()->to(base_url($cfg['redirect']));
+                }
+            }
+            // else: unknown promo → just ignore it and fall through
+        }
+        
         $mdata = [
             'title'     => 'Homepage - ' . NAMETITLE,
             'content'   => 'homepage/index',
