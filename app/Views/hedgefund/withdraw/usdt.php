@@ -52,7 +52,7 @@
                                     <div class="card rounded" style="width: 18rem;background-color: #bfa573;">
                                         <div class="card-body p-2">
                                             <h5 class="card-title text-black mb-0 fw-bold">USDT </h5>
-                                            <h2 class="text-right text-black"><?= '$ ' . @number_format($balance['fund']->usdt ?? 0, 0, '.', ',') ?></h2>
+                                            <h2 class="text-right text-black"><?= '$ ' . @number_format($balance['fund']->usdt ?? 0, 2, '.', ',') ?></h2>
                                         </div>
                                     </div>
                                     <div class="card rounded" style="width: 18rem;background-color: #bfa573;">
@@ -95,7 +95,7 @@
                                         <label for="wallet_address">Amount</label>
                                         <div class="w-100 mb-1" style="min-width: 400px; margin: 0 auto;">
                                             <div class="d-flex align-items-center" style="border: 1px solid #b48b3d; background-color: #1c1c1c; height: 45px; border-radius: 5px;">
-                                                <input type="number" id="amount" name="amount"
+                                                <input type="number" id="amount" name="amount" step="0.01"
                                                     class="form-control text-center fw-bold no-spinner"
                                                     placeholder="10,000"
                                                     style="background-color: transparent; color: #b48b3d; border: none; box-shadow: none;">

@@ -38,8 +38,8 @@
                         <div class="referral-card">
                             <div class="referral-link text-white">
                                 Referral link:
-                                <a href="https://pnglobalinternational.com/<?= $refcode ?>" target="_blank">
-                                    https://pnglobalinternational.com/<?= $refcode ?>
+                                <a href="https://pnglobalinternational.com/hf/<?= $refcode ?>" target="_blank">
+                                    https://pnglobalinternational.com/hf/<?= $refcode ?>
                                 </a>
                             </div>
                             <div class="referral-qr">
