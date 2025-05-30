@@ -3,7 +3,7 @@
 <script>
 
     const url = new URL(window.location.href);
-    const tab = url.searchParams.get("tab");
+    const type = <?= json_encode($type); ?>;
     $("#btnref").on("click", function() {
         const walletInput = document.getElementById('refcode');
         walletInput.select(); // Select the text
@@ -96,7 +96,7 @@
         "scrollX": true,
         "order": false,
         "ajax": {
-            "url": "<?= BASE_URL ?>godmode/dashboard/get_downline/" + $("#id").val(),
+            "url": `<?= BASE_URL ?>godmode/dashboard/get_downline/${type}/` + $("#id").val(),
             "type": "POST",
             "dataSrc":function (data){
                 console.log(data);

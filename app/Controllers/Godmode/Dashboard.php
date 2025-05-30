@@ -101,6 +101,63 @@ class Dashboard extends BaseController
 
     public function detailmember($email, $id_member)
     {
+
+        $urlelite = URL_HEDGEFUND . "/v1/member/get_statistics";
+        $resultElite = satoshiAdmin($urlelite)->result;
+
+        // ELITE
+        $totalmemberelite = $resultElite->message->members ?? 0;
+        $subscriberelite = $resultElite->message->active_members ?? 0;
+        $referralelite = $resultElite->message->referrals ?? 0;
+        $signalelite = $resultElite->message->signals ?? 0;
+
+        $mdata = [
+            'title'     => 'Dashboard - ' . NAMETITLE,
+            'content'   => 'godmode/dashboard/hedgefund',
+            'extra'     => 'godmode/dashboard/js/_js_hedgefund',
+            'sidebar'   => 'hedgefund_sidebar',
+            'navbar_hedgefund' => 'active',
+            'active_dash'    => 'active',
+            'totalmemberelite' => $totalmemberelite,
+            'subscriberelite' => $subscriberelite,
+            'referralelite' => $referralelite,
+            'signalelite' => $signalelite 
+
+        ];
+
+        return view('godmode/layout/admin_wrapper', $mdata);
+    }
+
+    public function luxbtc()
+    {
+        $urlglobal = URLAPI . "/v1/member/get_membership";
+        $resultglobal = satoshiAdmin($urlglobal)->result;
+
+        // PN Global
+        $totalmemberpnglobal = $resultglobal->message->total_members ?? 0;
+        $totalfreememberpnglobal = $resultglobal->message->total_free_members ?? 0;
+        $totalsubscriptionpnglobal = $resultglobal->message->total_subscriptions ?? 0;
+        $totalsignalpnglobal = $resultglobal->message->total_signals ?? 0;
+
+        $mdata = [
+            'title'     => 'Dashboard - ' . NAMETITLE,
+            'content'   => 'godmode/dashboard/luxbtc',
+            'extra'     => 'godmode/dashboard/js/_js_luxbtc',
+            'sidebar'   => 'luxbtc_sidebar',
+            'navbar_luxbtc' => 'active',
+            'active_dash'    => 'active',
+            'totalmemberpnglobal' => $totalmemberpnglobal,
+            'freememberpnglobal' => $totalfreememberpnglobal,
+            'subscriberpnglobal' => $totalsubscriptionpnglobal,
+            'signalpnglobal' => $totalsignalpnglobal,
+
+        ];
+
+        return view('godmode/layout/admin_wrapper', $mdata);
+    }
+
+    public function detailmember($type, $email, $id_member)
+    {
         // Decode Email
         $finalemail = base64_decode($email);
         // dd($email);
@@ -155,10 +212,12 @@ class Dashboard extends BaseController
             'content'   => 'godmode/dashboard/detail_member',
             'extra'     => 'godmode/dashboard/js/_js_detailmember',
             'member'    => $resultMember,
+            'sidebar'   => $type . '_sidebar',
+            'navbar_hedgefund' => 'active',
             'active_dash'   => 'active',
             'email' => $finalemail,
             'id_member' => $id_member,
-            'tab' => $tab // Pass tab to view
+            'type'      => $type
         ];
 
         log_message('debug', 'Detail member - View data prepared with tab: ' . $tab);
@@ -225,12 +284,11 @@ class Dashboard extends BaseController
         }
     }
 
-    public function deletemember($email)
+    public function deletemember($type, $email)
     {
         $email  = base64_decode($email);
-        $tab = $this->request->getVar('tab');
 
-        switch ($tab) {
+        switch ($type) {
             case 'hedgefund':
                 $url = URL_HEDGEFUND . "/v1/member/destroy";
                 break;
@@ -248,19 +306,17 @@ class Dashboard extends BaseController
 
         if ($result->code != '201') {
             session()->setFlashdata('failed', "Something Wrong, Please Try Again!");
-            return redirect()->to(BASE_URL . 'godmode/dashboard');
+            return redirect()->to(BASE_URL . 'godmode/dashboard/' . $type);
         } else {
             session()->setFlashdata('success', "Success Disabled Member");
-            return redirect()->to(BASE_URL . 'godmode/dashboard');
+            return redirect()->to(BASE_URL . 'godmode/dashboard/' . $type);
         }
     }
 
-    public function get_downline($id)
+    public function get_downline($type, $id)
     {
-        $product = $this->request->getVar('product');
-        // Call Endpoin Get Referral Member
         
-        switch ($product) {
+        switch ($type) {
             case 'hedgefund':
                 $url = URL_HEDGEFUND . "/v1/member/list_downline?id_member=" . $id;
                 break;
@@ -287,11 +343,9 @@ class Dashboard extends BaseController
 
     
 
-    public function set_statusMember($email, $status)
+    public function set_statusMember($type, $email, $status)
     {
-        $tab = $this->request->getVar('tab');
-
-        switch ($tab) {
+        switch ($type) {
             case 'hedgefund':
                 $url = URL_HEDGEFUND . "/v1/member/set_status";
                 break;
@@ -313,10 +367,10 @@ class Dashboard extends BaseController
 
         if ($result->code != '200') {
             session()->setFlashdata('failed', "Something Wrong, Please Try Again!");
-            return redirect()->to(BASE_URL . 'godmode/dashboard');
+            return redirect()->to(BASE_URL . 'godmode/dashboard/' . $type);
         } else {
             session()->setFlashdata('success', "Success Change Status Member");
-            return redirect()->to(BASE_URL . 'godmode/dashboard');
+            return redirect()->to(BASE_URL . 'godmode/dashboard/' . $type);
         }
     }
 
