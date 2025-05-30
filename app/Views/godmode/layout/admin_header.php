@@ -23,7 +23,7 @@
       <!-- Custom CSS -->
       <link rel="stylesheet" href="<?= BASE_URL?>assets/style/css/admin/custom.css">
    </head>
-   <nav style="position: sticky; top: 0;z-index: 9999;background-color: #070707;">
+   <nav style="position: sticky; top: 0;z-index: 900;background-color: #070707;">
       <div class="d-flex justify-content-between mx-4">
       <div class="tab-navigation" style="width: 300px;">
       <a href="<?= BASE_URL ?>godmode/signal" class="tab-item <?= $navbar_console ?? '' ?>">CONSOLE</a>
