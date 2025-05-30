@@ -131,15 +131,6 @@ class Member extends BaseController
         echo json_encode($result);
     }
 
-    public function getreferral_hedgefund()
-    {
-
-        $url = URL_HEDGEFUND . "/v1/member/referralmember";
-        $result = satoshiAdmin($url)->result->message;
-
-        echo json_encode($result);
-    }
-
 
     public function get_referraldetail($id)
     {

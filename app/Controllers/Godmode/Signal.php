@@ -192,8 +192,6 @@ class Signal extends BaseController
             'content'   => 'godmode/signal/index',
             'extra'     => 'godmode/signal/js/_js_index',
             'active_signal'    => 'active active-menu',
-            'sidebar'   => 'console_sidebar',
-            'navbar_console' => 'active',
             'buy_a'      => $buy_a,
             'buy_b'      => $buy_b,
             'buy_c'      => $buy_c,

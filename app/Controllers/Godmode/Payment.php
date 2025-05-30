@@ -57,20 +57,6 @@ class Payment extends BaseController
         return view('godmode/layout/admin_wrapper', $mdata);
     }
 
-    public function hedgefund()
-    {
-        $mdata = [
-            'title'     => 'Payment - ' . NAMETITLE,
-            'content'   => 'godmode/payment/hedgefund',
-            'sidebar'   => 'hedgefund_sidebar',
-            'navbar_hedgefund' => 'active',
-            'extra'     => 'godmode/payment/js/_js_hedgefund',
-            'active_payment'    => 'active active-menu'
-        ];
-
-        return view('godmode/layout/admin_wrapper', $mdata);
-    }
-
     public function get_requestpayment()
     {
         // Call Endpoin Get Total Member
@@ -85,11 +71,11 @@ class Payment extends BaseController
         return json_encode($data);
     }
 
-    public function detailpayment($type, $id)
+    public function detailpayment($id)
     {
-
+        $type = $this->request->getVar('type');
         switch ($type) {
-            case 'hedgefund':
+            case 'elite':
                 $endpoint = URL_HEDGEFUND;
                 break;
             default:
@@ -104,9 +90,6 @@ class Payment extends BaseController
             'content'   => 'godmode/payment/detail_payment',
             'extra'     => 'godmode/payment/js/_js_detailpayment',
             'active_payment'  => 'active',
-            'sidebar'   => 'hedgefund_sidebar',
-            'navbar_hedgefund' => 'active',
-            'type'      => $type,
             'payment'    => $resultPayment,
             'id'         => $id,
         ];
@@ -118,7 +101,7 @@ class Payment extends BaseController
         return view('godmode/layout/admin_wrapper', $mdata);
     }
 
-    public function payment_process($type = null)
+    public function payment_process()
     {
         // Init Data
         $mdata = [
@@ -132,10 +115,10 @@ class Payment extends BaseController
         $result = $response->result;
         if ($result->code != 201) {
             session()->setFlashdata('failed', $result->message);
-            return redirect()->to(BASE_URL . 'godmode/payment/detailpayment/'. (!empty($type) ? $type . '/' : '') .$mdata["reqid"]);
+            return redirect()->to(BASE_URL . 'godmode/payment/detailpayment/'.$mdata["reqid"]."?type=elite");
         } else {
             session()->setFlashdata('success', $result->message);
-            return redirect()->to(BASE_URL . 'godmode/payment/' . $type);
+            return redirect()->to(BASE_URL . 'godmode/payment');
         }
     }
 

@@ -50,7 +50,6 @@
                                                 <option value="satoshi" disabled>SATOSHI</option>
                                             </select>
                                         </div>
-                                        <input type="hidden" name="product">
                                         <div class="wrapper-addreferral">
                                             <label for="email">Email</label>
                                             <input type="email" name="email" class="form-control" >

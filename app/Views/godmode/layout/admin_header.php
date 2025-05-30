@@ -23,20 +23,6 @@
       <!-- Custom CSS -->
       <link rel="stylesheet" href="<?= BASE_URL?>assets/style/css/admin/custom.css">
    </head>
-   <nav style="position: sticky; top: 0;z-index: 9999;background-color: #070707;">
-      <div class="d-flex justify-content-between mx-4">
-      <div class="tab-navigation" style="width: 300px;">
-      <a href="<?= BASE_URL ?>godmode/signal" class="tab-item <?= $navbar_console ?? '' ?>">CONSOLE</a>
-      </div>
-      <div class="tab-navigation mw-100 mx-4">
-            <a href="<?= BASE_URL ?>godmode/dashboard/hedgefund" class="tab-item <?= $navbar_hedgefund ?? '' ?>">HEDGE FUND</a>
-            <a href="#" class="tab-item">ELITE BTC</a>
-            <a href="#" class="tab-item">LUX BTC</a>
-            <a href="#" class="tab-item">SATOSHI</a>
-            <a href="#" class="tab-item">COURSE</a>
-        </div>
-      </div>
-   </nav>
 
    <body style="background-color: #070707;">
         <!-- Wrapper Start -->

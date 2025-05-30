@@ -58,20 +58,6 @@ class Referral extends BaseController
         return view('godmode/layout/admin_wrapper', $mdata);
     }
 
-    public function hedgefund()
-    {
-        $mdata = [
-            'title'     => 'Referral - ' . NAMETITLE,
-            'content'   => 'godmode/referral/hedgefund',
-            'extra'     => 'godmode/referral/js/_js_hedgefund',
-            'sidebar'   => 'hedgefund_sidebar',
-            'navbar_hedgefund' => 'active',
-            'active_reff'    => 'active active-menu'
-        ];
-
-        return view('godmode/layout/admin_wrapper', $mdata);
-    }
-
     public function createreferral()
     {
         // Validation Field
@@ -134,16 +120,18 @@ class Referral extends BaseController
         return redirect()->to(BASE_URL . 'godmode/referral');
     }
 
-    public function detail($type, $email)
+    public function detailreferral($type, $email)
     {
-        // dd($finaltype);
+        // Decode Type
+        $finaltype = base64_decode($type);
         $email = base64_decode($email);
+        $product = $this->request->getGet('product');
 
-        switch ($type) {
-            case 'satoshi':
+        switch ($product) {
+            case 'satoshi-signal':
                 $url = URLAPI2 . "/auth/getmember_byemail?email=" . $email;
                 break;
-            case 'hedgefund':
+            case 'elite':
                 $url = URL_HEDGEFUND . "/v1/member/get_detailmember";
                 break;
             default:
@@ -153,7 +141,7 @@ class Referral extends BaseController
 
 
         // Call Get Memeber By Email
-        // $url = URLAPI . "/v1/member/get_detailmember";
+        $url = URLAPI . "/v1/member/get_detailmember";
         $resultMember = satoshiAdmin($url, json_encode(['email' => $email]))->result->message;
 
         // Call Get Detail Referral
@@ -163,11 +151,9 @@ class Referral extends BaseController
             'title'     => 'Detail Member - ' . NAMETITLE,
             'content'   => 'godmode/referral/detail_referral',
             'extra'     => 'godmode/referral/js/_js_detailreferral',
-            'sidebar'   => 'hedgefund_sidebar',
-            'navbar_hedgefund' => 'active',
             'active_reff'  => 'active',
             'member'    => $resultMember,
-            'type'      => $type ?? '',
+            'type'      => $finaltype,
             'referral'  => $resultReferral,
             'emailreferral' => $email,
         ];

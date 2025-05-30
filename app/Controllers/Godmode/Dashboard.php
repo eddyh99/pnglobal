@@ -99,42 +99,18 @@ class Dashboard extends BaseController
         return view('godmode/layout/admin_wrapper', $mdata);
     }
 
-    public function hedgefund()
-    {
-
-        $urlelite = URL_HEDGEFUND . "/v1/member/get_statistics";
-        $resultElite = satoshiAdmin($urlelite)->result;
-
-        // ELITE
-        $totalmemberelite = $resultElite->message->members ?? 0;
-        $subscriberelite = $resultElite->message->active_members ?? 0;
-        $referralelite = $resultElite->message->referrals ?? 0;
-        $signalelite = $resultElite->message->signals ?? 0;
-
-        $mdata = [
-            'title'     => 'Dashboard - ' . NAMETITLE,
-            'content'   => 'godmode/dashboard/hedgefund',
-            'extra'     => 'godmode/dashboard/js/_js_hedgefund',
-            'sidebar'   => 'hedgefund_sidebar',
-            'navbar_hedgefund' => 'active',
-            'active_dash'    => 'active',
-            'totalmemberelite' => $totalmemberelite,
-            'subscriberelite' => $subscriberelite,
-            'referralelite' => $referralelite,
-            'signalelite' => $signalelite 
-
-        ];
-
-        return view('godmode/layout/admin_wrapper', $mdata);
-    }
-
-    public function detailmember($type, $email, $id_member)
+    public function detailmember($email, $id_member)
     {
         // Decode Email
         $finalemail = base64_decode($email);
+        // dd($email);
+
+        // Get tab parameter with default value
+        $tab = $this->request->getGet('tab') ?? 'pn-global';
 
         // Log untuk debugging
         log_message('debug', 'Detail member - Raw tab parameter: ' . $this->request->getGet('tab'));
+        log_message('debug', 'Detail member - Processed tab value: ' . $tab);
         log_message('debug', 'Detail member - Email: ' . $finalemail);
 
         // Determine which API endpoint to use based on active tab
@@ -142,8 +118,8 @@ class Dashboard extends BaseController
         //     ? URLAPI2 . "/auth/getmember_byemail?email=" . $finalemail
         //     : URLAPI . "/v1/member/get_detailmember";
 
-        switch ($type) {
-            case 'satoshi':
+        switch ($tab) {
+            case 'satoshi-signal':
                 $url = URLAPI2 . "/auth/getmember_byemail?email=" . $finalemail;
                 break;
             case 'hedgefund':
@@ -160,8 +136,8 @@ class Dashboard extends BaseController
         //     ? satoshiAdmin($url)->result
         //     : satoshiAdmin($url, json_encode(['email' => $finalemail]))->result;
 
-        switch ($type) {
-            case 'satoshi':
+        switch ($tab) {
+            case 'satoshi-signal':
                 $resultMember = satoshiAdmin($url)->result;
                 break;
             case 'hedgefund':
@@ -176,18 +152,19 @@ class Dashboard extends BaseController
 
         $mdata = [
             'title'     => 'Detail Member - ' . NAMETITLE,
-            'content'   => 'godmode/dashboard/detailmember_' . $type,
+            'content'   => 'godmode/dashboard/detail_member',
             'extra'     => 'godmode/dashboard/js/_js_detailmember',
             'member'    => $resultMember,
-            'sidebar'   => 'hedgefund_sidebar',
-            'navbar_hedgefund' => 'active',
             'active_dash'   => 'active',
             'email' => $finalemail,
             'id_member' => $id_member,
+            'tab' => $tab // Pass tab to view
         ];
 
+        log_message('debug', 'Detail member - View data prepared with tab: ' . $tab);
         return view('godmode/layout/admin_wrapper', $mdata);
     }
+
 
     public function detailreferral($type, $email)
     {
@@ -271,10 +248,10 @@ class Dashboard extends BaseController
 
         if ($result->code != '201') {
             session()->setFlashdata('failed', "Something Wrong, Please Try Again!");
-            return redirect()->to(BASE_URL . 'godmode/dashboard/' . $tab);
+            return redirect()->to(BASE_URL . 'godmode/dashboard');
         } else {
             session()->setFlashdata('success', "Success Disabled Member");
-            return redirect()->to(BASE_URL . 'godmode/dashboard/' . $tab);
+            return redirect()->to(BASE_URL . 'godmode/dashboard');
         }
     }
 
@@ -296,13 +273,6 @@ class Dashboard extends BaseController
         }
         
         // $url = URLAPI2 . "/v1/referral/getDownline?id=" . $id;
-        $result = satoshiAdmin($url)->result->message;
-        echo json_encode($result);
-    }
-
-    public function get_downline_hedgefund($id)
-    {
-        $url = URL_HEDGEFUND . "/v1/member/list_downline?id_member=" . $id;
         $result = satoshiAdmin($url)->result->message;
         echo json_encode($result);
     }
@@ -343,10 +313,10 @@ class Dashboard extends BaseController
 
         if ($result->code != '200') {
             session()->setFlashdata('failed', "Something Wrong, Please Try Again!");
-            return redirect()->to(BASE_URL . 'godmode/dashboard/' . $tab);
+            return redirect()->to(BASE_URL . 'godmode/dashboard');
         } else {
             session()->setFlashdata('success', "Success Change Status Member");
-            return redirect()->to(BASE_URL . 'godmode/dashboard/' . $tab);
+            return redirect()->to(BASE_URL . 'godmode/dashboard');
         }
     }
 
