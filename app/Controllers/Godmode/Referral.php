@@ -58,13 +58,27 @@ class Referral extends BaseController
         return view('godmode/layout/admin_wrapper', $mdata);
     }
 
+    public function hedgefund()
+    {
+        $mdata = [
+            'title'     => 'Payment - ' . NAMETITLE,
+            'content'   => 'godmode/referral/hedgefund',
+            'extra'     => 'godmode/referral/js/_js_hedgefund',
+            'active_reff'    => 'active active-menu',
+            'sidebar'   => 'hedgefund_sidebar',
+            'navbar_hedgefund' => 'active'
+        ];
+
+        return view('godmode/layout/admin_wrapper', $mdata);
+    }
+
     public function createreferral()
     {
         // Validation Field
         $rules = $this->validate([
             'product'     => [
                 'label'     => 'Product',
-                'rules'     => 'required|in_list[pnglobal, elitebtc, satoshi]'
+                'rules'     => 'required|in_list[pnglobal, hedgefund, satoshi]'
             ],
             'email'     => [
                 'label'     => 'Email',
@@ -76,17 +90,18 @@ class Referral extends BaseController
             ],
         ]);
 
+        $type = $this->request->getVar('product');
         // Checking Validation
         if (!$rules) {
-            session()->setFlashdata('error_validation', $this->validation->listErrors());
-            return redirect()->to(BASE_URL . 'godmode/referral');
+            session()->setFlashdata('failed', $this->validation->listErrors());
+            return redirect()->to(BASE_URL . 'godmode/referral/' . $type);
         }
 
-        switch ($this->request->getVar('product')) {
+        switch ($type) {
             case 'pnglobal':
                 $api = URLAPI;
                 break;
-            case 'elitebtc':
+            case 'hedgefund':
                 $api = URL_HEDGEFUND;
                 break;
             case 'satoshi':
@@ -113,25 +128,24 @@ class Referral extends BaseController
 
         if($result->code != 201) {
             session()->setFlashdata('failed', $result->message);
-            return redirect()->to(BASE_URL . 'godmode/referral');
+            return redirect()->to(BASE_URL . 'godmode/referral/' . $type);
         }
 
         session()->setFlashdata('success', 'User successfully added.');
-        return redirect()->to(BASE_URL . 'godmode/referral');
+        return redirect()->to(BASE_URL . 'godmode/referral/' . $type );
     }
 
-    public function detailreferral($type, $email)
+    public function detail($type, $email)
     {
         // Decode Type
         $finaltype = base64_decode($type);
         $email = base64_decode($email);
-        $product = $this->request->getGet('product');
 
-        switch ($product) {
-            case 'satoshi-signal':
+        switch ($type) {
+            case 'satoshi':
                 $url = URLAPI2 . "/auth/getmember_byemail?email=" . $email;
                 break;
-            case 'elite':
+            case 'hedgefund':
                 $url = URL_HEDGEFUND . "/v1/member/get_detailmember";
                 break;
             default:
@@ -139,23 +153,19 @@ class Referral extends BaseController
                 break;
         }
 
-
-        // Call Get Memeber By Email
-        $url = URLAPI . "/v1/member/get_detailmember";
         $resultMember = satoshiAdmin($url, json_encode(['email' => $email]))->result->message;
-
-        // Call Get Detail Referral
-        // $url = URLAPI . "/v1/member/detailreferral?id=" . $resultMember->id;
         $resultReferral = [];
         $mdata = [
             'title'     => 'Detail Member - ' . NAMETITLE,
             'content'   => 'godmode/referral/detail_referral',
             'extra'     => 'godmode/referral/js/_js_detailreferral',
             'active_reff'  => 'active',
+            'sidebar'   => 'hedgefund_sidebar',
+            'navbar_hedgefund' => 'active',
             'member'    => $resultMember,
-            'type'      => $finaltype,
             'referral'  => $resultReferral,
             'emailreferral' => $email,
+            'type'      => $type
         ];
 
         return view('godmode/layout/admin_wrapper', $mdata);

@@ -5,7 +5,7 @@
         "scrollX": true,
         "order": false,
         "ajax": {
-            "url": "<?= BASE_URL ?>godmode/member/getreferral_hedgefund",
+            "url": "<?= BASE_URL ?>godmode/member/getreferral/hedgefund",
             "type": "POST",
             "dataSrc":function (data){
                 console.log(data);

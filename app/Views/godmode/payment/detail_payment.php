@@ -30,7 +30,7 @@
     <div class="container-fluid">
         <div class="row content-body">
             <div class="col-lg-12">
-                <a class="text-white" href="<?= BASE_URL ?>godmode/payment">BACK</a>
+                <a class="text-white" href="<?= BASE_URL ?>godmode/payment/<?= $type ?>">BACK</a>
             </div>
             <div class="col-lg-10 mx-auto">
                 <!-- Detail -->
@@ -124,7 +124,7 @@
                         ?>
                     </div>
                     <div class="header d-flex justify-content-end">
-                        <form action="<?= BASE_URL ?>godmode/payment/payment_process" method="POST">
+                        <form action="<?= BASE_URL ?>godmode/payment/payment_process/" method="POST">
                             <input type="hidden" name="reqid" value="<?= $id ?>">
                             <input type="hidden" name="email" value="<?= $payment->email ?>">
                             <button class="upgrade-btn" <?=($payment->status!="pending" ? "disabled" : "")?>>Process</button>

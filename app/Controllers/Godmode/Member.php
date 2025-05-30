@@ -110,9 +110,20 @@ class Member extends BaseController
         echo json_encode($result);
     }
 
-    public function get_referralmember()
+    public function getreferral($type)
     {
         // Call Endpoin Get Referral Member
+        switch ($type) {
+            case 'satoshi':
+                $url = URLAPI2 . "/v1/member/referralmember";
+                break;
+            case 'hedgefund':
+                $url = URL_HEDGEFUND . "/v1/member/referralmember";
+                break;
+            default:
+                $url = URLAPI . "/v1/member/referralmember";
+                break;
+        }
         $url = URLAPI . "/v1/member/referralmember";
         $pnglobal = satoshiAdmin($url)->result->message;
 
@@ -122,11 +133,7 @@ class Member extends BaseController
         $url = URL_HEDGEFUND . "/v1/member/referralmember";
         $elite = satoshiAdmin($url)->result->message;
 
-        $result = array_merge(
-            is_array($satoshi) ? $satoshi : [],
-            is_array($elite) ? $elite : [],
-            is_array($pnglobal) ? $pnglobal : []
-        );
+        $result = satoshiAdmin($url)->result->message;
 
         echo json_encode($result);
     }

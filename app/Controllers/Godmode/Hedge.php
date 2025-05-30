@@ -35,7 +35,9 @@ class Hedge extends BaseController
             'content'   => 'godmode/hedge/index',
             'extra'     => 'godmode/hedge/js/_js_index',
             'subs_free'    => 'active active-menu',
-            'active_dash'   => 'active'
+            'active_dash'   => 'active',
+            'sidebar'   => 'hedgefund_sidebar',
+            'navbar_hedgefund' => 'active',
         ];
 
         return view('godmode/layout/admin_wrapper', $mdata);
