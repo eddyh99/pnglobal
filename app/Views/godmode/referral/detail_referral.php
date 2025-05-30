@@ -3,7 +3,7 @@
     <div class="container-fluid">
         <div class="row content-body">
             <div class="col-lg-12">
-                <a class="text-white" href="<?= BASE_URL?>godmode/referral">BACK</a>
+                <a class="text-white" href="<?= BASE_URL?>godmode/referral/<?= $type ?>">BACK</a>
             </div>
              <div class="col-lg-10 mx-auto">
                 

@@ -343,7 +343,7 @@ class Dashboard extends BaseController
             case 'hedgefund':
                 $url = URL_HEDGEFUND . "/v1/member/list_downline?id_member=" . $id;
                 break;
-            case 'satoshi-signal':
+            case 'satoshi':
                 $url = URLAPI2 . "/v1/member/listdownline";
                 break;
             default:
