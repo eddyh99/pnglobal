@@ -21019,7 +21019,7 @@ input:-moz-placeholder {
   justify-content: center;
 }
 .subscription-section .subs-wrapper .text-yellow {
-  color: #AF8534;
+  color: #F1B94F;
 }
 .subscription-section .subs-wrapper .referral-card {
   color: white;
@@ -21027,6 +21027,11 @@ input:-moz-placeholder {
   padding: 2rem 5rem;
   background-color: #323232;
   border-radius: 10px;
+}
+.subscription-section .subs-wrapper .referral-card .card-text {
+  font-size: 23px;
+  line-height: 40px;
+  font-weight: 500;
 }
 .subscription-section .subs-wrapper .share-button {
   border: none;
