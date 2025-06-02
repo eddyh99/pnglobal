@@ -124,6 +124,8 @@ class Freemember extends BaseController
             'member'    => $resultMember,
             'referral'  => $resultReferral,
             'emailreferral' => base64_decode($email),
+            'sidebar'   => 'satoshi_sidebar',
+            'navbar_satoshi' => 'active',
         ];
 
         return view('godmode/layout/admin_wrapper', $mdata);

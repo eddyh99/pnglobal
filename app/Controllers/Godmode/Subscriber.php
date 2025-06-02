@@ -57,7 +57,9 @@ class Subscriber extends BaseController
             'title'     => 'Subscriber - ' . NAMETITLE,
             'content'   => 'godmode/subscriber/index',
             'extra'     => 'godmode/subscriber/js/_js_index_satoshi',
-            'subs_free'    => 'active active-menu'
+            'subs_free'    => 'active active-menu',
+            'sidebar'   => 'satoshi_sidebar',
+            'navbar_satoshi' => 'active',
         ];
 
         return view('godmode/layout/admin_wrapper', $mdata);

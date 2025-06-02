@@ -81,8 +81,8 @@
                     <div class="label">Referral Code</div>
                     <div class="value">
                         <?php
-                        $refcode = $member->refcode ?? '';
-                        echo str_replace('https://satoshisignal.app/register?ref=', '', $refcode);
+                        $refcode = $member->refcode;
+                        echo !empty($refcode) ? $refcode : '-';
                         ?>
                     </div>
 
@@ -90,10 +90,10 @@
                     <!-- Referral Link -->
                     <div class="label">Referral Link</div>
                     <div class="d-flex flex-row justify-content-start text-white">
-                        <?php if ($member->role == "referral"): ?>
+                        <?php if (!empty($member->refcode)): ?>
                             <input class="me-2" type="text" name="" id="refcode" class="form-control"
                                 value="<?php
-                                        echo "https://pnglobalinternational.com/" . ($member->refcode ?? '');
+                                        echo "https://pnglobalinternational.com/hf/" . ($member->refcode ?? '');
                                         ?>"
                                 readonly style="min-width: 28ch;">
                             <a class="btn btn-copy me-2" id="btnref">

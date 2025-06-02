@@ -61,7 +61,7 @@
 <path d="M25 7C26.933 7 28.5 5.433 28.5 3.5C28.5 1.567 26.933 0 25 0C23.067 0 21.5 1.567 21.5 3.5C21.5 5.433 23.067 7 25 7Z" fill="<?= (@$active_reff != null) ? 'black' : 'white' ?>"/>
 </svg>
                         </i>
-                        <span class="<?= (@$active_reff != null) ? 'text-black' : 'text-white' ?>">Referral</span>
+                        <span class="<?= (@$active_reff != null) ? 'text-black' : 'text-white' ?>">Referral/Seller</span>
                     </a>
                 </li>
             </ul>
