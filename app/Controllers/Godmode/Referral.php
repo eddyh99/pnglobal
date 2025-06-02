@@ -72,13 +72,27 @@ class Referral extends BaseController
         return view('godmode/layout/admin_wrapper', $mdata);
     }
 
+    public function luxbtc()
+    {
+        $mdata = [
+            'title'     => 'Payment - ' . NAMETITLE,
+            'content'   => 'godmode/referral/luxbtc',
+            'extra'     => 'godmode/referral/js/_js_luxbtc',
+            'active_reff'    => 'active active-menu',
+            'sidebar'   => 'luxbtc_sidebar',
+            'navbar_luxbtc' => 'active'
+        ];
+
+        return view('godmode/layout/admin_wrapper', $mdata);
+    }
+
     public function createreferral()
     {
         // Validation Field
         $rules = $this->validate([
             'product'     => [
                 'label'     => 'Product',
-                'rules'     => 'required|in_list[pnglobal, hedgefund, satoshi]'
+                'rules'     => 'required|in_list[luxbtc, hedgefund, satoshi]'
             ],
             'email'     => [
                 'label'     => 'Email',
@@ -98,7 +112,7 @@ class Referral extends BaseController
         }
 
         switch ($type) {
-            case 'pnglobal':
+            case 'luxbtc':
                 $api = URLAPI;
                 break;
             case 'hedgefund':
@@ -160,7 +174,7 @@ class Referral extends BaseController
             'content'   => 'godmode/referral/detail_referral',
             'extra'     => 'godmode/referral/js/_js_detailreferral',
             'active_reff'  => 'active',
-            'sidebar'   => 'hedgefund_sidebar',
+            'sidebar'   => $type . '_sidebar',
             'navbar_hedgefund' => 'active',
             'member'    => $resultMember,
             'referral'  => $resultReferral,
