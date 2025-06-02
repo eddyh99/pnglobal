@@ -62,7 +62,9 @@ class Message extends BaseController
             'content'   => 'godmode/message/index',
             'extra'     => 'godmode/message/js/_js_index',
             'active_msg'    => 'active active-menu',
-            'message'   => $messageData
+            'message'   => $messageData,
+            'sidebar'   => 'satoshi_sidebar',
+            'navbar_satoshi' => 'active',
         ];
 
         return view('godmode/layout/admin_wrapper', $mdata);

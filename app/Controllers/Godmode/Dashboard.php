@@ -128,6 +128,53 @@ class Dashboard extends BaseController
     //     return view('godmode/layout/admin_wrapper', $mdata);
     // }
 
+    public function satoshi()
+    {
+        // Call Endpoin total_member
+        $url = URLAPI2 . "/v1/member/total_member";
+        $resultTotalMember = satoshiAdmin($url)->result;
+
+        // Call Endpoin total free member
+        $url = URLAPI2 . "/v1/member/total_freemember";
+        $resultFreemember = satoshiAdmin($url)->result;
+
+        // Call Endpoin total Referral
+        $url = URLAPI2 . "/v1/subscription/subscribe_active";
+        $resultSubscriber = satoshiAdmin($url)->result;
+
+        // Call Endpoin total Message
+        $url = URLAPI2 . "/v1/signal/total_message";
+        $resultMessage = satoshiAdmin($url)->result;
+
+        // Call Endpoin total Signal
+        $url = URLAPI2 . "/v1/member/total_signal";
+        $resultSignal = satoshiAdmin($url)->result;
+
+        // Satoshi Signal
+        $totalmembersatoshi = $resultTotalMember->message ?? 0;
+        $totalfreemembersatoshi = $resultFreemember->message ?? 0;
+        $totalsubscriptionsatoshi = $resultSubscriber->message ?? 0;
+        $totalsignalsatoshi = $resultSignal->message ?? 0;
+        $totalmessagesatoshi = $resultMessage->message ?? 0;
+
+        $mdata = [
+            'title'     => 'Dashboard - ' . NAMETITLE,
+            'content'   => 'godmode/dashboard/satoshi',
+            'extra'     => 'godmode/dashboard/js/_js_satoshi',
+            'sidebar'   => 'satoshi_sidebar',
+            'navbar_satoshi' => 'active',
+            'active_dash'    => 'active',
+            'totalmembersatoshi' => $totalmembersatoshi,
+            'freemembersatoshi' => $totalfreemembersatoshi,
+            'subscriptionsatoshi' => $totalsubscriptionsatoshi,
+            'signalsatoshi' => $totalsignalsatoshi,
+            'messagesatoshi' => $totalmessagesatoshi
+
+        ];
+
+        return view('godmode/layout/admin_wrapper', $mdata);
+    }
+
     public function luxbtc()
     {
         $urlglobal = URLAPI . "/v1/member/get_membership";
@@ -315,8 +362,8 @@ class Dashboard extends BaseController
             case 'hedgefund':
                 $url = URL_HEDGEFUND . "/v1/member/destroy";
                 break;
-            case 'satoshi-signal':
-                $url = URLAPI2 . "/v1/member/destroy";
+            case 'satoshi':
+                $url = URLAPI2 . "/v1/member/delete_member?email=".$email;
                 break;
             default:
                 $url = URLAPI . "/v1/member/destroy";
@@ -324,10 +371,10 @@ class Dashboard extends BaseController
         }
 
         // $url = URLAPI . "/v1/member/destroy";
-        $response = satoshiAdmin($url, json_encode(['email' => $email]));
+        $response = satoshiAdmin($url, json_encode($type != 'satoshi' ? ['email' => $email]: null));
         $result = $response->result;
 
-        if ($result->code != '201') {
+        if (!in_array(($result->code ?? $response->status), ['200', '201'])) {
             session()->setFlashdata('failed', "Something Wrong, Please Try Again!");
             return redirect()->to(BASE_URL . 'godmode/dashboard/' . $type);
         } else {
@@ -344,7 +391,7 @@ class Dashboard extends BaseController
                 $url = URL_HEDGEFUND . "/v1/member/list_downline?id_member=" . $id;
                 break;
             case 'satoshi':
-                $url = URLAPI2 . "/v1/member/listdownline";
+                $url = URLAPI2 . "/v1/referral/getDownline?id=".$id;
                 break;
             default:
                 $url = URLAPI . "/v1/member/list_downline?id_member=" . $id;
@@ -368,27 +415,27 @@ class Dashboard extends BaseController
 
     public function set_statusMember($type, $email, $status)
     {
+        $email = base64_decode($email);
         switch ($type) {
             case 'hedgefund':
                 $url = URL_HEDGEFUND . "/v1/member/set_status";
                 break;
-            case 'satoshi-signal':
-                $url = URLAPI2 . "/v1/member/set_status";
+            case 'satoshi':
+                $url = URLAPI2 . "/v1/member/" .($status == 'disabled' ? 'disable' : 'enable'). "_member?email=".$email;
                 break;
             default:
                 $url = URLAPI . "/v1/member/set_status";
                 break;
         }
         // $url = URLAPI . "/v1/member/set_status";
-        $email = base64_decode($email);
         $mdata = [
             'email' => $email,
             'status' => $status
         ];
-        $response = satoshiAdmin($url, json_encode($mdata));
+        $response = satoshiAdmin($url, $type === 'satoshi' ? null : json_encode($mdata));
         $result = $response->result;
 
-        if ($result->code != '200') {
+        if (($result->code ?? $response->status) != '200') {
             session()->setFlashdata('failed', "Something Wrong, Please Try Again!");
             return redirect()->to(BASE_URL . 'godmode/dashboard/' . $type);
         } else {

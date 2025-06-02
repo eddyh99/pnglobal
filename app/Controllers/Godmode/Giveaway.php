@@ -50,7 +50,9 @@ class Giveaway extends BaseController
             'title'     => 'Giveaway - ' . NAMETITLE,
             'content'   => 'godmode/giveaway/index',
             'extra'     => 'godmode/giveaway/js/_js_index',
-            'active_giveaway'    => 'active active-menu'
+            'active_giveaway'    => 'active active-menu',
+            'sidebar'   => 'satoshi_sidebar',
+            'navbar_satoshi' => 'active'
         ];
 
         return view('godmode/layout/admin_wrapper', $mdata);

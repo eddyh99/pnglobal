@@ -71,6 +71,20 @@ class Payment extends BaseController
         return view('godmode/layout/admin_wrapper', $mdata);
     }
 
+    public function satoshi()
+    {
+        $mdata = [
+            'title'     => 'Payment - ' . NAMETITLE,
+            'content'   => 'godmode/payment/satoshi',
+            'extra'     => 'godmode/payment/js/_js_satoshi',
+            'active_payment'    => 'active active-menu',
+            'sidebar'   => 'satoshi_sidebar',
+            'navbar_satoshi' => 'active'
+        ];
+
+        return view('godmode/layout/admin_wrapper', $mdata);
+    }
+
     public function get_requestpayment()
     {
         // Call Endpoin Get Total Member

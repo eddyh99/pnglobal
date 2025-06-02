@@ -124,14 +124,14 @@ class Member extends BaseController
                 $url = URLAPI . "/v1/member/referralmember";
                 break;
         }
-        $url = URLAPI . "/v1/member/referralmember";
-        $pnglobal = satoshiAdmin($url)->result->message;
+        // $url = URLAPI . "/v1/member/referralmember";
+        // $pnglobal = satoshiAdmin($url)->result->message;
 
-        $url = URLAPI2 . "/v1/member/referralmember";
-        $satoshi = satoshiAdmin($url)->result->message;
+        // $url = URLAPI2 . "/v1/member/referralmember";
+        // $satoshi = satoshiAdmin($url)->result->message;
 
-        $url = URL_HEDGEFUND . "/v1/member/referralmember";
-        $elite = satoshiAdmin($url)->result->message;
+        // $url = URL_HEDGEFUND . "/v1/member/referralmember";
+        // $elite = satoshiAdmin($url)->result->message;
 
         $result = satoshiAdmin($url)->result->message;
 

@@ -37,7 +37,9 @@ class Freemember extends BaseController
             'title'     => 'Free Member - ' . NAMETITLE,
             'content'   => 'godmode/freemember/index',
             'extra'     => 'godmode/freemember/js/_js_index',
-            'active_free'    => 'active active-menu'
+            'active_free'    => 'active active-menu',
+            'sidebar'   => 'satoshi_sidebar',
+            'navbar_satoshi' => 'active',
         ];
 
         return view('godmode/layout/admin_wrapper', $mdata);
@@ -94,7 +96,7 @@ class Freemember extends BaseController
             // Kirim email ke member
             $email = $mdata['email'];
             $email_template = emailtemplate_new_password($email);
-            sendmail_satoshi($email, "Activation Account Satoshi Signal", $email_template);
+            sendmail_satoshi($email, "Activation Account Satoshi Signal", $email_template, "Registration", 'pnglobal.com');
 
             session()->setFlashdata('success', $result->message);
             return redirect()->to(BASE_URL . 'godmode/freemember');
@@ -124,6 +126,8 @@ class Freemember extends BaseController
             'member'    => $resultMember,
             'referral'  => $resultReferral,
             'emailreferral' => base64_decode($email),
+            'sidebar'   => 'satoshi_sidebar',
+            'navbar_satoshi' => 'active',
         ];
 
         return view('godmode/layout/admin_wrapper', $mdata);

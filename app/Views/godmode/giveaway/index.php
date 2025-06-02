@@ -2,9 +2,9 @@
 <div class="content-page mb-5">
     <div class="container-fluid">
 
-        <div class="satoshi-signal-container">
+        <!-- <div class="satoshi-signal-container">
             <div class="satoshi-signal-label">SATOSHI SIGNAL</div>
-        </div>
+        </div> -->
         <div class="row content-body">
             <div class="col-lg-12 dash-table-referralmember mt-5">
                 <h4 class="text-white my-3 text-uppercase fw-bold">Giveaway</h4>
