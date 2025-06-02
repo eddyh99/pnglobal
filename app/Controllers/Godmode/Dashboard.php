@@ -415,24 +415,24 @@ class Dashboard extends BaseController
 
     public function set_statusMember($type, $email, $status)
     {
+        $email = base64_decode($email);
         switch ($type) {
             case 'hedgefund':
                 $url = URL_HEDGEFUND . "/v1/member/set_status";
                 break;
             case 'satoshi':
-                $url = URLAPI2 . "/v1/member/set_status";
+                $url = URLAPI2 . "/v1/member/" .($status == 'disabled' ? 'disable' : 'enable'). "_member?email=".$email;
                 break;
             default:
                 $url = URLAPI . "/v1/member/set_status";
                 break;
         }
         // $url = URLAPI . "/v1/member/set_status";
-        $email = base64_decode($email);
         $mdata = [
             'email' => $email,
             'status' => $status
         ];
-        $response = satoshiAdmin($url, json_encode($mdata));
+        $response = satoshiAdmin($url, $type === 'satoshi' ? null : json_encode($mdata));
         $result = $response->result;
 
         if (($result->code ?? $response->status) != '200') {

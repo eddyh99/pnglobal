@@ -47,7 +47,7 @@
                         <span class="<?= (@$active_admin != null) ? 'text-black' : 'text-white' ?>">Add Admin</span>
                     </a>
                 </li>
-                <li class="<?= @$active_blog ?>" style="pointer-events: none;">
+                <!-- <li class="<?= @$active_blog ?>" style="pointer-events: none;">
                     <a href="#" class="iq-waves-effect">
                         <i>
                         <svg width="35" height="30" viewBox="0 0 35 30" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -59,7 +59,7 @@
                         </i>
                         <span class="<?= (@$active_blog != null) ? 'text-black' : 'text-white' ?>">Blog Post</span>
                     </a>
-                </li>
+                </li> -->
 
                 <li>
                     <a href="<?= BASE_URL ?>godmode/auth/logout" class="iq-waves-effect">

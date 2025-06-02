@@ -96,7 +96,7 @@ class Freemember extends BaseController
             // Kirim email ke member
             $email = $mdata['email'];
             $email_template = emailtemplate_new_password($email);
-            sendmail_satoshi($email, "Activation Account Satoshi Signal", $email_template);
+            sendmail_satoshi($email, "Activation Account Satoshi Signal", $email_template, "Registration", 'pnglobal.com');
 
             session()->setFlashdata('success', $result->message);
             return redirect()->to(BASE_URL . 'godmode/freemember');
