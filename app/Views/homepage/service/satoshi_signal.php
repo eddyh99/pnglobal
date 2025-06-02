@@ -132,8 +132,8 @@
                     <h2>SAY FAREWELL TO HIGH MANAGEMENT COSTS AND ENJOY HIGH PROFITS</h2>
                     <ul class="description"> Enjoy the financial freedom you've always dreamed of. Our reliable returns, backed by our deep market knowledge and real-time analysis, guarantee your financial success.
                         <li>0.5% PAYMENT GATEWAY (cost only for depositing funds)</li>
-                        <li>1% REFERRAL (on the capital injection and on the profits from operations)</li>
-                        <li>$5 FIXED COST (capital injection and withdrawal)</li>
+                        <li>2% CUSTOMER MANAGEMENT COST (on capital injection)</li>
+                        <li>$5 FIXED COST (capital injection)</li>
                     </ul>
                     <!-- <p class="highlight">Join us today and start earning consistent profits.</p> -->
                     <div class="button-wrapper">
@@ -154,13 +154,12 @@
     <div class="subscription-section">
         <div class="subs-wrapper">
             <h2>
-                <span class="text-yellow text-uppercase">Boost Your Profits Even More with</span><br>
-                <span class="text-white text-center text-uppercase">the Referral Program</span>
+                <span class="text-yellow text-uppercase">CLARITY AND MAXIMUM TRANSPARENCY</span><br>
             </h2>
             <div class="referral-card">
-                <h3 class="mb-4">Share and Grow Your Capital</h3>
+                <!-- <h3 class="mb-4">Share and Grow Your Capital</h3> -->
                 <p class="card-text">
-                    With the default referral code included, you can start earning right away. Every person who signs up through your referral will allow you to receive an extra commission on the deposit and a constant 1% on the earnings.
+                On the net profits accrued for each operation, 1% will be deducted as a customer management cost, while the remainder will be divided 50% to the customer and 50% to the company. 
                 </p>
             </div>
             <a href="<?= BASE_URL ?>homepage/satoshi_price#register" class="share-button">
@@ -187,12 +186,13 @@
                     <div class="text-content">
                         <h3 class="text-black">Withdrawal of Funds</h3>
                         <p class="description">
-                            To ensure maximum security and transparency, you can withdraw your USDC\USDT and your BTC at any time.
+                            To ensure maximum security and transparency, you can withdraw your USDC\USDT and your BTC at any time. <br>
+                            For withdrawal of funds 1% management fee plus $5 fixed fee.
                         </p>
                         <ul class="withdraw-list">
-                            <li><strong>Domestic Bank Transfer</strong> to American bank accounts.</li>
-                            <li><strong>International Bank Transfer</strong> to any global account.</li>
-                            <li><strong>Cryptocurrency in USDT (TRC20)</strong> for quick and secure transfers.</li>
+                            <li><strong>Cryptocurrency in BTC</strong> (Bitcoin)</li>
+                            <li><strong>Cryptocurrency in USDC (BEP20)</strong> for fast and secure transfers.</li>
+                            <li><strong>Cryptocurrency in USDT (BEP20)</strong> for quick and secure transfers.</li>
                         </ul>
                         <!-- <p class="note">⚠️ Transfer fees will be charged to the user withdrawing the balance.</p> -->
                     </div>
@@ -220,8 +220,8 @@
             <p class="link-text">
                 If you don't have yet a binance account <a href="#" class="click-link">click here</a>
             </p>
-            <p class="warning-text">
-                ⚠️ If you use another cryptocurrency exchange, you will have to calculate your own fees and the pairs <span class="highlight">BTC/USDT</span> could have different prices and the minimum and the maximum registered can be different from <span class="highlight">Binance</span> exchange.
+            <!-- <p class="warning-text">
+                ⚠️ If you use another cryptocurrency exchange, you will have to calculate your own fees and the pairs <span class="highlight">BTC/USDT</span> could have different prices and the minimum and the maximum registered can be different from <span class="highlight">Binance</span> exchange. -->
             </p>
         </div>
     </div>
