@@ -15,8 +15,6 @@
         "columns": [
             { data: 'email'},
             { data: 'refcode'},
-            { data: 'referral'},
-            { data: 'commission'},
             { 
                 data: null, 
                 "mRender": function(data, type, full, meta) {

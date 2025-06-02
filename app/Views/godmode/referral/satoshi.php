@@ -74,8 +74,9 @@
                         <tr>
                             <th>EMAIL</th>
                             <th>REFERRAL CODE</th>
-                            <th>REFERRAL</th>
-                            <th>UNPAID COMMISSION</th>
+                            <!-- <th>STATUS</th> -->
+                            <!-- <th>REFERRAL</th>
+                            <th>UNPAID COMMISSION</th> -->
                             <th>DETAIL</th>
                         </tr>
                     </thead>

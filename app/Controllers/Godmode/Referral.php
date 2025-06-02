@@ -127,13 +127,13 @@ class Referral extends BaseController
 
         switch ($type) {
             case 'luxbtc':
-                $api = URLAPI;
+                $url = URLAPI . "/auth/register";
                 break;
             case 'hedgefund':
-                $api = URL_HEDGEFUND;
+                $url = URL_HEDGEFUND . "/auth/register";
                 break;
             case 'satoshi':
-                $api = URLAPI2;
+                $url = URLAPI2 . "/v1/member/create_referral";
                 break;
         }
 
@@ -144,6 +144,7 @@ class Referral extends BaseController
             'role'        => 'referral',
             'status'      => 'active',
             'referral'    => htmlspecialchars($this->request->getVar('upline')),
+            'upline'    => htmlspecialchars($this->request->getVar('upline')),
             'timezone'    => 'Asia/Makassar',
             'ip_address'  => htmlspecialchars($this->request->getIPAddress()),
             'ipaddress'  => htmlspecialchars($this->request->getIPAddress()),
@@ -151,7 +152,6 @@ class Referral extends BaseController
         ];
 
 
-        $url = $api . "/auth/register";
         $result = satoshiAdmin($url, json_encode($mdata, JSON_UNESCAPED_SLASHES))->result;
         // dd($result);
 
