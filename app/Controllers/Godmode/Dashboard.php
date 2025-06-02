@@ -391,7 +391,7 @@ class Dashboard extends BaseController
                 $url = URL_HEDGEFUND . "/v1/member/list_downline?id_member=" . $id;
                 break;
             case 'satoshi':
-                $url = URLAPI2 . "/v1/member/listdownline";
+                $url = URLAPI2 . "/v1/referral/getDownline?id=".$id;
                 break;
             default:
                 $url = URLAPI . "/v1/member/list_downline?id_member=" . $id;
