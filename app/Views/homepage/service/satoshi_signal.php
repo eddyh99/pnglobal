@@ -171,19 +171,24 @@
 
     <!-- Start of Payout Section -->
     <div class="payout-section">
-        <div class="top-content">
+        <!-- <div class="top-content">
             <div class="container">
                 <h2>WITHDRAWAL</h2>
                 <ul class="payout-list">
-                    <li>your commissions will be credited immediately</li>
+                    <li>Your commissions will be credited immediately</li>
                     <li>You can easily track your earnings and referral balance directly from our website dashboard</li>
                 </ul>
             </div>
-        </div>
+        </div> -->
         <div class="bottom-content">
-            <div class="container">
+        <h2 class="text-center">WITHDRAWAL</h2>
+            <!-- <div class="container"> -->
                 <div class="content-wrapper">
                     <div class="text-content">
+                    <ul class="payout-list">
+                    <li>Your commissions will be credited immediately</li>
+                    <li>You can easily track your earnings and referral balance directly from our website dashboard</li>
+                </ul>
                         <h3 class="text-black">Withdrawal of Funds</h3>
                         <p class="description">
                             To ensure maximum security and transparency, you can withdraw your USDC\USDT and your BTC at any time. <br>
@@ -200,7 +205,7 @@
                         <img src="<?= BASE_URL ?>assets/img/ic_payout.png" alt="Payout">
                     </div>
                 </div>
-            </div>
+            <!-- </div> -->
         </div>
         <!-- <div class="opportunity-content">
             <div class="container">
