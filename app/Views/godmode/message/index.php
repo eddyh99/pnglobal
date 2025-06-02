@@ -1,8 +1,8 @@
 <div class="content-page mb-5">
     <div class="container-fluid">
-        <div class="satoshi-signal-container">
+        <!-- <div class="satoshi-signal-container">
             <div class="satoshi-signal-label">SATOSHI SIGNAL</div>
-        </div>
+        </div> -->
         <div class="row content-body">
             <div class="col-lg-12 px-5">
                 <form id="frm-message" action="<?= BASE_URL ?>godmode/message/sendmessage" method="POST">

@@ -60,6 +60,7 @@ class Subscriber extends BaseController
             'subs_free'    => 'active active-menu',
             'sidebar'   => 'satoshi_sidebar',
             'navbar_satoshi' => 'active',
+            'active_dash'    => 'active',
         ];
 
         return view('godmode/layout/admin_wrapper', $mdata);

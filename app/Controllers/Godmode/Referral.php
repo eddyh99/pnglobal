@@ -86,6 +86,20 @@ class Referral extends BaseController
         return view('godmode/layout/admin_wrapper', $mdata);
     }
 
+    public function satoshi()
+    {
+        $mdata = [
+            'title'     => 'Payment - ' . NAMETITLE,
+            'content'   => 'godmode/referral/satoshi',
+            'extra'     => 'godmode/referral/js/_js_satoshi',
+            'active_reff'    => 'active active-menu',
+            'sidebar'   => 'satoshi_sidebar',
+            'navbar_satoshi' => 'active'
+        ];
+
+        return view('godmode/layout/admin_wrapper', $mdata);
+    }
+
     public function createreferral()
     {
         // Validation Field
@@ -132,6 +146,7 @@ class Referral extends BaseController
             'referral'    => htmlspecialchars($this->request->getVar('upline')),
             'timezone'    => 'Asia/Makassar',
             'ip_address'  => htmlspecialchars($this->request->getIPAddress()),
+            'ipaddress'  => htmlspecialchars($this->request->getIPAddress()),
             'refcode'   => htmlspecialchars($this->request->getVar('refcode'))
         ];
 

@@ -37,7 +37,9 @@ class Freemember extends BaseController
             'title'     => 'Free Member - ' . NAMETITLE,
             'content'   => 'godmode/freemember/index',
             'extra'     => 'godmode/freemember/js/_js_index',
-            'active_free'    => 'active active-menu'
+            'active_free'    => 'active active-menu',
+            'sidebar'   => 'satoshi_sidebar',
+            'navbar_satoshi' => 'active',
         ];
 
         return view('godmode/layout/admin_wrapper', $mdata);
