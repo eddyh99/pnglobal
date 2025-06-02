@@ -363,7 +363,7 @@ class Dashboard extends BaseController
                 $url = URL_HEDGEFUND . "/v1/member/destroy";
                 break;
             case 'satoshi':
-                $url = URLAPI2 . "/v1/member/destroy";
+                $url = URLAPI2 . "/v1/member/delete_member?email=".$email;
                 break;
             default:
                 $url = URLAPI . "/v1/member/destroy";
@@ -371,10 +371,10 @@ class Dashboard extends BaseController
         }
 
         // $url = URLAPI . "/v1/member/destroy";
-        $response = satoshiAdmin($url, json_encode(['email' => $email]));
+        $response = satoshiAdmin($url, json_encode($type != 'satoshi' ? ['email' => $email]: null));
         $result = $response->result;
 
-        if (($result->code ?? $response->status) != '201') {
+        if (!in_array(($result->code ?? $response->status), ['200', '201'])) {
             session()->setFlashdata('failed', "Something Wrong, Please Try Again!");
             return redirect()->to(BASE_URL . 'godmode/dashboard/' . $type);
         } else {
