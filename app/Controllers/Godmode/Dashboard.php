@@ -378,7 +378,7 @@ class Dashboard extends BaseController
             session()->setFlashdata('failed', "Something Wrong, Please Try Again!");
             return redirect()->to(BASE_URL . 'godmode/dashboard/' . $type);
         } else {
-            session()->setFlashdata('success', "Success Disabled Member");
+            session()->setFlashdata('success', $result->message ?? 'Success deleted member.');
             return redirect()->to(BASE_URL . 'godmode/dashboard/' . $type);
         }
     }
