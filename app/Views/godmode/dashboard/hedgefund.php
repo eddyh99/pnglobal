@@ -35,7 +35,7 @@
             <div class="row content-body">
                 <div class="col-lg-12 px-2">
                     <div class="dash-statistics">
-                        <a href="<?= BASE_URL ?>godmode/dashboard" class="statistics">
+                        <a href="<?= BASE_URL ?>godmode/dashboard/hedgefund" class="statistics">
                             <div class="iq-card">
                                 <div class="iq-card-body">
                                     <div class="d-flex flex-column justify-content-center align-items-start">
