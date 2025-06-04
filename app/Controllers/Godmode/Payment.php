@@ -145,7 +145,7 @@ class Payment extends BaseController
         $result = $response->result;
         if ($result->code != 201) {
             session()->setFlashdata('failed', $result->message);
-            return redirect()->to(BASE_URL . 'godmode/payment/detailpayment/hedgefund/'.$mdata["reqid"]."?type=elite");
+            return redirect()->to(BASE_URL . 'godmode/payment/detailpayment/hedgefund/'.$mdata["reqid"]);
         } else {
             session()->setFlashdata('success', $result->message);
             return redirect()->to(BASE_URL . 'godmode/payment/hedgefund');
