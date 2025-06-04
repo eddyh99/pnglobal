@@ -8,6 +8,32 @@
                         <div class="title-signal-preview d-flex justify-content-between align-items-center">
                             <h4>Add Admin</h4>
                         </div>
+                        <!-- template -->
+                        <div id="product-template" style="display: none;">
+                        <div class="wrapper-addreferral product-group">
+                        <label for="alias">Product</label>
+                                <select name="product[]" class="form-control product-select mb-2" onchange="updateAccessOptions(this)">
+                                    <option value="">-- Select Product --</option>
+                                    <?php foreach (array_keys($product) as $index => $p): ?>
+                                        <option 
+                                            value="<?= htmlspecialchars($p) ?>" 
+                                            data-access='<?= json_encode($product[$p]['access']) ?>'>
+                                            <?= ucfirst(htmlspecialchars($p)) ?>
+                                        </option>
+                                    <?php endforeach; ?>
+
+                                </select>
+                                <div class="wrapper-addreferral access-container">
+                                <label for="access">Access</label>
+                                        <div class="role-wrapper">
+                                
+                                        </div>
+                                </div>
+                            </div>
+                        </div>
+                        </div>
+
+                        <!-- end template -->
                         <div class="main-send-signal d-flex flex-column align-items-center justify-content-center">
                             <div class="row w-100">
                                 <div class="form-addreferral col-8 mx-auto">
@@ -16,38 +42,14 @@
                                         <input type="email" name="email" class="form-control">
                                     </div>
                                     <div class="wrapper-addreferral">
-                                        <label for="password">Password</label>
-                                        <input type="password" name="password" class="form-control">
-                                    </div>
-                                    <div class="wrapper-addreferral">
-                                        <label for="alias">Alias</label>
+                                        <label for="alias">Alias/Nickname</label>
                                         <input type="text" name="alias" class="form-control">
                                     </div>
-                                    <div class="wrapper-addreferral">
-                                        <label for="access">Access</label>
-                                        <div class="role-wrapper">
-                                            <div class="role-item">
-                                                <input type="checkbox" id="access_dashboard" name="access[]" value="subscriber">
-                                                <label for="access_dashboard">Dashboard</label>
-                                            </div>
-                                            <div class="role-item">
-                                                <input type="checkbox" id="access_signal" name="access[]" value="signal">
-                                                <label for="access_signal">Signal</label>
-                                            </div>
-                                            <div class="role-item">
-                                                <input type="checkbox" id="access_free_member" name="access[]" value="freemember">
-                                                <label for="access_free_member">Free Member</label>
-                                            </div>
-                                            <div class="role-item">
-                                                <input type="checkbox" id="access_payment" name="access[]" value="payment">
-                                                <label for="access_payment">Payment</label>
-                                            </div>
-                                            <div class="role-item">
-                                                <input type="checkbox" id="access_message" name="access[]" value="message">
-                                                <label for="access_message">Message</label>
-                                            </div>
-                                        </div>
+                                    <div id="product-container">
+                                        <!-- Product access -->
                                     </div>
+
+                                    <button type="button" class="btn" onclick="addNewProduct()" id="addproduct">Add More Product +</button>
                                     <div class="wrapper-addreferral d-flex justify-content-center">
                                         <button type="submit" id="submitBtn" class="btn btn-primary">Create</button>
                                     </div>

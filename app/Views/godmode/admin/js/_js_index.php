@@ -26,48 +26,119 @@
     }
 </style>
 <script>
-    document.addEventListener("DOMContentLoaded", function() {
-        // Deteksi timezone pengguna
-        var userTimeZone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+    const container = document.getElementById('product-container');
+    const template = document.getElementById('product-template').innerHTML;
 
-        // Pastikan elemen timezone ada sebelum mencoba mengatur nilainya
-        var timezoneElement = document.getElementById("timezone");
-        if (timezoneElement) {
-            // Pastikan tidak ada karakter yang perlu di-escape
-            timezoneElement.value = userTimeZone;
+    addNewProduct();
+    // Deteksi timezone pengguna
+    var userTimeZone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+
+    // Pastikan elemen timezone ada sebelum mencoba mengatur nilainya
+    var timezoneElement = document.getElementById("timezone");
+    if (timezoneElement) {
+        // Pastikan tidak ada karakter yang perlu di-escape
+        timezoneElement.value = userTimeZone;
+    } else {
+        console.error("Elemen timezone tidak ditemukan");
+        // Tambahkan input timezone tersembunyi jika tidak ada
+        var hiddenTimezone = document.createElement('input');
+        hiddenTimezone.type = 'hidden';
+        hiddenTimezone.id = 'timezone';
+        hiddenTimezone.name = 'timezone';
+        hiddenTimezone.value = userTimeZone;
+        var form = document.querySelector('form[action="<?= BASE_URL ?>godmode/admin/create_admin"]');
+        if (form) {
+            form.appendChild(hiddenTimezone);
         } else {
-            console.error("Elemen timezone tidak ditemukan");
-            // Tambahkan input timezone tersembunyi jika tidak ada
-            var hiddenTimezone = document.createElement('input');
-            hiddenTimezone.type = 'hidden';
-            hiddenTimezone.id = 'timezone';
-            hiddenTimezone.name = 'timezone';
-            hiddenTimezone.value = userTimeZone;
-            var form = document.querySelector('form[action="<?= BASE_URL ?>godmode/admin/create_admin"]');
-            if (form) {
-                form.appendChild(hiddenTimezone);
-            } else {
-                console.error("Form tidak ditemukan");
-            }
+            console.error("Form tidak ditemukan");
+        }
+    }
+
+    // Menangani form submission untuk memastikan access dikirim sebagai array
+    $('form[action="<?= BASE_URL ?>godmode/admin/create_admin"]').on('submit', function(e) {
+        // Periksa apakah setidaknya satu checkbox dipilih
+        if ($('input[name="access[]"]:checked').length === 0) {
+            e.preventDefault();
+            alert("Pilih setidaknya satu akses untuk admin.");
+            return false;
         }
 
-        // Menangani form submission untuk memastikan access dikirim sebagai array
-        $('form[action="<?= BASE_URL ?>godmode/admin/create_admin"]').on('submit', function(e) {
-            // Periksa apakah setidaknya satu checkbox dipilih
-            if ($('input[name="access[]"]:checked').length === 0) {
-                e.preventDefault();
-                alert("Pilih setidaknya satu akses untuk admin.");
-                return false;
-            }
-
-            // Modifikasi timezone sebelum submit untuk menghindari escape karakter
-            // var tzInput = document.getElementById('timezone');
-            // if (tzInput) {
-            //     // Ganti karakter / dengan karakter lain yang tidak perlu di-escape
-            //     tzInput.value = tzInput.value.replace(/\//g, '|');
-            // }
-        });
+        // Modifikasi timezone sebelum submit untuk menghindari escape karakter
+        // var tzInput = document.getElementById('timezone');
+        // if (tzInput) {
+        //     // Ganti karakter / dengan karakter lain yang tidak perlu di-escape
+        //     tzInput.value = tzInput.value.replace(/\//g, '|');
+        // }
     });
+
+    const formx = document.querySelector('form[action="<?= BASE_URL ?>godmode/admin/create_admin"]');
+    const submitBtn = document.getElementById('submitBtn');
+    if (formx && submitBtn) {
+        formx.addEventListener('submit', function() {
+            // Disable the button
+            submitBtn.disabled = true;
+
+            // Change button text to show processing
+            submitBtn.innerHTML = '<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Processing...';
+
+            // Enable the button after 10 seconds (failsafe in case form submission fails)
+            setTimeout(function() {
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = 'Create';
+            }, 10000);
+
+            // Allow the form to submit
+            return true;
+        });
+    }
+
+
+    function updateAccessOptions(selectElement) {
+        const accessWrapper = selectElement.closest('.product-group').querySelector('.role-wrapper');
+        accessWrapper.innerHTML = ''; // kosongkan dulu
+
+        const selectedOption = selectElement.options[selectElement.selectedIndex];
+        const accessList = JSON.parse(selectedOption.dataset.access || '[]');
+
+        accessList.forEach(access => {
+            const id = `access_${access}_${Date.now()}`;
+            const html = `
+            <div class="role-item">
+                <input type="checkbox" id="${id}" name="access[]" value="${access}">
+                <label for="${id}">${access.charAt(0).toUpperCase() + access.slice(1)}</label>
+            </div>
+        `;
+            accessWrapper.insertAdjacentHTML('beforeend', html);
+        });
+    }
+
+    function getSelectedProducts() {
+        return Array.from(container.querySelectorAll('select[name="product[]"]'))
+            .map(sel => sel.value)
+            .filter(val => val !== "");
+    }
+
+    function refreshProductOptions() {
+        const selected = getSelectedProducts();
+        container.querySelectorAll('select[name="product[]"]').forEach(select => {
+            const options = select.querySelectorAll('option');
+            options.forEach(opt => {
+                if (opt.value === "") return;
+                opt.disabled = selected.includes(opt.value) && opt.value !== select.value;
+            });
+        });
+    }
+
+    function addNewProduct() {
+        container.insertAdjacentHTML('beforeend', template);
+        refreshProductOptions();
+        const selects = container.querySelectorAll('select[name="product[]"]');
+        const newSelect = selects[selects.length - 1];
+
+        // Panggil updateAccessOptions agar access langsung muncul
+        updateAccessOptions(newSelect);
+    }
+
 
     $('#tbl_freemember').DataTable({
         "pageLength": 50,
@@ -120,31 +191,6 @@
         ],
         language: {
             emptyTable: "No Data"
-        }
-    });
-
-    // Prevent double submission
-    document.addEventListener('DOMContentLoaded', function() {
-        const form = document.querySelector('form[action="<?= BASE_URL ?>godmode/admin/create_admin"]');
-        const submitBtn = document.getElementById('submitBtn');
-
-        if (form && submitBtn) {
-            form.addEventListener('submit', function() {
-                // Disable the button
-                submitBtn.disabled = true;
-
-                // Change button text to show processing
-                submitBtn.innerHTML = '<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Processing...';
-
-                // Enable the button after 10 seconds (failsafe in case form submission fails)
-                setTimeout(function() {
-                    submitBtn.disabled = false;
-                    submitBtn.innerHTML = 'Create';
-                }, 10000);
-
-                // Allow the form to submit
-                return true;
-            });
         }
     });
 </script>

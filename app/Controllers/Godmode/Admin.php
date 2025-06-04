@@ -33,6 +33,22 @@ class Admin extends BaseController
 
     public function index()
     {
+        $product = [
+            'hedgefund' => [
+                'access' => [
+                    'dashboard',
+                    'payment',
+                    'referral',
+                ],
+            ],
+            'luxbtc' => [
+                'access' => [
+                    'dashboard',
+                    'referral',
+                ],
+            ],
+        ];
+        
         $mdata = [
             'title'     => 'Admin - ' . NAMETITLE,
             'content'   => 'godmode/admin/index',
@@ -40,7 +56,8 @@ class Admin extends BaseController
             'sidebar'   => 'hedgefund_sidebar',
             'sidebar'   => 'console_sidebar',
             'navbar_console' => 'active',
-            'active_admin'    => 'active active-menu'
+            'active_admin'    => 'active active-menu',
+            'product'   => $product
         ];
 
         return view('godmode/layout/admin_wrapper', $mdata);
