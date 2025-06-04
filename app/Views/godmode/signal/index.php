@@ -30,9 +30,9 @@
     <div class="container-fluid">
         <div class="row content-body">
             <div class="col-lg-12">
-            
-            <!-- balance fund & trade -->
-            <div class="custom-card left-card w-50 mx-auto">
+
+                <!-- balance fund & trade -->
+                <div class="custom-card left-card w-50 mx-auto">
                     <div class="d-flex justify-content-between text-black" style="font-weight: bold;">
                         <p>Funding Wallet</p>
                         <p>Trade Wallet</p>
@@ -54,12 +54,12 @@
                     </div>
                 </div>
             </div>
-            </div>
-            <div class="col-lg-12">
-                <div class="send-signals">
-                    <div class="title-signal-preview d-flex justify-content-between align-items-center">
-                        <h4>Send Signals</h4>
-                        <!-- <div class="active-api-card text-white">
+        </div>
+        <div class="col-lg-12">
+            <div class="send-signals">
+                <div class="title-signal-preview d-flex justify-content-between align-items-center">
+                    <h4>Send Signals</h4>
+                    <!-- <div class="active-api-card text-white">
                             <?php if (isset($api_key) && isset($api_secret) && !empty($api_key) && !empty($api_secret)): ?>
                                 Active
                                 <svg xmlns="http://www.w3.org/2000/svg" width="50" height="30" viewBox="0 0 50 30" fill="none">
@@ -72,264 +72,264 @@
                                 </svg>
                             <?php endif; ?>
                         </div> -->
-                    </div>
-                    <div class="main-send-signal d-flex flex-column align-items-center justify-content-center">
-                        <div class="signal-preview">
-                            <div class="row">
-                                <div class="col-12 col-md-6 all-buy">
-                                    <div class="instruction-column instruction-buy">
-                                        <span class="instruction-label">BUY</span>
-                                        <span class="instruction-value"></span>
-                                    </div>
-                                    <div class="signal-section">
-                                        <table class="signal-table">
-                                            <thead>
-                                                <tr>
-                                                    <th></th>
-                                                    <th>PRICE</th>
-                                                    <th>STATUS</th>
-                                                    <th colspan="3">ACTION</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <!-- BUY A -->
-                                                <tr data-pair-id="<?php echo (!empty($buy_a) ? $buy_a['pair_id'] : '') ?>">
-                                                    <td>
-                                                        <div translate="no"  class="signal-label buy-label">A</div>
-                                                    </td>
-                                                    <td>
-                                                        <input type="text" id="buy-a" class="signal-price" value="<?php echo (!empty($buy_a) ? number_format($buy_a['entry_price'], 2, '.', ',') : '') ?>" <?php echo (!empty($buy_a) ? "readonly" : "") ?>>
-                                                    </td>
-                                                    <td>
-                                                        <div class="signal-status">
-                                                            <?php echo (!empty($buy_a) ? $buy_a['status'] : '') ?>
-                                                        </div>
-                                                    </td>
-                                                    <td>
-                                                        <button id="send-buy-a" translate="no" class="signal-btn btn-ok" <?php echo (!empty($buy_a) ? "disabled" : "") ?>>BUY</button>
-                                                    </td>
-                                                    <!-- <td>
+                </div>
+                <div class="main-send-signal d-flex flex-column align-items-center justify-content-center">
+                    <div class="signal-preview">
+                        <div class="row">
+                            <div class="col-12 col-md-6 all-buy">
+                                <div class="instruction-column instruction-buy">
+                                    <span class="instruction-label">BUY</span>
+                                    <span class="instruction-value"></span>
+                                </div>
+                                <div class="signal-section">
+                                    <table class="signal-table">
+                                        <thead>
+                                            <tr>
+                                                <th></th>
+                                                <th>PRICE</th>
+                                                <th>STATUS</th>
+                                                <th colspan="3">ACTION</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <!-- BUY A -->
+                                            <tr data-pair-id="<?php echo (!empty($buy_a) ? $buy_a['pair_id'] : '') ?>">
+                                                <td>
+                                                    <div translate="no" class="signal-label buy-label">A</div>
+                                                </td>
+                                                <td>
+                                                    <input type="text" id="buy-a" class="signal-price" value="<?php echo (!empty($buy_a) ? number_format($buy_a['entry_price'], 2, '.', ',') : '') ?>" <?php echo (!empty($buy_a) ? "readonly" : "") ?>>
+                                                </td>
+                                                <td>
+                                                    <div class="signal-status">
+                                                        <?php echo (!empty($buy_a) ? $buy_a['status'] : '') ?>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <button id="send-buy-a" translate="no" class="signal-btn btn-ok" <?php echo (!empty($buy_a) ? "disabled" : "") ?>>BUY</button>
+                                                </td>
+                                                <!-- <td>
                                                         <button id="fill-buy-a" class="signal-btn btn-fill" <?php echo (!empty($buy_a) && strtolower($buy_a['status']) === 'filled' ? "disabled" : "") ?>>FILL</button>
                                                     </td> -->
-                                                    <td>
-                                                        <button id="del-buy-a" translate="no" class="signal-btn btn-del">DEL</button>
-                                                    </td>
-                                                </tr>
+                                                <td>
+                                                    <button id="del-buy-a" translate="no" class="signal-btn btn-del">DEL</button>
+                                                </td>
+                                            </tr>
 
 
-                                                <!-- BUY B -->
-                                                <tr data-pair-id="<?php echo (!empty($buy_b) ? $buy_b['pair_id'] : '') ?>">
-                                                    <td>
-                                                        <div translate="no"  class="signal-label buy-label">B</div>
-                                                    </td>
-                                                    <td>
-                                                        <input type="text" id="buy-b" class="signal-price" value="<?php echo (!empty($buy_b) ? number_format($buy_b['entry_price'], 2, '.', ',') : '') ?>" <?php echo (!empty($buy_b) || !isset($buy_a['status']) || $buy_a['status'] != 'filled') ? 'readonly' : ''; ?>                                                        >
-                                                    </td>
-                                                    <td>
-                                                        <div class="signal-status">
-                                                            <?php echo (!empty($buy_b) ? $buy_b['status'] : '') ?>
-                                                        </div>
-                                                    </td>
-                                                    <td>
-                                                        <button id="send-buy-b" translate="no" class="signal-btn btn-ok" <?php echo isset($buy_a['status']) && $buy_a['status'] == 'filled' && empty($buy_b) ? '' : 'disabled'; ?>                                                        >BUY</button>
-                                                    </td>
-                                                    <!-- <td>
+                                            <!-- BUY B -->
+                                            <tr data-pair-id="<?php echo (!empty($buy_b) ? $buy_b['pair_id'] : '') ?>">
+                                                <td>
+                                                    <div translate="no" class="signal-label buy-label">B</div>
+                                                </td>
+                                                <td>
+                                                    <input type="text" id="buy-b" class="signal-price" value="<?php echo (!empty($buy_b) ? number_format($buy_b['entry_price'], 2, '.', ',') : '') ?>" <?php echo (!empty($buy_b) || !isset($buy_a['status']) || $buy_a['status'] != 'filled') ? 'readonly' : ''; ?>>
+                                                </td>
+                                                <td>
+                                                    <div class="signal-status">
+                                                        <?php echo (!empty($buy_b) ? $buy_b['status'] : '') ?>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <button id="send-buy-b" translate="no" class="signal-btn btn-ok" <?php echo isset($buy_a['status']) && $buy_a['status'] == 'filled' && empty($buy_b) ? '' : 'disabled'; ?>>BUY</button>
+                                                </td>
+                                                <!-- <td>
                                                         <button id="fill-buy-b" class="signal-btn btn-fill" <?php echo (!empty($buy_b) && strtolower($buy_b['status']) === 'filled' ? "disabled" : "") ?>>FILL</button>
                                                     </td> -->
-                                                    <td>
-                                                        <button id="del-buy-b" translate="no" class="signal-btn btn-del">DEL</button>
-                                                    </td>
-                                                </tr>
+                                                <td>
+                                                    <button id="del-buy-b" translate="no" class="signal-btn btn-del">DEL</button>
+                                                </td>
+                                            </tr>
 
 
-                                                <!-- BUY C -->
-                                                <tr data-pair-id="<?php echo (!empty($buy_c) ? $buy_c['pair_id'] : '') ?>">
-                                                    <td>
-                                                        <div translate="no"  class="signal-label buy-label">C</div>
-                                                    </td>
-                                                    <td>
-                                                        <input type="text" id="buy-c" class="signal-price" value="<?php echo (!empty($buy_c) ? number_format($buy_c['entry_price'], 2, '.', ',') : '') ?>" <?php echo (!empty($buy_c) || !isset($buy_b['status']) || $buy_b['status'] != 'filled') ? 'readonly' : ''; ?>                                                        >
-                                                    </td>
-                                                    <td>
-                                                        <div class="signal-status">
-                                                            <?php echo (!empty($buy_c) ? $buy_c['status'] : '') ?>
-                                                        </div>
-                                                    </td>
-                                                    <td>
-                                                        <button id="send-buy-c" translate="no" class="signal-btn btn-ok" <?php echo isset($buy_b['status']) && $buy_b['status'] == 'filled' && empty($buy_c) ? '' : 'disabled'; ?>                                                        >BUY</button>
-                                                    </td>
-                                                    <!-- <td>
+                                            <!-- BUY C -->
+                                            <tr data-pair-id="<?php echo (!empty($buy_c) ? $buy_c['pair_id'] : '') ?>">
+                                                <td>
+                                                    <div translate="no" class="signal-label buy-label">C</div>
+                                                </td>
+                                                <td>
+                                                    <input type="text" id="buy-c" class="signal-price" value="<?php echo (!empty($buy_c) ? number_format($buy_c['entry_price'], 2, '.', ',') : '') ?>" <?php echo (!empty($buy_c) || !isset($buy_b['status']) || $buy_b['status'] != 'filled') ? 'readonly' : ''; ?>>
+                                                </td>
+                                                <td>
+                                                    <div class="signal-status">
+                                                        <?php echo (!empty($buy_c) ? $buy_c['status'] : '') ?>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <button id="send-buy-c" translate="no" class="signal-btn btn-ok" <?php echo isset($buy_b['status']) && $buy_b['status'] == 'filled' && empty($buy_c) ? '' : 'disabled'; ?>>BUY</button>
+                                                </td>
+                                                <!-- <td>
                                                         <button id="fill-buy-c" class="signal-btn btn-fill" <?php echo (!empty($buy_c) && strtolower($buy_c['status']) === 'filled' ? "disabled" : "") ?>>FILL</button>
                                                     </td> -->
-                                                    <td>
-                                                        <button id="del-buy-c" translate="no" class="signal-btn btn-del">DEL</button>
-                                                    </td>
-                                                </tr>
+                                                <td>
+                                                    <button id="del-buy-c" translate="no" class="signal-btn btn-del">DEL</button>
+                                                </td>
+                                            </tr>
 
-                                                
-                                                <!-- BUY D -->
-                                                <tr data-pair-id="<?php echo (!empty($buy_d) ? $buy_d['pair_id'] : '') ?>">
-                                                    <td>
-                                                        <div translate="no"  class="signal-label buy-label">D</div>
-                                                    </td>
-                                                    <td>
-                                                        <input type="text" id="buy-d" class="signal-price" value="<?php echo (!empty($buy_d) ? number_format($buy_d['entry_price'], 2, '.', ',') : '') ?>" <?php echo (!empty($buy_d) || !isset($buy_c['status']) || $buy_c['status'] != 'filled') ? 'readonly' : ''; ?>                                                        >
-                                                    </td>
-                                                    <td>
-                                                        <div class="signal-status">
-                                                            <?php echo (!empty($buy_d) ? $buy_d['status'] : '') ?>
-                                                        </div>
-                                                    </td>
-                                                    <td>
-                                                        <button id="send-buy-d" translate="no" class="signal-btn btn-ok" <?php echo isset($buy_c['status']) && $buy_c['status'] == 'filled' && empty($buy_d) ? '' : 'disabled'; ?>                                                        >BUY</button>
-                                                    </td>
-                                                    <!-- <td>
+
+                                            <!-- BUY D -->
+                                            <tr data-pair-id="<?php echo (!empty($buy_d) ? $buy_d['pair_id'] : '') ?>">
+                                                <td>
+                                                    <div translate="no" class="signal-label buy-label">D</div>
+                                                </td>
+                                                <td>
+                                                    <input type="text" id="buy-d" class="signal-price" value="<?php echo (!empty($buy_d) ? number_format($buy_d['entry_price'], 2, '.', ',') : '') ?>" <?php echo (!empty($buy_d) || !isset($buy_c['status']) || $buy_c['status'] != 'filled') ? 'readonly' : ''; ?>>
+                                                </td>
+                                                <td>
+                                                    <div class="signal-status">
+                                                        <?php echo (!empty($buy_d) ? $buy_d['status'] : '') ?>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <button id="send-buy-d" translate="no" class="signal-btn btn-ok" <?php echo isset($buy_c['status']) && $buy_c['status'] == 'filled' && empty($buy_d) ? '' : 'disabled'; ?>>BUY</button>
+                                                </td>
+                                                <!-- <td>
                                                         <button id="fill-buy-d" class="signal-btn btn-fill" <?php echo (!empty($buy_d) && strtolower($buy_d['status']) === 'filled' ? "disabled" : "") ?>>FILL</button>
                                                     </td> -->
-                                                    <td>
-                                                        <button id="del-buy-d" translate="no" class="signal-btn btn-del">DEL</button>
-                                                    </td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                    </div>
+                                                <td>
+                                                    <button id="del-buy-d" translate="no" class="signal-btn btn-del">DEL</button>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
                                 </div>
-                                <!-- SELL SECTION -->
-                                <div class="col-12 col-md-6 all-sell mt-5 mt-md-0">
-                                    <div class="instruction-column instruction-sell">
-                                        <span class="instruction-label">SELL</span>
-                                        <span class="instruction-value"></span>
-                                    </div>
-                                    <div class="signal-section">
-                                        <table class="signal-table">
-                                            <thead>
-                                                <tr>
-                                                    <th></th>
-                                                    <th>PRICE</th>
-                                                    <th>STATUS</th>
-                                                    <th colspan="3">ACTION</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <!-- SELL A -->
-                                                <tr data-pair-id="<?php echo (!empty($buy_a) ? $buy_a['sell_id'] : '') ?>">
-                                                    <td>
-                                                        <div translate="no"  class="signal-label sell-label">A</div>
-                                                    </td>
-                                                    <td>
-                                                        <input type="text" id="sell-a" class="signal-price" value="<?php echo (!empty($buy_a) ? number_format($buy_a['sell_entry_price'], 2, '.', ',') : '') ?>" <?php echo (empty($buy_a) || (isset($buy_a['status']) && strtolower($buy_a['status']) === 'pending') ? "readonly" : "") ?>>
-                                                    </td>
-                                                    <td>
-                                                        <div class="signal-status">
-                                                            <?= (!empty($buy_a) ? $buy_a['sell_status'] : '') ?>
-                                                        </div>
-                                                    </td>
-                                                    <td>
-                                                        <button id="send-sell-a" translate="no"  class="signal-btn btn-ok" <?php echo (empty($buy_a) || (isset($buy_a['status']) && strtolower($buy_a['status']) === 'pending') ? "disabled" : "") ?>>SELL</button>
-                                                    </td>
-                                                    <!-- <td>
+                            </div>
+                            <!-- SELL SECTION -->
+                            <div class="col-12 col-md-6 all-sell mt-5 mt-md-0">
+                                <div class="instruction-column instruction-sell">
+                                    <span class="instruction-label">SELL</span>
+                                    <span class="instruction-value"></span>
+                                </div>
+                                <div class="signal-section">
+                                    <table class="signal-table">
+                                        <thead>
+                                            <tr>
+                                                <th></th>
+                                                <th>PRICE</th>
+                                                <th>STATUS</th>
+                                                <th colspan="3">ACTION</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <!-- SELL A -->
+                                            <tr data-pair-id="<?php echo (!empty($buy_a) ? $buy_a['sell_id'] : '') ?>">
+                                                <td>
+                                                    <div translate="no" class="signal-label sell-label">A</div>
+                                                </td>
+                                                <td>
+                                                    <input type="text" id="sell-a" class="signal-price" value="<?php echo (!empty($buy_a) ? number_format($buy_a['sell_entry_price'], 2, '.', ',') : '') ?>" <?php echo (empty($buy_a) || (isset($buy_a['status']) && strtolower($buy_a['status']) === 'pending') ? "readonly" : "") ?>>
+                                                </td>
+                                                <td>
+                                                    <div class="signal-status">
+                                                        <?= (!empty($buy_a) ? $buy_a['sell_status'] : '') ?>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <button id="send-sell-a" translate="no" class="signal-btn btn-ok" <?php echo (empty($buy_a) || (isset($buy_a['status']) && strtolower($buy_a['status']) === 'pending') ? "disabled" : "") ?>>SELL</button>
+                                                </td>
+                                                <!-- <td>
                                                         <button id="fill-sell-a" class="signal-btn btn-fill" <?php echo (empty($buy_a) ? "disabled" : "") ?>>FILL</button>
                                                     </td> -->
-                                                    <td>
-                                                        <button id="del-sell-a" translate="no" class="signal-btn btn-del" <?php echo (empty($buy_a) ? "disabled" : "") ?>>DEL</button>
-                                                    </td>
-                                                </tr>
-                                                <!-- SELL B -->
-                                                <tr data-pair-id="<?php echo (!empty($buy_b) ? $buy_b['sell_id'] : '') ?>">
-                                                    <td>
-                                                        <div translate="no"  class="signal-label sell-label">B</div>
-                                                    </td>
-                                                    <td>
-                                                        <input type="text" id="sell-b" class="signal-price" value="<?php echo (!empty($buy_b) ? number_format($buy_b['sell_entry_price'], 2, '.', ',') : '') ?>" <?php echo (empty($buy_b) || (isset($buy_b['status']) && strtolower($buy_b['status']) === 'pending') ? "readonly" : "") ?>>
-                                                    </td>
-                                                    <td>
-                                                        <div class="signal-status">
+                                                <td>
+                                                    <button id="del-sell-a" translate="no" class="signal-btn btn-del" <?php echo (empty($buy_a) ? "disabled" : "") ?>>DEL</button>
+                                                </td>
+                                            </tr>
+                                            <!-- SELL B -->
+                                            <tr data-pair-id="<?php echo (!empty($buy_b) ? $buy_b['sell_id'] : '') ?>">
+                                                <td>
+                                                    <div translate="no" class="signal-label sell-label">B</div>
+                                                </td>
+                                                <td>
+                                                    <input type="text" id="sell-b" class="signal-price" value="<?php echo (!empty($buy_b) ? number_format($buy_b['sell_entry_price'], 2, '.', ',') : '') ?>" <?php echo (empty($buy_b) || (isset($buy_b['status']) && strtolower($buy_b['status']) === 'pending') ? "readonly" : "") ?>>
+                                                </td>
+                                                <td>
+                                                    <div class="signal-status">
                                                         <?= (!empty($buy_b) ? $buy_b['sell_status'] : '') ?>
-                                                        </div>
-                                                    </td>
-                                                    <td>
-                                                        <button id="send-sell-b" translate="no" class="signal-btn btn-ok" <?php echo (empty($buy_b) || (isset($buy_b['status']) && strtolower($buy_b['status']) === 'pending') ? "disabled" : "") ?>>SELL</button>
-                                                    </td>
-                                                    <!-- <td>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <button id="send-sell-b" translate="no" class="signal-btn btn-ok" <?php echo (empty($buy_b) || (isset($buy_b['status']) && strtolower($buy_b['status']) === 'pending') ? "disabled" : "") ?>>SELL</button>
+                                                </td>
+                                                <!-- <td>
                                                         <button id="fill-sell-b" class="signal-btn btn-fill" <?php echo (empty($buy_b) ? "disabled" : "") ?>>FILL</button>
                                                     </td> -->
-                                                    <td>
-                                                        <button id="del-sell-b" translate="no" class="signal-btn btn-del" <?php echo (empty($buy_b) ? "disabled" : "") ?>>DEL</button>
-                                                    </td>
-                                                </tr>
-                                                <!-- SELL C -->
-                                                <tr data-pair-id="<?php echo (!empty($buy_c) ? $buy_c['sell_id'] : '') ?>">
-                                                    <td>
-                                                        <div translate="no"  class="signal-label sell-label">C</div>
-                                                    </td>
-                                                    <td>
-                                                        <input type="text" id="sell-c" class="signal-price" value="<?php echo (!empty($buy_c) ? number_format($buy_c['sell_entry_price'], 2, '.', ',') : '') ?>" <?php echo (empty($buy_c) || (isset($buy_c['status']) && strtolower($buy_c['status']) === 'pending') ? "readonly" : "") ?>>
-                                                    </td>
-                                                    <td>
-                                                        <div class="signal-status">
+                                                <td>
+                                                    <button id="del-sell-b" translate="no" class="signal-btn btn-del" <?php echo (empty($buy_b) ? "disabled" : "") ?>>DEL</button>
+                                                </td>
+                                            </tr>
+                                            <!-- SELL C -->
+                                            <tr data-pair-id="<?php echo (!empty($buy_c) ? $buy_c['sell_id'] : '') ?>">
+                                                <td>
+                                                    <div translate="no" class="signal-label sell-label">C</div>
+                                                </td>
+                                                <td>
+                                                    <input type="text" id="sell-c" class="signal-price" value="<?php echo (!empty($buy_c) ? number_format($buy_c['sell_entry_price'], 2, '.', ',') : '') ?>" <?php echo (empty($buy_c) || (isset($buy_c['status']) && strtolower($buy_c['status']) === 'pending') ? "readonly" : "") ?>>
+                                                </td>
+                                                <td>
+                                                    <div class="signal-status">
                                                         <?= (!empty($buy_c) ? $buy_c['sell_status'] : '') ?>
-                                                        </div>
-                                                    </td>
-                                                    <td>
-                                                        <button id="send-sell-c" translate="no" class="signal-btn btn-ok" <?php echo (empty($buy_c) || (isset($buy_c['status']) && strtolower($buy_c['status']) === 'pending') ? "disabled" : "") ?>>SELL</button>
-                                                    </td>
-                                                    <!-- <td>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <button id="send-sell-c" translate="no" class="signal-btn btn-ok" <?php echo (empty($buy_c) || (isset($buy_c['status']) && strtolower($buy_c['status']) === 'pending') ? "disabled" : "") ?>>SELL</button>
+                                                </td>
+                                                <!-- <td>
                                                         <button id="fill-sell-c" class="signal-btn btn-fill" <?php echo (empty($buy_c) ? "disabled" : "") ?>>FILL</button>
                                                     </td> -->
-                                                    <td>
-                                                        <button id="del-sell-c" translate="no" class="signal-btn btn-del" <?php echo (empty($buy_c) ? "disabled" : "") ?>>DEL</button>
-                                                    </td>
-                                                </tr>
-                                                <!-- SELL D -->
-                                                <tr data-pair-id="<?php echo (!empty($buy_d) ? $buy_d['sell_id'] : '') ?>">
-                                                    <td>
-                                                        <div translate="no"  class="signal-label sell-label">D</div>
-                                                    </td>
-                                                    <td>
-                                                        <input type="text" id="sell-d" class="signal-price"  value="<?php echo (!empty($buy_d) ? number_format($buy_d['sell_entry_price'], 2, '.', ',') : '') ?>" <?php echo (empty($buy_d) || (isset($buy_d['status']) && strtolower($buy_d['status']) === 'pending') ? "readonly" : "") ?>>
-                                                    </td>
-                                                    <td>
-                                                        <div class="signal-status">
+                                                <td>
+                                                    <button id="del-sell-c" translate="no" class="signal-btn btn-del" <?php echo (empty($buy_c) ? "disabled" : "") ?>>DEL</button>
+                                                </td>
+                                            </tr>
+                                            <!-- SELL D -->
+                                            <tr data-pair-id="<?php echo (!empty($buy_d) ? $buy_d['sell_id'] : '') ?>">
+                                                <td>
+                                                    <div translate="no" class="signal-label sell-label">D</div>
+                                                </td>
+                                                <td>
+                                                    <input type="text" id="sell-d" class="signal-price" value="<?php echo (!empty($buy_d) ? number_format($buy_d['sell_entry_price'], 2, '.', ',') : '') ?>" <?php echo (empty($buy_d) || (isset($buy_d['status']) && strtolower($buy_d['status']) === 'pending') ? "readonly" : "") ?>>
+                                                </td>
+                                                <td>
+                                                    <div class="signal-status">
                                                         <?= (!empty($buy_d) ? $buy_d['sell_status'] : '') ?>
-                                                        </div>
-                                                    </td>
-                                                    <td>
-                                                        <button id="send-sell-d" translate="no" class="signal-btn btn-ok" <?php echo (empty($buy_d) || (isset($buy_d['status']) && strtolower($buy_d['status']) === 'pending') ? "disabled" : "") ?>>SELL</button>
-                                                    </td>
-                                                    <!-- <td>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <button id="send-sell-d" translate="no" class="signal-btn btn-ok" <?php echo (empty($buy_d) || (isset($buy_d['status']) && strtolower($buy_d['status']) === 'pending') ? "disabled" : "") ?>>SELL</button>
+                                                </td>
+                                                <!-- <td>
                                                         <button id="fill-sell-d" class="signal-btn btn-fill" <?php echo (empty($buy_d) ? "disabled" : "") ?>>FILL</button>
                                                     </td> -->
-                                                    <td>
-                                                        <button id="del-sell-d" translate="no" class="signal-btn btn-del" <?php echo (empty($buy_d) ? "disabled" : "") ?>>DEL</button>
-                                                    </td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                    </div>
+                                                <td>
+                                                    <button id="del-sell-d" translate="no" class="signal-btn btn-del" <?php echo (empty($buy_d) ? "disabled" : "") ?>>DEL</button>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="col-lg-12 history-table-message">
-                <h3 class="text-white">History</h3>
-                <table id="table_message" class="table table-striped" style="width:100%">
-                    <thead>
-                        <tr>
-                            <th>ORDER</th>
-                            <th>PRICE</th>
-                            <th>DATE</th>
-                            <th>TIME</th>
-                            <th>STATUS</th>
-                            <th>ADMIN</th>
-                            <!-- <th>ACTION</th> -->
-                        </tr>
-                    </thead>
-                    <tbody>
-                    </tbody>
-                </table>
-            </div>
+        </div>
+        <div class="col-lg-12 history-table-message">
+            <h3 class="text-white">History</h3>
+            <table id="table_message" class="table table-striped" style="width:100%">
+                <thead>
+                    <tr>
+                        <th>ORDER</th>
+                        <th>PRICE</th>
+                        <th>DATE</th>
+                        <th>TIME</th>
+                        <th>STATUS</th>
+                        <th>ADMIN</th>
+                        <!-- <th>ACTION</th> -->
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
         </div>
     </div>
+</div>
 </div>

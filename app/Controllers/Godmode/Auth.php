@@ -126,7 +126,7 @@ class Auth extends BaseController
 		<head>
 			<meta name='color-scheme' content='light'>
 			<meta name='supported-color-schemes' content='light'>
-			<title>Activation Account Satoshi Signal</title>
+			<title>Reset Password</title>
 		</head>
 
 		<body>
@@ -161,7 +161,7 @@ class Auth extends BaseController
 					font-size: 14px;
 					color: #000000;
 					'>
-						Thank you for using Satoshi Signal App. To proceed with your request, please copy token reset password below 
+						Thank you for using PNGLOBAL App. To proceed with your request, please copy token reset password below 
 					</p>
 					<h2 id='copyToken'>
 						" . $result->otp . "
@@ -172,7 +172,7 @@ class Auth extends BaseController
 					color: #000000;
 					'>
 						Best regards,<br>  
-						Satoshi Signal Team
+						PNGLOBAL Team
 
 					</p>
 				</div>
@@ -190,7 +190,7 @@ class Auth extends BaseController
 		</body>
 		</html>";
 
-		// sendmail_satoshi($email, $subject, $message, 'Reset Password', 'pnglobal.com');
+		sendmail_satoshi($email, $subject, $message, 'Reset Password', 'pnglobal.com');
 		session()->setFlashdata('success', $result->text);
 		return redirect()->to(BASE_URL . 'godmode/auth/forgot_pass_otp/'. base64_encode($email));
 	}
