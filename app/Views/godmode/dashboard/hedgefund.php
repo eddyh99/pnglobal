@@ -104,7 +104,7 @@
                             <thead class="thead_totalmember">
                                 <tr>
                                     <th>EMAIL</th>
-                                    <th>REF CODE</th>
+                                    <th style="font-size: 11px;white-space: nowrap;">REF CODE</th>
                                     <!-- <th>REG. DATE</th> -->
                                     <th>STATUS</th>
                                     <!-- <th>SUBSCRIPTION</th> -->

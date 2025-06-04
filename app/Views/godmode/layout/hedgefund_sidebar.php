@@ -39,7 +39,7 @@
 
 
                 <li class="<?= @$active_dash ?>">
-                    <a href="<?= BASE_URL ?>godmode/dashboard/hedgefund" class="iq-waves-effect">
+                    <a translate="no" href="<?= BASE_URL ?>godmode/dashboard/hedgefund" class="iq-waves-effect">
                         <i>
                             <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M7.04505 9.20507C9.51607 6.73405 10.7516 5.49854 12.1299 4.92763C13.9676 4.16642 16.0324 4.16642 17.8701 4.92763C19.2484 5.49854 20.4839 6.73405 22.955 9.20507V9.20507C24.0354 10.2855 24.5756 10.8257 24.986 11.4399C25.5332 12.2589 25.9137 13.1776 26.1059 14.1436C26.25 14.868 26.25 15.632 26.25 17.16V22.5001C26.25 24.5712 24.5711 26.2501 22.5 26.2501V26.2501C20.4289 26.2501 18.75 24.5712 18.75 22.5001V21.2501C18.75 19.1791 17.0711 17.5001 15 17.5001V17.5001C12.9289 17.5001 11.25 19.1791 11.25 21.2501V22.5001C11.25 24.5712 9.57107 26.2501 7.5 26.2501V26.2501C5.42893 26.2501 3.75 24.5712 3.75 22.5001V17.16C3.75 15.632 3.75 14.868 3.89411 14.1436C4.08626 13.1776 4.46679 12.2589 5.01398 11.4399C5.42437 10.8257 5.9646 10.2855 7.04505 9.20507V9.20507Z" fill="<?= (@$active_dash != null) ? 'black' : 'white' ?>" />
@@ -51,7 +51,7 @@
 
                 <?php if (in_array('payment', $access)): ?>
                     <li class="<?= @$active_payment ?>">
-                        <a href="<?= BASE_URL ?>godmode/payment/hedgefund" class="iq-waves-effect">
+                        <a translate="no" href="<?= BASE_URL ?>godmode/payment/hedgefund" class="iq-waves-effect">
                             <i>
                                 <svg width="23" height="30" viewBox="0 0 23 30" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M15.8871 4.03562C15.8871 4.03562 16.1599 3.30502 17.6293 2.3776C19.0393 1.48862 17.9571 0.259979 15.8871 0.712261C14.458 1.02357 14.9432 0 12.9392 0C10.9351 0 11.4203 1.02357 9.99116 0.712261C7.92117 0.259979 6.83901 1.48862 8.24894 2.3776C9.71835 3.30502 9.99116 4.03562 9.99116 4.03562H15.8871Z" fill="<?= (@$active_payment != null) ? 'black' : 'white' ?>"/>
@@ -70,7 +70,7 @@
                 <?php endif; ?>
 
                 <li class="<?= @$active_reff ?>">
-                    <a href="<?= BASE_URL ?>godmode/referral/hedgefund" class="iq-waves-effect">
+                    <a translate="no" href="<?= BASE_URL ?>godmode/referral/hedgefund" class="iq-waves-effect">
                         <i>
                         <svg width="31" height="28" viewBox="0 0 31 28" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M18.5 11H15.5H12.5C10.85 11 9.5 12.35 9.5 14V18.5C9.5 19.05 9.75 19.55 10.1 19.9C10.45 20.25 10.95 20.5 11.5 20.5V25C11.5 26.65 12.85 28 14.5 28H15.5H16.5C18.15 28 19.5 26.65 19.5 25V20.5C20.05 20.5 20.55 20.3 20.9 19.9C21.25 19.55 21.5 19.05 21.5 18.5V14C21.5 12.35 20.15 11 18.5 11Z" fill="<?= (@$active_reff != null) ? 'black' : 'white' ?>"/>
