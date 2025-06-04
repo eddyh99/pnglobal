@@ -835,4 +835,24 @@ class Auth extends BaseController
         && $response->result->code == 200
         && $response->result->message == true;
     }
+
+	public function resend_token($email) {
+		$msg = [
+			'success' => false,
+			'message' => 'Failed to resend activation code.'
+		];
+		$url = URL_HEDGEFUND . "/auth/resend_token";
+		$response = satoshiAdmin($url, json_encode(['email' => base64_decode($email)]));
+		$result = $response->result;
+
+		if(($result->code ?? $response->status) == 200) {
+			$msg = [
+				'success' => true,
+				'message' => $result->message->text
+			];
+		}
+
+		return $this->response->setJSON($msg);
+		
+	}
 }
