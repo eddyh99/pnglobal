@@ -289,7 +289,7 @@ function emailtemplate_accountdel($mdata)
     </html>";
 }
 
-function emailtemplate_activation_account($otp, $email, $type)
+function emailtemplate_activation_account($otp, $email, $type, $link = null)
 {
     return "
      <!DOCTYPE html>
@@ -339,7 +339,7 @@ function emailtemplate_activation_account($otp, $email, $type)
                         <h5>
                             or you can click link below for activation account
                         </h5>
-                        <a target='_blank' href='" . BASE_URL . "homepage/satoshi_active_account/" . base64_encode($email) . "'>
+                        <a target='_blank' href='" . BASE_URL . ($link ?? "homepage/satoshi_active_account/")  . base64_encode($email) . "'>
                             Active Account
                         </a>
                         <p style='

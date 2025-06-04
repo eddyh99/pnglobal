@@ -160,6 +160,8 @@ class Referral extends BaseController
             return redirect()->to(BASE_URL . 'godmode/referral/' . $type);
         }
 
+        $subject = "Activation Account - HEDGE FUND";
+        sendmail_satoshi($mdata['email'], $subject,  emailtemplate_activation_account($result->message->otp, $mdata['email'],"HEDGE FUND", 'hedgefund/auth/forgot_pass_otp/'),"HEDGE FUND",USERNAME_MAIL);
         session()->setFlashdata('success', 'User successfully added.');
         return redirect()->to(BASE_URL . 'godmode/referral/' . $type );
     }

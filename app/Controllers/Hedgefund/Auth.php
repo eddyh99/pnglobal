@@ -88,7 +88,7 @@ class Auth extends BaseController
             return redirect()->to(BASE_URL . 'hedgefund/auth/register')->withInput();
         } else {
             $subject = "Activation Account - HEDGE FUND";
-            sendmail_satoshi($mdata['email'], $subject,  emailtemplate_activation_account($result->message->otp, $mdata['email'],"HEDGE FUND"),"HEDGE FUND",USERNAME_MAIL);
+            sendmail_satoshi($mdata['email'], $subject,  emailtemplate_activation_account($result->message->otp, $mdata['email'],"HEDGE FUND", 'hedgefund/auth/forgot_pass_otp/'),"HEDGE FUND",USERNAME_MAIL);
             return redirect()->to(BASE_URL . 'hedgefund/auth/otp/' . base64_encode($mdata['email']));
         }
     }
