@@ -77,7 +77,7 @@ class Auth extends BaseController
             'email'  => htmlspecialchars($this->request->getVar('email')),
             'passwd' => sha1($this->request->getVar('pass'))
         ];
-        session()->set('logged_user', $tempUser);
+        session()->set('reg_user', $tempUser);
 
 
         $url = URL_HEDGEFUND . "/auth/register";
@@ -88,7 +88,7 @@ class Auth extends BaseController
             return redirect()->to(BASE_URL . 'hedgefund/auth/register')->withInput();
         } else {
             $subject = "Activation Account - HEDGE FUND";
-            sendmail_satoshi($mdata['email'], $subject,  emailtemplate_activation_account($result->message->otp, $mdata['email'],"HEDGE FUND"),"HEDGE FUND",USERNAME_MAIL);
+            sendmail_satoshi($mdata['email'], $subject,  emailtemplate_activation_account($result->message->otp, $mdata['email'],"HEDGE FUND", 'hedgefund/auth/forgot_pass_otp/'),"HEDGE FUND",USERNAME_MAIL);
             return redirect()->to(BASE_URL . 'hedgefund/auth/otp/' . base64_encode($mdata['email']));
         }
     }
@@ -96,6 +96,11 @@ class Auth extends BaseController
 
 	public function login()
 	{
+
+		if(session()->get('logged_user')) {
+			return redirect()->to(BASE_URL . 'hedgefund/dashboard');
+		}
+		$this->session->remove('reg_user');
 		$mdata = [
 			'title'     => 'Login - ' . NAMETITLE,
 			'content'   => 'hedgefund/subscription/login',
@@ -433,7 +438,7 @@ class Auth extends BaseController
     public function usdt_payment()
     {
         $payamount  = $_SESSION["payment_data"]["amount"];
-        $customerEmail = $_SESSION["logged_user"]->email;
+        $customerEmail = $_SESSION["reg_user"]->email;
         $postData = [
             'email' => $customerEmail,
             'amount' => $_SESSION["payment_data"]["totalcapital"],
@@ -456,7 +461,7 @@ class Auth extends BaseController
     public function usdc_payment()
     {
         $payamount  = $_SESSION["payment_data"]["amount"];
-        $customerEmail = $_SESSION["logged_user"]->email;
+        $customerEmail = $_SESSION["reg_user"]->email;
         $postData = [
             'email' => $customerEmail,
             'amount' => $_SESSION["payment_data"]["totalcapital"],
