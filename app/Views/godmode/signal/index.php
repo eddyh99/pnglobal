@@ -30,6 +30,32 @@
     <div class="container-fluid">
         <div class="row content-body">
             <div class="col-lg-12">
+            
+            <!-- balance fund & trade -->
+            <div class="custom-card left-card w-50 mx-auto">
+                    <div class="d-flex justify-content-between text-black" style="font-weight: bold;">
+                        <p>Funding Wallet</p>
+                        <p>Trade Wallet</p>
+                    </div>
+
+                    <div class="d-flex" style="gap: 1rem;">
+                        <div class="card rounded" style="width: 18rem;background-color: #bfa573;">
+                            <div class="card-body p-2">
+                                <h5 class="card-title text-black mb-0 fw-bold">USDT </h5>
+                                <h2 id="fund_balance" class="text-right text-black">Loading...</h2>
+                            </div>
+                        </div>
+                        <div class="card rounded" style="width: 18rem;background-color: #bfa573;">
+                            <div class="card-body p-2">
+                                <h5 class="card-title text-black mb-0 fw-bold">USDT </h5>
+                                <h2 id="trade_balance" class="text-right text-black">Loading...</h2>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+            <div class="col-lg-12">
                 <div class="send-signals">
                     <div class="title-signal-preview d-flex justify-content-between align-items-center">
                         <h4>Send Signals</h4>
@@ -287,7 +313,7 @@
                 </div>
             </div>
             <div class="col-lg-12 history-table-message">
-                <div class="text-white">History</div>
+                <h3 class="text-white">History</h3>
                 <table id="table_message" class="table table-striped" style="width:100%">
                     <thead>
                         <tr>
