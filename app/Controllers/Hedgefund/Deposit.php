@@ -67,22 +67,35 @@ class Deposit extends BaseController
     public function save_payment_to_session()
     {
         try {
-            // Validasi request
-            $rules = [
-                'amount' => 'required|numeric|greater_than[0]',
-            ];
 
-            if (!$this->validate($rules)) {
+            $url = URL_HEDGEFUND . "/v1/price";
+            $result = satoshiAdmin($url)->result;
+            $minCapital = (float) $result->message->price;
+            $fee        = (float) $result->message->cost;
+            $commission = (float) $result->message->referral_fee;
+            $totalCapital =  $this->request->getPost('totalcapital');
+            $amount = $this->request->getPost('amount');
+            $payment_amount = ceil($totalCapital * (1 + $fee)) + 5 + ceil($totalCapital * $commission);
+
+            // Validate
+            if ($totalCapital < $minCapital) {
                 return $this->response->setJSON([
                     'status' => 'error',
-                    'message' => $this->validator->getErrors()
+                    'message' => 'Amount must not be less than the minimum capital of ' . number_format($minCapital, 0)
+                ])->setStatusCode(400);
+            }
+
+            if($amount != $payment_amount) {
+                return $this->response->setJSON([
+                    'status' => 'error',
+                    'message' => 'Payment amount does not match the required value'
                 ])->setStatusCode(400);
             }
 
             // Simpan data ke dalam session
             $paymentData = [
-                'amount' => $this->request->getPost('amount'),
-                'totalcapital' => $this->request->getPost('totalcapital'),
+                'amount' => $amount,
+                'totalcapital' => $totalCapital,
                 'timestamp' => date('Y-m-d H:i:s')
             ];
 

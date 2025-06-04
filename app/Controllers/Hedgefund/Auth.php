@@ -96,6 +96,10 @@ class Auth extends BaseController
 
 	public function login()
 	{
+
+		if(session()->get('logged_user')) {
+			return redirect()->to(BASE_URL . 'hedgefund/dashboard');
+		}
 		$mdata = [
 			'title'     => 'Login - ' . NAMETITLE,
 			'content'   => 'hedgefund/subscription/login',

@@ -112,11 +112,12 @@
                     method: 'POST',
                     body: formData
                 })
-                .then(response => {
+                .then(async response => {
+                    const data = await response.json();
                     if (!response.ok) {
-                        throw new Error('Network response was not ok');
+                        throw new Error(data.message || 'Unknown error');
                     }
-                    return response.json();
+                    return data;
                 })
                 .then(data => {
                     if (data.status === 'success') {
@@ -130,7 +131,7 @@
                 })
                 .catch(error => {
                     console.error('Error saving payment data:', error);
-                    alert('An error occurred while saving payment data. Please try again.');
+                    alert(error || 'An error occurred while saving payment data. Please try again.');
                     confirmButton.textContent = originalText;
                     confirmButton.disabled = false;
                 });
