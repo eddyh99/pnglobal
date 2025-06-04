@@ -77,7 +77,7 @@ class Auth extends BaseController
             'email'  => htmlspecialchars($this->request->getVar('email')),
             'passwd' => sha1($this->request->getVar('pass'))
         ];
-        session()->set('logged_user', $tempUser);
+        session()->set('reg_user', $tempUser);
 
 
         $url = URL_HEDGEFUND . "/auth/register";
@@ -100,6 +100,7 @@ class Auth extends BaseController
 		if(session()->get('logged_user')) {
 			return redirect()->to(BASE_URL . 'hedgefund/dashboard');
 		}
+		$this->session->remove('reg_user');
 		$mdata = [
 			'title'     => 'Login - ' . NAMETITLE,
 			'content'   => 'hedgefund/subscription/login',
@@ -437,7 +438,7 @@ class Auth extends BaseController
     public function usdt_payment()
     {
         $payamount  = $_SESSION["payment_data"]["amount"];
-        $customerEmail = $_SESSION["logged_user"]->email;
+        $customerEmail = $_SESSION["reg_user"]->email;
         $postData = [
             'email' => $customerEmail,
             'amount' => $_SESSION["payment_data"]["totalcapital"],
@@ -460,7 +461,7 @@ class Auth extends BaseController
     public function usdc_payment()
     {
         $payamount  = $_SESSION["payment_data"]["amount"];
-        $customerEmail = $_SESSION["logged_user"]->email;
+        $customerEmail = $_SESSION["reg_user"]->email;
         $postData = [
             'email' => $customerEmail,
             'amount' => $_SESSION["payment_data"]["totalcapital"],
