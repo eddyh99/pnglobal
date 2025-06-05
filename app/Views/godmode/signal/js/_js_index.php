@@ -1414,8 +1414,8 @@
                     console.log(response);
                     
                     // Pastikan response punya struktur { fund_balance: ..., trade_balance: ... }
-                    $('#fund_balance').text(response.fund + ' USDT');
-                    $('#trade_balance').text(response.trade + ' USDT');
+                    $('#fund_balance').text(response.fund_usdt + ' USDT');
+                    $('#trade_balance').text(response.trade_usdt + ' USDT');
                 },
                 error: function(xhr, status, error) {
                     console.error("Gagal mengambil data balance:", error);
