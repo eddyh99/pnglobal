@@ -12,7 +12,7 @@
                                         <h5 class="text-black">Total Profit</h5>
                                     </div>
                                     <div class="mt-3 text-center mx-auto">
-                                        <h2 class="text-black fw-bold text-center">Loading...</h2>
+                                        <h2 id="tprofit" class="text-black fw-bold text-center">Loading...</h2>
                                     </div>
                                 </div>
                                 <!-- <div class="<?= ((base64_decode(@$_GET["type"]) == "free_member" || base64_decode(@$_GET["type"]) == "referral_member") ? "disable" : "active") ?>"></div> -->
@@ -27,14 +27,14 @@
                                         <h5 class="text-black">Client Profit</h5>
                                     </div>
                                     <div class="mt-3 text-center mx-auto">
-                                        <h2 class="text-black fw-bold text-center">Loading...</h2>
+                                        <h2 id="cprofit" class="text-black fw-bold text-center">Loading...</h2>
                                     </div>
                                 </div>
                                 <!-- <div class="<?= ((base64_decode(@$_GET["type"]) == "referral_member") ? "active" : "disable") ?>"></div> -->
                             </div>
                         </div>
                     </a>
-                    <a href=#"" class="statistics">
+                    <a href="#" class="statistics">
                         <div class="iq-card">
                             <div class="iq-card-body">
                                 <div class="d-flex flex-column justify-content-center align-items-start">
@@ -42,7 +42,7 @@
                                         <h5 class="text-black">Total Ref Commission</h5>
                                     </div>
                                     <div class="mt-3 text-center mx-auto">
-                                        <h2 class="text-black fw-bold text-center">Loading...</h2>
+                                        <h2 id="rprofit" class="text-black fw-bold text-center">Loading...</h2>
                                     </div>
                                 </div>
                                 <div class="disable"></div>
@@ -57,7 +57,7 @@
                                         <h5 class="text-black">PNGLOBAL Profit</h5>
                                     </div>
                                     <div class="mt-3 text-center mx-auto">
-                                        <h2 class="text-black fw-bold text-center">Loading...</h2>
+                                        <h2 id="mprofit" class="text-black fw-bold text-center">Loading...</h2>
                                     </div>
                                 </div>
                                 <div class="disable"></div>
