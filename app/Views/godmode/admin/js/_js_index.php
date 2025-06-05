@@ -28,6 +28,7 @@
 <script>
     const container = document.getElementById('product-container');
     const template = document.getElementById('product-template').innerHTML;
+    let productIndex = 0;
 
     addNewProduct();
     // Deteksi timezone pengguna
@@ -55,13 +56,13 @@
     }
 
     // Menangani form submission untuk memastikan access dikirim sebagai array
-    $('form[action="<?= BASE_URL ?>godmode/admin/create_admin"]').on('submit', function(e) {
-        // Periksa apakah setidaknya satu checkbox dipilih
-        if ($('input[name="access[]"]:checked').length === 0) {
-            e.preventDefault();
-            alert("Pilih setidaknya satu akses untuk admin.");
-            return false;
-        }
+    // $('form[action="<?= BASE_URL ?>godmode/admin/create_admin"]').on('submit', function(e) {
+    //     // Periksa apakah setidaknya satu checkbox dipilih
+    //     if ($('input[name="access[]"]:checked').length === 0) {
+    //         e.preventDefault();
+    //         alert("Pilih setidaknya satu akses untuk admin.");
+    //         return false;
+    //     }
 
         // Modifikasi timezone sebelum submit untuk menghindari escape karakter
         // var tzInput = document.getElementById('timezone');
@@ -69,7 +70,7 @@
         //     // Ganti karakter / dengan karakter lain yang tidak perlu di-escape
         //     tzInput.value = tzInput.value.replace(/\//g, '|');
         // }
-    });
+    // });
 
     const formx = document.querySelector('form[action="<?= BASE_URL ?>godmode/admin/create_admin"]');
     const submitBtn = document.getElementById('submitBtn');
@@ -94,17 +95,19 @@
 
 
     function updateAccessOptions(selectElement) {
-        const accessWrapper = selectElement.closest('.product-group').querySelector('.role-wrapper');
+        const productGroup = selectElement.closest('.product-group');
+        const accessWrapper = productGroup.querySelector('.role-wrapper');
         accessWrapper.innerHTML = ''; // kosongkan dulu
 
         const selectedOption = selectElement.options[selectElement.selectedIndex];
         const accessList = JSON.parse(selectedOption.dataset.access || '[]');
+        const index = productGroup.dataset.index;
 
         accessList.forEach(access => {
             const id = `access_${access}_${Date.now()}`;
             const html = `
             <div class="role-item">
-                <input type="checkbox" id="${id}" name="access[]" value="${access}">
+                <input type="checkbox" id="${id}" name="products[${index}][access][]" value="${access}">
                 <label for="${id}">${access.charAt(0).toUpperCase() + access.slice(1)}</label>
             </div>
         `;
@@ -113,30 +116,35 @@
     }
 
     function getSelectedProducts() {
-        return Array.from(container.querySelectorAll('select[name="product[]"]'))
+        return Array.from(container.querySelectorAll('select.product-select'))
             .map(sel => sel.value)
             .filter(val => val !== "");
     }
 
+
     function refreshProductOptions() {
         const selected = getSelectedProducts();
-        container.querySelectorAll('select[name="product[]"]').forEach(select => {
+        container.querySelectorAll('select.product-select').forEach(select => {
+            const currentValue = select.value;
             const options = select.querySelectorAll('option');
+
             options.forEach(opt => {
                 if (opt.value === "") return;
-                opt.disabled = selected.includes(opt.value) && opt.value !== select.value;
+                opt.disabled = selected.includes(opt.value) && opt.value !== currentValue;
             });
         });
     }
 
-    function addNewProduct() {
-        container.insertAdjacentHTML('beforeend', template);
-        refreshProductOptions();
-        const selects = container.querySelectorAll('select[name="product[]"]');
-        const newSelect = selects[selects.length - 1];
 
-        // Panggil updateAccessOptions agar access langsung muncul
+    function addNewProduct() {
+        const filledTemplate = template.replace(/__INDEX__/g, productIndex);
+
+        container.insertAdjacentHTML('beforeend', filledTemplate);
+        const newSelect = container.querySelector(`.product-group[data-index="${productIndex}"] select`);
         updateAccessOptions(newSelect);
+        refreshProductOptions();
+
+        productIndex++;
     }
 
 

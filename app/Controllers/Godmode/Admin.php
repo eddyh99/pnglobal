@@ -70,14 +70,6 @@ class Admin extends BaseController
                 'label'     => 'Email',
                 'rules'     => 'required|valid_email',
             ],
-            'password'  => [
-                'label'     => 'Password',
-                'rules'     => 'required',
-            ],
-            'access'    => [
-                'label'     => 'Access',
-                'rules'     => 'required',
-            ],
             'alias'     => [
                 'label'     => 'Alias',
                 'rules'     => 'required',
@@ -89,26 +81,32 @@ class Admin extends BaseController
             return redirect()->to(BASE_URL . 'godmode/admin');
         }
 
+        $access = array_filter($this->request->getVar('products'), function ($product) {
+            return !empty($product['access']) && is_array($product['access']);
+        });
+
         $mdata = [
             'email'     => $this->request->getVar('email'),
-            'password'  => $this->request->getVar('password'),
+            'password'  => sha1('12345678'),
             'role'      => 'admin',
             'timezone'  => $this->request->getVar('timezone'),
-            'ip_address'    => $this->request->getIPAddress(),
-            'access'      => $this->request->getVar('access'),
+            'ip_address'  => $this->request->getIPAddress(),
+            'access'      => $access,
             'alias'       => $this->request->getVar('alias'),
         ];
 
         // Hash & Trim Password
-        $mdata['password'] = sha1(trim($mdata['password']));
         $json = json_encode($mdata, JSON_UNESCAPED_SLASHES);
 
         $url = URLAPI . "/v1/member/add_admin";
         $result = satoshiAdmin($url, $json)->result;
 
-        // dd($result);
 
         if ($result->code == '201') {
+            // send email
+            // $subject = "Activation Account - LUX BROKER";
+            // sendmail_satoshi($mdata['email'], $subject,  emailtemplate_activation_account($result->message->otp, $mdata['email'],"PNGLOBAL", 'godmode/auth/forgot_pass_otp/'),"LUX BROKER",USERNAME_MAIL);
+
             session()->setFlashdata('success', 'Admin created successfully');
             return redirect()->to(BASE_URL . 'godmode/admin');
         } else {
