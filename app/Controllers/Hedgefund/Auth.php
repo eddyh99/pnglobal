@@ -145,11 +145,11 @@ class Auth extends BaseController
 			'password' => $password,
 		];
 
-		$tempUser = (object)[
-			'email'  => htmlspecialchars($this->request->getVar('email')),
-			'passwd' => sha1($this->request->getVar('password'))
-		];
-		session()->set('logged_user', $tempUser);
+		// $tempUser = (object)[
+		// 	'email'  => htmlspecialchars($this->request->getVar('email')),
+		// 	'passwd' => sha1($this->request->getVar('password'))
+		// ];
+		// session()->set('logged_user', $tempUser);
 
 		// Proccess Endpoin API
 		$url = URL_HEDGEFUND . "/auth/signin";
@@ -157,24 +157,20 @@ class Auth extends BaseController
 		$result = $response->result;
 
 		if ($result->code == 200) {
-			// Gabungkan data user dengan token
 			$loggedUser = $result->message;
-			// Simpan data user lengkap tersebut ke session
-			session()->set('logged_user', $loggedUser);
-
-			// Redirect berdasarkan role
-			if ($loggedUser->role === 'admin') {
-				return redirect()->to(BASE_URL . 'godmode/dashboard');
-			}
-
+		
 			if (in_array($loggedUser->role, ['member', 'referral'])) {
-				// Redirect for members and referrals
+				session()->set('logged_user', $loggedUser);
 				return redirect()->to(BASE_URL . 'hedgefund/dashboard');
 			}
+		
+			session()->setFlashdata('failed', 'Access Denied');
 		} else {
 			session()->setFlashdata('failed', $result->message);
-			return redirect()->to(BASE_URL . 'hedgefund/auth/login');
 		}
+		
+		return redirect()->to(BASE_URL . 'hedgefund/auth/login');
+		
 	}
 	
 	
