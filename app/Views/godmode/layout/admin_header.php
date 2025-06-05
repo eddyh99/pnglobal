@@ -26,14 +26,14 @@
    <nav style="position: sticky; top: 0;z-index: 900;background-color: #070707;">
       <div class="d-flex justify-content-between mx-4">
       <div class="tab-navigation" style="width: 300px;">
-      <a href="<?= BASE_URL ?>godmode/signal" class="tab-item <?= $navbar_console ?? '' ?>">CONSOLE</a>
+      <a translate="no" href="<?= BASE_URL ?>godmode/signal" class="tab-item <?= $navbar_console ?? '' ?>">CONSOLE</a>
       </div>
       <div class="tab-navigation mw-100 mx-4">
-            <a href="<?= BASE_URL ?>godmode/dashboard/hedgefund" class="tab-item <?= $navbar_hedgefund ?? '' ?>">HEDGE FUND</a>
-            <a href="#" class="tab-item">ELITE BTC</a>
-            <a href="<?= BASE_URL ?>godmode/dashboard/luxbtc" class="tab-item  <?= $navbar_luxbtc ?? '' ?>">LUX BTC</a>
-            <a href="<?= BASE_URL ?>godmode/dashboard/satoshi" class="tab-item <?= $navbar_satoshi ?? '' ?>">SATOSHI</a>
-            <a href="#" class="tab-item">COURSE</a>
+            <a translate="no" href="<?= BASE_URL ?>godmode/dashboard/hedgefund" class="tab-item <?= $navbar_hedgefund ?? '' ?>">HEDGE FUND</a>
+            <a translate="no" href="#" class="tab-item">ELITE BTC</a>
+            <a translate="no" href="<?= BASE_URL ?>godmode/dashboard/luxbtc" class="tab-item  <?= $navbar_luxbtc ?? '' ?>">LUX BTC</a>
+            <a translate="no" href="<?= BASE_URL ?>godmode/dashboard/satoshi" class="tab-item <?= $navbar_satoshi ?? '' ?>">SATOSHI</a>
+            <a translate="no" href="#" class="tab-item">COURSE</a>
         </div>
       </div>
    </nav>

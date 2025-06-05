@@ -43,6 +43,20 @@ class Hedge extends BaseController
         return view('godmode/layout/admin_wrapper', $mdata);
     }
 
+    public function profit()
+    {
+        $mdata = [
+            'title'     => 'Subscriber - ' . NAMETITLE,
+            'content'   => 'godmode/hedge/profit',
+            'subs_free'    => 'active active-menu',
+            'active_dash'   => 'active',
+            'sidebar'   => 'hedgefund_sidebar',
+            'navbar_hedgefund' => 'active',
+        ];
+
+        return view('godmode/layout/admin_wrapper', $mdata);
+    }
+
     // public function get_activemember(){
     //     // Call Endpoin Get active subscriber
     //     $url = URL_HEDGEFUND . "/v1/member/list_activemember";

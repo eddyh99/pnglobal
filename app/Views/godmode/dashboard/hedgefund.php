@@ -34,6 +34,30 @@
         <div id="elite-btc" class="tab-content active">
             <div class="row content-body">
                 <div class="col-lg-12 px-2">
+                    <!-- balance fund & trade -->
+                    <a href="<?= BASE_URL ?>godmode/hedge/profit">
+                        <div class="custom-card left-card w-50 mx-auto">
+                            <div class="d-flex justify-content-between text-black" style="font-weight: bold;">
+                                <p>USDT BALANCE</p>
+                                <p>BTC BALANCE</p>
+                            </div>
+
+                            <div class="d-flex" style="gap: 1rem;">
+                                <div class="card rounded" style="width: 18rem;background-color: #bfa573;">
+                                    <div class="card-body p-2">
+                                        <h5 class="card-title text-black mb-0 fw-bold">USDT </h5>
+                                        <h2 id="usdt_balance" class="text-right text-black">Loading...</h2>
+                                    </div>
+                                </div>
+                                <div class="card rounded" style="width: 18rem;background-color: #bfa573;">
+                                    <div class="card-body p-2">
+                                        <h5 class="card-title text-black mb-0 fw-bold">BTC </h5>
+                                        <h2 id="btc_balance" class="text-right text-black">Loading...</h2>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
                     <div class="dash-statistics">
                         <a href="<?= BASE_URL ?>godmode/dashboard/hedgefund" class="statistics">
                             <div class="iq-card">
@@ -43,7 +67,7 @@
                                             <h5 class="text-black">Total Member</h5>
                                         </div>
                                         <div class="mt-3 w-100 d-flex justify-content-end">
-                                            <h1 class="text-black fw-bold"><?= @$totalmemberelite?></h1>
+                                            <h1 class="text-black fw-bold"><?= @$totalmemberelite ?></h1>
                                         </div>
                                     </div>
                                     <div class="<?= ((base64_decode(@$_GET["type"]) == "free_member" || base64_decode(@$_GET["type"]) == "referral_member") ? "disable" : "active") ?>"></div>
@@ -58,7 +82,7 @@
                                             <h5 class="text-black">Active Member</h5>
                                         </div>
                                         <div class="mt-3 w-100 d-flex justify-content-end">
-                                            <h1 class="text-black fw-bold"><?= @$subscriberelite?></h1>
+                                            <h1 class="text-black fw-bold"><?= @$subscriberelite ?></h1>
                                         </div>
                                     </div>
                                     <div class="<?= ((base64_decode(@$_GET["type"]) == "referral_member") ? "active" : "disable") ?>"></div>
@@ -73,7 +97,7 @@
                                             <h5 class="text-black">Referral</h5>
                                         </div>
                                         <div class="mt-3 w-100 d-flex justify-content-end">
-                                            <h1 class="text-black fw-bold"><?= @$referralelite?></h1>
+                                            <h1 class="text-black fw-bold"><?= @$referralelite ?></h1>
                                         </div>
                                     </div>
                                     <div class="disable"></div>
@@ -88,7 +112,7 @@
                                             <h5 class="text-black">Signal Sent</h5>
                                         </div>
                                         <div class="mt-3 w-100 d-flex justify-content-end">
-                                            <h1 class="text-black fw-bold"><?= @$signalelite?></h1>
+                                            <h1 class="text-black fw-bold"><?= @$signalelite ?></h1>
                                         </div>
                                     </div>
                                     <div class="disable"></div>
@@ -98,26 +122,26 @@
                     </div>
                 </div>
 
-                    <div class="col-lg-12 dash-table-totalmember">
-                        <h4 class="text-white my-3 text-uppercase fw-bold">Total Member</h4>
-                        <table id="table_totalmember_elite" class="table table-striped" style="width:100%">
-                            <thead class="thead_totalmember">
-                                <tr>
-                                    <th>EMAIL</th>
-                                    <th>REF CODE</th>
-                                    <!-- <th>REG. DATE</th> -->
-                                    <th>STATUS</th>
-                                    <!-- <th>SUBSCRIPTION</th> -->
-                                    <th>REFERRAL</th>
-                                    <th>Fund</th>
-                                    <th>Trade</th>
-                                    <th>ACTION</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                            </tbody>
-                        </table>
-                    </div>
+                <div class="col-lg-12 dash-table-totalmember">
+                    <h4 class="text-white my-3 text-uppercase fw-bold">Total Member</h4>
+                    <table id="table_totalmember_elite" class="table table-striped" style="width:100%">
+                        <thead class="thead_totalmember">
+                            <tr>
+                                <th>EMAIL</th>
+                                <th style="font-size: 11px;white-space: nowrap;">REF CODE</th>
+                                <!-- <th>REG. DATE</th> -->
+                                <th>STATUS</th>
+                                <!-- <th>SUBSCRIPTION</th> -->
+                                <th>REFERRAL</th>
+                                <th>Fund</th>
+                                <th>Trade</th>
+                                <th>ACTION</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                    </table>
+                </div>
 
             </div>
         </div>

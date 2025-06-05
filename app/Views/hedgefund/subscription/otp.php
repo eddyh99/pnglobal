@@ -89,7 +89,8 @@
                 </form>
 
                 <div class="text-center mt-3">
-                    <a href="#" class="text-primary fw-bold">RESEND</a> activation code
+                    <button id="resend" class="text-primary fw-bold btn" onclick="resendToken('<?= $emailuser ?>')">RESEND</button>
+                     activation code
                 </div>
             </div>
         </div>
@@ -121,4 +122,45 @@
 
         document.getElementById('emailInput').value = "<?= @base64_decode($emailuser) ?>";
     }
+
+function resendToken(email) {
+    fetch('<?= BASE_URL ?>hedgefund/auth/resend_token/' + encodeURIComponent(email), {
+        method: 'GET',
+        headers: {
+            'Accept': 'application/json'
+        }
+    })
+    .then(async response => {
+        const data = await response.json();
+        const btn = $('#resend');
+        if (!response.ok || !data.success) {
+            throw new Error(data.message || 'Failed to resend token');
+        }
+
+        // Tampilkan pesan sukses
+        alert(data.message);
+
+        // Freeze 30s
+        // Hitung mundur
+        let countdown = 30;
+        const originalText = btn.text();
+
+        btn.prop('disabled', true).removeClass('text-primary');
+
+        const interval = setInterval(() => {
+            btn.text(`RESEND (${countdown}s)`);
+            countdown--;
+
+            if (countdown < 0) {
+                clearInterval(interval);
+                btn.prop('disabled', false).addClass('text-primary').text(originalText);
+            }
+        }, 1000);
+    })
+    .catch(error => {
+        // Tampilkan pesan error
+        alert('Error: ' + error.message);
+    });
+}
+
 </script>

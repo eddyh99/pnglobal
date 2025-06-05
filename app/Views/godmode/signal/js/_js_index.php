@@ -114,7 +114,7 @@
                 }
 
                 // Atur tombol DEL BUY berdasarkan nilai input
-                if (!buyValue || buyValue === '') {
+                if (buyStatus != 'pending') {
                     // Jika field kosong, disable tombol DEL dan ubah warna menjadi abu-abu
                     delBuyBtn.prop('disabled', true).addClass('disabled-btn').css({
                         'border-color': '#6c757d',
@@ -131,19 +131,20 @@
                 }
 
                 // Atur tombol DEL SELL berdasarkan nilai input
-                if (!sellValue || sellValue === '') {
-                    // Jika field kosong, disable tombol DEL dan ubah warna menjadi abu-abu
-                    delSellBtn.prop('disabled', true).addClass('disabled-btn').css({
-                        'border-color': '#6c757d',
-                        'color': '#6c757d',
-                        'cursor': 'not-allowed'
-                    });
-                } else {
+                if (sellStatus == 'pending') {
                     // Jika field sudah terisi, enable tombol DEL dan kembalikan warna merah
                     delSellBtn.prop('disabled', false).removeClass('disabled-btn').css({
                         'border-color': '#f80d0d',
                         'color': '#ffffff',
                         'cursor': 'pointer'
+                    });
+                    
+                } else {
+                    // Jika field kosong, disable tombol DEL dan ubah warna menjadi abu-abu
+                    delSellBtn.prop('disabled', true).addClass('disabled-btn').css({
+                        'border-color': '#6c757d',
+                        'color': '#6c757d',
+                        'cursor': 'not-allowed'
                     });
                 }
 
@@ -271,13 +272,15 @@
             const buyInput = $(`#buy-${letter}`);
             const buyValue = buyInput.val();
             const delBtn = $(`#del-buy-${letter}`);
+            const buyRow = buyInput.closest('tr');
+            const buyStatus = buyRow.find('.signal-status').text().trim().toLowerCase();
 
-            if (!buyValue || buyValue === '') {
+            if (buyStatus == 'pending') {
                 // Jika field kosong, disable tombol DEL dan ubah warna menjadi abu-abu
-                delBtn.prop('disabled', true).addClass('disabled-btn');
+                delBtn.prop('disabled', false).removeClass('disabled-btn')
             } else {
                 // Jika field sudah terisi, enable tombol DEL dan kembalikan warna merah
-                delBtn.prop('disabled', false).removeClass('disabled-btn');
+                delBtn.prop('disabled', true).addClass('disabled-btn');
             }
         });
 
@@ -1280,6 +1283,8 @@
                             });
                         }
                     });
+                } else {
+                    removeButtonLoading(this);
                 }
             });
         });
@@ -1393,6 +1398,8 @@
                             });
                         }
                     });
+                } else {
+                    removeButtonLoading(this);
                 }
             });
         });
