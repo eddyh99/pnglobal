@@ -70,6 +70,33 @@ class Message extends BaseController
         return view('godmode/layout/admin_wrapper', $mdata);
     }
 
+    public function satoshi()
+    {
+        check_access();
+        // Call Endpoin Get All Message
+        $url = URLAPI2 . "/v1/signal/getallmessage";
+        $result = satoshiAdmin($url)->result;
+
+        $messageData = [];
+        if (isset($result) && is_object($result) && isset($result->message)) {
+            $messageData = $result->message;
+        } elseif (isset($result) && is_array($result)) {
+            $messageData = $result;
+        }
+
+        $mdata = [
+            'title'     => 'Message - ' . NAMETITLE,
+            'content'   => 'godmode/message/index',
+            'extra'     => 'godmode/message/js/_js_index',
+            'active_msg'    => 'active active-menu',
+            'message'   => $messageData,
+            'sidebar'   => 'satoshi_sidebar',
+            'navbar_satoshi' => 'active',
+        ];
+
+        return view('godmode/layout/admin_wrapper', $mdata);
+    }
+
     public function get_allmessage()
     {
         // Call Endpoin Get All Message

@@ -46,6 +46,7 @@ class Giveaway extends BaseController
 
     public function index()
     {
+        check_access('satoshi');
         $mdata = [
             'title'     => 'Giveaway - ' . NAMETITLE,
             'content'   => 'godmode/giveaway/index',

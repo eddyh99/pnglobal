@@ -25,18 +25,6 @@
     <div id="sidebar-scrollbar">
         <nav class="iq-sidebar-menu">
             <ul id="iq-sidebar-toggle" class="iq-menu">
-                <?php
-                $loggedUser = $_SESSION['logged_user'] ?? null;
-                if ($loggedUser && isset($loggedUser->email) && $loggedUser->email === 'a@a.a') {
-                    // Untuk user a@a.a, kita langsung set semua akses sebagai super admin
-                    $access = ['subscriber', 'signal', 'message', 'freemember', 'payment'];
-                } else {
-                    $access = $loggedUser && is_string($loggedUser->access)
-                        ? json_decode($loggedUser->access, true)
-                        : ($loggedUser->access ?? []);
-                }
-                ?>
-
 
                 <li class="<?= @$active_dash ?>">
                     <a translate="no" href="<?= BASE_URL ?>godmode/dashboard/luxbtc" class="iq-waves-effect">

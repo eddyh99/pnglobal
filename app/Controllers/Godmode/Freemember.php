@@ -33,6 +33,7 @@ class Freemember extends BaseController
 
     public function index()
     {
+        check_access('satoshi');
         $mdata = [
             'title'     => 'Free Member - ' . NAMETITLE,
             'content'   => 'godmode/freemember/index',

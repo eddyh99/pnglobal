@@ -3,7 +3,7 @@
 use CodeIgniter\Config\Services;
 
 if (!function_exists('check_access')) {
-    function check_access()
+    function check_access($access = null)
     {
         $session = session();
         $user = $session->get('logged_user');
@@ -12,7 +12,7 @@ if (!function_exists('check_access')) {
         $fullController = $router->controllerName();
         $parts = explode('\\', $fullController);
         $controller = strtolower(end($parts));
-        $method = strtolower($router->methodName());
+        $method = $access ?? strtolower($router->methodName());
 
         if ($user->role !== 'superadmin') {
             $access = json_decode($user->access, true);
