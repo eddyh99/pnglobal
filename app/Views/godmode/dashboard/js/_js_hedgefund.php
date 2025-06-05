@@ -96,4 +96,26 @@
         ],
 
     });
+
+    updateBalances();
+    function updateBalances() {
+        $.ajax({
+            url: '<?= BASE_URL ?>godmode/signal/getmember_balance', // Ganti dengan endpoint sesuai back-end kamu
+            method: 'GET',
+            dataType: 'json',
+            success: function(response) {
+                console.log(response);
+
+                // Pastikan response punya struktur { fund_balance: ..., trade_balance: ... }
+                $('#usdt_balance').text(response.trade_usdt);
+                $('#btc_balance').text(response.trade_btc);
+
+            },
+            error: function(xhr, status, error) {
+                console.error("Gagal mengambil data balance:", error);
+                $('#fund_balance').text('Error');
+                $('#trade_balance').text('Error');
+            }
+        });
+    }
 </script>

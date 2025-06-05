@@ -826,4 +826,15 @@ class Signal extends BaseController
             'signal' => null
         ];
     }
+
+    public function getmember_balance()
+    {
+        // Call Endpoint Get Total Member
+        $url = URL_HEDGEFUND . "/v1/member/get_totalbalance";
+        $result = satoshiAdmin($url)->result;
+    
+        return $this->response->setJSON($result->message);
+    }
+    
+
 }

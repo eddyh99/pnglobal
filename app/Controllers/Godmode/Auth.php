@@ -161,7 +161,7 @@ class Auth extends BaseController
 					font-size: 14px;
 					color: #000000;
 					'>
-						Thank you for using PNGLOBAL App. To proceed with your request, please copy token reset password below 
+						To proceed with your request, please copy token reset password below 
 					</p>
 					<h2 id='copyToken'>
 						" . $result->otp . "
@@ -190,7 +190,7 @@ class Auth extends BaseController
 		</body>
 		</html>";
 
-		sendmail_satoshi($email, $subject, $message, 'Reset Password', 'pnglobal.com');
+		sendmail_satoshi($email, $subject, $message, 'Reset Password', USERNAME_MAIL);
 		session()->setFlashdata('success', $result->text);
 		return redirect()->to(BASE_URL . 'godmode/auth/forgot_pass_otp/'. base64_encode($email));
 	}
@@ -297,6 +297,7 @@ class Auth extends BaseController
 			session()->setFlashdata('success', 'Password berhasil diubah.');
             $this->update_password_course($mdata);
             $this->update_password_hedgefund($mdata);
+			$this->update_password_satoshi($mdata);
 			return redirect()->to(BASE_URL . 'godmode/auth/signin');
 		} else {
 			session()->setFlashdata('failed', $result->message);
@@ -323,6 +324,17 @@ class Auth extends BaseController
 
         if ($result->code != 200) {
             session()->setFlashdata('failed', 'Failed to update hedge fund account password.');
+        }
+    }
+
+	private function update_password_satoshi($mdata) {
+        $mdata += ['isgodmode' => true];
+		$url = URLAPI2 . "/auth/reset_password";
+		$response = satoshiAdmin($url, json_encode($mdata));
+		$result = $response->result;
+
+        if ($result->code != 200) {
+            session()->setFlashdata('failed', 'Failed to update satoshi account password.');
         }
     }
 }

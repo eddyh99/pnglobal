@@ -1,39 +1,39 @@
 <!-- Page Content  -->
-<div class="content-page mb-5">
+ <div class="content-page mb-5">
     <div class="container-fluid">
         <div class="row content-body">
+            <!-- template -->
+            <div id="product-template" style="display: none;">
+                <div class="wrapper-addreferral product-group" data-index="__INDEX__">
+                    <label for="alias">Product</label>
+                    <select name="products[__INDEX__][name]" class="form-control product-select mb-2" onchange="updateAccessOptions(this)">
+                        <option value="">-- Select Product --</option>
+                        <?php foreach (array_keys($product) as $index => $p): ?>
+                            <option
+                                value="<?= htmlspecialchars($p) ?>"
+                                data-access='<?= json_encode($product[$p]['access']) ?>'>
+                                <?= ucfirst(htmlspecialchars($p)) ?>
+                            </option>
+                        <?php endforeach; ?>
+
+                    </select>
+                    <div class="wrapper-addreferral access-container">
+                        <label for="access">Access</label>
+                        <div class="role-wrapper">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- end template -->
             <div class="col-lg-12">
+
                 <form action="<?= BASE_URL ?>godmode/admin/create_admin" method="POST">
                     <div class="send-signals">
                         <div class="title-signal-preview d-flex justify-content-between align-items-center">
                             <h4>Add Admin</h4>
                         </div>
-                        <!-- template -->
-                        <div id="product-template" style="display: none;">
-                        <div class="wrapper-addreferral product-group">
-                        <label for="alias">Product</label>
-                                <select name="product[]" class="form-control product-select mb-2" onchange="updateAccessOptions(this)">
-                                    <option value="">-- Select Product --</option>
-                                    <?php foreach (array_keys($product) as $index => $p): ?>
-                                        <option 
-                                            value="<?= htmlspecialchars($p) ?>" 
-                                            data-access='<?= json_encode($product[$p]['access']) ?>'>
-                                            <?= ucfirst(htmlspecialchars($p)) ?>
-                                        </option>
-                                    <?php endforeach; ?>
 
-                                </select>
-                                <div class="wrapper-addreferral access-container">
-                                <label for="access">Access</label>
-                                        <div class="role-wrapper">
-                                
-                                        </div>
-                                </div>
-                            </div>
-                        </div>
-                        </div>
-
-                        <!-- end template -->
                         <div class="main-send-signal d-flex flex-column align-items-center justify-content-center">
                             <div class="row w-100">
                                 <div class="form-addreferral col-8 mx-auto">
@@ -76,49 +76,3 @@
         </div>
     </div>
 </div>
-
-
-<script>
-    <?php if (!empty(session('failed'))) { ?>
-        setTimeout(function() {
-            Swal.fire({
-                text: `<?= session('failed') ?>`,
-                showCloseButton: true,
-                showConfirmButton: false,
-                background: '#FFE4DC',
-                color: '#000000',
-                position: 'top-end',
-                timer: 3000,
-                timerProgressBar: true,
-            });
-        }, 100);
-    <?php } else if (!empty(session('success'))) { ?>
-        setTimeout(function() {
-            Swal.fire({
-                text: `<?= session('success') ?>`,
-                showCloseButton: true,
-                showConfirmButton: false,
-                background: '#E1FFF7',
-                color: '#000000',
-                position: 'top-end',
-                timer: 3000,
-                timerProgressBar: true,
-            });
-        }, 100);
-    <?php } ?>
-
-    <?php if (!empty(session('error_validation'))) { ?>
-        setTimeout(function() {
-            Swal.fire({
-                html: '<?= trim(str_replace('"', '', json_encode($_SESSION['error_validation']))) ?>',
-                showCloseButton: true,
-                showConfirmButton: false,
-                background: '#FFE4DC',
-                color: '#000000',
-                position: 'top-end',
-                timer: 3000,
-                timerProgressBar: true,
-            });
-        }, 100);
-    <?php } ?>
-</script>

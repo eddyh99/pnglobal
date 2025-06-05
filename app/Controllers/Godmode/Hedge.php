@@ -48,6 +48,7 @@ class Hedge extends BaseController
         $mdata = [
             'title'     => 'Subscriber - ' . NAMETITLE,
             'content'   => 'godmode/hedge/profit',
+            'extra'     => 'godmode/hedge/js/_js_profit',
             'subs_free'    => 'active active-menu',
             'active_dash'   => 'active',
             'sidebar'   => 'hedgefund_sidebar',
@@ -55,6 +56,15 @@ class Hedge extends BaseController
         ];
 
         return view('godmode/layout/admin_wrapper', $mdata);
+    }
+
+    public function get_profit()
+    {
+        // Call Endpoint Get Total Member
+        $url = URL_HEDGEFUND . "/v1/price/profit";
+        $result = satoshiAdmin($url)->result;
+    
+        return $this->response->setJSON($result->message);
     }
 
     // public function get_activemember(){
