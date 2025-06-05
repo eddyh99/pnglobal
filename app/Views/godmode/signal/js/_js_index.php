@@ -34,6 +34,7 @@
         });
     }, 5000);
     $(document).ready(function() {
+        updateBalances();
         // Fungsi untuk menangani loading state
         function handleButtonLoading(button) {
             // Simpan teks asli button sebagai data attribute
@@ -1403,5 +1404,25 @@
                 }
             });
         });
+
+        function updateBalances() {
+            $.ajax({
+                url: '<?= BASE_URL ?>godmode/signal/getmember_balance', // Ganti dengan endpoint sesuai back-end kamu
+                method: 'GET',
+                dataType: 'json',
+                success: function(response) {
+                    console.log(response);
+                    
+                    // Pastikan response punya struktur { fund_balance: ..., trade_balance: ... }
+                    $('#fund_balance').text(response.fund + ' USDT');
+                    $('#trade_balance').text(response.trade + ' USDT');
+                },
+                error: function(xhr, status, error) {
+                    console.error("Gagal mengambil data balance:", error);
+                    $('#fund_balance').text('Error');
+                    $('#trade_balance').text('Error');
+                }
+            });
+        }
     })
 </script>
