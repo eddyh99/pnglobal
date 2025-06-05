@@ -59,6 +59,7 @@ class Payment extends BaseController
 
     public function hedgefund()
     {
+        check_access();
         $mdata = [
             'title'     => 'Payment - ' . NAMETITLE,
             'content'   => 'godmode/payment/hedgefund',
@@ -73,6 +74,7 @@ class Payment extends BaseController
 
     public function satoshi()
     {
+        check_access();
         $mdata = [
             'title'     => 'Payment - ' . NAMETITLE,
             'content'   => 'godmode/payment/satoshi',

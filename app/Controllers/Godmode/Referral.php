@@ -60,6 +60,7 @@ class Referral extends BaseController
 
     public function hedgefund()
     {
+        check_access();
         $mdata = [
             'title'     => 'Payment - ' . NAMETITLE,
             'content'   => 'godmode/referral/hedgefund',
@@ -74,6 +75,7 @@ class Referral extends BaseController
 
     public function luxbtc()
     {
+        check_access();
         $mdata = [
             'title'     => 'Payment - ' . NAMETITLE,
             'content'   => 'godmode/referral/luxbtc',
@@ -88,6 +90,7 @@ class Referral extends BaseController
 
     public function satoshi()
     {
+        check_access();
         $mdata = [
             'title'     => 'Payment - ' . NAMETITLE,
             'content'   => 'godmode/referral/satoshi',
