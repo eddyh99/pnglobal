@@ -81,9 +81,7 @@ class Admin extends BaseController
             return redirect()->to(BASE_URL . 'godmode/admin');
         }
 
-        $access = array_filter($this->request->getVar('products'), function ($product) {
-            return !empty($product['access']) && is_array($product['access']);
-        });
+        $access = array_column($this->request->getVar('products'), 'access', 'name');
 
         $mdata = [
             'email'     => $this->request->getVar('email'),
