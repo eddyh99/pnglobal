@@ -6,42 +6,42 @@ use App\Controllers\BaseController;
 
 class Message extends BaseController
 {
-    public function __construct()
-    {
-        $session = session();
-        if (!$session->has('logged_user')) {
-            header("Location: " . BASE_URL . 'godmode/auth/signin');
-            exit();
-        }
+    // public function __construct()
+    // {
+    //     $session = session();
+    //     if (!$session->has('logged_user')) {
+    //         header("Location: " . BASE_URL . 'godmode/auth/signin');
+    //         exit();
+    //     }
     
-        $loggedUser = $session->get('logged_user');
+    //     $loggedUser = $session->get('logged_user');
     
-        // Superadmin has full access
-        if ($loggedUser->role === 'superadmin') {
-            return;
-        }
+    //     // Superadmin has full access
+    //     if ($loggedUser->role === 'superadmin') {
+    //         return;
+    //     }
     
-        // If admin, check access permissions
-        if ($loggedUser->role === 'admin') {
-            $userAccess = json_decode($loggedUser->access, true);
-            if (!is_array($userAccess)) {
-                $userAccess = [];
-            }
+    //     // If admin, check access permissions
+    //     if ($loggedUser->role === 'admin') {
+    //         $userAccess = json_decode($loggedUser->access, true);
+    //         if (!is_array($userAccess)) {
+    //             $userAccess = [];
+    //         }
     
-            // Example: check if they have 'message' access or customize this key as needed
-            if (!in_array('message', $userAccess)) {
-                session()->setFlashdata('failed', 'You don\'t have access to this page');
-                header("Location: " . BASE_URL . 'godmode/dashboard');
-                exit();
-            }
-            return;
-        }
+    //         // Example: check if they have 'message' access or customize this key as needed
+    //         if (!in_array('message', $userAccess)) {
+    //             session()->setFlashdata('failed', 'You don\'t have access to this page');
+    //             header("Location: " . BASE_URL . 'godmode/dashboard');
+    //             exit();
+    //         }
+    //         return;
+    //     }
     
-        // If neither superadmin nor admin
-        session()->setFlashdata('failed', 'You don\'t have access to this page');
-        header("Location: " . BASE_URL . 'godmode/dashboard');
-        exit();
-    }
+    //     // If neither superadmin nor admin
+    //     session()->setFlashdata('failed', 'You don\'t have access to this page');
+    //     header("Location: " . BASE_URL . 'godmode/dashboard');
+    //     exit();
+    // }
 
 
     public function index()

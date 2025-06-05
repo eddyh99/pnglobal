@@ -6,43 +6,43 @@ use App\Controllers\BaseController;
 
 class Giveaway extends BaseController
 {
-    public function __construct()
-    {
-        $session = session();
+    // public function __construct()
+    // {
+    //     $session = session();
     
-        // Jika belum login, redirect ke halaman signin
-        if (!$session->has('logged_user')) {
-            header("Location: " . BASE_URL . 'godmode/auth/signin');
-            exit();
-        }
+    //     // Jika belum login, redirect ke halaman signin
+    //     if (!$session->has('logged_user')) {
+    //         header("Location: " . BASE_URL . 'godmode/auth/signin');
+    //         exit();
+    //     }
     
-        // Mendapatkan data user yang tersimpan (sudah login)
-        $loggedUser = $session->get('logged_user');
+    //     // Mendapatkan data user yang tersimpan (sudah login)
+    //     $loggedUser = $session->get('logged_user');
     
-        // Jika superadmin, izinkan akses ke semua halaman
-        if ($loggedUser->role === 'superadmin') {
-            return; // Full access, no checks needed
-        }
+    //     // Jika superadmin, izinkan akses ke semua halaman
+    //     if ($loggedUser->role === 'superadmin') {
+    //         return; // Full access, no checks needed
+    //     }
     
-        // Jika admin, periksa akses spesifik
-        if ($loggedUser->role === 'admin') {
-            $userAccess = json_decode($loggedUser->access, true);
-            if (!is_array($userAccess)) {
-                $userAccess = [];
-            }
-            if (!in_array('giveaway', $userAccess)) {
-                session()->setFlashdata('failed', 'You don\'t have access to this page');
-                header("Location: " . BASE_URL . 'godmode/dashboard');
-                exit();
-            }
-            return; // Allowed access
-        }
+    //     // Jika admin, periksa akses spesifik
+    //     if ($loggedUser->role === 'admin') {
+    //         $userAccess = json_decode($loggedUser->access, true);
+    //         if (!is_array($userAccess)) {
+    //             $userAccess = [];
+    //         }
+    //         if (!in_array('giveaway', $userAccess)) {
+    //             session()->setFlashdata('failed', 'You don\'t have access to this page');
+    //             header("Location: " . BASE_URL . 'godmode/dashboard');
+    //             exit();
+    //         }
+    //         return; // Allowed access
+    //     }
     
-        // Jika bukan superadmin atau admin, tolak akses
-        session()->setFlashdata('failed', 'You don\'t have access to this page');
-        header("Location: " . BASE_URL . 'godmode/auth/signin');
-        exit();
-    }
+    //     // Jika bukan superadmin atau admin, tolak akses
+    //     session()->setFlashdata('failed', 'You don\'t have access to this page');
+    //     header("Location: " . BASE_URL . 'godmode/auth/signin');
+    //     exit();
+    // }
 
     public function index()
     {

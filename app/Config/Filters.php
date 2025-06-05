@@ -4,6 +4,8 @@ namespace Config;
 
 use App\Filters\LoginCourseFilter;
 use App\Filters\MentorCourseFilter;
+use App\Filters\LoginGodmodeFilter;
+use App\Filters\LoginLuxbrokerFilter;
 use CodeIgniter\Config\Filters as BaseFilters;
 use CodeIgniter\Filters\Cors;
 use CodeIgniter\Filters\CSRF;
@@ -38,6 +40,8 @@ class Filters extends BaseFilters
         'performance'   => PerformanceMetrics::class,
         'isLoggedInCourse'   => LoginCourseFilter::class,
         'isMentor'   => MentorCourseFilter::class,
+        'isGodmode'     => LoginGodmodeFilter::class,
+        'isLoggedInLux' => LoginLuxbrokerFilter::class
     ];
 
     /**
@@ -108,6 +112,27 @@ class Filters extends BaseFilters
      * @var array<string, array<string, list<string>>>
      */
     public array $filters = [
+        'isGodmode' => [
+            'before' => [
+                'godmode/dashboard',
+                'godmode/dashboard/*',
+                'godmode/payment/*',
+                'godmode/referral/*',
+                'godmode/message',
+                'godmode/freemember',
+                'godmode/giveaway',
+                'godmode/signal',
+                'godmode/admin'
+            ],
+        ],
+        'isLoggedInLux' => [
+            'before' => [
+                'member/dashboard',
+                'member/membership',
+                'member/referral',
+                'member/withdraw'
+            ],
+        ],
         'isLoggedInCourse' => [
             'before' => [
                 'course/member/*',
