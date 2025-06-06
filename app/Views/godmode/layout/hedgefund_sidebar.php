@@ -25,18 +25,6 @@
     <div id="sidebar-scrollbar">
         <nav class="iq-sidebar-menu">
             <ul id="iq-sidebar-toggle" class="iq-menu">
-                <?php
-                $loggedUser = $_SESSION['logged_user'] ?? null;
-                if ($loggedUser && isset($loggedUser->email) && $loggedUser->email === 'a@a.a') {
-                    // Untuk user a@a.a, kita langsung set semua akses sebagai super admin
-                    $access = ['subscriber', 'signal', 'message', 'freemember', 'payment'];
-                } else {
-                    $access = $loggedUser && is_string($loggedUser->access)
-                        ? json_decode($loggedUser->access, true)
-                        : ($loggedUser->access ?? []);
-                }
-                ?>
-
 
                 <li class="<?= @$active_dash ?>">
                     <a translate="no" href="<?= BASE_URL ?>godmode/dashboard/hedgefund" class="iq-waves-effect">
@@ -48,8 +36,6 @@
                         <span class="<?= (@$active_dash != null) ? 'text-black' : 'text-white' ?>">Dashboard</span>
                     </a>
                 </li>
-
-                <?php if (in_array('payment', $access)): ?>
                     <li class="<?= @$active_payment ?>">
                         <a translate="no" href="<?= BASE_URL ?>godmode/payment/hedgefund" class="iq-waves-effect">
                             <i>
@@ -67,7 +53,6 @@
                             <span class="<?= (@$active_payment != null) ? 'text-black' : 'text-white' ?>">Payment</span>
                         </a>
                     </li>
-                <?php endif; ?>
 
                 <li class="<?= @$active_reff ?>">
                     <a translate="no" href="<?= BASE_URL ?>godmode/referral/hedgefund" class="iq-waves-effect">

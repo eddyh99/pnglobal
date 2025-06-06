@@ -63,14 +63,29 @@ class Auth extends BaseController
         $response = satoshiAdmin($url, json_encode($mdata));
         $result = $response->result;
 
-        if ($response->status != 200 || $result->code != 200) {
-            session()->setFlashdata('failed', $result->message);
-            return redirect()->to(BASE_URL . 'godmode/auth/signin');
-        } else {
-            $this->session->set('logged_user', $result->message);
-            session()->setFlashdata('success', 'Welcome to admin panel');
-            return redirect()->to(BASE_URL . 'godmode/signal');
-        }
+		if ($response->status == 200 || $result->code == 200) {
+			$loggedUser = $result->message;
+		
+			if (in_array($loggedUser->role, ['superadmin', 'admin'])) {
+				session()->set('logged_user', $loggedUser);
+				session()->setFlashdata('success', 'Welcome to admin panel');
+           		return redirect()->to(BASE_URL . 'godmode/signal');
+			}
+		
+			session()->setFlashdata('failed', 'Access Denied');
+		} else {
+			session()->setFlashdata('failed', $result->message);
+		}
+		return redirect()->to(BASE_URL . 'godmode/auth/signin');
+
+        // if ($response->status != 200 || $result->code != 200) {
+        //     session()->setFlashdata('failed', $result->message);
+        //     return redirect()->to(BASE_URL . 'godmode/auth/signin');
+        // } else {
+        //     $this->session->set('logged_user', $result->message);
+        //     session()->setFlashdata('success', 'Welcome to admin panel');
+        //     return redirect()->to(BASE_URL . 'godmode/signal');
+        // }
     }
 
     public function logout()

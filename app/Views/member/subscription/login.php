@@ -32,7 +32,7 @@
                 <div class="sign-in-from w-100 m-auto">
                     <h1 class="mb-3 text-center text-black">Sign in</h1>
                     <p class="text-center text-dark">Enter your email address and password to access Referral Panel.</p>
-                    <form action="<?= BASE_URL ?>auth/postLogin" method="POST" class="mt-4">
+                    <form action="<?= BASE_URL ?>member/auth/auth_proccess" method="POST" class="mt-4">
                         <div class="form-group">
                             <label for="exampleInputEmail2">Email address</label>
                             <input type="email" class="form-control mb-0" name="email" id="exampleInputEmail2" placeholder="Enter email">

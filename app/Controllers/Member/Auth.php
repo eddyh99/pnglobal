@@ -38,6 +38,59 @@ class Auth extends BaseController
 		return view('member/layout/login_wrapper', $mdata);
 	}
 
+	public function auth_proccess()
+    {
+        // Validation Field
+        $rules = $this->validate([
+            'email'     => [
+                'label'     => 'Email',
+                'rules'     => 'required|valid_email'
+            ],
+            'password'     => [
+                'label'     => 'Password',
+                'rules'     => 'required'
+            ],
+        ]);
+
+        // Checking Validation
+        if (!$rules) {
+            session()->setFlashdata('failed', $this->validation->listErrors());
+            return redirect()->to(BASE_URL . 'member/auth/login')->withInput();
+        }
+
+        // Initial Data
+        $mdata = [
+            'email'         => htmlspecialchars($this->request->getVar('email')),
+            'password'      => htmlspecialchars($this->request->getVar('password')),
+        ];
+
+        // Trim Data
+        $mdata['password'] = trim($mdata['password']);
+
+        // Password Encrypt
+        $mdata['password'] = sha1($mdata['password']);
+
+        // Proccess Endpoin API
+        $url = URLAPI . "/auth/signin";
+        $response = satoshiAdmin($url, json_encode($mdata));
+        $result = $response->result;
+
+		if ($response->status == 200 || $result->code == 200) {
+			$loggedUser = $result->message;
+		
+			if (in_array($loggedUser->role, ['member', 'referral'])) {
+				session()->set('logged_user', $loggedUser);
+				session()->setFlashdata('success', 'Welcome to admin panel');
+           		return redirect()->to(BASE_URL . 'member/dashboard');
+			}
+		
+			session()->setFlashdata('failed', 'Access Denied');
+		} else {
+			session()->setFlashdata('failed', $result->message);
+		}
+		return redirect()->to(BASE_URL . 'member/auth/login');
+    }
+
 	public function forgot_password()
 	{
 		$mdata = [

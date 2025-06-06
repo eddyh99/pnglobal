@@ -8,42 +8,42 @@ class Referral extends BaseController
 {
     protected $validation;
 
-    public function __construct()
-    {
-        $session = session();
-        if (!$session->has('logged_user')) {
-            header("Location: " . BASE_URL . 'godmode/auth/signin');
-            exit();
-        }
+    // public function __construct()
+    // {
+    //     $session = session();
+    //     if (!$session->has('logged_user')) {
+    //         header("Location: " . BASE_URL . 'godmode/auth/signin');
+    //         exit();
+    //     }
     
-        $loggedUser = $session->get('logged_user');
+    //     $loggedUser = $session->get('logged_user');
     
-        // If role is superadmin, allow full access
-        if ($loggedUser->role === 'superadmin') {
-            return;
-        }
+    //     // If role is superadmin, allow full access
+    //     if ($loggedUser->role === 'superadmin') {
+    //         return;
+    //     }
     
-        // If role is admin, check access
-        if ($loggedUser->role === 'admin') {
-            $userAccess = json_decode($loggedUser->access, true);
-            if (!is_array($userAccess)) {
-                $userAccess = [];
-            }
+    //     // If role is admin, check access
+    //     if ($loggedUser->role === 'admin') {
+    //         $userAccess = json_decode($loggedUser->access, true);
+    //         if (!is_array($userAccess)) {
+    //             $userAccess = [];
+    //         }
     
-            if (!in_array('referral', $userAccess)) {
-                session()->setFlashdata('failed', 'You don\'t have access to this page');
-                header("Location: " . BASE_URL . 'godmode/dashboard');
-                exit();
-            }
+    //         if (!in_array('referral', $userAccess)) {
+    //             session()->setFlashdata('failed', 'You don\'t have access to this page');
+    //             header("Location: " . BASE_URL . 'godmode/dashboard');
+    //             exit();
+    //         }
     
-            return;
-        }
+    //         return;
+    //     }
     
-        // For other roles, deny access
-        session()->setFlashdata('failed', 'You don\'t have access to this page');
-        header("Location: " . BASE_URL . 'godmode/dashboard');
-        exit();
-    }
+    //     // For other roles, deny access
+    //     session()->setFlashdata('failed', 'You don\'t have access to this page');
+    //     header("Location: " . BASE_URL . 'godmode/dashboard');
+    //     exit();
+    // }
 
 
     public function index()
@@ -60,6 +60,7 @@ class Referral extends BaseController
 
     public function hedgefund()
     {
+        check_access();
         $mdata = [
             'title'     => 'Payment - ' . NAMETITLE,
             'content'   => 'godmode/referral/hedgefund',
@@ -74,6 +75,7 @@ class Referral extends BaseController
 
     public function luxbtc()
     {
+        check_access();
         $mdata = [
             'title'     => 'Payment - ' . NAMETITLE,
             'content'   => 'godmode/referral/luxbtc',
@@ -88,6 +90,7 @@ class Referral extends BaseController
 
     public function satoshi()
     {
+        check_access();
         $mdata = [
             'title'     => 'Payment - ' . NAMETITLE,
             'content'   => 'godmode/referral/satoshi',
