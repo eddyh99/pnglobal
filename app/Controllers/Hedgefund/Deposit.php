@@ -46,7 +46,7 @@ class Deposit extends BaseController
 
     public function get_investment_config()
     {
-        $url = URL_HEDGEFUND . "/v1/price";
+        $url = URL_HEDGEFUND . "/price";
         $result = satoshiAdmin($url)->result;
         $minCapital = (float) $result->message->price;
         $fee        = (float) $result->message->cost;
