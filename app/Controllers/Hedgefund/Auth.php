@@ -732,7 +732,7 @@ class Auth extends BaseController
 			'emailuser' => $emailuser
 		];
 
-		return view('hedgefund/layout/login_wrapper', $mdata);
+		return view('hedgefund/layout/wrapper', $mdata);
 	}
 
 	public function reset_password_confirmation()
