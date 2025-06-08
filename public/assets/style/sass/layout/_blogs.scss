@@ -1,0 +1,42 @@
+@use '../abstracts/variables' as var;
+@use '../abstracts/mixins' as mix;
+
+
+.news-card {
+    border: 1px solid #4b3a1f;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 20px;
+    background-color: rgb(30, 30, 30);
+
+    h5 {
+        font-weight: 700;
+        color: var.$text-primary-pnglobal;
+    }
+
+    p {
+        color: var.$text-white-pnglobal;
+        margin-bottom: 0;
+    }
+}
+
+.news-image {
+    max-width: 100%;
+    border-radius: 8px;
+}
+
+.news-source-time {
+    font-size: 0.85rem;
+    color: var.$text-white-pnglobal;
+    margin-bottom: 8px;
+}
+
+.finance-blogs {
+    margin-top: 70px;
+}
+
+@media (max-width: 768px) {
+    .finance-blogs {
+        margin-top: 50px;
+    }
+}

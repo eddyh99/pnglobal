@@ -84,7 +84,7 @@
                             <a class="nav-link" aria-current="page" href="<?= BASE_URL ?>homepage/training_course">TRAINING <br> COURSES</a>
                         </li>
                         <li class="nav-item me-0 me-xl-2">
-                            <a class="nav-link" href="<?= BASE_URL ?>?type=service">FINANCIAL <br> BLOG</a>
+                            <a class="nav-link" href="<?= BASE_URL ?>homepage/blogs">FINANCIAL <br> BLOG</a>
                         </li>
                         <!-- <li class="nav-item me-0 me-lg-3 d-flex align-items-center justify-content-center">
                         <a class="btn-navbar-referral" href="<?= BASE_URL ?>">LOGIN WITH REFERRAL</a>

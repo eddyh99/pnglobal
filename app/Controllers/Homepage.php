@@ -1801,4 +1801,16 @@ class Homepage extends BaseController
             ]);
         }
     }
+    
+    public function blogs(){
+        $url = URLAPI . "/blogs/all_blogs";
+        $response = satoshiAdmin($url)->result;
+        $mdata = [
+            'title'     => 'Financial Blogs - ' . NAMETITLE,
+            'content'   => 'homepage/blogs',
+            'blogpost'  => $response->message
+        ];
+
+        return view('homepage/layout/wrapper', $mdata);
+    }
 }
