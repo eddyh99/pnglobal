@@ -1,14 +1,16 @@
-<script src="https://muazkhan.com:9001/dist/RTCMultiConnection.js"></script>
-<script src="https://muazkhan.com:9001/node_modules/webrtc-adapter/out/adapter.js"></script>
+<!-- <script src="https://muazkhan.com:9001/dist/RTCMultiConnection.js"></script> -->
+<!-- <script src="https://muazkhan.com:9001/node_modules/webrtc-adapter/out/adapter.js"></script> -->
+<script src="<?= BASE_URL ?>assets/js/admin/mandatory/RTCMultiConnection.js"></script>
+<!-- <script src="https://webrtc.github.io/adapter/adapter-latest.js"></script> -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.7.2/socket.io.js"></script>
 <script>
     var connection = new RTCMultiConnection();
     var url = new URL(window.location.href);
     var broadcastId = url.searchParams.get("room_id");
-    var performer = false;
+    var performer = true;
 
     // Inisialisasi Connection
-    connection.socketURL = 'https://muazkhan.com:9001/';
+    connection.socketURL = 'http://localhost:9001/';
     connection.socketMessageEvent = 'ciak-liveshow';
     connection.extra.broadcastuser = 0;
     // Inisialisasi room opened even if owner leaves
@@ -38,6 +40,7 @@
     });
 
     $("#btnopen").on("click", function() {
+
         $("#txt-chat-message").removeAttr("disabled");
         $("#btn-chat-message").removeAttr("disabled");
         $("#btn-emoji-livestream").removeAttr("disabled");
@@ -76,21 +79,21 @@
     6. Confirmation start live performer type FREE Public & enable social media connect streaming
     ------------------------------------------------------------*/
     $("#startlive").on("click", function() {
-        if ($("#pil_yt").is(":checked")) {
-            rtmpurl = $("#youtube").val();
-            // rtmpurl.push($("#youtube").val());
-        }
-        if ($("#pil_fb").is(":checked")) {
-            rtmpurl = $("#facebook").val();
-            // rtmpurl.push($("#facebook").val());
-        }
-        if ($("#pil_ot1").is(":checked")) {
-            rtmpurl = $("#others1").val();
-        }
+        // if ($("#pil_yt").is(":checked")) {
+        //     rtmpurl = $("#youtube").val();
+        //     // rtmpurl.push($("#youtube").val());
+        // }
+        // if ($("#pil_fb").is(":checked")) {
+        //     rtmpurl = $("#facebook").val();
+        //     rtmpurl.push($("#facebook").val());
+        // }
+        // if ($("#pil_ot1").is(":checked")) {
+        //     rtmpurl = $("#others1").val();
+        // }
 
-        $("#livemodal-connect").modal("hide");
+        // $("#livemodal-connect").modal("hide");
 
-        connect_server();
+        // connect_server();
         connection.extra.userJoin = "performer";
         connection.open(broadcastId, function(isRoomOpened, roomid, error) {
             if (error) {
@@ -99,11 +102,12 @@
                     return;
                 }
                 alert(error);
-            } else {
-                $("#allviewer").show();
-                $("#btnopen").attr("disabled", "true");
-                $('.please-click-join-live').hide();
-            }
+            } 
+            // else {
+            //     $("#allviewer").show();
+            //     $("#btnopen").attr("disabled", "true");
+            //     $('.please-click-join-live').hide();
+            // }
 
             connection.socket.on('disconnect', function() {
                 location.reload();

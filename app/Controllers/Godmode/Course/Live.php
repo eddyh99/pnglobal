@@ -119,7 +119,7 @@ class Live extends BaseController
         $mdata = [
             'title'     => 'Live - ' . NAMETITLE,
             'content'   => 'godmode/course/live/livestream',
-            // 'extra'     => 'godmode/course/live/js/_js_livestream',
+            'extra'     => 'godmode/course/live/js/_js_livestream',
             'liveroom' => 'd-none',
             'mentor'    => $result->message ?? []
         ];
