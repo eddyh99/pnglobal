@@ -34,11 +34,13 @@ class Explore extends BaseController
             'title'     => 'Explore - ' . NAMETITLE,
             'content'   => 'godmode/course/explore/index',
             'extra'     => 'godmode/course/explore/js/_js_index',
+            'sidebar'   => 'course_sidebar',
+            'navbar_course' => 'active',
             'active_explore'    => 'active active-menu',
             'url'   => 'godmode/course/'
         ];
 
-        return view('godmode/course/layout/admin_wrapper', $mdata);
+        return view('godmode/layout/admin_wrapper', $mdata);
     }
 
     public function addnew()
@@ -50,11 +52,13 @@ class Explore extends BaseController
             'title'     => 'Add New - ' . NAMETITLE,
             'content'   => 'godmode/course/explore/addnew',
             //'extra'     => 'godmode/course/explore/js/_js_index',
+            'sidebar'   => 'course_sidebar',
+            'navbar_course' => 'active',
             'active_explore'    => 'active active-menu',
             'mentor'    => $result->message ?? []
         ];
 
-        return view('godmode/course/layout/admin_wrapper', $mdata);
+        return view('godmode/layout/admin_wrapper', $mdata);
     }
 
     public function store() {

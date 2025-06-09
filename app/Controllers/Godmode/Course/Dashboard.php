@@ -41,6 +41,8 @@ class Dashboard extends BaseController
             'title'     => 'Dashboard - ' . NAMETITLE,
             'content'   => 'godmode/course/dashboard/index',
             'extra'     => 'godmode/course/dashboard/js/_js_index',
+            'sidebar'   => 'course_sidebar',
+            'navbar_course' => 'active',
             'active_dash'    => 'active',
             'totalstudent'   => $resultstudent,
             'totalmentor'    => $resultmentor,
@@ -48,7 +50,7 @@ class Dashboard extends BaseController
 
         ];
 
-        return view('godmode/course/layout/admin_wrapper', $mdata);
+        return view('godmode/layout/admin_wrapper', $mdata);
     }
     
     public function paymentlink(){

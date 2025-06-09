@@ -13,12 +13,14 @@ class Live extends BaseController
         $mdata = [
             'title'     => 'Live - ' . NAMETITLE,
             'content'   => 'godmode/course/live/index',
+            'sidebar'   => 'course_sidebar',
+            'navbar_course' => 'active',
             'extra'     => 'godmode/course/live/js/_js_index',
             'active_live'    => 'active active-menu',
             'mentor'    => $result->message ?? []
         ];
 
-        return view('godmode/course/layout/admin_wrapper', $mdata);
+        return view('godmode/layout/admin_wrapper', $mdata);
     }
 
     public function store() {

@@ -203,6 +203,10 @@ class Dashboard extends BaseController
         return view('godmode/layout/admin_wrapper', $mdata);
     }
 
+    public function course() {
+        return redirect()->to(BASE_URL . 'godmode/course/dashboard');
+    }
+
     public function hedgefund()
     {
         $urlglobal = URL_HEDGEFUND . "/v1/member/get_statistics";
