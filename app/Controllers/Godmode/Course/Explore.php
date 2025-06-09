@@ -61,7 +61,9 @@ class Explore extends BaseController
         return view('godmode/layout/admin_wrapper', $mdata);
     }
 
-    public function store() {
+    public function store()
+    {
+
         $isValid = $this->validate([
             'title' => [
                 'label' => 'Title Course',
@@ -80,7 +82,7 @@ class Explore extends BaseController
                 'rules' => 'uploaded[cover]|mime_in[cover,image/jpg,image/jpeg,image/png]'
             ],
         ]);
-        
+
 
         // Checking Validation
         if (!$isValid) {
@@ -88,7 +90,31 @@ class Explore extends BaseController
             return redirect()->to(BASE_URL . 'godmode/course/explore/addnew')->withInput();
         }
 
-            
+        // validate videos
+        $videoFiles = $this->request->getFiles()['videos'] ?? [];
+
+        if (!array_filter($videoFiles, fn($video) => $video->isValid() && !$video->hasMoved())) {
+            session()->setFlashdata('failed', 'You must upload at least one video.');
+            return redirect()->to(BASE_URL . 'godmode/course/explore/addnew')->withInput();
+        }
+
+        foreach ($videoFiles as $idx => $video) {
+            $no = $idx + 1;
+
+            if (!$video->isValid() || 
+                !in_array($video->getClientMimeType(), ['video/mp4', 'video/webm']) || 
+                $video->getSize() > 20 * 1024 * 1024) {
+                
+                $errorMsg = !$video->isValid() ? "Video #$no failed to upload." :
+                            (!in_array($video->getClientMimeType(), ['video/mp4', 'video/webm']) ? 
+                            "Video #$no must be in mp4 or webm format." : 
+                            "Video #$no exceeds the 20MB size limit.");
+                
+                session()->setFlashdata('failed', $errorMsg);
+                return redirect()->to(BASE_URL . 'godmode/course/explore/addnew')->withInput();
+            }
+        }
+
         $mdata = [
             'title'        => $this->request->getVar('title'),
             'description'  => $this->request->getVar('description'),
@@ -97,11 +123,11 @@ class Explore extends BaseController
         ];
         $response = satoshiAdmin(URL_COURSE . "/v1/course/store", json_encode($mdata));
         $result = $response->result;
-    
-        if ($result->code != 201) {    
+
+        if ($result->code != 201) {
             session()->setFlashdata('failed', $result->message);
             return redirect()->to(BASE_URL . 'godmode/course/explore/addnew')->withInput();
-        } 
+        }
 
         session()->setFlashdata('success', $result->message);
         return redirect()->to(BASE_URL . 'godmode/course/explore');
