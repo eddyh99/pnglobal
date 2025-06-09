@@ -50,12 +50,14 @@ class Message extends BaseController
             'title'     => 'Course Member - ' . NAMETITLE,
             'content'   => 'godmode/course/message/index',
             'extra'     => 'godmode/course/message/js/_js_index',
+            'sidebar'   => 'course_sidebar',
+            'navbar_course' => 'active',
             'active_message'    => 'active active-menu',
             'messages'   => $messages,
             'url'   => 'godmode/course/'
         ];
 
-        return view('godmode/course/layout/admin_wrapper', $mdata);
+        return view('godmode/layout/admin_wrapper', $mdata);
     }
 
     public function read()

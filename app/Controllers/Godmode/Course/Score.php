@@ -12,9 +12,11 @@ class Score extends BaseController
             'title'     => 'Course Member - ' . NAMETITLE,
             'content'   => 'godmode/course/score/index',
             'extra'     => 'godmode/course/score/js/_js_index',
+            'sidebar'   => 'course_sidebar',
+            'navbar_course' => 'active',
             'active_score'    => 'active active-menu',
         ];
 
-        return view('godmode/course/layout/admin_wrapper', $mdata);
+        return view('godmode/layout/admin_wrapper', $mdata);
     }
 }

@@ -14,7 +14,7 @@
     <span class="mb-5">BY ${data.mentor}</span>
 
     <h4>Start at: ${data.start_date}</h4>
-    <button class="btn btn-primary mt-3 py-2" onclick="window.location.href='<?= BASE_URL ?>/course/member/joinlive'">Join Live Course</button>
+    <button class="btn btn-primary mt-3 py-2" onclick="window.location.href='<?= BASE_URL ?>/course/member/joinlive?room_id=${data.roomid}'" ${data.remaining > 60 ? 'disabled' : ''}>Join Live Course</button>
     <small class="mt-1 text-white">This button will active 1 hour before live started</small>`
                 $('#live').append(content);
 

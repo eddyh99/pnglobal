@@ -12,10 +12,12 @@ class User extends BaseController
             'title'     => 'Course Member - ' . NAMETITLE,
             'content'   => 'godmode/course/user/member',
             'extra'     => 'godmode/course/user/js/_js_member',
+            'sidebar'   => 'course_sidebar',
+            'navbar_course' => 'active',
             'active_member'    => 'active active-menu',
         ];
 
-        return view('godmode/course/layout/admin_wrapper', $mdata);
+        return view('godmode/layout/admin_wrapper', $mdata);
     }
     
     public function mentor(){
@@ -23,10 +25,12 @@ class User extends BaseController
             'title'     => 'Course Mentor - ' . NAMETITLE,
             'content'   => 'godmode/course/user/mentor',
             'extra'     => 'godmode/course/user/js/_js_mentor',
+            'sidebar'   => 'course_sidebar',
+            'navbar_course' => 'active',
             'active_mentor'    => 'active active-menu',
         ];
 
-        return view('godmode/course/layout/admin_wrapper', $mdata);
+        return view('godmode/layout/admin_wrapper', $mdata);
     }
 
     public function adduser()

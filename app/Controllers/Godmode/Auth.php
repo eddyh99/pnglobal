@@ -344,7 +344,7 @@ class Auth extends BaseController
 
 	private function update_password_satoshi($mdata) {
         $mdata += ['isgodmode' => true];
-		$url = URLAPI2 . "/auth/reset_password";
+		$url = URLAPI2 . "/auth/updatepassword";
 		$response = satoshiAdmin($url, json_encode($mdata));
 		$result = $response->result;
 

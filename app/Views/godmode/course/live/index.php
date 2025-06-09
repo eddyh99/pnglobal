@@ -47,7 +47,7 @@
                                 <span><b>Title</b></span>
                             </div>
                             <div class="col">
-                                <input type="text" name="title" class="form-control border-primary text-white" value="Title of course">
+                                <input type="text" name="title" class="form-control-custom border-primary text-white" value="Title of course">
                             </div>
                         </div>
                         <div class="row my-3">
@@ -70,7 +70,7 @@
                                 <span><b>Start Date</b></span>
                             </div>
                             <div class="col">
-                                <input type="date" name="start_date" class="form-control border-primary text-white" value="<?= date('Y-m-d') ?>" min="<?= date('Y-m-d') ?>">
+                                <input type="date" name="start_date" class="form-control-custom border-primary text-white" value="<?= date('Y-m-d') ?>" min="<?= date('Y-m-d') ?>">
                             </div>
                         </div>
                         <div class="row my-3">
@@ -78,7 +78,7 @@
                                 <span><b>TIme</b></span>
                             </div>
                             <div class="col">
-                                <input type="time" name="time" class="form-control border-primary text-white" value="12:00">
+                                <input type="time" name="time" class="form-control-custom border-primary text-white" value="12:00">
                             </div>
                         </div>
                         <div class="row mb-3">
@@ -86,7 +86,7 @@
                                 <span><b>Duration</b></span>
                             </div>
                             <div class="col">
-                                <input id="duration" type="time" name="duration" class="form-control border-primary text-white" value="01:00" step="60">
+                                <input id="duration" type="time" name="duration" class="form-control-custom border-primary text-white" value="01:00" step="60">
                             </div>
                         </div>
                         <div class="row">
@@ -94,7 +94,7 @@
                                 <span><b>Save to</b></span>
                             </div>
                             <div class="col">
-                                <select class="form-control border-primary text-white" name="course_id" id="">
+                                <select class="form-control-custom border-primary text-white" name="course_id" id="">
                                     <option value="">Course 1</option>
                                 </select>
                             </div>
