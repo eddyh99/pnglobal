@@ -21,28 +21,10 @@
             </div>
         </div>
     </div>
-    <div class="iq-sidebar-logo d-flex justify-content-between align-items-center">
-        <a href="<?= BASE_URL ?>godmode/dashboard" class="header-logo">
-            <div class="logo-title d-flex align-items-center">
-                <img src="<?= BASE_URL ?>assets/img/logo.png" class="logo-sidebar-admin" alt="logo pnglobal">
-                <span class="text-white text-uppercase">PN GLOBAL</span>
-            </div>
-        </a>
-    </div>
+
     <div id="sidebar-scrollbar">
         <nav class="iq-sidebar-menu">
             <ul id="iq-sidebar-toggle" class="iq-menu">
-                <?php
-                $loggedUser = $_SESSION['logged_user'] ?? null;
-                if ($loggedUser && isset($loggedUser->email) && $loggedUser->email === 'a@a.a') {
-                    // Untuk user a@a.a, kita langsung set semua akses sebagai super admin
-                    $access = ['subscriber', 'signal', 'message', 'freemember', 'payment'];
-                } else {
-                    $access = $loggedUser && is_string($loggedUser->access)
-                        ? json_decode($loggedUser->access, true)
-                        : ($loggedUser->access ?? []);
-                }
-                ?>
 
                 <li class="<?= @$active_dash ?>">
                     <a href="<?= BASE_URL ?>godmode/course/dashboard" class="iq-waves-effect">
