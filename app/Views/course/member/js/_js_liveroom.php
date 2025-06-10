@@ -8,6 +8,7 @@
     const videos = [];
     let currentPage = 0;
     const pageSize = 25;
+    let modePerformerOnly = false;
 
     // Inisialisasi Connection
     connection.socketURL = 'https://webrtc.pnglobalinternational.com:9001/';
@@ -15,7 +16,7 @@
     connection.extra.broadcastuser = 0;
     // Inisialisasi room opened even if owner leaves
     connection.autoCloseEntireSession = false;
-    connection.maxParticipantsAllowed = 1000;
+    connection.maxParticipantsAllowed = 200;
 
     // Inisialisasi AUDIO, VIDEO, DATA RTCMultiConnection
     connection.session = {
@@ -47,7 +48,10 @@
         wrapper.appendChild(label);
 
         // Simpan dan tambahkan langsung ke DOM
-        videos.push(wrapper);
+        videos.push({
+            wrapper: wrapper,
+            isPerformer: label?.textContent.includes('🎤')
+        });
         document.getElementById('video-container').appendChild(wrapper);
     }
 
@@ -110,7 +114,10 @@
         wrapper.appendChild(video);
         wrapper.appendChild(label);
 
-        videos.push(wrapper);
+        videos.push({
+            wrapper: wrapper,
+            isPerformer: label.textContent.includes('🎤')
+        });
         document.getElementById('video-container').appendChild(wrapper);
         renderPage();
     };
@@ -133,6 +140,11 @@
         console.log("");
     };
 
+
+    /*----------------------------------------------------------
+    15. Exit Room
+    ------------------------------------------------------------*/
+
     $("#btnleave").on("click", function(e) {
         e.preventDefault();
         connection.getAllParticipants().forEach(function(participantId) {
@@ -143,19 +155,49 @@
     })
 
 
-    function renderPage() {
-        videos.forEach((wrapper, index) => {
-            if (index >= currentPage * pageSize && index < (currentPage + 1) * pageSize) {
-                wrapper.style.display = 'block';
-            } else {
-                wrapper.style.display = 'none';
-            }
-        });
 
-        document.getElementById('prevbtn').disabled = currentPage === 0;
-        document.getElementById('nextbtn').disabled = (currentPage + 1) * pageSize >= videos.length;
+    /*----------------------------------------------------------
+    15. Render for pagination
+    ------------------------------------------------------------*/
+    function renderPage() {
+        const container = document.getElementById('video-container');
+        container.classList.remove('performer-mode', 'normal-mode');
+
+        if (modePerformerOnly) {
+            container.classList.add('performer-mode');
+
+            videos.forEach(v => {
+                v.wrapper.style.display = v.isPerformer ? 'block' : 'none';
+            });
+
+            document.getElementById('prevbtn').style.display = 'none';
+            document.getElementById('nextbtn').style.display = 'none';
+
+        } else {
+            container.classList.add('normal-mode');
+
+            const start = currentPage * pageSize;
+            const end = start + pageSize;
+
+            videos.forEach((v, i) => {
+                v.wrapper.style.display = (i >= start && i < end) ? 'block' : 'none';
+            });
+
+            document.getElementById('prevbtn').style.display = 'inline-block';
+            document.getElementById('nextbtn').style.display = 'inline-block';
+
+            document.getElementById('prevbtn').disabled = currentPage === 0;
+            document.getElementById('nextbtn').disabled = end >= videos.length;
+        }
     }
 
+
+
+
+
+    /*----------------------------------------------------------
+    15. Previous screen
+    ------------------------------------------------------------*/
     document.getElementById('prevbtn').onclick = () => {
         if (currentPage > 0) {
             currentPage--;
@@ -163,10 +205,20 @@
         }
     };
 
+
+
+    /*----------------------------------------------------------
+    15. Next Screen
+    ------------------------------------------------------------*/
     document.getElementById('nextbtn').onclick = () => {
         if ((currentPage + 1) * pageSize < videos.length) {
             currentPage++;
             renderPage();
         }
     }
+
+    document.getElementById('modebtn').onclick = () => {
+        modePerformerOnly = !modePerformerOnly;
+        renderPage(); 
+    };
 </script>
