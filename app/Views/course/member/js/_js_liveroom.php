@@ -1,5 +1,7 @@
 <script src="<?= BASE_URL ?>assets/js/admin/mandatory/RTCMultiConnection.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.7.2/socket.io.js"></script>
+<script src="https://cdn.webrtc-experiment.com/RecordRTC.js"></script>
+
 <script>
     var connection = new RTCMultiConnection();
     var url = new URL(window.location.href);
@@ -9,6 +11,11 @@
     let currentPage = 0;
     const pageSize = 25;
     let modePerformerOnly = false;
+    let recorder, drawInterval;
+    const canvas = document.getElementById('recordCanvas');
+    const ctx = canvas.getContext('2d');
+    const videosx = Array.from(document.querySelectorAll('#video-container video'));
+    
 
     // Inisialisasi Connection
     connection.socketURL = 'https://webrtc.pnglobalinternational.com:9001/';
@@ -219,6 +226,74 @@
 
     document.getElementById('modebtn').onclick = () => {
         modePerformerOnly = !modePerformerOnly;
-        renderPage(); 
+        renderPage();
     };
+
+
+    // record meeting
+    function drawAllVideos() {
+    const cols = 5;
+    const rows = Math.ceil(videosx.length / cols);
+    const videoWidth = canvas.width / cols;
+    const videoHeight = canvas.height / rows;
+
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    videosx.forEach((video, i) => {
+        const x = (i % cols) * videoWidth;
+        const y = Math.floor(i / cols) * videoHeight;
+        try {
+            ctx.drawImage(video, x, y, videoWidth, videoHeight);
+        } catch (err) {
+            // video belum siap — bisa diabaikan
+        }
+    });
+}
+
+function getMixedAudioStream() {
+    const audioCtx = new AudioContext();
+    const destination = audioCtx.createMediaStreamDestination();
+
+    videosx.forEach(video => {
+        const source = audioCtx.createMediaElementSource(video);
+        source.connect(destination);
+    });
+
+    return destination.stream;
+}
+
+document.getElementById('startRecord').onclick = () => {
+    const canvasStream = canvas.captureStream(30); // 30 FPS
+    const audioStream = getMixedAudioStream();
+
+    const finalStream = new MediaStream([
+        ...canvasStream.getVideoTracks(),
+        ...audioStream.getAudioTracks()
+    ]);
+
+    recorder = new RecordRTC(finalStream, {
+        type: 'video'
+    });
+
+    drawInterval = setInterval(drawAllVideos, 1000 / 30);
+    recorder.startRecording();
+
+    document.getElementById('startRecord').disabled = true;
+    document.getElementById('stopRecord').disabled = false;
+};
+
+document.getElementById('stopRecord').onclick = () => {
+    clearInterval(drawInterval);
+    recorder.stopRecording(() => {
+        const blob = recorder.getBlob();
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = 'grid-recording.webm';
+        a.click();
+    });
+
+    document.getElementById('startRecord').disabled = false;
+    document.getElementById('stopRecord').disabled = true;
+};
 </script>
