@@ -8,68 +8,39 @@ class Message extends BaseController
 {
     public function index()
     {
-        $messages = [
-            [
-                'sender' => 'john.doe@example.com',
-                'subject' => 'Meeting Schedule',
-                'sent_date' => '2025-04-30',
-                'isread'    => false,
-                'isfav'     => true
-            ],
-            [
-                'sender' => 'jane.smith@example.com',
-                'subject' => 'Project Update',
-                'sent_date' => '2025-04-29',
-                'isread'    => false,
-                'isfav'     => true
-            ],
-            [
-                'sender' => 'mark.jones@example.com',
-                'subject' => 'Invoice Details',
-                'sent_date' => '2025-04-28',
-                'isread'    => true,
-                'isfav'     => false
-            ],
-            [
-                'sender' => 'jane.smith@example.com',
-                'subject' => 'Project Update',
-                'sent_date' => '2025-04-29',
-                'isread'    => true,
-                'isfav'     => false
-            ],
-            [
-                'sender' => 'mark.jones@example.com',
-                'subject' => 'Invoice Details',
-                'sent_date' => '2025-04-28',
-                'isread'    => true,
-                'isfav'     => false
-            ]
-        ];
-        
+        $admin_course_id  = satoshiAdmin(URL_COURSE . "/v1/user/user_byemail?email=".$_SESSION["logged_user"]->email)->result->message->id;
+
+        $qmessage = satoshiAdmin(URL_COURSE . "/v1/message/all_message?id=".$admin_course_id)->result;
+        $messages = $qmessage->message ?? null;
+
+        $response = satoshiAdmin(URL_COURSE . "/v1/user/member_email");
+        $result = $response->result ?? [];
+
         $mdata = [
-            'title'     => 'Course Member - ' . NAMETITLE,
+            'title'     => 'Messages - ' . NAMETITLE,
             'content'   => 'godmode/course/message/index',
             'extra'     => 'godmode/course/message/js/_js_index',
             'sidebar'   => 'course_sidebar',
             'navbar_course' => 'active',
             'active_message'    => 'active active-menu',
             'messages'   => $messages,
+            'member'     => $result->message,
             'url'   => 'godmode/course/'
         ];
 
         return view('godmode/layout/admin_wrapper', $mdata);
     }
 
-    public function read()
+    public function read($id=null)
     {
-        $msg = [
-                'sender' => 'mark.jones@example.com',
-                'subject' => 'Invoice Details',
-                'sent_date' => '2025-04-28',
-                'text' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta vel perspiciatis a nesciunt repudiandae porro necessitatibus libero consequuntur accusantium laudantium tempora dignissimos error velit ipsam magnam quibusdam, eveniet fugit doloribus earum autem culpa. Vitae cupiditate magni consectetur eius quaerat aperiam enim tenetur aspernatur quis doloremque illo, placeat quod, mollitia iste. Aut unde veniam tenetur perspiciatis reprehenderit suscipit, eum est, sed voluptas expedita vel autem exercitationem, sequi dignissimos dolor rerum fuga nam. Facere, quis molestiae. Doloremque facere minus accusamus eaque consequatur dolor. Omnis nostrum alias eligendi quam nihil ratione. Distinctio dignissimos corrupti totam ad explicabo incidunt neque libero quae facere atque sit illoe.',
-                'isread'    => true,
-                'isfav'     => false
-        ];
+        if (empty($id)){
+            session()->setFlashdata('failed', "No message chosen");
+            return redirect()->to(BASE_URL . 'godmode/course/message');
+        }
+        
+        $qmessage = satoshiAdmin(URL_COURSE . "/v1/message/message_byid?id=".$id)->result;
+        $msg = $qmessage->message ?? null;
+        
 
         $mdata = [
             'title'     => 'Message - ' . NAMETITLE,
@@ -80,5 +51,52 @@ class Message extends BaseController
         ];
 
         return view('godmode/course/layout/admin_wrapper', $mdata);
+    }
+    
+    public function send_message(){
+        $isValid = $this->validate([
+            'subject' => [
+                'label' => 'Subject',
+                'rules' => 'required',
+            ],
+            'message' => [
+                'label' => 'Message Content',
+                'rules' => 'required',
+            ],
+            'member' => [
+                'label' => 'To',
+                'rules' => 'required'
+            ],
+        ]);
+
+        // Checking Validation
+        if (!$isValid) {
+            session()->setFlashdata('failed', $this->validation->listErrors());
+            return redirect()->to(BASE_URL . 'godmode/course/message')->withInput();
+        }
+        
+        $member = $this->request->getVar('member');
+        $admin_course_id  = satoshiAdmin(URL_COURSE . "/v1/user/user_byemail?email=".$_SESSION["logged_user"]->email)->result->message->id;
+
+        $mdata = array();
+        foreach ($member as $dt){
+            $temp["sender_id"] = $admin_course_id;
+            $temp["receiver_id"] = $dt;
+            $temp["subject"] = htmlspecialchars($this->request->getVar('subject'));
+            $temp["content"] = $this->request->getVar('message');
+
+            array_push($mdata,$temp);
+        }
+        
+        $response = satoshiAdmin(URL_COURSE . "/v1/message/send_message", json_encode($mdata));
+        $result = $response->result;
+        if (@$result->code != 201) {
+            session()->setFlashdata('failed', $result->message);
+            return redirect()->to(BASE_URL . 'godmode/course/message')->withInput();
+        }
+
+        session()->setFlashdata('success', $result->message);
+        return redirect()->to(BASE_URL . 'godmode/course/message');
+
     }
 }

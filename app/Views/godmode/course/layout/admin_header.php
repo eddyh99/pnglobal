@@ -16,6 +16,9 @@
       <link rel="stylesheet" href="<?= BASE_URL?>assets/style/css/admin/mandatory/style.css">
       <!-- Responsive CSS -->
       <link rel="stylesheet" href="<?= BASE_URL?>assets/style/css/admin/mandatory/responsive.css">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css">
+      <link href="https://cdn.jsdelivr.net/npm/@ttskch/select2-bootstrap4-theme@1.5.2/dist/select2-bootstrap4.min.css" rel="stylesheet" />
+
       <!-- Summer Note -->
       <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
       <!-- Datatables CSS -->

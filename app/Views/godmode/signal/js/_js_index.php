@@ -1413,9 +1413,10 @@
                 success: function(response) {
                     console.log(response);
                     
-                    // Pastikan response punya struktur { fund_balance: ..., trade_balance: ... }
-                    $('#fund_balance').text(response.fund_usdt + ' USDT');
-                    $('#trade_balance').text(response.trade_usdt + ' USDT');
+                    $('#fund_balance').text(Number(response.fund_usdt).toLocaleString('en', { minimumFractionDigits: 2, maximumFractionDigits: 2 }));
+                    $('#trade_balance').text(Number(response.trade_usdt).toLocaleString('en', { minimumFractionDigits: 2, maximumFractionDigits: 2 }));
+
+
                 },
                 error: function(xhr, status, error) {
                     console.error("Gagal mengambil data balance:", error);

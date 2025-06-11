@@ -91,19 +91,15 @@ class Explore extends BaseController
         }
 
         // validate videos
-        $title = $this->request->getVar('title');
         $videoFiles = $this->request->getFiles()['videos'] ?? [];
-        $path = 'assets/course/videos/';
-        $videos = [];
 
-        // if (!array_filter($videoFiles, fn($video) => $video->isValid() && !$video->hasMoved())) {
-        //     session()->setFlashdata('failed', 'You must upload at least one video.');
-        //     return redirect()->to(BASE_URL . 'godmode/course/explore/addnew')->withInput();
-        // }
+        if (!array_filter($videoFiles, fn($video) => $video->isValid() && !$video->hasMoved())) {
+            session()->setFlashdata('failed', 'You must upload at least one video.');
+            return redirect()->to(BASE_URL . 'godmode/course/explore/addnew')->withInput();
+        }
 
         foreach ($videoFiles as $idx => $video) {
             $no = $idx + 1;
-            $videos[] = $path . time() . '_' . $no . '.' . $video->getExtension();
 
             if (!$video->isValid() || 
                 !in_array($video->getClientMimeType(), ['video/mp4', 'video/webm']) || 
@@ -120,14 +116,11 @@ class Explore extends BaseController
         }
 
         $mdata = [
-            'title'        => $title,
+            'title'        => $this->request->getVar('title'),
             'description'  => $this->request->getVar('description'),
             'mentor_id'    => $this->request->getVar('mentor_id'),
-            'cover'        => 'course/course-1.png',
-            'videos'       => $videos
+            'cover'        => 'course/course-1.png'
         ];
-
-        // dd($mdata);
         $response = satoshiAdmin(URL_COURSE . "/v1/course/store", json_encode($mdata));
         $result = $response->result;
 

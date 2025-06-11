@@ -134,7 +134,6 @@ class Member extends BaseController
         $mdata = [
             'title'     => 'Live Course - ' . NAMETITLE,
             'content'   => 'course/member/liveroom',
-            'extra'   => 'course/member/js/_js_liveroom',
             'active_live'    => 'active',
             'liveroom' => 'd-none'
         ];

@@ -38,7 +38,7 @@
         <!-- Slick JavaScript -->
         <script src="<?= BASE_URL?>assets/js/admin/mandatory/slick.min.js"></script>
         <!-- Select2 JavaScript -->
-        <script src="<?= BASE_URL?>assets/js/admin/mandatory/select2.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
         <!-- Owl Carousel JavaScript -->
         <script src="<?= BASE_URL?>assets/js/admin/mandatory/owl.carousel.min.js"></script>
         <!-- Magnific Popup JavaScript -->

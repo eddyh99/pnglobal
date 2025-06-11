@@ -16,12 +16,12 @@
       <link rel="stylesheet" href="<?= BASE_URL?>assets/style/css/admin/mandatory/style.css">
       <!-- Responsive CSS -->
       <link rel="stylesheet" href="<?= BASE_URL?>assets/style/css/admin/mandatory/responsive.css">
-      <!-- Summer Note -->
-      <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
       <!-- Datatables CSS -->
       <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/dataTables.bootstrap5.min.css" />
       <!-- Custom CSS -->
       <link rel="stylesheet" href="<?= BASE_URL?>assets/style/css/admin/custom.css">
+      <!-- Summer Note -->
+      <link href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.9.1/summernote-bs4.min.css" rel="stylesheet">
    </head>
    <nav style="position: sticky; top: 0;z-index: 900;background-color: #070707;">
       <div class="d-flex justify-content-between mx-4">

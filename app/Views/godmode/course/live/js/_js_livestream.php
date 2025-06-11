@@ -10,13 +10,12 @@
     var performer = true;
 
     // Inisialisasi Connection
-    connection.socketURL = 'https://webrtc.pnglobalinternational.com:9001/';
+    connection.socketURL = 'http://localhost:9001/';
     connection.socketMessageEvent = 'ciak-liveshow';
     connection.extra.broadcastuser = 0;
     // Inisialisasi room opened even if owner leaves
     connection.autoCloseEntireSession = false;
     connection.maxParticipantsAllowed = 1000;
-    connection.extra.roomOwner = true;
 
     // Inisialisasi AUDIO, VIDEO, DATA RTCMultiConnection
     connection.session = {
@@ -158,13 +157,10 @@
     14. connection onstream berfungsi receive all local or remote media streaming
     ------------------------------------------------------------*/
     connection.onstream = function(event) {
-        
         if (event.extra.roomOwner === true) {
             event.mediaElement.controls = false;
             var video = document.getElementById('main-video');
             video.setAttribute('data-streamid', event.streamid);
-            console.log('disini');
-            
 
             // video.style.display = 'none';
             if (event.type === 'local') {

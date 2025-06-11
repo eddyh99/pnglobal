@@ -39,86 +39,151 @@
     });
 </script>
 <style>
-    .ck.ck-toolbar {
-        background-color: #B48B3D;
+  /* Change the border color of the editable area */
+  .note-editor .note-editable {
+    border: 2px solid #B48B3D; /* Light blue border */
+  }
+
+  /* Optional: Add some padding or styling to the editor */
+  .note-editor {
+    border: 2px solid #B48B3D;
+    border-radius: 5px;
+  }
+
+  /* Change the background color of the toolbar */
+  .note-toolbar {
+    background-color: #B48B3D; /* Light grey background */
+    border-bottom: 1px solid #ccc;
+  }
+
+  /* Optional: Adjust toolbar button styles */
+  .note-toolbar .btn {
+    border: 1px solid #ddd;
+    color: #000;
+  }
+
+  /* Optional: Change button hover */
+  .note-toolbar .btn:hover {
+    background-color: #e0e0e0;
+  }
+  /* Style the popover container */
+    .note-popover {
+      background-color: #B48B3D !important;
+      border: 1px solid #A0752F !important;
+      border-radius: 4px;
+    }
+    
+    /* Style buttons inside the popover */
+    .note-popover .popover-content .btn {
+      border: 1px solid #ddd;
+      color: #000;
+    }
+    
+    /* Hover effect for popover buttons */
+    .note-popover .popover-content .btn:hover {
+      background-color: #e0e0e0;
     }
 
-    .ck.ck-toolbar .ck-button {
-        color: white !important;
+/*select2 */
+    /* Fix for Select2 selected tags showing vertically */
+    .select2-container--bootstrap4 .select2-selection--multiple .select2-selection__rendered {
+      display: flex !important;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.25rem;
+      padding : 3px;
+      text-align: left !important;
+    }
+    
+    /* Fix white text in dropdown list */
+    .select2-container--bootstrap4 .select2-results__option {
+      color: #000 !important;
+      background-color: #fff !important;
+    }
+    
+    /* Optional: highlight selected item */
+    .select2-container--bootstrap4 .select2-results__option--highlighted {
+      background-color: #B48B3D !important;
+      color: #fff !important;
+    }
+    
+    .select2-container--bootstrap4 {
+      background-color: #fff !important;
+      border: 1px solid #ced4da !important;
+    }
+    
+    /* Style the selected items (tags) */
+    .select2-container--bootstrap4 .select2-selection--multiple .select2-selection__choice {
+      background-color: #B48B3D !important;
+      color: #000 !important;               /* black text */
+      border: 1px solid #ced4da !important;
+      padding: 0.1rem 0.5rem !important;
+      border-radius: 4px;
+    }
+    
+    /* Style the "x" close button on tags */
+    .select2-container--bootstrap4 .select2-selection--multiple .select2-selection__choice__remove {
+      color: #dc3545 !important;            /* Bootstrap red */
+      margin-right: 0.25rem;
+      font-weight: bold;
+    }
+    
+    .select2-container--bootstrap4 .select2-selection--multiple .select2-selection__choice__remove:hover {
+      color: #bd2130 !important;
     }
 
-    .ck.ck-toolbar .ck-button svg {
-        fill: white !important;
-    }
 
-    .ck.ck-editor__main .ck-editor__editable:focus {
-        border: 2px solid #B48B3D !important;
-        /* Border kuning */
-        outline: none;
-    }
-
-    .ck-editor__editable_inline {
-        font-size: 16px;
-        font-family: Arial, sans-serif;
-    }
-
-    .ck.ck-editor__main>.ck-editor__editable {
-        min-height: 350px;
-        background-color: #000000;
-        color: #B48B3D;
-    }
-
-    .table-bordered {
-        border: 3px solid #B48B3D;
-        /* Mengatur warna border menjadi biru dan menebalkan */
-        border-collapse: collapse;
-    }
-
-    .table-bordered td,
-    .table-bordered th {
-        border: 3px solid #B48B3D;
-        /* Menebalkan border pada sel dan mengubah warnanya */
-        padding: 10px;
-    }
-
-    .table-bordered td {
-        border-left: none;
-        /* Menghilangkan garis kiri pada setiap sel */
-        border-right: none;
-        /* Menghilangkan garis kanan pada setiap sel */
-    }
-
-    .table-bordered td:nth-child(2) {
-        border-right: none;
-        /* Menghilangkan garis kanan pada kolom kedua */
-    }
-
-    .table-bordered td:first-child {
-        border-left: 3px solid #B48B3D;
-        /* Menambahkan border kiri pada kolom pertama */
-    }
-
-    .table-bordered td:last-child {
-        border-right: 3px solid #B48B3D;
-        /* Menambahkan border kanan pada kolom terakhir */
-    }
-</style>
-<script src="https://cdn.ckeditor.com/ckeditor5/39.0.1/classic/ckeditor.js"></script>
+  </style>
 <script>
-    document.addEventListener('DOMContentLoaded', function() {
-        ClassicEditor
-            .create(document.querySelector('#editor'), {
-                simpleUpload: {
-                    uploadUrl: '/upload.php'
-                }
-            })
-            .catch(error => {
-                console.error(error);
+    document.addEventListener('DOMContentLoaded', function () {
+      $('#editor').summernote({
+        height: 400,
+        toolbar: [
+          ['style', ['bold', 'italic']],
+          ['insert', ['btnImage']] // Custom button
+        ],
+        buttons: {
+          btnImage: function (context) {
+            var ui = $.summernote.ui;
+            var button = ui.button({
+              contents: '<i class="note-icon-picture"></i>',
+              tooltip: 'Insert Image',
+              click: function () {
+                $('#summerModal').modal('show');
+              }
             });
+            return button.render();
+          }
+        }
+      });
+    
+      // Clear file input when modal is shown
+      $('#summerModal').on('shown.bs.modal', function () {
+        $('#customImageInput').val('');
+      });
+    
+      // Insert selected image
+      $('#insertCustomImage').on('click', function () {
+        const fileInput = document.getElementById('customImageInput');
+        const file = fileInput.files[0];
+        if (file) {
+          const reader = new FileReader();
+          reader.onload = function (e) {
+            $('#editor').summernote('insertImage', e.target.result);
+            $('#summerModal').modal('hide');
+          };
+          reader.readAsDataURL(file);
+        }
+      });
     });
 
     $('.subject').on('click', function() {
         $('.subject').removeClass('active');
         $(this).addClass('active');
     });
+    
+    $('#member').select2({
+        theme: 'bootstrap4',
+    });
+
 </script>
