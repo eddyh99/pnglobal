@@ -10,7 +10,7 @@
     var performer = true;
 
     // Inisialisasi Connection
-    connection.socketURL = 'http://localhost:9001/';
+    connection.socketURL = 'https://webrtc.pnglobalinternational.com:9001/';
     connection.socketMessageEvent = 'ciak-liveshow';
     connection.extra.broadcastuser = 0;
     // Inisialisasi room opened even if owner leaves
@@ -102,7 +102,7 @@
                     return;
                 }
                 alert(error);
-            } 
+            }
             // else {
             //     $("#allviewer").show();
             //     $("#btnopen").attr("disabled", "true");
@@ -173,6 +173,11 @@
         }
     };
 
+    connection.onmessage = function(event) {
+        const data = event.data;
+        displayMsg(data.from || "Friend", data.text);
+    };
+
     /*----------------------------------------------------------
     15. Connection End
     ------------------------------------------------------------*/
@@ -195,4 +200,32 @@
         connection.closeSocket();
         window.location.href = "<?= base_url() ?>homepage";
     })
+
+    function displayMsg(name, msg) {
+        const chatContainer = document.getElementById('livechat');
+        const p = document.createElement('p');
+        p.innerHTML = `<strong>${name}:</strong> ${msg}`;
+        chatContainer.appendChild(p);
+
+        // Scroll otomatis ke bawah
+        chatContainer.scrollTop = chatContainer.scrollHeight;
+    }
+
+    $("#sendmsg").on('click', function() {
+    const msg = $("#message").val();
+    const sender = $("#message").data("sender");
+
+    if (msg && connection.getAllParticipants().length > 0) {
+        connection.send({ from: sender, text: msg });
+        displayMsg("You", msg);
+        $("#message").val("");
+    }
+});
+
+document.getElementById('muteall').addEventListener('click', function () {
+    console.log('mute all');
+    
+    connection.send({ action: 'mute_me' }); // Broadcast ke semua user
+});
+
 </script>

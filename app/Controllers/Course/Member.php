@@ -131,10 +131,13 @@ class Member extends BaseController
 
     public function joinlive() {
 
+        $user = session()->get('logged_usercourse');
         $mdata = [
             'title'     => 'Live Course - ' . NAMETITLE,
             'content'   => 'course/member/liveroom',
+            'extra'   => 'course/member/js/_js_liveroom',
             'active_live'    => 'active',
+            'user'    => $user->name ?? 'Anonym',
             'liveroom' => 'd-none'
         ];
 

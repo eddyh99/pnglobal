@@ -1,13 +1,74 @@
-<div class="d-flex flex-column mx-5 my-2 text-center" style="height: 95vh;">
-    <!-- Baris utama: isi sisa tinggi -->
-    <div class="row flex-grow-1 my-4">
-        <div id="videolive" class="col border border-2 border-primary">
-        <video id="main-video" class="main-live-camera" autoplay="autoplay"></video>
+<style>
+    #video-container.normal-mode {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        /* 5 kolom */
+        grid-template-rows: repeat(5, 1fr);
+        /* 5 baris */
+        gap: 10px;
+        height: 90vh;
+        /* penuh 1 layar */
+        padding: 10px;
+        box-sizing: border-box;
+        overflow: hidden;
+    }
+
+    #video-container.performer-mode {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+        gap: 20px;
+        /* lebih lega */
+        padding: 20px;
+        box-sizing: border-box;
+        overflow: hidden;
+        height: 90vh;
+    }
+
+
+    .video-wrapper {
+        background: black;
+        width: 100%;
+        height: 100%;
+        position: relative;
+    }
+
+    .video-wrapper video {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 8px;
+    }
+
+    .badge-overlay {
+        position: absolute;
+        top: 5px;
+        left: 5px;
+        background: rgba(0, 0, 0, 0.5);
+        color: white;
+        padding: 2px 6px;
+        font-size: 12px;
+        border-radius: 4px;
+    }
+</style>
+
+<div class="d-flex flex-column mx-3 my-2 text-center" style="height: 100vh;">
+    <div class="row m-0 mb-2 h-100">
+        <div class="col-9 p-0 border border-2 border-primary">
+        <canvas class="d-none" id="recordCanvas" width="1280" height="720"></canvas>
+            <div id="video-container">
+                <!-- <?php for ($i = 0; $i < 20; $i++): ?>
+                    <div class="video-wrapper">
+                        <video autoplay playsinline muted></video>
+                        <div class="badge-overlay">👤 Member <?= $i + 1 ?></div>
+                    </div>
+                <?php endfor; ?> -->
+            </div>
         </div>
+
         <div id="chatlive" class="col-3">
             <div class="d-flex flex-column h-100 border border-primary p-2 text-white">
                 <!-- Chat body -->
-                <div class="flex-grow-1 overflow-auto mb-2" style="max-height: 70vh;">
+                <div id="livechat" class="flex-grow-1 overflow-auto mb-2" style="max-height: 80vh;">
                     <p><strong>Amos:</strong> what are you doing here Rebecca?</p>
                     <p><strong>Becky:</strong> I'm learning about crypto.</p>
                     <p><strong>Amos:</strong> I can teach you my dear...</p>
@@ -26,8 +87,8 @@
 
                 <!-- Chat input -->
                 <div class="d-flex align-items-center border border-primary rounded p-1">
-                    <input type="text" class="form-control bg-transparent text-white border-0" placeholder="Message...">
-                    <button class="btn btn-sm ms-2">
+                    <input id="message" type="text" data-sender="<?= $user ?>" class="form-control bg-transparent text-white border-0" placeholder="Message...">
+                    <button class="btn btn-sm ms-2" id="sendmsg">
                         <i class="fa fa-paper-plane"></i>
                     </button>
                 </div>
@@ -67,13 +128,22 @@
 
 
                 </i>Start Live</button>
+            <div style="margin-top: 10px;">
+                <button class="btn fw-bold" id="prevbtn">PREV</button>
+                <button class="btn fw-bold" id="nextbtn">NEXT</button>
+                <button class="btn fw-bold" id="modebtn">MODE</button>
+                <button class="d-none" id="startRecord">Start Record</button>
+                <button class="btn fw-bold" id="muteall">MUTE ALL</button>
+                <button class="btn fw-bold" id="mic">ON MIC</button>
+                <button class="d-none" id="stopRecord" disabled>Stop Record</button>
+            </div>
         </div>
-        <a class="btn p-0 px-2" href="<?= BASE_URL ?>course/member/live"><i>
+        <button id="btnleave" class="btn p-0 px-2"><i>
                 <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M30.5858 24.5858C29.8048 25.3668 29.8048 26.6332 30.5858 27.4142C31.3668 28.1952 32.6332 28.1952 33.4142 27.4142L39.2402 21.5882C39.2702 21.5582 39.2994 21.5274 39.3274 21.496C39.74 21.1296 40 20.5952 40 20C40 19.4048 39.74 18.8704 39.3274 18.504C39.2994 18.4726 39.2702 18.4418 39.2402 18.4118L33.4142 12.5858C32.6332 11.8047 31.3668 11.8047 30.5858 12.5858C29.8048 13.3668 29.8048 14.6332 30.5858 15.4142L33.1716 18H22C20.8954 18 20 18.8954 20 20C20 21.1046 20.8954 22 22 22H33.1716L30.5858 24.5858Z" fill="#B48B3D" />
                     <path d="M6 0C2.6863 0 0 2.6863 0 6V34C0 37.3138 2.6863 40 6 40H25C27.7614 40 30 37.7614 30 35V29.4652C29.7038 29.294 29.425 29.0818 29.1716 28.8284C27.8628 27.5196 27.6506 25.5298 28.5348 24H22C19.7908 24 18 22.2092 18 20C18 17.7908 19.7908 16 22 16H28.5348C27.6506 14.4703 27.8628 12.4803 29.1716 11.1716C29.425 10.9182 29.7038 10.7059 30 10.5348V5C30 2.23858 27.7614 0 25 0H6Z" fill="#B48B3D" />
                 </svg>
 
-            </i></a>
+            </i></button>
     </div>
 </div>

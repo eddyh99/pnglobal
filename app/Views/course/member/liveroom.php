@@ -1,13 +1,74 @@
-<div class="d-flex flex-column mx-5 my-2 text-center" style="height: 95vh;">
-    <!-- Baris utama: isi sisa tinggi -->
-    <div class="row flex-grow-1 my-4">
-        <div id="videolive" class="col border border-2 border-primary">
+<style>
+    #video-container.normal-mode {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        /* 5 kolom */
+        grid-template-rows: repeat(5, 1fr);
+        /* 5 baris */
+        gap: 10px;
+        height: 90vh;
+        /* penuh 1 layar */
+        padding: 10px;
+        box-sizing: border-box;
+        overflow: hidden;
+    }
 
+    #video-container.performer-mode {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+        gap: 20px;
+        /* lebih lega */
+        padding: 20px;
+        box-sizing: border-box;
+        overflow: hidden;
+        height: 90vh;
+    }
+
+
+    .video-wrapper {
+        background: black;
+        width: 100%;
+        height: 100%;
+        position: relative;
+    }
+
+    .video-wrapper video {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 8px;
+    }
+
+    .badge-overlay {
+        position: absolute;
+        top: 5px;
+        left: 5px;
+        background: rgba(0, 0, 0, 0.5);
+        color: white;
+        padding: 2px 6px;
+        font-size: 12px;
+        border-radius: 4px;
+    }
+</style>
+
+<div class="d-flex flex-column mx-3 my-2 text-center" style="height: 100vh;">
+    <div class="row m-0 mb-2 h-100">
+        <div class="col-9 p-0 border border-2 border-primary">
+        <canvas class="d-none" id="recordCanvas" width="1280" height="720"></canvas>
+            <div id="video-container">
+                <!-- <?php for ($i = 0; $i < 20; $i++): ?>
+                    <div class="video-wrapper">
+                        <video autoplay playsinline muted></video>
+                        <div class="badge-overlay">👤 Member <?= $i + 1 ?></div>
+                    </div>
+                <?php endfor; ?> -->
+            </div>
         </div>
+
         <div id="chatlive" class="col-3">
             <div class="d-flex flex-column h-100 border border-primary p-2 text-white">
                 <!-- Chat body -->
-                <div class="flex-grow-1 overflow-auto mb-2" style="max-height: 70vh;">
+                <div id="livechat" class="flex-grow-1 overflow-auto mb-2" style="max-height: 80vh;">
                     <p><strong>Amos:</strong> what are you doing here Rebecca?</p>
                     <p><strong>Becky:</strong> I'm learning about crypto.</p>
                     <p><strong>Amos:</strong> I can teach you my dear...</p>
@@ -26,8 +87,8 @@
 
                 <!-- Chat input -->
                 <div class="d-flex align-items-center border border-primary rounded p-1">
-                    <input type="text" class="form-control bg-transparent text-white border-0" placeholder="Message...">
-                    <button class="btn btn-sm ms-2">
+                    <input id="message" type="text" data-sender="<?= $user ?>" class="form-control bg-transparent text-white border-0" placeholder="Message...">
+                    <button class="btn btn-sm ms-2" id="sendmsg">
                         <i class="fa fa-paper-plane"></i>
                     </button>
                 </div>
@@ -59,7 +120,7 @@
 
 
                 </i>Ask</button>
-            <button class="btn py-0 px-2 d-flex flex-column align-items-center"><i>
+            <button id="joinlive" class="btn py-0 px-2 d-flex flex-column align-items-center"><i>
                     <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M36.5654 0H15.1153C13.3432 0 11.9022 1.44081 11.9022 3.213V11.9H3.21267C1.44032 11.9 0 13.3409 0 15.113V36.5658C0 38.3376 1.44032 39.7785 3.21267 39.7785H19.3486C19.3291 39.6805 19.3038 39.5863 19.2919 39.4856L18.8519 35.7067H4.07183V15.972H11.9023V24.6628C11.9023 26.4352 13.3433 27.8756 15.1153 27.8756H17.9414L17.4668 23.8042H15.9741V15.972H23.8065V18.4291L27.8784 20.4255V15.113C27.8784 13.3409 26.4376 11.9 24.6652 11.9H15.974V4.07183H35.7063V23.8042H34.7679L38.7271 25.7458C38.9659 25.8638 39.1818 26.0109 39.3847 26.1727C39.6271 25.7206 39.7779 25.2118 39.7779 24.6628V3.213C39.778 1.44081 38.3375 0 36.5654 0Z" fill="#B48B3D" />
                         <path d="M37.5296 28.1806L21.2317 20.1896C21.1003 20.126 20.9597 20.0941 20.8194 20.0941C20.6286 20.0941 20.4392 20.1512 20.2787 20.2651C19.9989 20.4624 19.8507 20.798 19.89 21.1386L21.9884 39.1717C22.0324 39.5468 22.2974 39.8593 22.6605 39.9629C22.7451 39.9881 22.8328 40 22.9189 40C23.1986 40 23.4703 39.8727 23.6492 39.6476L29.1325 32.7829L37.4235 29.9054C37.7811 29.782 38.0278 29.4559 38.0519 29.0782C38.0742 28.7016 37.8688 28.3477 37.5296 28.1806Z" fill="#B48B3D" />
@@ -67,13 +128,21 @@
 
 
                 </i>Join Live</button>
+            <div style="margin-top: 10px;">
+                <button class="btn fw-bold" id="prevbtn">PREV</button>
+                <button class="btn fw-bold" id="nextbtn">NEXT</button>
+                <button class="btn fw-bold" id="modebtn">MODE</button>
+                <button class="btn fw-bold" id="mic">ON MIC</button>
+                <button class="d-none" id="startRecord">Start Record</button>
+                <button class="d-none" id="stopRecord" disabled>Stop Record</button>
+            </div>
         </div>
-        <a class="btn p-0 px-2" href="<?= BASE_URL ?>course/member/live"><i>
+        <button id="btnleave" class="btn p-0 px-2"><i>
                 <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M30.5858 24.5858C29.8048 25.3668 29.8048 26.6332 30.5858 27.4142C31.3668 28.1952 32.6332 28.1952 33.4142 27.4142L39.2402 21.5882C39.2702 21.5582 39.2994 21.5274 39.3274 21.496C39.74 21.1296 40 20.5952 40 20C40 19.4048 39.74 18.8704 39.3274 18.504C39.2994 18.4726 39.2702 18.4418 39.2402 18.4118L33.4142 12.5858C32.6332 11.8047 31.3668 11.8047 30.5858 12.5858C29.8048 13.3668 29.8048 14.6332 30.5858 15.4142L33.1716 18H22C20.8954 18 20 18.8954 20 20C20 21.1046 20.8954 22 22 22H33.1716L30.5858 24.5858Z" fill="#B48B3D" />
                     <path d="M6 0C2.6863 0 0 2.6863 0 6V34C0 37.3138 2.6863 40 6 40H25C27.7614 40 30 37.7614 30 35V29.4652C29.7038 29.294 29.425 29.0818 29.1716 28.8284C27.8628 27.5196 27.6506 25.5298 28.5348 24H22C19.7908 24 18 22.2092 18 20C18 17.7908 19.7908 16 22 16H28.5348C27.6506 14.4703 27.8628 12.4803 29.1716 11.1716C29.425 10.9182 29.7038 10.7059 30 10.5348V5C30 2.23858 27.7614 0 25 0H6Z" fill="#B48B3D" />
                 </svg>
 
-            </i></a>
+            </i></button>
     </div>
 </div>
