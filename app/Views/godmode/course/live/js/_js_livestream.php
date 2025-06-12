@@ -17,7 +17,8 @@
     connection.extra.broadcastuser = 0;
     // Inisialisasi room opened even if owner leaves
     connection.autoCloseEntireSession = false;
-    connection.maxParticipantsAllowed = 1000;
+    connection.maxParticipantsAllowed = 200;
+    let micEnabled = true;
 
     // Inisialisasi AUDIO, VIDEO, DATA RTCMultiConnection
     connection.session = {
@@ -71,23 +72,15 @@
         if (event.type === 'local') {
             video.muted = true;
             video.volume = 0;
-            const stream = event.stream;
-            stream.mute('audio');
 
-            // Paksa update label mic 🔇
-            stream.getAudioTracks().forEach(track => {
-                if (typeof track.onmute === 'function') {
-                    track.onmute();
-                }
-            });
         }
 
         // Cek apakah audio aktif
-        const audioTrack = event.stream.getAudioTracks()[0];
-        const isMuted = !audioTrack || !audioTrack.enabled;
+        // const audioTrack = event.stream.getAudioTracks()[0];
+        // const isMuted = !audioTrack || !audioTrack.enabled;
 
-        const micIcon = isMuted ? "🔇" : "🎙️";
-        const roleLabel = event.extra.roomOwner ? "🎤 Performer" : "👤 Member";
+        const micIcon = event.extra.roomOwner ? "🎤" : "🔇";
+        const roleLabel = event.extra.roomOwner ? "👤 Performer" : "👤 Member";
 
         // Label dengan mic icon
         const label = document.createElement('div');
@@ -100,7 +93,7 @@
                 label.textContent = `${roleLabel} 🔇`;
             };
             track.onunmute = () => {
-                label.textContent = `${roleLabel} 🎙️`;
+                label.textContent = `${roleLabel} 🎤`;
             };
         });
 
@@ -112,7 +105,7 @@
 
         videos.push({
             wrapper: wrapper,
-            isPerformer: label.textContent.includes('🎤')
+            isPerformer: label.textContent.includes('👤')
         });
         document.getElementById('video-container').appendChild(wrapper);
         renderPage();
@@ -180,6 +173,18 @@
         connection.send({
             action: 'mute_me'
         }); // Broadcast ke semua user
+
+        //     const stream = connection.streamEvents.selectFirst()?.stream;
+        // if (stream) {
+        //     stream.mute('audio');
+
+        //     // Paksa update ikon mic
+        //     stream.getAudioTracks().forEach(track => {
+        //         if (typeof track.onmute === 'function') {
+        //             track.onmute();
+        //         }
+        //     });
+        // }
     });
 
 
@@ -234,4 +239,30 @@
             document.getElementById('nextbtn').disabled = end >= videos.length;
         }
     }
+
+    document.getElementById("mic").addEventListener("click", function() {
+        const eventObj = connection.streamEvents.selectFirst();
+        if (!eventObj || !eventObj.stream) return;
+
+        const stream = eventObj.stream;
+
+        if (micEnabled) {
+            stream.mute('audio');
+            this.textContent = "ON MIC";
+        } else {
+            stream.unmute('audio');
+            this.textContent = "OFF MIC";
+        }
+
+        micEnabled = !micEnabled;
+
+        // Paksa update ikon mic jika diperlukan
+        stream.getAudioTracks().forEach(track => {
+            if (micEnabled && typeof track.onunmute === 'function') {
+                track.onunmute();
+            } else if (!micEnabled && typeof track.onmute === 'function') {
+                track.onmute();
+            }
+        });
+    });
 </script>

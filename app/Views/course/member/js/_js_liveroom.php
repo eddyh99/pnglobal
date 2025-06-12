@@ -124,11 +124,11 @@
         }
 
         // Cek apakah audio aktif
-        const audioTrack = event.stream.getAudioTracks()[0];
-        const isMuted = !audioTrack || !audioTrack.enabled;
+        // const audioTrack = event.stream.getAudioTracks()[0];
+        // const isMuted = !audioTrack || !audioTrack.enabled;
 
-        const micIcon = isMuted ? "🔇" : "🎙️";
-        const roleLabel = event.extra.roomOwner ? "🎤 Performer" : "👤 Member";
+        const micIcon = event.extra.roomOwner ? "🎤" : "🔇";
+        const roleLabel = event.extra.roomOwner ? "👤 Performer" : "👤 Member";
 
         // Label dengan mic icon
         const label = document.createElement('div');
@@ -141,7 +141,7 @@
                 label.textContent = `${roleLabel} 🔇`;
             };
             track.onunmute = () => {
-                label.textContent = `${roleLabel} 🎙️`;
+                label.textContent = `${roleLabel} 🎤`;
             };
         });
 
@@ -153,7 +153,7 @@
 
         videos.push({
             wrapper: wrapper,
-            isPerformer: label.textContent.includes('🎤')
+            isPerformer: label.textContent.includes('👤')
         });
         document.getElementById('video-container').appendChild(wrapper);
         renderPage();
