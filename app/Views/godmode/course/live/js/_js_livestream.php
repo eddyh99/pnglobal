@@ -102,6 +102,9 @@
         wrapper.style.position = 'relative';
         wrapper.appendChild(video);
         wrapper.appendChild(label);
+        wrapper.setAttribute('data-userid', event.userid);
+        wrapper.setAttribute('data-role', event.extra.roomOwner ? 'mentor' : 'member');
+
 
         videos.push({
             wrapper: wrapper,
@@ -113,12 +116,28 @@
 
     connection.onmessage = function(event) {
         const data = event.data;
-        if (event.data.action === 'mute_me') {
+
+        if (data.action === 'mute_me') {
+            console.log('melakukan mute');
             return;
-        } else {
+
+        } else if (data.action === 'mic_status') {
+            // Update label mic dari user lain berdasarkan userId
+            const target = document.querySelector(`[data-userid="${data.userid}"]`);
+            if (target) {
+                const label = target.querySelector(".badge-overlay");
+                if (label) {
+                    const original = label.textContent.replace(/🔇|🎙️/g, '').trim();
+                    label.textContent = `${original} ${data.muted ? '🔇' : '🎙️'}`;
+                }
+            }
+
+        } else if (data.text) {
+            // Pesan teks
             displayMsg(data.from || "Friend", data.text);
         }
-    };;
+    };
+
 
     /*----------------------------------------------------------
     15. Connection End
@@ -174,17 +193,16 @@
             action: 'mute_me'
         }); // Broadcast ke semua user
 
-        //     const stream = connection.streamEvents.selectFirst()?.stream;
-        // if (stream) {
-        //     stream.mute('audio');
+        const targets = document.querySelectorAll('[data-role="member"]');
+        targets.forEach(function(target) {
+            const label = target.querySelector(".badge-overlay");
+            if (label) {
+                const original = label.textContent.replace(/🔇|🎙️/g, '').trim();
+                label.textContent = `${original} 🔇`;
+            }
+        });
 
-        //     // Paksa update ikon mic
-        //     stream.getAudioTracks().forEach(track => {
-        //         if (typeof track.onmute === 'function') {
-        //             track.onmute();
-        //         }
-        //     });
-        // }
+
     });
 
 
@@ -256,7 +274,16 @@
 
         micEnabled = !micEnabled;
 
-        // Paksa update ikon mic jika diperlukan
+        // Kirim status ke semua peserta
+        connection.getAllParticipants().forEach(pid => {
+            connection.send({
+                action: 'mic_status',
+                userid: connection.userid,
+                muted: !micEnabled
+            }, pid);
+        });
+
+        // Update ikon mic lokal (paksa trigger)
         stream.getAudioTracks().forEach(track => {
             if (micEnabled && typeof track.onunmute === 'function') {
                 track.onunmute();

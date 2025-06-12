@@ -150,10 +150,12 @@
         wrapper.style.position = 'relative';
         wrapper.appendChild(video);
         wrapper.appendChild(label);
+        wrapper.setAttribute('data-userid', event.userid);
+
 
         videos.push({
             wrapper: wrapper,
-            isPerformer: label.textContent.includes('👤')
+            isPerformer: label.textContent.includes('Performer')
         });
         document.getElementById('video-container').appendChild(wrapper);
         renderPage();
@@ -161,21 +163,36 @@
 
     connection.onmessage = function(event) {
         const data = event.data;
-        if (event.data.action === 'mute_me') {
+
+        if (data.action === 'mute_me') {
             console.log('melakukan mute');
+
             const eventObj = connection.streamEvents.selectFirst();
             if (eventObj && eventObj.stream) {
                 const stream = eventObj.stream;
                 stream.mute('audio');
 
-                // Paksa trigger onmute untuk memperbarui label mic
+                // Paksa trigger onmute untuk update label mic lokal
                 stream.getAudioTracks().forEach(track => {
                     if (typeof track.onmute === 'function') {
                         track.onmute();
                     }
                 });
             }
-        } else {
+
+        } else if (data.action === 'mic_status') {
+            // Update label mic dari user lain berdasarkan userId
+            const target = document.querySelector(`[data-userid="${data.userid}"]`);
+            if (target) {
+                const label = target.querySelector(".badge-overlay");
+                if (label) {
+                    const original = label.textContent.replace(/🔇|🎙️/g, '').trim();
+                    label.textContent = `${original} ${data.muted ? '🔇' : '🎙️'}`;
+                }
+            }
+
+        } else if (data.text) {
+            // Pesan teks
             displayMsg(data.from || "Friend", data.text);
         }
     };
@@ -389,7 +406,16 @@
 
         micEnabled = !micEnabled;
 
-        // Paksa update ikon mic jika diperlukan
+        // Kirim status ke semua peserta
+        connection.getAllParticipants().forEach(pid => {
+            connection.send({
+                action: 'mic_status',
+                userid: connection.userid,
+                muted: !micEnabled
+            }, pid);
+        });
+
+        // Update ikon mic lokal (paksa trigger)
         stream.getAudioTracks().forEach(track => {
             if (micEnabled && typeof track.onunmute === 'function') {
                 track.onunmute();
