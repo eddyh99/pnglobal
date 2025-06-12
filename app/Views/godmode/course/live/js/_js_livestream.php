@@ -174,11 +174,9 @@
     };
 
     connection.onmessage = function(event) {
-        console.log(event.data);
-
-        displayMsg("Teman", event.data);
+        const data = event.data;
+        displayMsg(data.from || "Friend", data.text);
     };
-
 
     /*----------------------------------------------------------
     15. Connection End
@@ -214,13 +212,13 @@
     }
 
     $("#sendmsg").on('click', function() {
-        const msg = $("#message").val();
-        console.log(msg);
+    const msg = $("#message").val();
+    const sender = $("#message").data("sender");
 
-        if (msg && connection.getAllParticipants().length > 0) {
-            connection.send(msg);
-            displayMsg("You", msg);
-            $("#message").val("");
-        }
-    });
+    if (msg && connection.getAllParticipants().length > 0) {
+        connection.send({ from: sender, text: msg });
+        displayMsg("You", msg);
+        $("#message").val("");
+    }
+});;
 </script>

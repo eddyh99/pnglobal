@@ -121,6 +121,7 @@ class Live extends BaseController
             'content'   => 'godmode/course/live/livestream',
             'extra'     => 'godmode/course/live/js/_js_livestream',
             'liveroom' => 'd-none',
+            'user'    => 'Mentor',
             'mentor'    => $result->message ?? []
         ];
 

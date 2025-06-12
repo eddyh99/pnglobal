@@ -87,7 +87,7 @@
 
                 <!-- Chat input -->
                 <div class="d-flex align-items-center border border-primary rounded p-1">
-                    <input id="message" type="text" class="form-control bg-transparent text-white border-0" placeholder="Message...">
+                    <input id="message" type="text" data-sender="<?= $user ?>" class="form-control bg-transparent text-white border-0" placeholder="Message...">
                     <button class="btn btn-sm ms-2" id="sendmsg">
                         <i class="fa fa-paper-plane"></i>
                     </button>

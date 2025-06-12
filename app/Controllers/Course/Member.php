@@ -136,6 +136,7 @@ class Member extends BaseController
             'content'   => 'course/member/liveroom',
             'extra'   => 'course/member/js/_js_liveroom',
             'active_live'    => 'active',
+            'user'    => 'Agus',
             'liveroom' => 'd-none'
         ];
 

@@ -130,9 +130,8 @@
     };
 
     connection.onmessage = function(event) {
-        console.log(event.data);
-        
-        displayMsg("Teman", event.data);
+        const data = event.data;
+        displayMsg(data.from || "Friend", data.text);
     };
 
 
@@ -305,10 +304,10 @@ document.getElementById('stopRecord').onclick = () => {
 
 $("#sendmsg").on('click', function() {
     const msg = $("#message").val();
-    console.log(msg);
+    const sender = $("#message").data("sender");
 
-    if (msg) {
-        connection.send(msg);
+    if (msg && connection.getAllParticipants().length > 0) {
+        connection.send({ from: sender, text: msg });
         displayMsg("You", msg);
         $("#message").val("");
     }
