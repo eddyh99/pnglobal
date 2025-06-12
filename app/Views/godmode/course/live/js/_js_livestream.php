@@ -220,5 +220,12 @@
         displayMsg("You", msg);
         $("#message").val("");
     }
-});;
+});
+
+document.getElementById('muteall').addEventListener('click', function () {
+    console.log('mute all');
+    
+    connection.send({ action: 'mute_me' }); // Broadcast ke semua user
+});
+
 </script>
