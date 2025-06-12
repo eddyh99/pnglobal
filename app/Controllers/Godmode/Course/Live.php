@@ -116,12 +116,13 @@ class Live extends BaseController
 
     public function host() {
 
+        $user = session()->get('logged_user');
         $mdata = [
             'title'     => 'Live - ' . NAMETITLE,
             'content'   => 'godmode/course/live/livestream',
             'extra'     => 'godmode/course/live/js/_js_livestream',
             'liveroom' => 'd-none',
-            'user'    => 'Mentor',
+            'user'    => explode('@', $user->email)[0],
             'mentor'    => $result->message ?? []
         ];
 
