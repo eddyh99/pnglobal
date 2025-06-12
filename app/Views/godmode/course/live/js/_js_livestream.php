@@ -105,7 +105,7 @@
 
         videos.push({
             wrapper: wrapper,
-            isPerformer: label.textContent.includes('👤')
+            isPerformer: label.textContent.includes('Performer')
         });
         document.getElementById('video-container').appendChild(wrapper);
         renderPage();

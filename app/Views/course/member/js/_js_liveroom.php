@@ -58,7 +58,7 @@
         // Simpan dan tambahkan langsung ke DOM
         videos.push({
             wrapper: wrapper,
-            isPerformer: label?.textContent.includes('🎤')
+            isPerformer: label?.textContent.includes('Performer')
         });
         document.getElementById('video-container').appendChild(wrapper);
     }
