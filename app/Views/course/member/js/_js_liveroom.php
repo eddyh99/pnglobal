@@ -1,6 +1,6 @@
 <script src="<?= BASE_URL ?>assets/js/admin/mandatory/RTCMultiConnection.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.7.2/socket.io.js"></script>
 <script src="https://cdn.webrtc-experiment.com/RecordRTC.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.7.2/socket.io.js"></script>
 
 <script>
     var connection = new RTCMultiConnection();
@@ -85,6 +85,7 @@
                 alert(error);
             } else {
                 connection.extra.broadcastuser += 1;
+                $("#joinlive").attr("disabled", "true");
             }
             connection.updateExtraData();
 
@@ -372,29 +373,29 @@
     }
 
 
-    document.getElementById("mic").addEventListener("click", function () {
-    const eventObj = connection.streamEvents.selectFirst();
-    if (!eventObj || !eventObj.stream) return;
+    document.getElementById("mic").addEventListener("click", function() {
+        const eventObj = connection.streamEvents.selectFirst();
+        if (!eventObj || !eventObj.stream) return;
 
-    const stream = eventObj.stream;
+        const stream = eventObj.stream;
 
-    if (micEnabled) {
-        stream.mute('audio');
-        this.textContent = "ON MIC";
-    } else {
-        stream.unmute('audio');
-        this.textContent = "OFF MIC";
-    }
-
-    micEnabled = !micEnabled;
-
-    // Paksa update ikon mic jika diperlukan
-    stream.getAudioTracks().forEach(track => {
-        if (micEnabled && typeof track.onunmute === 'function') {
-            track.onunmute();
-        } else if (!micEnabled && typeof track.onmute === 'function') {
-            track.onmute();
+        if (micEnabled) {
+            stream.mute('audio');
+            this.textContent = "ON MIC";
+        } else {
+            stream.unmute('audio');
+            this.textContent = "OFF MIC";
         }
+
+        micEnabled = !micEnabled;
+
+        // Paksa update ikon mic jika diperlukan
+        stream.getAudioTracks().forEach(track => {
+            if (micEnabled && typeof track.onunmute === 'function') {
+                track.onunmute();
+            } else if (!micEnabled && typeof track.onmute === 'function') {
+                track.onmute();
+            }
+        });
     });
-});
 </script>
