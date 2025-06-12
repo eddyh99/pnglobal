@@ -68,7 +68,7 @@
         <div id="chatlive" class="col-3">
             <div class="d-flex flex-column h-100 border border-primary p-2 text-white">
                 <!-- Chat body -->
-                <div class="flex-grow-1 overflow-auto mb-2" style="max-height: 80vh;">
+                <div id="livechat" class="flex-grow-1 overflow-auto mb-2" style="max-height: 80vh;">
                     <p><strong>Amos:</strong> what are you doing here Rebecca?</p>
                     <p><strong>Becky:</strong> I'm learning about crypto.</p>
                     <p><strong>Amos:</strong> I can teach you my dear...</p>
@@ -87,8 +87,8 @@
 
                 <!-- Chat input -->
                 <div class="d-flex align-items-center border border-primary rounded p-1">
-                    <input type="text" class="form-control bg-transparent text-white border-0" placeholder="Message...">
-                    <button class="btn btn-sm ms-2">
+                    <input id="message" type="text" class="form-control bg-transparent text-white border-0" placeholder="Message...">
+                    <button class="btn btn-sm ms-2" id="sendmsg">
                         <i class="fa fa-paper-plane"></i>
                     </button>
                 </div>
@@ -132,8 +132,8 @@
                 <button class="btn fw-bold" id="prevbtn">PREV</button>
                 <button class="btn fw-bold" id="nextbtn">NEXT</button>
                 <button class="btn fw-bold" id="modebtn">MODE</button>
-                <button id="startRecord">Start Record</button>
-                <button id="stopRecord" disabled>Stop Record</button>
+                <button class="d-none" id="startRecord">Start Record</button>
+                <button class="d-none" id="stopRecord" disabled>Stop Record</button>
             </div>
         </div>
         <button id="btnleave" class="btn p-0 px-2"><i>

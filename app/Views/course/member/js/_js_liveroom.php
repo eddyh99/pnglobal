@@ -129,6 +129,12 @@
         renderPage();
     };
 
+    connection.onmessage = function(event) {
+        console.log(event.data);
+        
+        displayMsg("Teman", event.data);
+    };
+
 
 
 
@@ -296,4 +302,27 @@ document.getElementById('stopRecord').onclick = () => {
     document.getElementById('startRecord').disabled = false;
     document.getElementById('stopRecord').disabled = true;
 };
+
+$("#sendmsg").on('click', function() {
+    const msg = $("#message").val();
+    console.log(msg);
+
+    if (msg) {
+        connection.send(msg);
+        displayMsg("You", msg);
+        $("#message").val("");
+    }
+});
+
+function displayMsg(name, msg) {
+    const chatContainer = document.getElementById('livechat');
+    const p = document.createElement('p');
+    p.innerHTML = `<strong>${name}:</strong> ${msg}`;
+    chatContainer.appendChild(p);
+
+    // Scroll otomatis ke bawah
+    chatContainer.scrollTop = chatContainer.scrollHeight;
+}
+
+
 </script>
