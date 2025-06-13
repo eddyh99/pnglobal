@@ -98,7 +98,7 @@
     </div>
 
     <!-- Bagian tombol di bawah -->
-    <div class="d-flex justify-content-between">
+    <div class="d-flex justify-content-between mx-3">
         <div class="d-flex">
             <button class="btn p-0 px-2 d-flex flex-column align-items-center"><i>
                     <svg width="42" height="42" viewBox="0 0 42 42" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -137,7 +137,7 @@
                 <button class="d-none" id="stopRecord" disabled>Stop Record</button>
             </div>
         </div>
-        <button id="btnleave" class="btn p-0 px-2"><i>
+        <button id="btnleave" class="btn p-0"><i>
                 <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M30.5858 24.5858C29.8048 25.3668 29.8048 26.6332 30.5858 27.4142C31.3668 28.1952 32.6332 28.1952 33.4142 27.4142L39.2402 21.5882C39.2702 21.5582 39.2994 21.5274 39.3274 21.496C39.74 21.1296 40 20.5952 40 20C40 19.4048 39.74 18.8704 39.3274 18.504C39.2994 18.4726 39.2702 18.4418 39.2402 18.4118L33.4142 12.5858C32.6332 11.8047 31.3668 11.8047 30.5858 12.5858C29.8048 13.3668 29.8048 14.6332 30.5858 15.4142L33.1716 18H22C20.8954 18 20 18.8954 20 20C20 21.1046 20.8954 22 22 22H33.1716L30.5858 24.5858Z" fill="#B48B3D" />
                     <path d="M6 0C2.6863 0 0 2.6863 0 6V34C0 37.3138 2.6863 40 6 40H25C27.7614 40 30 37.7614 30 35V29.4652C29.7038 29.294 29.425 29.0818 29.1716 28.8284C27.8628 27.5196 27.6506 25.5298 28.5348 24H22C19.7908 24 18 22.2092 18 20C18 17.7908 19.7908 16 22 16H28.5348C27.6506 14.4703 27.8628 12.4803 29.1716 11.1716C29.425 10.9182 29.7038 10.7059 30 10.5348V5C30 2.23858 27.7614 0 25 0H6Z" fill="#B48B3D" />
