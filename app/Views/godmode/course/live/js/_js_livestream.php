@@ -113,6 +113,21 @@
             };
         });
 
+        if (!event.extra.roomOwner) {
+            const kickLink = document.createElement('button');
+            kickLink.textContent = "Kick";
+            kickLink.className = "btn btn-sm btn-danger ms-2";
+            kickLink.style.padding = "2px 6px";
+            kickLink.style.fontSize = "12px";
+            kickLink.addEventListener("click", function () {
+                if (confirm(`Are you sure you want to kick this user?`)) {
+                    kickUser(event.userid); // Kirim userid RTC ke fungsi
+                }
+            });
+
+            label.appendChild(kickLink);
+        }
+
         const wrapper = document.createElement('div');
         wrapper.className = 'video-wrapper';
         wrapper.style.position = 'relative';
@@ -308,4 +323,13 @@
             }
         });
     });
+
+    function kickUser(userid){
+        // Kirim perintah ke user untuk disconnect
+        connection.send({
+            action: 'kick_me',
+            userid: userid
+        }, userid); // Kirim hanya ke target
+    }
+
 </script>

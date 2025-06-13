@@ -207,6 +207,11 @@
                 }
             }
 
+        } else if (data.action === 'kick_me' && connection.userid === data.userid) {
+            alert("You have been removed from the room.");
+            connection.close();
+            window.location.href = "<?= base_url() ?>course/member/live";
+            return;
         } else if (data.text) {
             // Pesan teks
             displayMsg(data.from || "Friend", data.text);
