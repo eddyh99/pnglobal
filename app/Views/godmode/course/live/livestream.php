@@ -132,9 +132,9 @@
                 <button class="btn fw-bold" id="prevbtn">PREV</button>
                 <button class="btn fw-bold" id="nextbtn">NEXT</button>
                 <button class="btn fw-bold" id="modebtn">MODE</button>
-                <button class="d-none" id="startRecord">Start Record</button>
+                <button class="btn fw-bold" id="mic">OFF MIC</button>
                 <button class="btn fw-bold" id="muteall">MUTE ALL</button>
-                <button class="btn fw-bold" id="mic">ON MIC</button>
+                <button class="d-none" id="startRecord">Start Record</button>
                 <button class="d-none" id="stopRecord" disabled>Stop Record</button>
             </div>
         </div>

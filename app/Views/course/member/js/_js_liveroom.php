@@ -1,6 +1,6 @@
 <script src="<?= BASE_URL ?>assets/js/admin/mandatory/RTCMultiConnection.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.7.2/socket.io.js"></script>
 <script src="https://cdn.webrtc-experiment.com/RecordRTC.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.7.2/socket.io.js"></script>
 
 <script>
     var connection = new RTCMultiConnection();
@@ -58,7 +58,7 @@
         // Simpan dan tambahkan langsung ke DOM
         videos.push({
             wrapper: wrapper,
-            isPerformer: label?.textContent.includes('🎤')
+            isPerformer: label?.textContent.includes('Performer')
         });
         document.getElementById('video-container').appendChild(wrapper);
     }
@@ -85,6 +85,7 @@
                 alert(error);
             } else {
                 connection.extra.broadcastuser += 1;
+                $("#joinlive").attr("disabled", "true");
             }
             connection.updateExtraData();
 
@@ -123,11 +124,11 @@
         }
 
         // Cek apakah audio aktif
-        const audioTrack = event.stream.getAudioTracks()[0];
-        const isMuted = !audioTrack || !audioTrack.enabled;
+        // const audioTrack = event.stream.getAudioTracks()[0];
+        // const isMuted = !audioTrack || !audioTrack.enabled;
 
-        const micIcon = isMuted ? "🔇" : "🎙️";
-        const roleLabel = event.extra.roomOwner ? "🎤 Performer" : "👤 Member";
+        const micIcon = event.extra.roomOwner ? "🎤" : "🔇";
+        const roleLabel = event.extra.roomOwner ? "👤 Performer" : "👤 Member";
 
         // Label dengan mic icon
         const label = document.createElement('div');
@@ -140,7 +141,7 @@
                 label.textContent = `${roleLabel} 🔇`;
             };
             track.onunmute = () => {
-                label.textContent = `${roleLabel} 🎙️`;
+                label.textContent = `${roleLabel} 🎤`;
             };
         });
 
@@ -149,10 +150,12 @@
         wrapper.style.position = 'relative';
         wrapper.appendChild(video);
         wrapper.appendChild(label);
+        wrapper.setAttribute('data-userid', event.userid);
+
 
         videos.push({
             wrapper: wrapper,
-            isPerformer: label.textContent.includes('🎤')
+            isPerformer: label.textContent.includes('Performer')
         });
         document.getElementById('video-container').appendChild(wrapper);
         renderPage();
@@ -160,21 +163,36 @@
 
     connection.onmessage = function(event) {
         const data = event.data;
-        if (event.data.action === 'mute_me') {
+
+        if (data.action === 'mute_me') {
             console.log('melakukan mute');
+
             const eventObj = connection.streamEvents.selectFirst();
             if (eventObj && eventObj.stream) {
                 const stream = eventObj.stream;
                 stream.mute('audio');
 
-                // Paksa trigger onmute untuk memperbarui label mic
+                // Paksa trigger onmute untuk update label mic lokal
                 stream.getAudioTracks().forEach(track => {
                     if (typeof track.onmute === 'function') {
                         track.onmute();
                     }
                 });
             }
-        } else {
+
+        } else if (data.action === 'mic_status') {
+            // Update label mic dari user lain berdasarkan userId
+            const target = document.querySelector(`[data-userid="${data.userid}"]`);
+            if (target) {
+                const label = target.querySelector(".badge-overlay");
+                if (label) {
+                    const original = label.textContent.replace(/🔇|🎙️/g, '').trim();
+                    label.textContent = `${original} ${data.muted ? '🔇' : '🎙️'}`;
+                }
+            }
+
+        } else if (data.text) {
+            // Pesan teks
             displayMsg(data.from || "Friend", data.text);
         }
     };
@@ -372,29 +390,38 @@
     }
 
 
-    document.getElementById("mic").addEventListener("click", function () {
-    const eventObj = connection.streamEvents.selectFirst();
-    if (!eventObj || !eventObj.stream) return;
+    document.getElementById("mic").addEventListener("click", function() {
+        const eventObj = connection.streamEvents.selectFirst();
+        if (!eventObj || !eventObj.stream) return;
 
-    const stream = eventObj.stream;
+        const stream = eventObj.stream;
 
-    if (micEnabled) {
-        stream.mute('audio');
-        this.textContent = "ON MIC";
-    } else {
-        stream.unmute('audio');
-        this.textContent = "OFF MIC";
-    }
-
-    micEnabled = !micEnabled;
-
-    // Paksa update ikon mic jika diperlukan
-    stream.getAudioTracks().forEach(track => {
-        if (micEnabled && typeof track.onunmute === 'function') {
-            track.onunmute();
-        } else if (!micEnabled && typeof track.onmute === 'function') {
-            track.onmute();
+        if (micEnabled) {
+            stream.mute('audio');
+            this.textContent = "ON MIC";
+        } else {
+            stream.unmute('audio');
+            this.textContent = "OFF MIC";
         }
+
+        micEnabled = !micEnabled;
+
+        // Kirim status ke semua peserta
+        connection.getAllParticipants().forEach(pid => {
+            connection.send({
+                action: 'mic_status',
+                userid: connection.userid,
+                muted: !micEnabled
+            }, pid);
+        });
+
+        // Update ikon mic lokal (paksa trigger)
+        stream.getAudioTracks().forEach(track => {
+            if (micEnabled && typeof track.onunmute === 'function') {
+                track.onunmute();
+            } else if (!micEnabled && typeof track.onmute === 'function') {
+                track.onmute();
+            }
+        });
     });
-});
 </script>
