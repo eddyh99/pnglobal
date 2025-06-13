@@ -41,6 +41,7 @@ class Message extends BaseController
         $qmessage = satoshiAdmin(URL_COURSE . "/v1/message/message_byid?id=".$id)->result;
         $msg = $qmessage->message ?? null;
         
+        $response = satoshiAdmin(URL_COURSE . "/v1/message/update_status?id=".$id."&status=is_read");
 
         $mdata = [
             'title'     => 'Message - ' . NAMETITLE,
@@ -52,6 +53,24 @@ class Message extends BaseController
 
         return view('godmode/course/layout/admin_wrapper', $mdata);
     }
+    
+    public function del($id=null)
+    {
+        if (empty($id)){
+            session()->setFlashdata('failed', "No message chosen");
+            return redirect()->to(BASE_URL . 'godmode/course/message');
+        }
+        
+        $result = satoshiAdmin(URL_COURSE . "/v1/message/delete_byid?id=".$id)->result;
+        if (@$result->code != 200) {
+            session()->setFlashdata('failed', $result->message);
+            return redirect()->to(BASE_URL . 'godmode/course/message')->withInput();
+        }
+
+        session()->setFlashdata('success', $result->message);
+        return redirect()->to(BASE_URL . 'godmode/course/message');
+    }
+    
     
     public function send_message(){
         $isValid = $this->validate([
@@ -99,4 +118,30 @@ class Message extends BaseController
         return redirect()->to(BASE_URL . 'godmode/course/message');
 
     }
+    
+    public function updatestatus(){
+        $id = $this->request->getPost('id');
+        $status = $this->request->getPost('status');
+    
+        // Basic validation
+        if (!in_array($status, ['is_read', 'is_fav']) || !is_numeric($id)) {
+            return $this->response->setJSON([
+                'success' => false,
+                'message' => 'Invalid input.'
+            ]);
+        }
+
+        $response = satoshiAdmin(URL_COURSE . "/v1/message/update_status?id=".$id."&status=".$status);
+        $result = $response->result;
+        if (@$result->code != 200) {
+            return $this->response->setJSON([
+                'success' => false,
+                'message' => 'Update failed or no change occurred.',
+            ]);
+        }
+        return $this->response->setJSON([
+            'success' => true,
+            'message' => ucfirst($status) . ' status updated.',
+        ]);
+   }
 }

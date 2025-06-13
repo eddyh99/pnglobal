@@ -10,7 +10,7 @@ use CodeIgniter\Router\RouteCollection;
 $routes->group('', ['namespace' => 'App\Controllers'], function($routes){
     // 1) Plain homepage
     $routes->get('/', 'Homepage::index');
-    $routes->get('(hf|bl)/(:segment)', 'Home::index/$1/$2');
+    $routes->get('(hf|bl)/(:segment)', 'Homepage::index/$1/$2');
 });
 
 // $routes->get('course/detail/(:any)', 'Course\Home::detail/$1');

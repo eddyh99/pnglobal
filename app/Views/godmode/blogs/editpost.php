@@ -30,26 +30,32 @@
     <div class="row content-body">
       <div class="col-12">
 
-        <h2 class="text-center text-white mb-4">New Post</h2>
-        <form action="<?= BASE_URL ?>godmode/blogs/save_post" method="POST" enctype="multipart/form-data">
+        <h2 class="text-center text-white mb-4">Edit Post</h2>
+        <form action="<?= BASE_URL ?>godmode/blogs/edit_post" method="POST" enctype="multipart/form-data"> 
+          <input type="hidden" name="postID" value="<?=$blogpost->id ?? old('id')?>">
           <div class="form-group row">
             <label class="form-custom form-label-fixed">Link</label>
             <div class="col-10">
-              <input type="text" name="link" class="form-control-custom" placeholder="https://example.com" value="<?= old('link') ?>">
+              <input type="text" name="link" class="form-control-custom" placeholder="https://example.com" 
+                     value="<?= $blogpost->link ?? old('link') ?>">
             </div>
           </div>
+        
           <div class="form-group row">
             <label class="form-custom form-label-fixed">Title</label>
             <div class="col-10">
-              <input type="text" name="title" class="form-control-custom" placeholder="Title of post" value="<?= old('title') ?>">
+              <input type="text" name="title" class="form-control-custom" placeholder="Title of post" 
+                     value="<?= $blogpost->title ?? old('title') ?>">
             </div>
           </div>
+        
           <div class="form-group row">
             <label class="form-custom form-label-fixed">Content</label>
             <div class="col-10">
-              <textarea id="content" name="content" class="form-control-custom" rows="10" placeholder="Content..."><?= old('content') ?></textarea>
+              <textarea id="content" name="content" class="form-control-custom" rows="10" placeholder="Content..."><?= $blogpost->content ?? old('content') ?></textarea>
             </div>
           </div>
+        
           <div class="text-center">
             <button type="submit" class="save-btn">Save Post</button>
           </div>
