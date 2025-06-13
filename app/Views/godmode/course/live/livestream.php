@@ -69,7 +69,7 @@
             <div class="d-flex flex-column h-100 border border-primary p-2 text-white">
                 <!-- Chat body -->
                 <div id="livechat" class="flex-grow-1 overflow-auto mb-2" style="max-height: 80vh;">
-                    <p><strong>Amos:</strong> what are you doing here Rebecca?</p>
+                    <!-- <p><strong>Amos:</strong> what are you doing here Rebecca?</p>
                     <p><strong>Becky:</strong> I'm learning about crypto.</p>
                     <p><strong>Amos:</strong> I can teach you my dear...</p>
                     <p><strong>Becky:</strong> but I want to learn by myself :p</p>
@@ -82,7 +82,7 @@
                     <p><strong>Becky:</strong> but I want to learn by myself :p</p>
                     <p><strong>Principe:</strong> You two don’t be noisy. I’m teaching something important.</p>
                     <p><strong>xxx:</strong> Hahaha.. lets go to the party...</p>
-                    <p><strong>Principe:</strong></p>
+                    <p><strong>Principe:</strong></p> -->
                 </div>
 
                 <!-- Chat input -->
