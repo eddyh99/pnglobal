@@ -5,6 +5,7 @@
     var url = new URL(window.location.href);
     var broadcastId = url.searchParams.get("room_id");
     var performer = true;
+    const isgodmode = <?= json_encode($isgodmode); ?>;
     const videos = [];
     let currentPage = 0;
     const pageSize = 25;
@@ -198,7 +199,7 @@
             connection.disconnectWith(participantId);
         });
         connection.closeSocket();
-        window.location.href = "<?= base_url() ?>homepage";
+        window.location.href = "<?= base_url() ?>" + (isgodmode ? 'godmode/course/live/' : 'course/mentor/live');
     })
 
     function displayMsg(name, msg) {

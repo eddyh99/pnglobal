@@ -114,4 +114,19 @@ class Live extends BaseController
         return ((int)$hours * 60) + (int)$minutes;
     }
 
+    public function host() {
+
+        $user = session()->get('logged_usercourse');
+        $mdata = [
+            'title'     => 'Live - ' . NAMETITLE,
+            'content'   => 'godmode/course/live/livestream',
+            'extra'     => 'godmode/course/live/js/_js_livestream',
+            'liveroom' => 'd-none',
+            'user'    => explode('@', $user->email)[0],
+            'mentor'    => $result->message ?? [],
+            'isgodmode' => false
+        ];
+
+        return view('godmode/course/layout/admin_wrapper', $mdata);
+    }    
 }
