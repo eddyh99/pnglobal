@@ -93,15 +93,24 @@ class Member extends BaseController
     }
 
     public function mydemo() {
+        $url        = URL_COURSE . "/v1/demo/balance?id=".$_SESSION["logged_usercourse"]->id;
+        $response   = courseAdmin($url);
+        $balance    = $response->result->message;
+        
+        $url_history = URL_COURSE . "/v1/demo/trade_history?id=".$_SESSION["logged_usercourse"]->id;
+        $rhistory    = courseAdmin($url_history);
+        $history     = $rhistory->result->message;
 
         $mdata = [
             'title'     => 'Trade Course - ' . NAMETITLE,
-            'extra'   => 'course/member/js/_js_demo',
+            'extra'     => 'course/member/js/_js_demo',
             'content'   => 'course/member/my/demo',
             'menu'      => 'course/member/my/menu',
-            'active_learning'    => 'active',
-            'active_demo'    => 'active',
-            'istrade'   => true
+            'active_learning'   => 'active',
+            'active_demo'       => 'active',
+            'istrade'           => true,
+            'balance'           => $balance,
+            'history'           => $history
         ];
 
         return view('course/layout/wrapper', $mdata);
@@ -171,6 +180,96 @@ class Member extends BaseController
     
         return $this->response->setJSON($data);
     }
+    
+    public function buyposition(){
+        $request = $this->request->getPost();
+        if (empty($request['buytype'])) {
+            $request['buytype'] = 'limit';
+        }
+        
+        $rules = $this->validate([
+            'buytype' => [
+                'label' => 'Order Type',
+                'rules' => 'required|in_list[limit,market]'
+            ],
+            'price' => [
+                'label' => 'Price',
+                'rules' => 'required'
+            ],
+            'usdtAmount' => [
+                'label' => 'Amount',
+                'rules' => 'required'
+            ],
+        ]);
 
+        if (!$rules) {
+            session()->setFlashdata('failed', $this->validator->listErrors());
+            return redirect()->to(BASE_URL . 'course/member/mydemo')->withInput();
+        }
+
+        $url = URL_COURSE . "/v1/demo/balance?id=".$_SESSION["logged_usercourse"]->id;
+        $response = courseAdmin($url)->result->message;
+        $balance    = $response->available_balance ?? 0;
+
+        $price      = str_replace(',', '', $this->request->getVar('price'));
+        $usdtAmount = str_replace(',', '', $this->request->getVar('usdtAmount'));
+        $tpsl       = $this->request->getVar('tpsl');
+        $tplimit  = (float) str_replace(',', '', $this->request->getVar('tplimit'));
+        $sllimit  = (float) str_replace(',', '', $this->request->getVar('sllimit'));
+        
+        $tpValue = null;
+        $slValue = null;
+        
+        if ($tpsl) {
+            $tpValue = $tplimit > 0 ? $tplimit : null;
+            $slValue = $sllimit > 0 ? $sllimit : null;
+        }
+        if (bccomp($usdtAmount, $balance, 8) === 1) {
+            session()->setFlashdata('failed', "Insufficient Balance");
+            return redirect()->to(BASE_URL . 'course/member/mydemo')->withInput();
+        }
+        
+
+        $mdata = [
+            'trade_id'    => $response->trade_id,
+            'user_id'     => $_SESSION["logged_usercourse"]->id,
+            'order_price' => $price,
+            'usdt_qty'    => $usdtAmount,
+            'order_type'  => "buy",
+            'trade_type'  => $request['buytype'],
+            'take_profit' => $tpValue,
+            'stop_loss'   => $slValue,
+            'status'      => ($request['buytype']==='market') ? 'filled' : 'pending'
+        ];
+        
+        $url = URL_COURSE . "/v1/demo/trade_buy";
+        $result = courseAdmin($url, json_encode($mdata))->result;
+
+        if ($result->code != 200) {
+            session()->setFlashdata('failed', $result->message);
+            return redirect()->to(BASE_URL . 'course/member/mydemo')->withInput();
+        }
+        
+        
+        $memory = $result->message;
+        $this->redis->rpush("orders:BTCUSDT", json_encode($memory));
+        
+        session()->setFlashdata('success', "Order Successfully Created");
+        return redirect()->to(BASE_URL . 'course/member/mydemo')->withInput();
+    }
+    
+    public function readdata(){
+        // Get all items from the list
+        $orders = $this->redis->lrange("orders:BTCUSDT", 0, -1);
+        print_r($orders);
+        echo "<hr>";
+        $filled = $this->redis->lrange("filled_orders:BTCUSDT", 0, -1);
+        print_r($filled);
+        
+    }
+    
+    public function cleanredis(){
+        $this->redis->flushdb();
+    }
 
 }

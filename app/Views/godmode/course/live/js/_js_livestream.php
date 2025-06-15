@@ -26,6 +26,22 @@
         video: true,
         data: true
     };
+
+    connection.iceServers= [
+    {
+        urls: [ "stun:ss-turn2.xirsys.com" ]
+    }, {
+        username: "9T_lKSp8c-na_my7tOf58N-Owq3KBK3s1BrEX2aYSS_AvrBdUOK6YnOvlHfgo8IBAAAAAGIzscxtM3JjNG43Mw==",
+        credential: "09335c34-a63f-11ec-b20c-0242ac140004",
+        urls: [
+            "turn:ss-turn2.xirsys.com:80?transport=udp",
+            "turn:ss-turn2.xirsys.com:3478?transport=udp",
+            "turn:ss-turn2.xirsys.com:80?transport=tcp",
+            "turn:ss-turn2.xirsys.com:3478?transport=tcp",
+            "turns:ss-turn2.xirsys.com:443?transport=tcp",
+            "turns:ss-turn2.xirsys.com:5349?transport=tcp"
+            ]
+    }];
     connection.sdpConstraints.mandatory = {
         OfferToReceiveAudio: true,
         OfferToReceiveVideo: true
