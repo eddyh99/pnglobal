@@ -41,7 +41,7 @@
                 <div style="margin-bottom: 4rem;">
                     <h4 class="mb-3">Create Live Schedule</h4>
                     <div class="mx-4">
-                        <form action="/">
+                        <form action="<?= BASE_URL ?>course/mentor/live/store">
                         <div class="row">
                             <div class="col-2 border border-5 border-primary d-flex align-items-center" style="background-color: rgba(180, 139, 61, 0.2);">
                                 <span><b>Title</b></span>

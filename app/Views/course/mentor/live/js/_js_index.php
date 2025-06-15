@@ -52,7 +52,7 @@
   <path d="M15 6.41581C16.4355 6.41581 17.6051 7.58594 17.6051 9.01932C17.6051 10.4527 16.4343 11.5854 15 11.5854C13.5657 11.5854 12.4323 10.4527 12.4323 9.01932C12.4323 7.58594 13.5657 6.41581 15 6.41581ZM15 0C23.5343 0 29.6883 8.00013 29.6883 8.00013C30.1039 8.52905 30.1039 9.47216 29.6883 9.99987C29.6883 9.99987 23.5331 18 15 18C6.46689 18 0.311745 9.99987 0.311745 9.99987C-0.103915 9.47095 -0.103915 8.52784 0.311745 8.00013C0.311745 8.00013 6.46689 0 15 0ZM15 15.4726C18.55 15.4726 21.4572 12.5672 21.4572 9.01932C21.4572 5.47149 18.55 2.56608 15 2.56608C11.45 2.56608 8.54277 5.47149 8.54277 9.01932C8.54277 12.5672 11.45 15.4726 15 15.4726Z" fill="#B48B3D"/>
 </svg></a>`;
 
-                    const btndel = `<a href="<?= BASE_URL ?>godmode/course/live/deletelive/${encodeURI(btoa(full.id))}"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="22" viewBox="0 0 20 22" fill="none" onclick="return confirm('Are you sure you want to delete this live?')">
+                    const btndel = `<a href="<?= BASE_URL ?>course/mentor/live/deletelive/${encodeURI(btoa(full.id))}"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="22" viewBox="0 0 20 22" fill="none" onclick="return confirm('Are you sure you want to delete this live?')">
   <path d="M7.66675 11V16.5556" stroke="#B48B3D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
   <path d="M12.1111 11V16.5556" stroke="#B48B3D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
   <path d="M1 5.44434H18.7778" stroke="#B48B3D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
