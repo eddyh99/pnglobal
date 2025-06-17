@@ -1,5 +1,7 @@
-<script src="<?= BASE_URL ?>assets/js/admin/mandatory/RTCMultiConnection.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.7.2/socket.io.js"></script>
+<script src="https://cdn.webrtc-experiment.com:443/FileBufferReader.js"></script>
+<script src="<?= BASE_URL ?>assets/js/admin/mandatory/RTCMultiConnection.js"></script>
+
 <script>
     var connection = new RTCMultiConnection();
     var url = new URL(window.location.href);
@@ -19,6 +21,7 @@
     // Inisialisasi room opened even if owner leaves
     connection.autoCloseEntireSession = false;
     connection.maxParticipantsAllowed = 200;
+    connection.enableFileSharing = true;
     let micEnabled = true;
 
     // Inisialisasi AUDIO, VIDEO, DATA RTCMultiConnection
@@ -28,9 +31,8 @@
         data: true
     };
 
-    connection.iceServers= [
-    {
-        urls: [ "stun:ss-turn2.xirsys.com" ]
+    connection.iceServers = [{
+        urls: ["stun:ss-turn2.xirsys.com"]
     }, {
         username: "9T_lKSp8c-na_my7tOf58N-Owq3KBK3s1BrEX2aYSS_AvrBdUOK6YnOvlHfgo8IBAAAAAGIzscxtM3JjNG43Mw==",
         credential: "09335c34-a63f-11ec-b20c-0242ac140004",
@@ -41,7 +43,7 @@
             "turn:ss-turn2.xirsys.com:3478?transport=tcp",
             "turns:ss-turn2.xirsys.com:443?transport=tcp",
             "turns:ss-turn2.xirsys.com:5349?transport=tcp"
-            ]
+        ]
     }];
     connection.sdpConstraints.mandatory = {
         OfferToReceiveAudio: true,
@@ -120,7 +122,7 @@
             kickLink.className = "btn btn-sm btn-danger ms-2";
             kickLink.style.padding = "2px 6px";
             kickLink.style.fontSize = "12px";
-            kickLink.addEventListener("click", function () {
+            kickLink.addEventListener("click", function() {
                 if (confirm(`Are you sure you want to kick this user?`)) {
                     kickUser(event.userid); // Kirim userid RTC ke fungsi
                 }
@@ -333,7 +335,7 @@
         });
     });
 
-    function kickUser(userid){
+    function kickUser(userid) {
         // Kirim perintah ke user untuk disconnect
         connection.send({
             action: 'kick_me',
@@ -348,5 +350,22 @@
             renderPage();
         }
     }
-    
+
+    document.getElementById('sendfile').addEventListener('click', function() {
+        const participants = connection.getAllParticipants();
+
+        if (participants.length === 0) {
+            return;
+        }
+        document.getElementById('fileInput').click();
+    });
+
+    document.getElementById('fileInput').addEventListener('change', function() {
+        const file = this.files[0];
+        if (file) {
+            connection.send(file); 
+            console.log('Mengirim file:', file.name);
+            this.value = '';
+        }
+    });
 </script>

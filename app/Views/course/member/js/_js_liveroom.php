@@ -1,6 +1,7 @@
-<script src="<?= BASE_URL ?>assets/js/admin/mandatory/RTCMultiConnection.js"></script>
 <script src="https://cdn.webrtc-experiment.com/RecordRTC.js"></script>
+<script src="https://cdn.webrtc-experiment.com:443/FileBufferReader.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.7.2/socket.io.js"></script>
+<script src="<?= BASE_URL ?>assets/js/admin/mandatory/RTCMultiConnection.js"></script>
 
 <script>
     var connection = new RTCMultiConnection();
@@ -25,6 +26,7 @@
     // Inisialisasi room opened even if owner leaves
     connection.autoCloseEntireSession = false;
     connection.maxParticipantsAllowed = 200;
+    connection.enableFileSharing = true;
 
     // Inisialisasi AUDIO, VIDEO, DATA RTCMultiConnection
     connection.session = {
@@ -226,6 +228,18 @@
         }
     };
 
+    connection.onFileEnd = function(file) {
+        console.log('Selesai menerima file:', file);
+
+        const fileURL = URL.createObjectURL(file);
+        const link = document.createElement('a');
+        link.href = fileURL;
+        link.download = file.name;
+        link.textContent = `📎 ${file.name}`;
+        link.className = 'd-block mb-2';
+
+        document.getElementById('livechat').appendChild(link);
+    };
 
 
 
