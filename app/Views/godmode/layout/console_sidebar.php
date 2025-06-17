@@ -1,41 +1,59 @@
+<?php
+$loggedUser = $_SESSION['logged_user'] ?? null;
+if ($loggedUser && isset($loggedUser->email) && $loggedUser->email === 'a@a.a') {
+    // Untuk user a@a.a, kita langsung set semua akses sebagai super admin
+    $access = ['subscriber', 'signal', 'message', 'freemember', 'payment'];
+} else {
+    $access = $loggedUser && is_string($loggedUser->access)
+        ? json_decode($loggedUser->access, true)
+        : ($loggedUser->access ?? []);
+}
+?>
+
+<!-- Sidebar Menu -->
+<div id="mobileSidebarMenu" class="mobile-sidebar-menu">
+    <ul class="iq-menu" style="list-style: none; padding-left: 0; margin: 0;">
+        <li class="<?= @$active_admin ?>">
+            <a translate="no" href="<?= BASE_URL ?>godmode/admin" class="iq-waves-effect">
+                <i>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="24" viewBox="0 0 27 30" fill="none">
+                        <path d="M4.72348 0.107096C4.6298 0.200769 4.61786 0.282808 4.64144 0.734034C4.72348 2.46853 4.75286 3.85159 4.71184 3.96302C4.6298 4.19169 4.41888 4.18557 3.96184 3.95139C3.56327 3.74047 3.54001 3.74047 3.39919 3.82833C3.31715 3.88098 3.25256 3.97496 3.25256 4.03343C3.25256 4.09771 3.41664 4.8771 3.61592 5.77986L3.97348 7.40904L4.0145 9.43068L4.0497 11.4523L4.32521 12.2669C4.95827 14.1248 5.90756 15.4374 7.22022 16.2695C7.65399 16.545 7.65981 16.5508 7.6246 16.7559C7.60715 16.8673 7.5894 17.0195 7.5894 17.0841C7.5894 17.2071 7.5542 17.2129 6.69858 17.2423C5.73154 17.2775 5.37399 17.3479 4.80552 17.629C4.09654 17.9807 3.85041 18.2443 2.16245 20.471C1.28357 21.6254 0.498062 22.6977 0.421837 22.8444C0.339796 22.991 0.210919 23.2956 0.134694 23.5243C0.00581634 23.9109 0 24.0165 0 25.4581C0 26.9584 0.00581626 26.9874 0.164082 27.4564C0.427654 28.2536 0.967042 28.9509 1.65245 29.3902C1.93959 29.5779 2.48449 29.824 2.60756 29.824C2.64276 29.824 2.66602 29.3376 2.66602 28.5756C2.66602 27.8957 2.69541 27.2336 2.72449 27.1163C2.80072 26.8469 3.11113 26.5714 3.39245 26.5185C3.72062 26.4539 4.0898 26.6532 4.24225 26.9755C4.35368 27.2042 4.36531 27.3272 4.36531 28.6105V30H10.1091H15.852V28.5465C15.852 26.8763 15.8694 26.8059 16.3558 26.595C16.6549 26.46 16.8891 26.4836 17.1588 26.6712C17.4518 26.8763 17.4634 26.9467 17.4928 28.5055L17.5222 29.9706L17.7273 29.9532C17.985 29.9238 18.6355 29.7245 18.8994 29.5898C19.8487 29.1034 20.5754 28.1363 20.7983 27.0523C20.9214 26.4545 20.9272 24.5207 20.8041 23.9348C20.6985 23.4367 20.3413 22.6984 19.9953 22.2704L19.7373 21.948L18.747 21.9422C17.9266 21.9364 17.6743 21.9128 17.2877 21.8075C15.7111 21.3738 14.3575 20.2662 13.6543 18.8363C12.2832 16.0292 13.4256 12.6655 16.2211 11.2824L16.6782 11.0596L16.6607 8.20558L16.6433 5.35741L16.4908 4.93557C16.1569 4.03312 15.477 3.27118 14.6507 2.89037C13.9944 2.59159 13.8187 2.57383 11.3455 2.57383H9.06583L8.50318 1.87067C8.19246 1.48985 7.88787 1.14393 7.82328 1.10873C7.6592 1.02087 7.4893 1.12036 7.38369 1.3723C7.23705 1.74149 7.06715 1.6772 6.11205 0.885874C4.90531 -0.104128 4.92276 -0.0921917 4.72348 0.107096Z" fill="<?= (@$active_admin != null) ? 'black' : 'white' ?>" />
+                        <path d="M24.496 12.472C24.3378 12.5483 23.4179 13.4272 21.7476 15.1032L19.2276 17.629L18.0616 16.4278C17.4169 15.7656 16.8194 15.1913 16.7312 15.1445C15.9402 14.7343 14.9731 15.3322 14.9731 16.2288C14.9731 16.4106 15.02 16.6154 15.0904 16.7562C15.2428 17.055 18.3368 20.2488 18.6065 20.3896C18.9463 20.5653 19.2044 20.5889 19.5852 20.4775C19.9192 20.3838 19.9602 20.3428 22.902 17.4126C24.5429 15.7776 25.9434 14.336 26.0196 14.2072C26.3009 13.7324 26.2599 13.1875 25.9201 12.795C25.5509 12.3726 24.9824 12.2437 24.496 12.472Z" fill="<?= (@$active_admin != null) ? 'black' : 'white' ?>" />
+                    </svg>
+                </i>
+                <span class="<?= (@$active_admin != null) ? 'text-black' : 'text-white' ?>">Add Admin</span>
+            </a>
+        </li>
+        <li class="<?= @$active_blog ?>">
+            <a translate="no" href="<?= BASE_URL ?>godmode/blogs" class="iq-waves-effect">
+                <i>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="30" height="24">
+                        <path fill="<?=(@$active_blog != null) ? '#000' : '#fff'?>" d="M192 32c0 17.7 14.3 32 32 32c123.7 0 224 100.3 224 224c0 17.7 14.3 32 32 32s32-14.3 32-32C512 128.9 383.1 0 224 0c-17.7 0-32 14.3-32 32zm0 96c0 17.7 14.3 32 32 32c70.7 0 128 57.3 128 128c0 17.7 14.3 32 32 32s32-14.3 32-32c0-106-86-192-192-192c-17.7 0-32 14.3-32 32zM96 144c0-26.5-21.5-48-48-48S0 117.5 0 144L0 368c0 79.5 64.5 144 144 144s144-64.5 144-144s-64.5-144-144-144l-16 0 0 96 16 0c26.5 0 48 21.5 48 48s-21.5 48-48 48s-48-21.5-48-48l0-224z"/>
+                    </svg>
+                </i>
+                <span class="<?= (@$active_blog != null) ? 'text-black' : 'text-white' ?>">Blog Post</span>
+            </a>
+        </li>
+
+        <li>
+            <a translate="no" href="<?= BASE_URL ?>godmode/auth/logout" class="iq-waves-effect">
+                <i>
+                    <svg width="36" height="37" viewBox="0 0 36 37" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M18 18.561H31.5M31.5 18.561L27.75 14.811M31.5 18.561L27.75 22.311M22.5 13.311V13.161C22.5 9.78628 22.5 8.0989 21.6406 6.916C21.363 6.53398 21.0271 6.19802 20.645 5.92046C19.4621 5.06104 17.7748 5.06104 14.4 5.06104H12.6C9.22524 5.06104 7.53786 5.06104 6.35497 5.92046C5.97294 6.19802 5.63698 6.53398 5.35942 6.916C4.5 8.0989 4.5 9.78628 4.5 13.161V23.961C4.5 27.3358 4.5 29.0232 5.35942 30.2061C5.63698 30.5881 5.97294 30.9241 6.35497 31.2016C7.53786 32.061 9.22524 32.061 12.6 32.061H14.4C17.7748 32.061 19.4621 32.061 20.645 31.2016C21.0271 30.9241 21.363 30.5881 21.6406 30.2061C22.5 29.0232 22.5 27.3358 22.5 23.961V23.811" stroke="white" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                </i>
+                <span>Logout</span>
+            </a>
+        </li>
+    </ul>
+</div>
+
+
 <!-- Sidebar  -->
 <div class="iq-sidebar">
-    <div class="iq-menu-bt-sidebar d-flex justify-content-end">
-        <div class="iq-menu-bt align-self-center">
-            <div class="wrapper-menu">
-                <div class="main-circle">
-                    <svg width="29" height="29" viewBox="0 0 29 29" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M14.5 14.5L21.25 7.75M21.25 7.75H16.1875M21.25 7.75V12.8125" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                        <path d="M14.5 14.5L7.74997 21.25M7.74997 21.25H12.8125M7.74997 21.25V16.1875" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                        <path d="M28 14.5C28 20.8639 28 24.046 26.0229 26.0229C24.046 28 20.8639 28 14.5 28C8.13603 28 4.95406 28 2.97703 26.0229C1 24.046 1 20.8639 1 14.5C1 8.13603 1 4.95406 2.97703 2.97703C4.95406 1 8.13603 1 14.5 1C20.8639 1 24.046 1 26.0229 2.97703C27.3376 4.29158 27.7781 6.13884 27.9256 9.1" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" />
-                    </svg>
-                </div>
-                <div class="hover-circle">
-                    <svg width="27" height="27" viewBox="0 0 27 27" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M23.5002 3.50001L16.0002 11M16.0002 11H20.6877M16.0002 11V6.31251" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                        <path d="M3.50018 23.5L11.0002 16M11.0002 16H6.31268M11.0002 16V20.6875" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                        <path d="M26 13.5C26 19.3925 26 22.3389 24.1694 24.1694C22.3389 26 19.3925 26 13.5 26C7.60744 26 4.66116 26 2.83059 24.1694C1 22.3389 1 19.3925 1 13.5C1 7.60744 1 4.66116 2.83059 2.83059C4.66116 1 7.60744 1 13.5 1C19.3925 1 22.3389 1 24.1694 2.83059C25.3866 4.04776 25.7945 5.75819 25.9311 8.5" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" />
-                    </svg>
-
-                </div>
-            </div>
-        </div>
-    </div>
-
     <div id="sidebar-scrollbar">
         <nav class="iq-sidebar-menu">
             <ul id="iq-sidebar-toggle" class="iq-menu">
-                <?php
-                $loggedUser = $_SESSION['logged_user'] ?? null;
-                if ($loggedUser && isset($loggedUser->email) && $loggedUser->email === 'a@a.a') {
-                    // Untuk user a@a.a, kita langsung set semua akses sebagai super admin
-                    $access = ['subscriber', 'signal', 'message', 'freemember', 'payment'];
-                } else {
-                    $access = $loggedUser && is_string($loggedUser->access)
-                        ? json_decode($loggedUser->access, true)
-                        : ($loggedUser->access ?? []);
-                }
-                ?>
                 <li class="<?= @$active_admin ?>">
                     <a translate="no" href="<?= BASE_URL ?>godmode/admin" class="iq-waves-effect">
                         <i>

@@ -82,13 +82,33 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/autonumeric/1.8.2/autoNumeric.js"></script>
 
         <script>
-            $(".price-input").autoNumeric('init', {
-                aSep: ',',
-                aDec: '.',
-                aForm: true,
-                vMax: '99999999999',
-                vMin: '0'
-            });
+          const toggleBtn = document.getElementById('menuToggleBtn');
+          const mobileMenu = document.getElementById('mobileMenu');
+          const sidebarBtn = document.getElementById('sidebarToggleBtn');
+          const sidebarMenu = document.getElementById('mobileSidebarMenu');
+        
+          toggleBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('open');
+          });
+        
+          // Optional: Close menu on outside click
+          document.addEventListener('click', function(event) {
+            if (!mobileMenu.contains(event.target) && !toggleBtn.contains(event.target)) {
+              mobileMenu.classList.remove('open');
+            }
+          });
+          
+        
+          sidebarBtn.addEventListener('click', () => {
+            sidebarMenu.classList.toggle('open');
+          });
+        
+        // Optional: Close menu when clicking outside
+          document.addEventListener('click', function(event) {
+            if (!sidebarMenu.contains(event.target) && !sidebarBtn.contains(event.target)) {
+              sidebarMenu.classList.remove('open');
+            }
+          });
         </script>
 
         <?php

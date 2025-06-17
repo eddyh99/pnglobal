@@ -36,7 +36,7 @@
                 <div class="col-lg-12 px-2">
                     <!-- balance fund & trade -->
                     <a href="<?= BASE_URL ?>godmode/hedge/profit">
-                        <div class="custom-card left-card w-50 mx-auto">
+                        <div class="custom-card left-card custom-responsive-width w-50 mx-auto">
                             <div class="d-flex justify-content-between text-black" style="font-weight: bold;">
                                 <p>USDT BALANCE</p>
                                 <p>BTC BALANCE</p>

@@ -4,14 +4,21 @@
         console.log("Document ready, initializing tabs");
 
         // Default active tab
-        let activeTab = localStorage.getItem('activeTabMsg') || 'pn-global';
+        const urlParams = new URLSearchParams(window.location.search);
+        let activeTab = urlParams.get('tab') || localStorage.getItem('activeTabMsg');
         console.log("Active tab from localStorage:", activeTab);
+        
+        if (urlParams.get('tab')) {
+            localStorage.setItem('activeTabMsg', activeTab);
+        }
 
         // Set active tab on load
         $('.tab-item[data-tab="' + activeTab + '"]').addClass('active').css({
             'background-color': '#BFA573',
             'color': '#000'
         });
+        
+
         $('#' + activeTab).addClass('active').css('display', 'block');
 
         // Tab click handler

@@ -177,14 +177,6 @@
         renderPage();
     };
 
-    connection.onleave = function(event) {
-        removeUserVideo(event.userid);
-    };
-
-    connection.onstreamended = function(event) {
-        removeUserVideo(event.userid);
-    };
-
     connection.onmessage = function(event) {
         const data = event.data;
 
@@ -215,11 +207,6 @@
                 }
             }
 
-        } else if (data.action === 'kick_me' && connection.userid === data.userid) {
-            alert("You have been removed from the room.");
-            connection.close();
-            window.location.href = "<?= base_url() ?>course/member/live";
-            return;
         } else if (data.text) {
             // Pesan teks
             displayMsg(data.from || "Friend", data.text);
@@ -453,14 +440,4 @@
             }
         });
     });
-
-
-    function removeUserVideo(userid) {
-        const wrapper = document.querySelector(`.video-wrapper[data-userid="${userid}"]`);
-        if (wrapper) {
-            wrapper.remove();
-            renderPage();
-        }
-    }
-
 </script>

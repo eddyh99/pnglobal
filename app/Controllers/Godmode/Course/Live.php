@@ -123,8 +123,7 @@ class Live extends BaseController
             'extra'     => 'godmode/course/live/js/_js_livestream',
             'liveroom' => 'd-none',
             'user'    => explode('@', $user->email)[0],
-            'mentor'    => $result->message ?? [],
-            'isgodmode' => true
+            'mentor'    => $result->message ?? []
         ];
 
         return view('godmode/course/layout/admin_wrapper', $mdata);

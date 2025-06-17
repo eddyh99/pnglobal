@@ -24,3 +24,5 @@
 [28-Mar-2025 08:41:46 Asia/Makassar] Response: {"result":{"error":"Account Not found"},"status":401}
 [28-Mar-2025 08:42:54 Asia/Makassar] Response: {"result":{"error":"Account Not found"},"status":401}
 [06-Apr-2025 23:44:29 Asia/Makassar] PHP Fatal error:  Cannot redeclare App\Controllers\Elite\Withdraw::usdt() in /home/mifmail/sandbox/pnglobalinternational-sanbox.com/app/Controllers/Elite/Withdraw.php on line 65
+[16-Jun-2025 00:06:55 Asia/Makassar] PHP Fatal error:  Cannot redeclare App\Controllers\Course\Message::read() in /home/mifmail/sandbox/pnglobalinternational-sanbox.com/app/Controllers/Course/Message.php on line 118
+[16-Jun-2025 00:08:30 Asia/Makassar] PHP Fatal error:  Cannot redeclare App\Controllers\Course\Message::read() in /home/mifmail/sandbox/pnglobalinternational-sanbox.com/app/Controllers/Course/Message.php on line 118

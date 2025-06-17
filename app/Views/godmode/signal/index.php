@@ -32,7 +32,7 @@
             <div class="col-lg-12">
 
                 <!-- balance fund & trade -->
-                <div class="custom-card left-card w-50 mx-auto">
+                <div class="custom-card left-card custom-responsive-width w-50 mx-auto">
                     <div class="d-flex justify-content-between text-black" style="font-weight: bold;">
                         <p>Funding Wallet</p>
                         <p>Trade Wallet</p>

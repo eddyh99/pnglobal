@@ -41,7 +41,7 @@
 
                 <div class="input-group mw-100 mb-0">
                     <input type="text" name="subject" class="form-control text-white border-primary" id="basic-url" aria-describedby="basic-addon3" style="background-color: transparent;" value="<?= $message->sent_date ?>" readonly>
-                    <a href="<?= BASE_URL ?>course/message/compose" class="input-group-text btn rounded-0" style="padding: 0.8rem 4rem;background-color: #B48B3D;">Reply</a>
+                    <a href="<?= BASE_URL .$url ?>message?tab=compose" class="input-group-text btn rounded-0" style="padding: 0.8rem 4rem;background-color: #B48B3D;">Reply</a>
                 </div>
                 <div class="border border-primary text-white text-left" style="min-height: 350px;">
                     <div class="m-3">

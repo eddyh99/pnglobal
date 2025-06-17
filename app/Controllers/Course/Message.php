@@ -69,17 +69,60 @@ class Message extends BaseController
         return redirect()->to(BASE_URL . 'course/message/inbox');
     }
     
+    public function send_message(){
+        $isValid = $this->validate([
+            'subject' => [
+                'label' => 'Subject',
+                'rules' => 'required',
+            ],
+            'message' => [
+                'label' => 'Message Content',
+                'rules' => 'required',
+            ],
+            'to' => [
+                'label' => 'To',
+                'rules' => 'required'
+            ],
+        ]);
+
+        // Checking Validation
+        if (!$isValid) {
+            session()->setFlashdata('failed', $this->validation->listErrors());
+            return redirect()->to(BASE_URL . 'course/message/compose')->withInput();
+        }
+        
+
+        $mdata = [[
+                "sender_id"     => $_SESSION["logged_usercourse"]->id,
+                "receiver_id"   => $this->request->getVar('to'),
+                "subject"       => htmlspecialchars($this->request->getVar('subject')),
+                "content"       => $this->request->getVar('message'),
+            ]];
+    
+
+        $response = courseAdmin(URL_COURSE . "/v1/message/send_message", json_encode($mdata));
+        $result = $response->result;
+        if (@$result->code != 201) {
+            session()->setFlashdata('failed', $result->message);
+            return redirect()->to(BASE_URL . 'course/message/inbox')->withInput();
+        }
+
+        session()->setFlashdata('success', $result->message);
+        return redirect()->to(BASE_URL . 'course/message/inbox');
+
+    }
     
     public function compose()
     {
-        $friends = [
-            ['id' => 1, 'nama' => 'Principe'],
-            ['id' => 2, 'nama' => 'Daniel'],
-            ['id' => 3, 'nama' => 'Roberto'],
-            ['id' => 4, 'nama' => 'Sophie Dubois'],
-            ['id' => 5, 'nama' => 'Liam O\'Connor'],
-        ];
-
+        $response = courseAdmin(URL_COURSE . "/v1/user/mentor");
+        $result = $response->result->message;
+        
+        $friends=array();
+        foreach ($result as $dt){
+            $temp["id"]     = $dt->id;
+            $temp["nama"]   = strstr($dt->email, '@', true);
+            array_push($friends, $temp);
+        }
 
         $mdata = [
             'title'     => 'Message - ' . NAMETITLE,

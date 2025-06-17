@@ -74,6 +74,10 @@ NOTE: This file contains the styling for responsive Template.
 	.iq-menu-horizontal .iq-sidebar-menu li > .iq-submenu .iq-arrow-right { margin-right: 0px; }
 	.iq-page-menu-horizontal .iq-footer { margin-left: 0px; }
 }
+@media(min-width:1280px) {
+    .custom-responsive-width {width: 50%}
+}
+
 @media(max-width:1399px) {
 	.animation-card .an-img .bodymovin { margin-bottom: -28px; }
 	.animation-card .an-img { margin-top: 0; }
@@ -89,7 +93,9 @@ NOTE: This file contains the styling for responsive Template.
 	.sign-in-from { padding: 0 30px; }
 	.sign-in-detail { padding: 100px 50px; }
 	.sign-in-page { height: 100%; }
+	.responsive-width {width: 50%;}
 }
+
 @media(max-width:991px) {
 
 	.iq-top-navbar .iq-navbar-custom .iq-menu-bt { display: block; }
@@ -144,7 +150,7 @@ NOTE: This file contains the styling for responsive Template.
 	body.iq-page-menu-horizontal .wrapper-menu {color: var(--iq-white);}
 	.iq-sidebar { display: inline-block; z-index: 99; left: -260px; top: 75px; padding-top: 15px; }
 	.iq-sidebar { display: inline-block; z-index: 99; left: -300px; top: 0px; }
-	.content-page, body.sidebar-main .content-page { margin-left: 0; padding: 100px 0 0; }
+	.content-page, body.sidebar-main .content-page { margin-left: 0; padding: 10px 0 0; }
 
 	.iq-navbar-custom { margin-top: 11px; }
 	#chartdiv { margin-top: 30px; }
@@ -196,6 +202,7 @@ NOTE: This file contains the styling for responsive Template.
 	.navbar-list li:last-child>a { padding-right: 0px; }
 	.iq-page-menu-horizontal .iq-top-navbar:before, .iq-page-menu-horizontal .iq-top-navbar:after{top: 73px;}
 	.activities-content {width: 390px;}
+	.responsive-width {width: 75%;}
 }
 @media(max-width:979px) {
 	.iq-circle-progressbar .percent { font-size: 2.5rem !important; }
@@ -255,8 +262,9 @@ NOTE: This file contains the styling for responsive Template.
 	.welcome-right { width: 50%; }
 	#dropdownMenuButton3 {display: none;}
 }
-@media(min-width:576px) {
+@media(min-width: 576px) and (max-width: 1279.98px)  {
 	.card-columns .iq-card { display: inline-block; width: 100%; }
+	.custom-responsive-width {width: 75% !important;}
 }
 @media(max-width:580px) { 
 	.welcome-text { width: 100%; }
@@ -297,6 +305,7 @@ NOTE: This file contains the styling for responsive Template.
 	.iq-navbar-logo a span { font-size: 0; }
 	.iq-card .iq-card-header .iq-header-title .card-title{font-size: 14px;}
 	.activities-content {width: auto;}
+	.responsive-width {width: 75%;}
 }
 @media(max-width:359px) {
 	.iq-search-bar .searchbox { width: 160px; }

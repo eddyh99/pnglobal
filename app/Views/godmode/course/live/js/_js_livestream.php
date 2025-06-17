@@ -5,7 +5,6 @@
     var url = new URL(window.location.href);
     var broadcastId = url.searchParams.get("room_id");
     var performer = true;
-    const isgodmode = <?= json_encode($isgodmode); ?>;
     const videos = [];
     let currentPage = 0;
     const pageSize = 25;
@@ -114,21 +113,6 @@
             };
         });
 
-        if (!event.extra.roomOwner) {
-            const kickLink = document.createElement('button');
-            kickLink.textContent = "Kick";
-            kickLink.className = "btn btn-sm btn-danger ms-2";
-            kickLink.style.padding = "2px 6px";
-            kickLink.style.fontSize = "12px";
-            kickLink.addEventListener("click", function () {
-                if (confirm(`Are you sure you want to kick this user?`)) {
-                    kickUser(event.userid); // Kirim userid RTC ke fungsi
-                }
-            });
-
-            label.appendChild(kickLink);
-        }
-
         const wrapper = document.createElement('div');
         wrapper.className = 'video-wrapper';
         wrapper.style.position = 'relative';
@@ -144,14 +128,6 @@
         });
         document.getElementById('video-container').appendChild(wrapper);
         renderPage();
-    };
-
-    connection.onleave = function(event) {
-        removeUserVideo(event.userid);
-    };
-
-    connection.onstreamended = function(event) {
-        removeUserVideo(event.userid);
     };
 
     connection.onmessage = function(event) {
@@ -199,7 +175,7 @@
             connection.disconnectWith(participantId);
         });
         connection.closeSocket();
-        window.location.href = "<?= base_url() ?>" + (isgodmode ? 'godmode/course/live/' : 'course/mentor/live');
+        window.location.href = "<?= base_url() ?>homepage";
     })
 
     function displayMsg(name, msg) {
@@ -332,21 +308,4 @@
             }
         });
     });
-
-    function kickUser(userid){
-        // Kirim perintah ke user untuk disconnect
-        connection.send({
-            action: 'kick_me',
-            userid: userid
-        }, userid); // Kirim hanya ke target
-    }
-
-    function removeUserVideo(userid) {
-        const wrapper = document.querySelector(`.video-wrapper[data-userid="${userid}"]`);
-        if (wrapper) {
-            wrapper.remove();
-            renderPage();
-        }
-    }
-    
 </script>

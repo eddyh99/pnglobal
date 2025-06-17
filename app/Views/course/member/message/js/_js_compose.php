@@ -1,49 +1,99 @@
 <style>
-    .ck.ck-toolbar {
-        background-color: #B48B3D;
+  /* Change the border color of the editable area */
+  .note-editor .note-editable {
+    border: 2px solid #B48B3D; /* Light blue border */
+  }
+
+  /* Optional: Add some padding or styling to the editor */
+  .note-editor {
+    border: 2px solid #B48B3D;
+    border-radius: 5px;
+  }
+
+  /* Change the background color of the toolbar */
+  .note-toolbar {
+    background-color: #B48B3D; /* Light grey background */
+    border-bottom: 1px solid #ccc;
+  }
+
+  /* Optional: Adjust toolbar button styles */
+  .note-toolbar .btn {
+    border: 1px solid #ddd;
+    color: #000;
+  }
+
+  /* Optional: Change button hover */
+  .note-toolbar .btn:hover {
+    background-color: #e0e0e0;
+  }
+  /* Style the popover container */
+    .note-popover {
+      background-color: #B48B3D !important;
+      border: 1px solid #A0752F !important;
+      border-radius: 4px;
+    }
+    
+    /* Style buttons inside the popover */
+    .note-popover .popover-content .btn {
+      border: 1px solid #ddd;
+      color: #000;
+    }
+    
+    /* Hover effect for popover buttons */
+    .note-popover .popover-content .btn:hover {
+      background-color: #e0e0e0;
     }
 
-    .ck.ck-toolbar .ck-button {
-        color: white !important;
-    }
-
-    .ck.ck-toolbar .ck-button svg {
-        fill: white !important;
-    }
-
-    .ck.ck-editor__main .ck-editor__editable:focus {
-        border: 2px solid #B48B3D !important;
-        /* Border kuning */
-        outline: none;
-    }
-
-    .ck-editor__editable_inline {
-        font-size: 16px;
-        font-family: Arial, sans-serif;
-    }
-
-    .ck.ck-editor__main>.ck-editor__editable {
-        min-height: 350px;
-        background-color: #000000;
-        color: #B48B3D;
-    }
 </style>
 <script src="https://cdn.ckeditor.com/ckeditor5/39.0.1/classic/ckeditor.js"></script>
 <script>
-    document.addEventListener('DOMContentLoaded', function() {
-        ClassicEditor
-            .create(document.querySelector('#editor'), {
-                simpleUpload: {
-                    uploadUrl: '/upload.php'
-                }
-            })
-            .catch(error => {
-                console.error(error);
+        document.addEventListener('DOMContentLoaded', function () {
+      $('#editor').summernote({
+        height: 400,
+        toolbar: [
+          ['style', ['bold', 'italic']],
+          ['insert', ['btnImage']] // Custom button
+        ],
+        buttons: {
+          btnImage: function (context) {
+            var ui = $.summernote.ui;
+            var button = ui.button({
+              contents: '<i class="note-icon-picture"></i>',
+              tooltip: 'Insert Image',
+              click: function () {
+                $('#summerModal').modal('show');
+              }
             });
+            return button.render();
+          }
+        }
+      });
+    
+      // Clear file input when modal is shown
+      $('#summerModal').on('shown.bs.modal', function () {
+        $('#customImageInput').val('');
+      });
+    
+      // Insert selected image
+      $('#insertCustomImage').on('click', function () {
+        const fileInput = document.getElementById('customImageInput');
+        const file = fileInput.files[0];
+        if (file) {
+          const reader = new FileReader();
+          reader.onload = function (e) {
+            $('#editor').summernote('insertImage', e.target.result);
+            $('#summerModal').modal('hide');
+          };
+          reader.readAsDataURL(file);
+        }
+      });
     });
 
     $('.subject').on('click', function() {
         $('.subject').removeClass('active');
         $(this).addClass('active');
+
+        const userId = $(this).data('id'); // Get the value from data-id
+        $('#to').val(userId);              // Set it to hidden input
     });
 </script>

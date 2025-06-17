@@ -1552,7 +1552,6 @@ div.dataTables_wrapper div.dataTables_filter input {
 .signal-section {
     width: 100%;
     border-radius: 10px;
-    padding: 0 20px;
 }
 
 .signal-header {
@@ -3427,4 +3426,59 @@ body.sidebar-main .content-page .payment-option-container {
     }
   } 
 
+/*sidebar menu */
+.mobile-sidebar-menu {
+    position: fixed;
+    top: 0;
+    left: -250px; /* Off-screen initially */
+    width: 250px;
+    height: 100%;
+    background-color: #111;
+    overflow-x: hidden;
+    transition: left 0.3s ease;
+    z-index: 1000;
+    padding-top: 60px;
+}
+
+.mobile-sidebar-menu a {
+    padding: 10px 20px;
+    text-decoration: none;
+    color: white;
+    display: block;
+}
+
+.mobile-sidebar-menu.open {
+    left: 0; /* Slide in */
+}
+
+.custom-navbar {
+  position: sticky;
+  top: 0;
+  z-index: 900;
+  background-color: #070707;
+}
+
+.mobile-slide-menu {
+  position: fixed;
+  top: 0;
+  right: -250px;
+  width: 250px;
+  height: 100%;
+  background-color: #070707;
+  padding-top: 60px;
+  box-shadow: -2px 0 8px rgba(0, 0, 0, 0.7);
+  transition: right 0.3s ease-in-out;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  z-index: 1000;
+}
+
+.mobile-slide-menu.open {
+  right: 0;
+}
+.mobile-slide-menu a {
+  padding-left: 20px;
+  text-decoration: none; /* Optional: remove underline */
+}
 
