@@ -95,6 +95,7 @@ class Member extends BaseController
     public function mydemo() {
         $url        = URL_COURSE . "/v1/demo/balance?id=".$_SESSION["logged_usercourse"]->id;
         $response   = courseAdmin($url);
+
         $balance    = $response->result->message;
         
         $url_history = URL_COURSE . "/v1/demo/trade_history?id=".$_SESSION["logged_usercourse"]->id;
@@ -196,6 +197,14 @@ class Member extends BaseController
                 'label' => 'Price',
                 'rules' => 'required'
             ],
+            'balance' => [
+                'label' => 'Available Balance',
+                'rules' => 'required'
+            ],
+            'market-price' => [
+                'label' => 'Market Price',
+                'rules' => 'required'
+            ],
             'usdtAmount' => [
                 'label' => 'Amount',
                 'rules' => 'required'
@@ -207,11 +216,14 @@ class Member extends BaseController
             return redirect()->to(BASE_URL . 'course/member/mydemo')->withInput();
         }
 
+
         $url = URL_COURSE . "/v1/demo/balance?id=".$_SESSION["logged_usercourse"]->id;
         $response = courseAdmin($url)->result->message;
         $balance    = $response->available_balance ?? 0;
 
         $price      = str_replace(',', '', $this->request->getVar('price'));
+        $balance      = str_replace(',', '', $this->request->getVar('balance'));
+        $market_price  = str_replace(',', '', $this->request->getVar('market-price'));
         $usdtAmount = str_replace(',', '', $this->request->getVar('usdtAmount'));
         $tpsl       = $this->request->getVar('tpsl');
         $tplimit  = (float) str_replace(',', '', $this->request->getVar('tplimit'));
@@ -219,10 +231,34 @@ class Member extends BaseController
         
         $tpValue = null;
         $slValue = null;
+
+        // rule
+        if($usdtAmount > $balance) {
+            session()->setFlashdata('failed', "Insufficient balance.");
+            return redirect()->to(BASE_URL . 'course/member/mydemo')->withInput();
+        }
+        if($price > $market_price) {
+            session()->setFlashdata('failed', "Entry price must be lower than market price");
+            return redirect()->to(BASE_URL . 'course/member/mydemo')->withInput();
+        }
         
         if ($tpsl) {
             $tpValue = $tplimit > 0 ? $tplimit : null;
             $slValue = $sllimit > 0 ? $sllimit : null;
+
+            // Validasi TP harus > market
+            if ($tpValue !== null && $tpValue <= $market_price) {
+                session()->setFlashdata('failed', 'Take Profit must be greater than market price.');
+                return redirect()->back()->withInput();
+            }
+
+            // Validasi SL harus < entry
+            if ($slValue !== null && $slValue >= $price) {
+                session()->setFlashdata('failed', 'Stop Loss must be lower than entry price.');
+                return redirect()->back()->withInput();
+            }
+            // eksekusi order sell
+            
         }
         if (bccomp($usdtAmount, $balance, 8) === 1) {
             session()->setFlashdata('failed', "Insufficient Balance");

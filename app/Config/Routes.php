@@ -15,3 +15,6 @@ $routes->group('', ['namespace' => 'App\Controllers'], function($routes){
 
 // $routes->get('course/detail/(:any)', 'Course\Home::detail/$1');
 $routes->get('course/login/(:any)', 'Course\Auth::login/$1');
+$routes->get('phpinfo', function() {
+    phpinfo();
+});
