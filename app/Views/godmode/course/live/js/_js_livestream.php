@@ -104,15 +104,18 @@
         // Label dengan mic icon
         const label = document.createElement('div');
         label.className = 'badge-overlay';
-        label.textContent = `${roleLabel} ${micIcon}`;
+        const labelText = document.createElement('span');
+        labelText.className = 'label-text';
+        labelText.textContent = `${roleLabel} ${micIcon}`;
+        label.appendChild(labelText);
 
         // Perbarui ikon mic jika status mute berubah
         event.stream.getAudioTracks().forEach(track => {
             track.onmute = () => {
-                label.textContent = `${roleLabel} 🔇`;
+                labelText.textContent = `${roleLabel} 🔇`;
             };
             track.onunmute = () => {
-                label.textContent = `${roleLabel} 🎤`;
+                labelText.textContent = `${roleLabel} 🎤`;
             };
         });
 
@@ -174,6 +177,8 @@
                 }
             }
 
+        } else if (data.action === 'raise_hand') {
+            raiseHand(data.userid);
         } else if (data.text) {
             // Pesan teks
             displayMsg(data.from || "Friend", data.text);
@@ -363,9 +368,25 @@
     document.getElementById('fileInput').addEventListener('change', function() {
         const file = this.files[0];
         if (file) {
-            connection.send(file); 
+            connection.send(file);
             console.log('Mengirim file:', file.name);
             this.value = '';
         }
     });
+
+    function raiseHand(userid) {
+        const wrapper = document.querySelector(`.video-wrapper[data-userid="${userid}"]`);
+        if (!wrapper) return;
+
+        const labelText = wrapper.querySelector('.label-text');
+        if (!labelText) return;
+
+        if (!labelText.textContent.includes('✋')) {
+            labelText.textContent = '✋ ' + labelText.textContent;
+
+            setTimeout(() => {
+                labelText.textContent = labelText.textContent.replace('✋ ', '');
+            }, 10000); // 10 detik
+        }
+    }
 </script>
