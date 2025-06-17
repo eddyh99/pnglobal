@@ -197,6 +197,10 @@ class Member extends BaseController
                 'label' => 'Price',
                 'rules' => 'required'
             ],
+            'balance' => [
+                'label' => 'Available Balance',
+                'rules' => 'required'
+            ],
             'market-price' => [
                 'label' => 'Market Price',
                 'rules' => 'required'
@@ -218,6 +222,7 @@ class Member extends BaseController
         $balance    = $response->available_balance ?? 0;
 
         $price      = str_replace(',', '', $this->request->getVar('price'));
+        $balance      = str_replace(',', '', $this->request->getVar('balance'));
         $market_price  = str_replace(',', '', $this->request->getVar('market-price'));
         $usdtAmount = str_replace(',', '', $this->request->getVar('usdtAmount'));
         $tpsl       = $this->request->getVar('tpsl');
@@ -228,6 +233,10 @@ class Member extends BaseController
         $slValue = null;
 
         // rule
+        if($usdtAmount > $balance) {
+            session()->setFlashdata('failed', "Insufficient balance.");
+            return redirect()->to(BASE_URL . 'course/member/mydemo')->withInput();
+        }
         if($price > $market_price) {
             session()->setFlashdata('failed', "Entry price must be lower than market price");
             return redirect()->to(BASE_URL . 'course/member/mydemo')->withInput();
