@@ -34,53 +34,58 @@
         <div id="pn-global" class="tab-content active">
             <div class="row content-body">
                 <div class="col-lg-12 px-2">
-                    <div class="dash-statistics">
-                        <a href="<?= BASE_URL ?>godmode/dashboard" class="statistics">
-                            <div class="iq-card">
-                                <div class="iq-card-body">
-                                    <div class="d-flex flex-column justify-content-center align-items-start">
-                                        <div>
-                                            <h5 class="text-black">Total Member</h5>
-                                        </div>
-                                        <div class="mt-3 w-100 d-flex justify-content-end">
-                                            <h1 class="text-black fw-bold"><?= @$totalmemberpnglobal ?></h1>
-                                        </div>
-                                    </div>
-                                    <div class="<?= ((base64_decode(@$_GET["type"]) == "free_member" || base64_decode(@$_GET["type"]) == "referral_member") ? "disable" : "active") ?>"></div>
-                                </div>
-                            </div>
-                        </a>
-                        <a href="<?= BASE_URL ?>godmode/subscriber" class="statistics">
-                            <div class="iq-card">
-                                <div class="iq-card-body">
-                                    <div class="d-flex flex-column justify-content-center align-items-start">
-                                        <div>
-                                            <h5 class="text-black">Subscriber</h5>
-                                        </div>
-                                        <div class="mt-3 w-100 d-flex justify-content-end">
-                                            <h1 class="text-black fw-bold"><?= @$subscriberpnglobal ?></h1>
+                    <div class="container-fluid">
+                        <div class="row dash-statistics">
+                            <div class="col-12 col-sm-4 col-lg-4 mb-4">
+                                <a href="<?= BASE_URL ?>godmode/dashboard" class="d-block h-75">
+                                    <div class="iq-card h-100">
+                                        <div class="iq-card-body">
+                                            <div class="d-flex flex-column justify-content-center align-items-start">
+                                                <h5 class="text-black">Total Member</h5>
+                                                <div class="mt-3 w-100 d-flex justify-content-end">
+                                                    <h1 class="text-black fw-bold"><?= @$totalmemberpnglobal ?></h1>
+                                                </div>
+                                            </div>
+                                            <div class="<?= ((base64_decode(@$_GET["type"]) == "free_member" || base64_decode(@$_GET["type"]) == "referral_member") ? "disable" : "active") ?>"></div>
                                         </div>
                                     </div>
-                                    <div class="<?= ((base64_decode(@$_GET["type"]) == "referral_member") ? "active" : "disable") ?>"></div>
-                                </div>
+                                </a>
                             </div>
-                        </a>
-                        <a href="" class="statistics">
-                            <div class="iq-card">
-                                <div class="iq-card-body">
-                                    <div class="d-flex flex-column justify-content-center align-items-start">
-                                        <div>
-                                            <h5 class="text-black">Signal Sent</h5>
-                                        </div>
-                                        <div class="mt-3 w-100 d-flex justify-content-end">
-                                            <h1 class="text-black fw-bold"><?= @$signalpnglobal ?></h1>
+                    
+                            <div class="col-12 col-sm-4 col-lg-4 mb-4">
+                                <a href="<?= BASE_URL ?>godmode/subscriber" class="d-block h-75">
+                                    <div class="iq-card h-100">
+                                        <div class="iq-card-body">
+                                            <div class="d-flex flex-column justify-content-center align-items-start">
+                                                <h5 class="text-black">Subscriber</h5>
+                                                <div class="mt-3 w-100 d-flex justify-content-end">
+                                                    <h1 class="text-black fw-bold"><?= @$subscriberpnglobal ?></h1>
+                                                </div>
+                                            </div>
+                                            <div class="<?= ((base64_decode(@$_GET["type"]) == "referral_member") ? "active" : "disable") ?>"></div>
                                         </div>
                                     </div>
-                                    <div class="disable"></div>
-                                </div>
+                                </a>
                             </div>
-                        </a>
+                    
+                            <div class="col-12 col-sm-4 col-lg-4 mb-4">
+                                <a href="#" class="d-block h-75">
+                                    <div class="iq-card h-100">
+                                        <div class="iq-card-body">
+                                            <div class="d-flex flex-column justify-content-center align-items-start">
+                                                <h5 class="text-black">Signal Sent</h5>
+                                                <div class="mt-3 w-100 d-flex justify-content-end">
+                                                    <h1 class="text-black fw-bold"><?= @$signalpnglobal ?></h1>
+                                                </div>
+                                            </div>
+                                            <div class="disable"></div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
                     </div>
+                    
                 </div>
                 <?php if (base64_decode(@$_GET["type"]) != "free_member") { ?>
                     <div class="col-lg-12 dash-table-totalmember">

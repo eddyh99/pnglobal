@@ -58,67 +58,72 @@
                             </div>
                         </div>
                     </a>
-                    <div class="dash-statistics">
-                        <a href="<?= BASE_URL ?>godmode/dashboard/hedgefund" class="statistics">
-                            <div class="iq-card">
-                                <div class="iq-card-body">
-                                    <div class="d-flex flex-column justify-content-center align-items-start">
-                                        <div>
-                                            <h5 class="text-black">Total Member</h5>
-                                        </div>
-                                        <div class="mt-3 w-100 d-flex justify-content-end">
-                                            <h1 class="text-black fw-bold"><?= @$totalmemberelite ?></h1>
-                                        </div>
-                                    </div>
-                                    <div class="<?= ((base64_decode(@$_GET["type"]) == "free_member" || base64_decode(@$_GET["type"]) == "referral_member") ? "disable" : "active") ?>"></div>
-                                </div>
-                            </div>
-                        </a>
-                        <a href="<?= BASE_URL ?>godmode/hedge" class="statistics">
-                            <div class="iq-card">
-                                <div class="iq-card-body">
-                                    <div class="d-flex flex-column justify-content-center align-items-start">
-                                        <div>
-                                            <h5 class="text-black">Active Member</h5>
-                                        </div>
-                                        <div class="mt-3 w-100 d-flex justify-content-end">
-                                            <h1 class="text-black fw-bold"><?= @$subscriberelite ?></h1>
+                    <div class="container-fluid">
+                        <div class="row dash-statistics">
+                            <div class="col-12 col-sm-6 col-lg-3 mb-2">
+                                <a href="<?= BASE_URL ?>godmode/dashboard/hedgefund" class="d-block h-75">
+                                    <div class="iq-card h-100">
+                                        <div class="iq-card-body">
+                                            <div class="d-flex flex-column justify-content-center align-items-start">
+                                                <h5 class="text-black">Total Member</h5>
+                                                <div class="mt-3 w-100 d-flex justify-content-end">
+                                                    <h1 class="text-black fw-bold"><?= @$totalmemberelite ?></h1>
+                                                </div>
+                                            </div>
+                                            <div class="<?= ((base64_decode(@$_GET["type"]) == "free_member" || base64_decode(@$_GET["type"]) == "referral_member") ? "disable" : "active") ?>"></div>
                                         </div>
                                     </div>
-                                    <div class="<?= ((base64_decode(@$_GET["type"]) == "referral_member") ? "active" : "disable") ?>"></div>
-                                </div>
+                                </a>
                             </div>
-                        </a>
-                        <a href="" class="statistics">
-                            <div class="iq-card">
-                                <div class="iq-card-body">
-                                    <div class="d-flex flex-column justify-content-center align-items-start">
-                                        <div>
-                                            <h5 class="text-black">Referral</h5>
-                                        </div>
-                                        <div class="mt-3 w-100 d-flex justify-content-end">
-                                            <h1 class="text-black fw-bold"><?= @$referralelite ?></h1>
+                    
+                            <div class="col-12 col-sm-6 col-lg-3 mb-2">
+                                <a href="<?= BASE_URL ?>godmode/hedge" class="d-block h-75">
+                                    <div class="iq-card h-100">
+                                        <div class="iq-card-body">
+                                            <div class="d-flex flex-column justify-content-center align-items-start">
+                                                <h5 class="text-black">Active Member</h5>
+                                                <div class="mt-3 w-100 d-flex justify-content-end">
+                                                    <h1 class="text-black fw-bold"><?= @$subscriberelite ?></h1>
+                                                </div>
+                                            </div>
+                                            <div class="<?= ((base64_decode(@$_GET["type"]) == "referral_member") ? "active" : "disable") ?>"></div>
                                         </div>
                                     </div>
-                                    <div class="disable"></div>
-                                </div>
+                                </a>
                             </div>
-                        </a>
-                        <a href="" class="statistics">
-                            <div class="iq-card">
-                                <div class="iq-card-body">
-                                    <div class="d-flex flex-column justify-content-center align-items-start">
-                                        <div>
-                                            <h5 class="text-black">Signal Sent</h5>
-                                        </div>
-                                        <div class="mt-3 w-100 d-flex justify-content-end">
-                                            <h1 class="text-black fw-bold"><?= @$signalelite ?></h1>
+                    
+                            <div class="col-12 col-sm-6 col-lg-3 mb-2">
+                                <a href="#" class="d-block h-75">
+                                    <div class="iq-card h-100">
+                                        <div class="iq-card-body">
+                                            <div class="d-flex flex-column justify-content-center align-items-start">
+                                                <h5 class="text-black">Referral</h5>
+                                                <div class="mt-3 w-100 d-flex justify-content-end">
+                                                    <h1 class="text-black fw-bold"><?= @$referralelite ?></h1>
+                                                </div>
+                                            </div>
+                                            <div class="disable"></div>
                                         </div>
                                     </div>
-                                    <div class="disable"></div>
-                                </div>
+                                </a>
                             </div>
-                        </a>
+                    
+                            <div class="col-12 col-sm-6 col-lg-3 mb-2">
+                                <a href="#" class="d-block h-75">
+                                    <div class="iq-card h-100">
+                                        <div class="iq-card-body">
+                                            <div class="d-flex flex-column justify-content-center align-items-start">
+                                                <h5 class="text-black">Signal Sent</h5>
+                                                <div class="mt-3 w-100 d-flex justify-content-end">
+                                                    <h1 class="text-black fw-bold"><?= @$signalelite ?></h1>
+                                                </div>
+                                            </div>
+                                            <div class="disable"></div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
                     </div>
                 </div>
 

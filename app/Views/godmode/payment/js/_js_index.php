@@ -40,7 +40,8 @@
         // Initialize PN Global table
         $('#table_referralmember').DataTable({
             "pageLength": 50,
-            "scrollX": true,
+            "dom": '<"d-flex justify-content-between align-items-center flex-wrap"lf>t<"d-flex justify-content-between align-items-center"ip>',
+            "responsive": true,
             "order": false,
             "ajax": {
                 "url": "<?= BASE_URL ?>godmode/payment/get_requestpayment",
@@ -82,7 +83,8 @@
         // Initialize Satoshi Signal table
         $('#table_satoshi_requestpayment').DataTable({
             "pageLength": 50,
-            "scrollX": true,
+            "dom": '<"d-flex justify-content-between align-items-center flex-wrap"lf>t<"d-flex justify-content-between align-items-center"ip>',
+            "responsive": true,
             "order": false,
             "ajax": {
                 "url": "<?= BASE_URL ?>godmode/payment/get_satoshi_requestpayment",
@@ -122,7 +124,8 @@
 
         $('#table_elitebtc_requestpayment').DataTable({
             "pageLength": 50,
-            "scrollX": true,
+            "dom": '<"d-flex justify-content-between align-items-center flex-wrap"lf>t<"d-flex justify-content-between align-items-center"ip>',
+            "responsive": true,
             "order": false,
             "ajax": {
                 "url": "<?= BASE_URL ?>godmode/payment/get_elitebtc_requestpayment",

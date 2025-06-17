@@ -2,7 +2,8 @@
      
     $('#table_referralmember').DataTable({
         "pageLength": 50,
-        "scrollX": true,
+        "dom": '<"d-flex justify-content-between align-items-center flex-wrap"lf>t<"d-flex justify-content-between align-items-center"ip>',
+        "responsive": true,
         "order": false,
         "ajax": {
             "url": "<?= BASE_URL ?>godmode/subscriber/get_activesubscription_satoshi",

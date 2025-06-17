@@ -836,7 +836,8 @@ a:hover {
     transition: all 0.9s ease-out 0s;
 }
 .iq-sidebar-menu .iq-menu li.active,
-.iq-sidebar-menu .iq-menu li.active-menu {
+.iq-sidebar-menu .iq-menu li.active-menu,
+.mobile-sidebar-menu .iq-menu li.active {
     background: linear-gradient(
         92deg,
         var(--iq-light-primary) 0%,

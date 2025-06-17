@@ -28,7 +28,8 @@
 
     $('#table_freemember').DataTable({
         "pageLength": 100,
-        "scrollX": true,
+        "dom": '<"d-flex justify-content-between align-items-center flex-wrap"lf>t<"d-flex justify-content-between align-items-center"ip>',
+        "responsive": true,
         "order": false,
         "ajax": {
             "url": "<?= BASE_URL ?>godmode/member/get_freemember",
@@ -64,7 +65,8 @@
     // DataTable untuk Satoshi Signal
     $('#table_signals').DataTable({
         "pageLength": 100,
-        "scrollX": true,
+        "dom": '<"d-flex justify-content-between align-items-center flex-wrap"lf>t<"d-flex justify-content-between align-items-center"ip>',
+        "responsive": true,
         "order": [
             [0, "desc"]
         ],
@@ -163,7 +165,8 @@
 
     $('#table_totalmember_satoshi').DataTable({
         "pageLength": 100,
-        "scrollX": true,
+        "dom": '<"d-flex justify-content-between align-items-center flex-wrap"lf>t<"d-flex justify-content-between align-items-center"ip>',
+        "responsive": true,
         "ajax": {
             "url": "<?= BASE_URL ?>godmode/member/get_totalmember_satoshi",
             "type": "POST",
@@ -262,7 +265,8 @@
 
     $('#table_freemember_satoshi').DataTable({
         "pageLength": 100,
-        "scrollX": true,
+        "dom": '<"d-flex justify-content-between align-items-center flex-wrap"lf>t<"d-flex justify-content-between align-items-center"ip>',
+        "responsive": true,
         "order": false,
         "ajax": {
             "url": "<?= BASE_URL ?>godmode/member/get_freemember_satoshi",
@@ -321,7 +325,8 @@
 
     $('#table_referralmember_satoshi').DataTable({
         "pageLength": 100,
-        "scrollX": true,
+        "dom": '<"d-flex justify-content-between align-items-center flex-wrap"lf>t<"d-flex justify-content-between align-items-center"ip>',
+        "responsive": true,
         "order": false,
         "ajax": {
             "url": "<?= BASE_URL ?>godmode/member/get_referralmember_satoshi",

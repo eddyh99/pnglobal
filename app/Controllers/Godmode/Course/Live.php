@@ -117,19 +117,13 @@ class Live extends BaseController
     public function host() {
 
         $user = session()->get('logged_user');
-        $roomId = $_GET['room_id'];
-        $url =  URL_COURSE . "/v1/live/live_byroomid?roomid=" . $roomId;
-        $response = satoshiAdmin($url)->result->message;
-        $end_time = $response->end_date;
         $mdata = [
             'title'     => 'Live - ' . NAMETITLE,
             'content'   => 'godmode/course/live/livestream',
             'extra'     => 'godmode/course/live/js/_js_livestream',
             'liveroom' => 'd-none',
             'user'    => explode('@', $user->email)[0],
-            'mentor'    => $result->message ?? [],
-            'end_time' =>  date('c', strtotime($end_time)),
-            'isgodmode' => true
+            'mentor'    => $result->message ?? []
         ];
 
         return view('godmode/course/layout/admin_wrapper', $mdata);

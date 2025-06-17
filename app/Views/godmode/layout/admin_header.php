@@ -22,6 +22,12 @@
       <link rel="stylesheet" href="<?= BASE_URL?>assets/style/css/admin/custom.css?<?php echo time()?>">
       <!-- Summer Note -->
       <link href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.9.1/summernote-bs4.min.css" rel="stylesheet">
+      <style>
+      .menu-link.active {
+        background-color: #B48B3D; /* Bootstrap primary color */
+        color: #000;
+      }
+      </style>
    </head>
     <nav class="custom-navbar navbar navbar-dark">
         <div class="container-fluid d-flex justify-content-between align-items-center px-3">
@@ -47,12 +53,12 @@
         </div>
         <!-- Slide-in mobile menu -->
         <div id="mobileMenu" class="mobile-slide-menu">
-            <a href="<?= BASE_URL ?>godmode/signal" class="<?= $navbar_console ?? '' ?>">CONSOLE</a>
-            <a href="<?= BASE_URL ?>godmode/dashboard/hedgefund" class="<?= $navbar_hedgefund ?? '' ?>">HEDGE FUND</a>
+            <a href="<?= BASE_URL ?>godmode/signal" class="menu-link <?= $navbar_console ?? '' ?>">CONSOLE</a>
+            <a href="<?= BASE_URL ?>godmode/dashboard/hedgefund" class="menu-link <?= $navbar_hedgefund ?? '' ?>">HEDGE FUND</a>
             <a href="#">ELITE BTC</a>
-            <a href="<?= BASE_URL ?>godmode/dashboard/luxbtc" class="<?= $navbar_luxbtc ?? '' ?>">LUX BTC</a>
-            <a href="<?= BASE_URL ?>godmode/dashboard/satoshi" class="<?= $navbar_satoshi ?? '' ?>">SATOSHI</a>
-            <a href="<?= BASE_URL ?>godmode/dashboard/course" class="<?= $navbar_course ?? '' ?>">COURSE</a>
+            <a href="<?= BASE_URL ?>godmode/dashboard/luxbtc" class="menu-link <?= $navbar_luxbtc ?? '' ?>">LUX BTC</a>
+            <a href="<?= BASE_URL ?>godmode/dashboard/satoshi" class="menu-link <?= $navbar_satoshi ?? '' ?>">SATOSHI</a>
+            <a href="<?= BASE_URL ?>godmode/dashboard/course" class="menu-link <?= $navbar_course ?? '' ?>">COURSE</a>
         </div>
    </nav>
 

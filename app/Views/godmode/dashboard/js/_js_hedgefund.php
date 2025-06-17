@@ -28,8 +28,9 @@
     // elite
 
     $('#table_totalmember_elite').DataTable({
+        "dom": '<"d-flex justify-content-between align-items-center flex-wrap"lf>t<"d-flex justify-content-between align-items-center"ip>',
+        "responsive": true,
         "pageLength": 100,
-        "scrollX": true,
         "ajax": {
             "url": "<?= BASE_URL ?>godmode/member/get_totalmember_elite",
             "type": "POST",

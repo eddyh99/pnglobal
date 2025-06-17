@@ -23,7 +23,8 @@
 
     $('#table_referralmember').DataTable({
         "pageLength": 100,
-        "scrollX": true,
+        "dom": '<"d-flex justify-content-between align-items-center flex-wrap"lf>t<"d-flex justify-content-between align-items-center"ip>',
+        "responsive": true,
         "ajax": {
             "url": "<?= BASE_URL ?>godmode/dashboard/get_referralmember",
             "type": "POST",
@@ -91,7 +92,8 @@
     <?php if ($tab === 'satoshi-signal') { ?>
         $('#table_referralmember_satoshi').DataTable({
             "pageLength": 50,
-            "scrollX": true,
+            "dom": '<"d-flex justify-content-between align-items-center flex-wrap"lf>t<"d-flex justify-content-between align-items-center"ip>',
+            "responsive": true,
             "order": false,
             "ajax": {
                 "url": "<?= BASE_URL ?>godmode/dashboard/get_downline/<?= $member->message->id ?>",
@@ -122,7 +124,8 @@
 
         $('#table_level').DataTable({
             "pageLength": 50,
-            "scrollX": true,
+            "dom": '<"d-flex justify-content-between align-items-center flex-wrap"lf>t<"d-flex justify-content-between align-items-center"ip>',
+            "responsive": true,
             "order": false,
             "ajax": {
                 "url": "<?= BASE_URL ?>godmode/dashboard/getlevel_downline/<?= $member->message->id ?>/2",

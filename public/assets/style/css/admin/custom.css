@@ -3427,6 +3427,10 @@ body.sidebar-main .content-page .payment-option-container {
   } 
 
 /*sidebar menu */
+.menu-link.active {
+    background-color: #B48B3D;
+    color: #000;
+}
 .mobile-sidebar-menu {
     position: fixed;
     top: 0;
@@ -3480,5 +3484,9 @@ body.sidebar-main .content-page .payment-option-container {
 .mobile-slide-menu a {
   padding-left: 20px;
   text-decoration: none; /* Optional: remove underline */
+}
+
+.dataTables_length label {
+    color: white !important;
 }
 
