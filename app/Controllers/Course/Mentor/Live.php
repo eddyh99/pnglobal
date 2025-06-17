@@ -117,6 +117,10 @@ class Live extends BaseController
     public function host() {
 
         $user = session()->get('logged_usercourse');
+        $roomId = $_GET['room_id'];
+        $url =  URL_COURSE . "/v1/live/live_byroomid?roomid=" . $roomId;
+        $response = courseAdmin($url)->result->message;
+        $end_time = $response->end_date;
         $mdata = [
             'title'     => 'Live - ' . NAMETITLE,
             'content'   => 'godmode/course/live/livestream',
@@ -124,9 +128,11 @@ class Live extends BaseController
             'liveroom' => 'd-none',
             'user'    => explode('@', $user->email)[0],
             'mentor'    => $result->message ?? [],
-            'isgodmode' => false
+            'end_time' =>  date('c', strtotime($end_time)),
+            'isgodmode' => true
         ];
 
         return view('godmode/course/layout/admin_wrapper', $mdata);
-    }    
+    }  
+    
 }

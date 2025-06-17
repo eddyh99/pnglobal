@@ -14,6 +14,11 @@
     let modePerformerOnly = false;
     connection.extra.roomOwner = true;
 
+    // timeend
+    const endTime =  new Date("<?= esc($end_time) ?>");
+    console.log(endTime);
+     
+
     // Inisialisasi Connection
     connection.socketURL = 'https://webrtc.pnglobalinternational.com:9001/';
     connection.socketMessageEvent = 'ciak-liveshow';
@@ -91,6 +96,7 @@
         if (event.type === 'local') {
             video.muted = true;
             video.volume = 0;
+            checkDuration(endTime);
 
         }
 
@@ -184,6 +190,7 @@
             displayMsg(data.from || "Friend", data.text);
         }
     };
+
 
 
     /*----------------------------------------------------------
@@ -389,4 +396,30 @@
             }, 10000); // 10 detik
         }
     }
+
+    function checkDuration(endTime) {
+
+    const interval = setInterval(() => {
+        const now = new Date();
+        const timeLeftMs = endTime - now;
+        const timeLeftMin = Math.floor(timeLeftMs / 60000); // Menit tersisa
+        const absMin = Math.abs(timeLeftMin);
+
+        if (timeLeftMin <= 10 && timeLeftMin % 5 === 0) {
+            if (timeLeftMin >= 0) {
+                alert(`⏰ The live session will end in ${timeLeftMin} minute${timeLeftMin === 1 ? '' : 's'}`);
+            } else {
+                alert(`🔴 The live session ended ${absMin} minute${absMin === 1 ? '' : 's'} ago.`);
+            }
+        }
+
+        // Uncomment kalau ingin stop saat habis:
+        // if (timeLeftMs <= 0) {
+        //     clearInterval(interval);
+        //     alert("🔴 The live session has ended.");
+        // }
+    }, 60000);
+}
+
+
 </script>
