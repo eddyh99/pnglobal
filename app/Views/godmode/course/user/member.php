@@ -74,6 +74,58 @@
         </div>
     </div>
 </div>
+<!-- Modal -->
+<div class="modal fade" id="openexam" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <form action="<?=BASE_URL?>godmode/course/user/openexam" method="post">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Open Demo Trade</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <input type="hidden" name="modal_email" id="modal_email">
+            <label>New Capital</label>
+            <input type="number" name="capital" class="form-control">
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="submit" class="btn btn-primary">Save</button>
+          </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- Reopen Modal -->
+<div class="modal fade" id="reopen" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <form id="reopenForm" action="<?= BASE_URL ?>godmode/course/user/reopen" method="post">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Reopen / Close Demo Trade</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <input type="hidden" name="trade_id" id="trade_id">
+          <input type="hidden" name="status" id="trade_status">
+
+          <!-- Buttons -->
+          <button type="button" class="btn btn-primary" onclick="openNewTrade()">New Demo Trade</button>
+          <button type="button" class="btn btn-success" onclick="submitTrade('active')">Re Open</button>
+          <button type="button" class="btn btn-danger" onclick="submitTrade('expired')">Close Demo Trade</button>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
 
 
 <script>

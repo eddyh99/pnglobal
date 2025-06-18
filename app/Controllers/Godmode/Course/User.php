@@ -154,4 +154,67 @@ class User extends BaseController
             return redirect()->to(BASE_URL . 'godmode/course/live/');
         }
     }
+    
+    public function tradehistory($email = null){
+        $email = base64_decode($email);
+        $mdata = [
+            'title'     => 'Course Member - ' . NAMETITLE,
+            'content'   => 'godmode/course/trade/index',
+            'extra'     => 'godmode/course/trade/js/_js_index',
+            'sidebar'   => 'course_sidebar',
+            'navbar_course' => 'active',
+            'active_member'    => 'active active-menu',
+            'email'     => $email
+        ];
+
+        return view('godmode/course/layout/admin_wrapper', $mdata);
+    }
+    
+    public function trade_history()
+    {
+        $email = $this->request->getVar('email');
+        // Call Endpoin Get Member
+        $url = URL_COURSE . "/v1/demo/trade_historybyemail?email=".$email;
+        $result = satoshiAdmin($url)->result->message;
+
+        echo json_encode($result);
+    }
+    
+    public function openexam(){
+        $email      = filter_var($this->request->getVar('modal_email'), FILTER_VALIDATE_EMAIL);
+        $capital    = $this->request->getVar('capital');
+        $data = array(
+                "email"     => $email,
+                "capital"   => $capital
+            );
+        $url = URL_COURSE . "/v1/demo/open_exam";
+        $result = satoshiAdmin($url,json_encode($data))->result;
+        if ($result->code != '200') {
+            session()->setFlashdata('failed', $result->message);
+            return redirect()->to(BASE_URL . 'godmode/course/user/member');
+        } else {
+            session()->setFlashdata('success', $result->message);
+            return redirect()->to(BASE_URL . 'godmode/course/user/member');
+        }
+
+    }
+    
+    public function reopen(){
+        $trade_id  = $this->request->getVar('trade_id');
+        $status    = $this->request->getVar('status');
+        $data = array(
+                "trade_id"  => base64_decode($trade_id),
+                "status"    => $status
+            );
+            
+        $url = URL_COURSE . "/v1/demo/reopen";
+        $result = satoshiAdmin($url,json_encode($data))->result;
+        if ($result->code != '200') {
+            session()->setFlashdata('failed', $result->message);
+            return redirect()->to(BASE_URL . 'godmode/course/user/member');
+        } else {
+            session()->setFlashdata('success', $result->message);
+            return redirect()->to(BASE_URL . 'godmode/course/user/member');
+        }
+    }
 }
