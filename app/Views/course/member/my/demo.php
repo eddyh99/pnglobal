@@ -100,6 +100,8 @@
                   <span class="input-group-text">USDT</span>
                 </div>
               </div>
+              <input type="hidden" id="market-price" name="market-price">
+              <input type="hidden" name="balance" value="<?= $balance->available_balance ?>">
     
               <div class="input-group mt-2" style="border: 1px solid #b48b3d; background-color: #000; height: 45px; border-radius: 5px;">
                 <input lang="en" class="form-control no-spinner" id="qtybtc" name="qtybtc"

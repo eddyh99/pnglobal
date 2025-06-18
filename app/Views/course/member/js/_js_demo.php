@@ -114,6 +114,7 @@
         
         if (!stopchange){
             $("#price").val(price);
+            $('#market-price').val(price);
         }
         if (lastPrice !== null) {
             priceEl.style.color = price > lastPrice ? 'limegreen' : 'red';
