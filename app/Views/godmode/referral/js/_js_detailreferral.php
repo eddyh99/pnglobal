@@ -69,5 +69,18 @@
     function validate() {
         return confirm("Are you sure you want to give a bonus to this user?");
     }
+    
+    $("#btnref").on("click", function(){
+        const input = document.getElementById("refcode");
+        input.select();
+        input.setSelectionRange(0, 99999); // For mobile compatibility
+    
+        // Copy the text inside the input
+        navigator.clipboard.writeText(input.value).then(function () {
+            alert("Copied: " + input.value);
+        }).catch(function (err) {
+            console.error('Failed to copy: ', err);
+        });
+    })
 
  </script>

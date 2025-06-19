@@ -51,8 +51,12 @@
                 data: null,
                 render: function (data, type, row) {
                     // Calculate profit: sell_total_usdt - buy_total_usdt
-                    const profit = parseFloat(row.sell_total_usdt || 0) - parseFloat(row.buy_total_usdt || 0);
-                    return profit.toFixed(2);
+                    if (row.sell_total_usdt==null){
+                        return '';
+                    }else{
+                        const profit = parseFloat(row.sell_total_usdt || 0) - parseFloat(row.buy_total_usdt || 0);
+                        return profit.toFixed(2);
+                    }
                 }
             },
             {
