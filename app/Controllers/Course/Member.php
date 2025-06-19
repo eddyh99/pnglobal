@@ -97,11 +97,6 @@ class Member extends BaseController
         $response   = courseAdmin($url);
 
         $balance    = $response->result->message;
-        
-        $url_history = URL_COURSE . "/v1/demo/trade_history?id=".$_SESSION["logged_usercourse"]->id;
-        $rhistory    = courseAdmin($url_history);
-        $history     = $rhistory->result->message;
-
         $mdata = [
             'title'     => 'Trade Course - ' . NAMETITLE,
             'extra'     => 'course/member/js/_js_demo',
@@ -109,10 +104,23 @@ class Member extends BaseController
             'menu'      => 'course/member/my/menu',
             'active_learning'   => 'active',
             'active_demo'       => 'active',
-            'istrade'           => true,
-            'balance'           => $balance,
-            'history'           => $history
+            'istrade'           => true
         ];
+        
+        $url_history = URL_COURSE . "/v1/demo/trade_history?id=".$_SESSION["logged_usercourse"]->id;
+        $rhistory    = courseAdmin($url_history);
+        $history     = $rhistory->result->message;
+
+
+        if (!$balance) {
+            $mdata['extra'] = null;
+            $mdata['content'] = 'course/member/my/nodemo';
+        } else {
+            $mdata += [
+                'balance'           => $balance,
+                'history'           => $history
+            ];
+        }
 
         return view('course/layout/wrapper', $mdata);
     }
