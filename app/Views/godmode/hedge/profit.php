@@ -87,7 +87,7 @@
                         <th>Client Profit</th>
                         <th>PN Global</th>
                         <th>Referral</th>
-                        <th>Remaining</th>
+                        <!--<th>Remaining</th>-->
                         <!-- <th>ACTION</th> -->
                     </tr>
                 </thead>

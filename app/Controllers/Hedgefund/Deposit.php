@@ -191,7 +191,7 @@ class Deposit extends BaseController
         $orderId    = $invoice;
         $description = "ELITE BTC MANAGEMENT";
 
-        $paymentResponse = $this->createCoinPaymentTransaction($payamount, 'USDT.BEP20', $orderId, $customerEmail, $description);
+        $paymentResponse = $this->createCoinPaymentTransaction($payamount, 'LTCT', $orderId, $customerEmail, $description);
         if ($paymentResponse['error'] !== 'ok') {
             $this->session->setFlashdata('error', 'There was a problem processing your purchase please try again');
             return redirect()->to(base_url() . 'hedgefund/deposit/set_capital');

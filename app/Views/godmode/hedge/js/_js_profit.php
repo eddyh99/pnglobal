@@ -32,32 +32,48 @@
             "url": "<?= BASE_URL ?>godmode/hedge/get_detailprofit",
             "type": "POST",
             "dataSrc": function(data) {
-                return data ? data.filter(item => item.status == 'active') : [];
+                return data;
             }
         },
-        "columns": [{
-                data: 'open_price'
+        "columns": [
+            {
+                title: "Buy Price",
+                data: 'buy_price',
+                render: $.fn.dataTable.render.number(',', '.', 2, '')
             },
             {
-                data: 'close_price',
+                title: "Sell Price",
+                data: 'sell_price',
+                render: $.fn.dataTable.render.number(',', '.', 2, '')
             },
             {
-                data: 'profit',
-            },
-            {
-                data: 'client_profit'
-            },
-            {
-                data: 'wallet_profit', render: $.fn.dataTable.render.number( ',', '.', 2, '' )
-            },
-            {
-                data: 'referral', render: $.fn.dataTable.render.number( ',', '.', 2, '' )
-            },
-            {
+                title: "Profit (USDT)",
                 data: null,
+                render: function (data, type, row) {
+                    // Calculate profit: sell_total_usdt - buy_total_usdt
+                    const profit = parseFloat(row.sell_total_usdt || 0) - parseFloat(row.buy_total_usdt || 0);
+                    return profit.toFixed(2);
+                }
             },
-
-        ],
+            {
+                title: "Client Profit",
+                data: 'client_profit',
+                render: $.fn.dataTable.render.number(',', '.', 2, '')
+            },
+            {
+                title: "Master Profit",
+                data: 'master_profit',
+                render: $.fn.dataTable.render.number(',', '.', 2, '')
+            },
+            {
+                title: "Commission",
+                data: 'total_commission',
+                render: function (data, type, row) {
+                    const commission = data !== null ? parseFloat(data).toFixed(2) : '0.00';
+                    return commission;
+                }
+            }
+        ]
     });
     
 </script>

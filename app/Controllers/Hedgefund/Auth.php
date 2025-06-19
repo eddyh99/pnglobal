@@ -445,7 +445,7 @@ class Auth extends BaseController
         $orderId    = $invoice;
         $description= "HEDGE FUND - PNGLOBAL";
         //USDT.BEP20
-        $paymentResponse = $this->createCoinPaymentTransaction($payamount,'USDT.BEP20', $orderId,$customerEmail,$description);
+        $paymentResponse = $this->createCoinPaymentTransaction($payamount,'LTCT', $orderId,$customerEmail,$description);
         if ($paymentResponse['error'] !== 'ok') {
             $this->session->setFlashdata('error', 'There was a problem processing your purchase please try again');
             return redirect()->to(base_url().'hedgefund/auth/set_capital'); 
