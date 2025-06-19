@@ -108,7 +108,7 @@ class Admin extends BaseController
             session()->setFlashdata('success', 'Admin created successfully');
             return redirect()->to(BASE_URL . 'godmode/admin');
         } else {
-            session()->setFlashdata('failed', $result->message->text);
+            session()->setFlashdata('failed', $result->message);
             return redirect()->to(BASE_URL . 'godmode/admin');
         }
     }
