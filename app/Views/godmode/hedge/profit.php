@@ -3,68 +3,97 @@
     <div class="container-fluid">
         <div class="row content-body">
             <div class="col-lg-12">
-                <div class="dash-statistics">
-                    <a href="#" class="statistics">
-                        <div class="iq-card">
-                            <div class="iq-card-body">
-                                <div class="d-flex flex-column justify-content-center align-items-start">
-                                    <div>
-                                        <h5 class="text-black">Total Profit</h5>
-                                    </div>
-                                    <div class="mt-3 text-center mx-auto">
-                                        <h2 id="tprofit" class="text-black fw-bold text-center">Loading...</h2>
-                                    </div>
-                                </div>
-                                <!-- <div class="<?= ((base64_decode(@$_GET["type"]) == "free_member" || base64_decode(@$_GET["type"]) == "referral_member") ? "disable" : "active") ?>"></div> -->
-                            </div>
-                        </div>
-                    </a>
-                    <a href="#" class="statistics">
-                        <div class="iq-card">
-                            <div class="iq-card-body">
-                                <div class="d-flex flex-column justify-content-center align-items-start">
-                                    <div>
-                                        <h5 class="text-black">Client Profit</h5>
-                                    </div>
-                                    <div class="mt-3 text-center mx-auto">
-                                        <h2 id="cprofit" class="text-black fw-bold text-center">Loading...</h2>
+                <div class="container-fluid">
+                    <div class="row dash-statistics">
+                        <div class="col-12 col-sm-6 col-lg-3 mb-2">
+                            <a href="<?= BASE_URL ?>godmode/dashboard/hedgefund" class="d-block h-75">
+                                <div class="iq-card h-100">
+                                    <div class="iq-card-body">
+                                        <div class="d-flex flex-column justify-content-center align-items-start">
+                                            <div>
+                                                <h5 class="text-black">Total Profit</h5>
+                                            </div>
+                                            <div class="mt-3 text-center mx-auto">
+                                                <h2 id="tprofit" class="text-black fw-bold text-center">Loading...</h2>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
-                                <!-- <div class="<?= ((base64_decode(@$_GET["type"]) == "referral_member") ? "active" : "disable") ?>"></div> -->
-                            </div>
+                            </a>
                         </div>
-                    </a>
-                    <a href="#" class="statistics">
-                        <div class="iq-card">
-                            <div class="iq-card-body">
-                                <div class="d-flex flex-column justify-content-center align-items-start">
-                                    <div>
-                                        <h5 class="text-black">Total Ref Commission</h5>
-                                    </div>
-                                    <div class="mt-3 text-center mx-auto">
-                                        <h2 id="rprofit" class="text-black fw-bold text-center">Loading...</h2>
+                
+                        <div class="col-12 col-sm-6 col-lg-3 mb-2">
+                            <a href="<?= BASE_URL ?>godmode/hedge" class="d-block h-75">
+                                <div class="iq-card h-100">
+                                    <div class="iq-card-body">
+                                        <div class="d-flex flex-column justify-content-center align-items-start">
+                                            <div>
+                                                <h5 class="text-black">Client Profit</h5>
+                                            </div>
+                                            <div class="mt-3 text-center mx-auto">
+                                                <h2 id="cprofit" class="text-black fw-bold text-center">Loading...</h2>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
-                                <div class="disable"></div>
-                            </div>
+                            </a>
                         </div>
-                    </a>
-                    <a href="#" class="statistics">
-                        <div class="iq-card">
-                            <div class="iq-card-body">
-                                <div class="d-flex flex-column justify-content-center align-items-start">
-                                    <div>
-                                        <h5 class="text-black">PNGLOBAL Profit</h5>
-                                    </div>
-                                    <div class="mt-3 text-center mx-auto">
-                                        <h2 id="mprofit" class="text-black fw-bold text-center">Loading...</h2>
+                
+                        <div class="col-12 col-sm-6 col-lg-3 mb-2">
+                            <a href="#" class="d-block h-75">
+                                <div class="iq-card h-100">
+                                    <div class="iq-card-body">
+                                        <div class="d-flex flex-column justify-content-center align-items-start">
+                                            <div>
+                                                <h5 class="text-black">Total Ref Commission</h5>
+                                            </div>
+                                            <div class="mt-3 text-center mx-auto">
+                                                <h2 id="rprofit" class="text-black fw-bold text-center">Loading...</h2>
+                                            </div>
+                                        </div>
+                                        <div class="disable"></div>
                                     </div>
                                 </div>
-                                <div class="disable"></div>
-                            </div>
+                            </a>
                         </div>
-                    </a>
+                
+                        <div class="col-12 col-sm-6 col-lg-3 mb-2">
+                            <a href="#" class="d-block h-75">
+                                <div class="iq-card h-100">
+                                    <div class="iq-card-body">
+                                        <div class="d-flex flex-column justify-content-center align-items-start">
+                                            <div>
+                                                <h5 class="text-black">PNGLOBAL Profit</h5>
+                                            </div>
+                                            <div class="mt-3 text-center mx-auto">
+                                                <h2 id="mprofit" class="text-black fw-bold text-center">Loading...</h2>
+                                            </div>
+                                        </div>
+                                        <div class="disable"></div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
                 </div>
+            </div>
+            <div class="col-lg-12">
+                <table id="table_message" class="table table-striped" style="width:100%">
+                <thead>
+                    <tr>
+                        <th>Order Price</th>
+                        <th>Closed Price</th>
+                        <th>Profit</th>
+                        <th>Client Profit</th>
+                        <th>PN Global</th>
+                        <th>Referral</th>
+                        <th>Remaining</th>
+                        <!-- <th>ACTION</th> -->
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+                </table>
             </div>
         </div>
     </div>

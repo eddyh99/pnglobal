@@ -61,19 +61,19 @@ class Hedge extends BaseController
     public function get_profit()
     {
         // Call Endpoint Get Total Member
-        $url = URL_HEDGEFUND . "/v1/price/profit";
+        $url = URL_HEDGEFUND . "/price/profit";
         $result = satoshiAdmin($url)->result;
     
         return $this->response->setJSON($result->message);
     }
 
-    // public function get_activemember(){
-    //     // Call Endpoin Get active subscriber
-    //     $url = URL_HEDGEFUND . "/v1/member/list_activemember";
-    //     $result = satoshiAdmin($url)->result->message;
-    //     echo json_encode(is_array($result) ? $result : []);
+    public function get_detailprofit(){
+        // Call Endpoin Get active subscriber
+        $url = URL_HEDGEFUND . "/price/detail_profit";
+        $result = satoshiAdmin($url)->result->message;
+        echo json_encode(is_array($result) ? $result : []);
 
-    // }
+    }
 
     public function get_activemember()
     {
