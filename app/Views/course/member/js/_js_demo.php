@@ -102,10 +102,14 @@
     let lastPrice = null;
     let stopchange = false;
     const slider = document.getElementById('btcSlider');
+    const slider2 = document.getElementById('btcSlider2');
     const priceInput = document.getElementById('price');
+    const priceInput2 = document.getElementById('price2');
     const qtyInput = document.getElementById('qtybtc');
+    const qtyInput2 = document.getElementById('qtybtc2');
     const usdtLabel = document.getElementById('usdtAmount');
     const balance = <?=$balance->available_balance?>;
+    const qtyBTC = <?=$balance->btc_qty?>;
     
     priceSocket.onmessage = function(event) {
         const trade = JSON.parse(event.data);
@@ -114,7 +118,9 @@
         
         if (!stopchange){
             $("#price").val(price);
+            $("#price2").val(price);
             $('#market-price').val(price);
+            $('#market-price2').val(price);
         }
         if (lastPrice !== null) {
             priceEl.style.color = price > lastPrice ? 'limegreen' : 'red';
@@ -180,10 +186,16 @@
     
         // Show/hide the price input
         const priceWrapper = document.getElementById('priceWrapper');
+        const priceWrapper2 = document.getElementById('priceWrapper2');
+        const usdtLabel2 = document.getElementById('usdtLabel2');
         if (type === 'market') {
           priceWrapper.style.display = 'none';
+          priceWrapper2.style.display = 'none';
+          usdtLabel2.style.display = 'none';
         } else {
           priceWrapper.style.display = '';
+          priceWrapper2.style.display = '';
+          usdtLabel2.style.display = '';
         }
       });
     });
@@ -196,6 +208,14 @@
         document.getElementById('tplimit').value='';
         document.getElementById('sllimit').value='';
     });
+
+    // document.getElementById('tpSL2').addEventListener('change', function () {
+    //     const isChecked = this.checked;
+    //     document.getElementById('tplimit2').readOnly = !isChecked;
+    //     document.getElementById('sllimit2').readOnly = !isChecked;
+    //     document.getElementById('tplimit2').value='';
+    //     document.getElementById('sllimit2').value='';
+    // });
     
     function floorToDecimal(value, decimals) {
         const factor = Math.pow(10, decimals);
@@ -209,6 +229,12 @@
     
         const maxBtc =  floorToDecimal(balance / price, 6);
         $("#maxbuy").text(maxBtc);
+    });
+
+    $("#price2").on("input",function(){
+        stopchange=true;
+        const price = parseFloat(this.value.replace(",", ".")); // use `this` for current input
+        if (isNaN(price) || price <= 0) return;
     });
     
     slider.max = balance;
@@ -315,4 +341,33 @@
           qtyInput.value = maxBtc;
         }
       }
+
+
+    // sell side
+
+    slider2.max = qtyBTC;
+    
+    slider2.addEventListener('input', () => {
+        const btc = parseFloat(slider2.value);
+        console.log(btc);
+        
+        qtyInput2.value = btc;
+    
+        if ($("#selltype").val()=="limit"){
+            stopchange = true;
+            // ✅ Normalize once
+            const rawPrice = $("#price").val().replace(",", ".");
+            const price = parseFloat(rawPrice);
+        
+            const usdt = price > 0 ? floorToDecimal(btc * price, 2) : 0;
+            $("#usdtAmount2").val(usdt);
+        
+            // if (!isNaN(qtyBTC) && price > 0) {
+            //     const maxUsdt = floorToDecimal(btc * price, 6);
+            //     $("#maxbuy").text(maxBtc);
+            // } else {
+            //     $("#maxbuy").text("0");
+            // }
+        }
+    });
 </script>

@@ -97,11 +97,6 @@ class Member extends BaseController
         $response   = courseAdmin($url);
 
         $balance    = $response->result->message;
-        
-        $url_history = URL_COURSE . "/v1/demo/trade_history?id=".$_SESSION["logged_usercourse"]->id;
-        $rhistory    = courseAdmin($url_history);
-        $history     = $rhistory->result->message;
-
         $mdata = [
             'title'     => 'Trade Course - ' . NAMETITLE,
             'extra'     => 'course/member/js/_js_demo',
@@ -109,10 +104,23 @@ class Member extends BaseController
             'menu'      => 'course/member/my/menu',
             'active_learning'   => 'active',
             'active_demo'       => 'active',
-            'istrade'           => true,
-            'balance'           => $balance,
-            'history'           => $history
+            'istrade'           => true
         ];
+        
+        $url_history = URL_COURSE . "/v1/demo/trade_history?id=".$_SESSION["logged_usercourse"]->id;
+        $rhistory    = courseAdmin($url_history);
+        $history     = $rhistory->result->message;
+
+
+        if (!$balance) {
+            $mdata['extra'] = null;
+            $mdata['content'] = 'course/member/my/nodemo';
+        } else {
+            $mdata += [
+                'balance'           => $balance,
+                'history'           => $history
+            ];
+        }
 
         return view('course/layout/wrapper', $mdata);
     }
@@ -286,6 +294,90 @@ class Member extends BaseController
             return redirect()->to(BASE_URL . 'course/member/mydemo')->withInput();
         }
         
+        
+        $memory = $result->message;
+        $this->redis->rpush("orders:BTCUSDT", json_encode($memory));
+        
+        session()->setFlashdata('success', "Order Successfully Created");
+        return redirect()->to(BASE_URL . 'course/member/mydemo')->withInput();
+    }
+
+
+    public function sellposition(){
+        $request = $this->request->getPost();
+        if (empty($request['selltype'])) {
+            $request['selltype'] = 'limit';
+        }
+        
+        $rules = $this->validate([
+            'selltype' => [
+                'label' => 'Order Type',
+                'rules' => 'required|in_list[limit,market]'
+            ],
+            'price' => [
+                'label' => 'Price',
+                'rules' => 'required'
+            ],
+            'balance' => [
+                'label' => 'Balance BTC',
+                'rules' => 'required'
+            ],
+            'market-price' => [
+                'label' => 'Market Price',
+                'rules' => 'required'
+            ],
+            'qtybtc' => [
+                'label' => 'Amount',
+                'rules' => 'required'
+            ],
+        ]);
+
+        if (!$rules) {
+            session()->setFlashdata('failed', $this->validator->listErrors());
+            return redirect()->to(BASE_URL . 'course/member/mydemo')->withInput();
+        }
+
+
+        $url = URL_COURSE . "/v1/demo/balance?id=".$_SESSION["logged_usercourse"]->id;
+        $response = courseAdmin($url)->result->message;
+        $balance    = $response->btc_qty ?? 0;
+
+        $price      = str_replace(',', '', $this->request->getVar('price'));
+        $balance      = str_replace(',', '', $this->request->getVar('balance'));
+        $market_price  = str_replace(',', '', $this->request->getVar('market-price'));
+        $qtybtc = str_replace(',', '', $this->request->getVar('qtybtc'));
+
+        // rule
+        if($qtybtc > $balance) {
+            session()->setFlashdata('failed', "Insufficient balance.");
+            return redirect()->to(BASE_URL . 'course/member/mydemo')->withInput();
+        }
+        if($price < $market_price) {
+            session()->setFlashdata('failed', "Entry price must be greater than market price");
+            return redirect()->to(BASE_URL . 'course/member/mydemo')->withInput();
+        }
+        
+
+        $mdata = [
+            'trade_id'    => $response->trade_id,
+            'user_id'     => $_SESSION["logged_usercourse"]->id,
+            'order_price' => $price,
+            'btc_qty'    => $qtybtc,
+            'order_type'  => "sell",
+            'trade_type'  => $request['selltype'],
+            'take_profit' => null,
+            'stop_loss'   => null,
+            'status'      => ($request['selltype']==='market') ? 'filled' : 'pending'
+        ];
+
+        
+        $url = URL_COURSE . "/v1/demo/trade_sell";
+        $result = courseAdmin($url, json_encode($mdata))->result;
+        
+        if ($result->code != 200) {
+            session()->setFlashdata('failed', $result->message);
+            return redirect()->to(BASE_URL . 'course/member/mydemo')->withInput();
+        }
         
         $memory = $result->message;
         $this->redis->rpush("orders:BTCUSDT", json_encode($memory));
