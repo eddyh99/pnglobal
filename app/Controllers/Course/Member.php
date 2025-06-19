@@ -379,8 +379,6 @@ class Member extends BaseController
             return redirect()->to(BASE_URL . 'course/member/mydemo')->withInput();
         }
         
-        dd($result->message);
-        
         $memory = $result->message;
         $this->redis->rpush("orders:BTCUSDT", json_encode($memory));
         
