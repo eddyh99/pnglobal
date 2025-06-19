@@ -295,15 +295,27 @@ class Auth extends BaseController
     public function save_payment_to_session()
     {
         try {
-            // Validasi request
-            $rules = [
-                'amount' => 'required|numeric|greater_than[0]',
-            ];
+            $url = URL_HEDGEFUND . "/price";
+            $result = satoshiAdmin($url)->result;
+            $minCapital = (float) $result->message->price;
+            $fee        = (float) $result->message->cost;
+            $commission = (float) $result->message->referral_fee;
+            $totalCapital =  $this->request->getPost('totalcapital');
+            $amount = $this->request->getPost('amount');
+            $payment_amount = ceil($totalCapital * (1 + $fee)) + 5 + ceil($totalCapital * $commission);
 
-            if (!$this->validate($rules)) {
+            // Validate
+            if ($totalCapital < $minCapital) {
                 return $this->response->setJSON([
                     'status' => 'error',
-                    'message' => $this->validator->getErrors()
+                    'message' => 'Amount must not be less than the minimum capital of ' . number_format($minCapital, 0)
+                ])->setStatusCode(400);
+            }
+
+            if($amount != $payment_amount) {
+                return $this->response->setJSON([
+                    'status' => 'error',
+                    'message' => 'Payment amount does not match the required value'
                 ])->setStatusCode(400);
             }
 
@@ -846,6 +858,81 @@ class Auth extends BaseController
 				'success' => true,
 				'message' => $result->message->text
 			];
+
+
+			$subject = 	NAMETITLE . " - Reset Password";
+			$message = "
+		<!DOCTYPE html>
+		<html lang='en'>
+
+		<head>
+			<meta name='color-scheme' content='light'>
+			<meta name='supported-color-schemes' content='light'>
+			<title>Activation Account Satoshi Signal</title>
+		</head>
+
+		<body>
+			<div style='
+			max-width: 420px;
+			margin: 0 auto;
+			position: relative;
+			padding: 1rem;
+			'>
+				<div style='
+				text-align: center;
+				padding: 3rem;
+				'>
+					<h3 style='
+					font-weight: 600;
+					font-size: 20px;
+					line-height: 45px;
+					color: #000000;
+					margin-bottom: 1rem;
+					text-align: center;
+					'>
+						Dear, <br> " . base64_decode($email) . "
+					</h3>
+				</div>
+
+				<div style='
+				text-align: center;
+				padding-bottom: 1rem;
+				'>
+					<p style='
+					font-weight: 400;
+					font-size: 14px;
+					color: #000000;
+					'>
+						Thank you for using Hedge Fund App. To proceed with your request, please copy token reset password below 
+					</p>
+					<h2 id='copyToken'>
+						" . $result->message->otp . "
+					</h2>
+					<p style='
+					font-weight: 400;
+					font-size: 14px;
+					color: #000000;
+					'>
+						Best regards,<br>  
+						Hedge Fund Team
+
+					</p>
+				</div>
+				<hr>
+				<hr>
+				<p style='
+				text-align: center;
+				font-weight: 400;
+				font-size: 12px;
+				color: #999999;
+				'>
+					Copyright © " . date('Y') . "
+				</p>
+			</div>
+		</body>
+		</html>";
+
+		sendmail_satoshi($email, $subject, $message, 'Reset Password', USERNAME_MAIL);
 		}
 
 		return $this->response->setJSON($msg);

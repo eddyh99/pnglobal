@@ -312,7 +312,7 @@ class Auth extends BaseController
 			session()->setFlashdata('success', 'Password berhasil diubah.');
             $this->update_password_course($mdata);
             $this->update_password_hedgefund($mdata);
-			$this->update_password_satoshi($mdata);
+			// $this->update_password_satoshi($mdata);
 			return redirect()->to(BASE_URL . 'godmode/auth/signin');
 		} else {
 			session()->setFlashdata('failed', $result->message);
