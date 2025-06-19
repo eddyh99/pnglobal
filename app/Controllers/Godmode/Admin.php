@@ -102,8 +102,8 @@ class Admin extends BaseController
 
         if ($result->code == '201') {
             // send email
-            // $subject = "Activation Account - LUX BROKER";
-            // sendmail_satoshi($mdata['email'], $subject,  emailtemplate_activation_account($result->message->otp, $mdata['email'],"PNGLOBAL", 'godmode/auth/forgot_pass_otp/'),"LUX BROKER",USERNAME_MAIL);
+            $subject = "Activation Account - LUX BROKER";
+            sendmail_satoshi($mdata['email'], $subject,  emailtemplate_activation_account($result->message->otp, $mdata['email'],"PNGLOBAL", 'godmode/auth/forgot_pass_otp/'),"LUX BROKER",USERNAME_MAIL);
 
             session()->setFlashdata('success', 'Admin created successfully');
             return redirect()->to(BASE_URL . 'godmode/admin');
