@@ -146,14 +146,14 @@
     
         <!-- SELL PANEL -->
         <div class="col-md-6">
-          <form action="<?=BASE_URL?>course/demo/sellposition" method="post">
+          <form action="<?=BASE_URL?>course/member/sellposition" method="post">
             <h5 class="text-danger mb-3">Sell</h5> <!-- ✅ Sell Label -->
             <input type="hidden" id="selltype" name="selltype" value="limit">
     
             <div id="priceWrapper2">              
               <label class="form-label">Price</label>
               <div class="input-group" style="border: 1px solid #b48b3d; background-color: #000; height: 45px; border-radius: 5px;">
-                  <input lang="en" required class="form-control no-spinner" id="price2" 
+                  <input lang="en" required class="form-control no-spinner" id="price2" name="price" 
                          type="number" step="0.01" min="0" value="84937.13"
                          style="background-color: transparent; color: #b48b3d; border: none; box-shadow: none;" />
                   <div class="input-group-append">
@@ -172,6 +172,8 @@
               </div>
             <!-- <input class="form-control mt-2" value="0.000009 BTC" /> -->
             <input type="range" class="form-range mt-3 range-slider w-100" id="btcSlider2" max="<?= $balance->btc_qty ?>" step="0.000001"  min="0.000000" value="0" />
+            <input type="hidden" id="market-price2" name="market-price">
+            <input type="hidden" name="balance" value="<?= $balance->btc_qty ?>">
     
             <!-- <input type="range" class="form-range mt-3 range-slider w-100" /> -->
     
@@ -179,7 +181,7 @@
               <p class="mt-2">Amount in USDT: </p>
               <div class="input-group mt-2" style="border: 1px solid #b48b3d; background-color: #000; height: 45px; border-radius: 5px;">
                   <input lang="en" required class="form-control no-spinner" id="usdtAmount2" name="usdtAmount"
-                         type="number" step="1" min="10" value="10"
+                         type="number" step="0.01" min="10" value="10"
                          style="background-color: transparent; color: #b48b3d; border: none; box-shadow: none;" />
                   <div class="input-group-append">
                     <span class="input-group-text">USDT</span>
@@ -187,13 +189,13 @@
               </div>
             </div>
     
-            <div class="form-check mt-2">
+            <!-- <div class="form-check mt-2">
               <input class="form-check-input" type="checkbox" id="tpSL2" name="tpsl"/>
               <label class="form-check-label text-white" for="tpSL2">TP / SL</label>
             </div>
     
             <input class="form-control mt-2" id="tplimit2" name="tplimit" placeholder="TP Limit" readonly />
-            <input class="form-control mt-2" id="sllimit2" name="sllimit" placeholder="SL Trigger" readonly />
+            <input class="form-control mt-2" id="sllimit2" name="sllimit" placeholder="SL Trigger" readonly /> -->
     
             <div class="mt-3 text-white-labels">
               Avbl: <?= number_format($balance->available_balance, 6) ?> USDT<br>

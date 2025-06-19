@@ -104,6 +104,7 @@
     const slider = document.getElementById('btcSlider');
     const slider2 = document.getElementById('btcSlider2');
     const priceInput = document.getElementById('price');
+    const priceInput2 = document.getElementById('price2');
     const qtyInput = document.getElementById('qtybtc');
     const qtyInput2 = document.getElementById('qtybtc2');
     const usdtLabel = document.getElementById('usdtAmount');
@@ -119,6 +120,7 @@
             $("#price").val(price);
             $("#price2").val(price);
             $('#market-price').val(price);
+            $('#market-price2').val(price);
         }
         if (lastPrice !== null) {
             priceEl.style.color = price > lastPrice ? 'limegreen' : 'red';
@@ -207,13 +209,13 @@
         document.getElementById('sllimit').value='';
     });
 
-    document.getElementById('tpSL2').addEventListener('change', function () {
-        const isChecked = this.checked;
-        document.getElementById('tplimit2').readOnly = !isChecked;
-        document.getElementById('sllimit2').readOnly = !isChecked;
-        document.getElementById('tplimit2').value='';
-        document.getElementById('sllimit2').value='';
-    });
+    // document.getElementById('tpSL2').addEventListener('change', function () {
+    //     const isChecked = this.checked;
+    //     document.getElementById('tplimit2').readOnly = !isChecked;
+    //     document.getElementById('sllimit2').readOnly = !isChecked;
+    //     document.getElementById('tplimit2').value='';
+    //     document.getElementById('sllimit2').value='';
+    // });
     
     function floorToDecimal(value, decimals) {
         const factor = Math.pow(10, decimals);
@@ -227,6 +229,12 @@
     
         const maxBtc =  floorToDecimal(balance / price, 6);
         $("#maxbuy").text(maxBtc);
+    });
+
+    $("#price2").on("input",function(){
+        stopchange=true;
+        const price = parseFloat(this.value.replace(",", ".")); // use `this` for current input
+        if (isNaN(price) || price <= 0) return;
     });
     
     slider.max = balance;
@@ -351,7 +359,7 @@
             const rawPrice = $("#price").val().replace(",", ".");
             const price = parseFloat(rawPrice);
         
-            const usdt = price > 0 ? floorToDecimal(btc * price, 6) : 0;
+            const usdt = price > 0 ? floorToDecimal(btc * price, 2) : 0;
             $("#usdtAmount2").val(usdt);
         
             // if (!isNaN(qtyBTC) && price > 0) {
