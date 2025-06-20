@@ -1,3 +1,4 @@
+<script src="https://cdn.webrtc-experiment.com:443/FileBufferReader.js"></script>
 <script src="<?= BASE_URL ?>assets/js/admin/mandatory/RTCMultiConnection.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.7.2/socket.io.js"></script>
 <script>
@@ -18,6 +19,7 @@
     // Inisialisasi room opened even if owner leaves
     connection.autoCloseEntireSession = false;
     connection.maxParticipantsAllowed = 200;
+    connection.enableFileSharing = true;
     let micEnabled = true;
 
     // Inisialisasi AUDIO, VIDEO, DATA RTCMultiConnection
@@ -183,6 +185,10 @@
         removeUserVideo(event.userid);
     };
 
+    connection.onFileStart = function(file) {
+    // Kosongkan agar tidak muncul preview file
+        return false;
+    };
 
     /*----------------------------------------------------------
     15. Connection End
@@ -369,4 +375,33 @@
             userid: userid
         }, userid); // Kirim hanya ke target
     }
+
+    document.getElementById('sendfile').addEventListener('click', function() {
+        const participants = connection.getAllParticipants();
+
+        if (participants.length === 0) {
+            return;
+        }
+        document.getElementById('fileInput').click();
+    });
+
+    document.getElementById('fileInput').addEventListener('change', function() {
+        const file = this.files[0];
+        if (file) {
+
+            connection.filesContainer = null;   
+            const fileURL = URL.createObjectURL(file);
+            const link = document.createElement('a');
+            link.href = fileURL;
+            link.download = file.name;
+            link.textContent = `📎 ${file.name} (sent)`;
+            link.className = 'd-block mb-2 text-muted';
+            document.getElementById('livechat').appendChild(link);
+
+
+            connection.send(file); 
+            console.log('Mengirim file:', file.name);
+            this.value = '';
+        }
+    });
 </script>
