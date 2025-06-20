@@ -207,6 +207,8 @@
                 }
             }
 
+        } else if (data.action === 'raise_hand') {
+            raiseHand(data.userid);
         } else if (data.text) {
             // Pesan teks
             displayMsg(data.from || "Friend", data.text);
@@ -440,4 +442,33 @@
             }
         });
     });
+
+    function raiseHand(userid) {
+        const wrapper = document.querySelector(`.video-wrapper[data-userid="${userid}"]`);
+        if (!wrapper) return;
+
+        const label = wrapper.querySelector('.badge-overlay');
+        if (!label) return;
+
+        if (!label.textContent.includes('✋')) {
+            label.textContent = '✋ ' + label.textContent;
+
+            setTimeout(() => {
+                label.textContent = label.textContent.replace('✋ ', '');
+            }, 10000); // 10 detik
+        }
+    }
+
+    $("#raisehand").on('click', function() {
+        const participants = connection.getAllParticipants();
+        if (participants.length === 0) {
+            return;
+        }
+
+        connection.send({
+            action: 'raise_hand',
+            userid: connection.userid
+        });
+        raiseHand(connection.userid);
+    })
 </script>
