@@ -605,7 +605,7 @@ function emailtemplate_activation_course($otp, $email)
                         <h5>
                             or you can click link below for activation account
                         </h5>
-                        <a target='_blank' href='" . BASE_URL . "homepage/satoshi_active_account/" . base64_encode($email) . "'>
+                        <a target='_blank' href='" . BASE_URL . "course/auth/forgot_password/" . base64_encode($email) . "'>
                             Active Account
                         </a>
                         <p style='

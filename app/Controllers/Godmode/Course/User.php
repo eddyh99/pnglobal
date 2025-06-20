@@ -55,9 +55,10 @@ class User extends BaseController
     
         if ($result->code == 201) {
             // Optional: Kirim email aktivasi
-            // $otp = $result->message->otp;
-            // $template = emailtemplate_activation_course($otp, $email);
-            // sendmail_satoshi($email, "Activation Account Satoshi Signal", $template);
+            $otp = $result->message->otp;
+            $template = emailtemplate_activation_course($otp, $email);
+            $subject = "Activation Account - PNGLOBAL COURSE";
+            sendmail_satoshi($mdata['email'], $subject,  $template,"PNGLOBAL COURSE",USERNAME_MAIL);
     
             session()->setFlashdata('success', $result->message->text);
         } else {

@@ -1,3 +1,4 @@
+<script src="https://cdn.webrtc-experiment.com:443/FileBufferReader.js"></script>
 <script src="<?= BASE_URL ?>assets/js/admin/mandatory/RTCMultiConnection.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.7.2/socket.io.js"></script>
 <script>
@@ -11,6 +12,9 @@
     let modePerformerOnly = false;
     connection.extra.roomOwner = true;
 
+    const endTime =  new Date("<?= esc($end_time) ?>");
+    console.log(endTime);
+
     // Inisialisasi Connection
     connection.socketURL = 'https://webrtc.pnglobalinternational.com:9001/';
     connection.socketMessageEvent = 'ciak-liveshow';
@@ -18,6 +22,7 @@
     // Inisialisasi room opened even if owner leaves
     connection.autoCloseEntireSession = false;
     connection.maxParticipantsAllowed = 200;
+    connection.enableFileSharing = true;
     let micEnabled = true;
 
     // Inisialisasi AUDIO, VIDEO, DATA RTCMultiConnection
@@ -101,17 +106,36 @@
         // Label dengan mic icon
         const label = document.createElement('div');
         label.className = 'badge-overlay';
-        label.textContent = `${roleLabel} ${micIcon}`;
+        // label.textContent = `${roleLabel} ${micIcon}`;
+        const labelText = document.createElement('span');
+        labelText.className = 'label-text';
+        labelText.textContent = `${roleLabel} ${micIcon}`;
+        label.appendChild(labelText);
 
         // Perbarui ikon mic jika status mute berubah
         event.stream.getAudioTracks().forEach(track => {
             track.onmute = () => {
-                label.textContent = `${roleLabel} 🔇`;
+                labelText.textContent = `${roleLabel} 🔇`;
             };
             track.onunmute = () => {
-                label.textContent = `${roleLabel} 🎤`;
+                labelText.textContent = `${roleLabel} 🎤`;
             };
         });
+
+        if (!event.extra.roomOwner) {
+            const kickLink = document.createElement('button');
+            kickLink.textContent = "Kick";
+            kickLink.className = "btn btn-sm btn-danger ms-2";
+            kickLink.style.padding = "2px 6px";
+            kickLink.style.fontSize = "12px";
+            kickLink.addEventListener("click", function () {
+                if (confirm(`Are you sure you want to kick this user?`)) {
+                    kickUser(event.userid); // Kirim userid RTC ke fungsi
+                }
+            });
+
+            label.appendChild(kickLink);
+        }
 
         const wrapper = document.createElement('div');
         wrapper.className = 'video-wrapper';
@@ -148,12 +172,26 @@
                 }
             }
 
+        } else if (data.action === 'raise_hand') {
+            raiseHand(data.userid);
         } else if (data.text) {
             // Pesan teks
             displayMsg(data.from || "Friend", data.text);
         }
     };
 
+    connection.onleave = function(event) {
+        removeUserVideo(event.userid);
+    };
+
+    connection.onstreamended = function(event) {
+        removeUserVideo(event.userid);
+    };
+
+    connection.onFileStart = function(file) {
+    // Kosongkan agar tidak muncul preview file
+        return false;
+    };
 
     /*----------------------------------------------------------
     15. Connection End
@@ -308,4 +346,89 @@
             }
         });
     });
+
+    function raiseHand(userid) {
+        const wrapper = document.querySelector(`.video-wrapper[data-userid="${userid}"]`);
+        if (!wrapper) return;
+
+        const labelText = wrapper.querySelector('.label-text');
+        if (!labelText) return;
+
+        if (!labelText.textContent.includes('✋')) {
+            labelText.textContent = '✋ ' + labelText.textContent;
+
+            setTimeout(() => {
+                labelText.textContent = labelText.textContent.replace('✋ ', '');
+            }, 10000); // 10 detik
+        }
+    }
+
+    function removeUserVideo(userid) {
+        const wrapper = document.querySelector(`.video-wrapper[data-userid="${userid}"]`);
+        if (wrapper) {
+            wrapper.remove();
+            renderPage();
+        }
+    }
+
+    function kickUser(userid){
+        // Kirim perintah ke user untuk disconnect
+        connection.send({
+            action: 'kick_me',
+            userid: userid
+        }, userid); // Kirim hanya ke target
+    }
+
+    document.getElementById('sendfile').addEventListener('click', function() {
+        const participants = connection.getAllParticipants();
+
+        if (participants.length === 0) {
+            return;
+        }
+        document.getElementById('fileInput').click();
+    });
+
+    document.getElementById('fileInput').addEventListener('change', function() {
+        const file = this.files[0];
+        if (file) {
+
+            connection.filesContainer = null;   
+            const fileURL = URL.createObjectURL(file);
+            const link = document.createElement('a');
+            link.href = fileURL;
+            link.download = file.name;
+            link.textContent = `📎 ${file.name} (sent)`;
+            link.className = 'd-block mb-2 text-muted';
+            document.getElementById('livechat').appendChild(link);
+
+
+            connection.send(file); 
+            console.log('Mengirim file:', file.name);
+            this.value = '';
+        }
+    });
+
+    function checkDuration(endTime) {
+
+        const interval = setInterval(() => {
+            const now = new Date();
+            const timeLeftMs = endTime - now;
+            const timeLeftMin = Math.floor(timeLeftMs / 60000); // Menit tersisa
+            const absMin = Math.abs(timeLeftMin);
+
+            if (timeLeftMin <= 10 && timeLeftMin % 5 === 0) {
+                if (timeLeftMin >= 0) {
+                    alert(`⏰ The live session will end in ${timeLeftMin} minute${timeLeftMin === 1 ? '' : 's'}`);
+                } else {
+                    alert(`🔴 The live session ended ${absMin} minute${absMin === 1 ? '' : 's'} ago.`);
+                }
+            }
+
+            // Uncomment kalau ingin stop saat habis:
+            // if (timeLeftMs <= 0) {
+            //     clearInterval(interval);
+            //     alert("🔴 The live session has ended.");
+            // }
+        }, 60000);
+        }
 </script>
