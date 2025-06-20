@@ -160,6 +160,14 @@
         }
     };
 
+    connection.onleave = function(event) {
+        removeUserVideo(event.userid);
+    };
+
+    connection.onstreamended = function(event) {
+        removeUserVideo(event.userid);
+    };
+
 
     /*----------------------------------------------------------
     15. Connection End
@@ -328,6 +336,14 @@
             setTimeout(() => {
                 labelText.textContent = labelText.textContent.replace('✋ ', '');
             }, 10000); // 10 detik
+        }
+    }
+
+    function removeUserVideo(userid) {
+        const wrapper = document.querySelector(`.video-wrapper[data-userid="${userid}"]`);
+        if (wrapper) {
+            wrapper.remove();
+            renderPage();
         }
     }
 </script>

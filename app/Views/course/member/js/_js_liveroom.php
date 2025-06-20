@@ -216,6 +216,13 @@
     };
 
 
+    connection.onleave = function(event) {
+        removeUserVideo(event.userid);
+    };
+
+    connection.onstreamended = function(event) {
+        removeUserVideo(event.userid);
+    };
 
 
 
@@ -471,4 +478,12 @@
         });
         raiseHand(connection.userid);
     })
+
+    function removeUserVideo(userid) {
+        const wrapper = document.querySelector(`.video-wrapper[data-userid="${userid}"]`);
+        if (wrapper) {
+            wrapper.remove();
+            renderPage();
+        }
+    }
 </script>
