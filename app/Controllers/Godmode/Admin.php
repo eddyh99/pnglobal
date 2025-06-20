@@ -101,6 +101,8 @@ class Admin extends BaseController
 
 
         if ($result->code == '201') {
+            $this->add_admin_hedgefund($mdata);
+            $this->add_admin_course($mdata);
             // send email
             $subject = "Activation Account - LUX BROKER";
             sendmail_satoshi($mdata['email'], $subject,  emailtemplate_activation_account($result->message->otp, $mdata['email'],"PNGLOBAL", 'godmode/auth/forgot_pass_otp/'),"LUX BROKER",USERNAME_MAIL);
@@ -123,5 +125,27 @@ class Admin extends BaseController
             'message' => $result->message
         ];
         return json_encode($data);
+    }
+
+    private function add_admin_hedgefund($mdata) {
+		$url = URL_HEDGEFUND . "/auth/register";
+		$response = satoshiAdmin($url, json_encode($mdata));
+		$result = $response->result;
+        log_message('info',"ADD ADMIN HF". json_encode($result));
+
+        if ($result->code != 200) {
+            session()->setFlashdata('failed', 'Failed to add admin hedgefund.');
+        }
+    }
+
+    private function add_admin_course($mdata) {
+		$url = URL_COURSE . "/v1/user/add_user";
+		$response = satoshiAdmin($url, json_encode($mdata));
+		$result = $response->result;
+        log_message('info',"ADD ADMIN COURSE". json_encode($result));
+
+        if ($result->code != 200) {
+            session()->setFlashdata('failed', 'Failed to add admin course.');
+        }
     }
 }
