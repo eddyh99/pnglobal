@@ -37,7 +37,7 @@
         </div>
 
         <div class="sign-in-box">
-            <h2 class="text-center sign-in-text mt-5">SIGN IN</h2>
+            <h2 class="text-center sign-in-text mt-5">LOG IN</h2>
             <form action="<?= BASE_URL ?>hedgefund/auth/postLogin" method="POST">
                 <div class="form-group mb-3 text-start">
                     <label for="email" class="form-label text-left">Email</label>
@@ -54,7 +54,7 @@
                 </div>
 
                 <div class="d-flex justify-content-center">
-                    <button type="submit" class="btn btn-primary">Sign in</button>
+                    <button type="submit" class="btn btn-primary">Log In</button>
                 </div>
 
                 <div class="text-center mt-3 dont-have-account">
