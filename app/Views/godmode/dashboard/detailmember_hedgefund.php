@@ -150,6 +150,28 @@
                         </div>
                     </div>
                 </div>
+                <!-- Deposit -->
+                <div class="row content-body">
+                    <div class="col-lg-12 dash-table-referralmember">
+                        <h4 class="text-white my-3 text-uppercase fw-bold">DEPOSIT</h4>
+                        <table id="table_depositmember" class="table table-striped" style="width:100%">
+                            <thead class="thead_referralmember">
+                                <tr>
+                                    <th>DATE</th>
+                                    <th>AMOUNT DEPOSIT</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            </tbody>
+                            <tfoot>
+                                <tr>
+                                    <th>Total</th>
+                                    <th></th>
+                                </tr>
+                            </tfoot>
+                        </table>
+                    </div>
+                </div>
 
                 <!-- Referral Tables -->
                 <div class="row content-body">
@@ -160,7 +182,7 @@
                                 <tr>
                                     <th>EMAIL</th>
                                     <th>STATUS</th>
-                                    <!-- <th>SUBSCRIPTION</th> -->
+                                    <th>COMMISSION</th> 
                                 </tr>
                             </thead>
                             <tbody>
