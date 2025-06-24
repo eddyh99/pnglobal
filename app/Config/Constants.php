@@ -125,6 +125,8 @@ if ($parts[0] === 'sandbox' || $host === 'localhost:8080') {
     define('COINPAYMENTS_PUBLIC_KEY', 'c88682370e2305c4b62170adad73ea0fc9804e36a7bee57554de8c464802e4a8');
     define('COINPAYMENTS_PRIVATE_KEY', '98D2F844E0d3B4366E49252A50AC49ce1d4163d2B422e1233962c1c309924996');
     define('COINPAYMENTS_API_URL', 'https://www.coinpayments.net/api.php');
+    define('COINPAYMENTS_CURRENCY_USDT', 'LTCT');
+    define('COINPAYMENTS_CURRENCY_USDC', 'LTCT');
 } else {
     define("URLAPI", 'https://broker.pnglobalinternational.com');
     define("URLAPI2", 'https://api.pnglobalinternational.com');
@@ -142,6 +144,8 @@ if ($parts[0] === 'sandbox' || $host === 'localhost:8080') {
     define('COINPAYMENTS_PUBLIC_KEY', 'c88682370e2305c4b62170adad73ea0fc9804e36a7bee57554de8c464802e4a8');
     define('COINPAYMENTS_PRIVATE_KEY', '98D2F844E0d3B4366E49252A50AC49ce1d4163d2B422e1233962c1c309924996');
     define('COINPAYMENTS_API_URL', 'https://www.coinpayments.net/api.php');
+    define('COINPAYMENTS_CURRENCY_USDT', 'USDT.BEP20');
+    define('COINPAYMENTS_CURRENCY_USDC', 'USDC.BEP20');
 }
 
 define("FEEMEETING", 'EUR 150');
