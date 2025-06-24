@@ -1,7 +1,5 @@
 <link rel="stylesheet" href="https://code.jquery.com/ui/1.14.1/themes/base/jquery-ui.css">
 <script src="https://code.jquery.com/ui/1.14.1/jquery-ui.js"></script>
-<script src="//cdn.datatables.net/plug-ins/2.3.2/api/sum().js"></script>
-
 <script>
 
     const url = new URL(window.location.href);
@@ -109,36 +107,18 @@
         "columns": [
             { data: 'email'},
             { data: 'status'},
-            { data: 'komisi', render: $.fn.dataTable.render.number( ',', '.', 2, '' )},
+            // { 
+            //     data: null, 
+            //     "mRender": function(data, type, full, meta) {
+            //         var subscription='';
+            //         if (parseInt(full.day)>0){
+            //             subscription = full.day + "days until "+full.end_date;
+            //         }
+            //         return subscription;
+            //     } 
+            // },
         ],
     });
-    
-    $('#table_depositmember').DataTable({
-        "pageLength": 50,
-        "dom": '<"d-flex justify-content-between align-items-center flex-wrap"lf>t<"d-flex justify-content-between align-items-center"ip>',
-        "responsive": true,
-        "order": false,
-        "ajax": {
-            "url": `<?= BASE_URL ?>godmode/dashboard/get_deposit/${type}/` + $("#id").val(),
-            "type": "POST",
-            "dataSrc":function (data){
-                console.log(data);
-                return data.filter(function (item) {
-                    return item.status === 'complete';
-                });						
-            },
-        },
-        drawCallback: function () {
-          var api = this.api();
-          var total = api.column(1).data().sum();
-          api.column(1).footer().innerHTML = total.toLocaleString('en');
-        },
-        "columns": [
-            { data: 'date'},
-            { data: 'commission', render: $.fn.dataTable.render.number( ',', '.', 2, '' )},
-        ],
-    });
-    
 
     function validate() {
         return confirm("Are you sure you want to give a bonus to this user?");

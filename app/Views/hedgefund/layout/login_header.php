@@ -17,6 +17,6 @@
       <!-- Responsive CSS -->
       <link rel="stylesheet" href="<?= BASE_URL?>assets/style/css/admin/mandatory/responsive.css">
       <!-- Custom CSS -->
-      <link rel="stylesheet" href="<?= BASE_URL?>assets/style/css/admin/custom.css">
+      <link rel="stylesheet" href="<?= BASE_URL ?>assets/style/css/main.css">
    </head>
    <body style="background-color: #2b2b2b;">
