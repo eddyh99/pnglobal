@@ -32,7 +32,9 @@
             "url": "<?= BASE_URL ?>godmode/hedge/get_detailprofit",
             "type": "POST",
             "dataSrc": function(data) {
-                return data;
+                return data.filter(function (item) {
+                    return item.sell_price != null;
+                });
             }
         },
         "columns": [

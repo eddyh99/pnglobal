@@ -298,6 +298,23 @@ class Dashboard extends BaseController
         return view('godmode/layout/admin_wrapper', $mdata);
     }
 
+    public function get_deposit($type, $id){
+        switch ($type) {
+            case 'hedgefund':
+                $url = URL_HEDGEFUND . "/v1/member/history_deposit?id_member=" . $id;
+                break;
+            case 'satoshi':
+                $url = URLAPI2 . "/v1/referral/getDownline?id=".$id;
+                break;
+            default:
+                $url = URLAPI . "/v1/member/list_downline?id_member=" . $id;
+                break;
+        }
+        
+        // $url = URLAPI2 . "/v1/referral/getDownline?id=" . $id;
+        $result = satoshiAdmin($url)->result->message;
+        echo json_encode($result);
+    }
 
     public function detailreferral($type, $email)
     {
@@ -407,6 +424,12 @@ class Dashboard extends BaseController
         echo json_encode($result);
     }
 
+    public function get_transaction($id){
+        $url = URL_HEDGEFUND . "/v1/member/list_transaction?id_member=" . $id;
+        $result = satoshiAdmin($url)->result->message;
+        echo json_encode($result);
+    }
+    
     public function getlevel_downline($id, $level)
     {
         // Call Endpoin Get Referral Member

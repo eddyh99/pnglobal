@@ -1,5 +1,6 @@
 <link rel="stylesheet" href="https://code.jquery.com/ui/1.14.1/themes/base/jquery-ui.css">
 <script src="https://code.jquery.com/ui/1.14.1/jquery-ui.js"></script>
+<script src="//cdn.datatables.net/plug-ins/2.3.2/api/sum().js"></script>
 <script>
 
     const url = new URL(window.location.href);
@@ -107,19 +108,91 @@
         "columns": [
             { data: 'email'},
             { data: 'status'},
-            // { 
-            //     data: null, 
-            //     "mRender": function(data, type, full, meta) {
-            //         var subscription='';
-            //         if (parseInt(full.day)>0){
-            //             subscription = full.day + "days until "+full.end_date;
-            //         }
-            //         return subscription;
-            //     } 
-            // },
+            { data: 'komisi', render: $.fn.dataTable.render.number( ',', '.', 2, '' )},
         ],
     });
-
+    
+    $('#table_depositmember').DataTable({
+        "pageLength": 50,
+        "dom": '<"d-flex justify-content-between align-items-center flex-wrap"lf>t<"d-flex justify-content-between align-items-center"ip>',
+        "responsive": true,
+        "order": false,
+        "ajax": {
+            "url": `<?= BASE_URL ?>godmode/dashboard/get_deposit/${type}/` + $("#id").val(),
+            "type": "POST",
+            "dataSrc":function (data){
+                console.log(data);
+                return data.filter(function (item) {
+                    return item.status === 'complete';
+                });						
+            },
+        },
+        drawCallback: function () {
+          var api = this.api();
+          var total = api.column(1).data().sum();
+          api.column(1).footer().innerHTML = total.toLocaleString('en');
+        },
+        "columns": [
+            { data: 'date'},
+            { data: 'commission', render: $.fn.dataTable.render.number( ',', '.', 2, '' )},
+        ],
+    });
+    
+    $('#table_transaction').DataTable({
+        "pageLength": 50,
+        "dom": '<"d-flex justify-content-between align-items-center flex-wrap"lf>t<"d-flex justify-content-between align-items-center"ip>',
+        "responsive": true,
+        "order": false,
+        "ajax": {
+            "url": `<?= BASE_URL ?>godmode/dashboard/get_transaction/` + $("#id").val(),
+            "type": "POST",
+            "dataSrc":function (data){
+                console.log(data);
+                return data.filter(function (item) {
+                    return item.sell_price != null;
+                });
+                
+            },
+        },
+        "columns": [
+            {
+                data: 'buy_price',
+                render: $.fn.dataTable.render.number(',', '.', 3, '')
+            },
+            {
+                data: 'sell_price',
+                render: $.fn.dataTable.render.number(',', '.', 3, '')
+            },
+            {
+                data: null,
+                render: function (data, type, row) {
+                    // Calculate profit: sell_total_usdt - buy_total_usdt
+                    if (row.sell_total_usdt==null){
+                        return '';
+                    }else{
+                        const profit = parseFloat(row.sell_total_usdt || 0) - parseFloat(row.buy_total_usdt || 0);
+                        return profit.toFixed(3);
+                    }
+                }
+            },
+            {
+                data: 'client_profit',
+                render: $.fn.dataTable.render.number(',', '.', 3, '')
+            },
+            {
+                data: 'master_profit',
+                render: $.fn.dataTable.render.number(',', '.', 3, '')
+            },
+            {
+                data: 'total_commission',
+                render: function (data, type, row) {
+                    const commission = data !== null ? parseFloat(data).toFixed(3) : '0.00';
+                    return commission;
+                }
+            }
+        ],
+    });
+    
     function validate() {
         return confirm("Are you sure you want to give a bonus to this user?");
     }
