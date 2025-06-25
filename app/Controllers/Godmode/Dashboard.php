@@ -424,6 +424,12 @@ class Dashboard extends BaseController
         echo json_encode($result);
     }
 
+    public function get_transaction($id){
+        $url = URL_HEDGEFUND . "/v1/member/list_transaction?id_member=" . $id;
+        $result = satoshiAdmin($url)->result->message;
+        echo json_encode($result);
+    }
+    
     public function getlevel_downline($id, $level)
     {
         // Call Endpoin Get Referral Member
