@@ -13,7 +13,6 @@
     connection.extra.roomOwner = true;
 
     const endTime =  new Date("<?= esc($end_time) ?>");
-    console.log(endTime);
 
     // Inisialisasi Connection
     connection.socketURL = 'https://webrtc.pnglobalinternational.com:9001/';
@@ -152,6 +151,7 @@
         });
         document.getElementById('video-container').appendChild(wrapper);
         renderPage();
+        checkDuration(endTime);
     };
 
     connection.onmessage = function(event) {
@@ -415,14 +415,15 @@
             const timeLeftMs = endTime - now;
             const timeLeftMin = Math.floor(timeLeftMs / 60000); // Menit tersisa
             const absMin = Math.abs(timeLeftMin);
+            console.log(timeLeftMin);
+            
 
-            if (timeLeftMin <= 10 && timeLeftMin % 5 === 0) {
-                if (timeLeftMin >= 0) {
-                    alert(`⏰ The live session will end in ${timeLeftMin} minute${timeLeftMin === 1 ? '' : 's'}`);
-                } else {
-                    alert(`🔴 The live session ended ${absMin} minute${absMin === 1 ? '' : 's'} ago.`);
-                }
+            if (timeLeftMin >= 0 && timeLeftMin <= 10 && timeLeftMin % 5 === 0) {
+                alert(`⏰ The live session will end in ${timeLeftMin} minute${timeLeftMin === 1 ? '' : 's'}`);
+            } else if (timeLeftMin < 0 && Math.abs(timeLeftMin) <= 10 && Math.abs(timeLeftMin) % 5 === 0) {
+                alert(`🔴 The live session ended ${Math.abs(timeLeftMin)} minute${Math.abs(timeLeftMin) === 1 ? '' : 's'} ago.`);
             }
+
 
             // Uncomment kalau ingin stop saat habis:
             // if (timeLeftMs <= 0) {
