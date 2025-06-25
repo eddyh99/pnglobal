@@ -135,7 +135,7 @@ class Withdraw extends BaseController
             ],
             'amount' => [
                 'label' => 'Amount',
-                'rules' => 'required'
+                'rules' => 'required|greater_than[0]'
             ],
         ]);
 
