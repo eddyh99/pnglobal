@@ -29,13 +29,13 @@ class Dashboard extends BaseController
 
     public function index()
     {
-        //total student
-        $url = URL_COURSE ."";
-        $resultstudent= 10;
 
         //total mentor
-        $url = URL_COURSE ."";
-        $resultmentor = 5;
+        $mentor = URL_COURSE . "/v1/user/mentor";
+        $resultmentor = satoshiAdmin($mentor)->result->message;        ;
+
+        $user = URL_COURSE . "/v1/user/member";
+        $resultstudent = satoshiAdmin($user)->result->message;
 
         $mdata = [
             'title'     => 'Dashboard - ' . NAMETITLE,
@@ -44,8 +44,9 @@ class Dashboard extends BaseController
             'sidebar'   => 'course_sidebar',
             'navbar_course' => 'active',
             'active_dash'    => 'active',
-            'totalstudent'   => $resultstudent,
-            'totalmentor'    => $resultmentor,
+            'totalstudent'   => count($resultstudent),
+            'totalmentor'    => count($resultmentor),
+            'student'       => $resultstudent,
             'payment_link'  => session()->getFlashdata('paymentlink')
 
         ];
@@ -218,8 +219,8 @@ class Dashboard extends BaseController
         $subject = 'Please Complete Your Payment';
 
         // send email
-        // $emailTemplate = emailtemplate_payment_course($this->request->getVar('paymentlink'));
-        // sendmail_satoshi($email, $subject, $emailTemplate, $title, 'pnglobal.com');
+        $emailTemplate = emailtemplate_payment_course($this->request->getVar('paymentlink'));
+        sendmail_satoshi($email, $subject, $emailTemplate, $title, USERNAME_MAIL);
 
         session()->setFlashdata('success', 'Payment link has been sent successfully.');
         return redirect()->to(BASE_URL . 'godmode/course/dashboard')->withInput();
