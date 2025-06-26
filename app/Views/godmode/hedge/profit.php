@@ -11,6 +11,22 @@
                                     <div class="iq-card-body">
                                         <div class="d-flex flex-column justify-content-center align-items-start">
                                             <div>
+                                                <h5 class="text-black">Member Deposit</h5>
+                                            </div>
+                                            <div class="mt-3 text-center mx-auto">
+                                                <h2 id="mdepo" class="text-black fw-bold text-center">Loading...</h2>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-12 col-sm-6 col-lg-3 mb-2">
+                            <a href="<?= BASE_URL ?>godmode/dashboard/hedgefund" class="d-block h-75">
+                                <div class="iq-card h-100">
+                                    <div class="iq-card-body">
+                                        <div class="d-flex flex-column justify-content-center align-items-start">
+                                            <div>
                                                 <h5 class="text-black">Total Profit</h5>
                                             </div>
                                             <div class="mt-3 text-center mx-auto">

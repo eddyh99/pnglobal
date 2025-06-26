@@ -9,6 +9,7 @@
                 console.log(response);
 
                 // Pastikan response punya struktur { fund_balance: ..., trade_balance: ... }
+                $('#mdepo').text((+response.member_deposit || 0).toLocaleString('en'));
                 $('#tprofit').text(response.total_profit ?? 0);
                 $('#cprofit').text(response.client_profit ?? 0);
                 $('#rprofit').text(response.ref_comm ?? 0);
