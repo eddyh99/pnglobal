@@ -36,7 +36,7 @@
             <div class="row content-body">
                 <div class="col-lg-12 px-2">
                     <div class="dash-statistics">
-                        <a href="<?= BASE_URL ?>godmode/dashboard" class="statistics col-6">
+                        <a href="<?= BASE_URL ?>godmode/course/user/member" class="statistics col-6">
                             <div class="iq-card">
                                 <div class="iq-card-body">
                                     <div class="d-flex flex-column justify-content-center align-items-start">
@@ -51,7 +51,7 @@
                                 </div>
                             </div>
                         </a>
-                        <a href="<?= BASE_URL ?>godmode/subscriber" class="statistics col-6">
+                        <a href="<?= BASE_URL ?>godmode/course/user/mentor" class="statistics col-6">
                             <div class="iq-card">
                                 <div class="iq-card-body">
                                     <div class="d-flex flex-column justify-content-center align-items-start">
@@ -108,7 +108,7 @@
 
                     <div class="col-12 text-center">
                         <label class="text-white">Email</label>
-                        <select id="emailSelect" name="email" class="form-control" style="width: 100%">
+                        <select name="email" class="select2" style="width: 100%">
                             <?php foreach($student as $s): ?>
                             <option><?= $s->email ?></option>
                             <?php endforeach ?>

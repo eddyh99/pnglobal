@@ -1,3 +1,34 @@
+<style>
+    /*select2 */
+    /* Background hitam dan teks putih untuk select2 container */
+    .select2-container--default .select2-selection--single {
+    height: 50px;
+    background-color: transparent;
+    color: #fff;
+    border: 1px solid #B48B3D;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Ubah warna teks dalam input yang terbuka */
+.select2-container--default .select2-selection--single .select2-selection__rendered {
+    color: #fff;
+}
+
+/* Dropdown list saat diklik */
+.select2-container--default .select2-results__option {
+    background-color: #000;
+    color: #fff;
+}
+
+/* Hover dan selected option */
+.select2-container--default .select2-results__option--highlighted[aria-selected] {
+    background-color: #222;
+    color: #fff;
+}
+
+</style>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.30.1/moment-with-locales.min.js"></script>
 
 <script>
@@ -52,7 +83,7 @@
         });
     }, 5000);
 
-    $('#emailSelect').select2({
+    $('.select2').select2({
         placeholder: 'Select Email',
         allowClear: true
     });
