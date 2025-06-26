@@ -156,11 +156,9 @@
                             <thead class="thead_totalmember">
                                 <tr>
                                     <th>DATE</th>
-                                    <th>AMOUNT USDT</th>
-                                    <th>BTC PRICE</th>
-                                    <th>AMOUNT BTC</th>
                                     <th>POSITION</th>
-                                    <th>STATUS</th>
+                                    <th>BTC PRICE</th>
+                                    <th>PROFIT</th>
                                     <!-- <th>TYPE</th> -->
                                 </tr>
                             </thead>

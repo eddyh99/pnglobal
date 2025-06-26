@@ -125,12 +125,8 @@ const superadmin = <?= json_encode($is_superadmin) ?>;
                 }
             },
             {
-                data: 'amount_usdt',
-                render: function(data, type, row) {
-                            if (!data) return '0';
-                            const formatted = parseFloat(data).toLocaleString('en-US');
-                            return formatted
-                        }
+                data: 'position',
+                className: 'text-uppercase'
             },
             {
                 data: 'entry_price',
@@ -139,18 +135,6 @@ const superadmin = <?= json_encode($is_superadmin) ?>;
                             const formatted = parseFloat(data).toLocaleString('en-US');
                             return formatted
                         }
-            },
-            {
-                data: 'amount_btc',
-                render: function(data, type, row) {
-                            if (!data) return '0';
-                            // const formatted = parseFloat(data).toLocaleString('en-US');
-                            return data
-                        }
-            },
-            {
-                data: 'position',
-                className: 'text-uppercase'
             },
                         // {
             //     data: 'entry_price',
@@ -161,7 +145,7 @@ const superadmin = <?= json_encode($is_superadmin) ?>;
             //     }
             // },
             {
-                data: 'status'
+                data: 'profit'
             }
         ],
         // Tambahkan error handling untuk AJAX request
