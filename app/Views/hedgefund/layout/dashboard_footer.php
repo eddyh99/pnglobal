@@ -78,6 +78,7 @@
         <script src="<?= BASE_URL?>assets/js/admin/mandatory/custom.js"></script>
         <!-- Format Price -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/autonumeric/1.8.2/autoNumeric.js"></script>
+        <script src="//cdn.datatables.net/plug-ins/2.3.2/api/sum().js"></script>
 
         <script>
             // NEW FEATURE: Tambahkan fungsi untuk icon share, icon copy, dan Show QR Code

@@ -49,7 +49,7 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <!-- Second Row: USDT & BTC Cards Side by Side -->
                 <div class="row mb-4">
                     <!-- USDT -->
@@ -63,7 +63,7 @@
                             </div>
                         </div>
                     </div>
-                
+
                     <!-- BTC -->
                     <div class="col-lg-6">
                         <div class="custom-card left-card" id="card-commission">
@@ -81,40 +81,58 @@
                         </div>
                     </div>
 
-                <div class="col-lg-12 mt-3 dash-table-totalmember">
-                    <div id="referral-content" style="display: none;">
-                        <h4 class="text-white my-3 text-uppercase fw-bold">Referral</h4>
-                        <table id="table_referral" class="table table-striped" style="width:100%">
-                            <thead class="thead_totalmember">
+                    <div class="col-lg-12 mt-3 dash-table-totalmember">
+
+                        <div id="commission-content">
+                            <h4 class="text-white my-3 text-uppercase fw-bold">Commission</h4>
+                            <table id="table_commission" class="table table-striped" style="width:100%">
+                                <thead class="thead_referralmember">
+                                    <tr>
+                                        <th>Description</th>
+                                        <th>COMISSION</th>
+                                        <!-- <th>SUBSCRIPTION</th> -->
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                </tbody>
+                                <tfoot>
+                                    <tr>
+                                        <th>Total</th>
+                                        <th></th>
+                                    </tr>
+                                </tfoot>
+                            </table>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-12 mt-3 dash-table-totalmember">
+
+                        <div id="commission-content">
+                            <h4 class="text-white my-3 text-uppercase fw-bold">Referral</h4>
+                            <table id="table_referralmember" class="table table-striped" style="width:100%">
+                            <thead class="thead_referralmember">
                                 <tr>
                                     <th>EMAIL</th>
                                     <th>STATUS</th>
+                                    <th>COMISSION</th>
                                     <!-- <th>SUBSCRIPTION</th> -->
                                 </tr>
                             </thead>
                             <tbody>
                             </tbody>
-                        </table>
-                    </div>
-                    <div id="commission-content">
-                        <h4 class="text-white my-3 text-uppercase fw-bold">Commission</h4>
-                        <table id="table_commission" class="table table-striped" style="width:100%">
-                            <thead class="thead_totalmember">
+                            <tfoot>
                                 <tr>
-                                    <th>DESCRIPTION</th>
-                                    <th>DATE</th>
-                                    <th>AMOUNT</th>
+                                    <th></th>
+                                    <th>Total</th>
+                                    <th></th>
                                 </tr>
-                            </thead>
-                            <tbody>
-                            </tbody>
+                            </tfoot>
                         </table>
+                        </div>
                     </div>
                 </div>
+
+
             </div>
-
-
         </div>
     </div>
-</div>
-
