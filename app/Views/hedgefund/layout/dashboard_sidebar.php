@@ -73,7 +73,7 @@
                 </li>
                 <?php endif ?>
                 <?php
-                // if ($_SESSION["logged_user"]->role=="admin"){
+                if ($_SESSION["logged_user"]->role!="superadmin"):
                 ?>
                 <li class="<?= @$active_withdraw ?>">
                     <a href="<?= BASE_URL ?>hedgefund/withdraw" class="iq-waves-effect">
@@ -87,6 +87,7 @@
                         <span class="<?= (@$active_withdraw != null) ? 'text-black' : 'text-white' ?>">Withdraw</span>
                     </a>
                 </li>
+                <?php endif  ?>
                 <!-- <li class="<?= @$active_membership ?>">
                     <a href="<?= BASE_URL ?>hedgefund/membership" class="iq-waves-effect">
                         <i>

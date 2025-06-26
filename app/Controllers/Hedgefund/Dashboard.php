@@ -30,15 +30,18 @@ class Dashboard extends BaseController
     public function index()
     {
 
-        $wd = new Withdraw;
         $user = session()->get('logged_user');
+        $is_superadmin = $user->role == 'superadmin';
+        // dd($user->role);
+        $wd = new Withdraw;
         $mdata = [
             'title'     => 'Dashboard - ' . NAMETITLE,
             'content'   => 'hedgefund/dashboard/index',
             'extra'     => 'hedgefund/dashboard/js/_js_index',
             'active_dash'    => 'active',
             'refcode'   => $_SESSION['logged_user']->refcode,
-            'balance'   => $wd->get_balance(),
+            'balance'   => $is_superadmin ? $wd->get_totalbalance() : $wd->get_balance(),
+            'is_superadmin' => $is_superadmin,
             'isreferral'   => $user->role == 'referral'
         ];
 
@@ -49,6 +52,13 @@ class Dashboard extends BaseController
     public function get_trade_history() {
         $id_member  = $_SESSION['logged_user']->id;
         $url = URL_HEDGEFUND . '/v1/member/history_trade?id_member=' . $id_member;
+        $result = satoshiAdmin($url);
+
+        return $this->response->setJSON(['status' => true, 'message' => $result->result->message])->setStatusCode(200);
+    }
+
+    public function get_totaltrade_history() {
+        $url = URL_HEDGEFUND . '/v1/member/history_trade';
         $result = satoshiAdmin($url);
 
         return $this->response->setJSON(['status' => true, 'message' => $result->result->message])->setStatusCode(200);

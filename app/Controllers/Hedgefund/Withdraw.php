@@ -3,6 +3,7 @@
 namespace App\Controllers\Hedgefund;
 
 use App\Controllers\BaseController;
+use CodeIgniter\Exceptions\PageNotFoundException;
 
 class Withdraw extends BaseController
 {
@@ -20,7 +21,7 @@ class Withdraw extends BaseController
         $loggedUser = $session->get('logged_user');
 
         // Pengecekan role: hanya admin yang boleh mengakses halaman ini
-        if (!in_array($loggedUser->role, ['member', 'referral','superadmin'])) {
+        if (!in_array($loggedUser->role, ['member', 'referral', 'superadmin'])) {
             header("Location: " . BASE_URL . 'hedgefund/auth/login');
             exit();
         }
@@ -28,6 +29,10 @@ class Withdraw extends BaseController
 
     public function index()
     {
+
+        if( session()->get('logged_user')->role == 'superadmin') {
+            throw PageNotFoundException::forPageNotFound();
+        }
         $balance = $this->get_balance();
         $mdata = [
             'title' => 'Withdraw - ' . NAMETITLE,
@@ -312,5 +317,26 @@ class Withdraw extends BaseController
         }
 
         return $balances;
+    }
+
+    public function get_totalbalance()
+    {
+        $url = URL_HEDGEFUND . "/v1/member/get_totalbalance";
+        $result = satoshiAdmin($url)->result;
+        $response = $result->message;
+
+        $balance = [
+            'fund' => (object)[
+                'btc' => $response->fund_btc,
+                'usdt' => $response->total_profit,
+            ],
+            'trade' => (object)[
+                'btc' => $response->trade_btc,
+                'usdt' => $response->trade_usdt,
+            ],
+            'commission' => $response->commission,
+        ];
+
+        return $balance;
     }
 }

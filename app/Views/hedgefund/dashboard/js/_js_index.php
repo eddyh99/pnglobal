@@ -62,6 +62,7 @@
 </style>
 <script>
 
+const superadmin = <?= json_encode($is_superadmin) ?>;
     // Inisialisasi DataTable untuk tabel total member
     var tableTotalMember = $('#table_tradehistory').DataTable({
         // processing: true,
@@ -92,7 +93,7 @@
             }
         },
         ajax: {
-            url: '<?= BASE_URL ?>hedgefund/dashboard/get_trade_history',
+            url: '<?= BASE_URL ?>hedgefund/dashboard/' + (superadmin ? 'get_totaltrade_history' : 'get_trade_history'),
             type: 'GET',
             dataSrc: function(response) {
                 console.log('API Response:', response);
@@ -143,8 +144,8 @@
                 data: 'amount_btc',
                 render: function(data, type, row) {
                             if (!data) return '0';
-                            const formatted = parseFloat(data).toLocaleString('en-US');
-                            return formatted
+                            // const formatted = parseFloat(data).toLocaleString('en-US');
+                            return data
                         }
             },
             {
