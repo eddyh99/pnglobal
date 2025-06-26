@@ -1417,7 +1417,7 @@
                     $('#fund_balance').text(Number(response.fund_usdt).toLocaleString('en', { minimumFractionDigits: 2, maximumFractionDigits: 2 }));
                     $('#trade_balance').text(Number(response.trade_usdt).toLocaleString('en', { minimumFractionDigits: 2, maximumFractionDigits: 2 }));
                     $('#comission').text(Number(response.commission).toLocaleString('en', { minimumFractionDigits: 2, maximumFractionDigits: 2 }));
-                    $('#profit').text(response.total_profit.toLocaleString('en', { minimumFractionDigits: 2, maximumFractionDigits: 2 }));
+                    $('#profit').text(response.master_profit.toLocaleString('en', { minimumFractionDigits: 2, maximumFractionDigits: 2 }));
                     $('#binance').text(total.toLocaleString('en', { minimumFractionDigits: 2, maximumFractionDigits: 2 }));
 
                 },
