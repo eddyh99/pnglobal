@@ -96,7 +96,7 @@ class Member extends BaseController
         $url        = URL_COURSE . "/v1/demo/balance?id=".$_SESSION["logged_usercourse"]->id;
         $response   = courseAdmin($url);
 
-        $balance    = $response->result->message;
+        $balance    = $response->result->message ?? null;
         $mdata = [
             'title'     => 'Trade Course - ' . NAMETITLE,
             'extra'     => 'course/member/js/_js_demo',
