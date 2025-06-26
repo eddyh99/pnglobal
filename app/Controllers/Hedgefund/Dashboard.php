@@ -58,10 +58,9 @@ class Dashboard extends BaseController
     // }
 
     public function get_totaltrade_history() {
-        $url = URL_HEDGEFUND . '/v1/member/history_trade';
-        $result = satoshiAdmin($url);
-
-        return $this->response->setJSON(['status' => true, 'message' => $result->result->message])->setStatusCode(200);
+        $url = URL_HEDGEFUND . "/v1/member/list_transaction";
+        $result = satoshiAdmin($url)->result->message;
+        echo json_encode($result);
     }
 
     public function get_trade_history(){
