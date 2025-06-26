@@ -63,7 +63,7 @@
                                 </a>
                             </div>
                     
-                            <div class="col-12 col-sm-6 col-lg-3 mb-2">
+                            <div class="col-12 col-sm-6 col-lg-2 mb-2">
                                 <a class="d-block h-75">
                                     <div class="iq-card h-100">
                                         <div class="iq-card-body">
@@ -77,8 +77,23 @@
                                     </div>
                                 </a>
                             </div>
+
+                            <div class="col-12 col-sm-6 col-lg-2 mb-2">
+                                <a href="#" class="d-block h-75">
+                                    <div class="iq-card h-100">
+                                        <div class="iq-card-body">
+                                            <div class="d-flex flex-column justify-content-center align-items-start">
+                                                <h5 class="text-black">PNGLOBAL Profit</h5>
+                                                <div class="mt-3 w-100 d-flex justify-content-end">
+                                                    <h2 id="profit" class="text-right text-black">Loading...</h2>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
                     
-                            <div class="col-12 col-sm-6 col-lg-3 mb-2">
+                            <div class="col-12 col-sm-6 col-lg-2 mb-2">
                                 <a href="#" class="d-block h-75">
                                     <div class="iq-card h-100">
                                         <div class="iq-card-body">
