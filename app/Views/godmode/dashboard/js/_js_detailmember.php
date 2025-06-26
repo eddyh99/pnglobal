@@ -108,7 +108,7 @@
         drawCallback: function () {
           var api = this.api();
           var total = api.column(2).data().sum();
-          api.column(2).footer().innerHTML = total.toLocaleString('en');
+          api.column(2).footer().innerHTML = total.toFixed(2).toLocaleString('en');
         },
         "columns": [
             { data: 'email'},
@@ -133,7 +133,7 @@
         drawCallback: function () {
           var api = this.api();
           var total = api.column(1).data().sum();
-          api.column(1).footer().innerHTML = total.toLocaleString('en');
+          api.column(1).footer().innerHTML = total.toFixed(2).toLocaleString('en');
         },
         "columns": [
             { data: 'description'},
@@ -159,7 +159,7 @@
         drawCallback: function () {
           var api = this.api();
           var total = api.column(1).data().sum();
-          api.column(1).footer().innerHTML = total.toLocaleString('en');
+          api.column(1).footer().innerHTML = total.toFixed(2).toLocaleString('en');
         },
         "columns": [
             { data: 'date'},
@@ -186,7 +186,7 @@
         drawCallback: function () {
           var api = this.api();
           var total = api.column(3).data().sum();
-          api.column(3).footer().innerHTML = total.toLocaleString('en');
+          api.column(3).footer().innerHTML = total.toFixed(2).toLocaleString('en');
         },
         "columns": [
             {
@@ -214,14 +214,22 @@
                 render: $.fn.dataTable.render.number(',', '.', 3, '')
             },
             {
-                data: 'master_profit',
-                render: $.fn.dataTable.render.number(',', '.', 3, '')
+                data: null,
+                render: function (data, type, row) {
+                    // Calculate profit: sell_total_usdt - buy_total_usdt
+                    if (row.sell_total_usdt==null){
+                        return '';
+                    }else{
+                        var profit = parseFloat(row.sell_total_usdt || 0) - parseFloat(row.buy_total_usdt || 0);
+                        profit = profit - row.client_profit - row.client_profit*0.1
+                        return profit.toFixed(3);
+                    }
+                }
             },
             {
                 data: 'total_commission',
                 render: function (data, type, row) {
-                    const commission = data !== null ? parseFloat(data).toFixed(3) : '0.00';
-                    return commission;
+                    return parseFloat(row.client_profit*0.1).toFixed(3);
                 }
             }
         ],

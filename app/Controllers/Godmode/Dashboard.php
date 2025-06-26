@@ -261,7 +261,7 @@ class Dashboard extends BaseController
                 $url = URLAPI . "/v1/member/get_detailmember";
                 break;
         }
-
+        
         log_message('debug', 'Detail member - Using API URL: ' . $url);
 
         // $resultMember = $tab === 'satoshi-signal'
@@ -279,7 +279,20 @@ class Dashboard extends BaseController
                 $resultMember = satoshiAdmin($url, json_encode(['email' => $finalemail]))->result;
                 break;
         }
+        $member_id = $resultMember->message->id;
+        $url = URL_HEDGEFUND . "/v1/member/balance";
 
+        $types = ['fund', 'trade', 'commission'];
+        $balances = [];
+
+        foreach ($types as $tps) {
+            $response = satoshiAdmin($url, json_encode([
+                'id_member' => $member_id,
+                'type' => $tps
+            ]));
+
+            $balances[$tps] = $response->result->message ?? null;
+        }
         log_message('debug', 'Detail member - API Response received');
 
         $mdata = [
@@ -287,6 +300,7 @@ class Dashboard extends BaseController
             'content'   => 'godmode/dashboard/detailmember_' . $type,
             'extra'     => 'godmode/dashboard/js/_js_detailmember',
             'member'    => $resultMember->message,
+            'balance'   => $balances,
             'sidebar'   => $type . '_sidebar',
             'navbar_' . $type => 'active',
             'active_dash'   => 'active',

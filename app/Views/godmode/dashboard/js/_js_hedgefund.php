@@ -1,4 +1,5 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.30.1/moment-with-locales.min.js"></script>
+<script src="//cdn.datatables.net/plug-ins/2.3.2/api/sum().js"></script>
 <script>
     window.setTimeout(function() {
         $(".alert").fadeTo(500, 0).slideUp(500, function() {
@@ -37,6 +38,15 @@
                 return data;
             }
         },
+        drawCallback: function () {
+          var api = this.api();
+          var fund = api.column(4).data().sum();
+          var trade = api.column(5).data().sum();
+          var komisi = api.column(6).data().sum();
+          api.column(4).footer().innerHTML = fund.toFixed(2).toLocaleString('en');
+          api.column(5).footer().innerHTML = trade.toFixed(2).toLocaleString('en');
+          api.column(6).footer().innerHTML = komisi.toFixed(2).toLocaleString('en');
+        },        
         "columns": [{
                 data: 'email'
             },
@@ -108,9 +118,11 @@
             dataType: 'json',
             success: function(response) {
                 console.log(response);
+                let usdt = parseFloat(response.trade_usdt);
+                $('#usdt_balance').text(
+                  !isNaN(usdt) ? usdt.toFixed(2) : '0.00'
+                );
 
-                // Pastikan response punya struktur { fund_balance: ..., trade_balance: ... }
-                $('#usdt_balance').text(response.trade_usdt);
                 $('#btc_balance').text(response.trade_btc);
 
             },

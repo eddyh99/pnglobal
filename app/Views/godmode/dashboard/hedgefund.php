@@ -146,6 +146,12 @@
                         </thead>
                         <tbody>
                         </tbody>
+                        <tfoot>
+                            <th colspan="4">Total</th>
+                            <th></th>
+                            <th></th>
+                            <th></th>
+                        </tfoot>
                     </table>
                 </div>
 

@@ -1,3 +1,4 @@
+<script src="//cdn.datatables.net/plug-ins/2.3.2/api/sum().js"></script>
 <script>
     updateProfits();
     function updateProfits() {
@@ -37,6 +38,33 @@
                     return item.sell_price != null;
                 });
             }
+        },
+        drawCallback: function () {
+            var api = this.api();
+            var profit = 0;
+            var client = 0;
+            var master = 0;
+            var komisi = 0;
+        
+            api.rows({ page: 'current' }).every(function () {
+                var row = this.data();
+        
+                // Compute profit manually (from row data)
+                if (row.sell_total_usdt !== null && row.buy_total_usdt !== null) {
+                    profit += parseFloat(row.sell_total_usdt) - parseFloat(row.buy_total_usdt);
+                }
+        
+                // Summing other numeric columns directly
+                client += parseFloat(row.client_profit || 0);
+                master += parseFloat(row.master_profit || 0);
+                komisi += parseFloat(row.total_commission || 0);
+            });
+        
+            // Update footer
+            api.column(2).footer().innerHTML = profit.toFixed(2).toLocaleString('en', { minimumFractionDigits: 2 });
+            api.column(3).footer().innerHTML = client.toFixed(2).toLocaleString('en', { minimumFractionDigits: 2 });
+            api.column(4).footer().innerHTML = master.toFixed(2).toLocaleString('en', { minimumFractionDigits: 2 });
+            api.column(5).footer().innerHTML = komisi.toFixed(2).toLocaleString('en', { minimumFractionDigits: 2 });
         },
         "columns": [
             {

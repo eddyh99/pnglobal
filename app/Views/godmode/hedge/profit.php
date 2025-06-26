@@ -95,20 +95,28 @@
             </div>
             <div class="col-lg-12">
                 <table id="table_message" class="table table-striped" style="width:100%">
-                <thead>
-                    <tr>
-                        <th>Order Price</th>
-                        <th>Closed Price</th>
-                        <th>Profit</th>
-                        <th>Client Profit</th>
-                        <th>PN Global</th>
-                        <th>Referral</th>
-                        <!--<th>Remaining</th>-->
-                        <!-- <th>ACTION</th> -->
-                    </tr>
-                </thead>
-                <tbody>
-                </tbody>
+                    <thead>
+                        <tr>
+                            <th>Order Price</th>
+                            <th>Closed Price</th>
+                            <th>Profit</th>
+                            <th>Client Profit</th>
+                            <th>PN Global</th>
+                            <th>Referral</th>
+                            <!--<th>Remaining</th>-->
+                            <!-- <th>ACTION</th> -->
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                    <tfoot>
+                        <th>Total</th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                    </tfoot>
                 </table>
             </div>
         </div>
