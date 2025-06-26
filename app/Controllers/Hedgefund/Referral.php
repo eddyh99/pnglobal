@@ -63,7 +63,7 @@ class Referral extends BaseController
 
     public function get_comission(){
         $id  = $_SESSION['logged_user']->id;
-        $url = URL_HEDGEFUND . "/v1/member/list_comission?id_member=" . $id;
+        $url = URL_HEDGEFUND . "/v1/member/list_comission2?id_member=" . $id;
         $result = satoshiAdmin($url)->result->message;
         echo json_encode($result);
     }
