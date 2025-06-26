@@ -155,11 +155,9 @@
                         <table id="table_tradehistory" class="table table-striped" style="width:100%">
                             <thead class="thead_totalmember">
                                 <tr>
-                                    <th>DATE</th>
-                                    <th>POSITION</th>
-                                    <th>BTC PRICE</th>
-                                    <th>PROFIT</th>
-                                    <!-- <th>TYPE</th> -->
+                                <th>Buy Price</th>
+                                    <th>Sell Price</th>
+                                    <th>Profit NET</th>
                                 </tr>
                             </thead>
                             <tbody>

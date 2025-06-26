@@ -49,18 +49,25 @@ class Dashboard extends BaseController
     }
 
 
-    public function get_trade_history() {
-        $id_member  = $_SESSION['logged_user']->id;
-        $url = URL_HEDGEFUND . '/v1/member/history_trade?id_member=' . $id_member;
-        $result = satoshiAdmin($url);
+    // public function get_trade_history() {
+    //     $id_member  = $_SESSION['logged_user']->id;
+    //     $url = URL_HEDGEFUND . '/v1/member/history_trade?id_member=' . $id_member;
+    //     $result = satoshiAdmin($url);
 
-        return $this->response->setJSON(['status' => true, 'message' => $result->result->message])->setStatusCode(200);
-    }
+    //     return $this->response->setJSON(['status' => true, 'message' => $result->result->message])->setStatusCode(200);
+    // }
 
     public function get_totaltrade_history() {
         $url = URL_HEDGEFUND . '/v1/member/history_trade';
         $result = satoshiAdmin($url);
 
         return $this->response->setJSON(['status' => true, 'message' => $result->result->message])->setStatusCode(200);
+    }
+
+    public function get_trade_history(){
+        $id_member  = $_SESSION['logged_user']->id;
+        $url = URL_HEDGEFUND . "/v1/member/list_transaction?id_member=" . $id_member;
+        $result = satoshiAdmin($url)->result->message;
+        echo json_encode($result);
     }
 }
