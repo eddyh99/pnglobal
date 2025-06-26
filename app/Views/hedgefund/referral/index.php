@@ -88,6 +88,7 @@
                             <table id="table_commission" class="table table-striped" style="width:100%">
                                 <thead class="thead_referralmember">
                                     <tr>
+                                    <th>Date</th>
                                         <th>Description</th>
                                         <th>COMISSION</th>
                                         <!-- <th>SUBSCRIPTION</th> -->
@@ -97,8 +98,8 @@
                                 </tbody>
                                 <tfoot>
                                     <tr>
-                                        <th>Total</th>
-                                        <th></th>
+                                        <!-- <th>Total</th>
+                                        <th></th> -->
                                     </tr>
                                 </tfoot>
                             </table>
@@ -107,7 +108,7 @@
 
                     <div class="col-lg-12 mt-3 dash-table-totalmember">
 
-                        <div id="commission-content">
+                        <div id="referral-content" style="display: none;">
                             <h4 class="text-white my-3 text-uppercase fw-bold">Referral</h4>
                             <table id="table_referralmember" class="table table-striped" style="width:100%">
                             <thead class="thead_referralmember">

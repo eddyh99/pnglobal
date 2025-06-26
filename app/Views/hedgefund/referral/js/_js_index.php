@@ -235,17 +235,24 @@
             "type": "POST",
             "dataSrc":function (data){
                 console.log(data);
-                return data;							
+                return data.data;							
             },
         },
-        drawCallback: function () {
-          var api = this.api();
-          var total = api.column(1).data().sum();
-          api.column(1).footer().innerHTML = total.toLocaleString('en');
-        },
+        // drawCallback: function () {
+        //   var api = this.api();
+        //   var total = api.column(1).data().sum();
+        //   api.column(1).footer().innerHTML = total.toLocaleString('en');
+        // },
         "columns": [
+            { data: 'date'},
             { data: 'description'},
-            { data: 'komisi', render: $.fn.dataTable.render.number( ',', '.', 2, '' )},
+            { 
+            data: 'commission', 
+            render: function(data, type, row) {
+                return $.fn.dataTable.render.number(',', '.', 2, '').display(Math.abs(data));
+            } 
+            }
+
         ],
     });
 
