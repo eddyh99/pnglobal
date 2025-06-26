@@ -79,7 +79,7 @@
                 data: 'trade', render: $.fn.dataTable.render.number( ',', '.', 2, '' )
             },
             {
-                data: 'trade', render: $.fn.dataTable.render.number( ',', '.', 2, '' )
+                data: 'comission', render: $.fn.dataTable.render.number( ',', '.', 2, '' )
             },
             {
                 data: null,
