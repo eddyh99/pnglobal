@@ -61,12 +61,18 @@ class Referral extends BaseController
         return $this->response->setJSON(['status' => true, 'message' => $result->result->message])->setStatusCode(200);
     }
 
-    public function get_commission()
-    {
-        $id_member  = $_SESSION['logged_user']->id;
-        $url = URL_HEDGEFUND . '/v1/member/list_commission?id_member=' . $id_member;
-        $result = satoshiAdmin($url);
+    public function get_comission(){
+        $id  = $_SESSION['logged_user']->id;
+        $url = URL_HEDGEFUND . "/v1/member/list_comission?id_member=" . $id;
+        $result = satoshiAdmin($url)->result->message;
+        echo json_encode($result);
+    }
 
-        return $this->response->setJSON(['status' => true, 'message' => $result->result->message])->setStatusCode(200);
+    public function get_downline()
+    {
+        $id  = $_SESSION['logged_user']->id;
+        $url = URL_HEDGEFUND . "/v1/member/list_downline?id_member=" . $id;
+        $result = satoshiAdmin($url)->result->message;
+        echo json_encode($result);
     }
 }

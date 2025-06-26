@@ -226,41 +226,52 @@
 
     // Inisialisasi tabel Commission
     var tableCommission = $('#table_commission').DataTable({
-        serverSide: false,
-        responsive: true,
-        paging: true,
-        searching: true,
-        ordering: true,
-        info: true,
-        lengthChange: true,
-        pageLength: 10,
-        lengthMenu: [10, 25, 50, 100],
-        ajax: {
-            url: '<?= BASE_URL ?>hedgefund/referral/get_commission',
-            type: 'GET',
-            dataSrc: function(response) {
-                console.log('Commission API Response:', response);
-                if (response.status) {
-                    return response.message;
-                } else {
-                    console.error('Error fetching commission data:', response.message);
-                    return [];
-                }
-            }
-        },
-        columns: [{
-                data: 'description'
+        "pageLength": 50,
+        "dom": '<"d-flex justify-content-between align-items-center flex-wrap"lf>t<"d-flex justify-content-between align-items-center"ip>',
+        "responsive": true,
+        "order": false,
+        "ajax": {
+            "url": '<?= BASE_URL ?>hedgefund/referral/get_comission/',
+            "type": "POST",
+            "dataSrc":function (data){
+                console.log(data);
+                return data;							
             },
-            {
-                data: 'date'
-            },                {
-                data: 'commission',
-                render: function(data, type, row) {
-                    // Format jumlah dengan $ dan pemisah ribuan
-                    return '$ ' + parseFloat(data).toLocaleString('en-US');
-                }
-            }
-        ]
+        },
+        drawCallback: function () {
+          var api = this.api();
+          var total = api.column(1).data().sum();
+          api.column(1).footer().innerHTML = total.toLocaleString('en');
+        },
+        "columns": [
+            { data: 'description'},
+            { data: 'komisi', render: $.fn.dataTable.render.number( ',', '.', 2, '' )},
+        ],
+    });
+
+    $('#table_referralmember').DataTable({
+        "pageLength": 50,
+        "dom": '<"d-flex justify-content-between align-items-center flex-wrap"lf>t<"d-flex justify-content-between align-items-center"ip>',
+        "responsive": true,
+        "order": false,
+        "ajax": {
+            "url": `<?= BASE_URL ?>hedgefund/referral/get_downline/`,
+            "type": "POST",
+            "dataSrc":function (data){
+                console.log(data);
+                return data;							
+            },
+        },
+        drawCallback: function () {
+          var api = this.api();
+          var total = api.column(2).data().sum();
+          api.column(2).footer().innerHTML = total.toLocaleString('en');
+        },
+        "columns": [
+            { data: 'email'},
+            { data: 'status'},
+            { data: 'komisi', render: $.fn.dataTable.render.number( ',', '.', 2, '' )},
+        ],
     });
 
 </script>
