@@ -52,6 +52,11 @@
         });
     }, 5000);
 
+    $('#emailSelect').select2({
+        placeholder: 'Select Email',
+        allowClear: true
+    });
+
 
     $('#table_totalmember').DataTable({
         "pageLength": 100,
@@ -606,7 +611,7 @@
 
     });
 
-    $('#copyBtn').on('click', function () {
+    $('#copyBtn').on('click', function() {
         const $input = $('#paymentLink');
         $input.select();
         document.execCommand('copy');
@@ -614,5 +619,4 @@
         // Optional feedback (bisa diganti toastr, dll)
         alert('Payment link copied!');
     });
-
 </script>

@@ -108,7 +108,12 @@
 
                     <div class="col-12 text-center">
                         <label class="text-white">Email</label>
-                        <input type="text" name="email" class="form-control" value="<?= old('email') ?>">
+                        <select id="emailSelect" name="email" class="form-control" style="width: 100%">
+                            <?php foreach($student as $s): ?>
+                            <option><?= $s->email ?></option>
+                            <?php endforeach ?>
+                        </select>
+                        <!-- <input type="text" name="email" class="form-control" value="<?= old('email') ?>"> -->
                     </div>
                     <div class="col-12 my-3 text-center">
                         <button type="submit" class="btn btn-primary" onclick="this.disabled=true; this.innerText='Sending...'; this.form.submit();">SEND</button>
