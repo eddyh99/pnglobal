@@ -186,7 +186,7 @@ const superadmin = <?= json_encode($is_superadmin) ?>;
                 render: $.fn.dataTable.render.number(',', '.', 3, '')
             },
             {
-                data: 'client_profit',
+                data: (superadmin ? 'master_profit' : 'client_profit'),
                 render: $.fn.dataTable.render.number(',', '.', 3, '')
             },
         ],
