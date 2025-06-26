@@ -79,6 +79,9 @@
                 data: 'trade', render: $.fn.dataTable.render.number( ',', '.', 2, '' )
             },
             {
+                data: 'trade', render: $.fn.dataTable.render.number( ',', '.', 2, '' )
+            },
+            {
                 data: null,
                 "mRender": function(data, type, full, meta) {
                     var btndetail = '';

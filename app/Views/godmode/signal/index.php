@@ -63,7 +63,7 @@
                                 </a>
                             </div>
                     
-                            <div class="col-12 col-sm-6 col-lg-2 mb-2">
+                            <div class="col-12 col-sm-6 col-lg-3 mb-2">
                                 <a class="d-block h-75">
                                     <div class="iq-card h-100">
                                         <div class="iq-card-body">
@@ -78,7 +78,7 @@
                                 </a>
                             </div>
 
-                            <div class="col-12 col-sm-6 col-lg-2 mb-2">
+                            <div class="col-12 col-sm-6 col-lg-3 mb-2">
                                 <a href="#" class="d-block h-75">
                                     <div class="iq-card h-100">
                                         <div class="iq-card-body">
@@ -93,7 +93,7 @@
                                 </a>
                             </div>
                     
-                            <div class="col-12 col-sm-6 col-lg-2 mb-2">
+                            <div class="col-12 col-sm-6 col-lg-3 mb-2">
                                 <a href="#" class="d-block h-75">
                                     <div class="iq-card h-100">
                                         <div class="iq-card-body">

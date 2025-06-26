@@ -187,6 +187,38 @@
                             </thead>
                             <tbody>
                             </tbody>
+                            <tfoot>
+                                <tr>
+                                    <th></th>
+                                    <th></th>
+                                    <th></th>
+                                    <th>Total</th>
+                                    <th></th>
+                                </tr>
+                            </tfoot>
+                        </table>
+                    </div>
+                </div>
+                <!-- Referral Tables -->
+                <div class="row content-body">
+                    <div class="col-lg-12 dash-table-referralmember">
+                        <h4 class="text-white my-3 text-uppercase fw-bold">Commission</h4>
+                        <table id="table_commission" class="table table-striped" style="width:100%">
+                            <thead class="thead_referralmember">
+                                <tr>
+                                    <th>Description</th>
+                                    <th>COMISSION</th>
+                                    <!-- <th>SUBSCRIPTION</th> -->
+                                </tr>
+                            </thead>
+                            <tbody>
+                            </tbody>
+                            <tfoot>
+                                <tr>
+                                    <th>Total</th>
+                                    <th></th>
+                                </tr>
+                            </tfoot>
                         </table>
                     </div>
                 </div>
@@ -205,6 +237,13 @@
                             </thead>
                             <tbody>
                             </tbody>
+                            <tfoot>
+                                <tr>
+                                    <th></th>
+                                    <th>Total</th>
+                                    <th></th>
+                                </tr>
+                            </tfoot>
                         </table>
                     </div>
                 </div>

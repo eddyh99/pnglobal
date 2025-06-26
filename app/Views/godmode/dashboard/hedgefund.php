@@ -38,7 +38,7 @@
                     <a href="<?= BASE_URL ?>godmode/hedge/profit">
                         <div class="custom-card left-card custom-responsive-width w-50 mx-auto">
                             <div class="d-flex justify-content-between text-black" style="font-weight: bold;">
-                                <p>USDT BALANCE</p>
+                                <p>TRADE BALANCE</p>
                                 <p>BTC BALANCE</p>
                             </div>
 
@@ -132,7 +132,7 @@
                     <table id="table_totalmember_elite" class="table table-striped" style="width:100%">
                         <thead class="thead_totalmember">
                             <tr>
-                                <th>EMAIL</th>
+                                <th style="width:15%">EMAIL</th>
                                 <th style="font-size: 11px;white-space: nowrap;">REF CODE</th>
                                 <!-- <th>REG. DATE</th> -->
                                 <th>STATUS</th>
@@ -140,6 +140,7 @@
                                 <th>REFERRAL</th>
                                 <th>Fund</th>
                                 <th>Trade</th>
+                                <th>Commission</th>
                                 <th>ACTION</th>
                             </tr>
                         </thead>

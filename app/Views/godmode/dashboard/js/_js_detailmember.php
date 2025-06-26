@@ -105,9 +105,38 @@
                 return data;							
             },
         },
+        drawCallback: function () {
+          var api = this.api();
+          var total = api.column(2).data().sum();
+          api.column(2).footer().innerHTML = total.toLocaleString('en');
+        },
         "columns": [
             { data: 'email'},
             { data: 'status'},
+            { data: 'komisi', render: $.fn.dataTable.render.number( ',', '.', 2, '' )},
+        ],
+    });
+
+    $('#table_commission').DataTable({
+        "pageLength": 50,
+        "dom": '<"d-flex justify-content-between align-items-center flex-wrap"lf>t<"d-flex justify-content-between align-items-center"ip>',
+        "responsive": true,
+        "order": false,
+        "ajax": {
+            "url": `<?= BASE_URL ?>godmode/dashboard/get_comission/` + $("#id").val(),
+            "type": "POST",
+            "dataSrc":function (data){
+                console.log(data);
+                return data;							
+            },
+        },
+        drawCallback: function () {
+          var api = this.api();
+          var total = api.column(1).data().sum();
+          api.column(1).footer().innerHTML = total.toLocaleString('en');
+        },
+        "columns": [
+            { data: 'description'},
             { data: 'komisi', render: $.fn.dataTable.render.number( ',', '.', 2, '' )},
         ],
     });
@@ -149,10 +178,15 @@
             "dataSrc":function (data){
                 console.log(data);
                 return data.filter(function (item) {
-                    return item.sell_price != null;
+                    return item.sell_price != null && item.master_profit!=null;
                 });
                 
             },
+        },
+        drawCallback: function () {
+          var api = this.api();
+          var total = api.column(3).data().sum();
+          api.column(3).footer().innerHTML = total.toLocaleString('en');
         },
         "columns": [
             {

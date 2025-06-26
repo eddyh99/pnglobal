@@ -479,4 +479,10 @@ class Dashboard extends BaseController
         $result = $response->result;
         echo json_encode($result);
     }
+    
+    public function get_comission($id){
+        $url = URL_HEDGEFUND . "/v1/member/list_comission?id_member=" . $id;
+        $result = satoshiAdmin($url)->result->message;
+        echo json_encode($result);
+    }
 }
