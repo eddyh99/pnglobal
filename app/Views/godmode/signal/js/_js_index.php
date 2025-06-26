@@ -1413,10 +1413,11 @@
                 dataType: 'json',
                 success: function(response) {
                     console.log(response);
-                    
+                    var total = Number(response.fund_usdt)+Number(response.trade_usdt)+Number(response.commission);
                     $('#fund_balance').text(Number(response.fund_usdt).toLocaleString('en', { minimumFractionDigits: 2, maximumFractionDigits: 2 }));
                     $('#trade_balance').text(Number(response.trade_usdt).toLocaleString('en', { minimumFractionDigits: 2, maximumFractionDigits: 2 }));
-
+                    $('#comission').text(Number(response.commission).toLocaleString('en', { minimumFractionDigits: 2, maximumFractionDigits: 2 }));
+                    $('#binance').text(total.toLocaleString('en', { minimumFractionDigits: 2, maximumFractionDigits: 2 }));
 
                 },
                 error: function(xhr, status, error) {
