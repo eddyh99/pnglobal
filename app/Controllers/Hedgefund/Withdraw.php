@@ -318,4 +318,25 @@ class Withdraw extends BaseController
 
         return $balances;
     }
+
+    public function get_totalbalance()
+    {
+        $url = URL_HEDGEFUND . "/v1/member/get_totalbalance";
+        $result = satoshiAdmin($url)->result;
+        $response = $result->message;
+
+        $balance = [
+            'fund' => (object)[
+                'btc' => $response->fund_btc,
+                'usdt' => $response->total_profit,
+            ],
+            'trade' => (object)[
+                'btc' => $response->trade_btc,
+                'usdt' => $response->trade_usdt,
+            ],
+            'commission' => $response->commission,
+        ];
+
+        return $balance;
+    }
 }

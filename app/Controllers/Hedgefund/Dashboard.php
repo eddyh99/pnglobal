@@ -30,15 +30,16 @@ class Dashboard extends BaseController
     public function index()
     {
 
-        $wd = new Withdraw;
         $user = session()->get('logged_user');
+        $is_superadmin = $user->role == 'superadmin';
+        $wd = new Withdraw;
         $mdata = [
             'title'     => 'Dashboard - ' . NAMETITLE,
             'content'   => 'hedgefund/dashboard/index',
             'extra'     => 'hedgefund/dashboard/js/_js_index',
             'active_dash'    => 'active',
             'refcode'   => $_SESSION['logged_user']->refcode,
-            'balance'   => $wd->get_balance(),
+            'balance'   => $is_superadmin ? $wd->get_totalbalance() : $wd->get_balance(),
             'isreferral'   => $user->role == 'referral'
         ];
 
