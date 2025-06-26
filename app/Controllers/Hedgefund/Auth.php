@@ -158,8 +158,8 @@ class Auth extends BaseController
 
 		if ($result->code == 200) {
 			$loggedUser = $result->message;
-		
-			if (in_array($loggedUser->role, ['member', 'referral'])) {
+
+			if (in_array($loggedUser->role, ['member', 'referral','superadmin'])) {
 				session()->set('logged_user', $loggedUser);
 				return redirect()->to(BASE_URL . 'hedgefund/dashboard');
 			}

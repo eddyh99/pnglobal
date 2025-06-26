@@ -82,10 +82,12 @@
                                 </div>
                             </div>
                         </div>
+                        <?php if ($_SESSION["logged_user"]->role!="superadmin") : ?>
                         <div class="d-flex justify-content-between flex-row flex-wrap gap-2">
                             <a href="<?= BASE_URL ?>hedgefund/deposit" class="btn-withdraw btn-lg">DEPOSIT</a>
                             <a href="<?= BASE_URL ?>hedgefund/withdraw/transfer/fund" class="btn-withdraw btn-lg" style="max-width:250px !important">To Trade Wallet</a>
                         </div>
+                        <?php endif; ?>
                     </div>
 
                     <!-- BTC -->
@@ -112,9 +114,11 @@
                                 </div>
                             </div>
                         </div>
+                        <?php if ($_SESSION["logged_user"]->role!="superadmin") : ?>
                         <div class="d-flex justify-content-end flex-row flex-wrap gap-2">
                             <a href="<?= BASE_URL ?>hedgefund/withdraw/transfer/trade" class="btn-withdraw btn-lg" style="max-width:250px !important">To Funds Wallet</a>
                         </div>
+                        <?php endif;?>
                     </div>
 
 
