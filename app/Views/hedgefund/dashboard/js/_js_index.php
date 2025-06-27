@@ -191,6 +191,33 @@ const superadmin = <?= json_encode($is_superadmin) ?>;
             },
         ],
     });
+
+    $('#tablehistory_depositwithdraw').DataTable({
+        "pageLength": 50,
+        "dom": '<"d-flex justify-content-between align-items-center flex-wrap"lf>t<"d-flex justify-content-between align-items-center"ip>',
+        "responsive": true,
+        "order": false,
+        "ajax": {
+            url: '<?= BASE_URL ?>hedgefund/deposit/get_history',
+            "type": "POST",
+            "dataSrc":function (res){
+                const data = res.message;
+                const filtered = data.filter(item =>
+                    item.status && item.status.toLowerCase() === "complete"
+                );
+                return filtered; 
+            },
+        },
+        "columns": [
+            {
+                data: 'date'
+            },
+            {
+                data: 'commission',
+                render: $.fn.dataTable.render.number(',', '.', 3, '')
+            },
+        ],
+    });
     tableTotalMember.ajax.reload(null, false);
 
     // Handle tombol Renew
