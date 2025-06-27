@@ -1407,26 +1407,27 @@
         });
 
         function updateBalances() {
-            $.ajax({
-                url: '<?= BASE_URL ?>godmode/signal/getmember_balance', // Ganti dengan endpoint sesuai back-end kamu
-                method: 'GET',
-                dataType: 'json',
-                success: function(response) {
-                    console.log(response);
-                    var total = Number(response.fund_usdt)+Number(response.trade_usdt)+Number(response.commission)+Number(response.master_profit);
-                    $('#fund_balance').text(Number(response.fund_usdt).toLocaleString('en', { minimumFractionDigits: 2, maximumFractionDigits: 2 }));
-                    $('#trade_balance').text(Number(response.trade_usdt).toLocaleString('en', { minimumFractionDigits: 2, maximumFractionDigits: 2 }));
-                    $('#comission').text(Number(response.commission).toLocaleString('en', { minimumFractionDigits: 2, maximumFractionDigits: 2 }));
-                    $('#profit').text(response.master_profit.toLocaleString('en', { minimumFractionDigits: 2, maximumFractionDigits: 2 }));
-                    $('#binance').text(total.toLocaleString('en', { minimumFractionDigits: 2, maximumFractionDigits: 2 }));
+        
+        $.ajax({
+            url: '<?= BASE_URL ?>godmode/signal/getmember_balance', // Ganti dengan endpoint sesuai back-end kamu
+            method: 'GET',
+            dataType: 'json',
+            success: function(response) {
+                console.log(response);
+                let usdt = parseFloat(response.trade_usdt);
+                $('#usdt_balance').text(
+                  !isNaN(usdt) ? usdt.toFixed(2) : '0.00'
+                );
 
-                },
-                error: function(xhr, status, error) {
-                    console.error("Gagal mengambil data balance:", error);
-                    $('#fund_balance').text('Error');
-                    $('#trade_balance').text('Error');
-                }
-            });
-        }
-    })
+                $('#btc_balance').text(response.trade_btc);
+
+            },
+            error: function(xhr, status, error) {
+                console.error("Gagal mengambil data balance:", error);
+                $('#fund_balance').text('Error');
+                $('#trade_balance').text('Error');
+            }
+        });
+    }
+})
 </script>

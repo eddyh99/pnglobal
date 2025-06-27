@@ -31,84 +31,29 @@
         <div class="row content-body">
             <div class="col-lg-12">
                 <!-- balance fund & trade -->
-                    <div class="container-fluid">
-                        <div class="row dash-statistics">
-                            <div class="col-12 col-sm-6 col-lg-3 mb-2">
-                                <a class="d-block h-75">
-                                    <div class="iq-card h-100">
-                                        <div class="iq-card-body">
-                                            <div class="d-flex flex-column justify-content-center align-items-start">
-                                                <h5 class="text-black">Funding Wallet</h5>
-                                                <div class="mt-3 w-100 d-flex justify-content-end">
-                                                    <h2 id="fund_balance" class="text-right text-black">Loading...</h2>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
-                    
-                            <div class="col-12 col-sm-6 col-lg-3 mb-2">
-                                <a class="d-block h-75">
-                                    <div class="iq-card h-100">
-                                        <div class="iq-card-body">
-                                            <div class="d-flex flex-column justify-content-center align-items-start">
-                                                <h5 class="text-black">Trade Wallet</h5>
-                                                <div class="mt-3 w-100 d-flex justify-content-end">
-                                                    <h2 id="trade_balance" class="text-right text-black">Loading...</h2>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
-                    
-                            <div class="col-12 col-sm-6 col-lg-3 mb-2">
-                                <a class="d-block h-75">
-                                    <div class="iq-card h-100">
-                                        <div class="iq-card-body">
-                                            <div class="d-flex flex-column justify-content-center align-items-start">
-                                                <h5 class="text-black">Comission</h5>
-                                                <div class="mt-3 w-100 d-flex justify-content-end">
-                                                    <h2 id="comission" class="text-right text-black">Loading...</h2>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
+                    <a href="<?= BASE_URL ?>godmode/hedge/profit">
+                        <div class="custom-card left-card custom-responsive-width w-50 mx-auto">
+                            <div class="d-flex justify-content-center text-black" style="font-weight: bold;">
+                                <p>TRADE BALANCE</p>
                             </div>
 
-                            <div class="col-12 col-sm-6 col-lg-3 mb-2">
-                                <a href="#" class="d-block h-75">
-                                    <div class="iq-card h-100">
-                                        <div class="iq-card-body">
-                                            <div class="d-flex flex-column justify-content-center align-items-start">
-                                                <h5 class="text-black">PNGLOBAL Profit</h5>
-                                                <div class="mt-3 w-100 d-flex justify-content-end">
-                                                    <h2 id="profit" class="text-right text-black">Loading...</h2>
-                                                </div>
-                                            </div>
-                                        </div>
+                            <div class="d-flex" style="gap: 1rem;">
+                                <div class="card rounded" style="width: 18rem;background-color: #bfa573;">
+                                    <div class="card-body p-2">
+                                        <h5 class="card-title text-black mb-0 fw-bold">USDT </h5>
+                                        <h2 id="usdt_balance" class="text-right text-black">Loading...</h2>
                                     </div>
-                                </a>
-                            </div>
-                    
-                            <div class="col-12 col-sm-6 col-lg-3 mb-2">
-                                <a href="#" class="d-block h-75">
-                                    <div class="iq-card h-100">
-                                        <div class="iq-card-body">
-                                            <div class="d-flex flex-column justify-content-center align-items-start">
-                                                <h5 class="text-black">Binance USDT</h5>
-                                                <div class="mt-3 w-100 d-flex justify-content-end">
-                                                    <h2 id="binance" class="text-right text-black">Loading...</h2>
-                                                </div>
-                                            </div>
-                                        </div>
+                                </div>
+                                <div class="card rounded" style="width: 18rem;background-color: #bfa573;">
+                                    <div class="card-body p-2">
+                                        <h5 class="card-title text-black mb-0 fw-bold">BTC </h5>
+                                        <h2 id="btc_balance" class="text-right text-black">Loading...</h2>
                                     </div>
-                                </a>
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    </a>
+                
 
             </div>
         </div>

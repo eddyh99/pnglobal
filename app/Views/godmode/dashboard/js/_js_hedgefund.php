@@ -42,10 +42,8 @@
           var api = this.api();
           var fund = api.column(4).data().sum();
           var trade = api.column(5).data().sum();
-          var komisi = api.column(6).data().sum();
           api.column(4).footer().innerHTML = fund.toFixed(2).toLocaleString('en');
           api.column(5).footer().innerHTML = trade.toFixed(2).toLocaleString('en');
-          api.column(6).footer().innerHTML = komisi.toFixed(2).toLocaleString('en');
         },        
         "columns": [{
                 data: 'email'
@@ -89,9 +87,6 @@
                 data: 'trade', render: $.fn.dataTable.render.number( ',', '.', 2, '' )
             },
             {
-                data: 'comission', render: $.fn.dataTable.render.number( ',', '.', 2, '' )
-            },
-            {
                 data: null,
                 "mRender": function(data, type, full, meta) {
                     var btndetail = '';
@@ -112,25 +107,25 @@
 
     updateBalances();
     function updateBalances() {
-        $.ajax({
-            url: '<?= BASE_URL ?>godmode/signal/getmember_balance', // Ganti dengan endpoint sesuai back-end kamu
-            method: 'GET',
-            dataType: 'json',
-            success: function(response) {
-                console.log(response);
-                let usdt = parseFloat(response.trade_usdt);
-                $('#usdt_balance').text(
-                  !isNaN(usdt) ? usdt.toFixed(2) : '0.00'
-                );
+            $.ajax({
+                url: '<?= BASE_URL ?>godmode/signal/getmember_balance', // Ganti dengan endpoint sesuai back-end kamu
+                method: 'GET',
+                dataType: 'json',
+                success: function(response) {
+                    console.log(response);
+                    var total = Number(response.fund_usdt)+Number(response.trade_usdt)+Number(response.commission);
+                    $('#fund_balance').text(Number(response.fund_usdt).toLocaleString('en', { minimumFractionDigits: 2, maximumFractionDigits: 2 }));
+                    $('#trade_balance').text(Number(response.trade_usdt).toLocaleString('en', { minimumFractionDigits: 2, maximumFractionDigits: 2 }));
+                    $('#comission').text(Number(response.commission).toLocaleString('en', { minimumFractionDigits: 2, maximumFractionDigits: 2 }));
+                    $('#binance').text(total.toLocaleString('en', { minimumFractionDigits: 2, maximumFractionDigits: 2 }));
 
-                $('#btc_balance').text(response.trade_btc);
+                },
+                error: function(xhr, status, error) {
+                    console.error("Gagal mengambil data balance:", error);
+                    $('#fund_balance').text('Error');
+                    $('#trade_balance').text('Error');
+                }
+            });
 
-            },
-            error: function(xhr, status, error) {
-                console.error("Gagal mengambil data balance:", error);
-                $('#fund_balance').text('Error');
-                $('#trade_balance').text('Error');
-            }
-        });
     }
 </script>
