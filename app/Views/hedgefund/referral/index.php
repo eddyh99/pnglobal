@@ -53,7 +53,7 @@
                 <!-- Second Row: USDT & BTC Cards Side by Side -->
                 <div class="row mb-4">
                     <!-- USDT -->
-                    <div class="col-lg-6 mb-2">
+                    <div class="col-lg-6 mb-2 mx-auto">
                         <div class="custom-card left-card" id="card-referral">
                             <div class="card-row card-top">
                                 Total Referral
@@ -64,31 +64,31 @@
                         </div>
                     </div>
 
-                    <!-- BTC -->
-                    <div class="col-lg-6">
-                        <div class="custom-card left-card" id="card-commission">
-                            <div class="card-row card-top">
-                                USDT Comission
-                            </div>
-                            <div class="card-row card-bottom">
-                                Loading...
-                            </div>
-                        </div>
+                    <div class="col-lg-12 mt-3 dash-table-totalmember">
 
-                        <div class="d-flex justify-content-between flex-row flex-wrap gap-2">
-                            <a href="<?= BASE_URL ?>hedgefund/withdraw/transfer/commission_trade" class="btn-withdraw btn-lg ms-1" style="min-width:250px !important">To Trade Wallet</a>
-                            <a href="<?= BASE_URL ?>hedgefund/withdraw/transfer" class="btn-withdraw btn-lg ms-1" style="min-width:250px !important">To Funds Wallet</a>
+                        <div id="referral-content">
+                            <h4 class="text-white my-3 text-uppercase fw-bold">Referral</h4>
+                            <table id="table_referralmember" class="table table-striped" style="width:100%">
+                                <thead class="thead_referralmember">
+                                    <tr>
+                                        <th>EMAIL</th>
+                                        <th>REGISTER DATE</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                </tbody>
+                            </table>
                         </div>
                     </div>
 
                     <div class="col-lg-12 mt-3 dash-table-totalmember">
 
                         <div id="commission-content">
-                            <h4 class="text-white my-3 text-uppercase fw-bold">Commission</h4>
-                            <table id="table_commission" class="table table-striped" style="width:100%">
+                            <h4 class="text-white my-3 text-uppercase fw-bold">Referral Deposit Commission</h4>
+                            <table id="table_commission_reff" class="table table-striped" style="width:100%">
                                 <thead class="thead_referralmember">
                                     <tr>
-                                    <th>Date</th>
+                                        <th>Date</th>
                                         <th>Description</th>
                                         <th>COMISSION</th>
                                         <!-- <th>SUBSCRIPTION</th> -->
@@ -98,8 +98,9 @@
                                 </tbody>
                                 <tfoot>
                                     <tr>
-                                        <!-- <th>Total</th>
-                                        <th></th> -->
+                                        <th></th>
+                                        <th class="text-right">Total</th>
+                                        <th></th>
                                     </tr>
                                 </tfoot>
                             </table>
@@ -108,29 +109,29 @@
 
                     <div class="col-lg-12 mt-3 dash-table-totalmember">
 
-                        <div id="referral-content" style="display: none;">
-                            <h4 class="text-white my-3 text-uppercase fw-bold">Referral</h4>
-                            <table id="table_referralmember" class="table table-striped" style="width:100%">
-                            <thead class="thead_referralmember">
-                                <tr>
-                                    <th>EMAIL</th>
-                                    <th>STATUS</th>
-                                    <th>COMISSION</th>
-                                    <!-- <th>SUBSCRIPTION</th> -->
-                                </tr>
-                            </thead>
-                            <tbody>
-                            </tbody>
-                            <tfoot>
-                                <tr>
-                                    <th></th>
-                                    <th>Total</th>
-                                    <th></th>
-                                </tr>
-                            </tfoot>
-                        </table>
+                        <div id="commission-content">
+                            <h4 class="text-white my-3 text-uppercase fw-bold">Referral Trade Commission</h4>
+                            <table id="table_commission_trade" class="table table-striped" style="width:100%">
+                                <thead class="thead_referralmember">
+                                    <tr>
+                                        <th>Date</th>
+                                        <th>Description</th>
+                                        <th>COMISSION</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                </tbody>
+                                <tfoot>
+                                    <tr>
+                                        <th></th>
+                                        <th class="text-right">Total</th>
+                                        <th></th>
+                                    </tr>
+                                </tfoot>
+                            </table>
                         </div>
                     </div>
+
                 </div>
 
 
