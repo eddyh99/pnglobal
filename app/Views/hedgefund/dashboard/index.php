@@ -55,6 +55,7 @@
                 <div class="row mb-4">
                     <!-- USDT -->
                     <div class="col-lg-6 mb-2">
+                        <a href="#">
                         <div class="custom-card left-card mb-3">
                             <div class="card-row card-top text-center" style="font-weight: bold;">Funding Wallet</div>
                             <!-- <div class="card-row card-top">USDT</div>
@@ -88,6 +89,7 @@
                             <a href="<?= BASE_URL ?>hedgefund/withdraw/transfer/fund" class="btn-withdraw btn-lg" style="max-width:250px !important">To Trade Wallet</a>
                         </div>
                         <?php endif; ?>
+                    </a>
                     </div>
 
                     <!-- BTC -->
