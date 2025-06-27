@@ -67,7 +67,7 @@
                     <div class="col-lg-12 mt-3 dash-table-totalmember">
 
                         <div id="referral-content">
-                            <h4 class="text-white my-3 text-uppercase fw-bold">Referral</h4>
+                            <h4 class="text-white my-3 text-uppercase fw-bold">Referral List</h4>
                             <table id="table_referralmember" class="table table-striped" style="width:100%">
                                 <thead class="thead_referralmember">
                                     <tr>
