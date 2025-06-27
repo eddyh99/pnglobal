@@ -95,12 +95,7 @@ class Dashboard extends BaseController
             isset($response_withdraw->result->message) &&
             is_array($response_withdraw->result->message)
         ) {
-            $all_withdraw = $response_withdraw->result->message;
-        
-            // Filter hanya jenis = 'balance'
-            $withdraw = array_filter($all_withdraw, function ($item) {
-                return isset($item->jenis) && strtolower($item->jenis) === 'balance';
-            });
+            $withdraw = $response_withdraw->result->message;
         }
     
         $result = array_merge($deposit, $withdraw);
