@@ -328,7 +328,7 @@ class Withdraw extends BaseController
         $balance = [
             'fund' => (object)[
                 'btc' => $response->fund_btc,
-                'usdt' => $response->master_profit,
+                'usdt' => $response->master_balance,
             ],
             'trade' => (object)[
                 'btc' => $response->trade_btc,
