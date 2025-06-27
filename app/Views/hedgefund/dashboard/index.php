@@ -55,6 +55,7 @@
                 <div class="row mb-4">
                     <!-- USDT -->
                     <div class="col-lg-6 mb-2">
+                        <a href="#">
                         <div class="custom-card left-card mb-3">
                             <div class="card-row card-top text-center" style="font-weight: bold;">Funding Wallet</div>
                             <!-- <div class="card-row card-top">USDT</div>
@@ -88,6 +89,7 @@
                             <a href="<?= BASE_URL ?>hedgefund/withdraw/transfer/fund" class="btn-withdraw btn-lg" style="max-width:250px !important">To Trade Wallet</a>
                         </div>
                         <?php endif; ?>
+                    </a>
                     </div>
 
                     <!-- BTC -->
@@ -121,35 +123,20 @@
                         <?php endif;?>
                     </div>
 
+                    <div class="col-lg-12 mt-3 dash-table-totalmember">
+                        <h4 class="text-white my-3 text-uppercase fw-bold">Deposit/Withdraw History</h4>
+                        <table id="tablehistory_depositwithdraw" class="table table-striped" style="width:100%">
+                            <thead class="thead_totalmember">
+                                <tr>
+                                <th>Date</th>
+                                    <th>Amount Deposit</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            </tbody>
+                        </table>
+                    </div>
 
-                    <!-- Binace Card -->
-                    <!-- <div class="binance-fullcard">
-                    <div class="binance-fullcard-header">
-                        Connect Binance API
-                    </div>
-                    <div class="binance-detailcard">
-                        <div class="label">
-                            API Key
-                        </div>
-                        <div class="value">
-                            adsjJN945wkngsflkn
-                        </div>
-                        <div class="label">
-                            API Secret
-                        </div>
-                        <div class="value">
-                            adsjJN945wadsjJN945wkngsflkn
-                        </div>
-                    </div>
-                    <div class="binance-fullcard-footer">
-                        <button class="edit-btn">Edit</button>
-                    </div>
-                </div> -->
-                    <!-- Tombol di luar binance-fullcard -->
-                    <!-- <div class="binance-button-row">
-                    <button class="get-api-btn">How to get API?</button>
-                    <button class="support-btn">Contact Support</button>
-                </div> -->
                     <div class="col-lg-12 mt-3 dash-table-totalmember">
                         <h4 class="text-white my-3 text-uppercase fw-bold">Trade History</h4>
                         <table id="table_tradehistory" class="table table-striped" style="width:100%">

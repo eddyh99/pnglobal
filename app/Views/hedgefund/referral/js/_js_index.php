@@ -137,6 +137,7 @@
 
     // Tambahkan event listener untuk card Total Referral
     $('#card-referral').on('click', function() {
+        return;
         switchTable('referral');
     });
 
@@ -225,7 +226,7 @@
     });
 
     // Inisialisasi tabel Commission
-    var tableCommission = $('#table_commission').DataTable({
+    var tableCommission = $('#table_commission_reff').DataTable({
         "pageLength": 50,
         "dom": '<"d-flex justify-content-between align-items-center flex-wrap"lf>t<"d-flex justify-content-between align-items-center"ip>',
         "responsive": true,
@@ -233,16 +234,55 @@
         "ajax": {
             "url": '<?= BASE_URL ?>hedgefund/referral/get_comission/',
             "type": "POST",
-            "dataSrc":function (data){
-                console.log(data);
-                return data.data;							
+            "dataSrc":function (res){
+                const data = res.data;
+                
+                const comReff = data.filter(item =>
+                    item.description && item.description.toLowerCase().startsWith("deposit commission from")
+                );
+                return comReff;							
             },
         },
-        // drawCallback: function () {
-        //   var api = this.api();
-        //   var total = api.column(1).data().sum();
-        //   api.column(1).footer().innerHTML = total.toLocaleString('en');
-        // },
+        drawCallback: function () {
+          var api = this.api();
+          var total = api.column(2).data().sum();
+          api.column(2).footer().innerHTML = total.toLocaleString('en');
+        },
+        "columns": [
+            { data: 'date'},
+            { data: 'description'},
+            { 
+            data: 'commission', 
+            render: function(data, type, row) {
+                return $.fn.dataTable.render.number(',', '.', 2, '').display(Math.abs(data));
+            } 
+            }
+
+        ],
+    });
+
+    $('#table_commission_trade').DataTable({
+        "pageLength": 50,
+        "dom": '<"d-flex justify-content-between align-items-center flex-wrap"lf>t<"d-flex justify-content-between align-items-center"ip>',
+        "responsive": true,
+        "order": false,
+        "ajax": {
+            "url": '<?= BASE_URL ?>hedgefund/referral/get_comission/',
+            "type": "POST",
+            "dataSrc":function (res){
+                const data = res.data;
+                
+                const comTrade = data.filter(item =>
+                    item.description && item.description.toLowerCase().startsWith("trade commission from")
+                );
+                return comTrade;							
+            },
+        },
+        drawCallback: function () {
+          var api = this.api();
+          var total = api.column(2).data().sum();
+          api.column(2).footer().innerHTML = total.toLocaleString('en');
+        },
         "columns": [
             { data: 'date'},
             { data: 'description'},
@@ -269,15 +309,22 @@
                 return data;							
             },
         },
-        drawCallback: function () {
-          var api = this.api();
-          var total = api.column(2).data().sum();
-          api.column(2).footer().innerHTML = total.toLocaleString('en');
-        },
+        // drawCallback: function () {
+        //   var api = this.api();
+        //   var total = api.column(1).data().sum();
+        //   api.column(2).footer().innerHTML = total.toLocaleString('en');
+        // },
         "columns": [
             { data: 'email'},
-            { data: 'status'},
-            { data: 'komisi', render: $.fn.dataTable.render.number( ',', '.', 2, '' )},
+            {
+                data: 'created_at',
+                render: function (data, type, row) {
+                    if (!data) return '';
+                    const date = new Date(data);
+                    const options = { day: '2-digit', month: 'short', year: 'numeric' };
+                    return date.toLocaleDateString('en-GB', options); // Hasil: 12 Feb 2025
+                }
+            }
         ],
     });
 

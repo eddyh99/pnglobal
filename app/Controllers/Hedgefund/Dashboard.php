@@ -69,4 +69,23 @@ class Dashboard extends BaseController
         $result = satoshiAdmin($url)->result->message;
         echo json_encode($result);
     }
+
+    // public function get_fundwallet_history(){
+    //     $id_member  = $_SESSION['logged_user']->id;
+    //     $url = URL_HEDGEFUND . "/v1/member/fundwallet_history?id_member=" . $id_member;
+    //     $result = satoshiAdmin($url)->result->message;
+    //     echo json_encode($result);
+    // }
+
+    // public function history($wallet) {
+
+    //     $mdata = [
+    //         'title'     => 'Dashboard - ' . NAMETITLE,
+    //         'content'   => 'hedgefund/dashboard/history_fund',
+    //         'extra'     => 'hedgefund/dashboard/js/_js_history_fund',
+    //         'active_dash'    => 'active',
+    //     ];
+
+    //     return view('hedgefund/layout/dashboard_wrapper', $mdata);
+    // }
 }
