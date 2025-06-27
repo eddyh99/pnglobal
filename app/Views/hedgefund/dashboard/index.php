@@ -124,12 +124,13 @@
                     </div>
 
                     <div class="col-lg-12 mt-3 dash-table-totalmember">
-                        <h4 class="text-white my-3 text-uppercase fw-bold">Deposit History</h4>
+                        <h4 class="text-white my-3 text-uppercase fw-bold">Deposit/Withdraw History</h4>
                         <table id="tablehistory_depositwithdraw" class="table table-striped" style="width:100%">
                             <thead class="thead_totalmember">
                                 <tr>
                                 <th>Date</th>
                                     <th>Amount Deposit</th>
+                                    <th>Type</th>
                                 </tr>
                             </thead>
                             <tbody>
