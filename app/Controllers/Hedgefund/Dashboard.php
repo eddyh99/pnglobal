@@ -70,6 +70,43 @@ class Dashboard extends BaseController
         echo json_encode($result);
     }
 
+    public function gethistory_withdrawdeposit()
+    {
+        $id_member = $_SESSION['logged_user']->id;
+    
+        // Ambil data deposit
+        $deposit = [];
+        $url_deposit = URL_HEDGEFUND . '/v1/member/history_deposit?id_member=' . urlencode($id_member);
+        $response_deposit = satoshiAdmin($url_deposit);
+    
+        if ($response_deposit && isset($response_deposit->result->message) && is_array($response_deposit->result->message)) {
+            $all_deposit = $response_deposit->result->message;
+            $deposit = array_filter($all_deposit, function($item) {
+                return isset($item->status) && strtolower($item->status) == 'complete';
+            });
+        }
+    
+        $withdraw = [];
+        $url_withdraw = URL_HEDGEFUND . "/v1/member/history_payment?id_member=" . urlencode($id_member);
+        $response_withdraw = satoshiAdmin($url_withdraw);
+    
+        if (
+            $response_withdraw &&
+            isset($response_withdraw->result->message) &&
+            is_array($response_withdraw->result->message)
+        ) {
+            $withdraw = $response_withdraw->result->message;
+        }
+    
+        $result = array_merge($deposit, $withdraw);
+    
+        return $this->response->setJSON([
+            'status' => true,
+            'message' => $result
+        ])->setStatusCode(200);
+    }
+    
+
     // public function get_fundwallet_history(){
     //     $id_member  = $_SESSION['logged_user']->id;
     //     $url = URL_HEDGEFUND . "/v1/member/fundwallet_history?id_member=" . $id_member;

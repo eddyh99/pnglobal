@@ -198,14 +198,14 @@ const superadmin = <?= json_encode($is_superadmin) ?>;
         "responsive": true,
         "order": false,
         "ajax": {
-            url: '<?= BASE_URL ?>hedgefund/deposit/get_history',
+            url: '<?= BASE_URL ?>hedgefund/dashboard/gethistory_withdrawdeposit',
             "type": "POST",
             "dataSrc":function (res){
                 const data = res.message;
-                const filtered = data.filter(item =>
-                    item.status && item.status.toLowerCase() === "complete"
-                );
-                return filtered; 
+                // const filtered = data.filter(item =>
+                //     item.status && item.status.toLowerCase() === "pending"
+                // );
+                return data; 
             },
         },
         "columns": [
@@ -213,9 +213,12 @@ const superadmin = <?= json_encode($is_superadmin) ?>;
                 data: 'date'
             },
             {
-                data: 'commission',
+                data: 'amount',
                 render: $.fn.dataTable.render.number(',', '.', 3, '')
             },
+            {
+                data: 'type'
+            }
         ],
     });
     tableTotalMember.ajax.reload(null, false);
