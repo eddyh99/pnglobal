@@ -32,7 +32,7 @@
         <div class="row content-body">
             <div class="col-lg-12">
                 <!-- Top Row: Referral Card -->
-                 <?php if($isreferral): ?>
+                 <?php if($isreferral || $_SESSION["logged_user"]->role=="superadmin"): ?>
                 <div class="row mb-4">
                     <div class="col-lg-6">
                         <div class="referral-card">
