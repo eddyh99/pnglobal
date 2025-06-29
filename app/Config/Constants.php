@@ -127,6 +127,7 @@ if ($parts[0] === 'sandbox' || $host === 'localhost:8080') {
     define('COINPAYMENTS_API_URL', 'https://www.coinpayments.net/api.php');
     define('COINPAYMENTS_CURRENCY_USDT', 'LTCT');
     define('COINPAYMENTS_CURRENCY_USDC', 'LTCT');
+    define('ADMIN_ID', 1);
 } else {
     define("URLAPI", 'https://broker.pnglobalinternational.com');
     define("URLAPI2", 'https://api.pnglobalinternational.com');
@@ -146,6 +147,7 @@ if ($parts[0] === 'sandbox' || $host === 'localhost:8080') {
     define('COINPAYMENTS_API_URL', 'https://www.coinpayments.net/api.php');
     define('COINPAYMENTS_CURRENCY_USDT', 'USDT.BEP20');
     define('COINPAYMENTS_CURRENCY_USDC', 'USDC.BEP20');
+    define('ADMIN_ID', 1);
 }
 
 define("FEEMEETING", 'EUR 150');

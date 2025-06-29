@@ -58,7 +58,7 @@ class Dashboard extends BaseController
     // }
 
     public function get_totaltrade_history() {
-        $url = URL_HEDGEFUND . "/v1/member/list_transaction";
+        $url = URL_HEDGEFUND . "/v1/member/list_transaction?id_member=".ADMIN_ID;
         $result = satoshiAdmin($url)->result->message;
         echo json_encode($result);
     }
