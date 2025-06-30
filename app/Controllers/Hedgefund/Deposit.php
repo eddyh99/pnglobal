@@ -22,7 +22,7 @@ class Deposit extends BaseController
         $loggedUser = $session->get('logged_user');
 
         // Pengecekan role: hanya admin yang boleh mengakses halaman ini
-        if (!in_array($loggedUser->role, ['member', 'referral'])) {
+        if (!in_array($loggedUser->role, ['member', 'referral','superadmin'])) {
             header("Location: " . BASE_URL . 'hedgefund/auth/login');
             exit();
         }
@@ -35,9 +35,10 @@ class Deposit extends BaseController
     public function index()
     {
 
+        $role = $_SESSION["logged_user"]->role;
         $mdata = [
             'title'     => 'Deposit - ' . NAMETITLE,
-            'content'   => 'hedgefund/deposit/set_capital',
+            'content'   => ($role=="superadmin") ? 'hedgefund/deposit/admin_capital':'hedgefund/deposit/set_capital',
             'extra'     => 'hedgefund/deposit/js/_js_capital_investment',
             'active_deposit'    => 'active',
         ];
@@ -116,7 +117,35 @@ class Deposit extends BaseController
         }
     }
 
+    public function add_deposit(){
+        // Validation Field
+        $rules = $this->validate([
+            'amount' => [
+                'label' => 'Amount',
+                'rules' => 'required|greater_than[0]'
+            ],
+        ]);
 
+        
+        // Checking Validation
+        if (!$rules) {
+            session()->setFlashdata('failed', $this->validation->listErrors());
+            return redirect()->to(BASE_URL . 'hedgefund/deposit')->withInput();
+        }
+        
+        $amount = $this->request->getVar('amount');
+        $url = URL_HEDGEFUND . '/v1/member/admin_deposit';
+        $result = satoshiAdmin($url,json_encode(['amount'=>$amount]))->result;
+        if (@$result->code!=201){
+            session()->setFlashdata('failed', $result->message);
+            return redirect()->to(BASE_URL . 'hedgefund/deposit');
+        }
+        
+        session()->setFlashdata('success', 'Deposit is successfully added');
+        return redirect()->to(BASE_URL . 'hedgefund/deposit');
+    }
+    
+    
     public function payment_option()
     {
         $mdata = [

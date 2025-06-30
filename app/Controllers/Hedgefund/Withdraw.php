@@ -252,6 +252,12 @@ class Withdraw extends BaseController
         }
 
         $balance = $this->get_balance();
+        
+        $url = URL_HEDGEFUND . "/v1/member/master_trade";
+        $result = satoshiAdmin($url)->result;
+        $response = $result->message;
+        $balance["trade"]->usdt = $response->trade_balance;
+        
         $loggedUser = $session->get('logged_user');
         $mdata = [
             'title' => 'Transfer - ' . NAMETITLE,
