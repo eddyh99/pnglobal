@@ -136,7 +136,8 @@ class Deposit extends BaseController
         $amount = $this->request->getVar('amount');
         $url = URL_HEDGEFUND . '/v1/member/admin_deposit';
         $result = satoshiAdmin($url,json_encode(['amount'=>$amount]))->result;
-        if (@$result->code!=201){
+
+        if (@$result->code!=200){
             session()->setFlashdata('failed', $result->message);
             return redirect()->to(BASE_URL . 'hedgefund/deposit');
         }

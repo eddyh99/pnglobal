@@ -179,11 +179,11 @@ const superadmin = <?= json_encode($is_superadmin) ?>;
         "columns": [
             {
                 data: 'buy_price',
-                render: $.fn.dataTable.render.number(',', '.', 3, '')
+                render: $.fn.dataTable.render.number(',', '.', 2, '')
             },
             {
                 data: 'sell_price',
-                render: $.fn.dataTable.render.number(',', '.', 3, '')
+                render: $.fn.dataTable.render.number(',', '.', 2, '')
             },
             {
                 data: 'client_profit', // set any existing field, render will override
@@ -224,7 +224,7 @@ const superadmin = <?= json_encode($is_superadmin) ?>;
             },
             {
                 data: 'amount',
-                render: $.fn.dataTable.render.number(',', '.', 3, '')
+                render: $.fn.dataTable.render.number(',', '.', 2, '')
             },
             {
                 data: 'type'
