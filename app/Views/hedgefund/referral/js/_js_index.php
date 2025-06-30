@@ -92,6 +92,7 @@
 <script>
     // Set tabel aktif secara default (referral)
     var activeTable = 'referral';
+    const superadmin = <?= json_encode($is_superadmin) ?>;
 
     // Aktifkan card referral secara default
     $('#card-referral').addClass('active-card');
@@ -153,7 +154,7 @@
     updateActiveCardStyle();
 
     $.ajax({
-        url: '<?= BASE_URL ?>hedgefund/referral/get_summary',
+        url: '<?= BASE_URL ?>hedgefund/referral/' + (superadmin ? 'get_summarymaster' : 'get_summary'),
         type: 'POST',
         dataType: 'json',
         success: function(response) {
@@ -188,42 +189,42 @@
         }
     });
 
-    var tableReferral = $('#table_referral').DataTable({
-        // processing: true,
-        serverSide: false,
-        responsive: true,
-        paging: true,
-        searching: true,
-        ordering: true,
-        info: true,
-        lengthChange: true,
-        pageLength: 10,
-        lengthMenu: [10, 25, 50, 100],
-        ajax: {
-            url: '<?= BASE_URL ?>hedgefund/referral/get_referral',
-            type: 'GET',
-            dataSrc: function(response) {
-                console.log('API Response:', response);
-                if (response.status) {
-                    return response.message;
-                } else {
-                    console.error('Error fetching data:', response.message);
-                    return [];
-                }
-            }
-        },
-        columns: [
-            {
-                data: 'email'
-            },
-            {
-                data: 'status'
-            },
-            // {
-            //     data: 'subscription'
-            // },
-        ]
-    });
+    // var tableReferral = $('#table_referral').DataTable({
+    //     // processing: true,
+    //     serverSide: false,
+    //     responsive: true,
+    //     paging: true,
+    //     searching: true,
+    //     ordering: true,
+    //     info: true,
+    //     lengthChange: true,
+    //     pageLength: 10,
+    //     lengthMenu: [10, 25, 50, 100],
+    //     ajax: {
+    //         url: '<?= BASE_URL ?>hedgefund/referral/' + (superadmin ? 'get_referralmaster' : 'get_referral'),
+    //         type: 'GET',
+    //         dataSrc: function(response) {
+    //             console.log('API Response:', response);
+    //             if (response.status) {
+    //                 return response.message;
+    //             } else {
+    //                 console.error('Error fetching data:', response.message);
+    //                 return [];
+    //             }
+    //         }
+    //     },
+    //     columns: [
+    //         {
+    //             data: 'email'
+    //         },
+    //         {
+    //             data: 'status'
+    //         },
+    //         // {
+    //         //     data: 'subscription'
+    //         // },
+    //     ]
+    // });
 
     // Inisialisasi tabel Commission
     var tableCommission = $('#table_commission_reff').DataTable({
@@ -232,7 +233,7 @@
         "responsive": true,
         "order": false,
         "ajax": {
-            "url": '<?= BASE_URL ?>hedgefund/referral/get_comission/',
+            "url": '<?= BASE_URL ?>hedgefund/referral/' + (superadmin ? 'get_comissionmaster' : 'get_comission'),
             "type": "POST",
             "dataSrc":function (res){
                 const data = res.data;
@@ -267,7 +268,7 @@
         "responsive": true,
         "order": false,
         "ajax": {
-            "url": '<?= BASE_URL ?>hedgefund/referral/get_comission/',
+            "url": '<?= BASE_URL ?>hedgefund/referral/' + (superadmin ? 'get_comissionmaster' : 'get_comission'),
             "type": "POST",
             "dataSrc":function (res){
                 const data = res.data;
@@ -302,18 +303,14 @@
         "responsive": true,
         "order": false,
         "ajax": {
-            "url": `<?= BASE_URL ?>hedgefund/referral/get_downline/`,
+            "url": '<?= BASE_URL ?>hedgefund/referral/' + (superadmin ? 'get_downlinemaster' : 'get_downline'),
             "type": "POST",
             "dataSrc":function (data){
                 console.log(data);
                 return data;							
             },
         },
-        // drawCallback: function () {
-        //   var api = this.api();
-        //   var total = api.column(1).data().sum();
-        //   api.column(2).footer().innerHTML = total.toLocaleString('en');
-        // },
+
         "columns": [
             { data: 'email'},
             {
