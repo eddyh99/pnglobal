@@ -34,10 +34,13 @@ class Referral extends BaseController
 
     public function index()
     {
+        $user = session()->get('logged_user');
+        $is_superadmin = $user->role == 'superadmin';
         $mdata = [
             'title'     => 'Referral - ' . NAMETITLE,
             'content'   => 'hedgefund/referral/index',
             'extra'     => 'hedgefund/referral/js/_js_index',
+            'is_superadmin' => $is_superadmin,
             'active_referral'    => 'active',
             'refcode'   => $_SESSION['logged_user']->refcode,
         ];
@@ -48,6 +51,13 @@ class Referral extends BaseController
     {
         $id_member  = $_SESSION['logged_user']->id;
         $url        =  URL_HEDGEFUND . '/v1/member/referral_summary?id_member='. $id_member;
+        $result     = satoshiAdmin($url);
+        return $this->response->setJSON(['status' => true, 'message' => $result->result->message])->setStatusCode(200);
+    }
+
+    public function get_summarymaster()
+    {
+        $url        =  URL_HEDGEFUND . '/v1/member/referral_mastersummary';
         $result     = satoshiAdmin($url);
         return $this->response->setJSON(['status' => true, 'message' => $result->result->message])->setStatusCode(200);
     }
@@ -68,10 +78,24 @@ class Referral extends BaseController
         echo json_encode($result);
     }
 
+    public function get_comissionmaster(){
+        $url = URL_HEDGEFUND . "/v1/member/list_mastercomission";
+        $result = satoshiAdmin($url)->result->message;
+        echo json_encode($result);
+    }
+
     public function get_downline()
     {
         $id  = $_SESSION['logged_user']->id;
         $url = URL_HEDGEFUND . "/v1/member/list_downline?id_member=" . $id;
+        $result = satoshiAdmin($url)->result->message;
+        echo json_encode($result);
+    }
+
+    public function get_downlinemaster()
+    {
+
+        $url = URL_HEDGEFUND . "/v1/member/list_masterdownline";
         $result = satoshiAdmin($url)->result->message;
         echo json_encode($result);
     }
