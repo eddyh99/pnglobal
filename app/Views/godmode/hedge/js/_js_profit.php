@@ -11,12 +11,11 @@
 
                 // Pastikan response punya struktur { fund_balance: ..., trade_balance: ... }
                 $('#mdepo').text((+response.member_deposit || 0).toLocaleString('en'));
-                $('#tprofit').text(response.total_profit ?? 0);
-                $('#cprofit').text(response.client_profit ?? 0);
-                $('#rprofit').text(response.ref_comm ?? 0);
-                $('#mprofit').text(response.master_profit ?? 0);
-                $('#mwithdraw').text(response.withdraw ?? 0);
-                
+                $('#tprofit').text((+response.total_profit || 0).toLocaleString('en'));
+                $('#cprofit').text((+response.client_profit || 0).toLocaleString('en'));
+                $('#rprofit').text((+response.ref_comm || 0).toLocaleString('en'));
+                $('#mprofit').text((+response.master_profit || 0).toLocaleString('en'));
+                $('#mwithdraw').text((+response.withdraw || 0).toLocaleString('en'));
 
             },
             error: function(xhr, status, error) {

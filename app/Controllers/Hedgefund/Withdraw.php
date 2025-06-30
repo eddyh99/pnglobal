@@ -30,9 +30,6 @@ class Withdraw extends BaseController
     public function index()
     {
 
-        if( session()->get('logged_user')->role == 'superadmin') {
-            throw PageNotFoundException::forPageNotFound();
-        }
         $balance = $this->get_balance();
         $mdata = [
             'title' => 'Withdraw - ' . NAMETITLE,
