@@ -57,7 +57,7 @@
                         </li> -->
                         <li class="nav-item dropdown me-0 me-xl-2">
                             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                PRODUCTS
+                                PRODUCT
                             </a>
                             <ul class="dropdown-menu">
                                 <li><a class="dropdown-item" href="<?= BASE_URL ?>homepage/service?service=<?= base64_encode('satoshi_signal') ?>">HEDGE FUND</a></li>
@@ -94,7 +94,7 @@
                     </li> -->
                     </ul>
                     <div class="nav-buttons">
-                        <a class="btn-navbar-referral" href="<?= BASE_URL ?>auth">MEMBER LOGIN</a>
+                        <a class="btn-navbar-referral" href="<?= BASE_URL ?>auth">Member LOGIN</a>
                         <!-- <a class="btn-navbar-contactform" href="<?= BASE_URL ?>homepage/contactreferral">Get Referral</a> -->
                     </div>
                 </div>

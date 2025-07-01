@@ -196,10 +196,10 @@
                     <div class="list ps-md-4">
                         <div class="d-flex flex-column gap-2">
                             <p></p>
-                            <a class="footer-link" href="<?= BASE_URL ?>homepage">Hot Deal</a>
-                            <a class="footer-link" href="<?= BASE_URL ?>homepage/service?service=<?= base64_encode('satoshi_signal') ?>">Services Infoarmation</a>
-                            <a class="footer-link" href="<?= BASE_URL ?>homepage">Training Courses</a>
-                            <a class="footer-link" href="<?= BASE_URL ?>homepage/about">About Pn Global</a>
+                            <a class="footer-link" href="<?= BASE_URL ?>homepage">PRODUCT</a>
+                            <a class="footer-link" href="<?= BASE_URL ?>homepage/service?service=<?= base64_encode('satoshi_signal') ?>">SERVICES</a>
+                            <a class="footer-link" href="<?= BASE_URL ?>homepage">TRAINING COURSES</a>
+                            <a class="footer-link" href="<?= BASE_URL ?>homepage/about">ABOUT PN GLOBAL</a>
                             <p></p>
                         </div>
                     </div>

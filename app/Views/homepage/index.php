@@ -42,7 +42,7 @@
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-12 col-lg-8">
-                    <h2 class="homepage-future-heading">Future Without Limits</h2>
+                    <h2 class="homepage-future-heading">IMAGINE A FUTURE WITHOUT LIMITS</h2>
 
                     <p class="homepage-future-text mt-4">
                         With our personalized consulting, you can increase your earnings, pay fewer taxes, and protect your capital from unnecessary risks.
@@ -92,7 +92,7 @@
         <div class="newsletter-content text-center text-white">
             <div class="bg-title-something-big">
                 <header>
-                    <h1>Something Big and Sensational is About to Arrive!</h1>
+                    <h1>THE FIRST BTC/USDT HEDGE FUND</h1>
                 </header>
             </div>
             <div class="lead-wrapper">
@@ -105,9 +105,25 @@
                         <!-- Left column empty -->
                     </div>
                     <div class="col-md-6">
-                        <p class="countdown">The countdown has begun!</p>
-                        <p class="description">In April, PN Global will reveal a secret that will radically transform your financial life. A new service, <span class="highlight-bold">available only to a limited number of users</span>, that will exceed your expectations.</p>
-                        <p class="highlight">Forget risky investments and long working hours; with our new tool, you can generate extra income effortlessly, with zero risk to your capital and maintaining full control without having to entrust your money to anyone. <br><span class="highlight-1">You will comfortably see your money multiply automatically!</span></p>
+                        <p class="description">
+                            With an initial investment of just <strong>$1,000</strong>, you can access a hedge fund managed by PN Global’s expert brokers, operating 24/7. No algorithms involved. BTC/USDT trading is handled entirely by our experienced professionals using a proven method.
+                        </p>
+                        <p class="description">
+                            Thanks to a strategy based on compound interest and advanced risk management techniques, we aim to guarantee 100% capital protection while growing investors’ capital consistently and efficiently.
+                        </p>
+                        <p class="description">
+                            Our brokers operate across multiple international jurisdictions, ensuring continuous access to the world’s most dynamic and profitable markets.
+                        </p>
+                        <p class="highlight">
+                            <span class="highlight-1">
+                                No High Management Fees – Just Performance And A Strong Focus On Protecting And Growing Your Capital.
+                            </span>
+                        </p>
+                        <p class="highlight">
+                            <span class="highlight-1">
+                                PN Global Hedge Fund – Professional Performance, Immediate Access.
+                            </span>
+                        </p>
                     </div>
                 </div>
             </section>
@@ -118,8 +134,9 @@
                         <!-- Left column empty -->
                     </div>
                     <div class="col-md-6">
-                        <!-- <p class="opportunity">Be among the first to take advantage of this tool that will revolutionize the financial sector! Don't miss out on this unique opportunity.</p> -->
-                        <p class="signup">Sign up for our newsletter and become a member of this exclusive community.</p>
+                        <p class="signup fw-bold">
+                            Sign up for our newsletter and become a member of this exclusive community.
+                        </p>
                         <div class="button-wrapper">
                             <button class="btn custom-btn px-4 py-2">Join the newsletter <br> for free!</button>
                         </div>
@@ -428,7 +445,7 @@
                     Sign up for our newsletter and become a member of this exclusive community.
                 </p>
                 <form class="newsletter-form">
-                    <input type="email" placeholder="Enter your email">
+                    <input type="email" placeholder="Email Address">
                     <button type="submit">SUBSCRIBE</button>
                 </form>
             </div>

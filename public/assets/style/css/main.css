@@ -13040,7 +13040,8 @@ p {
   line-height: 1.2;
 }
 .bg-contactform .left-side #g-subgetintouch {
-  margin-top: 1rem;
+  /* Ediy by Natha */
+  /* margin-top: 1rem; */
   font-size: 20px;
   font-family: "Poppins", sans-serif;
   font-style: normal;
@@ -13048,7 +13049,8 @@ p {
   line-height: normal;
 }
 .bg-contactform .left-side #g-textgetintouch {
-  margin: 3rem 0 1rem;
+  /* Edit by Natha */
+  margin: 2rem 0 2rem; 
   font-size: 18px;
   font-style: normal;
   font-weight: 400;
@@ -15081,22 +15083,32 @@ p {
   left: 0;
   width: 100%;
   height: 100%;
+
+  overflow: hidden;
+  z-index: 1;
 }
 .first-steps .first-steps-bg .bg-image {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: content;
+  /* Edit Natha */
+  object-position: center;
+  /* Batas Edit Natha */
   opacity: 0.8;
 }
+/* container solved: berhasil di tengah */
 .first-steps .container {
   position: relative;
   z-index: 2;
   max-width: 746px;
   height: auto;
   margin: 0 auto;
+  /* Natha Edit */
+  /* padding: 50px 20px; */
   padding: 50px 0;
-  margin-left: 25%;
-  margin-right: 50px;
+  /* Natha hapus */
+  /* margin-left: 25%;
+  margin-right: 50px; */
   display: flex;
   flex-direction: column;
   justify-content: center;
