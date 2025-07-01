@@ -116,7 +116,7 @@
 </div>
 
 <script>
-  let videoIndex = 0;
+  let videoCounter = 0;
 
   function addVideoInput() {
     const hiddenInputs = document.getElementById("videoInputs");
@@ -124,7 +124,6 @@
 
     const input = document.createElement("input");
     input.type = "file";
-    input.name = "videos[]";
     input.accept = "video/*";
     input.style.display = "none";
 
@@ -133,21 +132,78 @@
       if (file) {
         const url = URL.createObjectURL(file);
 
+        const wrapper = document.createElement("div");
+        wrapper.style.display = "inline-block";
+        wrapper.style.margin = "10px";
+        wrapper.style.textAlign = "center";
+
         const video = document.createElement("video");
         video.src = url;
         video.controls = true;
         video.style.maxWidth = "200px";
-        video.style.marginRight = "10px";
-        video.style.marginBottom = "10px";
-        video.style.display = "inline-block";
+        video.style.display = "block";
 
-        // Insert sebelum tombol "+"
+        const uploadBtn = document.createElement("button");
+        uploadBtn.textContent = "Upload";
+        uploadBtn.className = "btn btn-danger";
+        uploadBtn.style.marginTop = "5px";
+        uploadBtn.onclick = function() {
+          uploadVideo(file, uploadBtn, deleteBtn, wrapper);
+        };
+
+        const deleteBtn = document.createElement("button");
+        deleteBtn.textContent = "Hapus";
+        deleteBtn.className = "btn btn-secondary";
+        deleteBtn.style.marginTop = "5px";
+        deleteBtn.style.marginLeft = "5px";
+        deleteBtn.onclick = function() {
+          wrapper.remove(); // Hapus semua elemen
+        };
+
+        wrapper.appendChild(video);
+        wrapper.appendChild(uploadBtn);
+        wrapper.appendChild(deleteBtn);
+
         const plusBox = thumbnailWrapper.querySelector(".plus-box");
-        thumbnailWrapper.insertBefore(video, plusBox);
+        thumbnailWrapper.insertBefore(wrapper, plusBox);
       }
     });
 
     hiddenInputs.appendChild(input);
-    input.click(); // auto trigger
+    input.click();
+  }
+
+
+  function uploadVideo(file, button, deleteButton, wrapper) {
+    const formData = new FormData();
+    formData.append("video", file);
+
+    button.disabled = true;
+    button.textContent = "Uploading...";
+    deleteButton.disabled = true;
+
+    fetch('<?= BASE_URL ?>godmode/course/explore/save_video', {
+        method: "POST",
+        body: formData
+      })
+      .then(res => res.json())
+      .then(data => {
+        if (data.success) {
+          button.textContent = "Uploaded ✅";
+          button.classList.remove("btn-danger");
+          button.classList.add("btn-success");
+          deleteButton.disabled = false;
+        } else {
+          button.textContent = data.message || "Upload Gagal";
+          button.disabled = false;
+          deleteButton.disabled = false;
+        }
+      })
+      .catch(err => {
+        console.error(err);
+        button.textContent = "Error Upload";
+        button.disabled = false;
+        deleteButton.disabled = false;
+      });
   }
 </script>

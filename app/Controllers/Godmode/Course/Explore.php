@@ -147,45 +147,65 @@ class Explore extends BaseController
         return $this->response->setJSON($data);
     }
 
-    private function upload_video_course() {
-        $ftp = \Config\Services::ftp();
-        $ftp_config = [
-            'hostname' => FTP_HOSTNAME,
-            'username' => FTP_USERNAME,
-            'password' => FTP_PASSWORD,
-            'port'     => 21,
-            'passive'  => TRUE,
-            'debug'    => TRUE
-        ];
+    public function save_video()
+{
+    $file = $this->request->getFile('video');
+    if (!$file) {
+        return $this->response->setJSON([
+            'success' => false,
+            'message' => 'Video not found.'
+        ]);
+    }
 
-        if (!$ftp->connect($ftp_config)) {
-            echo "Failed to connect.";
+    if ($this->upload_video_course($file)) {
+        return $this->response->setJSON(['success' => true]);
+    } else {
+        return $this->response->setJSON([
+            'success' => false,
+            'message' => 'Failed upload video.'
+        ]);
+    }
+}
+
+private function upload_video_course($file)
+{
+    $ftp_host = FTP_HOSTNAME;
+    $ftp_user = FTP_USERNAME;
+    $ftp_pass = FTP_PASSWORD;
+
+    $conn = ftp_connect($ftp_host);
+    if (!$conn) {
+        log_message('error', '❌ FTP Connection Failed.');
+        return false;
+    }
+
+    if (!ftp_login($conn, $ftp_user, $ftp_pass)) {
+        ftp_close($conn);
+        log_message('error', '❌ FTP Login Failed.');
+        return false;
+    }
+
+    ftp_pasv($conn, true);
+
+    if ($file->isValid() && !$file->hasMoved()) {
+        $tmpPath  = $file->getTempName();
+        $fileName = $file->getRandomName();
+        $ftpPath  = "videos/" . $fileName;
+
+        if (!ftp_put($conn, $ftpPath, $tmpPath, FTP_BINARY)) {
+            log_message('error', "❌ Upload failed: {$fileName}");
+            ftp_close($conn);
             return false;
         }
 
-        $files = $this->request->getFiles()['videos'];
-
-        foreach ($files as $index => $file) {
-            if ($file->isValid() && !$file->hasMoved()) {
-
-                $tmpPath  = $file->getTempName();
-                $fileName = $file->getName();
-
-                $ftpPath = '/public_html/videos/' . $fileName;
-
-                if ($ftp->upload($tmpPath, $ftpPath, 'binary', 0775)) {
-                    echo "✅ {$fileName} berhasil diupload ke FTP.<br>";
-                } else {
-                    echo "Gagal upload {$fileName}.<br>";
-                }
-
-            } else {
-                echo "File ke-{$index} tidak valid.<br>";
-            }
-        }
-
-        $ftp->close();
+        log_message('info', "✅ Upload successfull: {$fileName}");
+        ftp_close($conn);
         return true;
     }
+
+    ftp_close($conn);
+    return false;
+}
+
     
 }
