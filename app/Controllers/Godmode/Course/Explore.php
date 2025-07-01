@@ -81,6 +81,10 @@ class Explore extends BaseController
                 'label' => 'Cover Image',
                 'rules' => 'uploaded[cover]|mime_in[cover,image/jpg,image/jpeg,image/png]'
             ],
+            'videos' => [
+                'label' => 'Video Course',
+                'rules' => 'required|is_array'
+            ]
         ]);
 
 
@@ -90,37 +94,15 @@ class Explore extends BaseController
             return redirect()->to(BASE_URL . 'godmode/course/explore/addnew')->withInput();
         }
 
-        // validate videos
-        $videoFiles = $this->request->getFiles()['videos'] ?? [];
-
-        if (!array_filter($videoFiles, fn($video) => $video->isValid() && !$video->hasMoved())) {
-            session()->setFlashdata('failed', 'You must upload at least one video.');
-            return redirect()->to(BASE_URL . 'godmode/course/explore/addnew')->withInput();
-        }
-
-        foreach ($videoFiles as $idx => $video) {
-            $no = $idx + 1;
-
-            if (!$video->isValid() || 
-                !in_array($video->getClientMimeType(), ['video/mp4', 'video/webm']) || 
-                $video->getSize() > 20 * 1024 * 1024) {
-                
-                $errorMsg = !$video->isValid() ? "Video #$no failed to upload." :
-                            (!in_array($video->getClientMimeType(), ['video/mp4', 'video/webm']) ? 
-                            "Video #$no must be in mp4 or webm format." : 
-                            "Video #$no exceeds the 20MB size limit.");
-                
-                session()->setFlashdata('failed', $errorMsg);
-                return redirect()->to(BASE_URL . 'godmode/course/explore/addnew')->withInput();
-            }
-        }
-
         $mdata = [
             'title'        => $this->request->getVar('title'),
             'description'  => $this->request->getVar('description'),
             'mentor_id'    => $this->request->getVar('mentor_id'),
-            'cover'        => 'course/course-1.png'
+            'cover'        => 'course/course-1.png',
+            'islive'       => false,
+            'videos'       => $this->request->getVar('videos')
         ];
+
         $response = satoshiAdmin(URL_COURSE . "/v1/course/store", json_encode($mdata));
         $result = $response->result;
 
@@ -150,6 +132,7 @@ class Explore extends BaseController
     public function save_video()
 {
     $file = $this->request->getFile('video');
+    $fileName = $file->getRandomName();
     if (!$file) {
         return $this->response->setJSON([
             'success' => false,
@@ -157,8 +140,11 @@ class Explore extends BaseController
         ]);
     }
 
-    if ($this->upload_video_course($file)) {
-        return $this->response->setJSON(['success' => true]);
+    if ($this->upload_video_course($file, $fileName)) {
+        return $this->response->setJSON([
+            'success' => true,
+            'filename' => $fileName
+        ]);
     } else {
         return $this->response->setJSON([
             'success' => false,
@@ -167,7 +153,7 @@ class Explore extends BaseController
     }
 }
 
-private function upload_video_course($file)
+private function upload_video_course($file, $fileName)
 {
     $ftp_host = FTP_HOSTNAME;
     $ftp_user = FTP_USERNAME;
@@ -189,7 +175,6 @@ private function upload_video_course($file)
 
     if ($file->isValid() && !$file->hasMoved()) {
         $tmpPath  = $file->getTempName();
-        $fileName = $file->getRandomName();
         $ftpPath  = "videos/" . $fileName;
 
         if (!ftp_put($conn, $ftpPath, $tmpPath, FTP_BINARY)) {

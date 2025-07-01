@@ -90,6 +90,9 @@
               <div id="videoInputs"></div>
             </div>
           </div>
+          <div id="videos">
+            <!-- list videos course -->
+          </div>
           <!-- <div class="form-group row">
             <label class="form-custom form-label-fixed">Video</label>
             <div class="col-10">
@@ -176,6 +179,7 @@
 
   function uploadVideo(file, button, deleteButton, wrapper) {
     const formData = new FormData();
+    const videosWrapper = document.getElementById("videos");
     formData.append("video", file);
 
     button.disabled = true;
@@ -188,11 +192,20 @@
       })
       .then(res => res.json())
       .then(data => {
+        console.log(data);
+        
         if (data.success) {
           button.textContent = "Uploaded ✅";
           button.classList.remove("btn-danger");
           button.classList.add("btn-success");
           deleteButton.disabled = false;
+
+          const inputVideos = document.createElement("input");
+          inputVideos.type = "hidden";
+          inputVideos.name = "videos[]";
+          inputVideos.value = data.filename;
+          videosWrapper.appendChild(inputVideos);
+
         } else {
           button.textContent = data.message || "Upload Gagal";
           button.disabled = false;
