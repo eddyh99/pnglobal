@@ -207,7 +207,8 @@
           videosWrapper.appendChild(inputVideos);
 
         } else {
-          button.textContent = data.message || "Upload Gagal";
+          alert(data.message || "Upload error")
+          button.textContent = "try upload";
           button.disabled = false;
           deleteButton.disabled = false;
         }
