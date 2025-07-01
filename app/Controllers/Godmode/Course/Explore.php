@@ -146,5 +146,46 @@ class Explore extends BaseController
     
         return $this->response->setJSON($data);
     }
+
+    private function upload_video_course() {
+        $ftp = \Config\Services::ftp();
+        $ftp_config = [
+            'hostname' => FTP_HOSTNAME,
+            'username' => FTP_USERNAME,
+            'password' => FTP_PASSWORD,
+            'port'     => 21,
+            'passive'  => TRUE,
+            'debug'    => TRUE
+        ];
+
+        if (!$ftp->connect($ftp_config)) {
+            echo "Failed to connect.";
+            return false;
+        }
+
+        $files = $this->request->getFiles()['videos'];
+
+        foreach ($files as $index => $file) {
+            if ($file->isValid() && !$file->hasMoved()) {
+
+                $tmpPath  = $file->getTempName();
+                $fileName = $file->getName();
+
+                $ftpPath = '/public_html/videos/' . $fileName;
+
+                if ($ftp->upload($tmpPath, $ftpPath, 'binary', 0775)) {
+                    echo "✅ {$fileName} berhasil diupload ke FTP.<br>";
+                } else {
+                    echo "Gagal upload {$fileName}.<br>";
+                }
+
+            } else {
+                echo "File ke-{$index} tidak valid.<br>";
+            }
+        }
+
+        $ftp->close();
+        return true;
+    }
     
 }

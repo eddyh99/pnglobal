@@ -128,6 +128,11 @@ if ($parts[0] === 'sandbox' || $host === 'localhost:8080') {
     define('COINPAYMENTS_CURRENCY_USDT', 'LTCT');
     define('COINPAYMENTS_CURRENCY_USDC', 'LTCT');
     define('ADMIN_ID', 1);
+
+    // account ftp
+    define('FTP_HOSTNAME', 'remote.piggybankservice.com');
+    define('FTP_USERNAME', 'pnglobal@remote.piggybankservice.com');
+    define('FTP_PASSWORD', 'YnTAc)9M;]Y#)*rG');
 } else {
     define("URLAPI", 'https://broker.pnglobalinternational.com');
     define("URLAPI2", 'https://api.pnglobalinternational.com');
@@ -148,6 +153,11 @@ if ($parts[0] === 'sandbox' || $host === 'localhost:8080') {
     define('COINPAYMENTS_CURRENCY_USDT', 'USDT.BEP20');
     define('COINPAYMENTS_CURRENCY_USDC', 'USDC.BEP20');
     define('ADMIN_ID', 1);
+
+    // account ftp
+    define('FTP_HOSTNAME', 'remote.piggybankservice.com');
+    define('FTP_USERNAME', 'pnglobal@remote.piggybankservice.com');
+    define('FTP_PASSWORD', 'YnTAc)9M;]Y#)*rG');
 }
 
 define("FEEMEETING", 'EUR 150');
