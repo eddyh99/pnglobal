@@ -61,8 +61,8 @@
                             <div class="card-row card-bottom">
                                 <?= '$ ' . @number_format($balance['fund']->usdt ?? 0, 2, '.', ',') ?>
                             </div> -->
-
-                            <div class="d-flex" style="gap: 1rem;">
+                            <!-- Fixed by N: Tambahkan justify-content-center flex-wrap -->
+                            <div class="d-flex justify-content-center flex-wrap" style="gap: 1rem;">
                                 <div class="card rounded" style="width: 18rem;background-color: #bfa573;">
                                     <div class="card-body p-2">
                                         <h5 class="card-title text-black mb-0 fw-bold">USDT </h5>
@@ -82,18 +82,31 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="d-flex justify-content-between flex-row flex-wrap gap-2">
+                        <!-- <div class="d-flex justify-content-between flex-row flex-wrap gap-2">
                             <a href="<?= BASE_URL ?>hedgefund/deposit" class="btn-withdraw btn-lg" style="max-width:250px !important">DEPOSIT</a>
                             <a href="<?= BASE_URL ?>hedgefund/withdraw/transfer/fund" class="btn-withdraw btn-lg" style="max-width:250px !important">To Trade Wallet</a>
+                        </div> -->
+                        <!-- Fixed by N -->
+                        <div class="d-flex justify-content-center flex-wrap gap-2">
+                            <a href="http://localhost:8080/hedgefund/deposit"
+                            class="btn-withdraw btn-lg d-flex align-items-center justify-content-center"
+                            style="max-width:250px; min-height:60px; margin:5px; text-align:center;">
+                                DEPOSIT
+                            </a>
+                            <a href="http://localhost:8080/hedgefund/withdraw/transfer/fund"
+                            class="btn-withdraw btn-lg d-flex align-items-center justify-content-center"
+                            style="max-width:250px; min-height:60px; margin:5px; text-align:center;">
+                                To Trade Wallet
+                            </a>
                         </div>
-                    </a>
                     </div>
 
                     <!-- BTC -->
                     <div class="col-lg-6">
                         <div class="custom-card left-card mb-3">
                             <div class="card-row card-top text-center" style="font-weight: bold;">Unified Trading Wallet</div>
-                            <div class="d-flex" style="gap: 1rem;">
+                            <!-- Fixed by N: Tambahkan justify-content-center flex-wrap -->
+                            <div class="d-flex justify-content-center flex-wrap" style="gap: 1rem;">
                                 <div class="card rounded" style="width: 18rem;background-color: #bfa573;">
                                     <div class="card-body p-2">
                                         <h5 class="card-title text-black mb-0 fw-bold">USDT </h5>
@@ -113,8 +126,16 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="d-flex justify-content-end flex-row flex-wrap gap-2">
+                        <!-- <div class="d-flex justify-content-end flex-row flex-wrap gap-2">
                             <a href="<?= BASE_URL ?>hedgefund/withdraw/transfer/trade" class="btn-withdraw btn-lg" style="max-width:250px !important">To Funds Wallet</a>
+                        </div> -->
+                        <!-- Fixed by N -->
+                        <div class="d-flex justify-content-center flex-wrap gap-2">
+                            <a href="<?= BASE_URL ?>hedgefund/withdraw/transfer/trade"
+                            class="btn-withdraw btn-lg d-flex align-items-center justify-content-center"
+                            style="width: 100%; max-width: 250px; min-height: 60px; margin:5px; text-align:center;">
+                            To Funds Wallet
+                            </a>
                         </div>
                     </div>
 

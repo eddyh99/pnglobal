@@ -32,16 +32,10 @@
         <div class="row content-body">
             <div class="col-lg-12 px-2">
                 <div class="withdraw-comission">
-
                     <div class="row referral-cards mb-4">
                         <div class="col-lg-12 mb-2">
                             <div class="custom-card left-card mb-3">
                                 <div class="card-row card-top text-center" style="font-weight: bold;">Funding Wallet</div>
-                                <!-- <div class="card-row card-top">USDT</div>
-                                <div class="card-row card-bottom">
-                                    <?= '$ ' . @number_format($balance['fund']->usdt ?? 0, 2, '.', ',') ?>
-                                </div> -->
-    
                                 <div class="d-flex" style="gap: 1rem;">
                                     <div class="card rounded" style="width: 18rem;background-color: #bfa573;">
                                         <div class="card-body p-2">
@@ -74,8 +68,6 @@
                     <a href="<?= BASE_URL ?>hedgefund/withdraw/btc" class="transfer-btn mb-2 btn-lg w-50 d-inline-block">BTC</a>
                 </div>
             </div>
-
-
 
             <div class="col-lg-12 dash-table-totalmember">
                 <h4 class="text-white my-3 text-uppercase fw-bold">WITHDRAW HISTORY</h4>

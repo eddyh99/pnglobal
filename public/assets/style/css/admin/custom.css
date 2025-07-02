@@ -823,8 +823,9 @@ div.dataTables_wrapper div.dataTables_filter input {
 
 #table_referralmember_paginate,
 #table_referralmember_info {
-    padding: 1rem;
-    color: #ffffff;
+    /* Fixed by N */
+    /* padding: 1rem; */
+    /* color: #ffffff; */
 }
 
 .wrapper-addreferral {
@@ -946,12 +947,15 @@ div.dataTables_wrapper div.dataTables_filter input {
     border-radius: 5px;
     padding: 0.75rem;
     width: 100%; /* Lebar hanya sepanjang kontennya */
+    /* Fixed by N */
+    flex-wrap: wrap; /* ➜ Biar bisa turun ke bawah saat sempit */
 }
 
 /* Pengaturan untuk referral link */
 .referral-link {
     text-align: left;
     font-size: 12px;
+    flex: 1 1 auto; /* Biar bisa nyempil saat sempit */
 }
 
 /* Pengaturan elemen di dalam referral-qr */
@@ -959,6 +963,8 @@ div.dataTables_wrapper div.dataTables_filter input {
     display: flex;
     align-items: center;
     gap: 10px;
+    /* Fixed by N */
+    white-space: nowrap; /* Biar nggak patah kata Show QR Code */
 }
 
 .referral-qr p {
@@ -1039,6 +1045,10 @@ div.dataTables_wrapper div.dataTables_filter input {
 @media (max-width: 767px) {
     .referral-card {
         margin-bottom: 15px; /* Jarak bawah */
+        /* Fixed by N */
+        flex: 1 1 100%;
+        justify-content: center;
+        text-align: center;
     }
 }
 @media (max-width: 580px) {

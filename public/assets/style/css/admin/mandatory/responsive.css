@@ -213,7 +213,10 @@ NOTE: This file contains the styling for responsive Template.
 	.sign-info span { display: none !important; }
 }
 @media(max-width:767px) {
-	.table { width: 100%; max-width: 100%; margin-bottom: 1rem; display: block; overflow-x: auto; }
+	/* .table { width: 100%; max-width: 100%; margin-bottom: 1rem; display: block; overflow-x: auto; } */
+	/* Fixed by N */
+	.table { width: 100%; max-width: 100%; margin-bottom: 1rem; overflow-x: auto; }
+	/*  */
 	.display-1 { font-size: 2.5rem; font-weight: 500; }
 	.display-2 { font-size: 2.3rem; font-weight: 500; }
 	.display-3 { font-size: 2rem; font-weight: 500; }
