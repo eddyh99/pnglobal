@@ -11,8 +11,7 @@
     const pageSize = 25;
     let modePerformerOnly = false;
     connection.extra.roomOwner = true;
-
-    const endTime =  new Date("<?= esc($end_time) ?>");
+    const endTime = new Date("<?= esc($end_time) ?>");
 
     // Inisialisasi Connection
     connection.socketURL = 'https://webrtc.pnglobalinternational.com:9001/';
@@ -31,9 +30,8 @@
         data: true
     };
 
-    connection.iceServers= [
-    {
-        urls: [ "stun:ss-turn2.xirsys.com" ]
+    connection.iceServers = [{
+        urls: ["stun:ss-turn2.xirsys.com"]
     }, {
         username: "9T_lKSp8c-na_my7tOf58N-Owq3KBK3s1BrEX2aYSS_AvrBdUOK6YnOvlHfgo8IBAAAAAGIzscxtM3JjNG43Mw==",
         credential: "09335c34-a63f-11ec-b20c-0242ac140004",
@@ -44,7 +42,7 @@
             "turn:ss-turn2.xirsys.com:3478?transport=tcp",
             "turns:ss-turn2.xirsys.com:443?transport=tcp",
             "turns:ss-turn2.xirsys.com:5349?transport=tcp"
-            ]
+        ]
     }];
     connection.sdpConstraints.mandatory = {
         OfferToReceiveAudio: true,
@@ -127,7 +125,7 @@
             kickLink.className = "btn btn-sm btn-danger ms-2";
             kickLink.style.padding = "2px 6px";
             kickLink.style.fontSize = "12px";
-            kickLink.addEventListener("click", function () {
+            kickLink.addEventListener("click", function() {
                 if (confirm(`Are you sure you want to kick this user?`)) {
                     kickUser(event.userid); // Kirim userid RTC ke fungsi
                 }
@@ -189,7 +187,7 @@
     };
 
     connection.onFileStart = function(file) {
-    // Kosongkan agar tidak muncul preview file
+        // Kosongkan agar tidak muncul preview file
         return false;
     };
 
@@ -371,7 +369,7 @@
         }
     }
 
-    function kickUser(userid){
+    function kickUser(userid) {
         // Kirim perintah ke user untuk disconnect
         connection.send({
             action: 'kick_me',
@@ -392,7 +390,7 @@
         const file = this.files[0];
         if (file) {
 
-            connection.filesContainer = null;   
+            connection.filesContainer = null;
             const fileURL = URL.createObjectURL(file);
             const link = document.createElement('a');
             link.href = fileURL;
@@ -402,7 +400,7 @@
             document.getElementById('livechat').appendChild(link);
 
 
-            connection.send(file); 
+            connection.send(file);
             console.log('Mengirim file:', file.name);
             this.value = '';
         }
@@ -413,10 +411,10 @@
         const interval = setInterval(() => {
             const now = new Date();
             const timeLeftMs = endTime - now;
-            const timeLeftMin = Math.floor(timeLeftMs / 60000); // Menit tersisa
+            const timeLeftMin = Math.floor(timeLeftMs / 60000);
             const absMin = Math.abs(timeLeftMin);
             console.log(timeLeftMin);
-            
+
 
             if (timeLeftMin >= 0 && timeLeftMin <= 10 && timeLeftMin % 5 === 0) {
                 alert(`⏰ The live session will end in ${timeLeftMin} minute${timeLeftMin === 1 ? '' : 's'}`);
@@ -425,11 +423,11 @@
             }
 
 
-            // Uncomment kalau ingin stop saat habis:
-            // if (timeLeftMs <= 0) {
-            //     clearInterval(interval);
-            //     alert("🔴 The live session has ended.");
-            // }
+            // stop ketika selesai
+            if (timeLeftMs <= 0) {
+                clearInterval(interval);
+                alert("🔴 The live session has ended.");
+            }
         }, 60000);
-        }
+    }
 </script>
