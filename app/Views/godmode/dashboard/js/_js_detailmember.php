@@ -198,6 +198,10 @@
                 render: $.fn.dataTable.render.number(',', '.', 3, '')
             },
             {
+                data: 'amount_btc',
+                render: $.fn.dataTable.render.number(',', '.', 6, '')
+            },
+            {
                 data: null,
                 render: function (data, type, row) {
                     // Calculate profit: sell_total_usdt - buy_total_usdt
