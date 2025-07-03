@@ -179,6 +179,7 @@
                                 <tr>
                                     <th>Buy Price</th>
                                     <th>Sell Price</th>
+                                    <th>Amount BTC</th>
                                     <th>Profit Gross</th>
                                     <th>Profit NET</th>
                                     <th>Master</th>
