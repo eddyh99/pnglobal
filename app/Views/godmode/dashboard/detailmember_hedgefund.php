@@ -177,8 +177,10 @@
                         <table id="table_transaction" class="table table-striped" style="width:100%">
                             <thead class="thead_referralmember">
                                 <tr>
+                                    <th>Type Buy</th>
                                     <th>Buy Price</th>
                                     <th>Sell Price</th>
+                                    <th>Amount USDT</th>
                                     <th>Amount BTC</th>
                                     <th>Profit Gross</th>
                                     <th>Profit NET</th>

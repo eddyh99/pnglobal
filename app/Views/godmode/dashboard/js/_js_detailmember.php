@@ -190,11 +190,19 @@
         },
         "columns": [
             {
+                data: 'buy_type',
+                render: $.fn.dataTable.render.number(',', '.', 3, '')
+            },
+            {
                 data: 'buy_price',
                 render: $.fn.dataTable.render.number(',', '.', 3, '')
             },
             {
                 data: 'sell_price',
+                render: $.fn.dataTable.render.number(',', '.', 3, '')
+            },
+            {
+                data: 'amount_usdt',
                 render: $.fn.dataTable.render.number(',', '.', 3, '')
             },
             {
