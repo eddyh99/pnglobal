@@ -48,7 +48,7 @@
                                     <?= '$ ' . @number_format($balance['fund']->usdt ?? 0, 0, '.', ',') ?>
                                 </div> -->
     
-                                <div class="d-flex" style="gap: 1rem;">
+                                <div class="d-flex justify-content-center flex-wrap" style="gap: 1rem;">
                                     <div class="card rounded" style="width: 18rem;background-color: #bfa573;">
                                         <div class="card-body p-2">
                                             <h5 class="card-title text-black mb-0 fw-bold">USDT </h5>
@@ -83,10 +83,6 @@
                             <div class="row w-100">
                                 <div class="form-addreferral col-8 mx-auto">
                                     <input type="hidden" name="type" value="usdt">
-                                    <!-- <div class="wrapper-addreferral">
-                                        <label for="amount">Amount To Withdraw</label>
-                                        <input type="number" name="amount" class="form-control">
-                                    </div> -->
                                     <div class="wrapper-addreferral">
                                         <label for="wallet_address">USDT Wallet Address</label>
                                         <input type="text" name="wallet_address" class="form-control">

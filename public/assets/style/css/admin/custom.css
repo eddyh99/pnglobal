@@ -596,6 +596,8 @@
     border: 2px solid #bfa573;
     /* padding: 1rem; */
     border-radius: 20px 20px 0px 0px;
+    /* Jarak 2 tabel dan button */
+    margin-top: 20px;
 }
 
 .thead_totalmember {
@@ -828,8 +830,107 @@ div.dataTables_wrapper div.dataTables_filter input {
     /* color: #ffffff; */
 }
 
+/* Fund wallet (5 kotak atas) */
+.wallet-info-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Group balance-box container for 2 items */
+.balance-group {
+  display: flex;
+  gap: 12px; /* jarak antar box */
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+/* Semua balance-box memakai dasar style konsisten */
+.balance-box {
+  border: 1px solid #b8860b; /* warna garis gold */
+  padding: 10px;
+  background-color: transparent;
+  color: #d4af37;
+  text-align: center;
+  font-weight: bold;
+  flex: 1 1 45%; /* fleksibel: grow, shrink, basis 45% (2 box per row) */
+  min-width: 140px;  /* batasi ukuran minimum agar tetap proporsional */
+  box-sizing: border-box;
+  overflow-wrap: break-word;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px; /* jarak icon dengan teks */
+}
+
+/* Untuk box Commission yang hanya 1, pakai full width */
+.balance-group > .balance-box.w-100 {
+  flex: 1 1 100%;
+  min-width: unset;
+}
+
+/* Responsive: kecil (mobile) */
+@media (max-width: 768px) {
+  .balance-group {
+    flex-direction: column;
+  }
+
+  .balance-box {
+    flex: 1 1 100%;
+    min-width: 0;
+  }
+}
+
+/*  */
+
+/* Fund input (2 kotak bawah) */
+.wrapper-input {
+    width: 100%;
+    margin-bottom: 1rem;
+    box-sizing: border-box;
+}
+.wrapper-input .input-container {
+    border: 1px solid #b48b3d;
+    background-color: #1c1c1c;
+    height: 45px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+.wrapper-input input.form-control, .wrapper-input select.form-control {
+    width: 100%;
+    background-color: transparent;
+    color: #b48b3d;
+    border: none;
+    box-shadow: none;
+    padding: 0 0.5rem;
+    height: 100%;
+}
+
+
+
+/*  */
+
+/* Fixed by N */
+.wrapper-addreferral input.form-control,
+.wrapper-addreferral input[type="number"] {
+    width: 100%;
+    box-sizing: border-box; /* supaya padding tidak memecah layout */
+}
+.wrapper-addreferral .w-100.mb-1 {
+    min-width: auto !important; /* override inline style atau bisa dihapus dari HTML */
+    width: 100%; /* pastikan memaksimalkan lebarnya */
+    margin: 0 auto;
+}
+.wrapper-addreferral .d-flex.align-items-center {
+    width: 100%;
+    box-sizing: border-box;
+}
+
 .wrapper-addreferral {
     margin-bottom: 1rem;
+    /* Fixed by N */
+    width: 100%;
 }
 
 .wrapper-addreferral label {
@@ -918,6 +1019,35 @@ div.dataTables_wrapper div.dataTables_filter input {
     cursor: pointer;
 }
 
+/* Scrollbar pada Tabel Referal ketika layar mengecil */
+/* #commission-content table,
+#referral-content table {
+    display: block;
+    overflow-x: auto;
+} */
+
+#commission-content table,
+#referral-content table {
+    width: 100%;
+    /* atau sesuai kebutuhan lebar */
+    border-collapse: collapse;
+    display: table; /* default untuk desktop */
+}
+
+/* Media Query untuk layar kecil */
+@media screen and (max-width: 425px) {
+    #commission-content table,
+    #referral-content table {
+        display: block;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch; /* scroll halus iOS */
+        width: 100%; /* pastikan tetap 100% */
+    }
+}
+
+
+/*  */
+
 /* Atur container agar elemen referral card dan active API card tersusun dalam satu baris */
 .referral-container {
     display: flex;
@@ -928,14 +1058,16 @@ div.dataTables_wrapper div.dataTables_filter input {
 }
 
 .withdraw-comission {
-    display: flex;
+    /* Commented by N */
+    /* display: flex; */
     align-items: center;
     justify-content: center;
     padding-top: 1rem;
 }
 
 .withdraw-comission .custom-card {
-    min-width: 25rem;
+    /* Commendted by N */
+    /* min-width: 25rem; */
 }
 
 /* Referral card dengan lebar mengikuti panjang konten */
@@ -2871,7 +3003,13 @@ body.sidebar-main .content-page .payment-option-container {
     text-align: center;
     padding: 10px 20px;
     cursor: pointer;
-    min-width: 400px;
+    /* Fixed by N */
+    min-width: 280px;          /* tombol tidak terlalu kecil */
+    max-width: 100%;           /* maksimal sebesar container */
+    width: auto;               /* lebar ikut konten + padding */
+    flex-grow: 1;              /* tombol tumbuh sesuai container */
+    box-sizing: border-box;
+    display: inline-block;
 }
 
 .transfer-btn:hover {
@@ -3218,7 +3356,8 @@ body.sidebar-main .content-page .payment-option-container {
 /* Styling untuk search bar table withdraw */
 #table_withdraw_wrapper > div:nth-child(1) > div:nth-child(2) {
     display: flex;
-    justify-content: flex-end !important;
+    /* Commented by N */
+    /* justify-content: flex-end !important; */
     align-items: center;
 }
 
@@ -3256,6 +3395,8 @@ body.sidebar-main .content-page .payment-option-container {
 .text-gold {
   color: #b48b3d;
   font-weight: bold;
+  /* Centered by N */
+  /* text-align: center; */
 }
 
     .form-label-fixed {

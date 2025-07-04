@@ -36,7 +36,8 @@
                         <div class="col-lg-12 mb-2">
                             <div class="custom-card left-card mb-3">
                                 <div class="card-row card-top text-center" style="font-weight: bold;">Funding Wallet</div>
-                                <div class="d-flex" style="gap: 1rem;">
+                                <!-- Tambah Flex Wrap -->
+                                <div class="d-flex justify-content-center" style="gap: 1rem; flex-wrap: wrap;">
                                     <div class="card rounded" style="width: 18rem;background-color: #bfa573;">
                                         <div class="card-body p-2">
                                             <h5 class="card-title text-black mb-0 fw-bold">USDT </h5>
@@ -69,7 +70,7 @@
                 </div>
             </div>
 
-            <div class="col-lg-12 dash-table-totalmember">
+            <div class="col-lg-12 mt-3 dash-table-totalmember">
                 <h4 class="text-white my-3 text-uppercase fw-bold">WITHDRAW HISTORY</h4>
                 <table id="table_withdraw" class="table table-striped" style="width:100%">
                     <thead class="thead_totalmember">

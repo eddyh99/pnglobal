@@ -47,7 +47,7 @@
                                     <?= '$ ' . @number_format($balance['fund']->usdt ?? 0, 0, '.', ',') ?>
                                 </div> -->
     
-                                <div class="d-flex" style="gap: 1rem;">
+                                <div class="d-flex justify-content-center flex-wrap" style="gap: 1rem;">
                                     <div class="card rounded" style="width: 18rem;background-color: #bfa573;">
                                         <div class="card-body p-2">
                                             <h5 class="card-title text-black mb-0 fw-bold">USDT </h5>
