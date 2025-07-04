@@ -185,8 +185,8 @@
         },
         drawCallback: function () {
           var api = this.api();
-          var total = api.column(4).data().sum();
-          api.column(4).footer().innerHTML = total.toFixed(2).toLocaleString('en');
+          var total = api.column(6).data().sum();
+          api.column(6).footer().innerHTML = total.toFixed(2).toLocaleString('en');
         },
         "columns": [
             {

@@ -112,6 +112,7 @@
                 <table id="table_message" class="table table-striped" style="width:100%">
                     <thead>
                         <tr>
+                            <th>Type</th>
                             <th>Order Price</th>
                             <th>Closed Price</th>
                             <th>Profit</th>

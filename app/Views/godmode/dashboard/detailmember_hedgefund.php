@@ -195,6 +195,8 @@
                                     <th></th>
                                     <th></th>
                                     <th></th>
+                                    <th></th>
+                                    <th></th>
                                     <th>Total</th>
                                     <th></th>
                                 </tr>
