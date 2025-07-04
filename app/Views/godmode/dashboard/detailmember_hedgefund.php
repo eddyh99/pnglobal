@@ -180,7 +180,7 @@
                                     <th>Type Buy</th>
                                     <th>Buy Price</th>
                                     <th>Sell Price</th>
-                                    <th>Amount USDT</th>
+                                    <th>USDT Buy</th>
                                     <th>Amount BTC</th>
                                     <th>Profit Gross</th>
                                     <th>Profit NET</th>
@@ -192,6 +192,8 @@
                             </tbody>
                             <tfoot>
                                 <tr>
+                                    <th></th>
+                                    <th></th>
                                     <th></th>
                                     <th></th>
                                     <th></th>
