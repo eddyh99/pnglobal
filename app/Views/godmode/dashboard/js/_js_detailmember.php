@@ -191,23 +191,22 @@
         "columns": [
             {
                 data: 'buy_type',
-                render: $.fn.dataTable.render.number(',', '.', 3, '')
             },
             {
                 data: 'buy_price',
-                render: $.fn.dataTable.render.number(',', '.', 3, '')
+                render: $.fn.dataTable.render.number(',', '.', 2, '')
             },
             {
                 data: 'sell_price',
-                render: $.fn.dataTable.render.number(',', '.', 3, '')
+                render: $.fn.dataTable.render.number(',', '.', 2, '')
             },
             {
                 data: 'amount_usdt',
-                render: $.fn.dataTable.render.number(',', '.', 3, '')
+                render: $.fn.dataTable.render.number(',', '.', 2, '')
             },
             {
                 data: 'amount_btc',
-                render: $.fn.dataTable.render.number(',', '.', 6, '')
+                render: $.fn.dataTable.render.number(',', '.', 8, '')
             },
             {
                 data: null,
@@ -217,31 +216,48 @@
                         return '';
                     }else{
                         const profit = parseFloat(row.sell_total_usdt || 0) - parseFloat(row.buy_total_usdt || 0);
-                        return profit.toFixed(3);
+                        return profit.toFixed(2);
                     }
                 }
             },
             {
                 data: 'client_profit',
-                render: $.fn.dataTable.render.number(',', '.', 3, '')
+                render: $.fn.dataTable.render.number(',', '.', 2, '')
             },
             {
-                data: null,
-                render: function (data, type, row) {
-                    // Calculate profit: sell_total_usdt - buy_total_usdt
-                    if (row.sell_total_usdt==null){
-                        return '';
-                    }else{
-                        var profit = parseFloat(row.sell_total_usdt || 0) - parseFloat(row.buy_total_usdt || 0);
-                        profit = profit - row.client_profit - row.client_profit*0.1
-                        return profit.toFixed(3);
-                    }
+              data: null,
+              render: function (data, type, row) {
+                if (row.sell_total_usdt == null) {
+                  return '';
                 }
+            
+                // 1) start with a numeric default
+                var master = 0;
+            
+                if (row.total_commission == null) {
+                  // 2) ensure both operands are numbers
+                  const mp = parseFloat(row.master_profit)  || 0;
+                  const cp = parseFloat(row.client_profit)  || 0;
+            
+                  // 3) subtract 10% of client_profit
+                  const raw = mp - (cp * 0.1);
+            
+                  // 4) truncate down to 2 decimals
+                  master = Math.floor(raw * 100) / 100;
+            
+                } else {
+                  // commission is present — just use master_profit
+                  master = parseFloat(row.master_profit) || 0;
+                }
+            
+                // 5) format to exactly two decimals
+                return master.toFixed(2);
+              }
             },
             {
                 data: 'total_commission',
                 render: function (data, type, row) {
-                    return parseFloat(row.client_profit*0.1).toFixed(3);
+                    return (Math.floor(row.client_profit * 0.1 * 100) / 100).toFixed(2);
                 }
             }
         ],
