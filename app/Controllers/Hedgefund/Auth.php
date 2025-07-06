@@ -82,6 +82,7 @@ class Auth extends BaseController
 
         $url = URL_HEDGEFUND . "/auth/register";
         $result = satoshiAdmin($url, json_encode($mdata))->result;
+
         // Check if the result code is not 201
         if ($result->code != '201') {
             session()->setFlashdata('failed', $result->message);
@@ -459,7 +460,7 @@ class Auth extends BaseController
         //USDT.BEP20
         $paymentResponse = $this->createCoinPaymentTransaction($payamount,COINPAYMENTS_CURRENCY_USDT, $orderId,$customerEmail,$description);
         if ($paymentResponse['error'] !== 'ok') {
-            $this->session->setFlashdata('error', 'There was a problem processing your purchase please try again');
+            $this->session->setFlashdata('failed', 'There was a problem processing your purchase please try again');
             return redirect()->to(base_url().'hedgefund/auth/set_capital'); 
         }
         
@@ -483,7 +484,7 @@ class Auth extends BaseController
 
         $paymentResponse = $this->createCoinPaymentTransaction($payamount,COINPAYMENTS_CURRENCY_USDC, $orderId,$customerEmail,$description);
         if ($paymentResponse['error'] !== 'ok') {
-            $this->session->setFlashdata('error', 'There was a problem processing your purchase please try again');
+            $this->session->setFlashdata('failed', 'There was a problem processing your purchase please try again');
             return redirect()->to(base_url().'hedgefund/auth/set_capital'); 
         }
         
