@@ -92,9 +92,8 @@ class Homepage extends BaseController
 
 
 
-    public function service()
+    public function service($service=null)
     {
-        $service = base64_decode($_GET['service']);
 
         // if ($service == "finance_advice_investment") {
         //     $mdata = [
@@ -173,15 +172,15 @@ class Homepage extends BaseController
         //     ];
         // }
 
-        if ($service == "satoshi_signal") {
+        if ($service == "hedgefund") {
             $mdata = [
-                'title'     => 'Satoshi Signal - ' . NAMETITLE,
+                'title'     => 'Hedge Fund - ' . NAMETITLE,
                 'content'   => 'homepage/service/satoshi_signal',
                 'extra'     => 'homepage/js/_js_index',
                 'extragsap' => 'homepage/gsap/gsap_satoshi_signal',
                 'flag'      => 'satoshisignal'
             ];
-        } else if ($service == "lux_btc_brokers") {
+        } else if ($service == "lux-btc-brokers") {
             $mdata = [
                 'title'     => 'Lux BTC Brokers - ' . NAMETITLE,
                 'content'   => 'homepage/service/lux_btc_brokers',
@@ -189,7 +188,7 @@ class Homepage extends BaseController
                 'extragsap' => 'homepage/gsap/gsap_luxbtc',
                 'flag'      => 'luxbtc'
             ];
-        } else if ($service == "btc_elite_management") {
+        } else if ($service == "btc-elite-management") {
             $mdata = [
                 'title'     => 'BTC Elite Management - ' . NAMETITLE,
                 'content'   => 'homepage/service/btc_elite_management',
@@ -197,7 +196,7 @@ class Homepage extends BaseController
                 'extragsap' => 'homepage/gsap/gsap_btc_elite_management',
                 'flag'      => 'btcelitemanagement'
             ];
-        } else if ($service == "crypto_consulting") {
+        } else if ($service == "crypto-consulting") {
             $mdata = [
                 'title'     => 'Crypto Consulting - ' . NAMETITLE,
                 'content'   => 'homepage/service/crypto_consulting',
@@ -205,7 +204,7 @@ class Homepage extends BaseController
                 'extragsap' => 'homepage/gsap/gsap_crypto_consulting',
                 'flag'      => 'cryptoconsulting'
             ];
-        } else if ($service == "passive_income") {
+        } else if ($service == "passive-income") {
             $mdata = [
                 'title'     => 'Passive Income - ' . NAMETITLE,
                 'content'   => 'homepage/service/passive_income',
@@ -214,7 +213,7 @@ class Homepage extends BaseController
                 'flag'      => 'passiveincome',
                 'darkNav'   => true
             ];
-        } else if ($service == "portfolio_creation") {
+        } else if ($service == "portfolio-creation") {
             $mdata = [
                 'title'     => 'Portfolio Creation - ' . NAMETITLE,
                 'content'   => 'homepage/service/portfolio_creation',
@@ -222,7 +221,7 @@ class Homepage extends BaseController
                 'extragsap' => 'homepage/gsap/gsap_portfolio_creation',
                 'flag'      => 'portfolio'
             ];
-        } else if ($service == "accumulation_plan") {
+        } else if ($service == "accumulation-plan") {
             $mdata = [
                 'title'     => 'Accumulation Plan - ' . NAMETITLE,
                 'content'   => 'homepage/service/accumulation_plan',
@@ -231,7 +230,7 @@ class Homepage extends BaseController
                 'flag'      => 'accumulation',
                 'darkNav'   => true
             ];
-        } else if ($service == "funds_reallocation") {
+        } else if ($service == "funds-reallocation") {
             $mdata = [
                 'title'     => 'Funds Reallocation - ' . NAMETITLE,
                 'content'   => 'homepage/service/funds_reallocation',
@@ -240,7 +239,7 @@ class Homepage extends BaseController
                 'flag'      => 'funds',
                 'darkNav'   => true
             ];
-        } else if ($service == "wealth_consulting") {
+        } else if ($service == "wealth-consulting") {
             $mdata = [
                 'title'     => 'Wealth Consulting - ' . NAMETITLE,
                 'content'   => 'homepage/service/wealth_consulting',
@@ -248,7 +247,7 @@ class Homepage extends BaseController
                 'extragsap' => 'homepage/gsap/gsap_wealth_consulting',
                 'flag'      => 'wealth'
             ];
-        } else if ($service == "tax_reduction") {
+        } else if ($service == "tax-reduction") {
             $mdata = [
                 'title'     => 'Tax Reduction - ' . NAMETITLE,
                 'content'   => 'homepage/service/tax_reduction',
@@ -256,7 +255,7 @@ class Homepage extends BaseController
                 'extragsap' => 'homepage/gsap/gsap_tax_reduction',
                 'flag'      => 'tax'
             ];
-        } else if ($service == "capital_protection") {
+        } else if ($service == "capital-protection") {
             $mdata = [
                 'title'     => 'Capital Protection - ' . NAMETITLE,
                 'content'   => 'homepage/service/capital_protection',
@@ -1156,12 +1155,11 @@ class Homepage extends BaseController
     }
 
     // Contact Booking Consultant
-    public function bookingconsultation()
+    public function bookingconsultation($service=null)
     {
         // Check if service parameter exists, if not set default value
-        $service = isset($_GET['service']) ? base64_decode($_GET['service']) : 'general-consultation';
-        $service = explode('-', $service);
-        $subject = $service[0];
+        $service = isset($service) ? $service : 'general-consultation';
+        $subject = str_replace('-', '', $service);;
 
         $mdata = [
             'title'     => 'Booking Consultant - ' . NAMETITLE,
@@ -1231,7 +1229,7 @@ class Homepage extends BaseController
 
         // Get original service parameter if exists
         $original_service = $this->request->getVar('original_service');
-        $redirect_url = BASE_URL . 'homepage/bookingconsultation';
+        $redirect_url = BASE_URL . 'book-consultation';
         if (!empty($original_service)) {
             $redirect_url .= '?service=' . $original_service;
         }
@@ -1378,14 +1376,14 @@ class Homepage extends BaseController
                         sendmail_booking($subject, $mdata);
                     } catch (\RuntimeException $e) {
                         session()->setFlashdata('failed', 'Failed to booking schedule: ' . $e->getMessage());
-                        header("Location: " . BASE_URL . 'homepage/bookingconsultation');
+                        header("Location: " . BASE_URL . 'book-consultation');
                         exit();
                     }
                 }
             }
         } catch (\Stripe\Exception\CardException $e) {
             session()->setFlashdata('failed', 'Payment Failed: ' . $e->getError()->message);
-            header("Location: " . BASE_URL . 'homepage/bookingconsultation');
+            header("Location: " . BASE_URL . 'book-consultation');
             exit();
         }
     }

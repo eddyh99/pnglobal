@@ -47,40 +47,54 @@
                     <span></span>
                 </div>
             </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item me-0 me-xl-4 <?= (current_url() === BASE_URL('index.php/homepage/hotdeals')) ? 'active' : '' ?>">
-                        <a class="nav-link" translate="no" aria-current="page" href="<?= BASE_URL ?>homepage/service?service=<?= base64_encode('satoshi_signal') ?>">HOT <br> DEAL</a>
-                    </li>
-                    <li class="nav-item dropdown me-0 me-xl-2">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            SERVICES <br> INFORMATION
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="<?= BASE_URL ?>homepage/service?service=<?= base64_encode('satoshi_signal') ?>">SATOSHI SIGNAL</a></li>
-                            <li><a class="dropdown-item" href="<?= BASE_URL ?>homepage/service?service=<?= base64_encode('lux_btc_brokers') ?>">Lux BTC Brokers </a></li>
-                            <li><a class="dropdown-item" href="<?= BASE_URL ?>homepage/service?service=<?= base64_encode('btc_elite_management') ?>">BTC Elite Management</a></li>
-                            <li><a class="dropdown-item" href="<?= BASE_URL ?>homepage/service?service=<?= base64_encode('crypto_consulting') ?>">CRYPTO CONSULTING</a></li>
-                            <li><a class="dropdown-item" href="<?= BASE_URL ?>homepage/service?service=<?= base64_encode('passive_income') ?>">PASSIVE INCOMING</a></li>
-                            <li><a class="dropdown-item" href="<?= BASE_URL ?>homepage/service?service=<?= base64_encode('portfolio_creation') ?>">PORTFOLIO CREATION</a></li>
-                            <li><a class="dropdown-item" href="<?= BASE_URL ?>homepage/service?service=<?= base64_encode('accumulation_plan') ?>">ACCUMULATION PLAN</a></li>
-                            <li><a class="dropdown-item" href="<?= BASE_URL ?>homepage/service?service=<?= base64_encode('wealth_consulting') ?>">WEALTH CONSULTING</a></li>
-                            <li><a class="dropdown-item" href="<?= BASE_URL ?>homepage/service?service=<?= base64_encode('funds_reallocation') ?>">FUNDS REALLOCATION</a></li>
-                            <li><a class="dropdown-item" href="<?= BASE_URL ?>homepage/service?service=<?= base64_encode('tax_reduction') ?>">TAX REDUCTION</a></li>
-                            <li><a class="dropdown-item" href="<?= BASE_URL ?>homepage/service?service=<?= base64_encode('capital_protection') ?>">CAPITAL PROTECTION</a></li>
-                        </ul>
-                    </li>
-                    <li class="nav-item me-0 me-xl-2">
-                        <a class="nav-link" aria-current="page" href="<?= BASE_URL ?>homepage/training_course">TRAINING <br> COURSES</a>
-                    </li>
-                    <li class="nav-item me-0 me-xl-2">
-                        <a class="nav-link" href="<?= BASE_URL ?>?type=service">FINANCIAL <br> BLOG</a>
-                    </li>
-                </ul>
-                <div class="nav-buttons">
-                    <a class="btn-navbar-referral" href="<?= BASE_URL ?>">LOGIN WITH REFERRAL</a>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ms-auto">
+                        <!-- <li class="nav-item me-0 me-xl-4 <?= (current_url() === BASE_URL('index.php/homepage/hotdeals')) ? 'active' : '' ?>">
+                            <a class="nav-link" translate="no" aria-current="page" href="<?= BASE_URL ?>homepage/service?service=<?= base64_encode('satoshi_signal') ?>">HOT <br> DEAL</a>
+                        </li> -->
+                        <li class="nav-item dropdown me-0 me-xl-2">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                PRODUCTS
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="<?= BASE_URL ?>service/hedgefund">HEDGE FUND</a></li>
+                                <!--<li><a class="dropdown-item" href="<?= BASE_URL ?>homepage/service?service=<?= base64_encode('btc_elite_management') ?>">ELITE</a></li>-->
+                                <!--<li><a class="dropdown-item" href="<?= BASE_URL ?>homepage/service?service=<?= base64_encode('lux_btc_brokers') ?>">BROKER LUX</a></li>-->
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown me-0 me-xl-2">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                SERVICES
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="<?= BASE_URL ?>service/crypto-consulting">CRYPTO CONSULTING</a></li>
+                                <li><a class="dropdown-item" href="<?= BASE_URL ?>service/passive-income">PASSIVE INCOMING</a></li>
+                                <li><a class="dropdown-item" href="<?= BASE_URL ?>service/portfolio-creation">PORTFOLIO CREATION</a></li>
+                                <li><a class="dropdown-item" href="<?= BASE_URL ?>service/accumulation-plan">ACCUMULATION PLAN</a></li>
+                                <li><a class="dropdown-item" href="<?= BASE_URL ?>service/wealth-consulting">WEALTH CONSULTING</a></li>
+                                <li><a class="dropdown-item" href="<?= BASE_URL ?>service/funds-reallocation">FUNDS REALLOCATION</a></li>
+                                <li><a class="dropdown-item" href="<?= BASE_URL ?>service/tax-reduction">TAX REDUCTION</a></li>
+                                <li><a class="dropdown-item" href="<?= BASE_URL ?>service/capital-protection">CAPITAL PROTECTION</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item me-0 me-xl-2">
+                            <a class="nav-link" aria-current="page" href="<?= BASE_URL ?>training-courses">TRAINING <br> COURSES</a>
+                        </li>
+                        <li class="nav-item me-0 me-xl-2">
+                            <a class="nav-link" href="<?= BASE_URL ?>financial-blog">FINANCIAL <br> BLOG</a>
+                        </li>
+                        <!-- <li class="nav-item me-0 me-lg-3 d-flex align-items-center justify-content-center">
+                        <a class="btn-navbar-referral" href="<?= BASE_URL ?>">LOGIN WITH REFERRAL</a>
+                    </li> -->
+                        <!-- <li class="nav-item mt-2 mt-lg-0 d-flex align-items-center justify-content-center">
+                        <a class="btn-navbar-contactform" href="<?= BASE_URL ?>homepage/contactreferral">Get Referral</a>
+                    </li> -->
+                    </ul>
+                    <div class="nav-buttons">
+                        <a class="btn-navbar-referral" href="<?= BASE_URL ?>auth">MEMBER LOGIN</a>
+                        <!-- <a class="btn-navbar-contactform" href="<?= BASE_URL ?>homepage/contactreferral">Get Referral</a> -->
+                    </div>
                 </div>
-            </div>
         </div>
     </nav>
     <!-- End of Navbar -->

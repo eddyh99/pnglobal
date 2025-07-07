@@ -197,9 +197,9 @@
                         <div class="d-flex flex-column gap-2">
                             <p></p>
                             <a class="footer-link" href="<?= BASE_URL ?>homepage">Hot Deal</a>
-                            <a class="footer-link" href="<?= BASE_URL ?>homepage/service?service=<?= base64_encode('satoshi_signal') ?>">Services Infoarmation</a>
+                            <a class="footer-link" href="<?= BASE_URL ?>service/hedgefund">Services Information</a>
                             <a class="footer-link" href="<?= BASE_URL ?>homepage">Training Courses</a>
-                            <a class="footer-link" href="<?= BASE_URL ?>homepage/about">About Pn Global</a>
+                            <a class="footer-link" href="<?= BASE_URL ?>about">About Pn Global</a>
                             <p></p>
                         </div>
                     </div>
