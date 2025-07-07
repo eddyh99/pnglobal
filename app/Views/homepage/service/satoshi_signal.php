@@ -131,9 +131,8 @@
                 <div class="text-content">
                     <h2>SAY FAREWELL TO HIGH MANAGEMENT COSTS AND ENJOY HIGH PROFITS</h2>
                     <ul class="description"> Enjoy the financial freedom you've always dreamed of. Our reliable returns, backed by our deep market knowledge and real-time analysis, guarantee your financial success.
-                        <li>0.5% PAYMENT GATEWAY (cost only for depositing funds)</li>
-                        <li>2% CUSTOMER MANAGEMENT COST (on capital injection)</li>
-                        <li>$5 FIXED COST (capital injection)</li>
+                        <li>3% PAYMENT GATEWAY (cost only for depositing funds)</li>
+                        <li>$10 FIXED COST (capital injection)</li>
                     </ul>
                     <!-- <p class="highlight">Join us today and start earning consistent profits.</p> -->
                     <div class="button-wrapper">
