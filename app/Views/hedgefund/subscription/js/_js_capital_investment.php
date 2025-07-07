@@ -16,7 +16,7 @@
         const totalCapitalDisplay = document.getElementById('total-capital-display');
         const paymentAmountInput = document.getElementById('payment-amount');
         const minCapitalValue = document.querySelector('.min-capital-value');
-        const maxCapitalValue = 60000;
+        const maxCapitalValue = 100000;
         
         // Elemen tambahan untuk menampilkan nilai dinamis
         const additionalStepDisplay = document.getElementById('additional-step-display');
@@ -51,7 +51,7 @@
             console.log('Percentage Fee:', config.percentageFee);
 
             // Perhitungan payment amount: total capital * percentageMultiplier * percentageFee, dikonversi ke Euro
-            const paymentAmountUSD = Math.ceil(totalCapital * (1 + config.percentageFee)) + 5 + Math.ceil(totalCapital * config.comission);
+            const paymentAmountUSD = Math.ceil((totalCapital + 10 + Math.ceil(totalCapital * config.comission)) * (1 + config.percentageFee));
 
             console.log('Payment Amount USD:', paymentAmountUSD);
 
