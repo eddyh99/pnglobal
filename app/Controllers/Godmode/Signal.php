@@ -344,7 +344,8 @@ class Signal extends BaseController
         if ($typesignal == 'SELL A') {
             foreach ($readsignal as $key => $val) {
                 // Assign value sell signal
-                $mdata['type'] = 'SELL ' . $alphabet[$key];
+                // $mdata['type'] = 'SELL ' . $alphabet[$key];
+                $mdata['type'] = str_replace("Buy", "SELL", $val->type);
                 $mdata['id_signal'] = $val->id;
 
                 // Send ke endpoint ketiga (URLAPI) untuk SELL
@@ -374,7 +375,8 @@ class Signal extends BaseController
                 // Checking Flag Buy B and other
                 if ($startCheck) {
                     // Assign value sell signal
-                    $mdata['type'] = 'SELL ' . $alphabet[$key];
+                    // $mdata['type'] = 'SELL ' . $alphabet[$key];
+                    $mdata['type'] = str_replace("Buy", "SELL", $val->type);
                     $mdata['id_signal'] = $val->id;
 
                     // Send ke endpoint pertama (URLAPI) untuk SELL
@@ -405,7 +407,8 @@ class Signal extends BaseController
                 // Checking Flag Buy C and other
                 if ($startCheck) {
                     // Assign value sell signal
-                    $mdata['type'] = 'SELL ' . $alphabet[$key];
+                    // $mdata['type'] = 'SELL ' . $alphabet[$key];
+                    $mdata['type'] = str_replace("Buy", "SELL", $val->type);
                     $mdata['id_signal'] = $val->id;
 
                     // Send ke endpoint ketika (URL_HEDGEFUND) untuk SELL
@@ -436,7 +439,8 @@ class Signal extends BaseController
                 // Checking Flag Buy D and other
                 if ($startCheck) {
                     // Assign value sell signal
-                    $mdata['type'] = 'SELL ' . $alphabet[$key];
+                    // $mdata['type'] = 'SELL ' . $alphabet[$key];
+                    $mdata['type'] = str_replace("Buy", "SELL", $val->type);
                     $mdata['id_signal'] = $val->id;
 
                     // Send ke endpoint pertama (URLAPI) untuk SELL
