@@ -86,6 +86,7 @@
         // Fungsi untuk mengatur status tombol berdasarkan status signal
         function updateButtonStatus() {
             // Periksa status untuk setiap baris
+            let lastPendingSell = null;
             ['a', 'b', 'c', 'd'].forEach(letter => {
                 const buyInput = $(`#buy-${letter}`);
                 const buyValue = buyInput.val();
@@ -133,21 +134,14 @@
 
                 // Atur tombol DEL SELL berdasarkan nilai input
                 if (sellStatus == 'pending') {
-                    // Jika field sudah terisi, enable tombol DEL dan kembalikan warna merah
-                    delSellBtn.prop('disabled', false).removeClass('disabled-btn').css({
-                        'border-color': '#f80d0d',
-                        'color': '#ffffff',
-                        'cursor': 'pointer'
-                    });
-                    
-                } else {
-                    // Jika field kosong, disable tombol DEL dan ubah warna menjadi abu-abu
-                    delSellBtn.prop('disabled', true).addClass('disabled-btn').css({
+                    // update btn sell pending
+                    lastPendingSell = letter;
+                } 
+                delSellBtn.prop('disabled', true).addClass('disabled-btn').css({
                         'border-color': '#6c757d',
                         'color': '#6c757d',
                         'cursor': 'not-allowed'
-                    });
-                }
+                });
 
                 // Atur tombol FILL berdasarkan status dan price
                 if (buyValue && buyStatus === 'filled') {
@@ -187,6 +181,15 @@
                     sendSellBtn.prop('disabled', false);
                 }
             });
+
+            // activate del sell btn
+            if(lastPendingSell) {
+                $(`#del-sell-${lastPendingSell}`).prop('disabled', false).removeClass('disabled-btn').css({
+                'border-color': '#f80d0d',
+                'color': '#ffffff',
+                'cursor': 'pointer'
+            });
+            }
         }
 
         // Panggil fungsi saat halaman dimuat
@@ -330,7 +333,7 @@
                     // Parse Data
                     let result = JSON.parse(ress);
                     console.log(result);
-                    
+
 
                     // Check if response success
                     if (result.code == '201') {
@@ -1407,27 +1410,27 @@
         });
 
         function updateBalances() {
-        
-        $.ajax({
-            url: '<?= BASE_URL ?>godmode/signal/getmember_balance', // Ganti dengan endpoint sesuai back-end kamu
-            method: 'GET',
-            dataType: 'json',
-            success: function(response) {
-                console.log(response);
-                let usdt = parseFloat(response.trade_usdt);
-                $('#usdt_balance').text(
-                  !isNaN(usdt) ? usdt.toFixed(2) : '0.00'
-                );
 
-                $('#btc_balance').text(response.trade_btc);
+            $.ajax({
+                url: '<?= BASE_URL ?>godmode/signal/getmember_balance', // Ganti dengan endpoint sesuai back-end kamu
+                method: 'GET',
+                dataType: 'json',
+                success: function(response) {
+                    console.log(response);
+                    let usdt = parseFloat(response.trade_usdt);
+                    $('#usdt_balance').text(
+                        !isNaN(usdt) ? usdt.toFixed(2) : '0.00'
+                    );
 
-            },
-            error: function(xhr, status, error) {
-                console.error("Gagal mengambil data balance:", error);
-                $('#fund_balance').text('Error');
-                $('#trade_balance').text('Error');
-            }
-        });
-    }
-})
+                    $('#btc_balance').text(response.trade_btc);
+
+                },
+                error: function(xhr, status, error) {
+                    console.error("Gagal mengambil data balance:", error);
+                    $('#fund_balance').text('Error');
+                    $('#trade_balance').text('Error');
+                }
+            });
+        }
+    })
 </script>
