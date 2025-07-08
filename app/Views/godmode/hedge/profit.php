@@ -126,8 +126,9 @@
                     <tbody>
                     </tbody>
                     <tfoot>
-                        <th>Total</th>
                         <th></th>
+                        <th></th>
+                        <th>Total</th>
                         <th></th>
                         <th></th>
                         <th></th>
