@@ -62,10 +62,10 @@
             });
         
             // Update footer
-            api.column(3).footer().innerHTML = profit.toFixed(2).toLocaleString('en', { minimumFractionDigits: 2 });
-            api.column(4).footer().innerHTML = floorFixed(client, 2).toLocaleString('en', { minimumFractionDigits: 2 });
-            api.column(5).footer().innerHTML = master.toFixed(2).toLocaleString('en', { minimumFractionDigits: 2 });
-            api.column(6).footer().innerHTML = floorFixed(komisi, 2).toLocaleString('en', { minimumFractionDigits: 2 });
+            api.column(2).footer().innerHTML = profit.toFixed(2).toLocaleString('en', { minimumFractionDigits: 2 });
+            api.column(3).footer().innerHTML = floorFixed(client, 2).toLocaleString('en', { minimumFractionDigits: 2 });
+            api.column(4).footer().innerHTML = master.toFixed(2).toLocaleString('en', { minimumFractionDigits: 2 });
+            api.column(5).footer().innerHTML = floorFixed(komisi, 2).toLocaleString('en', { minimumFractionDigits: 2 });
         },
         "columns": [
             {

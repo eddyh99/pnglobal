@@ -39,11 +39,11 @@
             <div class="tab-navigation d-none d-md-flex gap-2 mw-100">
                 <a translate="no" href="<?= BASE_URL ?>godmode/signal" class="tab-item <?= $navbar_console ?? '' ?>">CONSOLE</a>
                 <a translate="no" href="<?= BASE_URL ?>godmode/dashboard/hedgefund" class="tab-item <?= $navbar_hedgefund ?? '' ?>">HEDGE FUND</a>
-                <a translate="no" href="#" class="tab-item">ELITE BTC</a>
-                <a translate="no" href="<?= BASE_URL ?>godmode/dashboard/luxbtc" class="tab-item  <?= $navbar_luxbtc ?? '' ?>">LUX BTC</a>
+                <a translate="no" href="#" class="tab-item">ONE TO ONE</a>
+<!--                <a translate="no" href="<?= BASE_URL ?>godmode/dashboard/luxbtc" class="tab-item  <?= $navbar_luxbtc ?? '' ?>">LUX BTC</a>
                 <a translate="no" href="<?= BASE_URL ?>godmode/dashboard/satoshi" class="tab-item <?= $navbar_satoshi ?? '' ?>">SATOSHI</a>
                 <a translate="no" href="<?= BASE_URL ?>godmode/dashboard/course" class="tab-item <?= $navbar_course ?? '' ?>">COURSE</a>
-            </div>
+-->            </div>
 
             <!-- Mobile hamburger menu (right corner) -->
             <button class="navbar-toggler d-md-none" type="button" id="menuToggleBtn" style="margin-left: auto;">
@@ -55,11 +55,11 @@
         <div id="mobileMenu" class="mobile-slide-menu">
             <a href="<?= BASE_URL ?>godmode/signal" class="menu-link <?= $navbar_console ?? '' ?>">CONSOLE</a>
             <a href="<?= BASE_URL ?>godmode/dashboard/hedgefund" class="menu-link <?= $navbar_hedgefund ?? '' ?>">HEDGE FUND</a>
-            <a href="#">ELITE BTC</a>
-            <a href="<?= BASE_URL ?>godmode/dashboard/luxbtc" class="menu-link <?= $navbar_luxbtc ?? '' ?>">LUX BTC</a>
+            <a href="#">ONE TO ONE</a>
+<!--            <a href="<?= BASE_URL ?>godmode/dashboard/luxbtc" class="menu-link <?= $navbar_luxbtc ?? '' ?>">LUX BTC</a>
             <a href="<?= BASE_URL ?>godmode/dashboard/satoshi" class="menu-link <?= $navbar_satoshi ?? '' ?>">SATOSHI</a>
             <a href="<?= BASE_URL ?>godmode/dashboard/course" class="menu-link <?= $navbar_course ?? '' ?>">COURSE</a>
-        </div>
+-->        </div>
    </nav>
 
    <body style="background-color: #070707;">
