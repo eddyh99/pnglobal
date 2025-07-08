@@ -159,7 +159,8 @@ button:hover {
 
       if (error) {
         // Show error and re-enable the button
-        document.getElementById('card-errors').textContent = error.message;
+        // document.getElementById('card-errors').textContent = error.message;
+        alert(error.message);
         document.getElementById('submit-button').disabled = false;
       } else {
         // Append the Payment Method ID to the form and submit it

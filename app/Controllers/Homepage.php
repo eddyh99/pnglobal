@@ -1391,15 +1391,16 @@ class Homepage extends BaseController
     // Contact Form Normaly
     public function contactform()
     {
-        $service = base64_decode($_GET['service']);
-        $service = explode('-', $service);
-        $subject = $service[0];
+        // $service = base64_decode($_GET['service']);
+        // $service = explode('-', $service);
+        // $subject = $service[0];
+        // dd($subject);
 
         $mdata = [
             'title'     => 'Contact Form - ' . NAMETITLE,
             'content'   => 'homepage/contact/contactform',
             'extra'     => 'homepage/contact/js/_js_contactform',
-            'subject'   => $subject,
+            'subject'   => 'Homepage',
             'darkNav'   => true
         ];
 

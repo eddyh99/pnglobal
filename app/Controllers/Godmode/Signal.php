@@ -839,6 +839,39 @@ class Signal extends BaseController
     
         return $this->response->setJSON($result->message);
     }
+
+
+    // FILL BUY
+    public function fillbuy()
+    {
+        if (!$this->validate([
+            'price' => 'required',
+            'type' => 'required|in_list[BUY A,BUY B, BUY C, BUY D]',
+            'idsignal' => 'required'
+        ])) {
+            $result =  [
+                'code' => 400,
+                'message' => array_values($this->validator->getErrors())
+            ];
+            echo json_encode($result);
+            exit();
+        }
+    
+        $price = str_replace(',', '', $this->request->getVar('price'));
+        $type = rawurlencode($this->request->getVar('type'));
+        $idsignal = rawurlencode($this->request->getVar('idsignal'));
+    
+        $url = URL_HEDGEFUND . "/updateorder/filled_buy?buy_id=$idsignal&filled_price=$price&type_buy=$type";
+        $response = satoshiAdmin($url)->result ?? null;
+    
+        log_message('info', 'Update order: ' . json_encode($response));
+    
+        $result = [
+            'code' => ($response && $response->code == 201) ? 200 : 400,
+            'message' => [$response->message ?? 'Unknown error']
+        ];
+        echo json_encode($result);
+    } 
     
 
 }

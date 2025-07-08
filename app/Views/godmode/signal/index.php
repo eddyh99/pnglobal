@@ -97,7 +97,8 @@
                                             <!-- BUY A -->
                                             <tr data-pair-id="<?php echo (!empty($buy_a) ? $buy_a['pair_id'] : '') ?>">
                                                 <td>
-                                                    <div translate="no" class="signal-label buy-label">A</div>
+                                                    <div translate="no" class="signal-label buy-label"><button class="btn" onclick='fillBuy("a", <?php echo json_encode($buy_a["status"] ?? "") ?>)'>A</button>
+                                                    </div>
                                                 </td>
                                                 <td>
                                                     <input type="text" id="buy-a" class="signal-price" value="<?php echo (!empty($buy_a) ? number_format($buy_a['entry_price'], 2, '.', ',') : '') ?>" <?php echo (!empty($buy_a) ? "readonly" : "") ?>>
@@ -122,7 +123,8 @@
                                             <!-- BUY B -->
                                             <tr data-pair-id="<?php echo (!empty($buy_b) ? $buy_b['pair_id'] : '') ?>">
                                                 <td>
-                                                    <div translate="no" class="signal-label buy-label">B</div>
+                                                    <div translate="no" class="signal-label buy-label"><button class="btn" onclick='fillBuy("b", <?php echo json_encode($buy_b["status"] ?? "") ?>, <?php echo json_encode($buy_b["id"] ?? "") ?>)'>B</button>
+                                                    </div>
                                                 </td>
                                                 <td>
                                                     <input type="text" id="buy-b" class="signal-price" value="<?php echo (!empty($buy_b) ? number_format($buy_b['entry_price'], 2, '.', ',') : '') ?>" <?php echo (!empty($buy_b) || !isset($buy_a['status']) || $buy_a['status'] != 'filled') ? 'readonly' : ''; ?>>
@@ -147,7 +149,8 @@
                                             <!-- BUY C -->
                                             <tr data-pair-id="<?php echo (!empty($buy_c) ? $buy_c['pair_id'] : '') ?>">
                                                 <td>
-                                                    <div translate="no" class="signal-label buy-label">C</div>
+                                                    <div translate="no" class="signal-label buy-label"><button class="btn" onclick='fillBuy("c", <?php echo json_encode($buy_c["status"] ?? "") ?>)'>C</button>
+                                                    </div>
                                                 </td>
                                                 <td>
                                                     <input type="text" id="buy-c" class="signal-price" value="<?php echo (!empty($buy_c) ? number_format($buy_c['entry_price'], 2, '.', ',') : '') ?>" <?php echo (!empty($buy_c) || !isset($buy_b['status']) || $buy_b['status'] != 'filled') ? 'readonly' : ''; ?>>
@@ -172,7 +175,8 @@
                                             <!-- BUY D -->
                                             <tr data-pair-id="<?php echo (!empty($buy_d) ? $buy_d['pair_id'] : '') ?>">
                                                 <td>
-                                                    <div translate="no" class="signal-label buy-label">D</div>
+                                                    <div translate="no" class="signal-label buy-label"><button class="btn" onclick='fillBuy("d", <?php echo json_encode($buy_d["status"] ?? "") ?>)'>D</button>
+                                                    </div>
                                                 </td>
                                                 <td>
                                                     <input type="text" id="buy-d" class="signal-price" value="<?php echo (!empty($buy_d) ? number_format($buy_d['entry_price'], 2, '.', ',') : '') ?>" <?php echo (!empty($buy_d) || !isset($buy_c['status']) || $buy_c['status'] != 'filled') ? 'readonly' : ''; ?>>
