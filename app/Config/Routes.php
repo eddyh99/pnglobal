@@ -12,7 +12,7 @@ $routes->group('', ['namespace' => 'App\Controllers'], function($routes){
     $routes->get('/', 'Homepage::index');
     $routes->get('(hf|bl)/(:segment)', 'Homepage::index/$1/$2');
     $routes->get('/about','Homepage::about');
-    $routes->get('/financial-blog','Homepage::blog');
+    $routes->get('/financial-blog','Homepage::blogs');
     $routes->get('/training-courses','Homepage::training_course');
     $routes->get('/book-consultation', 'Homepage::bookingconsultation');
     $routes->get('/book-consultation/(:segment)', 'Homepage::bookingconsultation/$1');
