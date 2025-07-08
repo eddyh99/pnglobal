@@ -12,7 +12,7 @@
                         <p class="f-inter">
                             <span translate='no'> PN Global </span> invites you to join our training programs to become experienced and competent entrepreneurs. Contact us today to find out how we can help you build a successful future in the global landscape.
                         </p>
-                        <a href="<?= BASE_URL ?>homepage/contactform?service=<?= base64_encode($title) ?>" class="btn-footer-contactform">Contact Form</a>
+                        <a href="<?= BASE_URL ?>homepage/contactform" class="btn-footer-contactform">Contact Form</a>
                     </div>
                     <div class="d-none d-lg-flex col-6 video-trainingform">
                         <video autoplay="" preload="" muted="" loop="" playsinline="">
@@ -77,7 +77,7 @@
                         <p id="g-textgetintouch" class="f-noto">
                             If you would like more information about our services or would like to discuss your specific needs with one of our experts, please contact us. Our team of financial consultants, lawyers and accountants is at your disposal to offer you personalized support and timely responses. We are ready to assist you with the utmost professionalism and competence.
                         </p>
-                        <a href="<?= BASE_URL ?>homepage/bookingconsultation?service=<?= base64_encode($title) ?>" class="btn-footer-contactform">Book a Consultation</a>
+                        <a href="<?= BASE_URL ?>book-consultation" class="btn-footer-contactform">Book a Consultation</a>
 
                     </div>
                     <div class="d-none d-md-flex col-4 logo-contactform">
@@ -112,7 +112,7 @@
                         <p id="g-textgetintouch" class="f-noto">
                             If you would like more information about our services or would like to discuss your specific needs with one of our experts, please contact us. Our team of financial consultants, lawyers and accountants is at your disposal to offer you personalized support and timely responses. We are ready to assist you with the utmost professionalism and competence.
                         </p>
-                        <a href="<?= BASE_URL ?>homepage/bookingconsultation?service=<?= base64_encode($title) ?>" class="btn-footer-contactform">Book a Consultation</a>
+                        <a href="<?= BASE_URL ?>book-consultation" class="btn-footer-contactform">Book a Consultation</a>
 
                     </div>
                     <div class="d-none d-md-flex col-4 logo-contactform">
@@ -146,7 +146,7 @@
                             <p id="g-textgetintouch" class="f-noto">
                                 If you would like more information about our services or would like to discuss your specific needs with one of our experts, please contact us. Our team of financial consultants, lawyers and accountants is at your disposal to offer you personalized support and timely responses. We are ready to assist you with the utmost professionalism and competence.
                             </p>
-                            <a href="<?= BASE_URL ?>homepage/bookingconsultation?service=<?= base64_encode($title) ?>" class="btn-footer-contactform">Book a Consultation</a>
+                            <a href="<?= BASE_URL ?>book-consultation" class="btn-footer-contactform">Book a Consultation</a>
 
                     </div>
                     <a class="d-none d-md-flex col-4 logo-contactform" href="<?= BASE_URL ?>">
@@ -185,7 +185,8 @@
                             <span class="text-white" translate="no">MENAGEMENT</span>
                         </p>
                         <a class="btn btn-contact-form text-uppercase px-4 pb-2"
-                            href="<?= BASE_URL ?>homepage/contactform?service=<?= base64_encode($title) ?>">
+                        href="<?= BASE_URL ?>homepage/contactform">
+                            <!-- href="<?= BASE_URL ?>homepage/contactform?service=<?= base64_encode($title) ?>"> -->
                             Contact Form
                         </a>
                     </div>

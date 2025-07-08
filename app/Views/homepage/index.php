@@ -121,7 +121,7 @@
                         <!-- <p class="opportunity">Be among the first to take advantage of this tool that will revolutionize the financial sector! Don't miss out on this unique opportunity.</p> -->
                         <p class="signup">Sign up for our newsletter and become a member of this exclusive community.</p>
                         <div class="button-wrapper">
-                            <button class="btn custom-btn px-4 py-2">Join the newsletter <br> for free!</button>
+                            <a href="#newsletter-card" class="btn custom-btn px-4 py-2">Join the newsletter <br> for free!</a>
                         </div>
                     </div>
                 </div>
@@ -422,7 +422,7 @@
 
     <section class="newsletter-card-section">
         <div class="container">
-            <div class="newsletter-card">
+            <div class="newsletter-card" id="newsletter-card">
                 <h2 class="card-title">NEWSLETTER</h2>
                 <p class="card-description">
                     Sign up for our newsletter and become a member of this exclusive community.
