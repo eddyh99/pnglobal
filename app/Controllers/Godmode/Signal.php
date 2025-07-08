@@ -839,6 +839,59 @@ class Signal extends BaseController
     
         return $this->response->setJSON($result->message);
     }
+
+
+    // FILL BUY
+    public function fillbuy()
+    {
+        // Validation Field
+        $rules = $this->validate([
+            'price'     => [
+                'label'     => 'Entry Price',
+                'rules'     => 'required'
+            ],
+            'type'     => [
+                'label'     => 'Type Signal',
+                'rules'     => 'required|in_list[BUY A,BUY B, BUY C, BUY D]'
+            ],
+            'idsignal'  => [
+                'label'     => 'Signal ID',
+                'rules'     => 'required'
+            ],
+        ]);
+
+        // Checking Validation
+        if (!$rules) {
+            $result = [
+                'code' => '400',
+                'message' => array_values($this->validator->getErrors())
+            ];
+            echo json_encode($result);
+            exit();
+        }
+
+        $price = urlencode(str_replace(',', '', $this->request->getVar('price')));
+        $type = rawurlencode($this->request->getVar('type'));
+        $idsignal = urlencode($this->request->getVar('idsignal'));
+
+        $url = URL_HEDGEFUND . "/updateorder/filled_buy?buy_id=".$idsignal."&filled_price=".$price."&type_buy=".$type;
+        $response = satoshiAdmin($url)->result;
+        log_message('info', 'Update order' . json_encode($response));
+
+        if($response->code == 201) {
+            $result = [
+                'code' => 200,
+                'message' => [$type. ' filled.']
+            ];
+        } else {
+            $result = [
+                'code' => 400,
+                'message' => [$response->message]
+            ];
+        }
+
+        echo json_encode($result);
+    }
     
 
 }
