@@ -196,7 +196,7 @@ const superadmin = <?= json_encode($is_superadmin) ?>;
                         value = parseFloat(row.client_profit || 0);
                     }
                     // Format the number with 3 decimal places
-                    return $.fn.dataTable.render.number(',', '.', 3, '').display(value);
+                    return $.fn.dataTable.render.number(',', '.', 2, '').display(value);
                 }
             }
         ],
