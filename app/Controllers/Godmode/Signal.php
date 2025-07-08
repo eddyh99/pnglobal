@@ -871,7 +871,104 @@ class Signal extends BaseController
             'message' => [$response->message ?? 'Unknown error']
         ];
         echo json_encode($result);
+    }
+
+    // FILL SELL
+    public function fillsell()
+    {
+        if (!$this->validate([
+            'type' => 'required|in_list[SELL A,SELL B, SELL C, SELL D]',
+        ])) {
+            $result =  [
+                'code' => 400,
+                'message' => array_values($this->validator->getErrors())
+            ];
+            echo json_encode($result);
+            exit();
+        }
+
+        $msg = [
+            'code' => 200,
+            'message' => []
+        ];
+        $typesignal = $this->request->getVar('type');
+
+        $url = URL_HEDGEFUND . "/v1/order/latestsignal";
+        $readsignal = satoshiAdmin($url)->result->message;
+        // Check Condition Signal Type
+        if ($typesignal == 'SELL A') {
+            foreach ($readsignal as $key => $val) {
+
+                // Send fill sell
+                $url = URL_HEDGEFUND . "/updateorder/filled_sell?buy_id=$val->id&filled_price=$val->sell_entry_price&sell_id=$val->sell_id";
+                $response = satoshiAdmin($url)->result ?? null;
+
+                $msg['message'][] = $response->message ?? 'Unknown error';
+
+                sleep(1);
+            }
+        } else if ($typesignal == 'SELL B') {
+            // initial Flag Buy B
+            $startCheck = false;
+            foreach ($readsignal as $key => $val) {
+                // Get Flag Buy B
+                if ($val->type === 'Buy B') {
+                    $startCheck = true;
+                }
+
+                // Checking Flag Buy B and other
+                if ($startCheck) {
+                    // Send fill sell
+                    $url = URL_HEDGEFUND . "/updateorder/filled_sell?buy_id=$val->id&filled_price=$val->sell_entry_price&sell_id=$val->sell_id";
+                    $response = satoshiAdmin($url)->result ?? null;
+
+                    $msg['message'][] = $response->message ?? 'Unknown error';
+
+                    sleep(1);
+                }
+            }
+        } else if ($typesignal == 'SELL C') {
+            // initial Flag Buy C
+            $startCheck = false;
+            foreach ($readsignal as $key => $val) {
+                // Get Flag Buy C
+                if ($val->type === 'Buy C') {
+                    $startCheck = true;
+                }
+
+                // Checking Flag Buy C and other
+                if ($startCheck) {
+                    // Send fill sell
+                    $url = URL_HEDGEFUND . "/updateorder/filled_sell?buy_id=$val->id&filled_price=$val->sell_entry_price&sell_id=$val->sell_id";
+                    $response = satoshiAdmin($url)->result ?? null;
+
+                    $msg['message'][] = $response->message ?? 'Unknown error';
+
+                    sleep(1);
+                }
+            }
+        } else if ($typesignal == 'SELL D') {
+            // initial Flag Buy D
+            $startCheck = false;
+            foreach ($readsignal as $key => $val) {
+                // Get Flag Buy D
+                if ($val->type === 'Buy D') {
+                    $startCheck = true;
+                }
+
+                // Checking Flag Buy D and other
+                if ($startCheck) {
+                    // Send fill sell
+                    $url = URL_HEDGEFUND . "/updateorder/filled_sell?buy_id=$val->id&filled_price=$val->sell_entry_price&sell_id=$val->sell_id";
+                    $response = satoshiAdmin($url)->result ?? null;
+
+                    $msg['message'][] = $response->message ?? 'Unknown error';
+                }
+            }
+        }
+
+        
+        echo json_encode($msg);
     } 
-    
 
 }

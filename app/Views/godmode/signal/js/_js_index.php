@@ -1535,4 +1535,104 @@
             })
         }
     }
+
+    function fillSell(type, status) {
+        if (status == 'pending') {
+            const sellPrice = $(`#sell-${type}`).val();
+            const sellType = type.toUpperCase();
+            Swal.fire({
+                title: 'Confirmation',
+                text: `Are you sure you want to fill SELL ${sellType} at price ${sellPrice}?`,
+                icon: 'question',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Yes, fill it!',
+                cancelButtonText: 'Cancel'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    // Data yang akan dikirim ke server
+                    const sendData = {
+                        type: 'SELL ' + sellType,
+                    };
+
+                    $.ajax({
+                        url: '<?= BASE_URL ?>godmode/signal/fillsell',
+                        type: 'POST',
+                        data: sendData,
+                        success: function(ress) {
+                            console.log('Response dari server:', ress);
+
+                            // Parse Data
+                            let result;
+                            try {
+                                result = JSON.parse(ress);
+                                console.log('Parsed result:', result);
+                            } catch (error) {
+                                console.error('Error parsing JSON:', error);
+                                console.log('Raw response:', ress);
+                                Swal.fire({
+                                    text: 'Error processing server response',
+                                    showCloseButton: true,
+                                    showConfirmButton: false,
+                                    background: '#FFE4DC',
+                                    color: '#000000',
+                                    position: 'top-end',
+                                    timer: 3000,
+                                    timerProgressBar: true,
+                                });
+                                return;
+                            }
+
+                            // Check if response success
+                            if (result.code == '200' || result.code == '201' || result.code == 200 || result.code == 201) {
+                                // Sweet Alert Success dengan warna hijau
+                                Swal.fire({
+                                    text: `${result.message}`,
+                                    showCloseButton: true,
+                                    showConfirmButton: false,
+                                    background: '#E1FFF7', // Warna hijau muda untuk success
+                                    color: '#000000',
+                                    position: 'top-end',
+                                    timer: 3000,
+                                    timerProgressBar: true,
+                                    didClose: () => {
+                                        window.location.reload();
+                                    }
+                                });
+                            } else {
+                                // Sweet Alert Error dengan warna merah
+                                Swal.fire({
+                                    toast: true,
+                                    icon: 'error',
+                                    title: 'Order Failed',
+                                    html: result.message.join('<br>'),
+                                    position: 'top-end',
+                                    showConfirmButton: false,
+                                    timer: 4000,
+                                    timerProgressBar: true,
+                                    background: '#FFE4DC',
+                                    color: '#000000'
+                                });
+                            }
+                        },
+                        error: function(jqXHR, textStatus, errorThrown) {
+                            console.error('AJAX Error:', textStatus, errorThrown);
+                            // Sweet Alert
+                            Swal.fire({
+                                text: `Error: ${textStatus}`,
+                                showCloseButton: true,
+                                showConfirmButton: false,
+                                background: '#FFE4DC',
+                                color: '#000000',
+                                position: 'top-end',
+                                timer: 3000,
+                                timerProgressBar: true,
+                            });
+                        }
+                    });
+                }
+            })
+        }
+    }
 </script>
