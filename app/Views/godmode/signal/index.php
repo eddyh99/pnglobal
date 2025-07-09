@@ -149,7 +149,7 @@
                                             <!-- BUY C -->
                                             <tr data-pair-id="<?php echo (!empty($buy_c) ? $buy_c['pair_id'] : '') ?>">
                                                 <td>
-                                                    <div translate="no" class="signal-label buy-label"><button class="btn" onclick='fillBuy("c", <?php echo json_encode($buy_c["status"] ?? "") ?>)'>C</button>
+                                                    <div translate="no" class="signal-label buy-label"><button class="btn" onclick='fillBuy("c", <?php echo json_encode($buy_c["status"] ?? "") ?>, <?php echo json_encode($buy_c["id"] ?? "") ?>)'>C</button>
                                                     </div>
                                                 </td>
                                                 <td>
@@ -175,7 +175,7 @@
                                             <!-- BUY D -->
                                             <tr data-pair-id="<?php echo (!empty($buy_d) ? $buy_d['pair_id'] : '') ?>">
                                                 <td>
-                                                    <div translate="no" class="signal-label buy-label"><button class="btn" onclick='fillBuy("d", <?php echo json_encode($buy_d["status"] ?? "") ?>)'>D</button>
+                                                    <div translate="no" class="signal-label buy-label"><button class="btn" onclick='fillBuy("d", <?php echo json_encode($buy_d["status"] ?? "") ?>, <?php echo json_encode($buy_d["id"] ?? "") ?>)'>D</button>
                                                     </div>
                                                 </td>
                                                 <td>
@@ -220,7 +220,7 @@
                                             <!-- SELL A -->
                                             <tr data-pair-id="<?php echo (!empty($buy_a) ? $buy_a['sell_id'] : '') ?>">
                                                 <td>
-                                                    <div translate="no" class="signal-label sell-label">A</div>
+                                                    <div translate="no" class="signal-label sell-label"><button class="btn" onclick='fillSell("a", <?php echo json_encode($buy_a["sell_status"] ?? "") ?>)'>A</button></div>
                                                 </td>
                                                 <td>
                                                     <input type="text" id="sell-a" class="signal-price" value="<?php echo (!empty($buy_a) ? number_format($buy_a['sell_entry_price'], 2, '.', ',') : '') ?>" <?php echo (empty($buy_a) || (isset($buy_a['status']) && strtolower($buy_a['status']) === 'pending') ? "readonly" : "") ?>>
@@ -243,7 +243,7 @@
                                             <!-- SELL B -->
                                             <tr data-pair-id="<?php echo (!empty($buy_b) ? $buy_b['sell_id'] : '') ?>">
                                                 <td>
-                                                    <div translate="no" class="signal-label sell-label">B</div>
+                                                    <div translate="no" class="signal-label sell-label"><button class="btn" onclick='fillSell("b", <?php echo json_encode($buy_b["sell_status"] ?? "") ?>)'>B</button></div>
                                                 </td>
                                                 <td>
                                                     <input type="text" id="sell-b" class="signal-price" value="<?php echo (!empty($buy_b) ? number_format($buy_b['sell_entry_price'], 2, '.', ',') : '') ?>" <?php echo (empty($buy_b) || (isset($buy_b['status']) && strtolower($buy_b['status']) === 'pending') ? "readonly" : "") ?>>
@@ -266,7 +266,7 @@
                                             <!-- SELL C -->
                                             <tr data-pair-id="<?php echo (!empty($buy_c) ? $buy_c['sell_id'] : '') ?>">
                                                 <td>
-                                                    <div translate="no" class="signal-label sell-label">C</div>
+                                                    <div translate="no" class="signal-label sell-label"><button class="btn" onclick='fillSell("c", <?php echo json_encode($buy_c["sell_status"] ?? "") ?>)'>C</button></div>
                                                 </td>
                                                 <td>
                                                     <input type="text" id="sell-c" class="signal-price" value="<?php echo (!empty($buy_c) ? number_format($buy_c['sell_entry_price'], 2, '.', ',') : '') ?>" <?php echo (empty($buy_c) || (isset($buy_c['status']) && strtolower($buy_c['status']) === 'pending') ? "readonly" : "") ?>>
@@ -289,7 +289,7 @@
                                             <!-- SELL D -->
                                             <tr data-pair-id="<?php echo (!empty($buy_d) ? $buy_d['sell_id'] : '') ?>">
                                                 <td>
-                                                    <div translate="no" class="signal-label sell-label">D</div>
+                                                    <div translate="no" class="signal-label sell-label"><button class="btn" onclick='fillSell("d", <?php echo json_encode($buy_d["sell_status"] ?? "") ?>)'>D</button></div>
                                                 </td>
                                                 <td>
                                                     <input type="text" id="sell-d" class="signal-price" value="<?php echo (!empty($buy_d) ? number_format($buy_d['sell_entry_price'], 2, '.', ',') : '') ?>" <?php echo (empty($buy_d) || (isset($buy_d['status']) && strtolower($buy_d['status']) === 'pending') ? "readonly" : "") ?>>

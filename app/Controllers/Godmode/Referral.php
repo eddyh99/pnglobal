@@ -229,4 +229,43 @@ class Referral extends BaseController
         //     return redirect()->to(BASE_URL . 'godmode/dashboard/detailmember/'.base64_encode('totalmember').'/'. base64_encode($email));
         // }    
     }
+
+    public function update_refcode()
+    {
+        // Validation Field
+        $rules = $this->validate([
+            'idmember'     => [
+                'label'     => 'ID Member',
+                'rules'     => 'required'
+            ],
+            'refcode'     => [
+                'label'     => 'Referral Code',
+                'rules'     => 'required'
+            ],
+        ]);
+
+        // Checking Validation
+        if (!$rules) {
+            session()->setFlashdata('failed', $this->validation->listErrors());
+            return redirect()->to(BASE_URL . 'godmode/referral/detail/hedgefund/' . base64_encode($this->request->getVar('email')));
+        }
+
+        // Init Data
+        $mdata = [
+            'idmember' => $this->request->getVar('idmember'),
+            'refcode' => $this->request->getVar('refcode')
+        ];
+
+        $url = URL_HEDGEFUND . "/v1/member/update_refcode";
+        $result = satoshiAdmin($url, json_encode($mdata, JSON_UNESCAPED_SLASHES))->result;
+
+        if($result->code != 200) {
+            session()->setFlashdata('failed', $result->message);
+        } else {
+            session()->setFlashdata('success', $result->message);
+        }
+
+        return redirect()->to(BASE_URL . 'godmode/referral/detail/hedgefund/' . base64_encode($this->request->getVar('email')));
+    }
+
 }

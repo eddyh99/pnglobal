@@ -128,7 +128,8 @@ class Payment extends BaseController
 
         if (empty($resultPayment)) {
             throw PageNotFoundException::forPageNotFound();
-        }        
+        }   
+        // dd($resultPayment);     
 
         return view('godmode/layout/admin_wrapper', $mdata);
     }
@@ -139,10 +140,32 @@ class Payment extends BaseController
         $mdata = [
             'email'     => htmlspecialchars($this->request->getPost('email')),
             'reqid'     => htmlspecialchars($this->request->getPost('reqid')),
+            'fee_usdt'  => htmlspecialchars($this->request->getPost('fee_usdt')),
+            'fee_btc'   => htmlspecialchars($this->request->getPost('fee_btc')),
             'status'    => 'completed'
         ];
         
         $url = URL_HEDGEFUND . "/v1/withdraw/update_status";
+        $response = satoshiAdmin($url, json_encode($mdata));
+        $result = $response->result;
+        if ($result->code != 201) {
+            session()->setFlashdata('failed', $result->message);
+            return redirect()->to(BASE_URL . 'godmode/payment/detailpayment/hedgefund/'.$mdata["reqid"]);
+        } else {
+            session()->setFlashdata('success', $result->message);
+            return redirect()->to(BASE_URL . 'godmode/payment/hedgefund');
+        }
+    }
+
+    public function payment_reject()
+    {
+        // Init Data
+        $mdata = [
+            'idmember'     => htmlspecialchars($this->request->getPost('idmember')),
+            'reqid'     => htmlspecialchars($this->request->getPost('reqid')),
+        ];
+        
+        $url = URL_HEDGEFUND . "/v1/withdraw/reject_payment";
         $response = satoshiAdmin($url, json_encode($mdata));
         $result = $response->result;
         if ($result->code != 201) {

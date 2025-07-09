@@ -1,4 +1,31 @@
 <!-- Page Content  -->
+<?php if (!empty(session('success'))) { ?>
+    <div class="alert alert-success fade show position-absolute" style="top: 1rem; right: 1rem; width: 30%; z-index: 99999;" role="alert">
+        <div class="iq-alert-icon">
+            <i class="ri-information-line"></i>
+        </div>
+        <div class="iq-alert-text text-black">
+            <?= session('success') ?>
+        </div>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <i class="ri-close-line text-black"></i>
+        </button>
+    </div>
+<?php } ?>
+
+<?php if (!empty(session('failed'))) { ?>
+    <div class="alert alert-danger fade show position-absolute" style="top: 1rem; right: 1rem; width: 30%; z-index: 99999;" role="alert">
+        <div class="iq-alert-icon">
+            <i class="ri-information-line"></i>
+        </div>
+        <div class="iq-alert-text text-black">
+            <?= session('failed') ?>
+        </div>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <i class="ri-close-line text-black"></i>
+        </button>
+    </div>
+<?php } ?>
 <div class="content-page mb-5">
     <div class="container-fluid">
         <div class="row content-body">
@@ -42,7 +69,15 @@
     
                     <!-- Subscription Status -->
                     <div class="label">Referral Code</div>
-                    <div class="value"><?= $member->refcode?></div>
+                    <div class="d-flex">
+                        <form action="<?= BASE_URL ?>godmode/referral/update_refcode" method="POST">
+                            <input type="hidden" name="email" value="<?= $emailreferral ?>">
+                            <input type="hidden" name="idmember" value="<?= $member->id ?>">
+                            <input class="me-2" type="text" name="refcode" id="refcode" class="form-control" data-refcode="<?= $member->refcode?>" value="<?= $member->refcode?>" style="min-width: 28ch;">
+                            <button type="submit" class="mx-2 btn btn-primary" id="changereff" disabled>change</button>
+                        </form>
+                    </div>
+                    <!-- <div class="value"><?= $member->refcode?></div> -->
     
                     <!-- Subscription Status -->
                     <div class="label">Referral Link</div>
@@ -102,35 +137,3 @@
         </div>
     </div>
 </div>
-
-<script>
-    <?php if(!empty(session('success'))) { ?>
-        setTimeout(function() {
-            Swal.fire({
-                text: `<?= session('success')?>`,
-                showCloseButton: true,
-                showConfirmButton: false,
-                background: '#E1FFF7',
-                color: '#000000',
-                position: 'top-end',
-                timer: 3000,
-                timerProgressBar: true,
-            });
-        }, 100);
-    <?php }?>
-
-    <?php if(!empty(session('failed'))) { ?>
-        setTimeout(function() {
-            Swal.fire({
-                text: `<?= session('failed')?>`,
-                showCloseButton: true,
-                showConfirmButton: false,
-                background: '#FFE4DC',
-                color: '#000000',
-                position: 'top-end',
-                timer: 3000,
-                timerProgressBar: true,
-            });
-        }, 100);
-    <?php }?>
-</script>
