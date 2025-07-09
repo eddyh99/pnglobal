@@ -152,12 +152,17 @@
                         ?>
                     </div>
                     <div class="header d-flex justify-content-end">
+                        <form action="<?= BASE_URL ?>godmode/payment/payment_reject" method="POST">
+                            <input type="hidden" name="reqid" value="<?= $id ?>">
+                            <input type="hidden" name="idmember" value="<?= $payment->member_id ?>">
+                            <button class="btn btn-danger" <?= ($payment->status != "pending" ? "disabled" : "") ?>>Reject</button>
+                        </form>
                         <form action="<?= BASE_URL ?>godmode/payment/payment_process" method="POST">
                             <input type="hidden" name="fee_usdt" value="<?= $fee_usdt ?>">
                             <input type="hidden" name="fee_btc" value="<?= $fee_btc ?>">
                             <input type="hidden" name="reqid" value="<?= $id ?>">
                             <input type="hidden" name="email" value="<?= $payment->email ?>">
-                            <button class="upgrade-btn" <?= ($payment->status != "pending" ? "disabled" : "") ?>>Process</button>
+                            <button class="upgrade-btn mx-2" <?= ($payment->status != "pending" ? "disabled" : "") ?>>Process</button>
                         </form>
                     </div>
                 </div>
