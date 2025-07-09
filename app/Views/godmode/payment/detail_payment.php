@@ -48,7 +48,19 @@
                     <div class="label">Amount</div>
                     <div class="value">
                         <span>
-                            <?= $payment->amount ?>
+                        <?= number_format($payment->amount, 2, '.', '') ?>
+                        </span>
+                    </div>
+                    <div class="label">Fee</div>
+                    <div class="value">
+                        <span>
+                            <?php $fee = ($payment->amount * 0.01) + 5; echo($fee);  ?>
+                        </span>
+                    </div>
+                    <div class="label">Received Amount</div>
+                    <div class="value">
+                        <span>
+                        <?= $payment->amount - $fee ?>
                         </span>
                     </div>
 
@@ -125,6 +137,7 @@
                     </div>
                     <div class="header d-flex justify-content-end">
                         <form action="<?= BASE_URL ?>godmode/payment/payment_process" method="POST">
+                            <input type="hidden" name="fee" value="<?= $fee ?>">
                             <input type="hidden" name="reqid" value="<?= $id ?>">
                             <input type="hidden" name="email" value="<?= $payment->email ?>">
                             <button class="upgrade-btn" <?=($payment->status!="pending" ? "disabled" : "")?>>Process</button>

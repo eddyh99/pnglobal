@@ -139,6 +139,7 @@ class Payment extends BaseController
         $mdata = [
             'email'     => htmlspecialchars($this->request->getPost('email')),
             'reqid'     => htmlspecialchars($this->request->getPost('reqid')),
+            'fee'       => htmlspecialchars($this->request->getPost('fee')),
             'status'    => 'completed'
         ];
         
