@@ -91,6 +91,8 @@
 
 
      $('#refcode').on('input', function() {
-         $('#changereff').prop('disabled', $(this).val().trim() === $(this).data('refcode').trim());
+         let val = $(this).val().trim();
+         let original = $(this).attr('data-refcode').trim();
+         $('#changereff').prop('disabled', val === original || val === '');
      });
  </script>

@@ -128,7 +128,8 @@ class Payment extends BaseController
 
         if (empty($resultPayment)) {
             throw PageNotFoundException::forPageNotFound();
-        }        
+        }   
+        // dd($resultPayment);     
 
         return view('godmode/layout/admin_wrapper', $mdata);
     }
@@ -139,7 +140,8 @@ class Payment extends BaseController
         $mdata = [
             'email'     => htmlspecialchars($this->request->getPost('email')),
             'reqid'     => htmlspecialchars($this->request->getPost('reqid')),
-            'fee'       => htmlspecialchars($this->request->getPost('fee')),
+            'fee_usdt'  => htmlspecialchars($this->request->getPost('fee_usdt')),
+            'fee_btc'   => htmlspecialchars($this->request->getPost('fee_btc')),
             'status'    => 'completed'
         ];
         

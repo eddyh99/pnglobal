@@ -176,6 +176,16 @@ class Withdraw extends BaseController
             ]);
         }
 
+        // check fee 5 usdt
+        if($type == 'btc') {
+            if (!$this->check_balance('usdt', 5)) {
+                return $this->response->setJSON([
+                    'code' => 400,
+                    'message' => ['Insufficient USDT balance for withdrawal fee.']
+                ]);
+            }
+        }
+
         $mdata = [
             'amount' => $amount,
             'type' => $type,
