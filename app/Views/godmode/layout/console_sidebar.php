@@ -24,7 +24,7 @@ if ($loggedUser && isset($loggedUser->email) && $loggedUser->email === 'a@a.a') 
                 <span class="<?= (@$active_admin != null) ? 'text-black' : 'text-white' ?>">Add Admin</span>
             </a>
         </li>
-        <li class="<?= @$active_blog ?>">
+<!--        <li class="<?= @$active_blog ?>">
             <a translate="no" href="<?= BASE_URL ?>godmode/blogs" class="iq-waves-effect">
                 <i>
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="30" height="24">
@@ -34,7 +34,7 @@ if ($loggedUser && isset($loggedUser->email) && $loggedUser->email === 'a@a.a') 
                 <span class="<?= (@$active_blog != null) ? 'text-black' : 'text-white' ?>">Blog Post</span>
             </a>
         </li>
-
+-->
         <li>
             <a translate="no" href="<?= BASE_URL ?>godmode/auth/logout" class="iq-waves-effect">
                 <i>
@@ -65,7 +65,7 @@ if ($loggedUser && isset($loggedUser->email) && $loggedUser->email === 'a@a.a') 
                         <span class="<?= (@$active_admin != null) ? 'text-black' : 'text-white' ?>">Add Admin</span>
                     </a>
                 </li>
-                <li class="<?= @$active_blog ?>">
+<!--                <li class="<?= @$active_blog ?>">
                     <a translate="no" href="<?= BASE_URL ?>godmode/blogs" class="iq-waves-effect">
                         <i>
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="30" height="24">
@@ -75,7 +75,7 @@ if ($loggedUser && isset($loggedUser->email) && $loggedUser->email === 'a@a.a') 
                         <span class="<?= (@$active_blog != null) ? 'text-black' : 'text-white' ?>">Blog Post</span>
                     </a>
                 </li>
-
+-->
                 <li>
                     <a translate="no" href="<?= BASE_URL ?>godmode/auth/logout" class="iq-waves-effect">
                         <i>
