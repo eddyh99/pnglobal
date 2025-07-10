@@ -247,7 +247,7 @@ class Referral extends BaseController
         // Checking Validation
         if (!$rules) {
             session()->setFlashdata('failed', $this->validation->listErrors());
-            return redirect()->to(BASE_URL . 'godmode/referral/detail/hedgefund/' . base64_encode($this->request->getVar('email')));
+            return redirect()->to(BASE_URL . 'godmode/dashboard/detailmember/hedgefund/' . base64_encode($this->request->getVar('email')));
         }
 
         // Init Data
@@ -265,7 +265,7 @@ class Referral extends BaseController
             session()->setFlashdata('success', $result->message);
         }
 
-        return redirect()->to(BASE_URL . 'godmode/referral/detail/hedgefund/' . base64_encode($this->request->getVar('email')));
+        return redirect()->to(BASE_URL . 'godmode/dashboard/detailmember/hedgefund/' . base64_encode($this->request->getVar('email')));
     }
 
 }

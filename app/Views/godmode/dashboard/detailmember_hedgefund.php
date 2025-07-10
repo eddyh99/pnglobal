@@ -79,11 +79,13 @@
 
                     <!-- Referral Code -->
                     <div class="label">Referral Code</div>
-                    <div class="value">
-                        <?php
-                        $refcode = $member->refcode;
-                        echo !empty($refcode) ? $refcode : '-';
-                        ?>
+                    <div class="d-flex">
+                        <form action="<?= BASE_URL ?>godmode/referral/update_refcode" method="POST">
+                            <input type="hidden" name="email" value="<?= $email ?>">
+                            <input type="hidden" name="idmember" value="<?= $member->id ?>">
+                            <input class="me-2" type="text" name="refcode" id="refcode" class="form-control" data-refcode="<?= $member->refcode?>" value="<?= $member->refcode?>" style="min-width: 28ch;">
+                            <button type="submit" class="mx-2 btn btn-primary" id="changereff" disabled>change</button>
+                        </form>
                     </div>
 
 

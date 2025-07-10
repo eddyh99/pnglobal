@@ -236,7 +236,7 @@ class Dashboard extends BaseController
         return view('godmode/layout/admin_wrapper', $mdata);
     }
 
-    public function detailmember($type, $email, $id_member)
+    public function detailmember($type, $email)
     {
         // Decode Email
         $finalemail = base64_decode($email);
@@ -305,7 +305,7 @@ class Dashboard extends BaseController
             'navbar_' . $type => 'active',
             'active_dash'   => 'active',
             'email' => $finalemail,
-            'id_member' => $id_member,
+            // 'id_member' => $id_member,
             'type'      => $type
         ];
 
