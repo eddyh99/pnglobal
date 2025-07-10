@@ -172,9 +172,13 @@
                 }
 
                 // Jika status buy masih new atau tidak ada price, disable tombol SELL
-                if (buyStatus === 'pending' || !buyValue) {
+                if (buyStatus === 'pending' || !buyValue || sellStatus == 'pending') {
                     sellInput.prop('readonly', true);
-                    sendSellBtn.prop('disabled', true);
+                    sendSellBtn.prop('disabled', true).addClass('disabled-btn').css({
+                        'border-color': '#6c757d',
+                        'color': '#6c757d',
+                        'cursor': 'not-allowed'
+                    });
                 } else if (buyValue && buyStatus === 'filled' && (!sellStatus || sellStatus !== 'filled')) {
                     // Jika ada price buy, status buy filled, dan sell belum filled, enable tombol SELL
                     sellInput.prop('readonly', false);

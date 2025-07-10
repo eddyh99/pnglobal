@@ -266,4 +266,10 @@
     function validate() {
         return confirm("Are you sure you want to give a bonus to this user?");
     }
+
+    $('#refcode').on('input', function() {
+         let val = $(this).val().trim();
+         let original = $(this).attr('data-refcode').trim();
+         $('#changereff').prop('disabled', val === original || val === '');
+     });
 </script>
