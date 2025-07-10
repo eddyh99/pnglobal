@@ -838,6 +838,25 @@
                 {
                     data: "admin",
                 },
+                {
+                    data: null,
+                    render: function(data, type, row) {
+                        let btnFill = '-';
+                        const [orderType, orderSide] = data.type.split(' ');
+
+                        if (data.status == 'pending') {
+                            switch (orderType) {
+                                case 'Buy':
+                                    btnFill = `<button class="btn btn-primary" onclick="fillBuy('${orderSide}', '${data.status}', ${data.id})"><b>F</b></button>`;
+                                    break;
+                                case 'Sell':
+                                    btnFill = `<button class="btn btn-primary" onclick="fillSell('${orderSide}', '${data.status}')"><b>F</b></button>`;
+                                    break;
+                            }
+                        }
+                        return btnFill;
+                    }
+                }
             ],
 
         });
@@ -1440,7 +1459,7 @@
 
     function fillBuy(type, status, idsignal) {
         if (status == 'pending' && idsignal) {
-            const buyPrice = $(`#buy-${type}`).val();
+            const buyPrice = $(`#buy-${type.toLowerCase()}`).val();
             const buyType = type.toUpperCase();
             Swal.fire({
                 title: 'Confirmation',
@@ -1542,7 +1561,7 @@
 
     function fillSell(type, status) {
         if (status == 'pending') {
-            const sellPrice = $(`#sell-${type}`).val();
+            const sellPrice = $(`#sell-${type.toLowerCase()}`).val();
             const sellType = type.toUpperCase();
             Swal.fire({
                 title: 'Confirmation',
