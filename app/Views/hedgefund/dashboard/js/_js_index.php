@@ -188,13 +188,13 @@ const superadmin = <?= json_encode($is_superadmin) ?>;
             {
                 data: 'client_profit', // set any existing field, render will override
                 render: function(data, type, row) {
-                    var value;
-                    if (superadmin) {
-                        // Add both profits if superadmin
-                        value = parseFloat(row.master_profit || 0) + parseFloat(row.client_profit || 0);
-                    } else {
-                        value = parseFloat(row.client_profit || 0);
-                    }
+                    var value = parseFloat(row.client_profit || 0);
+                    // if (superadmin) {
+                    //     // Add both profits if superadmin
+                    //     value = parseFloat(row.client_profit || 0);
+                    // } else {
+                    //     value = parseFloat(row.client_profit || 0);
+                    // }
                     // Format the number with 3 decimal places
                     return $.fn.dataTable.render.number(',', '.', 2, '').display(value);
                 }
