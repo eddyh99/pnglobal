@@ -76,7 +76,7 @@ class Deposit extends BaseController
             $commission = (float) $result->message->referral_fee;
             $totalCapital =  $this->request->getPost('totalcapital');
             $amount = $this->request->getPost('amount');
-            $payment_amount = ceil($totalCapital * (1 + $fee)) + 5 + ceil($totalCapital * $commission);
+            $payment_amount = ceil(($totalCapital + 10 + ceil($totalCapital * $commission)) * (1 + $fee));
 
             // Validate
             if ($totalCapital < $minCapital) {
@@ -223,8 +223,8 @@ class Deposit extends BaseController
 
         $paymentResponse = $this->createCoinPaymentTransaction($payamount, COINPAYMENTS_CURRENCY_USDT, $orderId, $customerEmail, $description);
         if ($paymentResponse['error'] !== 'ok') {
-            $this->session->setFlashdata('error', 'There was a problem processing your purchase please try again');
-            return redirect()->to(base_url() . 'hedgefund/deposit/set_capital');
+            $this->session->setFlashdata('failed', 'There was a problem processing your purchase please try again');
+            return redirect()->to(base_url() . 'hedgefund/deposit');
         }
 
         return redirect()->to($paymentResponse['result']['checkout_url']);
@@ -246,8 +246,8 @@ class Deposit extends BaseController
 
         $paymentResponse = $this->createCoinPaymentTransaction($payamount, COINPAYMENTS_CURRENCY_USDC, $orderId, $customerEmail, $description);
         if ($paymentResponse['error'] !== 'ok') {
-            $this->session->setFlashdata('error', 'There was a problem processing your purchase please try again');
-            return redirect()->to(base_url() . 'hedgefund/deposti/set_capital');
+            $this->session->setFlashdata('failed', 'There was a problem processing your purchase please try again');
+            return redirect()->to(base_url() . 'hedgefund/deposit');
         }
 
         return redirect()->to($paymentResponse['result']['checkout_url']);

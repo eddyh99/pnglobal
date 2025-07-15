@@ -303,7 +303,7 @@ class Auth extends BaseController
             $commission = (float) $result->message->referral_fee;
             $totalCapital =  $this->request->getPost('totalcapital');
             $amount = $this->request->getPost('amount');
-            $payment_amount = ceil($totalCapital * (1 + $fee)) + 5 + ceil($totalCapital * $commission);
+            $payment_amount = ceil(($totalCapital + 10 + ceil($totalCapital * $commission)) * (1 + $fee));
 
             // Validate
             if ($totalCapital < $minCapital) {
