@@ -8,8 +8,8 @@ class Payment extends BaseController
 {
     public function index()
     {
-        $user = URL_COURSE . "/v1/user/member";
-        $resultstudent = satoshiAdmin($user)->result->message;
+        // $user = URL_COURSE . "/v1/user/member";
+        // $resultstudent = satoshiAdmin($user)->result->message;
 
         $mdata = [
             'title'     => 'One To One - ' . NAMETITLE,
@@ -19,7 +19,8 @@ class Payment extends BaseController
             'sidebar'   => 'onetoone_sidebar',
             'navbar_onetoone' => 'active',
             'active_member'    => 'active active-menu',
-            'student'       => $resultstudent,
+            // 'student'       => $resultstudent,
+            'student'       => [],
             'payment_link'  => session()->getFlashdata('paymentlink')
         ];
 

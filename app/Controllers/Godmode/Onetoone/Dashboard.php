@@ -9,11 +9,11 @@ class Dashboard extends BaseController
     public function index()
     {
         //total mentor
-        $mentor = URL_COURSE . "/v1/user/mentor";
-        $resultmentor = satoshiAdmin($mentor)->result->message;;
+        // $mentor = URL_COURSE . "/v1/user/mentor";
+        // $resultmentor = satoshiAdmin($mentor)->result->message;;
 
-        $user = URL_COURSE . "/v1/user/member";
-        $resultstudent = satoshiAdmin($user)->result->message;
+        // $user = URL_COURSE . "/v1/user/member";
+        // $resultstudent = satoshiAdmin($user)->result->message;
 
         $mdata = [
             'title'     => 'Dashboard - ' . NAMETITLE,
@@ -22,13 +22,19 @@ class Dashboard extends BaseController
             'sidebar'   => 'onetoone_sidebar',
             'navbar_onetoone' => 'active',
             'active_dash'    => 'active',
-            'totalstudent'   => count($resultstudent),
-            'totalmentor'    => count($resultmentor),
-            'student'       => $resultstudent,
+            // 'totalstudent'   => count($resultstudent),
+            // 'totalmentor'    => count($resultmentor),
+            // 'student'       => $resultstudent,
+            'student'       => [],
             'payment_link'  => session()->getFlashdata('paymentlink')
 
         ];
 
         return view('godmode/layout/admin_wrapper', $mdata);
+    }
+
+    public function adduser(){
+        $email = $this->request->getVar('email');
+        
     }
 }
