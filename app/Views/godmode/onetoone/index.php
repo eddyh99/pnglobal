@@ -32,8 +32,7 @@
 
         <div class="row content-body">
             <div class="col-lg-12">
-                <form action="<?= BASE_URL ?>godmode/course/user/adduser" method="POST">
-                    <input type="hidden" name="role" value="member">
+                <form action="<?= BASE_URL ?>/godmode/onetoone/dashboard/adduser" method="POST">
                     <div class="send-signals">
                         <div class="title-signal-preview d-flex justify-content-between align-items-center">
                             <h4>Add Member</h4>
@@ -59,26 +58,46 @@
                 <table id="tbl_freemember" class="table table-striped" style="width:100%">
                     <thead class="thead_freemember">
                         <tr>
-                            <th>EMAIL</th>
-                            <th>STATUS</th>
-                            <th>NAME</th>
+                            <th style="width: 10%">NO</th>
+                            <th style="width: 30%">EMAIL</th>
+                            <th style="width: 30%">STATUS</th>
+                            <th style="width: 30%">ACTION</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <?php foreach ($student as $row) : ?>
+                        <?php if (empty($member)) : ?>
                             <tr>
-                                <td><?= $row->email ?></td>
+                                <td colspan="4" class="text-center">No members found.</td>
+                            </tr>
+                        <?php endif; ?>
+                        <?php $no = 1; ?>
+                        <?php foreach ($member as $data) : ?>
+                            <?php if ($data->is_deleted) continue; ?>
+                            <tr>
+                                <td><?= $no++ ?></td>
+                                <td><?= $data->email ?></td>
                                 <td>
-                                    <?php if ($row->status == 'active') : ?>
-                                        <span class="badge badge-success">Active</span>
-                                    <?php else : ?>
-                                        <span class="badge badge-danger">Inactive</span>
-                                    <?php endif; ?>
+                                    <svg width="8" height="8" viewBox="0 0 8 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <rect width="8" height="8" rx="4" fill="#0E7304" />
+                                    </svg>
+                                    Active
                                 </td>
-                                <td><?= $row->name ?></td>
+                                <td>
+                                    <!-- <a href="http://localhost:8082/godmode/onetoone/dashboard/detailmember/<?= $data->id ?>" class="ml-2"> -->
+                                    <a href="<?= BASE_URL ?>godmode/onetoone/dashboard/detailmember/<?= $data->id ?>" class="ml-2">
+                                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path fill-rule="evenodd" clip-rule="evenodd" d="M20 3.33333V20H3.33333V3.33333H20ZM17.7778 5.55556H5.55556V17.7778H17.7778V5.55556ZM16.6667 0V2.22222L2.22219 2.22219L2.22222 16.6667H0V0H16.6667ZM15.5556 12.2222V14.4444H7.77778V12.2222H15.5556ZM15.5556 7.77778V10H7.77778V7.77778H15.5556Z" fill="#BFA573" />
+                                        </svg>
+                                    </a>
+                                    <!-- <a href="http://localhost:8082/godmode/onetoone/dashboard/deleteuser/<?= $data->id ?>" class="ml-2"> -->
+                                        <a href="<?= BASE_URL ?>godmode/onetoone/dashboard/deleteuser/<?= $data->id ?>" class="ml-2">
+                                        <svg width="20" height="20" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                                            <path fill="#BFA573" d="M135.2 17.7L128 32 32 32C14.3 32 0 46.3 0 64S14.3 96 32 96l384 0c17.7 0 32-14.3 32-32s-14.3-32-32-32l-96 0-7.2-14.3C307.4 6.8 296.3 0 284.2 0L163.8 0c-12.1 0-23.2 6.8-28.6 17.7zM416 128L32 128 53.2 467c1.6 25.3 22.6 45 47.9 45l245.8 0c25.3 0 46.3-19.7 47.9-45L416 128z" />
+                                        </svg>
+                                    </a>
                             </tr>
                         <?php endforeach; ?>
-                        
+
                     </tbody>
                 </table>
             </div>
@@ -109,77 +128,3 @@
         </div>
     </div>
 </div>
-
-<!-- Reopen Modal -->
-<div class="modal fade" id="reopen" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <form id="reopenForm" action="<?= BASE_URL ?>godmode/course/user/reopen" method="post">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Reopen / Close Demo Trade</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <input type="hidden" name="trade_id" id="trade_id">
-                    <input type="hidden" name="status" id="trade_status">
-
-                    <!-- Buttons -->
-                    <button type="button" class="btn btn-primary" onclick="openNewTrade()">New Demo Trade</button>
-                    <button type="button" class="btn btn-success" onclick="submitTrade('active')">Re Open</button>
-                    <button type="button" class="btn btn-danger" onclick="submitTrade('expired')">Close Demo Trade</button>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                </div>
-            </form>
-        </div>
-    </div>
-</div>
-
-
-<script>
-    <?php if (!empty(session('failed'))) { ?>
-        setTimeout(function() {
-            Swal.fire({
-                text: `<?= session('failed') ?>`,
-                showCloseButton: true,
-                showConfirmButton: false,
-                background: '#FFE4DC',
-                color: '#000000',
-                position: 'top-end',
-                timer: 3000,
-                timerProgressBar: true,
-            });
-        }, 100);
-    <?php } else if (!empty(session('success'))) { ?>
-        setTimeout(function() {
-            Swal.fire({
-                text: `<?= session('success') ?>`,
-                showCloseButton: true,
-                showConfirmButton: false,
-                background: '#E1FFF7',
-                color: '#000000',
-                position: 'top-end',
-                timer: 3000,
-                timerProgressBar: true,
-            });
-        }, 100);
-    <?php } ?>
-
-    <?php if (!empty(session('error_validation'))) { ?>
-        setTimeout(function() {
-            Swal.fire({
-                html: '<?= trim(str_replace('"', '', json_encode($_SESSION['error_validation']))) ?>',
-                showCloseButton: true,
-                showConfirmButton: false,
-                background: '#FFE4DC',
-                color: '#000000',
-                position: 'top-end',
-                timer: 3000,
-                timerProgressBar: true,
-            });
-        }, 100);
-    <?php } ?>
-</script>

@@ -36,7 +36,7 @@
             <div class="row content-body">
                 <div class="col-lg-12 dash-table-totalmember">
                     <h4 class="text-white my-3 text-uppercase fw-bold">Create Payment Link</h4>
-                    <form action="<?= BASE_URL ?>godmode/course/dashboard/paymentlink">
+                    <form action="<?= BASE_URL ?>godmode/onetoone/payment/paymentlink">
                         <div class="row">
                             <div class="col-8">
                                 <label class="text-white">Nominal</label>
@@ -56,33 +56,35 @@
                                 <label class="text-white">Description</label>
                                 <input type="text" name="description" value="<?= old('description') ?>" class="form-control">
                             </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-12 my-2 text-center">
-                                <button type="submit" class="btn btn-primary" onclick="this.disabled=true; this.innerText='Processing...'; this.form.submit();">CREATE</button>
+                            <div class="col-12 mt-2">
+                                <label class="text-white">Email</label>
+                                <select name="email" class="select2 form-control" style="width: 100%">
+                                    <option value="">Select Member Email</option>
+                                    <?php foreach ($member_onetoone as $member): ?>
+                                        <option value="<?= $member->email ?>" <?= old('email') == $member->email ? 'selected' : '' ?>>
+                                            <?= $member->email ?>
+                                        </option>
+                                    <?php endforeach ?>
+                                </select>
                             </div>
+                        </div>
+                        <div class="row mt-3">
+                            <div class="col-12 my-2 text-center">
+                                <button type="submit" class="btn btn-primary" onclick="this.disabled=true; this.innerText='Processing...'; this.form.submit();">CREATE PAYMENT LINK</button>
+                            </div>
+                        </div>
                     </form>
                     <div class="col-12 mt-2 text-center">
                         <label class="text-white mt-2">Payment Link</label>
-
-                        <form action="<?= BASE_URL ?>godmode/course/dashboard/sendpayment">
+                        <form action="<?= BASE_URL ?>godmode/onetoone/sendpayment">
                             <div class="input-group mw-100">
+                                <input type="email" hidden name="email" value="<?= $payment_email ?>">
                                 <input type="text" id="paymentLink" name="paymentlink" class="form-control" style="background-color: transparent;" value="<?= $payment_link ?>" readonly>
                                 <button class="mx-1 btn btn-primary" type="button" id="copyBtn">Copy</button>
                             </div>
-                    </div>
-
-                    <div class="col-12 text-center">
-                        <label class="text-white">Email</label>
-                        <select name="email" class="select2" style="width: 100%">
-                            <?php foreach ($student as $s): ?>
-                                <option><?= $s->email ?></option>
-                            <?php endforeach ?>
-                        </select>
-                        <!-- <input type="text" name="email" class="form-control" value="<?= old('email') ?>"> -->
-                    </div>
-                    <div class="col-12 my-3 text-center">
-                        <button type="submit" class="btn btn-primary" onclick="this.disabled=true; this.innerText='Sending...'; this.form.submit();">SEND</button>
+                            <div class="col-12 my-3 text-center">
+                                <button type="submit" class="btn btn-primary" onclick="this.disabled=true; this.innerText='Sending...'; this.form.submit();">SEND PAYMENT LINK To <?= $payment_email ?></button>
+                            </div>
                     </div>
                     </form>
                 </div>
