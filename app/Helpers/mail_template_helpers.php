@@ -332,7 +332,7 @@ function emailtemplate_activation_account($otp, $email, $type, $link = null)
                         font-size: 14px;
                         color: #000000;
                         '>
-                            Thank you for register PN Global ".$type.". To proceed with your request, enter OTP for Active Account Below
+                            Thank you for register PN Global " . $type . ". To proceed with your request, enter OTP for Active Account Below
                         </p>
                         <h1 style='letter-spacing: 12px;'>" . $otp . "</h1>
                         <br><br>
@@ -701,4 +701,124 @@ function emailtemplate_payment_course($link)
                 </div>
             </body>
         </html>";
+}
+
+function emailtemplate_payment_onetoone($paymentlink, $amount, $paymenttimeout, $invoiceID)
+{
+    return "
+    <!DOCTYPE html>
+    <html lang='en'>
+    <head>
+        <meta name='color-scheme' content='light'>
+        <meta name='supported-color-schemes' content='light'>
+        <title>PN Global Course - Payment Reminder</title>
+    </head>
+    <body>
+        <div style='
+            max-width: 420px;
+            margin: 0 auto;
+            position: relative;
+            padding: 1rem;
+            font-family: Arial, sans-serif;
+        '>
+            <div style='
+                padding: 2rem 1rem;
+                text-align: left;
+            '>
+                <p style='
+                    font-size: 16px;
+                    color: #000000;
+                    margin-bottom: 1rem;
+                '>
+                    Dear,
+                </p>
+
+                <p style='
+                    font-size: 14px;
+                    color: #000000;
+                    margin-bottom: 1rem;
+                '>
+                    I hope this message finds you well.
+                </p>
+
+                <p style='
+                    font-size: 14px;
+                    color: #000000;
+                    margin-bottom: 1rem;
+                '>
+                    This is a friendly reminder that your payment of <strong>{$amount}</strong> for <strong>Elite PNGlobal</strong> is now due.
+                </p>
+
+                <p style='
+                    font-size: 14px;
+                    color: #000000;
+                    margin-bottom: 1rem;
+                '>
+                    We kindly ask you to settle the outstanding amount at your earliest convenience. Below are the payment details:
+                </p>
+
+                <ul style='
+                    font-size: 14px;
+                    color: #000000;
+                    margin-bottom: 1rem;
+                    padding-left: 1.2rem;
+                '>
+                    <li>Invoice Number: <strong>{$invoiceID}</strong></li>
+                    <li>Due Date: <strong>{$paymenttimeout}</strong></li>
+                    <li>Amount Due: <strong>{$amount}</strong></li>
+                </ul>
+
+                <div style='text-align: center; margin: 20px 0;'>
+                    <a href='{$paymentlink}' target='_blank' style='
+                        display: inline-block;
+                        padding: 12px 24px;
+                        background-color: #b48b3d;
+                        color: #ffffff;
+                        text-decoration: none;
+                        font-size: 16px;
+                        border-radius: 5px;
+                        font-weight: bold;
+                    '>
+                        Complete Payment
+                    </a>
+                </div>
+
+                <p style='
+                    font-size: 14px;
+                    color: #000000;
+                    margin-bottom: 1rem;
+                '>
+                    If you have already made the payment, please disregard this message. Otherwise, we would appreciate your prompt attention to this matter.
+                </p>
+
+                <p style='
+                    font-size: 14px;
+                    color: #000000;
+                    margin-bottom: 2rem;
+                '>
+                    Should you have any questions or need further clarification, feel free to contact us.
+                </p>
+
+                <p style='
+                    font-size: 14px;
+                    color: #000000;
+                '>
+                    Thank you for your attention and cooperation.<br><br>
+                    Best regards,<br>
+                    <strong>PNGlobalInternational</strong>
+                </p>
+            </div>
+
+            <hr>
+            <p style='
+                text-align: center;
+                font-size: 12px;
+                color: #999999;
+                margin-top: 2rem;
+            '>
+                &copy; " . date('Y') . " PN Global. All rights reserved.
+            </p>
+        </div>
+    </body>
+    </html>";
 }

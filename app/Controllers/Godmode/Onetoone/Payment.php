@@ -13,7 +13,7 @@ class Payment extends BaseController
         // Fetching all members for the dropdown
         $urlListMember = URL_HEDGEFUND . "/apiv1/onetoone/member/";
         $resultMember = satoshiAdmin($urlListMember)->result;
-        if ($resultMember->code != 200) {
+        if (!$resultMember) {
             $resultMember = (object) [
                 'data' => [],
                 'message' => 'No members found.'
@@ -89,24 +89,42 @@ class Payment extends BaseController
                     session()->setFlashdata('failed', 'There was a problem processing your purchase please try again');
                     return redirect()->to(BASE_URL . 'godmode/onetoone/payment')->withInput();
                 }
-                $checkoutUrl = $paymentResponse['result']['checkout_url'];
+                dd($paymentResponse);
+                $paymentlink = $paymentResponse['result']['checkout_url'];
+                $invoiceID = $paymentResponse['result']['txn_id'];
+                $amount = $mdata['amount'] . ' ' . strtoupper($currency);;
+                $paymenttimeout = $paymentResponse['result']['timeout'];
+
+                // dd($checkoutUrl);
 
                 // Save invoice to API
-                $invoiceResponse = $this->saveInvoiceToApi($mdata['buyer_email'], $checkoutUrl);
+                $invoiceResponse = $this->saveInvoiceToApi($mdata['buyer_email'], $paymentlink, $invoiceID, $amount, $paymenttimeout);
+                // dd($invoiceResponse);
                 if (!$invoiceResponse) {
                     session()->setFlashdata('failed', 'Failed to save invoice to API');
                     return redirect()->to(BASE_URL . 'godmode/onetoone/payment')->withInput();
                 }
+
+                // Kirim email setelah sukses semuanya
+                $resultSendEmail = $this->sendpayment($mdata['buyer_email'], $invoiceID, $paymenttimeout, $amount, $checkoutUrl);
+                if (!$resultSendEmail) {
+                    log_message('error', 'Gagal mengirim email ke ' . $mdata['buyer_email']);
+                }
+
                 // Set flashdata for payment link
                 session()->setFlashdata('paymentlink', $paymentResponse['result']['checkout_url']);
                 session()->setFlashdata('payment_email', $mdata['buyer_email']);
-                session()->setFlashdata('success', 'Payment link created successfully');
+                session()->setFlashdata('success', 'Payment link created successfully and sent to ' . $mdata['buyer_email']);
                 return redirect()->to(BASE_URL . 'godmode/onetoone/payment')->withInput();
             case 'stripe':
                 $stripeUrl = $this->createStripePayment($mdata);
                 if (!$stripeUrl) {
                     return redirect()->to(base_url('godmode/onetoone/payment'))->withInput();
                 }
+                dd($stripeUrl);
+
+                // Kirim email setelah link berhasil dibuat
+                $this->sendpayment($mdata['buyer_email'], $stripeUrl);
 
                 session()->setFlashdata('payment_email', $mdata['buyer_email']);
                 session()->setFlashdata('paymentlink', $stripeUrl);
@@ -190,42 +208,21 @@ class Payment extends BaseController
                 'success_url' => base_url() . 'course/login/member',
                 'cancel_url' => base_url() . 'course/login/member'
             ]);
-
-            return $checkoutSession->url;
+            $paymentResponse = [
+                'result' => [
+                    'checkout_url' => $checkoutSession->url,
+                    'txn_id' => $checkoutSession->id,
+                    'timeout' => $checkoutSession->expires_at,
+                    'amount' => $mdata['amount']
+                ],
+                'error' => 'ok'
+            ];
+            dd($paymentResponse['result']['checkout_url']);
+            return $paymentResponse;
         } catch (\Exception $e) {
             session()->setFlashdata('failed', 'Stripe error: ' . $e->getMessage());
             return null;
         }
-    }
-
-    public function sendpayment()
-    {
-        // Validation Field
-        $rules = $this->validate([
-            'email' => [
-                'label' => 'Email',
-                'rules' => 'required|valid_email'
-            ],
-            'paymentlink' => [
-                'label' => 'Payment Link',
-                'rules' => 'required'
-            ],
-        ]);
-
-        if (!$rules) {
-            session()->setFlashdata('failed', $this->validation->listErrors());
-            return redirect()->to(BASE_URL . 'godmode/course/dashboard');
-        }
-        $email = $this->request->getVar('email');
-        $title = 'Payment Request';
-        $subject = 'Please Complete Your Payment';
-
-        // send email
-        $emailTemplate = emailtemplate_payment_course($this->request->getVar('paymentlink'));
-        sendmail_satoshi($email, $subject, $emailTemplate, $title, USERNAME_MAIL);
-
-        session()->setFlashdata('success', 'Payment link has been sent successfully to ' . $email . '.');
-        return redirect()->to(BASE_URL . 'godmode/course/dashboard')->withInput();
     }
 
     private function saveInvoiceToApi($email, $link_invoice)
@@ -240,7 +237,8 @@ class Payment extends BaseController
         ];
 
         try {
-            $response = $client->post('http://localhost:8080/apiv1/onetoone/payment/', [
+            $url = URL_HEDGEFUND . '/apiv1/onetoone/payment/';
+            $response = $client->post($url, [
                 'json' => $payload,
                 'headers' => [
                     'Content-Type' => 'application/json'
@@ -254,6 +252,56 @@ class Payment extends BaseController
         } catch (\Exception $e) {
             log_message('error', 'Error saving invoice: ' . $e->getMessage());
             return null;
+        }
+    }
+
+    // public function sendpayment($email, $paymentlink)
+    // {
+    //     $title   = 'Payment Request';
+    //     $subject = 'Please Complete Your Payment';
+    //     // log_message('debug', 'Sending email to: ' . $email);
+    //     // Template email
+    //     $emailTemplate = emailtemplate_payment_onetoone($paymentlink);
+    //     // log_message('debug', 'Sendmail result: ' . var_export($emailTemplate, true));
+
+    //     // Kirim email
+    //     return sendmail_satoshi($email, $subject, $emailTemplate, $title, USERNAME_MAIL);
+    // }
+
+    public function sendpayment($email, $paymentlink, $invoiceID, $amount, $paymenttimeout)
+    {
+        $title   = 'Payment Request';
+        $subject = 'Please Complete Your Payment';
+        $emailTemplate = emailtemplate_payment_onetoone($paymentlink, $amount, $paymenttimeout, $invoiceID);
+        $mail = new \PHPMailer\PHPMailer\PHPMailer(true);
+
+        try {
+            // Konfigurasi SMTP langsung di sini
+            $mail->isSMTP();
+            $mail->Host       = 'sandbox.smtp.mailtrap.io';     // <-- Ganti sesuai mailtrap
+            $mail->SMTPAuth   = true;
+            $mail->Username   = 'df6cfe30efaae2'; // <-- Ganti
+            $mail->Password   = 'bcc05333a927ee'; // <-- Ganti
+            $mail->SMTPSecure = 'tls';
+            $mail->Port       = 587;
+
+            // Email pengirim dan penerima
+            $mail->setFrom('no-reply@example.com', $title);
+            $mail->addAddress($email);
+
+            // Format email
+            $mail->isHTML(true);
+            $mail->Subject = $subject;
+            $mail->Body    = $emailTemplate;
+
+            // Kirim email
+            $mail->send();
+
+            log_message('info', 'Email sent to: ' . $email);
+            return true;
+        } catch (\Exception $e) {
+            log_message('error', 'Email sending failed: ' . $mail->ErrorInfo);
+            return false;
         }
     }
 }

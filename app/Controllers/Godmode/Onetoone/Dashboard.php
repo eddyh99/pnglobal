@@ -10,9 +10,9 @@ class Dashboard extends BaseController
 {
     public function index()
     {
-        $url = URL_HEDGEFUND . "/apiv1/onetoone/member/";
+        $url = URL_HEDGEFUND . "/apiv1/onetoone/member";
         $resultMember = satoshiAdmin($url)->result;
-        if ($resultMember->code != 200) {
+        if (!$resultMember) {
             $resultMember = (object) [
                 'data' => [],
                 'message' => 'No members found.'
