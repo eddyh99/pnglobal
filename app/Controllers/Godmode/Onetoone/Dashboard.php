@@ -10,26 +10,30 @@ class Dashboard extends BaseController
 {
     public function index()
     {
-        $url = URL_HEDGEFUND . "/apiv1/onetoone/member";
-        $resultMember = satoshiAdmin($url)->result;
-        if (!$resultMember) {
-            $resultMember = (object) [
-                'data' => [],
-                'message' => 'No members found.'
-            ];
-        }
         $mdata = [
             'title'     => 'Dashboard - ' . NAMETITLE,
             'content'   => 'godmode/onetoone/index',
-            'extra'     => 'godmode/course/dashboard/js/_js_index',
+            'extra'     => 'godmode/onetoone/js/_js_index',
             'sidebar'   => 'onetoone_sidebar',
             'navbar_onetoone' => 'active',
             'active_dash'    => 'active',
-            'member'       => $resultMember->data,
             'payment_link'  => session()->getFlashdata('paymentlink')
         ];
 
         return view('godmode/layout/admin_wrapper', $mdata);
+    }
+    
+    public function get_member(){
+        $url = URL_HEDGEFUND . "/apiv1/onetoone/member";
+        $resultMember = satoshiAdmin($url)->result;
+
+        if ($resultMember->code != 200) {
+            $resultMember = (object) [
+                'data' => [],
+            ];
+        }
+        
+        echo json_encode($resultMember->data);
     }
 
     public function adduser()

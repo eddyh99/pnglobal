@@ -84,20 +84,33 @@ function getExchange($amountEUR){
 
 function get_coinpayments_nonce(): int
 {
-    $filePath = WRITEPATH . 'coinpayments_nonce.txt';
+    // Detect sandbox or localhost
+    $host = $_SERVER['HTTP_HOST'] ?? '';
+    $parts = explode('.', $host);
+    $isSandbox = ($parts[0] === 'sandbox' || $host === 'localhost:8080');
 
-    // Create the file if it doesn't exist
+    // Use separate file for each environment
+    $fileName = $isSandbox ? 'coinpayments_nonce_sandbox.txt' : 'coinpayments_nonce_live.txt';
+    $filePath = WRITEPATH . $fileName;
+
+    // Create file if not exists
     if (!file_exists($filePath)) {
-        file_put_contents($filePath, time());
+        // Initialize to 1 for sandbox or current time for live
+        $initialValue = $isSandbox ? 1 : time();
+        file_put_contents($filePath, $initialValue);
     }
 
-    // Lock the file to avoid race conditions
+    // Lock file to avoid race condition
     $fp = fopen($filePath, 'c+');
     if (flock($fp, LOCK_EX)) {
         $lastNonce = (int)trim(fread($fp, 100));
-        $newNonce = max($lastNonce + 1, time()); // ensure monotonic increase
 
-        // Reset pointer and write
+        // Choose strategy based on mode
+        $newNonce = $isSandbox
+            ? $lastNonce + 1
+            : max($lastNonce + 1, time());
+
+        // Save new nonce
         ftruncate($fp, 0);
         rewind($fp);
         fwrite($fp, $newNonce);
@@ -111,6 +124,7 @@ function get_coinpayments_nonce(): int
         throw new \RuntimeException('Unable to acquire nonce file lock.');
     }
 }
+
 
 
 function sendmail_booking($subject, $mdata)
