@@ -84,7 +84,13 @@ function getExchange($amountEUR){
 
 function get_coinpayments_nonce(): int
 {
-    $filePath = WRITEPATH . 'coinpayments_nonce.txt';
+    
+    $host = $_SERVER['HTTP_HOST'] ?? '';
+    $parts = explode('.', $host);
+    $isSandbox = ($parts[0] === 'sandbox' || $host === 'localhost:8080');
+
+    $fileName = $isSandbox ? 'coinpayments_nonce_sandbox.txt' : 'coinpayments_nonce_live.txt';    
+    $filePath = WRITEPATH . $fileName;
 
     // Create the file if it doesn't exist
     if (!file_exists($filePath)) {
