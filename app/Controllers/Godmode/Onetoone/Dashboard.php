@@ -73,16 +73,30 @@ class Dashboard extends BaseController
         $mdata = [
             'title'     => 'Dashboard - ' . NAMETITLE,
             'content'   => 'godmode/onetoone/member-detail',
-            'extra'     => 'godmode/course/dashboard/js/_js_index',
+            'extra'     => 'godmode/onetoone/js/_js_member-detail',
             'sidebar'   => 'onetoone_sidebar',
             'navbar_onetoone' => 'active',
             'active_dash'    => 'active',
-            'member'       => $resultMember->data,
-            'payment' =>$resultMember->payment
+            'member'       => $resultMember->data->email,
+            'id_member' =>$resultMember->data->id,
 
         ];
 
         return view('godmode/layout/admin_wrapper', $mdata);
+    }
+
+    public function get_detailmember($id_member)
+    {
+        $url = URL_HEDGEFUND . "/apiv1/onetoone/member/" . $id_member;
+        $resultMember = satoshiAdmin($url)->result;
+
+        if ($resultMember->code != 200) {
+            $resultMember = (object) [
+                'data' => [],
+            ];
+        }
+
+        echo json_encode($resultMember);
     }
 
     public function deleteuser($id)
