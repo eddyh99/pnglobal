@@ -1308,6 +1308,9 @@
                                 position: 'top-end',
                                 timer: 3000,
                                 timerProgressBar: true,
+                                didClose: () => {
+                                    window.location.reload();
+                                }
                             });
                         }
                     });
@@ -1423,6 +1426,9 @@
                                 position: 'top-end',
                                 timer: 3000,
                                 timerProgressBar: true,
+                                didClose: () => {
+                                    window.location.reload();
+                                }
                             });
                         }
                     });
