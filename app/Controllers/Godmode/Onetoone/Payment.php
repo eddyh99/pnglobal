@@ -89,24 +89,22 @@ class Payment extends BaseController
                     session()->setFlashdata('failed', 'There was a problem processing your purchase please try again');
                     return redirect()->to(BASE_URL . 'godmode/onetoone/payment')->withInput();
                 }
-                dd($paymentResponse);
+                // dd($paymentResponse);
                 $paymentlink = $paymentResponse['result']['checkout_url'];
                 $invoiceID = $paymentResponse['result']['txn_id'];
-                $amount = $mdata['amount'] . ' ' . strtoupper($currency);;
-                $paymenttimeout = $paymentResponse['result']['timeout'];
-
-                // dd($checkoutUrl);
+                $amount = $mdata['amount'] . ' ' . strtoupper($currency);
+                $timeoutInResultSecond = $paymentResponse['result']['timeout'];
+                $paymenttimeout = date('Y-m-d H:i:s', time() + $timeoutInResultSecond);
 
                 // Save invoice to API
-                $invoiceResponse = $this->saveInvoiceToApi($mdata['buyer_email'], $paymentlink, $invoiceID, $amount, $paymenttimeout);
-                // dd($invoiceResponse);
+                $invoiceResponse = $this->saveInvoiceToApi($mdata['buyer_email'], $paymentlink);
                 if (!$invoiceResponse) {
                     session()->setFlashdata('failed', 'Failed to save invoice to API');
                     return redirect()->to(BASE_URL . 'godmode/onetoone/payment')->withInput();
                 }
 
                 // Kirim email setelah sukses semuanya
-                $resultSendEmail = $this->sendpayment($mdata['buyer_email'], $invoiceID, $paymenttimeout, $amount, $checkoutUrl);
+                $resultSendEmail = $this->sendpayment($mdata['buyer_email'], $paymentlink, $invoiceID, $amount, $paymenttimeout);
                 if (!$resultSendEmail) {
                     log_message('error', 'Gagal mengirim email ke ' . $mdata['buyer_email']);
                 }
@@ -117,19 +115,21 @@ class Payment extends BaseController
                 session()->setFlashdata('success', 'Payment link created successfully and sent to ' . $mdata['buyer_email']);
                 return redirect()->to(BASE_URL . 'godmode/onetoone/payment')->withInput();
             case 'stripe':
-                $stripeUrl = $this->createStripePayment($mdata);
-                if (!$stripeUrl) {
-                    return redirect()->to(base_url('godmode/onetoone/payment'))->withInput();
-                }
-                dd($stripeUrl);
+                $amount = $mdata['amount'] . ' ' . strtoupper($currency);
+                dd($amount);
+                // $stripeUrl = $this->createStripePayment($mdata);
+                // if (!$stripeUrl) {
+                //     return redirect()->to(base_url('godmode/onetoone/payment'))->withInput();
+                // }
+                // dd($stripeUrl);
 
-                // Kirim email setelah link berhasil dibuat
-                $this->sendpayment($mdata['buyer_email'], $stripeUrl);
+                // // Kirim email setelah link berhasil dibuat
+                // $this->sendpayment($mdata['buyer_email'], $stripeUrl);
 
-                session()->setFlashdata('payment_email', $mdata['buyer_email']);
-                session()->setFlashdata('paymentlink', $stripeUrl);
-                session()->setFlashdata('success', 'Payment link created successfully');
-                return redirect()->to(BASE_URL .  'godmode/onetoone/payment')->withInput();
+                // session()->setFlashdata('payment_email', $mdata['buyer_email']);
+                // session()->setFlashdata('paymentlink', $stripeUrl);
+                // session()->setFlashdata('success', 'Payment link created successfully');
+                // return redirect()->to(BASE_URL .  'godmode/onetoone/payment')->withInput();
 
             case 'banktransfer':
                 session()->setFlashdata('paymentlink', 123);
