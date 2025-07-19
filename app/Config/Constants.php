@@ -107,16 +107,18 @@ define("NAMETITLE", 'PN Global');
 define("SATOSHITITLE", 'Satoshi Signal');
 
 $host = $_SERVER['HTTP_HOST']; // e.g., sandbox.satoshisignal.app
-
 $parts = explode('.', $host);
-if ($parts[0] === 'sandbox' || preg_match('/^localhost:808[0-5]$/', $host)) {
-    // define("URLAPI", 'https://api2-sandbox.pnglobalinternational.com');
-    define("URLAPI", 'http://127.0.0.1:9090');
-    define("URLAPI2", 'https://sandbox-api.pnglobalinternational.com');
-    // define("URL_HEDGEFUND", 'https://elite-sandbox.pnglobalinternational.com');
-    define("URL_HEDGEFUND", 'http://localhost:8080');
-    define("URL_COURSE", 'https://course-sandbox.pnglobalinternational.com');
-    // define("URL_COURSE", 'http://127.0.0.1:9091');
+if ($parts[0] === 'sandbox' || preg_match('/^(localhost|127\.0\.0\.1):808[0-5]$/', $host)) {
+    if (preg_match('/^(localhost|127\.0\.0\.1):808[0-5]$/', $host)) {
+        define("URLAPI", 'http://127.0.0.1:9090');
+        define("URL_HEDGEFUND", 'http://localhost:8080');
+        define("URL_COURSE", 'http://127.0.0.1:9091');
+    }else{
+        define("URLAPI", 'https://api2-sandbox.pnglobalinternational.com');
+        define("URLAPI2", 'https://sandbox-api.pnglobalinternational.com');
+        define("URL_HEDGEFUND", 'https://elite-sandbox.pnglobalinternational.com');
+        define("URL_COURSE", 'https://course-sandbox.pnglobalinternational.com');
+    }
 
     //email DEMO
     define("EMAIL_ONE", 'demo@gmail.com');
@@ -137,30 +139,30 @@ if ($parts[0] === 'sandbox' || preg_match('/^localhost:808[0-5]$/', $host)) {
     define('FTP_USERNAME', 'pnglobal@remote.piggybankservice.com');
     define('FTP_PASSWORD', 'YnTAc)9M;]Y#)*rG');
 } else {
-    // define("URLAPI", 'https://broker.pnglobalinternational.com');
-    // define("URLAPI2", 'https://api.pnglobalinternational.com');
-    // define("URL_HEDGEFUND", 'https://hedgefund.pnglobalinternational.com');
-    // define("URL_COURSE", 'https://course.pnglobalinternational.com');
+    define("URLAPI", 'https://broker.pnglobalinternational.com');
+    define("URLAPI2", 'https://api.pnglobalinternational.com');
+    define("URL_HEDGEFUND", 'https://hedgefund.pnglobalinternational.com');
+    define("URL_COURSE", 'https://course.pnglobalinternational.com');
 
-    // //email live
-    // define("EMAIL_ONE", 'pnglobal.usa@gmail.com');
-    // define("EMAIL_TWO", 'robnolfo62@gmail.com');
+    //email live
+    define("EMAIL_ONE", 'pnglobal.usa@gmail.com');
+    define("EMAIL_TWO", 'robnolfo62@gmail.com');
 
-    // //STRIPE RIIL
-    // define("PUBLIC_KEY", 'pk_live_51OHVdwC8KQHLEjXQ88yk2DqcZUQtLIAAWJYumnMwHJC4tQi95Cu514mFtxPD8ezJMOJI6NhTgDy9T5GJJ7dSRyyR00RLGJMXU9');
-    // define("SECRET_KEY", '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');
+    //STRIPE RIIL
+    define("PUBLIC_KEY", 'pk_live_51OHVdwC8KQHLEjXQ88yk2DqcZUQtLIAAWJYumnMwHJC4tQi95Cu514mFtxPD8ezJMOJI6NhTgDy9T5GJJ7dSRyyR00RLGJMXU9');
+    define("SECRET_KEY", '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');
 
-    // define('COINPAYMENTS_PUBLIC_KEY', '8503326e825f902ff24f060bc9dd0168d36f18b78c56b87c7bf720cfe75d9b88');
-    // define('COINPAYMENTS_PRIVATE_KEY', 'aAd98103338EFC1e073Fa8fbbbe43255372642D24fcE966c2317021D6267d466');
-    // define('COINPAYMENTS_API_URL', 'https://www.coinpayments.net/api.php');
-    // define('COINPAYMENTS_CURRENCY_USDT', 'USDT.BEP20');
-    // define('COINPAYMENTS_CURRENCY_USDC', 'USDC.BEP20');
-    // define('ADMIN_ID', 1);
+    define('COINPAYMENTS_PUBLIC_KEY', '8503326e825f902ff24f060bc9dd0168d36f18b78c56b87c7bf720cfe75d9b88');
+    define('COINPAYMENTS_PRIVATE_KEY', 'aAd98103338EFC1e073Fa8fbbbe43255372642D24fcE966c2317021D6267d466');
+    define('COINPAYMENTS_API_URL', 'https://www.coinpayments.net/api.php');
+    define('COINPAYMENTS_CURRENCY_USDT', 'USDT.BEP20');
+    define('COINPAYMENTS_CURRENCY_USDC', 'USDC.BEP20');
+    define('ADMIN_ID', 1);
 
-    // // account ftp
-    // define('FTP_HOSTNAME', 'remote.piggybankservice.com');
-    // define('FTP_USERNAME', 'pnglobal@remote.piggybankservice.com');
-    // define('FTP_PASSWORD', 'YnTAc)9M;]Y#)*rG');
+    // account ftp
+    define('FTP_HOSTNAME', 'remote.piggybankservice.com');
+    define('FTP_USERNAME', 'pnglobal@remote.piggybankservice.com');
+    define('FTP_PASSWORD', 'YnTAc)9M;]Y#)*rG');
 }
 
 define("FEEMEETING", 'EUR 150');
