@@ -43,7 +43,7 @@
 
       <!-- <a translate="no" href="<?= BASE_URL ?>godmode/dashboard/luxbtc" class="tab-item  <?= $navbar_luxbtc ?? '' ?>">LUX BTC</a>
                 <a translate="no" href="<?= BASE_URL ?>godmode/dashboard/satoshi" class="tab-item <?= $navbar_satoshi ?? '' ?>">SATOSHI</a> -->
-      <a translate="no" href="<?= BASE_URL ?>godmode/dashboard/course" class="tab-item <?= $navbar_course ?? '' ?>">COURSE</a>
+      <!-- <a translate="no" href="<?= BASE_URL ?>godmode/dashboard/course" class="tab-item <?= $navbar_course ?? '' ?>">COURSE</a> -->
           </div>
 
     <!-- Mobile hamburger menu (right corner) -->

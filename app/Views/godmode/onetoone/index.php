@@ -62,6 +62,7 @@
                             <th>EMAIL</th>
                             <th>DATE INVOICE</th>
                             <th>LAST INVOICE</th>
+                            <th>STATUS INVOICE</th>
                             <th>ACTION</th>
                         </tr>
                     </thead>

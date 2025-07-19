@@ -34,13 +34,13 @@
                 <a class="text-white" href="<?= BASE_URL ?>/godmode/onetoone/dashboard">BACK</a>
             </div>
             <div class="col-lg-10 mx-auto">
-                <h4 class="text-center"><?= $member->email ?></h4>
+                <h4 class="text-center"><?= $member ?></h4>
 
                 <div class="row content-body">
                     <div class="col-lg-12 dash-table-referralmember mt-5">
                         <h4 class="text-white my-3 text-uppercase fw-bold">PAYMENT</h4>
 
-                        <table class="table table-striped" style="width:100%">
+                        <table id="tbl__detail_member" class=" table table-striped" style="width:100%">
                             <thead class="thead_referralmember">
                                 <tr>
                                     <th>NO</th>
@@ -49,17 +49,6 @@
                                     <th>INVOICE LINK</th>
                                 </tr>
                             </thead>
-                            <tbody>
-                                <?php $no = 1; ?>
-                                <?php foreach ($payment as $data) : ?>
-                                    <tr>
-                                        <td><?= $no++ ?></td>
-                                        <td><?= $data->status_invoice ?></td>
-                                        <td><?= date('Y-m-d', strtotime($data->invoice_date)) ?></td>
-                                        <td><a href="<?= $data->link_invoice ?>" target="_blank">Invoice Link</a></td>
-                                    </tr>
-                                <?php endforeach; ?>
-                            </tbody>
                         </table>
 
                     </div>

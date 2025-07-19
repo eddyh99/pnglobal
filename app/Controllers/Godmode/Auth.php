@@ -59,7 +59,8 @@ class Auth extends BaseController
         $mdata['password'] = sha1($mdata['password']);
 
         // Proccess Endpoin API
-        $url = URLAPI . "/auth/signin";
+        // $url = URLAPI . "/auth/signin";
+        $url = "http://127.0.0.1:9090/auth/signin";
         $response = satoshiAdmin($url, json_encode($mdata));
         $result = $response->result;
 

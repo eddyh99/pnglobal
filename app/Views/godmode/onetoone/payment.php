@@ -74,19 +74,6 @@
                             </div>
                         </div>
                     </form>
-                    <div class="col-12 mt-2 text-center">
-                        <label class="text-white mt-2">Payment Link</label>
-                        <form action="<?= BASE_URL ?>godmode/onetoone/sendpayment">
-                            <div class="input-group mw-100">
-                                <input type="email" hidden name="email" value="<?= $payment_email ?>">
-                                <input type="text" id="paymentLink" name="paymentlink" class="form-control" style="background-color: transparent;" value="<?= $payment_link ?>" readonly>
-                                <button class="mx-1 btn btn-primary" type="button" id="copyBtn">Copy</button>
-                            </div>
-                            <div class="col-12 my-3 text-center">
-                                <button type="submit" class="btn btn-primary" onclick="this.disabled=true; this.innerText='Sending...'; this.form.submit();">SEND PAYMENT LINK To <?= $payment_email ?></button>
-                            </div>
-                    </div>
-                    </form>
                 </div>
             </div>
         </div>
