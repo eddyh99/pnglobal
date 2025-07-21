@@ -37,13 +37,17 @@
                 searchable: true,
             },
             {
+                title: "invoice_number",
+                data: "invoice_number"
+            }, 
+            {
                 title: "Invoice Date",
                 data: 'invoice_date',
                 searchable: true,
             },
             {
                 title: "Invoice Link",
-                data: 'invoice_link',
+                data: 'link_invoice',
                 render: function(data, type, full, meta) {
                     return `<a href="${data}" target="_blank">View Invoice</a>`;
                 }
