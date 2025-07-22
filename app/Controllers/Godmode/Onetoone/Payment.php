@@ -12,7 +12,7 @@ class Payment extends BaseController
     public function index()
     {
         // Fetching all members for the dropdown
-        $urlListMember = URL_HEDGEFUND . "/apiv1/onetoone/member/";
+        $urlListMember = URL_HEDGEFUND . "/apiv1/onetoone/member";
         $resultMember = satoshiAdmin($urlListMember)->result;
         if (!$resultMember) {
             $resultMember = (object) [
@@ -275,10 +275,11 @@ class Payment extends BaseController
     public function coinpayment_notify()
     {
         $data = $_POST;
-
+        echo URL_HEDGEFUND;
         // NOTE !!! 
         // Issue with $url can read from config (URL_HEDGEFUND) must be set manually
-        $url = 'localhost:8080/apiv1/onetoone/payment';
+        // $url = 'localhost:8082/apiv1/onetoone/payment';
+        $url = URL_HEDGEFUND . '/apiv1/onetoone/payment';
 
         log_message('info', "================= IPN MASUK =================");
         log_message('info', "URL API Target: " . $url);

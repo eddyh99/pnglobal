@@ -110,8 +110,8 @@ $host = $_SERVER['HTTP_HOST']; // e.g., sandbox.satoshisignal.app
 $parts = explode('.', $host);
 if ($parts[0] === 'sandbox' || preg_match('/^(localhost|127\.0\.0\.1):808[0-5]$/', $host)) {
     if (preg_match('/^(localhost|127\.0\.0\.1):808[0-5]$/', $host)) {
-        define("URLAPI", 'http://127.0.0.1:9090');
-        define("URL_HEDGEFUND", 'http://localhost:8080');
+        define("URLAPI", 'http://127.0.0.1:8081');
+        define("URL_HEDGEFUND", 'http://localhost:8082');
         define("URL_COURSE", 'http://127.0.0.1:9091');
     } else {
         define("URLAPI", 'https://api2-sandbox.pnglobalinternational.com');
