@@ -120,7 +120,7 @@ class Payment extends BaseController
                     log_message('error', 'Gagal mengirim email ke ' . $mdata['buyer_email']);
                 }
 
-                Set flashdata for payment link
+                // Set flashdata for payment link
                 session()->setFlashdata('paymentlink', $paymentResponse['result']['checkout_url']);
                 session()->setFlashdata('payment_email', $mdata['buyer_email']);
                 session()->setFlashdata('success', 'Payment link created successfully and sent to ' . $mdata['buyer_email']);
