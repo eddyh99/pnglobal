@@ -113,7 +113,7 @@ if ($parts[0] === 'sandbox' || preg_match('/^(localhost|127\.0\.0\.1):808[0-5]$/
         define("URLAPI", 'http://127.0.0.1:9090');
         define("URL_HEDGEFUND", 'http://localhost:8080');
         define("URL_COURSE", 'http://127.0.0.1:9091');
-    }else{
+    } else {
         define("URLAPI", 'https://api2-sandbox.pnglobalinternational.com');
         define("URLAPI2", 'https://sandbox-api.pnglobalinternational.com');
         define("URL_HEDGEFUND", 'https://elite-sandbox.pnglobalinternational.com');
@@ -127,8 +127,8 @@ if ($parts[0] === 'sandbox' || preg_match('/^(localhost|127\.0\.0\.1):808[0-5]$/
     define("PUBLIC_KEY", 'pk_test_51Ph1A4RpjQaOZ7NCQcbJtlXTgcbQm5ulhsm1YgkkfS5LHvHKVZ79p1qP0lOJaxz1XsDMpALi1aUeoxocxD6Can5900DCqNrIHS');
     define("SECRET_KEY", 'sk_test_51Ph1A4RpjQaOZ7NCuVCzdyyy342tNGnlrfnDyox5YirDorblTYDPP7dXK9K4fGqJazDRwyReh9HnLf5MWS7hOUsA00GtKiFgQQ');
 
-    define('COINPAYMENTS_PUBLIC_KEY', '8503326e825f902ff24f060bc9dd0168d36f18b78c56b87c7bf720cfe75d9b88');
-    define('COINPAYMENTS_PRIVATE_KEY', 'aAd98103338EFC1e073Fa8fbbbe43255372642D24fcE966c2317021D6267d466');
+    define('COINPAYMENTS_PUBLIC_KEY', '75778c0cf11a30ed2cf720ceeebf8dc4bb3de193af8107f7c969b127cabe5ec4');
+    define('COINPAYMENTS_PRIVATE_KEY', 'A6a373339Ef14aC177d8217694AB3afD26bcB769aEA1e8e63179e5ac858aA64f');
     define('COINPAYMENTS_API_URL', 'https://www.coinpayments.net/api.php');
     define('COINPAYMENTS_CURRENCY_USDT', 'LTCT');
     define('COINPAYMENTS_CURRENCY_USDC', 'LTCT');

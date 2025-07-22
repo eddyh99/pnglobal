@@ -2,9 +2,10 @@
 
 namespace App\Controllers\Godmode\Onetoone;
 
+use Config\Services;
+use Hashids\Hashids;
 use App\Controllers\BaseController;
 use App\Models\MemberOnetoOneModel;
-use Config\Services;
 
 class Payment extends BaseController
 {
@@ -73,12 +74,21 @@ class Payment extends BaseController
         $description = htmlspecialchars($this->request->getVar('description'));
         $email       = htmlspecialchars($this->request->getVar('email'));
 
+        // Membuat invoice number
+        $salt = hash('sha256', $nominal . $description . $email . microtime(true));
+        $CreateInvoiceNumber = new Hashids($salt, 6);
+
         $mdata = array(
             "amount"       => $nominal,
-            "currency"      => in_array($currency, ['usdt', 'usdc']) ? $currency . '.bep20' : $currency,
+            // "currency"      => in_array($currency, ['usdt', 'usdc']) ? $currency . '.bep20' : $currency,
+            "currency" => match (strtolower($currency)) {
+                'usdt' => COINPAYMENTS_CURRENCY_USDT,
+                'usdc' => COINPAYMENTS_CURRENCY_USDC,
+                default => $currency,
+            },
             "buyer_email"   => $email,
             "description"   => $description ?: 'One To One Payment',
-            "invoiceNumber" => 'INV-' . date('YmdHis') . '-' . strtoupper(substr(md5(uniqid()), 0, 6))
+            "invoiceNumber" => $CreateInvoiceNumber->encode(1, 2, 3)
         );
 
         switch ($currency) {
@@ -91,15 +101,16 @@ class Payment extends BaseController
                 }
                 // dd($paymentResponse);
                 $paymentlink = $paymentResponse['result']['checkout_url'];
-                $invoiceID = $paymentResponse['result']['txn_id'];
+                $invoiceID = $mdata['invoiceNumber'];
                 $amount = $mdata['amount'] . ' ' . strtoupper($currency);
                 $timeoutInResultSecond = $paymentResponse['result']['timeout'];
                 $paymenttimeout = date('Y-m-d H:i:s', time() + $timeoutInResultSecond);
 
                 // Save invoice to API
-                $invoiceResponse = $this->saveInvoiceToApi($mdata['buyer_email'], $paymentlink);
+                $invoiceResponse = $this->saveInvoiceToApi($mdata['buyer_email'], $paymentlink, $invoiceID);
                 if (!$invoiceResponse) {
-                    session()->setFlashdata('failed', 'Failed to save invoice to API');
+                    session()->setFlashdata('failed', 'Failed to save invoice to API'. $invoiceResponse);
+                    dd($invoiceResponse, $mdata['buyer_email'], $paymentlink, $invoiceID);
                     return redirect()->to(BASE_URL . 'godmode/onetoone/payment')->withInput();
                 }
 
@@ -109,28 +120,33 @@ class Payment extends BaseController
                     log_message('error', 'Gagal mengirim email ke ' . $mdata['buyer_email']);
                 }
 
-                // Set flashdata for payment link
+                Set flashdata for payment link
                 session()->setFlashdata('paymentlink', $paymentResponse['result']['checkout_url']);
                 session()->setFlashdata('payment_email', $mdata['buyer_email']);
                 session()->setFlashdata('success', 'Payment link created successfully and sent to ' . $mdata['buyer_email']);
+                session()->setFlashdata([
+                    'paymentlink'    => $paymentResponse['result']['checkout_url'],
+                    'payment_email'  => $mdata['buyer_email'],
+                    'success'        => 'Payment link created successfully and sent to ' . $mdata['buyer_email']
+                ]);
+
                 return redirect()->to(BASE_URL . 'godmode/onetoone/payment')->withInput();
             case 'stripe':
                 $amount = $mdata['amount'] . ' ' . strtoupper($currency);
                 dd($amount);
-                // $stripeUrl = $this->createStripePayment($mdata);
-                // if (!$stripeUrl) {
-                //     return redirect()->to(base_url('godmode/onetoone/payment'))->withInput();
-                // }
-                // dd($stripeUrl);
+                $stripeUrl = $this->createStripePayment($mdata);
+                if (!$stripeUrl) {
+                    return redirect()->to(base_url('godmode/onetoone/payment'))->withInput();
+                }
+                dd($stripeUrl);
 
-                // // Kirim email setelah link berhasil dibuat
-                // $this->sendpayment($mdata['buyer_email'], $stripeUrl);
+                // Kirim email setelah link berhasil dibuat
+                $this->sendpayment($mdata['buyer_email'], $stripeUrl);
 
-                // session()->setFlashdata('payment_email', $mdata['buyer_email']);
-                // session()->setFlashdata('paymentlink', $stripeUrl);
-                // session()->setFlashdata('success', 'Payment link created successfully');
-                // return redirect()->to(BASE_URL .  'godmode/onetoone/payment')->withInput();
-
+                session()->setFlashdata('payment_email', $mdata['buyer_email']);
+                session()->setFlashdata('paymentlink', $stripeUrl);
+                session()->setFlashdata('success', 'Payment link created successfully');
+                return redirect()->to(BASE_URL .  'godmode/onetoone/payment')->withInput();
             case 'banktransfer':
                 session()->setFlashdata('paymentlink', 123);
                 return redirect()->to(BASE_URL . 'godmode/onetoone/payment')->withInput();
@@ -153,9 +169,11 @@ class Payment extends BaseController
             'buyer_email' => $mdata['buyer_email'],
             'item_name'  => $mdata['description'],
             'key'        => $publicKey,
-            'ipn_url'    => base_url() . 'course/auth/coinpayment_notify',
-            'success_url' => base_url() . 'course/login/member',
-            'cancel_url' => base_url() . 'course/login/member',
+            //NOTE : Pastikan ipn_url bisa diakses oleh CoinPayments
+            'ipn_url'    => base_url() . 'godmode/onetoone/payment/coinpayment_notify',
+            // 'ipn_url'    => 'https://8bc8d9784c03.ngrok-free.app/godmode/onetoone/payment/coinpayment_notify',
+            'success_url' => base_url() . 'godmode/onetoone/payment/',
+            'cancel_url' => base_url() . 'godmode/onetoone/payment/',
             'version'    => 1,
             'format'     => 'json',
             'nonce'       => $nonce
@@ -175,13 +193,11 @@ class Payment extends BaseController
 
         $response = curl_exec($ch);
 
-
         if (curl_errno($ch)) {
             return 'Curl error: ' . curl_error($ch);
         }
 
         curl_close($ch);
-        log_message('error', "COIN PAYMENT" . json_encode($response));
         return json_decode($response, true);
     }
 
@@ -225,7 +241,7 @@ class Payment extends BaseController
         }
     }
 
-    private function saveInvoiceToApi($email, $link_invoice)
+    private function saveInvoiceToApi($email, $link_invoice, $invoiceID)
     {
         $client = \Config\Services::curlrequest(); // CI HTTP Client
 
@@ -233,11 +249,12 @@ class Payment extends BaseController
             'email'         => $email,
             'status_invoice'=> "unpaid",
             'link_invoice'  => $link_invoice,
-            'invoice_date'  => date('Y-m-d H:i:s'),
+            'invoice_number'    => $invoiceID,
+            'invoice_date'  => date('Y-m-d H:i:s')
         ];
 
         try {
-            $url = URL_HEDGEFUND . '/apiv1/onetoone/payment/';
+            $url = URL_HEDGEFUND . '/apiv1/onetoone/payment';
             $response = $client->post($url, [
                 'json' => $payload,
                 'headers' => [
@@ -255,53 +272,118 @@ class Payment extends BaseController
         }
     }
 
-    // public function sendpayment($email, $paymentlink)
-    // {
-    //     $title   = 'Payment Request';
-    //     $subject = 'Please Complete Your Payment';
-    //     // log_message('debug', 'Sending email to: ' . $email);
-    //     // Template email
-    //     $emailTemplate = emailtemplate_payment_onetoone($paymentlink);
-    //     // log_message('debug', 'Sendmail result: ' . var_export($emailTemplate, true));
-
-    //     // Kirim email
-    //     return sendmail_satoshi($email, $subject, $emailTemplate, $title, USERNAME_MAIL);
-    // }
-
-    public function sendpayment($email, $paymentlink, $invoiceID, $amount, $paymenttimeout)
+    public function coinpayment_notify()
     {
-        $title   = 'Payment Request';
-        $subject = 'Please Complete Your Payment';
-        $emailTemplate = emailtemplate_payment_onetoone($paymentlink, $amount, $paymenttimeout, $invoiceID);
+        $data = $_POST;
+
+        // NOTE !!! 
+        // Issue with $url can read from config (URL_HEDGEFUND) must be set manually
+        $url = 'localhost:8080/apiv1/onetoone/payment';
+
+        log_message('info', "================= IPN MASUK =================");
+        log_message('info', "URL API Target: " . $url);
+        log_message('info', "Waktu Diterima: " . date('Y-m-d H:i:s'));
+        log_message('info', "Data CoinPayments:\n" . json_encode($data, JSON_PRETTY_PRINT));
+        log_message('info', "=============================================");
+
+        // Validasi status payment
+        if (isset($data["status"]) && $data["status"] === "100") {
+
+            $invoiceNumber = $data['invoice'] ?? null;
+
+            // Tentukan status pembayaran
+            $statusPayment = (!empty($data['status_text']) && strtolower($data['status_text']) === 'complete')
+                ? 'paid'
+                : 'unpaid';
+
+            // Payload untuk update status
+            $postData = [
+                'invoice_number' => $invoiceNumber,
+                'status_payment' => $statusPayment
+            ];
+
+            log_message('info', "Mengirim update status payment ke API: {$url}");
+
+            // CURL request ke internal API
+            $ch = curl_init($url);
+            curl_setopt_array($ch, [
+                CURLOPT_CUSTOMREQUEST  => "PUT",
+                CURLOPT_POSTFIELDS     => json_encode($postData),
+                CURLOPT_RETURNTRANSFER => true,
+                CURLOPT_HTTPHEADER     => [
+                    'Content-Type: application/json',
+                    'Content-Length: ' . strlen(json_encode($postData))
+                ]
+            ]);
+
+            $response  = curl_exec($ch);
+            $httpCode  = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+            $curlError = curl_error($ch);
+            curl_close($ch);
+
+            // Logging hasil CURL
+            if ($curlError) {
+                log_message('error', "CURL ERROR: " . $curlError);
+            }
+
+            log_message('info', "Response dari API: " . $response);
+            log_message('info', "Payload Dikirim:\n" . json_encode($postData, JSON_PRETTY_PRINT));
+            log_message('info', "HTTP Code: " . $httpCode);
+            $sendNotifyEmail = $this->sendpaymentstatus($data['email'], $invoiceNumber);
+        } else {
+            log_message('info', "Status bukan 100 atau tidak valid, IPN diabaikan.");
+        }
+
+        // Response ke CoinPayments wajib
+        echo 'IPN OK';
+    }
+
+    function sendEmail($to, $subject, $title, $htmlBody)
+    {
         $mail = new \PHPMailer\PHPMailer\PHPMailer(true);
 
         try {
-            // Konfigurasi SMTP langsung di sini
             $mail->isSMTP();
-            $mail->Host       = 'sandbox.smtp.mailtrap.io';     // <-- Ganti sesuai mailtrap
+            $mail->Host       = 'sandbox.smtp.mailtrap.io';
             $mail->SMTPAuth   = true;
-            $mail->Username   = 'df6cfe30efaae2'; // <-- Ganti
-            $mail->Password   = 'bcc05333a927ee'; // <-- Ganti
+            $mail->Username   = 'df6cfe30efaae2';
+            $mail->Password   = 'bcc05333a927ee';
             $mail->SMTPSecure = 'tls';
             $mail->Port       = 587;
 
-            // Email pengirim dan penerima
             $mail->setFrom('no-reply@example.com', $title);
-            $mail->addAddress($email);
+            $mail->addAddress($to);
 
-            // Format email
             $mail->isHTML(true);
             $mail->Subject = $subject;
-            $mail->Body    = $emailTemplate;
+            $mail->Body    = $htmlBody;
 
-            // Kirim email
             $mail->send();
 
-            log_message('info', 'Email sent to: ' . $email);
+            log_message('info', 'Email sent to: ' . $to);
             return true;
         } catch (\Exception $e) {
             log_message('error', 'Email sending failed: ' . $mail->ErrorInfo);
             return false;
         }
     }
+
+    public function sendpayment($email, $paymentlink, $invoiceID, $amount, $paymenttimeout)
+    {
+        $title         = 'Payment Request';
+        $subject       = 'Please Complete Your Payment';
+        $emailTemplate = emailtemplate_payment_onetoone($paymentlink, $amount, $paymenttimeout, $invoiceID);
+
+        return $this->sendEmail($email, $subject, $title, $emailTemplate);
+    }
+
+    public function sendpaymentstatus($email, $invoiceID)
+    {
+        $title         = 'Payment Status Success';
+        $subject       = 'Your Payment Status';
+        $emailTemplate = emailtemplate_paymentstatus_onetoone($invoiceID);
+
+        return $this->sendEmail($email, $subject, $title, $emailTemplate);
+    }
+
 }

@@ -87,8 +87,7 @@ function get_coinpayments_nonce(): int
     // Detect sandbox or localhost
     $host = $_SERVER['HTTP_HOST'] ?? '';
     $parts = explode('.', $host);
-    $isSandbox = ($parts[0] === 'sandbox' || $host === 'localhost:8080');
-
+    $isSandbox = ($parts[0] === 'sandbox' || preg_match('/^localhost:(808[0-5])$/', $host));
     // Use separate file for each environment
     $fileName = $isSandbox ? 'coinpayments_nonce_sandbox.txt' : 'coinpayments_nonce_live.txt';
     $filePath = WRITEPATH . $fileName;
