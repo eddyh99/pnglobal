@@ -352,4 +352,70 @@ class Auth extends BaseController
             session()->setFlashdata('failed', 'Failed to update satoshi account password.');
         }
     }
+
+	public function coinpayment_notify()
+	{
+		$data = $_POST;
+		// NOTE !!! 
+		// Issue with $url can read from config (URL_HEDGEFUND) must be set manually
+		// $url = 'localhost:8082/apiv1/onetoone/payment';
+		$url = URL_HEDGEFUND . '/apiv1/onetoone/payment';
+		
+		log_message('info', "================= IPN MASUK =================");
+		log_message('info', "URL API Target: " . $url);
+		log_message('info', "Waktu Diterima: " . date('Y-m-d H:i:s'));
+		log_message('info', "Data CoinPayments:\n" . json_encode($data, JSON_PRETTY_PRINT));
+		log_message('info', "=============================================");
+
+		// Validasi status payment
+		if (isset($data["status"]) && $data["status"] === "100") {
+
+			$invoiceNumber = $data['invoice'] ?? null;
+
+			// Tentukan status pembayaran
+			$statusPayment = (!empty($data['status_text']) && strtolower($data['status_text']) === 'complete')
+				? 'paid'
+				: 'unpaid';
+
+			// Payload untuk update status
+			$postData = [
+				'invoice_number' => $invoiceNumber,
+				'status_payment' => $statusPayment
+			];
+
+			log_message('info', "Mengirim update status payment ke API: {$url}");
+
+			// CURL request ke internal API
+			$ch = curl_init($url);
+			curl_setopt_array($ch, [
+				CURLOPT_CUSTOMREQUEST  => "PUT",
+				CURLOPT_POSTFIELDS     => json_encode($postData),
+				CURLOPT_RETURNTRANSFER => true,
+				CURLOPT_HTTPHEADER     => [
+					'Content-Type: application/json',
+					'Content-Length: ' . strlen(json_encode($postData))
+				]
+			]);
+
+			$response  = curl_exec($ch);
+			$httpCode  = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+			$curlError = curl_error($ch);
+			curl_close($ch);
+
+			// Logging hasil CURL
+			if ($curlError) {
+				log_message('error', "CURL ERROR: " . $curlError);
+			}
+
+			log_message('info', "Response dari API: " . $response);
+			log_message('info', "Payload Dikirim:\n" . json_encode($postData, JSON_PRETTY_PRINT));
+			log_message('info', "HTTP Code: " . $httpCode);
+			$sendNotifyEmail = $this->sendpaymentstatus($data['email'], $invoiceNumber);
+		} else {
+			log_message('info', "Status bukan 100 atau tidak valid, IPN diabaikan.");
+		}
+
+		// Response ke CoinPayments wajib
+		echo 'IPN OK';
+	}
 }

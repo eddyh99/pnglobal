@@ -9,6 +9,28 @@ use App\Models\MemberOnetoOneModel;
 
 class Payment extends BaseController
 {
+
+    public function __construct()
+    {
+        $session = session();
+        $loggedUser = $session->get('logged_user');
+
+        // Jika belum login, redirect ke halaman signin
+        if (!$session->has('logged_user')) {
+            header("Location: " . BASE_URL . 'godmode/auth/signin');
+            exit();
+        }
+
+
+        // Pengecekan role: hanya admin yang boleh mengakses halaman ini
+        if ($loggedUser->role == 'member') {
+            session()->setFlashdata('failed', "You don't have access to this page");
+            $session->remove('logged_user');
+            header("Location: " . BASE_URL . 'godmode/auth/signin');
+            exit();
+        }
+    }
+
     public function index()
     {
         // Fetching all members for the dropdown
@@ -109,7 +131,7 @@ class Payment extends BaseController
                 // Save invoice to API
                 $invoiceResponse = $this->saveInvoiceToApi($mdata['buyer_email'], $paymentlink, $invoiceID);
                 if (!$invoiceResponse) {
-                    session()->setFlashdata('failed', 'Failed to save invoice to API'. $invoiceResponse);
+                    session()->setFlashdata('failed', 'Failed to save invoice to API' . $invoiceResponse);
                     dd($invoiceResponse, $mdata['buyer_email'], $paymentlink, $invoiceID);
                     return redirect()->to(BASE_URL . 'godmode/onetoone/payment')->withInput();
                 }
@@ -170,10 +192,10 @@ class Payment extends BaseController
             'item_name'  => $mdata['description'],
             'key'        => $publicKey,
             //NOTE : Pastikan ipn_url bisa diakses oleh CoinPayments
-            'ipn_url'    => base_url() . 'godmode/onetoone/payment/coinpayment_notify',
-            // 'ipn_url'    => 'https://8bc8d9784c03.ngrok-free.app/godmode/onetoone/payment/coinpayment_notify',
-            'success_url' => base_url() . 'godmode/onetoone/payment/',
-            'cancel_url' => base_url() . 'godmode/onetoone/payment/',
+            'ipn_url'    => base_url() . 'godmode/auth/coinpayment_notify',
+            // 'ipn_url'    => 'https://a28bb0a240a3.ngrok-free.app/godmode/auth/coinpayment_notify',
+            'success_url' => base_url() . 'godmode/onetoone/payment',
+            'cancel_url' => base_url() . 'godmode/onetoone/payment',
             'version'    => 1,
             'format'     => 'json',
             'nonce'       => $nonce
@@ -247,7 +269,7 @@ class Payment extends BaseController
 
         $payload = [
             'email'         => $email,
-            'status_invoice'=> "unpaid",
+            'status_invoice' => "unpaid",
             'link_invoice'  => $link_invoice,
             'invoice_number'    => $invoiceID,
             'invoice_date'  => date('Y-m-d H:i:s')
@@ -270,73 +292,6 @@ class Payment extends BaseController
             log_message('error', 'Error saving invoice: ' . $e->getMessage());
             return null;
         }
-    }
-
-    public function coinpayment_notify()
-    {
-        $data = $_POST;
-        echo URL_HEDGEFUND;
-        // NOTE !!! 
-        // Issue with $url can read from config (URL_HEDGEFUND) must be set manually
-        // $url = 'localhost:8082/apiv1/onetoone/payment';
-        $url = URL_HEDGEFUND . '/apiv1/onetoone/payment';
-
-        log_message('info', "================= IPN MASUK =================");
-        log_message('info', "URL API Target: " . $url);
-        log_message('info', "Waktu Diterima: " . date('Y-m-d H:i:s'));
-        log_message('info', "Data CoinPayments:\n" . json_encode($data, JSON_PRETTY_PRINT));
-        log_message('info', "=============================================");
-
-        // Validasi status payment
-        if (isset($data["status"]) && $data["status"] === "100") {
-
-            $invoiceNumber = $data['invoice'] ?? null;
-
-            // Tentukan status pembayaran
-            $statusPayment = (!empty($data['status_text']) && strtolower($data['status_text']) === 'complete')
-                ? 'paid'
-                : 'unpaid';
-
-            // Payload untuk update status
-            $postData = [
-                'invoice_number' => $invoiceNumber,
-                'status_payment' => $statusPayment
-            ];
-
-            log_message('info', "Mengirim update status payment ke API: {$url}");
-
-            // CURL request ke internal API
-            $ch = curl_init($url);
-            curl_setopt_array($ch, [
-                CURLOPT_CUSTOMREQUEST  => "PUT",
-                CURLOPT_POSTFIELDS     => json_encode($postData),
-                CURLOPT_RETURNTRANSFER => true,
-                CURLOPT_HTTPHEADER     => [
-                    'Content-Type: application/json',
-                    'Content-Length: ' . strlen(json_encode($postData))
-                ]
-            ]);
-
-            $response  = curl_exec($ch);
-            $httpCode  = curl_getinfo($ch, CURLINFO_HTTP_CODE);
-            $curlError = curl_error($ch);
-            curl_close($ch);
-
-            // Logging hasil CURL
-            if ($curlError) {
-                log_message('error', "CURL ERROR: " . $curlError);
-            }
-
-            log_message('info', "Response dari API: " . $response);
-            log_message('info', "Payload Dikirim:\n" . json_encode($postData, JSON_PRETTY_PRINT));
-            log_message('info', "HTTP Code: " . $httpCode);
-            $sendNotifyEmail = $this->sendpaymentstatus($data['email'], $invoiceNumber);
-        } else {
-            log_message('info', "Status bukan 100 atau tidak valid, IPN diabaikan.");
-        }
-
-        // Response ke CoinPayments wajib
-        echo 'IPN OK';
     }
 
     function sendEmail($to, $subject, $title, $htmlBody)
@@ -386,5 +341,4 @@ class Payment extends BaseController
 
         return $this->sendEmail($email, $subject, $title, $emailTemplate);
     }
-
 }
