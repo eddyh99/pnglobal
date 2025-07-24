@@ -2,16 +2,39 @@
 
 namespace App\Controllers\Godmode\Onetoone;
 
+use Config\Services;
+use Hashids\Hashids;
 use App\Controllers\BaseController;
 use App\Models\MemberOnetoOneModel;
-use Config\Services;
 
 class Payment extends BaseController
 {
+
+    public function __construct()
+    {
+        $session = session();
+        $loggedUser = $session->get('logged_user');
+
+        // Jika belum login, redirect ke halaman signin
+        if (!$session->has('logged_user')) {
+            header("Location: " . BASE_URL . 'godmode/auth/signin');
+            exit();
+        }
+
+
+        // Pengecekan role: hanya admin yang boleh mengakses halaman ini
+        if ($loggedUser->role == 'member') {
+            session()->setFlashdata('failed', "You don't have access to this page");
+            $session->remove('logged_user');
+            header("Location: " . BASE_URL . 'godmode/auth/signin');
+            exit();
+        }
+    }
+
     public function index()
     {
         // Fetching all members for the dropdown
-        $urlListMember = URL_HEDGEFUND . "/apiv1/onetoone/member/";
+        $urlListMember = URL_HEDGEFUND . "/apiv1/onetoone/member";
         $resultMember = satoshiAdmin($urlListMember)->result;
         if (!$resultMember) {
             $resultMember = (object) [
@@ -73,12 +96,21 @@ class Payment extends BaseController
         $description = htmlspecialchars($this->request->getVar('description'));
         $email       = htmlspecialchars($this->request->getVar('email'));
 
+        // Membuat invoice number
+        $salt = hash('sha256', $nominal . $description . $email . microtime(true));
+        $CreateInvoiceNumber = new Hashids($salt, 6);
+
         $mdata = array(
             "amount"       => $nominal,
-            "currency"      => in_array($currency, ['usdt', 'usdc']) ? $currency . '.bep20' : $currency,
+            // "currency"      => in_array($currency, ['usdt', 'usdc']) ? $currency . '.bep20' : $currency,
+            "currency" => match (strtolower($currency)) {
+                'usdt' => COINPAYMENTS_CURRENCY_USDT,
+                'usdc' => COINPAYMENTS_CURRENCY_USDC,
+                default => $currency,
+            },
             "buyer_email"   => $email,
             "description"   => $description ?: 'One To One Payment',
-            "invoiceNumber" => 'INV-' . date('YmdHis') . '-' . strtoupper(substr(md5(uniqid()), 0, 6))
+            "invoiceNumber" => $CreateInvoiceNumber->encode(1, 2, 3)
         );
 
         switch ($currency) {
@@ -91,15 +123,16 @@ class Payment extends BaseController
                 }
                 // dd($paymentResponse);
                 $paymentlink = $paymentResponse['result']['checkout_url'];
-                $invoiceID = $paymentResponse['result']['txn_id'];
+                $invoiceID = $mdata['invoiceNumber'];
                 $amount = $mdata['amount'] . ' ' . strtoupper($currency);
                 $timeoutInResultSecond = $paymentResponse['result']['timeout'];
                 $paymenttimeout = date('Y-m-d H:i:s', time() + $timeoutInResultSecond);
 
                 // Save invoice to API
-                $invoiceResponse = $this->saveInvoiceToApi($mdata['buyer_email'], $paymentlink);
+                $invoiceResponse = $this->saveInvoiceToApi($mdata['buyer_email'], $paymentlink, $invoiceID);
                 if (!$invoiceResponse) {
-                    session()->setFlashdata('failed', 'Failed to save invoice to API');
+                    session()->setFlashdata('failed', 'Failed to save invoice to API' . $invoiceResponse);
+                    dd($invoiceResponse, $mdata['buyer_email'], $paymentlink, $invoiceID);
                     return redirect()->to(BASE_URL . 'godmode/onetoone/payment')->withInput();
                 }
 
@@ -113,24 +146,29 @@ class Payment extends BaseController
                 session()->setFlashdata('paymentlink', $paymentResponse['result']['checkout_url']);
                 session()->setFlashdata('payment_email', $mdata['buyer_email']);
                 session()->setFlashdata('success', 'Payment link created successfully and sent to ' . $mdata['buyer_email']);
+                session()->setFlashdata([
+                    'paymentlink'    => $paymentResponse['result']['checkout_url'],
+                    'payment_email'  => $mdata['buyer_email'],
+                    'success'        => 'Payment link created successfully and sent to ' . $mdata['buyer_email']
+                ]);
+
                 return redirect()->to(BASE_URL . 'godmode/onetoone/payment')->withInput();
             case 'stripe':
                 $amount = $mdata['amount'] . ' ' . strtoupper($currency);
                 dd($amount);
-                // $stripeUrl = $this->createStripePayment($mdata);
-                // if (!$stripeUrl) {
-                //     return redirect()->to(base_url('godmode/onetoone/payment'))->withInput();
-                // }
-                // dd($stripeUrl);
+                $stripeUrl = $this->createStripePayment($mdata);
+                if (!$stripeUrl) {
+                    return redirect()->to(base_url('godmode/onetoone/payment'))->withInput();
+                }
+                dd($stripeUrl);
 
-                // // Kirim email setelah link berhasil dibuat
-                // $this->sendpayment($mdata['buyer_email'], $stripeUrl);
+                // Kirim email setelah link berhasil dibuat
+                $this->sendpayment($mdata['buyer_email'], $stripeUrl);
 
-                // session()->setFlashdata('payment_email', $mdata['buyer_email']);
-                // session()->setFlashdata('paymentlink', $stripeUrl);
-                // session()->setFlashdata('success', 'Payment link created successfully');
-                // return redirect()->to(BASE_URL .  'godmode/onetoone/payment')->withInput();
-
+                session()->setFlashdata('payment_email', $mdata['buyer_email']);
+                session()->setFlashdata('paymentlink', $stripeUrl);
+                session()->setFlashdata('success', 'Payment link created successfully');
+                return redirect()->to(BASE_URL .  'godmode/onetoone/payment')->withInput();
             case 'banktransfer':
                 session()->setFlashdata('paymentlink', 123);
                 return redirect()->to(BASE_URL . 'godmode/onetoone/payment')->withInput();
@@ -153,9 +191,11 @@ class Payment extends BaseController
             'buyer_email' => $mdata['buyer_email'],
             'item_name'  => $mdata['description'],
             'key'        => $publicKey,
-            'ipn_url'    => base_url() . 'course/auth/coinpayment_notify',
-            'success_url' => base_url() . 'course/login/member',
-            'cancel_url' => base_url() . 'course/login/member',
+            //NOTE : Pastikan ipn_url bisa diakses oleh CoinPayments
+            'ipn_url'    => base_url() . 'godmode/auth/coinpayment_notify',
+            // 'ipn_url'    => 'https://a28bb0a240a3.ngrok-free.app/godmode/auth/coinpayment_notify',
+            'success_url' => base_url() . 'godmode/onetoone/payment',
+            'cancel_url' => base_url() . 'godmode/onetoone/payment',
             'version'    => 1,
             'format'     => 'json',
             'nonce'       => $nonce
@@ -175,13 +215,11 @@ class Payment extends BaseController
 
         $response = curl_exec($ch);
 
-
         if (curl_errno($ch)) {
             return 'Curl error: ' . curl_error($ch);
         }
 
         curl_close($ch);
-        log_message('error', "COIN PAYMENT" . json_encode($response));
         return json_decode($response, true);
     }
 
@@ -225,19 +263,20 @@ class Payment extends BaseController
         }
     }
 
-    private function saveInvoiceToApi($email, $link_invoice)
+    private function saveInvoiceToApi($email, $link_invoice, $invoiceID)
     {
         $client = \Config\Services::curlrequest(); // CI HTTP Client
 
         $payload = [
             'email'         => $email,
-            'status_invoice'=> "unpaid",
+            'status_invoice' => "unpaid",
             'link_invoice'  => $link_invoice,
-            'invoice_date'  => date('Y-m-d H:i:s'),
+            'invoice_number'    => $invoiceID,
+            'invoice_date'  => date('Y-m-d H:i:s')
         ];
 
         try {
-            $url = URL_HEDGEFUND . '/apiv1/onetoone/payment/';
+            $url = URL_HEDGEFUND . '/apiv1/onetoone/payment';
             $response = $client->post($url, [
                 'json' => $payload,
                 'headers' => [
@@ -255,53 +294,51 @@ class Payment extends BaseController
         }
     }
 
-    // public function sendpayment($email, $paymentlink)
-    // {
-    //     $title   = 'Payment Request';
-    //     $subject = 'Please Complete Your Payment';
-    //     // log_message('debug', 'Sending email to: ' . $email);
-    //     // Template email
-    //     $emailTemplate = emailtemplate_payment_onetoone($paymentlink);
-    //     // log_message('debug', 'Sendmail result: ' . var_export($emailTemplate, true));
-
-    //     // Kirim email
-    //     return sendmail_satoshi($email, $subject, $emailTemplate, $title, USERNAME_MAIL);
-    // }
-
-    public function sendpayment($email, $paymentlink, $invoiceID, $amount, $paymenttimeout)
+    function sendEmail($to, $subject, $title, $htmlBody)
     {
-        $title   = 'Payment Request';
-        $subject = 'Please Complete Your Payment';
-        $emailTemplate = emailtemplate_payment_onetoone($paymentlink, $amount, $paymenttimeout, $invoiceID);
         $mail = new \PHPMailer\PHPMailer\PHPMailer(true);
 
         try {
-            // Konfigurasi SMTP langsung di sini
             $mail->isSMTP();
-            $mail->Host       = 'sandbox.smtp.mailtrap.io';     // <-- Ganti sesuai mailtrap
+            $mail->Host       = 'sandbox.smtp.mailtrap.io';
             $mail->SMTPAuth   = true;
-            $mail->Username   = 'df6cfe30efaae2'; // <-- Ganti
-            $mail->Password   = 'bcc05333a927ee'; // <-- Ganti
+            $mail->Username   = 'df6cfe30efaae2';
+            $mail->Password   = 'bcc05333a927ee';
             $mail->SMTPSecure = 'tls';
             $mail->Port       = 587;
 
-            // Email pengirim dan penerima
             $mail->setFrom('no-reply@example.com', $title);
-            $mail->addAddress($email);
+            $mail->addAddress($to);
 
-            // Format email
             $mail->isHTML(true);
             $mail->Subject = $subject;
-            $mail->Body    = $emailTemplate;
+            $mail->Body    = $htmlBody;
 
-            // Kirim email
             $mail->send();
 
-            log_message('info', 'Email sent to: ' . $email);
+            log_message('info', 'Email sent to: ' . $to);
             return true;
         } catch (\Exception $e) {
             log_message('error', 'Email sending failed: ' . $mail->ErrorInfo);
             return false;
         }
+    }
+
+    public function sendpayment($email, $paymentlink, $invoiceID, $amount, $paymenttimeout)
+    {
+        $title         = 'Payment Request';
+        $subject       = 'Please Complete Your Payment';
+        $emailTemplate = emailtemplate_payment_onetoone($paymentlink, $amount, $paymenttimeout, $invoiceID);
+
+        return $this->sendEmail($email, $subject, $title, $emailTemplate);
+    }
+
+    public function sendpaymentstatus($email, $invoiceID)
+    {
+        $title         = 'Payment Status Success';
+        $subject       = 'Your Payment Status';
+        $emailTemplate = emailtemplate_paymentstatus_onetoone($invoiceID);
+
+        return $this->sendEmail($email, $subject, $title, $emailTemplate);
     }
 }

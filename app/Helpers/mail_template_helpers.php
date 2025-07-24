@@ -822,3 +822,73 @@ function emailtemplate_payment_onetoone($paymentlink, $amount, $paymenttimeout, 
     </body>
     </html>";
 }
+
+function emailtemplate_paymentstatus_onetoone($invoiceID){
+    return "
+    <!DOCTYPE html>
+    <html lang='en'>
+    <head>
+        <meta name='color-scheme' content='light'>
+        <meta name='supported-color-schemes' content='light'>
+        <title>PN Global Course - Payment Success</title>
+    </head>
+    <body>
+        <div style='
+            max-width: 420px;
+            margin: 0 auto;
+            position: relative;
+            padding: 1rem;
+            font-family: Arial, sans-serif;
+        '>
+            <div style='
+                padding: 2rem 1rem;
+                text-align: left;
+            '>
+                <p style='
+                    font-size: 16px;
+                    color: #000000;
+                    margin-bottom: 1rem;
+                '>
+                    Dear Customer,
+                </p>
+
+                <p style='
+                    font-size: 14px;
+                    color: #000000;
+                    margin-bottom: 1rem;
+                '>
+                    Thank you for your payment. Your transaction has been successfully processed.
+                </p>
+
+                <ul style='
+                    font-size: 14px;
+                    color: #000000;
+                    margin-bottom: 1rem;
+                    padding-left: 1.2rem;
+                '>
+                    <li>Invoice Number: <strong>{$invoiceID}</strong></li>
+                </ul>
+
+                <p style='
+                    font-size: 14px;
+                    color: #000000;
+                '>
+                    Best regards,<br>
+                    <strong>PNGlobalInternational</strong>
+                </p>
+            </div>
+
+            <hr>
+            <p style='
+                text-align: center;
+                font-size: 12px;
+                color: #999999;
+                margin-top: 2rem;
+            '>
+                &copy; " . date('Y') . " PN Global. All rights reserved.
+            </p>
+        </div>
+    </body>
+    </html>
+    ";
+}

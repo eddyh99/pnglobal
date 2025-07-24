@@ -45,6 +45,7 @@
                                 <tr>
                                     <th>NO</th>
                                     <th>STATUS</th>
+                                    <th>INVOICE NUMBER</th>
                                     <th>INVOICE DATE</th>
                                     <th>INVOICE LINK</th>
                                 </tr>
