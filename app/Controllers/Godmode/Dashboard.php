@@ -499,4 +499,38 @@ class Dashboard extends BaseController
         $result = satoshiAdmin($url)->result->message;
         echo json_encode($result);
     }
+    
+    public function manualtopup(){
+        $rules = [
+            'amount' => 'required|numeric|greater_than[0]',
+            'member_id' => 'required|is_natural_no_zero',
+        ];
+        
+        $email = $this->request->getPost("email");
+        if (! $this->validate($rules)) {
+            // If validation fails
+            $this->session->setFlashdata('failed', 'There was a problem processing your topup. Please check your input.');
+            return redirect()->to(base_url('godmode/dashboard/detailmember/hedgefund/'.base64_encode($email)))->withInput();
+        }
+
+        $amount     = $this->request->getPost("amount");
+        $member_id  = $this->request->getPost("member_id");
+        $postData = [
+            'amount'    => $amount,
+            'member_id' => $member_id,
+        ];
+
+        $url        = URL_HEDGEFUND . "/v1/member/manualtopup";
+        $response   = satoshiAdmin($url, json_encode($postData));
+        $result     = $response->result;
+        if (($result->code ?? $response->status) != '200') {
+            session()->setFlashdata('failed', "Something Wrong, Please Try Again!");
+            return redirect()->to(BASE_URL . 'godmode/dashboard/detailmember/hedgefund/'.base64_encode($email));
+        } else {
+            session()->setFlashdata('success', "Successfully Topup");
+            return redirect()->to(BASE_URL . 'godmode/dashboard/detailmember/hedgefund/'.base64_encode($email));
+        }
+        
+
+    }
 }

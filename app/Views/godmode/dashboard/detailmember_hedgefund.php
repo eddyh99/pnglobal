@@ -38,7 +38,12 @@
 
                 <!-- Detail -->
                 <div class="dash-detailmember">
-                    <div class="header">Detail</div>
+                    <div class="header">
+                        <div class="col-11 d-flex justify-content-between">
+                            Detail
+                        </div>
+                        <button id="topup" class="btn btn-primary" data-toggle="modal" data-target="#modal_topup">Topup</button>
+                    </div>
                     <!-- Membership Status -->
                     <div class="label">Membership Status</div>
                     <div class="value">
@@ -261,3 +266,35 @@
 </div>
 
 <input type="hidden" id="id" value="<?= $member->id ?>">
+
+<!-- Modal -->
+<div class="modal fade" id="modal_topup" tabindex="-1" role="dialog" aria-labelledby="centerModal" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+        <form action="<?=BASE_URL?>godmode/dashboard/manualtopup" method="post">
+          <input type="hidden" name="member_id" value="<?= $member->id ?>">
+          <input type="hidden" name="email" value="<?= $email ?>">
+          <div class="modal-header">
+            <h5 class="modal-title" id="centerModal" style="color:black">Topup</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body text-center">
+            <div class="row justify-content-center">
+                <div class="col-12">
+                    <strong>Amount</strong>
+                </div>
+                <div class="col-6">
+                  <input type="number" id="amount" name="amount" class="form-control mx-auto">
+                </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" id="btnclose" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="submit" id="btnsubmit" class="btn btn-primary">Process</button>
+          </div>
+        </form>
+    </div>
+  </div>
+</div>

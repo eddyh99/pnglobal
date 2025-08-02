@@ -792,6 +792,35 @@
             })
         })
 
+        // Extend DataTables search functionality
+        $.fn.dataTable.ext.search.push(function(settings, data, dataIndex) {
+            const selectedFilter = $('#filter').val(); // 'all' or 'pending'
+            const status = data[4].toLowerCase(); // status column, index 4
+        
+            if (selectedFilter === 'all') {
+                return true; // show all rows
+            }
+        
+            if (selectedFilter === 'pending') {
+                return status === 'pending';
+            }
+
+            if (selectedFilter === 'canceled') {
+                return status === 'canceled';
+            }
+
+            if (selectedFilter === 'filled') {
+                return status === 'filled';
+            }
+        
+            return true;
+        });
+        
+        // Trigger table redraw on filter change
+        $('#filter').on('change', function() {
+            $('#table_message').DataTable().draw();
+        });
+
         $('#table_message').DataTable({
             "pageLength": 50,
             "dom": '<"d-flex justify-content-between align-items-center flex-wrap"lf>t<"d-flex justify-content-between align-items-center"ip>',
