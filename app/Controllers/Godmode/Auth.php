@@ -358,8 +358,8 @@ class Auth extends BaseController
 		$data = $_POST;
 		// NOTE !!! 
 		// Issue with $url can read from config (URL_HEDGEFUND) must be set manually
-		$url = 'localhost:8082/apiv1/onetoone/payment';
-		// $url = URL_HEDGEFUND . '/apiv1/onetoone/payment';
+		// $url = 'http://localhost:8082/apiv1/onetoone/payment';
+		$url = URL_HEDGEFUND . '/apiv1/onetoone/payment';
 		
 		log_message('info', "================= IPN MASUK =================");
 		log_message('info', "URL API Target: " . $url);
@@ -411,11 +411,56 @@ class Auth extends BaseController
 			log_message('info', "Payload Dikirim:\n" . json_encode($postData, JSON_PRETTY_PRINT));
 			log_message('info', "HTTP Code: " . $httpCode);
 			$sendNotifyEmail = $this->sendpaymentstatus($data['email'], $invoiceNumber);
+			// Logging hasil pengiriman email
+			if ($sendNotifyEmail) {
+				log_message('info', "Email notifikasi berhasil dikirim ke: " . $data['email']);
+			} else {
+				log_message('error', "Gagal mengirim email notifikasi ke: " . $data['email']);
+			}
 		} else {
 			log_message('info', "Status bukan 100 atau tidak valid, IPN diabaikan.");
 		}
 
 		// Response ke CoinPayments wajib
 		echo 'IPN OK';
+	}
+
+	function sendEmail($to, $subject, $title, $htmlBody)
+	{
+		$mail = new \PHPMailer\PHPMailer\PHPMailer(true);
+
+		try {
+			$mail->isSMTP();
+			$mail->Host       = 'sandbox.smtp.mailtrap.io';
+			$mail->SMTPAuth   = true;
+			$mail->Username   = 'df6cfe30efaae2';
+			$mail->Password   = 'bcc05333a927ee';
+			$mail->SMTPSecure = 'tls';
+			$mail->Port       = 587;
+
+			$mail->setFrom('no-reply@example.com', $title);
+			$mail->addAddress($to);
+
+			$mail->isHTML(true);
+			$mail->Subject = $subject;
+			$mail->Body    = $htmlBody;
+
+			$mail->send();
+
+			log_message('info', 'Email sent to: ' . $to);
+			return true;
+		} catch (\Exception $e) {
+			log_message('error', 'Email sending failed: ' . $mail->ErrorInfo);
+			return false;
+		}
+	}
+
+	public function sendpaymentstatus($email, $invoiceID)
+	{
+		$title         = 'Payment Status Success';
+		$subject       = 'Your Payment Status';
+		$emailTemplate = emailtemplate_paymentstatus_onetoone($invoiceID);
+
+		return $this->sendEmail($email, $subject, $title, $emailTemplate);
 	}
 }

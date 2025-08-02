@@ -115,6 +115,43 @@ class Payment extends BaseController
 
         switch ($currency) {
             case 'usdt':
+                $paymentResponse = $this->createCoinPaymentTransaction($mdata);
+                if ($paymentResponse['error'] !== 'ok') {
+                    session()->setFlashdata('failed', 'There was a problem processing your purchase please try again. Error: ' . $paymentResponse['error']);
+                    return redirect()->to(BASE_URL . 'godmode/onetoone/payment')->withInput();
+                }
+                // dd($paymentResponse);
+                $paymentlink = $paymentResponse['result']['checkout_url'];
+                $invoiceID = $mdata['invoiceNumber'];
+                $amount = $mdata['amount'] . ' ' . strtoupper($currency);
+                $timeoutInResultSecond = $paymentResponse['result']['timeout'];
+                $paymenttimeout = date('Y-m-d H:i:s', time() + $timeoutInResultSecond);
+
+                // Save invoice to API
+                $invoiceResponse = $this->saveInvoiceToApi($mdata['buyer_email'], $paymentlink, $invoiceID);
+                if (!$invoiceResponse) {
+                    session()->setFlashdata('failed', 'Failed to save invoice to API' . $invoiceResponse);
+                    // dd($invoiceResponse, $mdata['buyer_email'], $paymentlink, $invoiceID);
+                    return redirect()->to(BASE_URL . 'godmode/onetoone/payment')->withInput();
+                }
+
+                // Kirim email setelah sukses semuanya
+                $resultSendEmail = $this->sendpayment($mdata['buyer_email'], $paymentlink, $invoiceID, $amount, $paymenttimeout);
+                if (!$resultSendEmail) {
+                    log_message('error', 'Gagal mengirim email ke ' . $mdata['buyer_email']);
+                }
+
+                // Set flashdata for payment link
+                session()->setFlashdata('paymentlink', $paymentResponse['result']['checkout_url']);
+                session()->setFlashdata('payment_email', $mdata['buyer_email']);
+                session()->setFlashdata('success', 'Payment link created successfully and sent to ' . $mdata['buyer_email']);
+                session()->setFlashdata([
+                    'paymentlink'    => $paymentResponse['result']['checkout_url'],
+                    'payment_email'  => $mdata['buyer_email'],
+                    'success'        => 'Payment link created successfully and sent to ' . $mdata['buyer_email']
+                ]);
+
+                return redirect()->to(BASE_URL . 'godmode/onetoone/payment')->withInput();
             case 'usdc':
                 $paymentResponse = $this->createCoinPaymentTransaction($mdata);
                 if ($paymentResponse['error'] !== 'ok') {
@@ -192,8 +229,8 @@ class Payment extends BaseController
             'item_name'  => $mdata['description'],
             'key'        => $publicKey,
             //NOTE : Pastikan ipn_url bisa diakses oleh CoinPayments
-            // 'ipn_url'    => base_url() . 'godmode/auth/coinpayment_notify',
-            'ipn_url'    => ' https://6ad122f05350.ngrok-free.app/godmode/auth/coinpayment_notify',
+            'ipn_url'    => base_url() . 'godmode/auth/coinpayment_notify',
+            // 'ipn_url'    => ' https://6ad122f05350.ngrok-free.app/godmode/auth/coinpayment_notify',
             'success_url' => base_url() . 'godmode/onetoone/payment',
             'cancel_url' => base_url() . 'godmode/onetoone/payment',
             'version'    => 1,
