@@ -118,7 +118,7 @@ class Payment extends BaseController
             case 'usdc':
                 $paymentResponse = $this->createCoinPaymentTransaction($mdata);
                 if ($paymentResponse['error'] !== 'ok') {
-                    session()->setFlashdata('failed', 'There was a problem processing your purchase please try again');
+                    session()->setFlashdata('failed', 'There was a problem processing your purchase please try again. Error: ' . $paymentResponse['error']);
                     return redirect()->to(BASE_URL . 'godmode/onetoone/payment')->withInput();
                 }
                 // dd($paymentResponse);
@@ -132,7 +132,7 @@ class Payment extends BaseController
                 $invoiceResponse = $this->saveInvoiceToApi($mdata['buyer_email'], $paymentlink, $invoiceID);
                 if (!$invoiceResponse) {
                     session()->setFlashdata('failed', 'Failed to save invoice to API' . $invoiceResponse);
-                    dd($invoiceResponse, $mdata['buyer_email'], $paymentlink, $invoiceID);
+                    // dd($invoiceResponse, $mdata['buyer_email'], $paymentlink, $invoiceID);
                     return redirect()->to(BASE_URL . 'godmode/onetoone/payment')->withInput();
                 }
 
@@ -192,8 +192,8 @@ class Payment extends BaseController
             'item_name'  => $mdata['description'],
             'key'        => $publicKey,
             //NOTE : Pastikan ipn_url bisa diakses oleh CoinPayments
-            'ipn_url'    => base_url() . 'godmode/auth/coinpayment_notify',
-            // 'ipn_url'    => 'https://a28bb0a240a3.ngrok-free.app/godmode/auth/coinpayment_notify',
+            // 'ipn_url'    => base_url() . 'godmode/auth/coinpayment_notify',
+            'ipn_url'    => ' https://6ad122f05350.ngrok-free.app/godmode/auth/coinpayment_notify',
             'success_url' => base_url() . 'godmode/onetoone/payment',
             'cancel_url' => base_url() . 'godmode/onetoone/payment',
             'version'    => 1,

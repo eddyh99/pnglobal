@@ -358,8 +358,8 @@ class Auth extends BaseController
 		$data = $_POST;
 		// NOTE !!! 
 		// Issue with $url can read from config (URL_HEDGEFUND) must be set manually
-		// $url = 'localhost:8082/apiv1/onetoone/payment';
-		$url = URL_HEDGEFUND . '/apiv1/onetoone/payment';
+		$url = 'localhost:8082/apiv1/onetoone/payment';
+		// $url = URL_HEDGEFUND . '/apiv1/onetoone/payment';
 		
 		log_message('info', "================= IPN MASUK =================");
 		log_message('info', "URL API Target: " . $url);
