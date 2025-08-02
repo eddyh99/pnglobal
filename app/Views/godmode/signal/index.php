@@ -319,7 +319,15 @@
             </div>
         </div>
         <div class="col-lg-12 history-table-message">
-            <h3 class="text-white">History</h3>
+            <div class="d-flex justify-content-between mb-3">
+                <h3 class="text-white">History</h3>
+                <select class="col-2 form-select" id="filter">
+                    <option value="all">--- All ---</option>
+                    <option value="pending">Pending</option>
+                    <option value="filled">Filled</option>
+                    <option value="canceled">Cancelled</option>
+                </select>
+            </div>
             <table id="table_message" class="table table-striped" style="width:100%">
                 <thead>
                     <tr>

@@ -1,4 +1,30 @@
 <link rel="stylesheet" href="https://code.jquery.com/ui/1.14.1/themes/base/jquery-ui.css">
+<style>
+/* Remove spinner arrows */
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+#amount{
+    background-color:white;
+}
+
+#btnclose:hover,
+#btnclose:focus,
+#btnclose:active,
+#btnclose:focus:active {
+  background-color: #A09E9E;
+  border:none;
+}
+
+</style>
+
 <script src="https://code.jquery.com/ui/1.14.1/jquery-ui.js"></script>
 <script src="//cdn.datatables.net/plug-ins/2.3.2/api/sum().js"></script>
 <script>
