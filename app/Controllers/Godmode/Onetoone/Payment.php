@@ -192,7 +192,6 @@ class Payment extends BaseController
                 return redirect()->to(BASE_URL . 'godmode/onetoone/payment')->withInput();
             case 'stripe':
                 $amount = $mdata['amount'] . ' ' . strtoupper($currency);
-                dd($amount);
                 $stripeUrl = $this->createStripePayment($mdata);
                 if (!$stripeUrl) {
                     return redirect()->to(base_url('godmode/onetoone/payment'))->withInput();
@@ -292,7 +291,6 @@ class Payment extends BaseController
                 ],
                 'error' => 'ok'
             ];
-            dd($paymentResponse['result']['checkout_url']);
             return $paymentResponse;
         } catch (\Exception $e) {
             session()->setFlashdata('failed', 'Stripe error: ' . $e->getMessage());
@@ -331,43 +329,13 @@ class Payment extends BaseController
         }
     }
 
-    function sendEmail($to, $subject, $title, $htmlBody)
-    {
-        $mail = new \PHPMailer\PHPMailer\PHPMailer(true);
-
-        try {
-            $mail->isSMTP();
-            $mail->Host       = 'sandbox.smtp.mailtrap.io';
-            $mail->SMTPAuth   = true;
-            $mail->Username   = 'df6cfe30efaae2';
-            $mail->Password   = 'bcc05333a927ee';
-            $mail->SMTPSecure = 'tls';
-            $mail->Port       = 587;
-
-            $mail->setFrom('no-reply@example.com', $title);
-            $mail->addAddress($to);
-
-            $mail->isHTML(true);
-            $mail->Subject = $subject;
-            $mail->Body    = $htmlBody;
-
-            $mail->send();
-
-            log_message('info', 'Email sent to: ' . $to);
-            return true;
-        } catch (\Exception $e) {
-            log_message('error', 'Email sending failed: ' . $mail->ErrorInfo);
-            return false;
-        }
-    }
-
     public function sendpayment($email, $paymentlink, $invoiceID, $amount, $paymenttimeout)
     {
         $title         = 'Payment Request';
         $subject       = 'Please Complete Your Payment';
         $emailTemplate = emailtemplate_payment_onetoone($paymentlink, $amount, $paymenttimeout, $invoiceID);
 
-        return $this->sendEmail($email, $subject, $title, $emailTemplate);
+        return sendmail_onetoone($email, $subject, $emailTemplate, $title, 'no-reply@pnglobalinternational.com');
     }
 
     public function sendpaymentstatus($email, $invoiceID)
@@ -376,6 +344,6 @@ class Payment extends BaseController
         $subject       = 'Your Payment Status';
         $emailTemplate = emailtemplate_paymentstatus_onetoone($invoiceID);
 
-        return $this->sendEmail($email, $subject, $title, $emailTemplate);
+        return sendmail_onetoone($email, $subject, $emailTemplate, $title, 'no-reply@pnglobalinternational.com');
     }
 }

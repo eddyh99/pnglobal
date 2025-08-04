@@ -36,7 +36,7 @@
             <div class="row content-body">
                 <div class="col-lg-12 dash-table-totalmember">
                     <h4 class="text-white my-3 text-uppercase fw-bold">Create Payment Link</h4>
-                    <form action="<?= BASE_URL ?>godmode/onetoone/payment/paymentlink">
+                    <form action="<?= BASE_URL ?>godmode/onetoone/payment/paymentlink" method="post">
                         <div class="row">
                             <div class="col-8">
                                 <label class="text-white">Nominal</label>
@@ -47,8 +47,6 @@
                                 <select name="currency" class="form-control text-danger">
                                     <option value="usdt" <?= old('currency') == 'usdt' ? 'selected' : '' ?>>USDT</option>
                                     <option value="usdc" <?= old('currency') == 'usdc' ? 'selected' : '' ?>>USDC</option>
-                                    <option value="stripe" <?= old('currency') == 'stripe' ? 'selected' : '' ?>>Stripe</option>
-                                    <option value="banktransfer" <?= old('currency') == 'banktransfer' ? 'selected' : '' ?>>Bank Transfer</option>
                                 </select>
                             </div>
 
