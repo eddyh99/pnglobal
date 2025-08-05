@@ -64,11 +64,12 @@ class Auth extends BaseController
         }
 
         // Initial Data
+        $referral=htmlspecialchars($this->request->getVar('referral'));
         $mdata = [
             'email'         => htmlspecialchars($this->request->getVar('email')),
             'password'      => sha1(htmlspecialchars($this->request->getVar('pass'))),
             'timezone'      => htmlspecialchars($this->request->getVar('timezone')),
-            'referral'      => htmlspecialchars($this->request->getVar('referral')),
+            'referral'      => !empty($referral) ? $referral : null,
             'role'          => htmlspecialchars($this->request->getVar('role')),
             'ip_address'    => htmlspecialchars($this->request->getIPAddress()),
         ];
@@ -656,7 +657,10 @@ class Auth extends BaseController
 		// Call Endpoin Member
 		$url = URL_HEDGEFUND . "/auth/resend_token";
 		$resultMember = satoshiAdmin($url, json_encode(['email' => $email]))->result->message;
-
+		if (strtolower($resultMember)=='user not found'){
+			session()->setFlashdata('failed', "User Not Found");
+			return redirect()->to(BASE_URL . 'hedgefund/auth/forgot_password')->withInput();
+		}
 
 		$message = "
 		<!DOCTYPE html>
