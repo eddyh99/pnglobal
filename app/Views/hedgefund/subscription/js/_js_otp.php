@@ -6,14 +6,14 @@
         min-height: 100vh;
         padding: 20px;
         text-align: center;
-    
+
         /* Ensure body takes full height */
         body {
             height: 95vh;
             margin: 0;
             padding: 0;
         }
-    
+
     }
 
 
@@ -25,7 +25,7 @@
         padding: 20px 15px;
         border-radius: 16px;
         background: #fff;
-    
+
         /* Make height flexible */
         height: auto;
         max-height: none;
@@ -34,11 +34,12 @@
         flex-direction: column;
         align-items: center;
     }
-    
+
     /* Make OTP input row responsive and centered */
     #otp {
         display: flex;
-        justify-content: center; /* <-- Center horizontally */
+        justify-content: center;
+        /* <-- Center horizontally */
         align-items: center;
         gap: 10px;
         flex-wrap: nowrap;
@@ -46,7 +47,7 @@
         max-width: 320px;
         width: 100%;
     }
-    
+
     /* Individual input styling */
     #otp input {
         flex: 1 1 60px;
@@ -60,7 +61,7 @@
         outline: none;
         transition: all 0.2s ease-in-out;
     }
-    
+
     /* On very small devices, scale down */
     @media (max-width: 400px) {
         #otp input {
@@ -98,7 +99,7 @@
 
         $("#satoshi-otp-form").on("submit", function(e) {
             e.preventDefault();
-            console.log("asd");
+
             let otp = $("#first").val() + $("#second").val() + $("#third").val() + $("#fourth").val();
             let formData = {
                 email: "<?= base64_decode($emailuser) ?>",
@@ -150,29 +151,47 @@
             })
         });
 
-        $("#resendotp").on("click", function(e) {
-            e.preventDefault();
-            var emailAddress = "<?= base64_decode($emailuser) ?>";
-            let formData = {
-                email: emailAddress
-            };
-            console.log("Email yang dikirim untuk resend OTP: " + emailAddress);
-            $.ajax({
-                url: '<?= BASE_URL ?>auth/resend_token',
-                type: 'POST',
-                data: formData,
-                success: function(response) {
-                    console.log(response);
-                    if (response.code == "200") {
-                        alert("Kode telah berhasil dikirim ulang ke email Anda.");
-                    } else {
-                        alert("Resend gagal: " + response.message);
-                    }
-                },
-                error: function() {
-                    alert("Terjadi kesalahan, silahkan coba lagi.");
-                }
-            });
-        });
+
     })
+
+    function resendToken(encodedEmail) {
+        const email = atob(encodedEmail);
+        const Base_URL = '<?= BASE_URL ?>hedgefund/auth/resend_token/';
+        const btn = $('#resend');
+
+        // Disable tombol saat klik
+        btn.prop('disabled', true).removeClass('text-primary');
+
+        $.ajax({
+            url: Base_URL + email,
+            type: 'GET',
+            success: function(response) {
+                console.log("Resend OTP response:", response);
+                if (response.code == "200" || response.success) {
+                    alert("OTP code resent successfully to your email.");
+                    let countdown = 30;
+                    const originalText = btn.text();
+
+                    const interval = setInterval(() => {
+                        btn.text(`RESEND (${countdown}s)`);
+                        countdown--;
+
+                        if (countdown < 0) {
+                            clearInterval(interval);
+                            btn.prop('disabled', false).addClass('text-primary').text(originalText);
+                        }
+                    }, 1000);
+                } else {
+                    alert("Resend failed: " + (response.message || "An error occurred."));
+                    btn.prop('disabled', false).addClass('text-primary'); // re-enable jika gagal
+
+                }
+            },
+            error: function() {
+                alert("Something went wrong. please try again later.");
+                btn.prop('disabled', false).addClass('text-primary'); // re-enable jika gagal
+
+            }
+        });
+    }
 </script>
