@@ -168,7 +168,16 @@ class Auth extends BaseController
 		
 			session()->setFlashdata('failed', 'Access Denied');
 		} else {
-			session()->setFlashdata('failed', $result->message);
+			$message = $result->message ?? 'Login failed, please try again';
+			// Jika akun belum diaktivasi
+			if (strpos(strtolower($message), 'your account has not been activated') !== false) {
+				// Redirect ke halaman OTP
+				$encodedEmail = base64_encode($email);
+				return redirect()->to(BASE_URL . "hedgefund/auth/otp/" . $encodedEmail)
+					->with('info', 'Your account is not activated. Please enter the OTP sent to your email.');
+			}
+			// Jika error lain
+			return redirect()->to(BASE_URL . 'hedgefund/auth/login')->with('failed', $message);
 		}
 		
 		return redirect()->to(BASE_URL . 'hedgefund/auth/login');
@@ -654,13 +663,31 @@ class Auth extends BaseController
 		$subject = 	NAMETITLE . " - Reset Password";
 
 
-		// Call Endpoin Member
+		// Call API
 		$url = URL_HEDGEFUND . "/auth/resend_token";
-		$resultMember = satoshiAdmin($url, json_encode(['email' => $email]))->result->message;
-		if (strtolower($resultMember)=='user not found'){
-			session()->setFlashdata('failed', "User Not Found");
+		$resultMember = satoshiAdmin($url, json_encode(['email' => $email]));
+		$response = $resultMember->result ?? null;
+
+		// Tangani jika response gagal (validasi atau email tidak ditemukan)
+		if (isset($response->status) && $response->status == 400) {
+			// Ambil pesan error dari messages (bisa 'email' atau 'error')
+			$errorMsg = '';
+
+			if (isset($response->messages)) {
+				if (isset($response->messages->email)) {
+					$errorMsg = $response->messages->email;
+				} elseif (isset($response->messages->error)) {
+					$errorMsg = $response->messages->error;
+				}
+			}
+
+			session()->setFlashdata('failed', $errorMsg ?: 'Gagal mengirim reset password');
 			return redirect()->to(BASE_URL . 'hedgefund/auth/forgot_password')->withInput();
 		}
+
+		// Tangani jika sukses
+		$messageText = $response->message->text ?? '';
+		$otp = $response->message->otp ?? '';
 
 		$message = "
 		<!DOCTYPE html>
@@ -707,7 +734,7 @@ class Auth extends BaseController
 						Thank you for using Hedge Fund App. To proceed with your request, please copy token reset password below 
 					</p>
 					<h2 id='copyToken'>
-						" . $resultMember->otp . "
+						" . $otp . "
 					</h2>
 					<p style='
 					font-weight: 400;
@@ -734,8 +761,8 @@ class Auth extends BaseController
 		</html>";
 
 		sendmail_satoshi($email, $subject, $message, 'Reset Password', USERNAME_MAIL);
-		session()->setFlashdata('success', $resultMember->text);
-		return redirect()->to(BASE_URL . 'hedgefund/auth/forgot_pass_otp/' . base64_encode($email));
+		// session()->setFlashdata('success', $messageText);
+		return redirect()->to(BASE_URL . 'hedgefund/auth/forgot_pass_otp/' . base64_encode($email))->with('success', $messageText);
 	}
 
 	public function forgot_pass_otp($emailuser)
@@ -744,8 +771,8 @@ class Auth extends BaseController
 
 		$mdata = [
 			'title'     => 'Forgot Password - Satoshi Signal',
-			'content'   => 'hedgefund/subscription/otp',
-			// 'extra'     => 'hedgefund/subscription/js/_js_forgot_pass_otp',
+			'content'   => 'hedgefund/subscription/otp_reset_password',
+			'extra'     => 'hedgefund/subscription/js/_js_otp_reset_password',
 			'emailuser' => $emailuser
 		];
 
@@ -756,6 +783,8 @@ class Auth extends BaseController
 	{
 		$email = $this->request->getPost('email') ?? old('email');
 		$otp   = $this->request->getPost('otp') ?? old('otp');
+
+		// dd($email, $otp);
 
 		if (empty($email) || empty($otp)) {
 			session()->setFlashdata('failed', 'Email atau OTP tidak ditemukan.');
@@ -798,7 +827,6 @@ class Auth extends BaseController
                 'rules' => 'required|matches[password]',
             ],
         ]);
-
         // Checking Validation
         if (!$isValid) {
             session()->setFlashdata('failed', $this->validation->listErrors());
@@ -855,7 +883,8 @@ class Auth extends BaseController
 			'message' => 'Failed to resend activation code.'
 		];
 		$url = URL_HEDGEFUND . "/auth/resend_token";
-		$response = satoshiAdmin($url, json_encode(['email' => base64_decode($email)]));
+		
+		$response = satoshiAdmin($url, json_encode(['email' => $email]));
 		$result = $response->result;
 
 		if(($result->code ?? $response->status) == 200) {
@@ -895,7 +924,7 @@ class Auth extends BaseController
 					margin-bottom: 1rem;
 					text-align: center;
 					'>
-						Dear, <br> " . base64_decode($email) . "
+						Dear, <br> " . $email . "
 					</h3>
 				</div>
 
