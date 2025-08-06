@@ -1,4 +1,5 @@
 <section class="elite-page">
+    <div id="alert-container" class="show-failed" style="position: fixed; top: 20px; right: 20px; z-index: 9999;"></div>
 <?php if (!empty(session('failed'))) { ?>
     <div id="danger-alert" class="alert alert-danger fade show position-absolute" 
      style="top: 20px; left: 50%; transform: translateX(-50%); width: 50%; z-index: 9999;" 
