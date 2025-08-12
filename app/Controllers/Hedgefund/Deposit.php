@@ -52,12 +52,13 @@ class Deposit extends BaseController
         $minCapital = (float) $result->message->price;
         $fee        = (float) $result->message->cost;
         $commission = (float) $result->message->referral_fee;
+        $step       = (float) $result->message->step;
 
         log_message('debug', 'API Price: ' . $minCapital . ', Commission: ' . $commission);
 
         $data = [
             'min_capital'       => $minCapital,
-            'additional_step'   => 100,
+            'additional_step'   => $step,
             'percentage_fee'    => $fee,
             'comission'         => $commission,
         ];

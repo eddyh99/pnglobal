@@ -11,6 +11,7 @@
 
                 // Pastikan response punya struktur { fund_balance: ..., trade_balance: ... }
                 $('#mdepo').text((+response.member_deposit || 0).toLocaleString('en'));
+                $('#mcom').text((+response.deposit_commission || 0).toLocaleString('en'));
                 $('#tprofit').text((+response.total_profit || 0).toLocaleString('en'));
                 $('#cprofit').text((+response.client_profit || 0).toLocaleString('en'));
                 $('#rprofit').text((+response.ref_comm || 0).toLocaleString('en'));
