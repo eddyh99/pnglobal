@@ -45,14 +45,28 @@ class Hedge extends BaseController
 
     public function profit()
     {
+        $urlglobal = URL_HEDGEFUND . "/v1/member/get_statistics";
+        $resultElite = satoshiAdmin($urlglobal)->result;
+
+        // PN Global
+        // ELITE
+        $totalmemberelite = $resultElite->message->members ?? 0;
+        $subscriberelite = $resultElite->message->active_members ?? 0;
+        $referralelite = $resultElite->message->referrals ?? 0;
+        $signalelite = $resultElite->message->signals ?? 0;
+        
         $mdata = [
-            'title'     => 'Subscriber - ' . NAMETITLE,
-            'content'   => 'godmode/hedge/profit',
-            'extra'     => 'godmode/hedge/js/_js_profit',
+            'title'     => 'Profit - ' . NAMETITLE,
+            'content'   => 'godmode/dashboard/hedgefund',
+            'extra'     => 'godmode/dashboard/js/_js_hedgefund',
             'subs_free'    => 'active active-menu',
             'active_dash'   => 'active',
             'sidebar'   => 'hedgefund_sidebar',
             'navbar_hedgefund' => 'active',
+            'totalmemberelite' => $totalmemberelite,
+            'subscriberelite' => $subscriberelite,
+            'referralelite' => $referralelite,
+            'signalelite' => $signalelite 
         ];
 
         return view('godmode/layout/admin_wrapper', $mdata);

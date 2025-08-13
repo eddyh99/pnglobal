@@ -209,27 +209,14 @@ class Dashboard extends BaseController
 
     public function hedgefund()
     {
-        $urlglobal = URL_HEDGEFUND . "/v1/member/get_statistics";
-        $resultElite = satoshiAdmin($urlglobal)->result;
-
-        // PN Global
-        // ELITE
-        $totalmemberelite = $resultElite->message->members ?? 0;
-        $subscriberelite = $resultElite->message->active_members ?? 0;
-        $referralelite = $resultElite->message->referrals ?? 0;
-        $signalelite = $resultElite->message->signals ?? 0;
 
         $mdata = [
             'title'     => 'Dashboard - ' . NAMETITLE,
-            'content'   => 'godmode/dashboard/hedgefund',
-            'extra'     => 'godmode/dashboard/js/_js_hedgefund',
+            'content'   => 'godmode/hedge/profit',
+            'extra'     => 'godmode/hedge/js/_js_profit',
             'sidebar'   => 'hedgefund_sidebar',
             'navbar_hedgefund' => 'active',
             'active_dash'    => 'active',
-            'totalmemberelite' => $totalmemberelite,
-            'subscriberelite' => $subscriberelite,
-            'referralelite' => $referralelite,
-            'signalelite' => $signalelite 
 
         ];
 

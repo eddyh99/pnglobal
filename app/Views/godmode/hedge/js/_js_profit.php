@@ -9,23 +9,44 @@
             success: function(response) {
                 console.log(response);
 
+                var total = Number(response.fund_usdt)+Number(response.trade_usdt)+Number(response.commission);
                 // Pastikan response punya struktur { fund_balance: ..., trade_balance: ... }
                 $('#mdepo').text((+response.member_deposit || 0).toLocaleString('en'));
                 $('#mcom').text((+response.deposit_commission || 0).toLocaleString('en'));
-                $('#tprofit').text((+response.total_profit || 0).toLocaleString('en'));
-                $('#cprofit').text((+response.client_profit || 0).toLocaleString('en'));
-                $('#rprofit').text((+response.ref_comm || 0).toLocaleString('en'));
-                $('#mprofit').text((+response.master_profit || 0).toLocaleString('en'));
                 $('#mwithdraw').text((+response.withdraw || 0).toLocaleString('en'));
 
             },
             error: function(xhr, status, error) {
                 console.error("Gagal mengambil data balance:", error);
-                $('#fund_balance').text('Error');
-                $('#trade_balance').text('Error');
+                $('#mdepo').text('Error');
+                $('#mcom').text('Error');
+                $('#mwithdraw').text('Error');
             }
         });
     }
+
+    updateBalances();
+    function updateBalances() {
+            $.ajax({
+                url: '<?= BASE_URL ?>godmode/signal/getmember_balance', // Ganti dengan endpoint sesuai back-end kamu
+                method: 'GET',
+                dataType: 'json',
+                success: function(response) {
+                    console.log(response);
+                    var total = Number(response.fund_usdt)+Number(response.trade_usdt)+Number(response.commission);
+                    $('#fund_balance').text(Number(response.fund_usdt).toLocaleString('en', { minimumFractionDigits: 2, maximumFractionDigits: 2 }));
+                    $('#trade_balance').text(Number(response.trade_usdt).toLocaleString('en', { minimumFractionDigits: 2, maximumFractionDigits: 2 }));
+                    $('#binance').text(total.toLocaleString('en', { minimumFractionDigits: 2, maximumFractionDigits: 2 }));
+
+                },
+                error: function(xhr, status, error) {
+                    console.error("Gagal mengambil data balance:", error);
+                    $('#fund_balance').text('Error');
+                    $('#trade_balance').text('Error');
+                }
+            });
+
+    }    
     
     $('#table_message').DataTable({
         "pageLength": 100,
@@ -36,6 +57,7 @@
             "url": "<?= BASE_URL ?>godmode/hedge/get_detailprofit",
             "type": "POST",
             "dataSrc": function(data) {
+                console.log(data);
                 return data.filter(function (item) {
                     return item.sell_price != null;
                 });
@@ -114,6 +136,10 @@
                     const commission = data !== null ? parseFloat(data).toFixed(2) : '0.00';
                     return commission;
                 }
+            },
+            {
+                title: "Closed Time",
+                data: 'closed_sell'
             }
         ]
     });

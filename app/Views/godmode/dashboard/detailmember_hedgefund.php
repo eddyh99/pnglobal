@@ -45,7 +45,7 @@
                         <button id="topup" class="btn btn-primary" data-toggle="modal" data-target="#modal_topup">Topup</button>
                     </div>
                     <!-- Membership Status -->
-                    <div class="label">Membership Status</div>
+                    <div class="label">Status</div>
                     <div class="value">
                         Normal Member
                     </div>
@@ -67,20 +67,20 @@
                     </div>
 
                     <!-- Subscription Status -->
-                    <div class="label">Subscription Status</div>
+<!--                    <div class="label">Subscription Status</div>
                     <div class="value">
                         <?php
-                        echo $member->membership_status ?? 'N/A';
+                        //echo $member->membership_status ?? 'N/A';
                         ?>
                     </div>
-
+-->
                     <!-- Subscription Plan -->
-                    <div class="label">Subscription Plan</div>
-                    <div class="value">
+                    <!--<div class="label">Subscription Plan</div>-->
+                    <!--<div class="value">-->
                         <?php
-                        echo $member->subscription_plan ?? 'N/A';
+                        //echo $member->subscription_plan ?? 'N/A';
                         ?>
-                    </div>
+                    <!--</div>-->
 
                     <!-- Referral Code -->
                     <div class="label">Referral Code</div>

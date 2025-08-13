@@ -105,27 +105,30 @@
 
     });
 
-    updateBalances();
-    function updateBalances() {
-            $.ajax({
-                url: '<?= BASE_URL ?>godmode/signal/getmember_balance', // Ganti dengan endpoint sesuai back-end kamu
-                method: 'GET',
-                dataType: 'json',
-                success: function(response) {
-                    console.log(response);
-                    var total = Number(response.fund_usdt)+Number(response.trade_usdt)+Number(response.commission);
-                    $('#fund_balance').text(Number(response.fund_usdt).toLocaleString('en', { minimumFractionDigits: 2, maximumFractionDigits: 2 }));
-                    $('#trade_balance').text(Number(response.trade_usdt).toLocaleString('en', { minimumFractionDigits: 2, maximumFractionDigits: 2 }));
-                    $('#comission').text(Number(response.commission).toLocaleString('en', { minimumFractionDigits: 2, maximumFractionDigits: 2 }));
-                    $('#binance').text(total.toLocaleString('en', { minimumFractionDigits: 2, maximumFractionDigits: 2 }));
+    updateProfits();
+    function updateProfits() {
+        $.ajax({
+            url: '<?= BASE_URL ?>godmode/hedge/get_profit', // Ganti dengan endpoint sesuai back-end kamu
+            method: 'GET',
+            dataType: 'json',
+            success: function(response) {
+                console.log(response);
 
-                },
-                error: function(xhr, status, error) {
-                    console.error("Gagal mengambil data balance:", error);
-                    $('#fund_balance').text('Error');
-                    $('#trade_balance').text('Error');
-                }
-            });
+                var total = Number(response.fund_usdt)+Number(response.trade_usdt)+Number(response.commission);
+                // Pastikan response punya struktur { fund_balance: ..., trade_balance: ... }
+                $('#tprofit').text((+response.total_profit || 0).toLocaleString('en'));
+                $('#cprofit').text((+response.client_profit || 0).toLocaleString('en'));
+                $('#rprofit').text((+response.ref_comm || 0).toLocaleString('en'));
+                $('#mprofit').text((+response.master_profit || 0).toLocaleString('en'));
 
+            },
+            error: function(xhr, status, error) {
+                console.error("Gagal mengambil data balance:", error);
+                $('#tprofit').text('Error');
+                $('#cprofit').text('Error');
+                $('#rprofit').text('Error');
+                $('#mprofit').text('Error');
+            }
+        });
     }
 </script>
