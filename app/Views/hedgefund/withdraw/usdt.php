@@ -106,7 +106,10 @@
                                     </div>
                                     <div class="wrapper-addreferral">
                                         <label for="network">Network</label>
-                                        <input type="text" name="network" class="form-control text-center" value="BEP20" readonly>
+                                        <select class="form-control" name="network">
+                                            <option value="BEP20">BEP20</option>
+                                            <option value="TRC20">TRC20</option>
+                                        </select>
                                     </div>
                                     <div class="wrapper-addreferral d-flex justify-content-center">
                                         <button type="submit" id="submitBtn" class="btn btn-primary text-black">Confirm</button>

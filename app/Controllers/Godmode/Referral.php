@@ -60,10 +60,9 @@ class Referral extends BaseController
 
     public function hedgefund()
     {
-        check_access();
         $mdata = [
             'title'     => 'Payment - ' . NAMETITLE,
-            'content'   => 'godmode/referral/hedgefund',
+            'content'   =>  check_access('referral','godmode/referral/hedgefund','hedgefund'),
             'extra'     => 'godmode/referral/js/_js_hedgefund',
             'active_reff'    => 'active active-menu',
             'sidebar'   => 'hedgefund_sidebar',

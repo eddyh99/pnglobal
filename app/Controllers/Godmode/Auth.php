@@ -62,30 +62,26 @@ class Auth extends BaseController
         $url = URLAPI . "/auth/signin";
         $response = satoshiAdmin($url, json_encode($mdata));
         $result = $response->result;
-
 		if ($response->status == 200 || $result->code == 200) {
 			$loggedUser = $result->message;
-		
-			if (in_array($loggedUser->role, ['superadmin', 'admin'])) {
-				session()->set('logged_user', $loggedUser);
-				session()->setFlashdata('success', 'Welcome to admin panel');
-           		return redirect()->to(BASE_URL . 'godmode/signal');
-			}
-		
-			session()->setFlashdata('failed', 'Access Denied');
-		} else {
-			session()->setFlashdata('failed', $result->message);
+ 			session()->set('logged_user', $loggedUser);
+			session()->setFlashdata('success', 'Welcome to admin panel');
+			if ($loggedUser->role=='superadmin') {
+          		return redirect()->to(BASE_URL . 'godmode/signal');
+ 			}elseif ($loggedUser->role=='admin') {
+				$access = json_decode($loggedUser->access, true);
+				if (in_array('payment', $access['hedgefund'])):
+              		return redirect()->to(BASE_URL . 'godmode/payment/hedgefund');
+				elseif (in_array('dashboard', $access['hedgefund'])):
+              		return redirect()->to(BASE_URL . 'godmode/dashboard/hedgefund');
+				endif;
+          		return redirect()->to(BASE_URL . 'godmode/signal');
+ 			}
+ 			session()->setFlashdata('failed', 'Access Denied');
+ 		} else {
+ 			session()->setFlashdata('failed', $result->message);
 		}
 		return redirect()->to(BASE_URL . 'godmode/auth/signin');
-
-        // if ($response->status != 200 || $result->code != 200) {
-        //     session()->setFlashdata('failed', $result->message);
-        //     return redirect()->to(BASE_URL . 'godmode/auth/signin');
-        // } else {
-        //     $this->session->set('logged_user', $result->message);
-        //     session()->setFlashdata('success', 'Welcome to admin panel');
-        //     return redirect()->to(BASE_URL . 'godmode/signal');
-        // }
     }
 
     public function logout()

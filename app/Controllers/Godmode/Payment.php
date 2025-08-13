@@ -59,10 +59,9 @@ class Payment extends BaseController
 
     public function hedgefund()
     {
-        check_access();
         $mdata = [
             'title'     => 'Payment - ' . NAMETITLE,
-            'content'   => 'godmode/payment/hedgefund',
+            'content'   => check_access('payment','godmode/payment/hedgefund','hedgefund'),
             'extra'     => 'godmode/payment/js/_js_hedgefund',
             'active_payment'    => 'active active-menu',
             'sidebar'   => 'hedgefund_sidebar',

@@ -8,10 +8,13 @@ if ($loggedUser && isset($loggedUser->email) && $loggedUser->email === 'a@a.a') 
         ? json_decode($loggedUser->access, true)
         : ($loggedUser->access ?? []);
 }
+
+
 ?>
 
 <!-- Sidebar Menu -->
 <div id="mobileSidebarMenu" class="mobile-sidebar-menu">
+    <?php if ($loggedUser->role=='superadmin'):?>
     <ul class="iq-menu" style="list-style: none; padding-left: 0; margin: 0;">
         <li class="<?= @$active_admin ?>">
             <a translate="no" href="<?= BASE_URL ?>godmode/admin" class="iq-waves-effect">
@@ -46,6 +49,7 @@ if ($loggedUser && isset($loggedUser->email) && $loggedUser->email === 'a@a.a') 
             </a>
         </li>
     </ul>
+    <?php endif;?>
 </div>
 
 
@@ -54,6 +58,7 @@ if ($loggedUser && isset($loggedUser->email) && $loggedUser->email === 'a@a.a') 
     <div id="sidebar-scrollbar">
         <nav class="iq-sidebar-menu">
             <ul id="iq-sidebar-toggle" class="iq-menu">
+            <?php if ($loggedUser->role=='superadmin'):?>
                 <li class="<?= @$active_admin ?>">
                     <a translate="no" href="<?= BASE_URL ?>godmode/admin" class="iq-waves-effect">
                         <i>
@@ -109,6 +114,7 @@ if ($loggedUser && isset($loggedUser->email) && $loggedUser->email === 'a@a.a') 
                     </a>
                 </li>
 -->
+            <?php endif;?>
                 <li>
                     <a translate="no" href="<?= BASE_URL ?>godmode/auth/logout" class="iq-waves-effect">
                         <i>

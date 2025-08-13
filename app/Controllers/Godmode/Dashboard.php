@@ -77,7 +77,7 @@ class Dashboard extends BaseController
 
         $mdata = [
             'title'     => 'Dashboard - ' . NAMETITLE,
-            'content'   => 'godmode/dashboard/index',
+            'content'   => check_access('console only','godmode/dashboard/index','hedgefund'),
             'extra'     => 'godmode/dashboard/js/_js_index',
             'active_dash'    => 'active',
             'totalmemberpnglobal' => $totalmemberpnglobal,
@@ -209,10 +209,9 @@ class Dashboard extends BaseController
 
     public function hedgefund()
     {
-
         $mdata = [
             'title'     => 'Dashboard - ' . NAMETITLE,
-            'content'   => 'godmode/hedge/profit',
+            'content'   => check_access('dashboard','godmode/hedge/profit','hedgefund'),
             'extra'     => 'godmode/hedge/js/_js_profit',
             'sidebar'   => 'hedgefund_sidebar',
             'navbar_hedgefund' => 'active',

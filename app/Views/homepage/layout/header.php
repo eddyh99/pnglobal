@@ -62,7 +62,7 @@
                             <ul class="dropdown-menu">
                                 <li><a class="dropdown-item" href="<?= BASE_URL ?>service/hedgefund">HEDGE FUND</a></li>
                                 <!--<li><a class="dropdown-item" href="<?= BASE_URL ?>homepage/service?service=<?= base64_encode('btc_elite_management') ?>">ELITE</a></li>-->
-                                <!--<li><a class="dropdown-item" href="<?= BASE_URL ?>homepage/service?service=<?= base64_encode('lux_btc_brokers') ?>">BROKER LUX</a></li>-->
+                                <li><a class="dropdown-item" href="<?= BASE_URL ?>service/lux-btc">BROKER LUX</a></li>
                             </ul>
                         </li>
                         <li class="nav-item dropdown me-0 me-xl-2">

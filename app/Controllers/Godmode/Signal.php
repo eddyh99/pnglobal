@@ -9,7 +9,6 @@ class Signal extends BaseController
 
     public function index()
     {
-
         // Call Endpoint read latest signal from elite
         $url = URL_HEDGEFUND . "/v1/order/latestsignal";
         $response = satoshiAdmin($url);

@@ -122,7 +122,12 @@ class Filters extends BaseFilters
                 'godmode/freemember',
                 'godmode/giveaway',
                 'godmode/signal',
-                'godmode/admin'
+                'godmode/admin',
+                'godmode/onetoone',
+                'godmode/onetoone/*',
+                'godmode/mediation',
+                'godmode/principe',
+                'godmode/otc'
             ],
         ],
         'isLoggedInLux' => [

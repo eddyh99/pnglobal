@@ -31,7 +31,7 @@
         <div class="row content-body">
             <div class="col-lg-12">
                 <!-- balance fund & trade -->
-                    <a href="<?= BASE_URL ?>godmode/hedge/profit">
+                    <a>
                         <div class="custom-card left-card custom-responsive-width w-50 mx-auto">
                             <div class="d-flex justify-content-center text-black" style="font-weight: bold;">
                                 <p>TRADE BALANCE</p>
