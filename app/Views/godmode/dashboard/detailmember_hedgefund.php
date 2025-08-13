@@ -165,6 +165,7 @@
                                 <tr>
                                     <th>DATE</th>
                                     <th>AMOUNT DEPOSIT</th>
+                                    <th>ACTION</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -172,6 +173,7 @@
                             <tfoot>
                                 <tr>
                                     <th>Total</th>
+                                    <th></th>
                                     <th></th>
                                 </tr>
                             </tfoot>

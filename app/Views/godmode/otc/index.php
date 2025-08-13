@@ -1,8 +1,8 @@
 <!-- Page Content  -->
-<div class="content-page mb-5">
+<div class="content-page">
     <div class="container-fluid">
         <div class="row content-body">
-            <div class="col-lg-12 mt-5">
+            <div class="col-lg-12">
                 <div class="send-signals">
                     <div class="title-signal-preview d-flex justify-content-between align-items-center">
                         <h4>Calculator OTC</h4>

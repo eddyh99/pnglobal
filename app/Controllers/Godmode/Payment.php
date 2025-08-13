@@ -73,7 +73,6 @@ class Payment extends BaseController
 
     public function satoshi()
     {
-        check_access();
         $mdata = [
             'title'     => 'Payment - ' . NAMETITLE,
             'content'   => 'godmode/payment/satoshi',

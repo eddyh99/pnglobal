@@ -28,7 +28,7 @@
 
 
 <!-- Page Content  -->
-<div class="content-page mb-5">
+<div class="content-page">
     <div class="container-fluid">
         <div class="row content-body">
             <!-- Card Summary -->
