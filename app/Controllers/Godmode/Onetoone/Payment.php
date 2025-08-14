@@ -48,7 +48,7 @@ class Payment extends BaseController
 
         $mdata = [
             'title'     => 'One To One - ' . NAMETITLE,
-            'content'   => 'godmode/onetoone/payment',
+            'content'   => check_access('payment','godmode/onetoone/payment','onetoone'),
             'extra'     => 'godmode/course/dashboard/js/_js_index',
             'sidebar'   => 'onetoone_sidebar',
             'navbar_onetoone' => 'active',

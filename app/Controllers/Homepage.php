@@ -180,7 +180,7 @@ class Homepage extends BaseController
                 'extragsap' => 'homepage/gsap/gsap_satoshi_signal',
                 'flag'      => 'satoshisignal'
             ];
-        } else if ($service == "lux-btc-brokers") {
+        } else if ($service == "lux-btc") {
             $mdata = [
                 'title'     => 'Lux BTC Brokers - ' . NAMETITLE,
                 'content'   => 'homepage/service/lux_btc_brokers',

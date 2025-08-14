@@ -93,7 +93,24 @@
 
                     <!-- Subscription Status -->
                     <div class="label">Payment Type</div>
-                    <div class="value"><?= $payment->withdraw_type ?></div>
+                    <div class="value"><?= $payment->withdraw_type ?>
+                    <?php 
+                        $isTRC20 = preg_match('/^T[a-zA-Z0-9]{33}$/', @$payment->wallet_address);
+                        $isBEP20 = preg_match('/^0x[a-fA-F0-9]{40}$/', @$payment->wallet_address);
+                        if ($isTRC20) : 
+                    ?>
+                            / TRC20
+                    <?php
+                        elseif ($isBEP20) :
+                    ?>
+                            / BEP20
+                    <?php
+                        else:
+                    ?>
+                            / Unsupported Wallet
+                    <?php 
+                        endif;?>
+                    </div>
 
                     <!-- Subscription Status -->
                     <div class="label">Detail Payment</div>

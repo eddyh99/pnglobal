@@ -6,7 +6,7 @@
             "responsive": true,
             "pageLength": 100,
             "ajax": {
-                "url": "http://localhost:8080/godmode/principe/get_detailprofit",
+                "url": "<?=BASE_URL?>godmode/principe/get_detailprofit",
                 "type": "POST",
                 "dataSrc": function(data) {
                     var filterBulan = $('#bulan_filter').val();

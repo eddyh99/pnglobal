@@ -173,8 +173,8 @@ class Auth extends BaseController
 			if (strpos(strtolower($message), 'your account has not been activated') !== false) {
 				// Redirect ke halaman OTP
 				$encodedEmail = base64_encode($email);
-				return redirect()->to(BASE_URL . "hedgefund/auth/otp/" . $encodedEmail)
-					->with('info', 'Your account is not activated. Please enter the OTP sent to your email.');
+				return redirect()->to(BASE_URL . "hedgefund/auth/otp/" . $encodedEmail."?r=1")
+					->with('success', 'Your account is not activated. Please enter the OTP sent to your email.');
 			}
 			// Jika error lain
 			return redirect()->to(BASE_URL . 'hedgefund/auth/login')->with('failed', $message);
@@ -239,13 +239,13 @@ class Auth extends BaseController
 			$response = satoshiAdmin($url, json_encode($mdata));
 
 			return $this->response->setJSON([
-				'code' => $response->result->code ?? '400',
+				'code' => $response->result->code ?? 400,
 				'message' => $response->result->message ?? 'Failed to process request'
 			]);
 		} catch (\Exception $e) {
 			log_message('error', 'OTP Processing Error: ' . $e->getMessage());
 			return $this->response->setJSON([
-				'code' => '500',
+				'code' => 500,
 				'message' => 'Server Error: ' . $e->getMessage()
 			]);
 		}
@@ -290,12 +290,12 @@ class Auth extends BaseController
         $minCapital = (float) $result->message->price;
         $fee        = (float) $result->message->cost;
         $commission = (float) $result->message->referral_fee;
-
+        $step       = (float) $result->message->step;
         log_message('debug', 'API Price: ' . $minCapital . ', Commission: ' . $commission);
 
         $data = [
             'min_capital'       => $minCapital,
-            'additional_step'   => 100,
+            'additional_step'   => 500,
             'percentage_fee'    => $fee,
             'comission'         => $commission,
         ];
@@ -667,18 +667,12 @@ class Auth extends BaseController
 		$url = URL_HEDGEFUND . "/auth/resend_token";
 		$resultMember = satoshiAdmin($url, json_encode(['email' => $email]));
 		$response = $resultMember->result ?? null;
-
 		// Tangani jika response gagal (validasi atau email tidak ditemukan)
-		if (isset($response->status) && $response->status == 400) {
+		if (isset($response->code) && $response->code == 400 ) {
 			// Ambil pesan error dari messages (bisa 'email' atau 'error')
 			$errorMsg = '';
-
-			if (isset($response->messages)) {
-				if (isset($response->messages->email)) {
-					$errorMsg = $response->messages->email;
-				} elseif (isset($response->messages->error)) {
-					$errorMsg = $response->messages->error;
-				}
+			if (isset($response->message)) {
+				$errorMsg = $response->message;
 			}
 
 			session()->setFlashdata('failed', $errorMsg ?: 'Gagal mengirim reset password');

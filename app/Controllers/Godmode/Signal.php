@@ -9,7 +9,6 @@ class Signal extends BaseController
 
     public function index()
     {
-
         // Call Endpoint read latest signal from elite
         $url = URL_HEDGEFUND . "/v1/order/latestsignal";
         $response = satoshiAdmin($url);
@@ -803,6 +802,33 @@ class Signal extends BaseController
         return $this->response->setJSON($result->message);
     }
 
+    // Force Cancel
+    public function cancelsignal()
+    {
+        if (!$this->validate([
+            'idsignal' => 'required'
+        ])) {
+            $result =  [
+                'code' => 400,
+                'message' => array_values($this->validator->getErrors())
+            ];
+            echo json_encode($result);
+            exit();
+        }
+    
+        $idsignal = rawurlencode($this->request->getVar('idsignal'));
+    
+        $url = URL_HEDGEFUND . "/v1/order/cancel_signal?id_signal=".$idsignal;
+        $response = satoshiAdmin($url)->result ?? null;
+    
+        log_message('info', 'Update order: ' . json_encode($url));
+    
+        $result = [
+            'code' => ($response && $response->code == 201) ? 200 : 400,
+            'message' => [$response->message ?? 'Unknown error']
+        ];
+        echo json_encode($result);
+    }
 
     // FILL BUY
     public function fillbuy()

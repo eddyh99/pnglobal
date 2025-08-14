@@ -118,22 +118,32 @@
                     // Parse Data
                     let result = ress;
                     console.log(result);
-
-                    if (result.code == "200") {
+                    const params = new URLSearchParams(window.location.search);
+                    console.log("before");
+                    if (Number(result.code) == 200) {
                         $('#loadingcontent').modal('show');
                         setTimeout(() => {
-                            window.location.href = '<?= BASE_URL ?>hedgefund/auth/set_capital/<?= base64_encode($emailuser) ?>';
+                            if (params.get('r') === '1') {
+                                window.location.href = '<?= BASE_URL ?>hedgefund/dashboard ?>';
+                            }else{
+                                window.location.href = '<?= BASE_URL ?>hedgefund/auth/set_capital/<?= base64_encode($emailuser) ?>';
+                            }
                         }, 3000);
                     } else {
-                        $(".show-failed").append(`
+                        console.log("masuk");
+                        let alertElement = $(`
                             <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                                <strong>
-                                    ${result.message}
-                                </strong>
+                                <strong>${result.message}</strong>
                                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                            </div>               
-                        `)
-
+                            </div>
+                        `);
+                        
+                        $(".show-failed").append(alertElement);
+                        
+                        // Auto-dismiss after 5 seconds
+                        setTimeout(() => {
+                            alertElement.alert('close'); // Bootstrap way to close the alert
+                        }, 5000);
                     }
 
                 },

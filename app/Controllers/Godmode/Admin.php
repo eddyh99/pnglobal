@@ -36,7 +36,7 @@ class Admin extends BaseController
         $product = [
             'hedgefund' => [
                 'access' => [
-                    'dashboard',
+                    'console only',
                     'payment',
                     'referral',
                 ],
@@ -85,14 +85,14 @@ class Admin extends BaseController
 
         $mdata = [
             'email'     => $this->request->getVar('email'),
-            'password'  => sha1('12345678'),
+            'password'  => null,
             'role'      => 'admin',
             'timezone'  => $this->request->getVar('timezone'),
             'ip_address'  => $this->request->getIPAddress(),
             'access'      => $access,
             'alias'       => $this->request->getVar('alias'),
         ];
-
+        
         // Hash & Trim Password
         $json = json_encode($mdata, JSON_UNESCAPED_SLASHES);
 

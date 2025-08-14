@@ -41,6 +41,7 @@
                     $access = $loggedUser && is_string($loggedUser->access)
                         ? json_decode($loggedUser->access, true)
                         : ($loggedUser->access ?? []);
+                        
                 }
                 ?>
 
