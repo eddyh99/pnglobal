@@ -6,6 +6,7 @@
             <div class="d-flex flex-column justify-content-center align-items-center" style="height: 350px;">
                 <a href="<?= BASE_URL ?>hedgefund/deposit/usdt_payment" class="btn btn-primary btn-lg w-75 btn-withdraw">USDT</a>
                 <a href="<?= BASE_URL ?>hedgefund/deposit/usdc_payment" class="btn btn-primary btn-lg w-75 btn-withdraw mt-3">USDC</a>
+                <a href="<?= BASE_URL ?>hedgefund/deposit/bank_payment" class="btn btn-primary btn-lg w-75 btn-withdraw mt-3">Bank Transfer</a>
             </div>
         </div>
     </div>
