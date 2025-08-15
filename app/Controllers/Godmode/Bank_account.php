@@ -44,10 +44,10 @@ class Bank_account extends BaseController
     public function get_bank_account()
     {
         // Call Endpoin
-        $url = URLAPI . "/v1/bank/bank-account";
+        $url = URLAPI . "/non/bank-account";
         $result = satoshiAdmin($url);
-        // echo json_encode(is_array($result) ? $result : (array) $result);
-        echo json_encode($result);
+        echo json_encode(is_array($result) ? $result : (array) $result);
+        // echo json_encode($result);
         exit;
     }
 
@@ -75,7 +75,7 @@ class Bank_account extends BaseController
             'bank_account_number' => $bank_account_number,
         ];
         // dd($mdata);
-        $url = URLAPI . "/v1/bank/bank-account";
+        $url = URLAPI . "/v1/bank/create-bank-account";
         $response = satoshiAdmin($url, json_encode($mdata));
         $result = $response->result;
 

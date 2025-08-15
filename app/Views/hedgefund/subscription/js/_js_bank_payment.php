@@ -1,5 +1,11 @@
 <style>
+    tr {
+        height: 60px;
+    }
+
     .th-deposit {
+        color: rgba(255, 255, 255, 0.5);
+        /* putih dengan opacity 90% */
         text-align: left;
         padding: 4px;
         width: 25%;
@@ -8,6 +14,7 @@
     .td-normal {
         padding: 4px;
         color: white;
+        text-align: left;
     }
 
     .td-input {
@@ -25,6 +32,20 @@
         color: white;
         border-radius: 4px;
         cursor: pointer;
+    }
+
+    .outer-border-wrapper {
+        border: 2px solid #bfa573;
+        padding: 1rem;
+        border-radius: 0.5rem;
+        margin-bottom: 1rem;
+    }
+
+    .border-wrapper {
+        border: 1px solid #bfa573;
+        padding: 1rem;
+        border-radius: 0.5rem;
+        margin-bottom: 1rem;
     }
 </style>
 <script>
@@ -56,7 +77,7 @@
 
     // Fetch data from API
     document.addEventListener("DOMContentLoaded", function() {
-        const apiUrl = "<?= BASE_URL ?>/hedgefund/deposit/destination_deposit_bank";
+        const apiUrl = "<?= BASE_URL ?>/hedgefund/auth/destination_deposit_bank";
         fetch(apiUrl)
             .then(res => res.json())
             .then(data => {

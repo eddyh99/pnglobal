@@ -54,7 +54,7 @@
                                             <th class="th-deposit">Routing Number</th>
                                             <td class="td-input">
                                                 : 
-                                                <input id="viewRouting" type="text" value="<?= esc($routing ?? '-') ?>" readonly class="form-control-sm flex-grow-1">
+                                                <input id="viewRouting" type="text" value="<?= esc($routing ?? '-') ?>" readonly >
                                                 <button type="button" onclick="copyToClipboard('viewRouting')" class="button-copy">Copy</button>
                                             </td>
                                         </tr>
@@ -62,7 +62,7 @@
                                             <th class="th-deposit">Account Number</th>
                                             <td class="td-input">
                                                 : 
-                                                <input id="viewAccountNumber" type="text" value="<?= esc($account_number ?? '-') ?>" readonly class="form-control-sm flex-grow-1">
+                                                <input id="viewAccountNumber" type="text" value="<?= esc($account_number ?? '-') ?>" readonly >
                                                 <button type="button" onclick="copyToClipboard('viewAccountNumber')" class="button-copy">Copy</button>
                                             </td>
                                         </tr>
@@ -70,7 +70,7 @@
                                             <th class="th-deposit">Casual</th>
                                             <td class="td-input">
                                                 : 
-                                                <input id="viewCasual" type="text" value="<?= esc($order_id ?? '-') ?>" readonly class="form-control-sm flex-grow-1">
+                                                <input id="viewCasual" type="text" value="<?= esc($order_id ?? '-') ?>" readonly >
                                                 <button type="button" onclick="copyToClipboard('viewCasual')" class="button-copy">Copy</button>
                                             </td>
                                         </tr>
@@ -94,7 +94,7 @@
                                             <th class="th-deposit">Total Amount</th>
                                             <td class="td-input">
                                                 :
-                                                <input id="payTotal" type="text" value="$<?= number_format($total ?? 0, 0) ?>" readonly class="form-control-sm flex-grow-1 font-weight-bold">
+                                                <input id="payTotal" type="text" value="$<?= number_format($total ?? 0, 0) ?>" readonly>
                                                 <button type="button" onclick="copyToClipboard('payTotal')" class="button-copy">Copy</button>
                                             </td>
                                         </tr>
