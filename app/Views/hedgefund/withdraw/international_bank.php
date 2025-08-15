@@ -31,7 +31,7 @@
     <div class="container-fluid">
         <div class="row content-body">
             <div class="col-lg-12 px-2">
-                <a href="<?= BASE_URL ?>member/withdraw" class="back-button">
+                <a href="<?= BASE_URL ?>hedgefund/withdraw/select_bank" class="back-button">
                     <svg xmlns="http://www.w3.org/2000/svg" width="11" height="14" viewBox="0 0 11 14" fill="none">
                         <path d="M0 7L10.5 0.937822V13.0622L0 7Z" fill="#B48B3D" />
                     </svg>
@@ -45,7 +45,7 @@
                                     Available Commission to Withdraw
                                 </div>
                                 <div class="card-row card-bottom">
-                                    Loading...
+                                    <?= '$ ' . @number_format($balance['fund']->usdt ?? 0, 2, '.', ',') ?>
                                 </div>
                             </div>
                         </div>

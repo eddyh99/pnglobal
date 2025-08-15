@@ -27,37 +27,14 @@
 <?php } ?>
 
 <!-- Page Content  -->
-<div class="content-page mb-5 withdraw-usdt">
+<div class="content-page mb-5">
     <div class="container-fluid">
         <div class="row content-body">
-            <div class="col-lg-12 px-2">
-                <a href="<?= BASE_URL ?>hedgefund/withdraw/select_bank" class="back-button">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="11" height="14" viewBox="0 0 11 14" fill="none">
-                        <path d="M0 7L10.5 0.937822V13.0622L0 7Z" fill="#B48B3D" />
-                    </svg>
-                    BACK
-                </a>
-                <div class="withdraw-comission">
-                    <div class="row referral-cards mb-4">
-                        <div class="col-md-6">
-                            <div class="custom-card left-card">
-                                <div class="card-row card-top">
-                                    Available Commission to Withdraw
-                                </div>
-                                <div class="card-row card-bottom">
-                                    <?= '$ ' . @number_format($balance['fund']->usdt ?? 0, 2, '.', ',') ?>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
             <div id="bankAccountForm" class="col-lg-12">
-                <form action="<?= BASE_URL ?>/godmode/bank_account/addbankaccount" method="POST">
+                <form action="<?= BASE_URL ?>/godmode/bank_account/update" method="POST">
                     <div class="send-signals">
                         <div class="title-signal-preview d-flex justify-content-between align-items-center">
-                            <h4>Add Bank Account</h4>
+                            <h4>Edit Bank Account</h4>
                         </div>
                         <div class="main-send-signal d-flex flex-column align-items-center justify-content-center">
                             <div class="row w-100">
@@ -86,29 +63,13 @@
                                         <input type="text" name="bank_account_number" placeholder="Enter Account Number" class="form-control">
                                     </div>
                                     <div class="wrapper-addreferral d-flex justify-content-center">
-                                        <button type="submit" id="submitBtn" class="btn btn-primary">Add Bank Account</button>
+                                        <button type="submit" id="submitBtn" class="btn btn-primary">Edit</button>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </form>
-            </div>
-        </div>
-    </div>
-</div>
-
-
-<div class="modal fade" id="modalAvailableCommission" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <!-- Pesan akan dimuat secara dinamis -->
             </div>
         </div>
     </div>

@@ -72,6 +72,7 @@
                     <a href="<?= BASE_URL ?>hedgefund/withdraw/usdt" class="transfer-btn mb-2 btn-lg w-50 d-inline-block">USDT</a><br>
                     <a href="<?= BASE_URL ?>hedgefund/withdraw/usdc" class="transfer-btn mb-2 btn-lg w-50 d-inline-block">USDC</a>
                     <a href="<?= BASE_URL ?>hedgefund/withdraw/btc" class="transfer-btn mb-2 btn-lg w-50 d-inline-block">BTC</a>
+                    <a href="<?= BASE_URL ?>hedgefund/withdraw/select_bank" class="transfer-btn mb-2 btn-lg w-50 d-inline-block">Bank</a>
                 </div>
             </div>
 

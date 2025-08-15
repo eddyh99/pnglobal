@@ -27,32 +27,45 @@
 <?php } ?>
 
 <!-- Page Content  -->
-<div class="content-page mb-5 withdraw-usdt">
+<div class="content-page mb-5">
     <div class="container-fluid">
         <div class="row content-body">
-            <div class="col-lg-12 px-2">
-                <a href="<?= BASE_URL ?>hedgefund/withdraw/select_bank" class="back-button">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="11" height="14" viewBox="0 0 11 14" fill="none">
-                        <path d="M0 7L10.5 0.937822V13.0622L0 7Z" fill="#B48B3D" />
-                    </svg>
-                    BACK
-                </a>
-                <div class="withdraw-comission">
-                    <div class="row referral-cards mb-4">
-                        <div class="col-md-6">
-                            <div class="custom-card left-card">
-                                <div class="card-row card-top">
-                                    Available Commission to Withdraw
+            <div id="bankAccountView" class="col-lg-12 mb-5">
+                <div class="send-signals">
+                    <div class="title-signal-preview d-flex justify-content-between align-items-center">
+                        <h4>Bank Account Details</h4>
+                    </div>
+                    <div class="main-send-signal d-flex flex-column align-items-center justify-content-center">
+                        <div class="row w-100">
+                            <div class="form-addreferral col-8 mx-auto">
+                                <div class="wrapper-addreferral" style="border: 1px solid #bfa573; padding: 1rem; border-radius: 0.5rem;">
+                                    <table style="width: 100%; border-collapse: collapse;">
+                                        <tr>
+                                            <th style="text-align: left; padding: 4px; width: 20%;">Bank Name</th>
+                                            <td style="padding: 4px;">: <span id="viewName">-</span></td>
+                                        </tr>
+                                        <tr>
+                                            <th style="text-align: left; padding: 4px;">Account Type</th>
+                                            <td style="padding: 4px;">: <span id="viewType">-</span></td>
+                                        </tr>
+                                        <tr>
+                                            <th style="text-align: left; padding: 4px;">Routing Number</th>
+                                            <td style="padding: 4px;">: <span id="viewRouting">-</span></td>
+                                        </tr>
+                                        <tr>
+                                            <th style="text-align: left; padding: 4px;">Account Number</th>
+                                            <td style="padding: 4px;">: <span id="viewNumber">-</span></td>
+                                        </tr>
+                                    </table>
                                 </div>
-                                <div class="card-row card-bottom">
-                                    <?= '$ ' . @number_format($balance['fund']->usdt ?? 0, 2, '.', ',') ?>
+                                <div class="d-flex justify-content-center my-3">
+                                    <a href="<?= BASE_URL ?>godmode/bank_account/edit" class="btn btn-primary">Edit Bank Account</a>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-
             <div id="bankAccountForm" class="col-lg-12">
                 <form action="<?= BASE_URL ?>/godmode/bank_account/addbankaccount" method="POST">
                     <div class="send-signals">
@@ -94,22 +107,10 @@
                     </div>
                 </form>
             </div>
-        </div>
-    </div>
-</div>
+            <div>
 
+            </div>
 
-<div class="modal fade" id="modalAvailableCommission" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <!-- Pesan akan dimuat secara dinamis -->
-            </div>
         </div>
     </div>
 </div>

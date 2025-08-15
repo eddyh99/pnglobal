@@ -6,7 +6,7 @@
             <p class="site-subtitle">Direct and Personalized Bitcoin Wallet Management.</p>
         </div>
 
-         <!-- Sign-in box with centered buttons -->
+        <!-- Sign-in box with centered buttons -->
         <div class="sign-in-box text-center p-4">
             <h1 class="fw-bold">PAYMENT OPTION</h1>
 
@@ -14,6 +14,7 @@
             <div class="d-flex flex-column justify-content-center align-items-center" style="height: 350px;">
                 <a href="<?= BASE_URL ?>hedgefund/auth/usdt_payment" class="btn btn-primary btn-lg w-75">USDT</a>
                 <a href="<?= BASE_URL ?>hedgefund/auth/usdc_payment" class="btn btn-primary btn-lg w-75 mt-3">USDC</a>
+                <a href="<?= BASE_URL ?>hedgefund/auth/bank_payment" class="btn btn-primary btn-lg w-75 btn-withdraw mt-3">Bank Transfer</a>
             </div>
         </div>
     </div>

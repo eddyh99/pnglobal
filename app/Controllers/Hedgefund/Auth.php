@@ -871,7 +871,8 @@ class Auth extends BaseController
         && $response->result->message == true;
     }
 
-	public function resend_token($email) {
+	public function resend_token($email) 
+	{
 		$msg = [
 			'success' => false,
 			'message' => 'Failed to resend activation code.'
@@ -965,5 +966,64 @@ class Auth extends BaseController
 
 		return $this->response->setJSON($msg);
 		
+	}
+
+	public function bank_payment()
+	{
+		// dd(session()->get());
+		if (!session()->has('reg_user')) {
+			session()->destroy();
+			return redirect()->to(base_url('hedgefund/auth/login'));
+		}
+
+		$payamount  = $_SESSION["payment_data"]["amount"];
+		$customerEmail = $_SESSION["reg_user"]->email;
+		$postData = [
+			'email' => $customerEmail,
+			'amount' => $_SESSION["payment_data"]["totalcapital"],
+		];
+
+		$url        = URL_HEDGEFUND . "/non/deposit";
+		$invoice   = satoshiAdmin($url, json_encode($postData))->result->message;
+		$orderId    = $invoice;
+		$description = "HEDGE FUND - PNGLOBAL";
+
+
+		// Simpan data ke session
+		session()->set([
+			'bank_payment_order_id' => $orderId,
+			'bank_payment_amount'   => $payamount
+		]);
+
+		// Redirect ke halaman info deposit bank
+		return redirect()->to(BASE_URL . 'hedgefund/auth/deposit_bank_transaction');
+	}
+
+	public function destination_deposit_bank()
+	{
+		// Call Endpoin
+		$url = URLAPI . "/non/bank-account";
+		$result = satoshiAdmin($url);
+		echo json_encode(is_array($result) ? $result : (array) $result);
+		exit;
+	}
+
+	public function deposit_bank_transaction(){
+		$orderId  = session()->get('bank_payment_order_id');
+		$payamount = session()->get('bank_payment_amount');
+		$fee       = 50;
+		$total     = $payamount + $fee;
+
+		$mdata = [
+			'title'     => 'Elite Management - ' . NAMETITLE,
+			'content'   => 'hedgefund/subscription/bank_payment',
+			'extra'     => 'hedgefund/subscription/js/_js_bank_payment',
+			'order_id'       => $orderId,
+			'payamount'      => $payamount,
+			'fee'            => $fee,
+			'total'          => $total
+		];
+
+		return view('hedgefund/layout/wrapper', $mdata);
 	}
 }
