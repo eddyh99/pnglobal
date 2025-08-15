@@ -496,7 +496,7 @@ class Dashboard extends BaseController
         if (! $this->validate($rules)) {
             // If validation fails
             $this->session->setFlashdata('failed', 'There was a problem processing your topup. Please check your input.');
-            return redirect()->to(base_url('godmode/dashboard/detailmember/hedgefund/'.base64_encode($email)))->withInput();
+            return redirect()->to(base_url('godmode/dashboard/detailmember/hedgefund/'.base64_encode($email).'/dG90YWxtZW1iZXI='))->withInput();
         }
 
         $amount     = $this->request->getPost("amount");
@@ -511,12 +511,52 @@ class Dashboard extends BaseController
         $result     = $response->result;
         if (($result->code ?? $response->status) != '200') {
             session()->setFlashdata('failed', "Something Wrong, Please Try Again!");
-            return redirect()->to(BASE_URL . 'godmode/dashboard/detailmember/hedgefund/'.base64_encode($email));
+            return redirect()->to(BASE_URL . 'godmode/dashboard/detailmember/hedgefund/'.base64_encode($email).'/dG90YWxtZW1iZXI=');
         } else {
             session()->setFlashdata('success', "Successfully Topup");
-            return redirect()->to(BASE_URL . 'godmode/dashboard/detailmember/hedgefund/'.base64_encode($email));
+            return redirect()->to(BASE_URL . 'godmode/dashboard/detailmember/hedgefund/'.base64_encode($email).'/dG90YWxtZW1iZXI=');
         }
         
 
+    }
+    
+    public function deltopup(){
+        $rules = [
+            'id' => 'required|is_natural_no_zero',
+        ];
+        
+        $email = $this->request->getPost("email");
+        if (! $this->validate($rules)) {
+            // If validation fails
+            $message = array(
+                "code"      => 400,
+                "message"   => "There was a problem deleting topup."
+            );
+            return $this->response->setJSON($message);
+            exit();
+        }
+        $id = $this->request->getPost("id");
+        $postData = [
+                "id" => $id
+            ];
+
+        $url        = URL_HEDGEFUND . "/v1/member/delete_topup";
+        $response   = satoshiAdmin($url, json_encode($postData));
+        $result     = $response->result;
+        if (($result->code ?? $response->status) != '200') {
+            $message = array(
+                    "code"      => 400,
+                    "message"   => "Something Wrong, Please Try Again!"
+                );
+            return $this->response->setJSON($message);
+            exit();
+        } else {
+            $message = array(
+                    "code"      => 200,
+                    "message"   => "Successfully delete topup"
+                );
+            return $this->response->setJSON($message);
+            exit();
+        }
     }
 }
