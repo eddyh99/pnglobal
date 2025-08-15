@@ -367,4 +367,47 @@ class Withdraw extends BaseController
 
         return $balance;
     }
+
+    public function select_bank()
+    {
+        $balance = $this->get_balance();
+        $mdata = [
+            'title' => 'Withdraw - ' . NAMETITLE,
+            'content' => 'hedgefund/withdraw/select_bank',
+            'extra' => 'hedgefund/withdraw/js/_js_select_bank',
+            'balance' => $balance,
+            'active_withdraw' => 'active',
+        ];
+
+        return view('hedgefund/layout/dashboard_wrapper', $mdata);
+    }
+
+    public function usa_bank()
+    {
+        $balance = $this->get_balance();
+        $mdata = [
+            'title' => 'Withdraw - ' . NAMETITLE,
+            'content' => 'hedgefund/withdraw/usa_bank',
+            'extra' => 'hedgefund/withdraw/js/_js_usa_bank',
+            'balance' => $balance,
+            'active_withdraw' => 'active',
+        ];
+
+        return view('hedgefund/layout/dashboard_wrapper', $mdata);
+    }
+
+    public function international_bank()
+    {
+        $balance = $this->get_balance();
+        // dd($balance);
+        $mdata = [
+            'title' => 'Withdraw - ' . NAMETITLE,
+            'content' => 'hedgefund/withdraw/international_bank',
+            // 'extra' => 'hedgefund/withdraw/js/_js_international_bank',
+            'balance' => $balance,
+            'active_withdraw' => 'active',
+        ];
+
+        return view('hedgefund/layout/dashboard_wrapper', $mdata);
+    }
 }
