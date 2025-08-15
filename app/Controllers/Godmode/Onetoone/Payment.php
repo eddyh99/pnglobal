@@ -53,8 +53,8 @@ class Payment extends BaseController
             'sidebar'   => 'onetoone_sidebar',
             'navbar_onetoone' => 'active',
             'active_member'    => 'active active-menu',
-            'member_onetoone' => $resultMember->data,
-            'payment'  => $resultPayment,
+            'member_onetoone' => @$resultMember->data,
+            'payment'  => @$resultPayment,
             'payment_link'  => session()->getFlashdata('paymentlink'),
             'payment_email' => session()->getFlashdata('payment_email')
         ];

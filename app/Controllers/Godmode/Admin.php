@@ -99,7 +99,6 @@ class Admin extends BaseController
         $url = URLAPI . "/v1/member/add_admin";
         $result = satoshiAdmin($url, $json)->result;
 
-
         if ($result->code == '201') {
             $this->add_admin_hedgefund($mdata);
             $this->add_admin_course($mdata);

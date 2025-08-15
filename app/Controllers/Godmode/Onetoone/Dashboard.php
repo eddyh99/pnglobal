@@ -33,7 +33,7 @@ class Dashboard extends BaseController
     {
         $mdata = [
             'title'     => 'Dashboard - ' . NAMETITLE,
-            'content'   => check_access('payment','godmode/onetoone/index','onetoone'),
+            'content'   => check_access('dashboard','godmode/onetoone/index','onetoone'),
             'extra'     => 'godmode/onetoone/js/_js_index',
             'sidebar'   => 'onetoone_sidebar',
             'navbar_onetoone' => 'active',
