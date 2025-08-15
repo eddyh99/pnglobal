@@ -312,13 +312,16 @@ input[type=number] {
         }).then((result) => {
             if (result.isConfirmed) {
                 // Data yang akan dikirim ke server
+                let email = $("#email").val();
                 const sendData = {
-                    type: 'id' + id,
+                    id: id,
+                    email: email
                 };
 
                 $.ajax({
                     url: '<?= BASE_URL ?>godmode/dashboard/deltopup',
                     type: 'POST',
+                    
                     data: sendData,
                     success: function(ress) {
                         console.log('Response dari server:', ress);
@@ -326,7 +329,7 @@ input[type=number] {
                         // Parse Data
                         let result;
                         try {
-                            result = JSON.parse(ress);
+                            result = ress;
                             console.log('Parsed result:', result);
                         } catch (error) {
                             console.error('Error parsing JSON:', error);
@@ -345,7 +348,7 @@ input[type=number] {
                         }
 
                         // Check if response success
-                        if (result.code == '200' || result.code == '201' || result.code == 200 || result.code == 201) {
+                        if (result.code == '200' || result.code == '201') {
                             // Sweet Alert Success dengan warna hijau
                             Swal.fire({
                                 text: `${result.message}`,
@@ -365,7 +368,7 @@ input[type=number] {
                             Swal.fire({
                                 toast: true,
                                 icon: 'error',
-                                title: 'Order Failed',
+                                title: 'Delete Topup Failed',
                                 html: result.message.join('<br>'),
                                 position: 'top-end',
                                 showConfirmButton: false,
@@ -378,9 +381,18 @@ input[type=number] {
                     },
                     error: function(jqXHR, textStatus, errorThrown) {
                         console.error('AJAX Error:', textStatus, errorThrown);
-                        // Sweet Alert
+                        
+                        let message = 'Unknown error';
+                        try {
+                            const response = JSON.parse(jqXHR.responseText);
+                            message = response.message || message;
+                        } catch (e) {
+                            console.error('Failed to parse JSON from error response', e);
+                            message = jqXHR.statusText || 'Server Error';
+                        }
+                    
                         Swal.fire({
-                            text: `Error: ${textStatus}`,
+                            text: `Error: ${message}`,
                             showCloseButton: true,
                             showConfirmButton: false,
                             background: '#FFE4DC',
@@ -389,7 +401,7 @@ input[type=number] {
                             timer: 3000,
                             timerProgressBar: true,
                         });
-                    }
+                    }                    
                 });
             }
         })

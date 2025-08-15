@@ -275,7 +275,7 @@
     <div class="modal-content">
         <form action="<?=BASE_URL?>godmode/dashboard/manualtopup" method="post">
           <input type="hidden" name="member_id" value="<?= $member->id ?>">
-          <input type="hidden" name="email" value="<?= $email ?>">
+          <input type="hidden" id="email" name="email" value="<?= $email ?>">
           <div class="modal-header">
             <h5 class="modal-title" id="centerModal" style="color:black">Topup</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
