@@ -286,7 +286,7 @@ class Deposit extends BaseController
     public function destination_deposit_bank()
     {
         // Call Endpoin
-        $url = URLAPI . "/non/bank-account";
+        $url = URL_HEDGEFUND . "/apiv1/bank";
         $result = satoshiAdmin($url);
         echo json_encode(is_array($result) ? $result : (array) $result);
         exit;

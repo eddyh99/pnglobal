@@ -44,7 +44,7 @@ class Bank_account extends BaseController
     public function get_bank_account()
     {
         // Call Endpoin
-        $url = URLAPI . "/non/bank-account";
+        $url = URL_HEDGEFUND . "/apiv1/bank";
         $result = satoshiAdmin($url);
         echo json_encode(is_array($result) ? $result : (array) $result);
         // echo json_encode($result);
@@ -75,7 +75,7 @@ class Bank_account extends BaseController
             'bank_account_number' => $bank_account_number,
         ];
         // dd($mdata);
-        $url = URLAPI . "/v1/bank/create-bank-account";
+        $url = URL_HEDGEFUND . "/apiv1/bank/create";
         $response = satoshiAdmin($url, json_encode($mdata));
         $result = $response->result;
 
@@ -119,7 +119,7 @@ class Bank_account extends BaseController
         ]);
 
         // Panggil API update bank account
-        $url = URLAPI . '/v1/bank/update-bank-account';
+        $url = URL_HEDGEFUND . '/apiv1/bank/update';
         $result = satoshiAdmin($url, $postData);
         // return print_r($result); exit;
 
