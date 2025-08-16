@@ -105,10 +105,6 @@
                     ?>
                             / BEP20
                     <?php
-                        else:
-                    ?>
-                            / Unsupported Wallet
-                    <?php 
                         endif;?>
                     </div>
 

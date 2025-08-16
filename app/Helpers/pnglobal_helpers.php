@@ -456,3 +456,44 @@ function sendmail_accountdel($subject, $mdata)
         exit();
     }
 }
+
+if (!function_exists('get_balance')) {
+    function get_balance($member_id = null)
+    {
+        if ($member_id === null && isset($_SESSION["logged_user"]->id)) {
+            $member_id = $_SESSION["logged_user"]->id;
+        }
+
+        $url = URL_HEDGEFUND . "/v1/member/balance";
+
+        $types = ['fund', 'trade', 'commission'];
+        $balances = [];
+
+        foreach ($types as $type) {
+            $response = satoshiAdmin($url, json_encode([
+                'id_member' => $member_id,
+                'type' => $type
+            ]));
+
+            $balances[$type] = $response->result->message ?? null;
+        }
+
+        // Return the HTML block
+        ob_start();
+        ?>
+        <div class="row referral-cards mb-4">
+            <div class="col-md-6">
+                <div class="custom-card left-card">
+                    <div class="card-row card-top">
+                        <strong>Available USDT to Withdraw</strong>
+                    </div>
+                    <div class="card-row card-bottom">
+                        <?= '$ ' . @number_format($balances['fund']->usdt ?? 0, 2, '.', ',') ?>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <?php
+        return ob_get_clean();
+    }
+}

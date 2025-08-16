@@ -38,52 +38,55 @@
                     BACK
                 </a>
                 <div class="withdraw-comission">
-                    <div class="row referral-cards mb-4">
-                        <div class="col-md-6">
-                            <div class="custom-card left-card">
-                                <div class="card-row card-top">
-                                    Available Commission to Withdraw
-                                </div>
-                                <div class="card-row card-bottom">
-                                    <?= '$ ' . @number_format($balance['fund']->usdt ?? 0, 2, '.', ',') ?>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    <?=get_balance()?>
                 </div>
             </div>
 
             <div id="bankAccountForm" class="col-lg-12">
-                <form action="<?= BASE_URL ?>/godmode/bank_account/addbankaccount" method="POST">
+                <form action="<?= BASE_URL ?>hedgefund/withdraw/request_withdraw" method="POST">
+                    <input type="hidden" name="type" value="fiat">
                     <div class="send-signals">
                         <div class="title-signal-preview d-flex justify-content-between align-items-center">
-                            <h4>Add Bank Account</h4>
+                            <h4>Bank Account</h4>
                         </div>
                         <div class="main-send-signal d-flex flex-column align-items-center justify-content-center">
                             <div class="row w-100">
                                 <div class="form-addreferral col-8 mx-auto">
                                     <div class="wrapper-addreferral">
+                                        <label for="wallet_address">Amount</label>
+                                        <div class="w-100 mb-1" style="min-width: 400px; margin: 0 auto;">
+                                            <div class="d-flex align-items-center" style="border: 1px solid #b48b3d; background-color: #1c1c1c; height: 45px; border-radius: 5px;">
+                                                <input type="number" id="amount" name="amount" step="0.01"
+                                                    class="form-control text-center fw-bold no-spinner"
+                                                    placeholder="10,000" max="<?=$balance['fund']->usdt?>" step="0.01"
+                                                    style="background-color: transparent; color: #b48b3d; border: none; box-shadow: none;">
+                                                <div class="px-3 fw-bold text-gold">USDT</div>
+                                                <div id="maxbalance" class="px-3 fw-bold text-gold" style="cursor: pointer;">MAX</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="wrapper-addreferral">
                                         <label for="bank_account_name">Bank Account Name</label>
-                                        <input type="text" name="bank_account_name" placeholder="Enter Bank Account Name" class="form-control">
+                                        <input type="text" name="recipient" placeholder="Enter Bank Account Name" class="form-control">
                                     </div>
                                     <div class="wrapper-addreferral">
                                         <label>Account Type</label>
                                         <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="radio" name="bank_account_type" id="accountChecking" value="checking">
+                                            <input class="form-check-input" type="radio" name="account_type" id="accountChecking" value="checking">
                                             <label class="form-check-label" for="accountChecking">Checking</label>
                                         </div>
                                         <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="radio" name="bank_account_type" id="accountSaving" value="saving">
+                                            <input class="form-check-input" type="radio" name="account_type" id="accountSaving" value="saving">
                                             <label class="form-check-label" for="accountSaving">Saving</label>
                                         </div>
                                     </div>
                                     <div class="wrapper-addreferral">
                                         <label for="bank_routing_number">Routing Number</label>
-                                        <input type="text" name="bank_routing_number" placeholder="Enter Routing Number" class="form-control">
+                                        <input type="text" name="routing_number" placeholder="Enter Routing Number" class="form-control">
                                     </div>
                                     <div class="wrapper-addreferral">
                                         <label for="bank_account_number">Account Number</label>
-                                        <input type="text" name="bank_account_number" placeholder="Enter Account Number" class="form-control">
+                                        <input type="text" name="account_number" placeholder="Enter Account Number" class="form-control">
                                     </div>
                                     <div class="wrapper-addreferral d-flex justify-content-center">
                                         <button type="submit" id="submitBtn" class="btn btn-primary">Add Bank Account</button>
