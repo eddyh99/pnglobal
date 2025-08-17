@@ -31,7 +31,7 @@ class Otc extends BaseController
     {
         $mdata = [
             'title'     => 'Mediation - ' . NAMETITLE,
-            'content'   => 'godmode/otc/index',
+            'content'   => check_access('calc','godmode/otc/index','hedgefund'),
             'extra'     => 'godmode/otc/js/_js_index',
             'active_otc'    => 'active active-menu',
             'sidebar'   => 'console_sidebar',

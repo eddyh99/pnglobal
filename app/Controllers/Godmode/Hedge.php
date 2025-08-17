@@ -61,7 +61,7 @@ class Hedge extends BaseController
             'extra'     => 'godmode/dashboard/js/_js_hedgefund',
             'subs_free'    => 'active active-menu',
             'active_dash'   => 'active',
-            'sidebar'   => 'hedgefund_sidebar',
+            'sidebar'   => 'hedgefund_detail_sidebar',
             'navbar_hedgefund' => 'active',
             'totalmemberelite' => $totalmemberelite,
             'subscriberelite' => $subscriberelite,

@@ -217,6 +217,7 @@ class Signal extends BaseController
         // Process Call to Hedgefund Endpoint API (limit_buy)
         $urlHedgefund = URL_HEDGEFUND . "/v1/order/limit_buy";
         $hedgefund = satoshiAdmin($urlHedgefund, json_encode($mdata));
+        log_message('error',json_encode($hedgefund));
         $message = $this->getMessage($hedgefund);
 
         if ($message->signal) {

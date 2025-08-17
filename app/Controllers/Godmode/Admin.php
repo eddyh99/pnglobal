@@ -37,6 +37,7 @@ class Admin extends BaseController
             'hedgefund' => [
                 'access' => [
                     'console only',
+                    'calc',
                     'payment',
                     'referral',
                 ],

@@ -276,7 +276,9 @@ class Withdraw extends BaseController
         $url = URL_HEDGEFUND . "/v1/member/master_trade";
         $result = satoshiAdmin($url)->result;
         $response = $result->message;
-        $balance["trade"]->usdt = $response->trade_balance;
+        if ($_SESSION["logged_user"]->role=="superadmin"){
+            $balance["trade"]->usdt = $response->trade_balance;
+        }
         
         $loggedUser = $session->get('logged_user');
         $mdata = [

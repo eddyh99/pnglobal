@@ -213,22 +213,6 @@ class Referral extends BaseController
         ];
     }
 
-    public function cancelreferral($email)
-    {
-        $email  = base64_decode($email);
-
-        // $url = URLAPI . "/v1/referral/cancel_referral?email=".$email;
-        // $response = satoshiAdmin($url);
-        // $result = $response->result;
-        // if($result->code != '200') {
-        //     session()->setFlashdata('failed', "Something Wrong, Please Try Again!");
-        //     return redirect()->to(BASE_URL . 'godmode/referral/detailreferral/' . base64_encode($email));
-        // }else{
-        //     session()->setFlashdata('success', "Success Cancelled");
-        //     return redirect()->to(BASE_URL . 'godmode/dashboard/detailmember/'.base64_encode('totalmember').'/'. base64_encode($email));
-        // }    
-    }
-
     public function update_refcode()
     {
         // Validation Field
@@ -265,6 +249,51 @@ class Referral extends BaseController
         }
 
         return redirect()->to(BASE_URL . 'godmode/dashboard/detailmember/hedgefund/' . base64_encode($this->request->getVar('email')));
+    }
+    
+    public function remove_refcode()
+    {
+        $rules = $this->validate([
+            'id'     => [
+                'label'     => 'ID Member',
+                'rules'     => 'required'
+            ],
+        ]);
+
+        // Checking Validation
+        if (!$rules) {
+            $message = array(
+                "code"      => 400,
+                "message"   => "Member not recognize"
+            );
+            return $this->response->setJSON($message);
+            exit();
+        }
+
+        // Init Data
+        $mdata = [
+            'idmember'  => $this->request->getVar('id'),
+            'refcode'   => null
+        ];
+
+        $url = URL_HEDGEFUND . "/v1/member/update_refcode";
+        $result = satoshiAdmin($url, json_encode($mdata))->result;
+        log_message('error',json_encode($result));
+       if (($result->code ?? $response->status) != 200) {
+            $message = array(
+                    "code"      => 400,
+                    "message"   => "Something Wrong, Please Try Again!"
+                );
+            return $this->response->setJSON($message);
+            exit();
+        } else {
+            $message = array(
+                    "code"      => 200,
+                    "message"   => "Successfully delete referral"
+                );
+            return $this->response->setJSON($message);
+            exit();
+        }
     }
 
 }
