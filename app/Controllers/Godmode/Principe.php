@@ -30,8 +30,8 @@ class Principe extends BaseController
     public function index()
     {
         $mdata = [
-            'title'     => 'Mediation - ' . NAMETITLE,
-            'content'   => check_access('calc','godmode/principe/index','hedgefund'),
+            'title'     => 'History Hedgefund - ' . NAMETITLE,
+            'content'   => check_access('history','godmode/principe/index','console'),
             'extra'     => 'godmode/principe/js/_js_index',
             'active_principe'    => 'active active-menu',
             'sidebar'   => 'console_sidebar',

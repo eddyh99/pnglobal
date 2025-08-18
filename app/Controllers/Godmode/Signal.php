@@ -151,7 +151,7 @@ class Signal extends BaseController
 
         $mdata = [
             'title'     => 'Signal - ' . NAMETITLE,
-            'content'   => 'godmode/signal/index',
+            'content'   => check_access('console only','godmode/signal/index','console'),
             'extra'     => 'godmode/signal/js/_js_index',
             'active_signal'    => 'active active-menu',
             'sidebar'   => 'console_sidebar',
