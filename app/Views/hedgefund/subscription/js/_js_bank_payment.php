@@ -4,7 +4,7 @@
     }
 
     .th-deposit {
-        color: rgba(255, 255, 255, 0.5);
+        color: white;
         /* putih dengan opacity 90% */
         text-align: left;
         padding: 4px;
@@ -62,31 +62,17 @@
     // alert copy
     function showCopyAlert(message) {
         let alertBox = document.createElement("div");
-        alertBox.className = "alert alert-success fade show position-absolute";
+        alertBox.className = "alert alert-success fade show position-absolute d-flex align-items-center justify-content-between";
         alertBox.style = "top: 1rem; right: 1rem; width: 30%; z-index: 99999;";
         alertBox.innerHTML = `
-        <div class="iq-alert-icon"><i class="ri-information-line"></i></div>
-        <div class="iq-alert-text text-black">${message}</div>
-        <button type="button" class="close" onclick="this.parentElement.remove()">
-            <i class="ri-close-line text-black"></i>
-        </button>
-    `;
+            <div class="d-flex align-items-center">
+                <div class="iq-alert-icon me-2"><i class="ri-information-line"></i></div>
+                <div class="iq-alert-text text-black">${message}</div>
+            </div>
+            <button type="button" class="btn-close" onclick="this.parentElement.remove()" aria-label="Close"></button>
+        `;
         document.body.appendChild(alertBox);
         setTimeout(() => alertBox.remove(), 3000);
     }
 
-    // Fetch data from API
-    document.addEventListener("DOMContentLoaded", function() {
-        const apiUrl = "<?= BASE_URL ?>/hedgefund/auth/destination_deposit_bank";
-        fetch(apiUrl)
-            .then(res => res.json())
-            .then(data => {
-                const bankData = data.result?.data ?? {};
-                document.getElementById("viewName").textContent = bankData.bank_account_name || "-";
-                document.getElementById("viewType").textContent = bankData.bank_account_type || "-";
-                document.getElementById("viewRouting").value = bankData.bank_routing_number || "-";
-                document.getElementById("viewAccountNumber").value = bankData.bank_account_number || "-";
-            })
-            .catch(error => console.error("Fetch error:", error));
-    });
 </script>

@@ -32,7 +32,7 @@ class Mediation extends BaseController
     {
         $mdata = [
             'title'     => 'Mediation - ' . NAMETITLE,
-            'content'   => 'godmode/mediation/index',
+            'content'   => check_access('calc','godmode/mediation/index','hedgefund'),
             'extra'     => 'godmode/mediation/js/_js_index',
             'active_mediation'    => 'active active-menu',
             'sidebar'   => 'console_sidebar',

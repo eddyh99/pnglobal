@@ -38,23 +38,12 @@
                     BACK
                 </a>
                 <div class="withdraw-comission">
-                    <div class="row referral-cards mb-4">
-                        <div class="col-md-6">
-                            <div class="custom-card left-card">
-                                <div class="card-row card-top">
-                                    Available Commission to Withdraw
-                                </div>
-                                <div class="card-row card-bottom">
-                                    <?= '$ ' . @number_format($balance['fund']->usdt ?? 0, 2, '.', ',') ?>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                     <?=get_balance()?>
                 </div>
             </div>
 
             <div class="col-lg-12">
-                <form action="<?= BASE_URL ?>member/withdraw/request_withdraw" method="POST">
+                <form action="<?= BASE_URL ?>hedgefund/withdraw/request_withdraw" method="POST">
                     <div class="send-signals">
                         <div class="title-signal-preview d-flex justify-content-between align-items-center">
                             <h4>Withdraw Form</h4>
@@ -63,17 +52,26 @@
                             <div class="row w-100">
                                 <div class="form-addreferral col-8 mx-auto">
                                     <input type="hidden" name="type" value="fiat">
-                                    <!-- <div class="wrapper-addreferral">
-                                        <label for="amount">Amount To Withdraw</label>
-                                        <input type="number" name="amount" class="form-control">
-                                    </div> -->
+                                    <div class="wrapper-addreferral">
+                                        <label for="wallet_address">Amount</label>
+                                        <div class="w-100 mb-1" style="min-width: 400px; margin: 0 auto;">
+                                            <div class="d-flex align-items-center" style="border: 1px solid #b48b3d; background-color: #1c1c1c; height: 45px; border-radius: 5px;">
+                                                <input type="number" id="amount" name="amount" step="0.01"
+                                                    class="form-control text-center fw-bold no-spinner"
+                                                    placeholder="10,000" max="<?=$balance['fund']->usdt?>" step="0.01"
+                                                    style="background-color: transparent; color: #b48b3d; border: none; box-shadow: none;">
+                                                <div class="px-3 fw-bold text-gold">USDT</div>
+                                                <div id="maxbalance" class="px-3 fw-bold text-gold" style="cursor: pointer;">MAX</div>
+                                            </div>
+                                        </div>
+                                    </div>
                                     <div class="wrapper-addreferral">
                                         <label for="recipient">Recipient Name</label>
                                         <input type="text" name="recipient" class="form-control">
                                     </div>
                                     <div class="wrapper-addreferral">
                                         <label for="wallet_address">Account Number</label>
-                                        <input type="text" name="wallet_address" class="form-control">
+                                        <input type="text" name="account_number" class="form-control">
                                     </div>
                                     <div class="wrapper-addreferral">
                                         <label for="swift_code">SWIFT Code</label>
@@ -81,17 +79,16 @@
                                     </div>
                                     <div class="wrapper-addreferral address-wrapper">
                                         <label for="address">Address</label>
-                                        <input type="text" id="address_line1" class="form-control" placeholder="First Line">
+                                        <input type="text" name="address" id="address_line1" class="form-control" placeholder="First Line">
                                     </div>
                                     <div class="wrapper-addreferral address-wrapper">
-                                        <input type="text" id="city" class="form-control" placeholder="City">
+                                        <input type="text" name="city" id="city" class="form-control" placeholder="City">
                                     </div>
                                     <div class="wrapper-addreferral address-group address-wrapper">
-                                        <input type="text" id="state" class="form-control" placeholder="State">
-                                        <input type="text" id="postal_code" class="form-control" placeholder="Postal Code">
+                                        <input type="text" name="state" id="state" class="form-control" placeholder="State">
+                                        <input type="text" name="postal" id="postal_code" class="form-control" placeholder="Postal Code">
                                     </div>
-                                    <!-- Field tersembunyi untuk menggabungkan nilai address -->
-                                    <input type="hidden" name="address" id="address">
+
                                     <div class="wrapper-addreferral d-flex justify-content-center">
                                         <button type="submit" id="submitBtn" class="btn btn-primary text-black">Confirm</button>
                                     </div>

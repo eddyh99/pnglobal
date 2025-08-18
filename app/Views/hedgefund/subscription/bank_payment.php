@@ -10,20 +10,20 @@
             <!-- Destination Bank -->
             <div class="border-wrapper">
                 <h5 class="my-3 text-white text-start">Destination Bank</h5>
-                <table class="invoice-table">
+                                <table class="invoice-table">
                     <tr>
-                        <th class="th-deposit">Bank Name</th>
-                        <td class="td-normal">: <span id="viewName">-</span></td>
+                        <th class="th-deposit">Account Name</th>
+                        <td class="td-normal">: <span id="viewName"><?=esc($bank->bank_account_name)?></span></td>
                     </tr>
                     <tr>
                         <th class="th-deposit">Account Type</th>
-                        <td class="td-normal">: <span id="viewType">-</span></td>
+                        <td class="td-normal">: <span id="viewType"><?= esc($bank->bank_account_type ?? '-') ?></span></td>
                     </tr>
                     <tr>
                         <th class="th-deposit">Routing Number</th>
                         <td class="td-input">
                             <span class="text-white">:</span>
-                            <input id="viewRouting" type="text" value="<?= esc($routing ?? '-') ?>" readonly class="form-control-sm flex-grow-1">
+                            <input id="viewRouting" type="text" value="<?= esc($bank->bank_routing_number ?? '-') ?>" readonly class="form-control-sm flex-grow-1">
                             <button type="button" onclick="copyToClipboard('viewRouting')" class="button-copy">Copy</button>
                         </td>
                     </tr>
@@ -31,12 +31,12 @@
                         <th class="th-deposit">Account Number</th>
                         <td class="td-input">
                             <span class="text-white">:</span>
-                            <input id="viewAccountNumber" type="text" value="<?= esc($account_number ?? '-') ?>" readonly class="form-control-sm flex-grow-1">
+                            <input id="viewAccountNumber" type="text" value="<?= esc($bank->bank_account_number ?? '-') ?>" readonly class="form-control-sm flex-grow-1">
                             <button type="button" onclick="copyToClipboard('viewAccountNumber')" class="button-copy">Copy</button>
                         </td>
                     </tr>
                     <tr>
-                        <th class="th-deposit">Casual</th>
+                        <th class="th-deposit">Causal</th>
                         <td class="td-input">
                             <span class="text-white">:</span>
                             <input id="viewCasual" type="text" value="<?= esc($order_id ?? '-') ?>" readonly class="form-control-sm flex-grow-1">
@@ -52,17 +52,17 @@
                 <table>
                     <tr style=" height: 60px;">
                     <th class="th-deposit">Payment Amount</th>
-                    <td class="td-normal">: <?= number_format($payamount ?? 0, 0) ?></td>
+                    <td class="td-normal">: $ <?= number_format($payamount ?? 0, 0) ?></td>
                     </tr>
                     <tr>
-                        <th class="th-deposit">Fee Amount</th>
-                        <td class="td-normal">: <?= number_format($fee ?? 0, 0) ?></td>
+                        <th class="th-deposit">Bank Processing Fee</th>
+                        <td class="td-normal">: $ <?= number_format($fee ?? 0, 0) ?></td>
                     </tr>
                     <tr>
                         <th class="th-deposit">Total Amount</th>
                         <td class="td-input">
                             <span class="text-white">:</span>
-                            <input id="payTotal" type="text" value="$<?= number_format($total ?? 0, 0) ?>" readonly class="form-control-sm flex-grow-1 font-weight-bold">
+                            <input id="payTotal" type="text" value="<?= number_format($total ?? 0, 0) ?>" readonly class="form-control-sm flex-grow-1 font-weight-bold">
                             <button type="button" onclick="copyToClipboard('payTotal')" class="button-copy">Copy</button>
                         </td>
                     </tr>

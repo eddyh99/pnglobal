@@ -81,16 +81,22 @@
                         //echo $member->subscription_plan ?? 'N/A';
                         ?>
                     <!--</div>-->
-
+                    <!-- Upline Code -->
+                    <div class="label">Upline Email</div>
+                    <div class="value">
+                        <?=$member->upline_referral?>
+                    </div>
+                        
                     <!-- Referral Code -->
                     <div class="label">Referral Code</div>
-                    <div class="d-flex">
-                        <form action="<?= BASE_URL ?>godmode/referral/update_refcode" method="POST">
+                    <div class="d-flex align-items-center">
+                        <form action="<?= BASE_URL ?>godmode/referral/update_refcode" method="POST" class="d-flex align-items-center">
                             <input type="hidden" name="email" value="<?= $email ?>">
                             <input type="hidden" name="idmember" value="<?= $member->id ?>">
                             <input class="me-2" type="text" name="refcode" id="refcode" class="form-control" data-refcode="<?= $member->refcode?>" value="<?= $member->refcode?>" style="min-width: 28ch;">
                             <button type="submit" class="mx-2 btn btn-primary" id="changereff" disabled>change</button>
                         </form>
+                        <a onclick="removeref('<?= $member->id ?>')" class="mx-2 btn btn-primary" id="removeref">Remove</a>
                     </div>
 
 

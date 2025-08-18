@@ -268,7 +268,7 @@ class Auth extends BaseController
 	   //         "email" => "a@a.a",
 	   //         "passwd"=> sha1(123)
 	   //     );
-	   //$_SESSION["logged_user"]=$data;
+	   //$_SESSION["reg_user"]=$data;
 	   
 		$mdata = [
 			'title'     => 'Capital - ' . NAMETITLE,
@@ -999,21 +999,15 @@ class Auth extends BaseController
 		return redirect()->to(BASE_URL . 'hedgefund/auth/deposit_bank_transaction');
 	}
 
-	public function destination_deposit_bank()
-	{
-		// Call Endpoin
-		$url = URLAPI . "/non/bank-account";
-		$result = satoshiAdmin($url);
-		echo json_encode(is_array($result) ? $result : (array) $result);
-		exit;
-	}
-
 	public function deposit_bank_transaction(){
 		$orderId  = session()->get('bank_payment_order_id');
 		$payamount = session()->get('bank_payment_amount');
 		$fee       = 50;
 		$total     = $payamount + $fee;
 
+        $url = URL_HEDGEFUND . "/non/bank";
+        $result = satoshiAdmin($url);
+        
 		$mdata = [
 			'title'     => 'Elite Management - ' . NAMETITLE,
 			'content'   => 'hedgefund/subscription/bank_payment',
@@ -1021,7 +1015,8 @@ class Auth extends BaseController
 			'order_id'       => $orderId,
 			'payamount'      => $payamount,
 			'fee'            => $fee,
-			'total'          => $total
+			'total'          => $total,
+            'bank'           => @$result->result->data            
 		];
 
 		return view('hedgefund/layout/wrapper', $mdata);

@@ -1,27 +1,22 @@
+<style>
+    /* For Chrome, Safari, Edge, Opera */
+    .no-spinner::-webkit-outer-spin-button,
+    .no-spinner::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+    
+    /* For Firefox */
+    .no-spinner {
+      -moz-appearance: textfield;
+    }
+</style>
 <script>
-    $.ajax({
-        url: "<?= BASE_URL ?>member/withdraw/available_commission",
-        method: "POST",
-        dataType: "json",
-        success: function(response) {
-            // Cek jika response berhasil dan memiliki properti message.balance
-            if (response && response.code === 200 && response.message && typeof response.message.balance !== "undefined") {
-                // Format angka: hilangkan koma desimal dan tambahkan pemisah ribuan
-                var balance = parseFloat(response.message.balance);
-                var formattedBalance = "$ " + balance.toLocaleString('en-US', {
-                    maximumFractionDigits: 0
-                });
-                $(".custom-card.left-card .card-bottom").text(formattedBalance);
-            } else {
-                $(".custom-card.left-card .card-bottom").text("$ 0");
-            }
-        },
-        error: function(xhr, status, error) {
-            console.error("Error fetching available commission:", error);
-            $(".custom-card.left-card .card-bottom").text("Error");
-        }
-    });
+    let balance = parseFloat("<?= $balance['fund']->usdt ?? 0 ?>") || 0;
 
+    $("#maxbalance").on("click", function () {
+        $("#amount").val(balance);
+    });
     $(document).ready(function() {
         // Fungsi untuk menutup modal dan redirect
         function closeModalAndRedirect(redirectUrl, delay) {
@@ -50,7 +45,7 @@
                 dataType: "json",
                 success: function(response) {
                     if (response.code === 201) {
-                        $("#modalAvailableCommission .modal-body").html("Your withdraw on process<br>Please check your wallet regularly");
+                        $("#modalAvailableCommission .modal-body").html("Your withdraw on process<br>Please check your Bank account regularly");
                         $("#modalAvailableCommission").modal("show");
                         // Tutup modal dan redirect setelah 3 detik
                         closeModalAndRedirect("<?= BASE_URL ?>member/withdraw", 3000);

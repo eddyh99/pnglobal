@@ -3,6 +3,7 @@
         text-align: left;
         padding: 4px;
         width: 25%;
+        color:white;
     }
 
     .td-normal {
@@ -54,18 +55,5 @@
         setTimeout(() => alertBox.remove(), 3000);
     }
 
-    // Fetch data from API
-    document.addEventListener("DOMContentLoaded", function() {
-        const apiUrl = "<?= BASE_URL ?>/hedgefund/deposit/destination_deposit_bank";
-        fetch(apiUrl)
-            .then(res => res.json())
-            .then(data => {
-                const bankData = data.result?.data ?? {};
-                document.getElementById("viewName").textContent = bankData.bank_account_name || "-";
-                document.getElementById("viewType").textContent = bankData.bank_account_type || "-";
-                document.getElementById("viewRouting").value = bankData.bank_routing_number || "-";
-                document.getElementById("viewAccountNumber").value = bankData.bank_account_number || "-";
-            })
-            .catch(error => console.error("Fetch error:", error));
-    });
+
 </script>

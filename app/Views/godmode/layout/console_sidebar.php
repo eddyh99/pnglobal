@@ -27,6 +27,15 @@ if ($loggedUser && isset($loggedUser->email) && $loggedUser->email === 'a@a.a') 
                     <span class="<?= (@$active_admin != null) ? 'text-black' : 'text-white' ?>">Add Admin</span>
                 </a>
             </li>
+            <li class="<?= @$active_bank_account ?>">
+                <a translate="no" href="<?= BASE_URL ?>godmode/bank_account" class="iq-waves-effect">
+                    <i>
+                       <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 640 640"><!--!Font Awesome Free v7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path fill="<?= (@$active_bank_account != null) ? 'black' : 'white' ?>" d="M335.9 84.2C326.1 78.6 314 78.6 304.1 84.2L80.1 212.2C67.5 219.4 61.3 234.2 65 248.2C68.7 262.2 81.5 272 96 272L128 272L128 480L128 480L76.8 518.4C68.7 524.4 64 533.9 64 544C64 561.7 78.3 576 96 576L544 576C561.7 576 576 561.7 576 544C576 533.9 571.3 524.4 563.2 518.4L512 480L512 272L544 272C558.5 272 571.2 262.2 574.9 248.2C578.6 234.2 572.4 219.4 559.8 212.2L335.8 84.2zM464 272L464 480L400 480L400 272L464 272zM352 272L352 480L288 480L288 272L352 272zM240 272L240 480L176 480L176 272L240 272zM320 160C337.7 160 352 174.3 352 192C352 209.7 337.7 224 320 224C302.3 224 288 209.7 288 192C288 174.3 302.3 160 320 160z"/></svg>
+                    </i>
+                    <span class="<?= (@$active_bank_account != null) ? 'text-black' : 'text-white' ?>">Bank Account</span>
+                </a>
+            </li>
+    <?php endif;?>
             <li class="<?= @$active_mediation ?>">
                 <a translate="no" href="<?= BASE_URL ?>godmode/mediation" class="iq-waves-effect">
                     <i>
@@ -43,13 +52,13 @@ if ($loggedUser && isset($loggedUser->email) && $loggedUser->email === 'a@a.a') 
                 </a>
             </li>
             <li class="<?= @$active_principe ?>">
-                <a translate="no" href="<?= BASE_URL ?>godmode/principe" class="iq-waves-effect">
+                <a translate="no" href="<?= BASE_URL ?>godmode/history-hedgefund" class="iq-waves-effect">
                     <i>
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640" width="24" height="24">
                             <path fill="<?= (@$active_principe != null) ? 'black' : 'white' ?>" d="M192 64C156.7 64 128 92.7 128 128L128 512C128 547.3 156.7 576 192 576L448 576C483.3 576 512 547.3 512 512L512 128C512 92.7 483.3 64 448 64L192 64zM224 128L416 128C433.7 128 448 142.3 448 160L448 192C448 209.7 433.7 224 416 224L224 224C206.3 224 192 209.7 192 192L192 160C192 142.3 206.3 128 224 128zM240 296C240 309.3 229.3 320 216 320C202.7 320 192 309.3 192 296C192 282.7 202.7 272 216 272C229.3 272 240 282.7 240 296zM320 320C306.7 320 296 309.3 296 296C296 282.7 306.7 272 320 272C333.3 272 344 282.7 344 296C344 309.3 333.3 320 320 320zM448 296C448 309.3 437.3 320 424 320C410.7 320 400 309.3 400 296C400 282.7 410.7 272 424 272C437.3 272 448 282.7 448 296zM216 416C202.7 416 192 405.3 192 392C192 378.7 202.7 368 216 368C229.3 368 240 378.7 240 392C240 405.3 229.3 416 216 416zM344 392C344 405.3 333.3 416 320 416C306.7 416 296 405.3 296 392C296 378.7 306.7 368 320 368C333.3 368 344 378.7 344 392zM424 416C410.7 416 400 405.3 400 392C400 378.7 410.7 368 424 368C437.3 368 448 378.7 448 392C448 405.3 437.3 416 424 416zM192 488C192 474.7 202.7 464 216 464L328 464C341.3 464 352 474.7 352 488C352 501.3 341.3 512 328 512L216 512C202.7 512 192 501.3 192 488zM424 464C437.3 464 448 474.7 448 488C448 501.3 437.3 512 424 512C410.7 512 400 501.3 400 488C400 474.7 410.7 464 424 464z" />
                         </svg>
                     </i>
-                    <span class="<?= (@$active_principe != null) ? 'text-black' : 'text-white' ?>">Principe</span>
+                    <span class="<?= (@$active_principe != null) ? 'text-black' : 'text-white' ?>">History Hedgefund</span>
                 </a>
             </li>
             <li class="<?= @$active_otc ?>">
@@ -82,14 +91,6 @@ if ($loggedUser && isset($loggedUser->email) && $loggedUser->email === 'a@a.a') 
                     <span class="<?= (@$active_otc != null) ? 'text-black' : 'text-white' ?>">OTC</span>
                 </a>
             </li>
-            <li class="<?= @$active_bank_account ?>">
-                <a translate="no" href="<?= BASE_URL ?>godmode/bank_account" class="iq-waves-effect">
-                    <i>
-                        <!-- SVG HERE -->
-                    </i>
-                    <span class="<?= (@$active_bank_account != null) ? 'text-black' : 'text-white' ?>">Bank Account</span>
-                </a>
-            </li>
             <!--        <li class="<?= @$active_blog ?>">
             <a translate="no" href="<?= BASE_URL ?>godmode/blogs" class="iq-waves-effect">
                 <i>
@@ -112,7 +113,6 @@ if ($loggedUser && isset($loggedUser->email) && $loggedUser->email === 'a@a.a') 
                 </a>
             </li>
         </ul>
-    <?php endif; ?>
 </div>
 
 
@@ -133,6 +133,14 @@ if ($loggedUser && isset($loggedUser->email) && $loggedUser->email === 'a@a.a') 
                             <span class="<?= (@$active_admin != null) ? 'text-black' : 'text-white' ?>">Add Admin</span>
                         </a>
                     </li>
+                    <li class="<?= @$active_bank_account ?>">
+                        <a translate="no" href="<?= BASE_URL ?>godmode/bank_account" class="iq-waves-effect">
+                            <i>
+                               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 640 640"><!--!Font Awesome Free v7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path fill="<?= (@$active_bank_account != null) ? 'black' : 'white' ?>" d="M335.9 84.2C326.1 78.6 314 78.6 304.1 84.2L80.1 212.2C67.5 219.4 61.3 234.2 65 248.2C68.7 262.2 81.5 272 96 272L128 272L128 480L128 480L76.8 518.4C68.7 524.4 64 533.9 64 544C64 561.7 78.3 576 96 576L544 576C561.7 576 576 561.7 576 544C576 533.9 571.3 524.4 563.2 518.4L512 480L512 272L544 272C558.5 272 571.2 262.2 574.9 248.2C578.6 234.2 572.4 219.4 559.8 212.2L335.8 84.2zM464 272L464 480L400 480L400 272L464 272zM352 272L352 480L288 480L288 272L352 272zM240 272L240 480L176 480L176 272L240 272zM320 160C337.7 160 352 174.3 352 192C352 209.7 337.7 224 320 224C302.3 224 288 209.7 288 192C288 174.3 302.3 160 320 160z"/></svg>
+                            </i>
+                            <span class="<?= (@$active_bank_account != null) ? 'text-black' : 'text-white' ?>">Bank Account</span>
+                        </a>
+                    </li>
                     <li class="<?= @$active_mediation ?>">
                         <a translate="no" href="<?= BASE_URL ?>godmode/mediation" class="iq-waves-effect">
                             <i>
@@ -149,13 +157,13 @@ if ($loggedUser && isset($loggedUser->email) && $loggedUser->email === 'a@a.a') 
                         </a>
                     </li>
                     <li class="<?= @$active_principe ?>">
-                        <a translate="no" href="<?= BASE_URL ?>godmode/principe" class="iq-waves-effect">
+                        <a translate="no" href="<?= BASE_URL ?>godmode/history-hedgefund" class="iq-waves-effect">
                             <i>
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640" width="24" height="24">
                                     <path fill="<?= (@$active_principe != null) ? 'black' : 'white' ?>" d="M192 64C156.7 64 128 92.7 128 128L128 512C128 547.3 156.7 576 192 576L448 576C483.3 576 512 547.3 512 512L512 128C512 92.7 483.3 64 448 64L192 64zM224 128L416 128C433.7 128 448 142.3 448 160L448 192C448 209.7 433.7 224 416 224L224 224C206.3 224 192 209.7 192 192L192 160C192 142.3 206.3 128 224 128zM240 296C240 309.3 229.3 320 216 320C202.7 320 192 309.3 192 296C192 282.7 202.7 272 216 272C229.3 272 240 282.7 240 296zM320 320C306.7 320 296 309.3 296 296C296 282.7 306.7 272 320 272C333.3 272 344 282.7 344 296C344 309.3 333.3 320 320 320zM448 296C448 309.3 437.3 320 424 320C410.7 320 400 309.3 400 296C400 282.7 410.7 272 424 272C437.3 272 448 282.7 448 296zM216 416C202.7 416 192 405.3 192 392C192 378.7 202.7 368 216 368C229.3 368 240 378.7 240 392C240 405.3 229.3 416 216 416zM344 392C344 405.3 333.3 416 320 416C306.7 416 296 405.3 296 392C296 378.7 306.7 368 320 368C333.3 368 344 378.7 344 392zM424 416C410.7 416 400 405.3 400 392C400 378.7 410.7 368 424 368C437.3 368 448 378.7 448 392C448 405.3 437.3 416 424 416zM192 488C192 474.7 202.7 464 216 464L328 464C341.3 464 352 474.7 352 488C352 501.3 341.3 512 328 512L216 512C202.7 512 192 501.3 192 488zM424 464C437.3 464 448 474.7 448 488C448 501.3 437.3 512 424 512C410.7 512 400 501.3 400 488C400 474.7 410.7 464 424 464z" />
                                 </svg>
                             </i>
-                            <span class="<?= (@$active_principe != null) ? 'text-black' : 'text-white' ?>">Principe</span>
+                            <span class="<?= (@$active_principe != null) ? 'text-black' : 'text-white' ?>">History Hedgefund</span>
                         </a>
                     </li>
                     <li class="<?= @$active_otc ?>">
@@ -188,14 +196,7 @@ if ($loggedUser && isset($loggedUser->email) && $loggedUser->email === 'a@a.a') 
                             <span class="<?= (@$active_otc != null) ? 'text-black' : 'text-white' ?>">OTC</span>
                         </a>
                     </li>
-                    <li class="<?= @$active_bank_account ?>">
-                        <a translate="no" href="<?= BASE_URL ?>godmode/bank_account" class="iq-waves-effect">
-                            <i>
-                                <!-- SVG HERE -->
-                            </i>
-                            <span class="<?= (@$active_bank_account != null) ? 'text-black' : 'text-white' ?>">Bank Account</span>
-                        </a>
-                    </li>
+                <?php endif; ?>
                     <!--                
                 <li class="<?= @$active_blog ?>">
                     <a translate="no" href="<?= BASE_URL ?>godmode/blogs" class="iq-waves-effect">
@@ -208,7 +209,6 @@ if ($loggedUser && isset($loggedUser->email) && $loggedUser->email === 'a@a.a') 
                     </a>
                 </li>
 -->
-                <?php endif; ?>
                 <li>
                     <a translate="no" href="<?= BASE_URL ?>godmode/auth/logout" class="iq-waves-effect">
                         <i>

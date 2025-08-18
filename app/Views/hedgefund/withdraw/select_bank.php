@@ -38,19 +38,7 @@
                     BACK
                 </a>
                 <div class="withdraw-comission">
-
-                    <div class="row referral-cards mb-4">
-                        <div class="col-md-6">
-                            <div class="custom-card left-card">
-                                <div class="card-row card-top">
-                                    Available Commission to Withdraw
-                                </div>
-                                <div class="card-row card-bottom">
-                                    <?= '$ ' . @number_format($balance['fund']->usdt ?? 0, 2, '.', ',') ?>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    <?=get_balance()?>
                 </div>
             </div>
             <div class="withdraw-options">

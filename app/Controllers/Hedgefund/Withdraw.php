@@ -121,11 +121,7 @@ class Withdraw extends BaseController
             ],
             'wallet_address' => [
                 'label' => 'Wallet Address',
-                'rules' => 'required',
-                'errors' => [
-                    'regex_match' => 'The wallet address is not valid.',
-                    'required'    => 'The wallet address is required'
-                ]
+                'rules' => 'permit_empty',
             ],
             'address' => [
                 'label' => 'Address',
@@ -179,7 +175,9 @@ class Withdraw extends BaseController
         }
 
         // protect withdraw balance
-        if (!$this->check_balance($type, $amount)) {
+        $wdtype=$type;
+        if ($type=="fiat") $wdtype="usdt";
+        if (!$this->check_balance($wdtype, $amount)) {
             return $this->response->setJSON([
                 'code' => 400,
                 'message' => ['Insufficient Balance.']
@@ -195,19 +193,24 @@ class Withdraw extends BaseController
                 ]);
             }
         }
+        $account_number = $this->request->getVar('account_number');
 
         $mdata = [
-            'amount' => $amount,
-            'type' => $type,
+            'amount'    => $amount,
+            'type'      => $type,
             'member_id' => $member_id,
             'recipient' => $this->request->getVar('recipient'),
             'routing_number' => $this->request->getVar('routing_number'),
-            'account_type' => $this->request->getVar('account_type'),
-            'swift_code' => $this->request->getVar('swift_code'),
+            'account_number' => $this->request->getVar('account_number'),
+            'account_type'   => $this->request->getVar('account_type'),
+            'swift_code'     => $this->request->getVar('swift_code'),
             'wallet_address' =>$wallet_address,
-            'address' => $this->request->getVar('address'),
-            'network' => $this->request->getVar('network'),
+            'address'        => $this->request->getVar('address'),
+            'city'           => $this->request->getVar('city'),
+            'state'          => $this->request->getVar('state'),
+            'network'        => $this->request->getVar('network'),
         ];
+        
 
         $url = URL_HEDGEFUND . "/v1/withdraw/request_payment";
         $result = satoshiAdmin($url, json_encode($mdata))->result;
@@ -273,7 +276,9 @@ class Withdraw extends BaseController
         $url = URL_HEDGEFUND . "/v1/member/master_trade";
         $result = satoshiAdmin($url)->result;
         $response = $result->message;
-        $balance["trade"]->usdt = $response->trade_balance;
+        if ($_SESSION["logged_user"]->role=="superadmin"){
+            $balance["trade"]->usdt = $response->trade_balance;
+        }
         
         $loggedUser = $session->get('logged_user');
         $mdata = [
@@ -374,7 +379,7 @@ class Withdraw extends BaseController
         $mdata = [
             'title' => 'Withdraw - ' . NAMETITLE,
             'content' => 'hedgefund/withdraw/select_bank',
-            'extra' => 'hedgefund/withdraw/js/_js_select_bank',
+            // 'extra' => 'hedgefund/withdraw/js/_js_select_bank',
             'balance' => $balance,
             'active_withdraw' => 'active',
         ];
@@ -403,7 +408,7 @@ class Withdraw extends BaseController
         $mdata = [
             'title' => 'Withdraw - ' . NAMETITLE,
             'content' => 'hedgefund/withdraw/international_bank',
-            // 'extra' => 'hedgefund/withdraw/js/_js_international_bank',
+            'extra' => 'hedgefund/withdraw/js/_js_international_bank',
             'balance' => $balance,
             'active_withdraw' => 'active',
         ];

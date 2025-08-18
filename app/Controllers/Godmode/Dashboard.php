@@ -265,6 +265,7 @@ class Dashboard extends BaseController
                 $resultMember = satoshiAdmin($url, json_encode(['email' => $finalemail]))->result;
                 break;
         }
+        
         $member_id = $resultMember->message->id;
         $url = URL_HEDGEFUND . "/v1/member/balance";
 

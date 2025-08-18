@@ -22,6 +22,7 @@ $routes->group('service', ['namespace' => 'App\Controllers'], function($routes){
     // 1) Plain homepage
     $routes->get('(:segment)', 'Homepage::service/$1');
 });
+$routes->get('godmode/history-hedgefund','Godmode\Principe::index');
 
 
 
