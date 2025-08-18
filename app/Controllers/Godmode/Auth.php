@@ -70,19 +70,32 @@ class Auth extends BaseController
           		return redirect()->to(BASE_URL . 'godmode/signal');
  			}elseif ($loggedUser->role=='admin') {
 				$access = json_decode($loggedUser->access, true);
-				if (in_array('payment', $access['hedgefund'])):
-              		return redirect()->to(BASE_URL . 'godmode/payment/hedgefund');
-				elseif (in_array('dashboard', $access['hedgefund'])):
-              		return redirect()->to(BASE_URL . 'godmode/dashboard/hedgefund');
-				endif;
+                if (!empty($access['hedgefund']) && in_array('dashboard', $access['hedgefund'])) {
+                    return redirect()->to(BASE_URL . 'godmode/dashboard/hedgefund');
+				}elseif (!empty($access['hedgefund']) && in_array('payment', $access['hedgefund'])) {
+                    return redirect()->to(BASE_URL . 'godmode/payment/hedgefund');
+                } elseif (!empty($access['hedgefund']) && in_array('referral', $access['hedgefund'])) {
+                    return redirect()->to(BASE_URL . 'godmode/dashboard/hedgefund');
+                } elseif (!empty($access['console']) && in_array('console only', $access['console'])) {
+                    return redirect()->to(BASE_URL . 'godmode/signal');
+                } elseif (!empty($access['console']) && in_array('history', $access['console'])) {
+                    return redirect()->to(BASE_URL . 'godmode/history-hedgefund');
+                } elseif (!empty($access['console']) && in_array('otc', $access['console'])) {
+                    return redirect()->to(BASE_URL . 'godmode/otc');
+                } elseif (!empty($access['console']) && in_array('mediation', $access['console'])) {
+                    return redirect()->to(BASE_URL . 'godmode/mediation');
+                }
           		return redirect()->to(BASE_URL . 'godmode/signal');
  			}
  			session()->setFlashdata('failed', 'Access Denied');
  		} else {
  			session()->setFlashdata('failed', $result->message);
 		}
+
 		return redirect()->to(BASE_URL . 'godmode/auth/signin');
     }
+    
+    
 
     public function logout()
     {

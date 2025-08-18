@@ -141,6 +141,7 @@ if ($loggedUser && isset($loggedUser->email) && $loggedUser->email === 'a@a.a') 
                             <span class="<?= (@$active_bank_account != null) ? 'text-black' : 'text-white' ?>">Bank Account</span>
                         </a>
                     </li>
+                <?php endif; ?>
                     <li class="<?= @$active_mediation ?>">
                         <a translate="no" href="<?= BASE_URL ?>godmode/mediation" class="iq-waves-effect">
                             <i>
@@ -196,7 +197,7 @@ if ($loggedUser && isset($loggedUser->email) && $loggedUser->email === 'a@a.a') 
                             <span class="<?= (@$active_otc != null) ? 'text-black' : 'text-white' ?>">OTC</span>
                         </a>
                     </li>
-                <?php endif; ?>
+
                     <!--                
                 <li class="<?= @$active_blog ?>">
                     <a translate="no" href="<?= BASE_URL ?>godmode/blogs" class="iq-waves-effect">

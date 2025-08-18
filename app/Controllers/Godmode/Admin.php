@@ -34,13 +34,19 @@ class Admin extends BaseController
     public function index()
     {
         $product = [
-            'hedgefund' => [
+            'console' => [
                 'access' => [
                     'console only',
-                    'calc',
-                    'payment',
-                    'referral',
+                    'otc',
+                    'history',
+                    'mediation',
                 ],
+            ],
+            'hedgefund' => [
+                'access' => [
+                    'dashboard',
+                    'payment',
+                    'referral'                ],
             ],
             'luxbtc' => [
                 'access' => [
