@@ -1,6 +1,25 @@
 <script>
     document.addEventListener('DOMContentLoaded', function() {
         const tableBody = document.getElementById('calcTable');
+        const calcBtn = document.getElementById('calcBtn');
+        const calcForm = document.getElementById('calcForm');
+
+        const BASE_SAVE = "<?= base_url('godmode/mediation/save') ?>";
+        const BASE_CREATE = "<?= base_url('godmode/mediation/create') ?>";
+
+        calcForm.addEventListener('submit', function(e) {
+            const checkboxes = this.querySelectorAll('input[type="checkbox"]');
+            checkboxes.forEach(cb => {
+                if (!cb.checked) {
+                    // Buat input hidden sementara dengan value 0
+                    const hidden = document.createElement('input');
+                    hidden.type = 'hidden';
+                    hidden.name = cb.name;
+                    hidden.value = '0';
+                    this.appendChild(hidden);
+                }
+            });
+        });
 
         function hitung(prezzoBuy, prezzoSell) {
             let commBuy = prezzoBuy * 0.001; // 0.1% dari buy
@@ -111,5 +130,58 @@
                 updateTable();
             }
         });
+
+        // Fetch data JSON dan masukkan ke input
+        fetch("<?=BASE_URL?>/godmode/mediation/history")
+            .then(res => res.json())
+            .then(response => {
+                const data = response.result?.data; // ambil data di dalam result
+                // console.log("Fetched data:", data);
+                if (Array.isArray(data) && data.length > 0) {
+                    data = dataArray[0];
+                }
+
+                if (!data) {
+                    // Data kosong atau 404 → tombol "Calculate", form action "create"
+                    calcBtn.textContent = "Calculate";
+                    calcForm.action = BASE_CREATE;
+                    return;
+                }
+
+                // Data ada → tombol "Update Calculate Data", form action "save"
+                calcBtn.textContent = "Update Calculate Data";
+                calcForm.action = BASE_SAVE;
+
+                let idInput = document.querySelector('input[name="id"]');
+                if (!idInput) {
+                    idInput = document.createElement('input');
+                    idInput.type = 'hidden';
+                    idInput.name = 'id';
+                    calcForm.appendChild(idInput);
+                }
+                idInput.value = data.id;
+
+
+                for (let key in data) {
+                    const value = data[key];
+                    const input = document.querySelector(`input[name="${key}"]`);
+                    if (input) {
+                        if (input.type === "checkbox") {
+                            input.checked = value == 1; // non-strict comparison
+                            // atau
+                            input.checked = String(value) === "1";
+                        } else {
+                            input.value = value;
+                        }
+                    }
+                }
+
+                updateTable();
+            })
+            .catch(err => {
+                console.error("Error fetch/parse JSON:", err);
+                calcBtn.textContent = "Calculate";
+                calcForm.action = BASE_CREATE;
+            });
     });
 </script>

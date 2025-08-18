@@ -27,12 +27,12 @@ class Mediation extends BaseController
             exit();
         }
     }
-    
+
     public function index()
     {
         $mdata = [
             'title'     => 'Mediation - ' . NAMETITLE,
-            'content'   => check_access('calc','godmode/mediation/index','hedgefund'),
+            'content'   => check_access('calc', 'godmode/mediation/index', 'hedgefund'),
             'extra'     => 'godmode/mediation/js/_js_index',
             'active_mediation'    => 'active active-menu',
             'sidebar'   => 'console_sidebar',
@@ -40,5 +40,69 @@ class Mediation extends BaseController
         ];
 
         return view('godmode/layout/admin_wrapper', $mdata);
+    }
+
+    public function create()
+    {
+        $data = $this->request->getPost();
+        $url = URL_HEDGEFUND . "/calculator/mediation";
+
+        $response = satoshiAdmin($url, json_encode($data));
+
+        if ($response && isset($response->result)) {
+            $res = $response->result;
+
+            if (isset($res->success) && $res->success == 1) {
+                return redirect()->to('/godmode/mediation')
+                    ->with('success', $res->message ?? 'Data has been saved successfully');
+            } else {
+                $errorMessages = [];
+                if (isset($res->messages) && is_object($res->messages)) {
+                    foreach ($res->messages as $field => $msg) {
+                        $errorMessages[] = is_array($msg) ? implode(', ', $msg) : $msg;
+                    }
+                }
+                $errorText = !empty($errorMessages) ? implode(' | ', $errorMessages) : 'Failed to save data';
+                return redirect()->to('/godmode/mediation')->with('failed', $errorText);
+            }
+        } else {
+            return redirect()->to('/godmode/mediation')->with('failed', 'No response from API');
+        }
+    }
+
+    public function save()
+    {
+        $data = $this->request->getPost();
+        $url  = URL_HEDGEFUND . "/calculator/mediation/" . $data['id'];
+
+        // Kirim data ke API
+        
+        $response = satoshiAdmin($url, json_encode($data));
+
+        // Pastikan result object
+        $result = is_object($response->result) ? $response->result : json_decode($response->result);
+
+        // Cek status dan success
+        if ($result && !empty($result->success) && $result->success == true) {
+            return redirect()->to('/godmode/mediation')->with('success', $result->message);
+        } else {
+            $msg = $result->message ?? 'Failed to save data';
+            return redirect()->to('/godmode/mediation')->with('failed', $msg);
+        }
+    }
+
+
+
+    public function history()
+    {
+        $url = URL_HEDGEFUND . "/calculator/mediation";
+        $historyData = satoshiAdmin($url);
+
+        // Bersihkan output buffer supaya hanya JSON yang dikirim
+        if (ob_get_length()) ob_clean();
+
+        header('Content-Type: application/json');
+        echo json_encode($historyData);
+        exit; // pastikan tidak ada output lain
     }
 }
