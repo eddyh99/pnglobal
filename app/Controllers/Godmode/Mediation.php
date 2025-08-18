@@ -30,13 +30,16 @@ class Mediation extends BaseController
 
     public function index()
     {
+        $role = $this->session->get('logged_user')->role;
+
         $mdata = [
             'title'     => 'Mediation - ' . NAMETITLE,
             'content'   => check_access('mediation','godmode/mediation/index','console'),
             'extra'     => 'godmode/mediation/js/_js_index',
             'active_mediation'    => 'active active-menu',
             'sidebar'   => 'console_sidebar',
-            'navbar_console' => 'active'
+            'navbar_console' => 'active',
+            'role' => $role
         ];
 
         return view('godmode/layout/admin_wrapper', $mdata);

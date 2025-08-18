@@ -51,17 +51,17 @@
                             <!-- Row 1 -->
                             <tr>
                                 <td>
-                                    <div class="d-flex flex-column align-items-start">
+                                    <div class="d-flex align-items-start">
                                         <input type="number" name="prezzo_buy1" class="buy-input" value="" required>
-                                        <label class="mt-1">
+                                        <label class="ml-2">
                                             <input type="checkbox" name="lock_buy1" value="1"> 🔒
                                         </label>
                                     </div>
                                 </td>
                                 <td>
-                                    <div class="d-flex flex-column align-items-start">
+                                    <div class="d-flex align-items-start">
                                         <input type="number" name="prezzo_sell1" class="sell-input" value="" required>
-                                        <label class="mt-1">
+                                        <label class="ml-2">
                                             <input type="checkbox" name="lock_sell1" value="1"> 🔒
                                         </label>
                                     </div>
@@ -77,17 +77,17 @@
                             <!-- Row 2 -->
                             <tr>
                                 <td>
-                                    <div class="d-flex flex-column align-items-start">
+                                    <div class="d-flex align-items-start">
                                         <input type="number" name="prezzo_buy2" class="buy-input" value="" required>
-                                        <label class="mt-1">
+                                        <label class="ml-2">
                                             <input type="checkbox" name="lock_buy2" value="1"> 🔒
                                         </label>
                                     </div>
                                 </td>
                                 <td>
-                                    <div class="d-flex flex-column align-items-start">
+                                    <div class="d-flex align-items-start">
                                         <input type="number" name="prezzo_sell2" class="sell-input" required>
-                                        <label class="mt-1">
+                                        <label class="ml-2">
                                             <input type="checkbox" name="lock_sell2" value="1"> 🔒
                                         </label>
                                     </div>
@@ -103,17 +103,17 @@
                             <!-- Row 3 -->
                             <tr>
                                 <td>
-                                    <div class="d-flex flex-column align-items-start">
+                                    <div class="d-flex align-items-start">
                                         <input type="number" name="prezzo_buy3" class="buy-input" required>
-                                        <label class="mt-1">
+                                        <label class="ml-2">
                                             <input type="checkbox" name="lock_buy3" value="1"> 🔒
                                         </label>
                                     </div>
                                 </td>
                                 <td>
-                                    <div class="d-flex flex-column align-items-start">
+                                    <div class="d-flex  align-items-start">
                                         <input type="number" name="prezzo_sell3" class="sell-input" required>
-                                        <label class="mt-1">
+                                        <label class="ml-2">
                                             <input type="checkbox" name="lock_sell3" value="1"> 🔒
                                         </label>
                                     </div>
@@ -129,17 +129,17 @@
                             <!-- Row 4 -->
                             <tr>
                                 <td>
-                                    <div class="d-flex flex-column align-items-start">
+                                    <div class="d-flex align-items-start">
                                         <input type="number" name="prezzo_buy4" class="buy-input" required>
-                                        <label class="mt-1">
+                                        <label class="ml-2">
                                             <input type="checkbox" name="lock_buy4" value="1"> 🔒
                                         </label>
                                     </div>
                                 </td>
                                 <td>
-                                    <div class="d-flex flex-column align-items-start">
+                                    <div class="d-flex align-items-start">
                                         <input type="number" name="prezzo_sell4" class="sell-input" required>
-                                        <label class="mt-1">
+                                        <label class="ml-2">
                                             <input type="checkbox" name="lock_sell4" value="1"> 🔒
                                         </label>
                                     </div>
