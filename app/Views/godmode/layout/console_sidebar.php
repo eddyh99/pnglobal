@@ -30,68 +30,70 @@ if ($loggedUser && isset($loggedUser->email) && $loggedUser->email === 'a@a.a') 
             <li class="<?= @$active_bank_account ?>">
                 <a translate="no" href="<?= BASE_URL ?>godmode/bank_account" class="iq-waves-effect">
                     <i>
-                       <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 640 640"><!--!Font Awesome Free v7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path fill="<?= (@$active_bank_account != null) ? 'black' : 'white' ?>" d="M335.9 84.2C326.1 78.6 314 78.6 304.1 84.2L80.1 212.2C67.5 219.4 61.3 234.2 65 248.2C68.7 262.2 81.5 272 96 272L128 272L128 480L128 480L76.8 518.4C68.7 524.4 64 533.9 64 544C64 561.7 78.3 576 96 576L544 576C561.7 576 576 561.7 576 544C576 533.9 571.3 524.4 563.2 518.4L512 480L512 272L544 272C558.5 272 571.2 262.2 574.9 248.2C578.6 234.2 572.4 219.4 559.8 212.2L335.8 84.2zM464 272L464 480L400 480L400 272L464 272zM352 272L352 480L288 480L288 272L352 272zM240 272L240 480L176 480L176 272L240 272zM320 160C337.7 160 352 174.3 352 192C352 209.7 337.7 224 320 224C302.3 224 288 209.7 288 192C288 174.3 302.3 160 320 160z"/></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 640 640"><!--!Font Awesome Free v7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.-->
+                            <path fill="<?= (@$active_bank_account != null) ? 'black' : 'white' ?>" d="M335.9 84.2C326.1 78.6 314 78.6 304.1 84.2L80.1 212.2C67.5 219.4 61.3 234.2 65 248.2C68.7 262.2 81.5 272 96 272L128 272L128 480L128 480L76.8 518.4C68.7 524.4 64 533.9 64 544C64 561.7 78.3 576 96 576L544 576C561.7 576 576 561.7 576 544C576 533.9 571.3 524.4 563.2 518.4L512 480L512 272L544 272C558.5 272 571.2 262.2 574.9 248.2C578.6 234.2 572.4 219.4 559.8 212.2L335.8 84.2zM464 272L464 480L400 480L400 272L464 272zM352 272L352 480L288 480L288 272L352 272zM240 272L240 480L176 480L176 272L240 272zM320 160C337.7 160 352 174.3 352 192C352 209.7 337.7 224 320 224C302.3 224 288 209.7 288 192C288 174.3 302.3 160 320 160z" />
+                        </svg>
                     </i>
                     <span class="<?= (@$active_bank_account != null) ? 'text-black' : 'text-white' ?>">Bank Account</span>
                 </a>
             </li>
-    <?php endif;?>
-            <li class="<?= @$active_mediation ?>">
-                <a translate="no" href="<?= BASE_URL ?>godmode/mediation" class="iq-waves-effect">
-                    <i>
-                        <svg fill="<?= (@$active_mediation != null) ? 'black' : 'white' ?>" width="24" height="24" viewBox="0 0 32 32" id="icon" xmlns="http://www.w3.org/2000/svg">
-                            <rect x="16" y="22" width="2" height="2" transform="translate(-6 40) rotate(-90)" />
-                            <path d="M18,28V26H16v2H4V2H2V28a2,2,0,0,0,2,2H30V28Z" />
-                            <path d="M26.0532,19.6787A3.44,3.44,0,0,1,23,22c-2.17,0-3.3115-3.333-4.52-6.8623-.3557-1.0386-.7239-2.1094-1.1382-3.1377H18V10H16.4221C15.2124,7.7148,13.5811,6,11,6,7.3218,6,6.1016,9.5332,6.0513,9.6836l1.8955.6377A3.44,3.44,0,0,1,11,8c2.92,0,4.2764,3.958,5.5874,7.7861.2544.7422.5105,1.4893.7813,2.2139H16v2h2.2019c1.0828,2.2886,2.4959,4,4.7981,4,3.6782,0,4.8984-3.5332,4.9487-3.6836Z" />
-                            <rect x="16" y="6" width="2" height="2" transform="translate(10 24) rotate(-90)" />
-                            <rect x="16" y="2" width="2" height="2" transform="translate(14 20) rotate(-90)" />
-                            <rect id="_Transparent_Rectangle_" data-name="&lt;Transparent Rectangle&gt;" fill="none" width="24" height="24" />
-                        </svg>
-                    </i>
-                    <span class="<?= (@$active_mediation != null) ? 'text-black' : 'text-white' ?>">Mediation</span>
-                </a>
-            </li>
-            <li class="<?= @$active_principe ?>">
-                <a translate="no" href="<?= BASE_URL ?>godmode/history-hedgefund" class="iq-waves-effect">
-                    <i>
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640" width="24" height="24">
-                            <path fill="<?= (@$active_principe != null) ? 'black' : 'white' ?>" d="M192 64C156.7 64 128 92.7 128 128L128 512C128 547.3 156.7 576 192 576L448 576C483.3 576 512 547.3 512 512L512 128C512 92.7 483.3 64 448 64L192 64zM224 128L416 128C433.7 128 448 142.3 448 160L448 192C448 209.7 433.7 224 416 224L224 224C206.3 224 192 209.7 192 192L192 160C192 142.3 206.3 128 224 128zM240 296C240 309.3 229.3 320 216 320C202.7 320 192 309.3 192 296C192 282.7 202.7 272 216 272C229.3 272 240 282.7 240 296zM320 320C306.7 320 296 309.3 296 296C296 282.7 306.7 272 320 272C333.3 272 344 282.7 344 296C344 309.3 333.3 320 320 320zM448 296C448 309.3 437.3 320 424 320C410.7 320 400 309.3 400 296C400 282.7 410.7 272 424 272C437.3 272 448 282.7 448 296zM216 416C202.7 416 192 405.3 192 392C192 378.7 202.7 368 216 368C229.3 368 240 378.7 240 392C240 405.3 229.3 416 216 416zM344 392C344 405.3 333.3 416 320 416C306.7 416 296 405.3 296 392C296 378.7 306.7 368 320 368C333.3 368 344 378.7 344 392zM424 416C410.7 416 400 405.3 400 392C400 378.7 410.7 368 424 368C437.3 368 448 378.7 448 392C448 405.3 437.3 416 424 416zM192 488C192 474.7 202.7 464 216 464L328 464C341.3 464 352 474.7 352 488C352 501.3 341.3 512 328 512L216 512C202.7 512 192 501.3 192 488zM424 464C437.3 464 448 474.7 448 488C448 501.3 437.3 512 424 512C410.7 512 400 501.3 400 488C400 474.7 410.7 464 424 464z" />
-                        </svg>
-                    </i>
-                    <span class="<?= (@$active_principe != null) ? 'text-black' : 'text-white' ?>">History Hedgefund</span>
-                </a>
-            </li>
-            <li class="<?= @$active_otc ?>">
-                <a translate="no" href="<?= BASE_URL ?>godmode/otc" class="iq-waves-effect">
-                    <i>
-                        <svg version="1.0" xmlns="http://www.w3.org/2000/svg"
-                            width="24" height="24" viewBox="0 0 30.000000 30.000000"
-                            preserveAspectRatio="xMidYMid meet">
-                            <g transform="translate(0.000000,30.000000) scale(0.100000,-0.100000)"
-                                fill="<?= (@$active_otc != null) ? 'black' : 'white' ?>" stroke="none">
-                                <path d="M82 273 c-13 -25 -4 -43 19 -43 25 0 35 25 19 45 -16 20 -27 19 -38
+        <?php endif; ?>
+        <li class="<?= @$active_mediation ?>">
+            <a translate="no" href="<?= BASE_URL ?>godmode/mediation" class="iq-waves-effect">
+                <i>
+                    <svg fill="<?= (@$active_mediation != null) ? 'black' : 'white' ?>" width="24" height="24" viewBox="0 0 32 32" id="icon" xmlns="http://www.w3.org/2000/svg">
+                        <rect x="16" y="22" width="2" height="2" transform="translate(-6 40) rotate(-90)" />
+                        <path d="M18,28V26H16v2H4V2H2V28a2,2,0,0,0,2,2H30V28Z" />
+                        <path d="M26.0532,19.6787A3.44,3.44,0,0,1,23,22c-2.17,0-3.3115-3.333-4.52-6.8623-.3557-1.0386-.7239-2.1094-1.1382-3.1377H18V10H16.4221C15.2124,7.7148,13.5811,6,11,6,7.3218,6,6.1016,9.5332,6.0513,9.6836l1.8955.6377A3.44,3.44,0,0,1,11,8c2.92,0,4.2764,3.958,5.5874,7.7861.2544.7422.5105,1.4893.7813,2.2139H16v2h2.2019c1.0828,2.2886,2.4959,4,4.7981,4,3.6782,0,4.8984-3.5332,4.9487-3.6836Z" />
+                        <rect x="16" y="6" width="2" height="2" transform="translate(10 24) rotate(-90)" />
+                        <rect x="16" y="2" width="2" height="2" transform="translate(14 20) rotate(-90)" />
+                        <rect id="_Transparent_Rectangle_" data-name="&lt;Transparent Rectangle&gt;" fill="none" width="24" height="24" />
+                    </svg>
+                </i>
+                <span class="<?= (@$active_mediation != null) ? 'text-black' : 'text-white' ?>">Mediation</span>
+            </a>
+        </li>
+        <li class="<?= @$active_principe ?>">
+            <a translate="no" href="<?= BASE_URL ?>godmode/history-hedgefund" class="iq-waves-effect">
+                <i>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640" width="24" height="24">
+                        <path fill="<?= (@$active_principe != null) ? 'black' : 'white' ?>" d="M192 64C156.7 64 128 92.7 128 128L128 512C128 547.3 156.7 576 192 576L448 576C483.3 576 512 547.3 512 512L512 128C512 92.7 483.3 64 448 64L192 64zM224 128L416 128C433.7 128 448 142.3 448 160L448 192C448 209.7 433.7 224 416 224L224 224C206.3 224 192 209.7 192 192L192 160C192 142.3 206.3 128 224 128zM240 296C240 309.3 229.3 320 216 320C202.7 320 192 309.3 192 296C192 282.7 202.7 272 216 272C229.3 272 240 282.7 240 296zM320 320C306.7 320 296 309.3 296 296C296 282.7 306.7 272 320 272C333.3 272 344 282.7 344 296C344 309.3 333.3 320 320 320zM448 296C448 309.3 437.3 320 424 320C410.7 320 400 309.3 400 296C400 282.7 410.7 272 424 272C437.3 272 448 282.7 448 296zM216 416C202.7 416 192 405.3 192 392C192 378.7 202.7 368 216 368C229.3 368 240 378.7 240 392C240 405.3 229.3 416 216 416zM344 392C344 405.3 333.3 416 320 416C306.7 416 296 405.3 296 392C296 378.7 306.7 368 320 368C333.3 368 344 378.7 344 392zM424 416C410.7 416 400 405.3 400 392C400 378.7 410.7 368 424 368C437.3 368 448 378.7 448 392C448 405.3 437.3 416 424 416zM192 488C192 474.7 202.7 464 216 464L328 464C341.3 464 352 474.7 352 488C352 501.3 341.3 512 328 512L216 512C202.7 512 192 501.3 192 488zM424 464C437.3 464 448 474.7 448 488C448 501.3 437.3 512 424 512C410.7 512 400 501.3 400 488C400 474.7 410.7 464 424 464z" />
+                    </svg>
+                </i>
+                <span class="<?= (@$active_principe != null) ? 'text-black' : 'text-white' ?>">History Hedgefund</span>
+            </a>
+        </li>
+        <li class="<?= @$active_otc ?>">
+            <a translate="no" href="<?= BASE_URL ?>godmode/otc" class="iq-waves-effect">
+                <i>
+                    <svg version="1.0" xmlns="http://www.w3.org/2000/svg"
+                        width="24" height="24" viewBox="0 0 30.000000 30.000000"
+                        preserveAspectRatio="xMidYMid meet">
+                        <g transform="translate(0.000000,30.000000) scale(0.100000,-0.100000)"
+                            fill="<?= (@$active_otc != null) ? 'black' : 'white' ?>" stroke="none">
+                            <path d="M82 273 c-13 -25 -4 -43 19 -43 25 0 35 25 19 45 -16 20 -27 19 -38
                             -2z" />
-                                <path d="M187 284 c-4 -4 -7 -22 -7 -41 0 -23 5 -33 15 -33 8 0 15 -7 15 -15
+                            <path d="M187 284 c-4 -4 -7 -22 -7 -41 0 -23 5 -33 15 -33 8 0 15 -7 15 -15
                             0 -8 4 -15 9 -15 5 0 11 7 15 15 3 8 17 15 31 15 24 0 26 3 23 38 -3 36 -4 37
                             -48 40 -25 2 -49 0 -53 -4z m73 -33 c0 -5 -7 -14 -15 -21 -16 -14 -45 -7 -45
                             11 0 6 7 9 15 6 8 -4 17 -2 20 3 8 12 25 13 25 1z" />
-                                <path d="M57 203 c-4 -3 -7 -15 -7 -25 0 -15 8 -18 55 -18 56 0 69 12 43 38
+                            <path d="M57 203 c-4 -3 -7 -15 -7 -25 0 -15 8 -18 55 -18 56 0 69 12 43 38
                             -13 13 -80 17 -91 5z" />
-                                <path d="M16 124 c-9 -23 0 -32 29 -26 15 2 25 0 25 -7 0 -6 -13 -11 -30 -11
+                            <path d="M16 124 c-9 -23 0 -32 29 -26 15 2 25 0 25 -7 0 -6 -13 -11 -30 -11
                             -37 0 -41 -27 -9 -56 20 -18 22 -18 33 -2 7 10 16 14 21 10 4 -4 4 3 1 15 -7
                             22 8 62 28 75 43 29 113 -21 101 -72 -4 -14 -3 -22 1 -18 4 4 13 0 20 -10 11
                             -16 13 -16 33 2 32 29 28 56 -9 56 -16 0 -30 5 -30 11 0 7 10 9 24 5 28 -7 39
                             4 30 28 -9 24 -259 24 -268 0z" />
-                                <path d="M122 104 c-30 -21 -29 -59 3 -80 23 -15 27 -15 50 0 32 21 33 59 3
+                            <path d="M122 104 c-30 -21 -29 -59 3 -80 23 -15 27 -15 50 0 32 21 33 59 3
                             80 -12 9 -25 16 -28 16 -3 0 -16 -7 -28 -16z m52 -27 c8 -12 7 -21 -6 -33 -19
                             -20 -43 -8 -43 21 0 36 29 44 49 12z" />
-                            </g>
-                        </svg>
-                    </i>
-                    <span class="<?= (@$active_otc != null) ? 'text-black' : 'text-white' ?>">OTC</span>
-                </a>
-            </li>
-            <!--        <li class="<?= @$active_blog ?>">
+                        </g>
+                    </svg>
+                </i>
+                <span class="<?= (@$active_otc != null) ? 'text-black' : 'text-white' ?>">OTC</span>
+            </a>
+        </li>
+        <!--        <li class="<?= @$active_blog ?>">
             <a translate="no" href="<?= BASE_URL ?>godmode/blogs" class="iq-waves-effect">
                 <i>
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="30" height="24">
@@ -102,16 +104,16 @@ if ($loggedUser && isset($loggedUser->email) && $loggedUser->email === 'a@a.a') 
             </a>
         </li>
 -->
-            <li>
-                <a translate="no" href="<?= BASE_URL ?>godmode/auth/logout" class="iq-waves-effect">
-                    <i>
-                        <svg width="36" height="37" viewBox="0 0 36 37" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M18 18.561H31.5M31.5 18.561L27.75 14.811M31.5 18.561L27.75 22.311M22.5 13.311V13.161C22.5 9.78628 22.5 8.0989 21.6406 6.916C21.363 6.53398 21.0271 6.19802 20.645 5.92046C19.4621 5.06104 17.7748 5.06104 14.4 5.06104H12.6C9.22524 5.06104 7.53786 5.06104 6.35497 5.92046C5.97294 6.19802 5.63698 6.53398 5.35942 6.916C4.5 8.0989 4.5 9.78628 4.5 13.161V23.961C4.5 27.3358 4.5 29.0232 5.35942 30.2061C5.63698 30.5881 5.97294 30.9241 6.35497 31.2016C7.53786 32.061 9.22524 32.061 12.6 32.061H14.4C17.7748 32.061 19.4621 32.061 20.645 31.2016C21.0271 30.9241 21.363 30.5881 21.6406 30.2061C22.5 29.0232 22.5 27.3358 22.5 23.961V23.811" stroke="white" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" />
-                        </svg>
-                    </i>
-                    <span>Logout</span>
-                </a>
-            </li>
+        <li>
+            <a translate="no" href="<?= BASE_URL ?>godmode/auth/logout" class="iq-waves-effect">
+                <i>
+                    <svg width="36" height="37" viewBox="0 0 36 37" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M18 18.561H31.5M31.5 18.561L27.75 14.811M31.5 18.561L27.75 22.311M22.5 13.311V13.161C22.5 9.78628 22.5 8.0989 21.6406 6.916C21.363 6.53398 21.0271 6.19802 20.645 5.92046C19.4621 5.06104 17.7748 5.06104 14.4 5.06104H12.6C9.22524 5.06104 7.53786 5.06104 6.35497 5.92046C5.97294 6.19802 5.63698 6.53398 5.35942 6.916C4.5 8.0989 4.5 9.78628 4.5 13.161V23.961C4.5 27.3358 4.5 29.0232 5.35942 30.2061C5.63698 30.5881 5.97294 30.9241 6.35497 31.2016C7.53786 32.061 9.22524 32.061 12.6 32.061H14.4C17.7748 32.061 19.4621 32.061 20.645 31.2016C21.0271 30.9241 21.363 30.5881 21.6406 30.2061C22.5 29.0232 22.5 27.3358 22.5 23.961V23.811" stroke="white" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                </i>
+                <span>Logout</span>
+            </a>
+        </li>
         </ul>
 </div>
 
@@ -136,69 +138,85 @@ if ($loggedUser && isset($loggedUser->email) && $loggedUser->email === 'a@a.a') 
                     <li class="<?= @$active_bank_account ?>">
                         <a translate="no" href="<?= BASE_URL ?>godmode/bank_account" class="iq-waves-effect">
                             <i>
-                               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 640 640"><!--!Font Awesome Free v7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path fill="<?= (@$active_bank_account != null) ? 'black' : 'white' ?>" d="M335.9 84.2C326.1 78.6 314 78.6 304.1 84.2L80.1 212.2C67.5 219.4 61.3 234.2 65 248.2C68.7 262.2 81.5 272 96 272L128 272L128 480L128 480L76.8 518.4C68.7 524.4 64 533.9 64 544C64 561.7 78.3 576 96 576L544 576C561.7 576 576 561.7 576 544C576 533.9 571.3 524.4 563.2 518.4L512 480L512 272L544 272C558.5 272 571.2 262.2 574.9 248.2C578.6 234.2 572.4 219.4 559.8 212.2L335.8 84.2zM464 272L464 480L400 480L400 272L464 272zM352 272L352 480L288 480L288 272L352 272zM240 272L240 480L176 480L176 272L240 272zM320 160C337.7 160 352 174.3 352 192C352 209.7 337.7 224 320 224C302.3 224 288 209.7 288 192C288 174.3 302.3 160 320 160z"/></svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 640 640"><!--!Font Awesome Free v7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.-->
+                                    <path fill="<?= (@$active_bank_account != null) ? 'black' : 'white' ?>" d="M335.9 84.2C326.1 78.6 314 78.6 304.1 84.2L80.1 212.2C67.5 219.4 61.3 234.2 65 248.2C68.7 262.2 81.5 272 96 272L128 272L128 480L128 480L76.8 518.4C68.7 524.4 64 533.9 64 544C64 561.7 78.3 576 96 576L544 576C561.7 576 576 561.7 576 544C576 533.9 571.3 524.4 563.2 518.4L512 480L512 272L544 272C558.5 272 571.2 262.2 574.9 248.2C578.6 234.2 572.4 219.4 559.8 212.2L335.8 84.2zM464 272L464 480L400 480L400 272L464 272zM352 272L352 480L288 480L288 272L352 272zM240 272L240 480L176 480L176 272L240 272zM320 160C337.7 160 352 174.3 352 192C352 209.7 337.7 224 320 224C302.3 224 288 209.7 288 192C288 174.3 302.3 160 320 160z" />
+                                </svg>
                             </i>
                             <span class="<?= (@$active_bank_account != null) ? 'text-black' : 'text-white' ?>">Bank Account</span>
                         </a>
                     </li>
                 <?php endif; ?>
-                    <li class="<?= @$active_mediation ?>">
-                        <a translate="no" href="<?= BASE_URL ?>godmode/mediation" class="iq-waves-effect">
-                            <i>
-                                <svg fill="<?= (@$active_mediation != null) ? 'black' : 'white' ?>" width="24" height="24" viewBox="0 0 32 32" id="icon" xmlns="http://www.w3.org/2000/svg">
-                                    <rect x="16" y="22" width="2" height="2" transform="translate(-6 40) rotate(-90)" />
-                                    <path d="M18,28V26H16v2H4V2H2V28a2,2,0,0,0,2,2H30V28Z" />
-                                    <path d="M26.0532,19.6787A3.44,3.44,0,0,1,23,22c-2.17,0-3.3115-3.333-4.52-6.8623-.3557-1.0386-.7239-2.1094-1.1382-3.1377H18V10H16.4221C15.2124,7.7148,13.5811,6,11,6,7.3218,6,6.1016,9.5332,6.0513,9.6836l1.8955.6377A3.44,3.44,0,0,1,11,8c2.92,0,4.2764,3.958,5.5874,7.7861.2544.7422.5105,1.4893.7813,2.2139H16v2h2.2019c1.0828,2.2886,2.4959,4,4.7981,4,3.6782,0,4.8984-3.5332,4.9487-3.6836Z" />
-                                    <rect x="16" y="6" width="2" height="2" transform="translate(10 24) rotate(-90)" />
-                                    <rect x="16" y="2" width="2" height="2" transform="translate(14 20) rotate(-90)" />
-                                    <rect id="_Transparent_Rectangle_" data-name="&lt;Transparent Rectangle&gt;" fill="none" width="24" height="24" />
-                                </svg>
-                            </i>
-                            <span class="<?= (@$active_mediation != null) ? 'text-black' : 'text-white' ?>">Mediation</span>
-                        </a>
-                    </li>
-                    <li class="<?= @$active_principe ?>">
-                        <a translate="no" href="<?= BASE_URL ?>godmode/history-hedgefund" class="iq-waves-effect">
-                            <i>
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640" width="24" height="24">
-                                    <path fill="<?= (@$active_principe != null) ? 'black' : 'white' ?>" d="M192 64C156.7 64 128 92.7 128 128L128 512C128 547.3 156.7 576 192 576L448 576C483.3 576 512 547.3 512 512L512 128C512 92.7 483.3 64 448 64L192 64zM224 128L416 128C433.7 128 448 142.3 448 160L448 192C448 209.7 433.7 224 416 224L224 224C206.3 224 192 209.7 192 192L192 160C192 142.3 206.3 128 224 128zM240 296C240 309.3 229.3 320 216 320C202.7 320 192 309.3 192 296C192 282.7 202.7 272 216 272C229.3 272 240 282.7 240 296zM320 320C306.7 320 296 309.3 296 296C296 282.7 306.7 272 320 272C333.3 272 344 282.7 344 296C344 309.3 333.3 320 320 320zM448 296C448 309.3 437.3 320 424 320C410.7 320 400 309.3 400 296C400 282.7 410.7 272 424 272C437.3 272 448 282.7 448 296zM216 416C202.7 416 192 405.3 192 392C192 378.7 202.7 368 216 368C229.3 368 240 378.7 240 392C240 405.3 229.3 416 216 416zM344 392C344 405.3 333.3 416 320 416C306.7 416 296 405.3 296 392C296 378.7 306.7 368 320 368C333.3 368 344 378.7 344 392zM424 416C410.7 416 400 405.3 400 392C400 378.7 410.7 368 424 368C437.3 368 448 378.7 448 392C448 405.3 437.3 416 424 416zM192 488C192 474.7 202.7 464 216 464L328 464C341.3 464 352 474.7 352 488C352 501.3 341.3 512 328 512L216 512C202.7 512 192 501.3 192 488zM424 464C437.3 464 448 474.7 448 488C448 501.3 437.3 512 424 512C410.7 512 400 501.3 400 488C400 474.7 410.7 464 424 464z" />
-                                </svg>
-                            </i>
-                            <span class="<?= (@$active_principe != null) ? 'text-black' : 'text-white' ?>">History Hedgefund</span>
-                        </a>
-                    </li>
-                    <li class="<?= @$active_otc ?>">
-                        <a translate="no" href="<?= BASE_URL ?>godmode/otc" class="iq-waves-effect">
-                            <i>
-                                <svg version="1.0" xmlns="http://www.w3.org/2000/svg"
-                                    width="24" height="24" viewBox="0 0 30.000000 30.000000"
-                                    preserveAspectRatio="xMidYMid meet">
-                                    <g transform="translate(0.000000,30.000000) scale(0.100000,-0.100000)"
-                                        fill="<?= (@$active_otc != null) ? 'black' : 'white' ?>" stroke="none">
-                                        <path d="M82 273 c-13 -25 -4 -43 19 -43 25 0 35 25 19 45 -16 20 -27 19 -38
+                <li class="<?= @$active_mediation ?>">
+                    <a translate="no" href="<?= BASE_URL ?>godmode/mediation" class="iq-waves-effect">
+                        <i>
+                            <svg fill="<?= (@$active_mediation != null) ? 'black' : 'white' ?>" width="24" height="24" viewBox="0 0 32 32" id="icon" xmlns="http://www.w3.org/2000/svg">
+                                <rect x="16" y="22" width="2" height="2" transform="translate(-6 40) rotate(-90)" />
+                                <path d="M18,28V26H16v2H4V2H2V28a2,2,0,0,0,2,2H30V28Z" />
+                                <path d="M26.0532,19.6787A3.44,3.44,0,0,1,23,22c-2.17,0-3.3115-3.333-4.52-6.8623-.3557-1.0386-.7239-2.1094-1.1382-3.1377H18V10H16.4221C15.2124,7.7148,13.5811,6,11,6,7.3218,6,6.1016,9.5332,6.0513,9.6836l1.8955.6377A3.44,3.44,0,0,1,11,8c2.92,0,4.2764,3.958,5.5874,7.7861.2544.7422.5105,1.4893.7813,2.2139H16v2h2.2019c1.0828,2.2886,2.4959,4,4.7981,4,3.6782,0,4.8984-3.5332,4.9487-3.6836Z" />
+                                <rect x="16" y="6" width="2" height="2" transform="translate(10 24) rotate(-90)" />
+                                <rect x="16" y="2" width="2" height="2" transform="translate(14 20) rotate(-90)" />
+                                <rect id="_Transparent_Rectangle_" data-name="&lt;Transparent Rectangle&gt;" fill="none" width="24" height="24" />
+                            </svg>
+                        </i>
+                        <span class="<?= (@$active_mediation != null) ? 'text-black' : 'text-white' ?>">Mediation</span>
+                    </a>
+                </li>
+                <li class="<?= @$active_principe ?>">
+                    <a translate="no" href="<?= BASE_URL ?>godmode/history-hedgefund" class="iq-waves-effect">
+                        <i>
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640" width="24" height="24">
+                                <path fill="<?= (@$active_principe != null) ? 'black' : 'white' ?>" d="M192 64C156.7 64 128 92.7 128 128L128 512C128 547.3 156.7 576 192 576L448 576C483.3 576 512 547.3 512 512L512 128C512 92.7 483.3 64 448 64L192 64zM224 128L416 128C433.7 128 448 142.3 448 160L448 192C448 209.7 433.7 224 416 224L224 224C206.3 224 192 209.7 192 192L192 160C192 142.3 206.3 128 224 128zM240 296C240 309.3 229.3 320 216 320C202.7 320 192 309.3 192 296C192 282.7 202.7 272 216 272C229.3 272 240 282.7 240 296zM320 320C306.7 320 296 309.3 296 296C296 282.7 306.7 272 320 272C333.3 272 344 282.7 344 296C344 309.3 333.3 320 320 320zM448 296C448 309.3 437.3 320 424 320C410.7 320 400 309.3 400 296C400 282.7 410.7 272 424 272C437.3 272 448 282.7 448 296zM216 416C202.7 416 192 405.3 192 392C192 378.7 202.7 368 216 368C229.3 368 240 378.7 240 392C240 405.3 229.3 416 216 416zM344 392C344 405.3 333.3 416 320 416C306.7 416 296 405.3 296 392C296 378.7 306.7 368 320 368C333.3 368 344 378.7 344 392zM424 416C410.7 416 400 405.3 400 392C400 378.7 410.7 368 424 368C437.3 368 448 378.7 448 392C448 405.3 437.3 416 424 416zM192 488C192 474.7 202.7 464 216 464L328 464C341.3 464 352 474.7 352 488C352 501.3 341.3 512 328 512L216 512C202.7 512 192 501.3 192 488zM424 464C437.3 464 448 474.7 448 488C448 501.3 437.3 512 424 512C410.7 512 400 501.3 400 488C400 474.7 410.7 464 424 464z" />
+                            </svg>
+                        </i>
+                        <span class="<?= (@$active_principe != null) ? 'text-black' : 'text-white' ?>">History Hedgefund</span>
+                    </a>
+                </li>
+                <li class="<?= @$active_otc ?>">
+                    <a translate="no" href="<?= BASE_URL ?>godmode/otc" class="iq-waves-effect">
+                        <i>
+                            <svg version="1.0" xmlns="http://www.w3.org/2000/svg"
+                                width="24" height="24" viewBox="0 0 30.000000 30.000000"
+                                preserveAspectRatio="xMidYMid meet">
+                                <g transform="translate(0.000000,30.000000) scale(0.100000,-0.100000)"
+                                    fill="<?= (@$active_otc != null) ? 'black' : 'white' ?>" stroke="none">
+                                    <path d="M82 273 c-13 -25 -4 -43 19 -43 25 0 35 25 19 45 -16 20 -27 19 -38
                             -2z" />
-                                        <path d="M187 284 c-4 -4 -7 -22 -7 -41 0 -23 5 -33 15 -33 8 0 15 -7 15 -15
+                                    <path d="M187 284 c-4 -4 -7 -22 -7 -41 0 -23 5 -33 15 -33 8 0 15 -7 15 -15
                             0 -8 4 -15 9 -15 5 0 11 7 15 15 3 8 17 15 31 15 24 0 26 3 23 38 -3 36 -4 37
                             -48 40 -25 2 -49 0 -53 -4z m73 -33 c0 -5 -7 -14 -15 -21 -16 -14 -45 -7 -45
                             11 0 6 7 9 15 6 8 -4 17 -2 20 3 8 12 25 13 25 1z" />
-                                        <path d="M57 203 c-4 -3 -7 -15 -7 -25 0 -15 8 -18 55 -18 56 0 69 12 43 38
+                                    <path d="M57 203 c-4 -3 -7 -15 -7 -25 0 -15 8 -18 55 -18 56 0 69 12 43 38
                             -13 13 -80 17 -91 5z" />
-                                        <path d="M16 124 c-9 -23 0 -32 29 -26 15 2 25 0 25 -7 0 -6 -13 -11 -30 -11
+                                    <path d="M16 124 c-9 -23 0 -32 29 -26 15 2 25 0 25 -7 0 -6 -13 -11 -30 -11
                             -37 0 -41 -27 -9 -56 20 -18 22 -18 33 -2 7 10 16 14 21 10 4 -4 4 3 1 15 -7
                             22 8 62 28 75 43 29 113 -21 101 -72 -4 -14 -3 -22 1 -18 4 4 13 0 20 -10 11
                             -16 13 -16 33 2 32 29 28 56 -9 56 -16 0 -30 5 -30 11 0 7 10 9 24 5 28 -7 39
                             4 30 28 -9 24 -259 24 -268 0z" />
-                                        <path d="M122 104 c-30 -21 -29 -59 3 -80 23 -15 27 -15 50 0 32 21 33 59 3
+                                    <path d="M122 104 c-30 -21 -29 -59 3 -80 23 -15 27 -15 50 0 32 21 33 59 3
                             80 -12 9 -25 16 -28 16 -3 0 -16 -7 -28 -16z m52 -27 c8 -12 7 -21 -6 -33 -19
                             -20 -43 -8 -43 21 0 36 29 44 49 12z" />
-                                    </g>
-                                </svg>
-                            </i>
-                            <span class="<?= (@$active_otc != null) ? 'text-black' : 'text-white' ?>">OTC</span>
-                        </a>
-                    </li>
+                                </g>
+                            </svg>
+                        </i>
+                        <span class="<?= (@$active_otc != null) ? 'text-black' : 'text-white' ?>">OTC</span>
+                    </a>
+                </li>
+                <li class="<?= @$active_interest ?>">
+                    <a translate="no" href="<?= BASE_URL ?>godmode/interest" class="iq-waves-effect">
+                        <i>
+                            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" x="0px" y="0px" viewBox="0 0 32 40" enable-background="new 0 0 32 32" xml:space="preserve" fill="<?= (@$active_interest != null) ? 'black' : 'white' ?>">
+                                <circle cx="21.654" cy="10.79" r="2.22" />
+                                <circle cx="15.063" cy="4.199" r="2.22" />
+                                <path d="M13.136,12.719c0.15,0.15,0.348,0.226,0.543,0.226c0.197,0,0.395-0.075,0.545-0.226l9.359-9.359  c0.301-0.301,0.301-0.788,0-1.089s-0.789-0.301-1.09,0l-9.357,9.359C12.835,11.931,12.835,12.418,13.136,12.719z" />
+                                <path d="M27.47,19.363c-2.697,1.469-6.453,3.562-8.262,4.19c-1.523,0.53-4.711-2.495-1.139-3.227c1.672-0.343,2.33-0.398,3.1-0.552  c1.305-0.263,1.799-0.835,1.66-1.641c-0.133-0.765-0.898-1.021-2.818-1.021c-1.857,0-4.033,0-6.234,0  c-1.305,0-4.004,1.446-5.717,2.447v7.764h1.156c0,0,5.186,2.697,6.957,2.697c1.77,0,11.633-6.575,13.488-8.599  C31.515,19.399,29.177,18.432,27.47,19.363z" />
+                                <path d="M4.87,18.051H4.089H3.308c-0.91,0-1.648,0.738-1.648,1.647v8.005c0,0.91,0.738,1.647,1.648,1.647h0.781H4.87  c0.91,0,1.648-0.737,1.648-1.647v-8.005C6.519,18.789,5.78,18.051,4.87,18.051z" /><text x="0" y="47" fill="#000000" font-size="5px" font-weight="bold" font-family="'Helvetica Neue', Helvetica, Arial-Unicode, Arial, Sans-serif">Created by DvM Design</text><text x="0" y="52" fill="#000000" font-size="5px" font-weight="bold" font-family="'Helvetica Neue', Helvetica, Arial-Unicode, Arial, Sans-serif">from the Noun Project</text>
+                            </svg>
+                        </i>
+                        <span class="<?= (@$active_interest != null) ? 'text-black' : 'text-white' ?>">Interest</span>
+                    </a>
+                </li>
 
-                    <!--                
+                <!--                
                 <li class="<?= @$active_blog ?>">
                     <a translate="no" href="<?= BASE_URL ?>godmode/blogs" class="iq-waves-effect">
                         <i>
