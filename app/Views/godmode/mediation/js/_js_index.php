@@ -135,57 +135,6 @@
         });
 
         // Fetch data JSON dan masukkan ke input
-        // fetch("<?= BASE_URL ?>/godmode/mediation/history")
-        //     .then(res => res.json())
-        //     .then(response => {
-        //         const data = response.result?.data; // ambil data di dalam result
-        //         // console.log("Fetched data:", data);
-        //         if (Array.isArray(data) && data.length > 0) {
-        //             data = dataArray[0];
-        //         }
-
-        //         if (!data) {
-        //             // Data kosong atau 404 → tombol "Calculate", form action "create"
-        //             calcBtn.textContent = "Calculate";
-        //             calcForm.action = BASE_CREATE;
-        //             return;
-        //         }
-
-        //         // Data ada → tombol "Update Calculate Data", form action "save"
-        //         calcBtn.textContent = "Update Calculate Data";
-        //         calcForm.action = BASE_SAVE;
-
-        //         let idInput = document.querySelector('input[name="id"]');
-        //         if (!idInput) {
-        //             idInput = document.createElement('input');
-        //             idInput.type = 'hidden';
-        //             idInput.name = 'id';
-        //             calcForm.appendChild(idInput);
-        //         }
-        //         idInput.value = data.id;
-        //         for (let key in data) {
-        //             const value = data[key];
-        //             const input = document.querySelector(`input[name="${key}"]`);
-        //             if (input) {
-        //                 if (input.type === "checkbox") {
-        //                     input.checked = value == 1; // non-strict comparison
-        //                     // atau
-        //                     input.checked = String(value) === "1";
-        //                 } else {
-        //                     input.value = value;
-        //                 }
-        //             }
-        //         }
-
-        //         updateTable();
-        //     })
-        //     .catch(err => {
-        //         console.error("Error fetch/parse JSON:", err);
-        //         calcBtn.textContent = "Calculate";
-        //         calcForm.action = BASE_CREATE;
-        //     });
-
-        // Fetch data JSON dan masukkan ke input
         fetch("<?= BASE_URL ?>/godmode/mediation/history")
             .then(res => res.json())
             .then(response => {
@@ -243,15 +192,6 @@
                         if (sellLabel) sellLabel.innerHTML = sellLock === "1" ? "🔒" : "";
                     }
                 }
-
-                // Sembunyikan tombol jika bukan superadmin
-                if (userRole !== "superadmin") {
-                    const btnWrapper = calcBtn.closest('.d-flex');
-                    if (btnWrapper) {
-                        btnWrapper.remove(); // hapus seluruh div wrapper beserta tombolnya
-                    }
-                }
-
 
                 updateTable();
             })

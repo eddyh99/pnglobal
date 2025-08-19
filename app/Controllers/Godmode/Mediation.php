@@ -89,6 +89,7 @@ class Mediation extends BaseController
         if ($result && !empty($result->success) && $result->success == true) {
             return redirect()->to('/godmode/mediation')->with('success', $result->message);
         } else {
+            print_r($result); exit;
             $msg = $result->message ?? 'Failed to save data';
             return redirect()->to('/godmode/mediation')->with('failed', $msg);
         }
