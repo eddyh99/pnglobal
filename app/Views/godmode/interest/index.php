@@ -31,7 +31,7 @@
         <div class="row content-body">
             <div class="col-lg-12">
                 <div class="send-signals">
-                    <form id="calcForm">
+                    <form id="calcForm" action="" method="post">
                         <div class="title-signal-preview d-flex justify-content-between align-items-center">
                             <h4>Calculator Interest</h4>
                         </div>
@@ -39,9 +39,13 @@
                             <div class="row w-100">
                                 <div class="form-addreferral col-8 mx-auto">
                                     <div class="wrapper-addreferral">
-                                        <label for="amount">Amount</label>
                                         <div class="d-flex">
+                                            <label for="amount">Amount</label>
                                             <input type="number" id="amount" name="amount" class="form-control" placeholder="1000" step="any">
+                                            <label class="d-flex align-items-center gap-1 ml-2">
+                                                <input type="checkbox" name="lock_amount" value="1">
+                                                <p class="mb-0">🔒</p>
+                                            </label>
                                         </div>
                                     </div>
                                     <div class="wrapper-addreferral d-flex justify-content-center mt-4">
