@@ -39,8 +39,8 @@
                             <div class="row w-100">
                                 <div class="form-addreferral col-8 mx-auto">
                                     <div class="wrapper-addreferral">
+                                        <label for="amount">Amount</label>
                                         <div class="d-flex">
-                                            <label for="amount">Amount</label>
                                             <input type="number" id="amount" name="amount" class="form-control" placeholder="1000" step="any">
                                             <label class="d-flex align-items-center gap-1 ml-2">
                                                 <input type="checkbox" name="lock_amount" value="1">
