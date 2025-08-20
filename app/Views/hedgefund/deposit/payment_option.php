@@ -4,9 +4,10 @@
         <div class="card shadow p-4" style="background-color: #2c2c2c; color: white; border-radius: 12px; width: 100%; max-width: 500px;">
             <h1 class="text-center fw-bold mb-3">PAYMENT OPTION</h1>
             <div class="d-flex flex-column justify-content-center align-items-center" style="height: 350px;">
-                <a href="<?= BASE_URL ?>hedgefund/deposit/usdt_payment" class="btn btn-primary btn-lg w-75 btn-withdraw">USDT</a>
-                <a href="<?= BASE_URL ?>hedgefund/deposit/usdc_payment" class="btn btn-primary btn-lg w-75 btn-withdraw mt-3">USDC</a>
-                <a href="<?= BASE_URL ?>hedgefund/deposit/bank_payment" class="btn btn-primary btn-lg w-75 btn-withdraw mt-3">Bank Transfer</a>
+                <a href="<?= BASE_URL ?>hedgefund/deposit/index?method=usdt" class="btn btn-primary btn-lg w-75 btn-withdraw">USDT</a>
+                <a href="<?= BASE_URL ?>hedgefund/deposit/index?method=usdc" class="btn btn-primary btn-lg w-75 btn-withdraw mt-3">USDC</a>
+                <a href="<?= BASE_URL ?>hedgefund/deposit/index?method=us_bank" class="btn btn-primary btn-lg w-75 btn-withdraw mt-3">US Bank Transfer</a>
+                <a href="<?= BASE_URL ?>hedgefund/deposit/index?method=international_bank" class="btn btn-primary btn-lg w-75 btn-withdraw mt-3">International Bank Transfer</a>
             </div>
         </div>
     </div>

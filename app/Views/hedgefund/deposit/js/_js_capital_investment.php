@@ -122,7 +122,8 @@
                 .then(data => {
                     if (data.status === 'success') {
                         // Redirect ke halaman payment option
-                        window.location.href = '/hedgefund/deposit/payment_option';
+                        // window.location.href = '/hedgefund/deposit/payment_option';
+                        window.location.href = '/hedgefund/deposit/<?= $methodPayment. "_payment" ?>';
                     } else {
                         alert('An error occurred: ' + data.message);
                         confirmButton.textContent = originalText;
