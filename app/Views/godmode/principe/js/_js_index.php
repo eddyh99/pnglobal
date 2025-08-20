@@ -77,7 +77,7 @@
                             return "0.00"; // Hindari pembagian dengan nol
                         }
                         var opFondo = (net / buyPrice) * 100;
-                        return opFondo.toFixed(9);
+                        return opFondo.toFixed(4);
                     }
                 },
                 // Net Stor Cli = op fondo / 2 / 4
@@ -95,7 +95,7 @@
                         }
                         var opFondo = (net / buyPrice) * 100;
                         var netStorCli = (opFondo / 2) / 4;
-                        return netStorCli.toFixed(9);
+                        return netStorCli.toFixed(4);
                     }
                 }
             ],
@@ -157,11 +157,11 @@
                 var mediaPerMese = (messe > 0) ? (totalNetStorCli / messe) : 0;
 
                 // Memperbarui elemen di dalam card
-                $('#totalOpFondo').text(totalOpFondo.toFixed(9));
-                $('#totalNetStorCli').text(totalNetStorCli.toFixed(9));
+                $('#totalOpFondo').text(totalOpFondo.toFixed(4));
+                $('#totalNetStorCli').text(totalNetStorCli.toFixed(4));
                 $('#messe').text(messe);
                 // Perhatikan penggunaan \\ untuk karakter % pada selector
-                $('#media\\%mese').text(mediaPerMese.toFixed(9));
+                $('#media\\%mese').text(mediaPerMese.toFixed(4));
 
                 // // === Tampilkan tabel di console log ===
                 // console.log("Hasil Perhitungan Untuk Setiap Baris:");
