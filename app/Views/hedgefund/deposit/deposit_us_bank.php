@@ -40,21 +40,21 @@
                             <div class="form-addreferral col-8 mx-auto">
                                 <!-- Destination Bank -->
                                 <div class="wrapper-addreferral" style="border: 1px solid #bfa573; padding: 1rem; border-radius: 0.5rem;">
-                                    <h5 class="mb-3">Destination Bank</h5>
+                                    <h5 class="mb-3">Destination US Bank</h5>
                                     <table style="width: 100%; border-collapse: collapse;" class="invoice-table">
                                         <tr>
                                             <th class="th-deposit">Account Name</th>
-                                            <td class="td-normal">: <span id="viewName"><?=esc($bank->bank_account_name)?></span></td>
+                                            <td class="td-normal">: <span id="viewName"><?=esc($bank->us_bank_account_name)?></span></td>
                                         </tr>
                                         <tr>
                                             <th class="th-deposit">Account Type</th>
-                                            <td class="td-normal">: <span id="viewType"><?= esc($bank->bank_account_type ?? '-') ?></span></td>
+                                            <td class="td-normal">: <span id="viewType"><?= esc($bank->us_bank_account_type ?? '-') ?></span></td>
                                         </tr>
                                         <tr>
                                             <th class="th-deposit">Routing Number</th>
                                             <td class="td-input">
                                                 : 
-                                                <input id="viewRouting" type="text" value="<?= esc($bank->bank_routing_number ?? '-') ?>" readonly >
+                                                <input id="viewRouting" type="text" value="<?= esc($bank->us_bank_routing_number ?? '-') ?>" readonly >
                                                 <button type="button" onclick="copyToClipboard('viewRouting')" class="button-copy">Copy</button>
                                             </td>
                                         </tr>
@@ -62,7 +62,7 @@
                                             <th class="th-deposit">Account Number</th>
                                             <td class="td-input">
                                                 : 
-                                                <input id="viewAccountNumber" class="form-control" type="text" value="<?= esc($bank->bank_account_number ?? '-') ?>" readonly >
+                                                <input id="viewAccountNumber" class="form-control" type="text" value="<?= esc($bank->us_bank_account_number ?? '-') ?>" readonly >
                                                 <button type="button" onclick="copyToClipboard('viewAccountNumber')" class="button-copy">Copy</button>
                                             </td>
                                         </tr>
