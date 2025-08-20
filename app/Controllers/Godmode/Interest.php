@@ -4,7 +4,7 @@ namespace App\Controllers\Godmode;
 
 use App\Controllers\BaseController;
 
-class Otc extends BaseController
+class Interest extends BaseController
 {
     public function __construct()
     {
@@ -32,9 +32,9 @@ class Otc extends BaseController
         $role = $this->session->get('logged_user')->role;
         $mdata = [
             'title'     => 'OTC - ' . NAMETITLE,
-            'content'   => check_access('otc','godmode/otc/index','console'),
-            'extra'     => 'godmode/otc/js/_js_index',
-            'active_otc'    => 'active active-menu',
+            'content'   => check_access('interest', 'godmode/interest/index', 'console'),
+            'extra'     => 'godmode/interest/js/_js_index',
+            'active_interest'    => 'active active-menu',
             'sidebar'   => 'console_sidebar',
             'navbar_console' => 'active',
             'role' => $role
@@ -46,7 +46,7 @@ class Otc extends BaseController
     public function create()
     {
         $data = $this->request->getPost();
-        $url = URL_HEDGEFUND . "/calculator/otc";
+        $url = URL_HEDGEFUND . "/calculator/interest";
 
         $response = satoshiAdmin($url, json_encode($data));
 
@@ -54,7 +54,7 @@ class Otc extends BaseController
             $res = $response->result;
 
             if (isset($res->success) && $res->success == 1) {
-                return redirect()->to('/godmode/otc')
+                return redirect()->to('/godmode/interest')
                     ->with('success', $res->message ?? 'Data has been saved successfully');
             } else {
                 $errorMessages = [];
@@ -64,17 +64,17 @@ class Otc extends BaseController
                     }
                 }
                 $errorText = !empty($errorMessages) ? implode(' | ', $errorMessages) : 'Failed to save data';
-                return redirect()->to('/godmode/otc')->with('failed', $errorText);
+                return redirect()->to('/godmode/interest')->with('failed', $errorText);
             }
         } else {
-            return redirect()->to('/godmode/otc')->with('failed', 'No response from API');
+            return redirect()->to('/godmode/interest')->with('failed', 'No response from API');
         }
     }
 
     public function save()
     {
         $data = $this->request->getPost();
-        $url  = URL_HEDGEFUND . "/calculator/otc/" . $data['id'];
+        $url  = URL_HEDGEFUND . "/calculator/interest/" . $data['id'];
 
         // Kirim data ke API
         $response = satoshiAdmin($url, json_encode($data));
@@ -86,25 +86,24 @@ class Otc extends BaseController
 
         // Cek status dan success
         if ($result && !empty($result->success) && $result->success == true) {
-            return redirect()->to('/godmode/otc')->with('success', $result->message);
+            return redirect()->to('/godmode/interest')->with('success', $result->message);
         } else {
             print_r($result);
             exit;
             $msg = $result->message ?? 'Failed to save data';
-            return redirect()->to('/godmode/otc')->with('failed', $msg);
+            return redirect()->to('/godmode/interest')->with('failed', $msg);
         }
     }
 
     public function history()
     {
-        $url = URL_HEDGEFUND . "/calculator/otc";
+        $url = URL_HEDGEFUND . "/calculator/interest";
         $historyData = satoshiAdmin($url);
 
-        // Bersihkan output buffer supaya hanya JSON yang dikirim
         if (ob_get_length()) ob_clean();
 
         header('Content-Type: application/json');
         echo json_encode($historyData);
-        exit; // pastikan tidak ada output lain
+        exit;
     }
 }

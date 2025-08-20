@@ -40,6 +40,7 @@ class Admin extends BaseController
                     'otc',
                     'history',
                     'mediation',
+                    'interest',
                 ],
             ],
             'hedgefund' => [

@@ -1,6 +1,28 @@
 <script>
     document.addEventListener('DOMContentLoaded', function() {
         const tableBody = document.getElementById('calcTable');
+        const calcBtn = document.getElementById('calcBtn');
+        const calcForm = document.getElementById('calcForm');
+
+        // Ambil role user dari server
+        const userRole = "<?= $role ?>"; // superadmin / admin
+
+        const BASE_SAVE = "<?= base_url('godmode/mediation/save') ?>";
+        const BASE_CREATE = "<?= base_url('godmode/mediation/create') ?>";
+
+        calcForm.addEventListener('submit', function(e) {
+            const checkboxes = this.querySelectorAll('input[type="checkbox"]');
+            checkboxes.forEach(cb => {
+                if (!cb.checked) {
+                    // Buat input hidden sementara dengan value 0
+                    const hidden = document.createElement('input');
+                    hidden.type = 'hidden';
+                    hidden.name = cb.name;
+                    hidden.value = '0';
+                    this.appendChild(hidden);
+                }
+            });
+        });
 
         function hitung(prezzoBuy, prezzoSell) {
             let commBuy = prezzoBuy * 0.001; // 0.1% dari buy
@@ -111,5 +133,72 @@
                 updateTable();
             }
         });
+
+        // Fetch data JSON dan masukkan ke input
+        fetch("<?= BASE_URL ?>/godmode/mediation/history")
+            .then(res => res.json())
+            .then(response => {
+                let data = response.result?.data;
+
+                if (!data) {
+                    calcBtn.textContent = "Calculate";
+                    calcForm.action = BASE_CREATE;
+                    return;
+                }
+
+                calcBtn.textContent = "Update Calculate Data";
+                calcForm.action = BASE_SAVE;
+
+                let idInput = document.querySelector('input[name="id"]');
+                if (!idInput) {
+                    idInput = document.createElement('input');
+                    idInput.type = 'hidden';
+                    idInput.name = 'id';
+                    calcForm.appendChild(idInput);
+                }
+                idInput.value = data.id;
+
+                // Set semua input dan checkbox
+                for (let key in data) {
+                    const value = data[key];
+                    const input = document.querySelector(`input[name="${key}"]`);
+                    if (input) {
+                        if (input.type === "checkbox") {
+                            input.checked = String(value) === "1";
+                        } else {
+                            input.value = value;
+                            input.disabled = false; // reset dulu
+                        }
+                    }
+                }
+
+                // Logic untuk admin
+                if (userRole !== "superadmin") {
+                    for (let i = 1; i <= 4; i++) {
+                        const buyLock = data[`lock_buy${i}`];
+                        const sellLock = data[`lock_sell${i}`];
+
+                        const buyInput = document.querySelector(`input[name="prezzo_buy${i}"]`);
+                        const sellInput = document.querySelector(`input[name="prezzo_sell${i}"]`);
+
+                        if (buyInput) buyInput.disabled = buyLock === "1";
+                        if (sellInput) sellInput.disabled = sellLock === "1";
+
+                        // Manipulasi tampilan gembok untuk admin
+                        const buyLabel = document.querySelector(`input[name="lock_buy${i}"]`)?.parentElement;
+                        const sellLabel = document.querySelector(`input[name="lock_sell${i}"]`)?.parentElement;
+
+                        if (buyLabel) buyLabel.innerHTML = buyLock === "1" ? "🔒" : "";
+                        if (sellLabel) sellLabel.innerHTML = sellLock === "1" ? "🔒" : "";
+                    }
+                }
+
+                updateTable();
+            })
+            .catch(err => {
+                console.error("Error fetch/parse JSON:", err);
+                calcBtn.textContent = "Calculate";
+                calcForm.action = BASE_CREATE;
+            });
     });
 </script>

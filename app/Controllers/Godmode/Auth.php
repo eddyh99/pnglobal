@@ -84,7 +84,9 @@ class Auth extends BaseController
                     return redirect()->to(BASE_URL . 'godmode/otc');
                 } elseif (!empty($access['console']) && in_array('mediation', $access['console'])) {
                     return redirect()->to(BASE_URL . 'godmode/mediation');
-                }
+                } elseif (!empty($access['console']) && in_array('interest', $access['console'])) {
+					return redirect()->to(BASE_URL . 'godmode/interest');
+				}
           		return redirect()->to(BASE_URL . 'godmode/signal');
  			}
  			session()->setFlashdata('failed', 'Access Denied');
