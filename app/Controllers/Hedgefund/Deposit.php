@@ -34,6 +34,16 @@ class Deposit extends BaseController
 
     public function index()
     {
+        $methodPayment = $this->request->getGet('method');
+        // Jika tidak ada metode pembayaran yang dipilih return ke halaman sebelumnya
+        if (!$methodPayment) {
+            $previous = $this->request->getServer('HTTP_REFERER');
+            if ($previous) {
+                return redirect()->to($previous);
+            } else {
+                return redirect()->to(BASE_URL . 'hedgefund/deposit/option');
+            }
+        }
 
         $role = $_SESSION["logged_user"]->role;
         $mdata = [
@@ -41,6 +51,7 @@ class Deposit extends BaseController
             'content'   => ($role=="superadmin") ? 'hedgefund/deposit/admin_capital':'hedgefund/deposit/set_capital',
             'extra'     => 'hedgefund/deposit/js/_js_capital_investment',
             'active_deposit'    => 'active',
+            'methodPayment'  => $methodPayment,
         ];
         return view('hedgefund/layout/dashboard_wrapper', $mdata);
     }
@@ -118,7 +129,8 @@ class Deposit extends BaseController
         }
     }
 
-    public function add_deposit(){
+    public function add_deposit()
+    {
         // Validation Field
         $rules = $this->validate([
             'amount' => [
@@ -148,7 +160,7 @@ class Deposit extends BaseController
     }
     
     
-    public function payment_option()
+    public function option()
     {
         $mdata = [
             'title'     => 'Payment Option - ' . NAMETITLE,
@@ -212,9 +224,11 @@ class Deposit extends BaseController
     {
         $payamount  = $_SESSION["payment_data"]["amount"];
         $customerEmail = $_SESSION["logged_user"]->email;
+        $customerId = $_SESSION["logged_user"]->id;
         $postData = [
             'email' => $customerEmail,
             'amount' => $_SESSION["payment_data"]["totalcapital"],
+            'member_id' => $customerId
         ];
 
         $url        = URL_HEDGEFUND . "/non/deposit";
@@ -234,9 +248,11 @@ class Deposit extends BaseController
     {
         $payamount  = $_SESSION["payment_data"]["amount"];
         $customerEmail = $_SESSION["logged_user"]->email;
+        $customerId = $_SESSION["logged_user"]->id;
         $postData = [
             'email' => $customerEmail,
             'amount' => $_SESSION["payment_data"]["totalcapital"],
+            'member_id' => $customerId
         ];
 
         $url        = URL_HEDGEFUND . "/non/deposit";
@@ -249,6 +265,8 @@ class Deposit extends BaseController
             $this->session->setFlashdata('failed', 'There was a problem processing your purchase please try again');
             return redirect()->to(base_url() . 'hedgefund/deposit');
         }
+
+        return redirect()->to($paymentResponse['result']['checkout_url']);
     }
 
     public function get_history()
