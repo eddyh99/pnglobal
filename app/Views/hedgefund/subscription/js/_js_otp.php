@@ -126,7 +126,7 @@
                             if (params.get('r') === '1') {
                                 window.location.href = '<?= BASE_URL ?>hedgefund/dashboard ?>';
                             }else{
-                                window.location.href = '<?= BASE_URL ?>hedgefund/auth/set_capital/<?= base64_encode($emailuser) ?>';
+                                window.location.href = '<?= BASE_URL ?>hedgefund/auth/payment_option/<?= base64_encode($emailuser) ?>';
                             }
                         }, 3000);
                     } else {

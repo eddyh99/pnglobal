@@ -24,82 +24,82 @@ class Auth extends BaseController
 			'extra'     => 'hedgefund/subscription/js/_js_register',
 		];
 
-        return view('hedgefund/layout/wrapper', $mdata);
+		return view('hedgefund/layout/wrapper', $mdata);
 	}
-	
-    public function signup_process()
-    {
-        // Validation Field
-        $rules = $this->validate([
-            'email'   => [
-                'label'     => 'Email',
-                'rules'     => 'valid_email'
-            ],
-            'pass'     => [
-                'label'     => 'Password',
-                'rules'     => 'required|min_length[8]'
-            ],
-            'cpass'     => [
-                'label'     => 'Confirm Password',
-                'rules'     => 'required|matches[pass]|min_length[8]'
-            ],
-            'timezone'     => [
-                'label'     => 'Timezone',
-                'rules'     => 'required'
-            ],
-            'referral'     => [
-                'label'     => 'Referral',
-                'rules'     => 'permit_empty'
-            ],
-            'role'     => [
-                'label'     => 'Role',
-                'rules'     => 'required'
-            ],
-        ]);
-        
-        // Checking Validation
-        if (!$rules) {
-            session()->setFlashdata('failed', $this->validation->listErrors());
-            return redirect()->to(BASE_URL . 'hedgefund/auth/register')->withInput();
-        }
 
-        // Initial Data
-        $referral=htmlspecialchars($this->request->getVar('referral'));
-        $mdata = [
-            'email'         => htmlspecialchars($this->request->getVar('email')),
-            'password'      => sha1(htmlspecialchars($this->request->getVar('pass'))),
-            'timezone'      => htmlspecialchars($this->request->getVar('timezone')),
-            'referral'      => !empty($referral) ? $referral : null,
-            'role'          => htmlspecialchars($this->request->getVar('role')),
-            'ip_address'    => htmlspecialchars($this->request->getIPAddress()),
-        ];
+	public function signup_process()
+	{
+		// Validation Field
+		$rules = $this->validate([
+			'email'   => [
+				'label'     => 'Email',
+				'rules'     => 'valid_email'
+			],
+			'pass'     => [
+				'label'     => 'Password',
+				'rules'     => 'required|min_length[8]'
+			],
+			'cpass'     => [
+				'label'     => 'Confirm Password',
+				'rules'     => 'required|matches[pass]|min_length[8]'
+			],
+			'timezone'     => [
+				'label'     => 'Timezone',
+				'rules'     => 'required'
+			],
+			'referral'     => [
+				'label'     => 'Referral',
+				'rules'     => 'permit_empty'
+			],
+			'role'     => [
+				'label'     => 'Role',
+				'rules'     => 'required'
+			],
+		]);
 
-        $tempUser = (object)[
-            'email'  => htmlspecialchars($this->request->getVar('email')),
-            'passwd' => sha1($this->request->getVar('pass'))
-        ];
-        session()->set('reg_user', $tempUser);
+		// Checking Validation
+		if (!$rules) {
+			session()->setFlashdata('failed', $this->validation->listErrors());
+			return redirect()->to(BASE_URL . 'hedgefund/auth/register')->withInput();
+		}
+
+		// Initial Data
+		$referral = htmlspecialchars($this->request->getVar('referral'));
+		$mdata = [
+			'email'         => htmlspecialchars($this->request->getVar('email')),
+			'password'      => sha1(htmlspecialchars($this->request->getVar('pass'))),
+			'timezone'      => htmlspecialchars($this->request->getVar('timezone')),
+			'referral'      => !empty($referral) ? $referral : null,
+			'role'          => htmlspecialchars($this->request->getVar('role')),
+			'ip_address'    => htmlspecialchars($this->request->getIPAddress()),
+		];
+
+		$tempUser = (object)[
+			'email'  => htmlspecialchars($this->request->getVar('email')),
+			'passwd' => sha1($this->request->getVar('pass'))
+		];
+		session()->set('reg_user', $tempUser);
 
 
-        $url = URL_HEDGEFUND . "/auth/register";
-        $result = satoshiAdmin($url, json_encode($mdata))->result;
+		$url = URL_HEDGEFUND . "/auth/register";
+		$result = satoshiAdmin($url, json_encode($mdata))->result;
 
-        // Check if the result code is not 201
-        if ($result->code != '201') {
-            session()->setFlashdata('failed', $result->message);
-            return redirect()->to(BASE_URL . 'hedgefund/auth/register')->withInput();
-        } else {
-            $subject = "Activation Account - HEDGE FUND";
-            sendmail_satoshi($mdata['email'], $subject,  emailtemplate_activation_account($result->message->otp, $mdata['email'],"HEDGE FUND", 'hedgefund/auth/forgot_pass_otp/'),"HEDGE FUND",USERNAME_MAIL);
-            return redirect()->to(BASE_URL . 'hedgefund/auth/otp/' . base64_encode($mdata['email']));
-        }
-    }
-	
+		// Check if the result code is not 201
+		if ($result->code != '201') {
+			session()->setFlashdata('failed', $result->message);
+			return redirect()->to(BASE_URL . 'hedgefund/auth/register')->withInput();
+		} else {
+			$subject = "Activation Account - HEDGE FUND";
+			sendmail_satoshi($mdata['email'], $subject,  emailtemplate_activation_account($result->message->otp, $mdata['email'], "HEDGE FUND", 'hedgefund/auth/forgot_pass_otp/'), "HEDGE FUND", USERNAME_MAIL);
+			return redirect()->to(BASE_URL . 'hedgefund/auth/otp/' . base64_encode($mdata['email']));
+		}
+	}
+
 
 	public function login()
 	{
 
-		if(session()->get('logged_user')) {
+		if (session()->get('logged_user')) {
 			return redirect()->to(BASE_URL . 'hedgefund/dashboard');
 		}
 		$this->session->remove('reg_user');
@@ -108,12 +108,12 @@ class Auth extends BaseController
 			'content'   => 'hedgefund/subscription/login',
 			'extra'     => 'hedgefund/subscription/js/_js_login',
 			// 'navoption' => true,
-            // 'darkNav'   => true,
-            // 'footer'    => false,
-            // 'nav'       => false,
+			// 'darkNav'   => true,
+			// 'footer'    => false,
+			// 'nav'       => false,
 		];
 
-        return view('hedgefund/layout/wrapper', $mdata);
+		return view('hedgefund/layout/wrapper', $mdata);
 	}
 
 	public function postLogin()
@@ -161,11 +161,11 @@ class Auth extends BaseController
 		if ($result->code == 200) {
 			$loggedUser = $result->message;
 
-			if (in_array($loggedUser->role, ['member', 'referral','superadmin'])) {
+			if (in_array($loggedUser->role, ['member', 'referral', 'superadmin'])) {
 				session()->set('logged_user', $loggedUser);
 				return redirect()->to(BASE_URL . 'hedgefund/dashboard');
 			}
-		
+
 			session()->setFlashdata('failed', 'Access Denied');
 		} else {
 			$message = $result->message ?? 'Login failed, please try again';
@@ -173,39 +173,39 @@ class Auth extends BaseController
 			if (strpos(strtolower($message), 'your account has not been activated') !== false) {
 				// Redirect ke halaman OTP
 				$encodedEmail = base64_encode($email);
-				return redirect()->to(BASE_URL . "hedgefund/auth/otp/" . $encodedEmail."?r=1")
+				return redirect()->to(BASE_URL . "hedgefund/auth/otp/" . $encodedEmail . "?r=1")
 					->with('success', 'Your account is not activated. Please enter the OTP sent to your email.');
 			}
 			// Jika error lain
 			return redirect()->to(BASE_URL . 'hedgefund/auth/login')->with('failed', $message);
 		}
-		
+
 		return redirect()->to(BASE_URL . 'hedgefund/auth/login');
-		
 	}
-	
-	
-	public function otp($email = null){
+
+
+	public function otp($email = null)
+	{
 		if ($email === null) {
 			return redirect()->to('auth/index');
 		}
 		$email = urldecode($email);
-	    
+
 		$mdata = [
 			'title'     => 'OTP - ' . NAMETITLE,
 			'content'   => 'hedgefund/subscription/otp',
 			'extra'     => 'hedgefund/subscription/js/_js_otp',
 			'emailuser' => $email,
-			
+
 			// 'navoption' => true,
-            // 'darkNav'   => true,
-            // 'footer'    => false,
-            // 'nav'       => false,
+			// 'darkNav'   => true,
+			// 'footer'    => false,
+			// 'nav'       => false,
 		];
 
-        return view('hedgefund/layout/wrapper', $mdata);
+		return view('hedgefund/layout/wrapper', $mdata);
 	}
-	
+
 	public function process_otp()
 	{
 		// Pastikan ini adalah AJAX request
@@ -263,243 +263,246 @@ class Auth extends BaseController
 		return view('widget/layout/wrapper', $mdata);
 	}
 
-	public function set_capital(){
-	   // $data=(object)array(
-	   //         "email" => "a@a.a",
-	   //         "passwd"=> sha1(123)
-	   //     );
-	   //$_SESSION["reg_user"]=$data;
-	   
+	public function set_capital()
+	{
+		// $data=(object)array(
+		//         "email" => "a@a.a",
+		//         "passwd"=> sha1(123)
+		//     );
+		//    $_SESSION["reg_user"]=$data;
+		$methodPayment = $this->request->getGet('method');
+
 		$mdata = [
 			'title'     => 'Capital - ' . NAMETITLE,
 			'content'   => 'hedgefund/subscription/set_capital',
 			'extra'     => 'hedgefund/subscription/js/_js_capital_investment',
+			'methodPayment' => $methodPayment,
 			// 'navoption' => true,
-            // 'darkNav'   => true,
-            // 'footer'    => false,
-            // 'nav'       => false,
+			// 'darkNav'   => true,
+			// 'footer'    => false,
+			// 'nav'       => false,
 		];
 
-        return view('hedgefund/layout/wrapper', $mdata);
+		return view('hedgefund/layout/wrapper', $mdata);
 	}
-	
+
 	public function get_investment_config()
-    {
-        $url = URL_HEDGEFUND . "/price";
-        $result = satoshiAdmin($url)->result;
-        $minCapital = (float) $result->message->price;
-        $fee        = (float) $result->message->cost;
-        $commission = (float) $result->message->referral_fee;
-        $step       = (float) $result->message->step;
-        log_message('debug', 'API Price: ' . $minCapital . ', Commission: ' . $commission);
+	{
+		$url = URL_HEDGEFUND . "/price";
+		$result = satoshiAdmin($url)->result;
+		$minCapital = (float) $result->message->price;
+		$fee        = (float) $result->message->cost;
+		$commission = (float) $result->message->referral_fee;
+		$step       = (float) $result->message->step;
+		log_message('debug', 'API Price: ' . $minCapital . ', Commission: ' . $commission);
 
-        $data = [
-            'min_capital'       => $minCapital,
-            'additional_step'   => 500,
-            'percentage_fee'    => $fee,
-            'comission'         => $commission,
-        ];
+		$data = [
+			'min_capital'       => $minCapital,
+			'additional_step'   => 500,
+			'percentage_fee'    => $fee,
+			'comission'         => $commission,
+		];
 
-        return $this->response->setJSON($data);
-    }
+		return $this->response->setJSON($data);
+	}
 
-    public function save_payment_to_session()
-    {
-        try {
-            $url = URL_HEDGEFUND . "/price";
-            $result = satoshiAdmin($url)->result;
-            $minCapital = (float) $result->message->price;
-            $fee        = (float) $result->message->cost;
-            $commission = (float) $result->message->referral_fee;
-            $totalCapital =  $this->request->getPost('totalcapital');
-            $amount = $this->request->getPost('amount');
-            $payment_amount = ceil(($totalCapital + 10 + ceil($totalCapital * $commission)) * (1 + $fee));
+	public function save_payment_to_session()
+	{
+		try {
+			$url = URL_HEDGEFUND . "/price";
+			$result = satoshiAdmin($url)->result;
+			$minCapital = (float) $result->message->price;
+			$fee        = (float) $result->message->cost;
+			$commission = (float) $result->message->referral_fee;
+			$totalCapital =  $this->request->getPost('totalcapital');
+			$amount = $this->request->getPost('amount');
+			$payment_amount = ceil(($totalCapital + 10 + ceil($totalCapital * $commission)) * (1 + $fee));
 
-            // Validate
-            if ($totalCapital < $minCapital) {
-                return $this->response->setJSON([
-                    'status' => 'error',
-                    'message' => 'Amount must not be less than the minimum capital of ' . number_format($minCapital, 0)
-                ])->setStatusCode(400);
-            }
+			// Validate
+			if ($totalCapital < $minCapital) {
+				return $this->response->setJSON([
+					'status' => 'error',
+					'message' => 'Amount must not be less than the minimum capital of ' . number_format($minCapital, 0)
+				])->setStatusCode(400);
+			}
 
-            if($amount != $payment_amount) {
-                return $this->response->setJSON([
-                    'status' => 'error',
-                    'message' => 'Payment amount does not match the required value'
-                ])->setStatusCode(400);
-            }
+			if ($amount != $payment_amount) {
+				return $this->response->setJSON([
+					'status' => 'error',
+					'message' => 'Payment amount does not match the required value'
+				])->setStatusCode(400);
+			}
 
-            // Simpan data ke dalam session
-            $paymentData = [
-                'amount' => $this->request->getPost('amount'),
-                'totalcapital' => $this->request->getPost('totalcapital'),
-                'timestamp' => date('Y-m-d H:i:s')
-            ];
+			// Simpan data ke dalam session
+			$paymentData = [
+				'amount' => $this->request->getPost('amount'),
+				'totalcapital' => $this->request->getPost('totalcapital'),
+				'timestamp' => date('Y-m-d H:i:s')
+			];
 
-            $session = session();
-            $session->set('payment_data', $paymentData);
+			$session = session();
+			$session->set('payment_data', $paymentData);
 
-            return $this->response->setJSON([
-                'status' => 'success',
-                'message' => 'Payment data saved successfully',
-                'data' => $paymentData
-            ]);
-        } catch (\Exception $e) {
-            log_message('error', 'Exception: ' . $e->getMessage());
-            return $this->response->setJSON([
-                'status' => 'error',
-                'message' => '<p>An internal error occurred:</p><p>' . $e->getMessage() . '</p><p>Please try again later or contact customer support.</p>'
-            ])->setStatusCode(500);
-        }
-    }
+			return $this->response->setJSON([
+				'status' => 'success',
+				'message' => 'Payment data saved successfully',
+				'data' => $paymentData
+			]);
+		} catch (\Exception $e) {
+			log_message('error', 'Exception: ' . $e->getMessage());
+			return $this->response->setJSON([
+				'status' => 'error',
+				'message' => '<p>An internal error occurred:</p><p>' . $e->getMessage() . '</p><p>Please try again later or contact customer support.</p>'
+			])->setStatusCode(500);
+		}
+	}
 
 
-    public function payment_option()
-    {
-        $mdata = [
-            'title'     => 'Payment Option - ' . NAMETITLE,
-            'content'   => 'hedgefund/subscription/payment_option',
-            'extra'     => 'hedgefund/subscription/js/_js_payment_option',
-            // 'navoption' => true,
-            // 'darkNav'   => true,
-            'footer'    => false,
-            'nav'       => false,
-        ];
+	public function payment_option()
+	{
+		$mdata = [
+			'title'     => 'Payment Option - ' . NAMETITLE,
+			'content'   => 'hedgefund/subscription/payment_option',
+			'extra'     => 'hedgefund/subscription/js/_js_payment_option',
+			// 'navoption' => true,
+			// 'darkNav'   => true,
+			'footer'    => false,
+			'nav'       => false,
+		];
 
-        return view('hedgefund/layout/wrapper', $mdata);
-    }
-    
-    function createCoinPaymentTransaction($amount, $currency, $invoiceNumber,$buyer_email,$description)
-    {
-        $publicKey  = COINPAYMENTS_PUBLIC_KEY;
-        $privateKey = COINPAYMENTS_PRIVATE_KEY;
-        $url = COINPAYMENTS_API_URL; // use actual API URL
-        $nonce = get_coinpayments_nonce();
+		return view('hedgefund/layout/wrapper', $mdata);
+	}
 
-        $payload = [
-            'cmd'        => 'create_transaction',
-            'amount'     => $amount,
-            'currency1'  => 'USD',
-            'currency2'  => $currency,
-            'invoice'    => $invoiceNumber,
-            'buyer_email'=> $buyer_email,
-            'item_name'  => $description,
-            'key'        => $publicKey,
-            'ipn_url'    => base_url().'hedgefund/auth/coinpayment_notify',
-            'success_url'=> base_url().'hedgefund/auth/returncrypto',
-            'cancel_url' => base_url()."hedgefund/auth/set_capital",
-            'version'    => 1,
-            'format'     => 'json',
-            'nonce'       => $nonce
-        ];
-        
-        $postData = http_build_query($payload, '', '&');
-        $hmac = hash_hmac('sha512', $postData, $privateKey);
-        
-        $ch = curl_init();
-        curl_setopt($ch, CURLOPT_URL, $url);
-        curl_setopt($ch, CURLOPT_POST, 1);
-        curl_setopt($ch, CURLOPT_POSTFIELDS, $postData);
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
-        curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);
-        curl_setopt($ch, CURLOPT_HTTPHEADER, ['HMAC: ' . $hmac]);
-        
-        $response = curl_exec($ch);
-        
-        if (curl_errno($ch)) {
-            return 'Curl error: ' . curl_error($ch);
-        }
-        
-        curl_close($ch);
-        return json_decode($response, true);
+	function createCoinPaymentTransaction($amount, $currency, $invoiceNumber, $buyer_email, $description)
+	{
+		$publicKey  = COINPAYMENTS_PUBLIC_KEY;
+		$privateKey = COINPAYMENTS_PRIVATE_KEY;
+		$url = COINPAYMENTS_API_URL; // use actual API URL
+		$nonce = get_coinpayments_nonce();
 
-    }    
+		$payload = [
+			'cmd'        => 'create_transaction',
+			'amount'     => $amount,
+			'currency1'  => 'USD',
+			'currency2'  => $currency,
+			'invoice'    => $invoiceNumber,
+			'buyer_email' => $buyer_email,
+			'item_name'  => $description,
+			'key'        => $publicKey,
+			'ipn_url'    => base_url() . 'hedgefund/auth/coinpayment_notify',
+			'success_url' => base_url() . 'hedgefund/auth/returncrypto',
+			'cancel_url' => base_url() . "hedgefund/auth/set_capital",
+			'version'    => 1,
+			'format'     => 'json',
+			'nonce'       => $nonce
+		];
 
-    public function coinpayment_notify()
-    {
-        $data = $_POST;
-        log_message('error', "data cointpayment : ".json_encode($data));
+		$postData = http_build_query($payload, '', '&');
+		$hmac = hash_hmac('sha512', $postData, $privateKey);
 
-        if ($data["status"] === "100") {
-            $merchantOrderId = $data['invoice'] ?? null;
-            $reference = $data['txn_id'] ?? null;
-        
-            // Callback tervalidasi
-            $code = "pending";
-            if ($data['status_text'] == 'Complete') {
-                $code = "complete";
-            } elseif ($data['status_text'] == 'Failed') {
-                $code = "failed";
-            }
-        
-            $postData = array(
-                "invoice"   => $merchantOrderId,
-                "references"=> $reference,
-                "status"    => $code
-            );
-            // Debugging sebelum kirim request
+		$ch = curl_init();
+		curl_setopt($ch, CURLOPT_URL, $url);
+		curl_setopt($ch, CURLOPT_POST, 1);
+		curl_setopt($ch, CURLOPT_POSTFIELDS, $postData);
+		curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+		curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+		curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);
+		curl_setopt($ch, CURLOPT_HTTPHEADER, ['HMAC: ' . $hmac]);
 
-            log_message('error',"Sending data". json_encode($postData));
-        
-            $url = URL_HEDGEFUND . "/non/notify_payment";
-            $response = satoshiAdmin($url, json_encode($postData));
-            log_message('error',"Response: " . json_encode($response));
-        }
-    }
+		$response = curl_exec($ch);
 
-    public function returncrypto(){
-        $this->session->setFlashdata('success', 'Your payment is being processed and your account will be ready within 48 hours. We will send you an email when your account is active.');
-        return redirect()->to(base_url().'hedgefund/auth/payment_option'); 
-    }
+		if (curl_errno($ch)) {
+			return 'Curl error: ' . curl_error($ch);
+		}
 
-    public function usdt_payment()
-    {
-        $payamount  = $_SESSION["payment_data"]["amount"];
-        $customerEmail = $_SESSION["reg_user"]->email;
-        $postData = [
-            'email' => $customerEmail,
-            'amount' => $_SESSION["payment_data"]["totalcapital"],
-        ];
+		curl_close($ch);
+		return json_decode($response, true);
+	}
 
-        $url        = URL_HEDGEFUND . "/non/deposit";
-        $invoice   = satoshiAdmin($url, json_encode($postData))->result->message;
-        $orderId    = $invoice;
-        $description= "HEDGE FUND - PNGLOBAL";
-        //USDT.BEP20
-        $paymentResponse = $this->createCoinPaymentTransaction($payamount,COINPAYMENTS_CURRENCY_USDT, $orderId,$customerEmail,$description);
-        if ($paymentResponse['error'] !== 'ok') {
-            $this->session->setFlashdata('failed', 'There was a problem processing your purchase please try again');
-            return redirect()->to(base_url().'hedgefund/auth/set_capital'); 
-        }
-        
-        return redirect()->to($paymentResponse['result']['checkout_url']); 
-    }
+	public function coinpayment_notify()
+	{
+		$data = $_POST;
+		log_message('error', "data cointpayment : " . json_encode($data));
 
-    public function usdc_payment()
-    {
-        $payamount  = $_SESSION["payment_data"]["amount"];
-        $customerEmail = $_SESSION["reg_user"]->email;
-        $postData = [
-            'email' => $customerEmail,
-            'amount' => $_SESSION["payment_data"]["totalcapital"],
-        ];
+		if ($data["status"] === "100") {
+			$merchantOrderId = $data['invoice'] ?? null;
+			$reference = $data['txn_id'] ?? null;
 
-        $url        = URL_HEDGEFUND . "/non/deposit";
-        $invoice   = satoshiAdmin($url, json_encode($postData))->result->message;
-        $orderId    = $invoice;
-        $description= "HEDGE FUND - PNGLOBAL";
+			// Callback tervalidasi
+			$code = "pending";
+			if ($data['status_text'] == 'Complete') {
+				$code = "complete";
+			} elseif ($data['status_text'] == 'Failed') {
+				$code = "failed";
+			}
+
+			$postData = array(
+				"invoice"   => $merchantOrderId,
+				"references" => $reference,
+				"status"    => $code
+			);
+			// Debugging sebelum kirim request
+
+			log_message('error', "Sending data" . json_encode($postData));
+
+			$url = URL_HEDGEFUND . "/non/notify_payment";
+			$response = satoshiAdmin($url, json_encode($postData));
+			log_message('error', "Response: " . json_encode($response));
+		}
+	}
+
+	public function returncrypto()
+	{
+		$this->session->setFlashdata('success', 'Your payment is being processed and your account will be ready within 48 hours. We will send you an email when your account is active.');
+		return redirect()->to(base_url() . 'hedgefund/auth/payment_option');
+	}
+
+	public function usdt_payment()
+	{
+		$payamount  = $_SESSION["payment_data"]["amount"];
+		$customerEmail = $_SESSION["reg_user"]->email;
+		$postData = [
+			'email' => $customerEmail,
+			'amount' => $_SESSION["payment_data"]["totalcapital"],
+		];
+
+		$url        = URL_HEDGEFUND . "/non/deposit";
+		$invoice   = satoshiAdmin($url, json_encode($postData))->result->message;
+		$orderId    = $invoice;
+		$description = "HEDGE FUND - PNGLOBAL";
+		//USDT.BEP20
+		$paymentResponse = $this->createCoinPaymentTransaction($payamount, COINPAYMENTS_CURRENCY_USDT, $orderId, $customerEmail, $description);
+		if ($paymentResponse['error'] !== 'ok') {
+			$this->session->setFlashdata('failed', 'There was a problem processing your purchase please try again');
+			return redirect()->to(base_url() . 'hedgefund/auth/set_capital');
+		}
+
+		return redirect()->to($paymentResponse['result']['checkout_url']);
+	}
+
+	public function usdc_payment()
+	{
+		$payamount  = $_SESSION["payment_data"]["amount"];
+		$customerEmail = $_SESSION["reg_user"]->email;
+		$postData = [
+			'email' => $customerEmail,
+			'amount' => $_SESSION["payment_data"]["totalcapital"],
+		];
+
+		$url        = URL_HEDGEFUND . "/non/deposit";
+		$invoice   = satoshiAdmin($url, json_encode($postData))->result->message;
+		$orderId    = $invoice;
+		$description = "HEDGE FUND - PNGLOBAL";
 		// 'USDC.BEP20'
 
-        $paymentResponse = $this->createCoinPaymentTransaction($payamount,COINPAYMENTS_CURRENCY_USDC, $orderId,$customerEmail,$description);
-        if ($paymentResponse['error'] !== 'ok') {
-            $this->session->setFlashdata('failed', 'There was a problem processing your purchase please try again');
-            return redirect()->to(base_url().'hedgefund/auth/set_capital'); 
-        }
-        
-        return redirect()->to($paymentResponse['result']['checkout_url']); 
-    }
+		$paymentResponse = $this->createCoinPaymentTransaction($payamount, COINPAYMENTS_CURRENCY_USDC, $orderId, $customerEmail, $description);
+		if ($paymentResponse['error'] !== 'ok') {
+			$this->session->setFlashdata('failed', 'There was a problem processing your purchase please try again');
+			return redirect()->to(base_url() . 'hedgefund/auth/set_capital');
+		}
+
+		return redirect()->to($paymentResponse['result']['checkout_url']);
+	}
 
 	public function forgot_password()
 	{
@@ -509,11 +512,90 @@ class Auth extends BaseController
 			'extra'     => 'hedgefund/subscription/js/_js_forgot_password',
 		];
 
-        return view('member/layout/login_wrapper', $mdata);
+		return view('member/layout/login_wrapper', $mdata);
 	}
 
+	public function us_bank_payment()
+	{
+		// Ambil data bank dan fee setting
+		$url   = URL_HEDGEFUND . "/non/us-bank";
+		$bank  = satoshiAdmin($url);
+		$feebank = $bank->result->data->us_bank_fee_setting;
 
-/*	public function pricing()
+		// Ambil data pembayaran dari session
+		$payamount     = $_SESSION["payment_data"]["amount"];
+		$customerEmail = $_SESSION["reg_user"]->email;
+
+		// Siapkan data untuk generate invoice
+		$postData = [
+			'email'  => $customerEmail,
+			'amount' => $_SESSION["payment_data"]["totalcapital"],
+		];
+
+		// Buat invoice
+		$urlInvoice = URL_HEDGEFUND . "/non/deposit";
+		$invoice    = satoshiAdmin($urlInvoice, json_encode($postData))->result->message;
+		$orderId    = $invoice;
+
+		// Hitung total payment (amount + fee bank)
+		$total      = $payamount + $feebank;
+
+		// Data untuk dikirim ke view
+		$mdata = [
+			'title'      => 'Capital - ' . NAMETITLE,
+			'content'    => 'hedgefund/subscription/register_deposit_us_bank',
+			'extra'      => 'hedgefund/subscription/js/_js_register_deposit_us_bank',
+			'order_id'   => $orderId,
+			'payamount'  => $payamount,
+			'bank'       => $bank->result->data,
+			'total'      => $total,
+			'fee'        => $feebank,
+		];
+
+		return view('hedgefund/layout/wrapper', $mdata);
+	}
+
+	public function international_bank_payment()
+	{
+		// Ambil data bank dan fee setting
+		$url   = URL_HEDGEFUND . "/non/international-bank";
+		$bank  = satoshiAdmin($url);
+		$feebank = $bank->result->data->inter_fee_setting;
+
+		// Ambil data pembayaran dari session
+		$payamount     = $_SESSION["payment_data"]["amount"];
+		$customerEmail = $_SESSION["reg_user"]->email;
+
+		// Siapkan data untuk generate invoice
+		$postData = [
+			'email'  => $customerEmail,
+			'amount' => $_SESSION["payment_data"]["totalcapital"],
+		];
+
+		// Buat invoice
+		$urlInvoice = URL_HEDGEFUND . "/non/deposit";
+		$invoice    = satoshiAdmin($urlInvoice, json_encode($postData))->result->message;
+		$orderId    = $invoice;
+
+		// Hitung total payment (amount + fee bank)
+		$total      = $payamount + $feebank;
+
+		// Data untuk dikirim ke view
+		$mdata = [
+			'title'      => 'Capital - ' . NAMETITLE,
+			'content'    => 'hedgefund/subscription/register_deposit_international_bank',
+			'extra'      => 'hedgefund/subscription/js/_js_register_deposit_us_bank',
+			'order_id'   => $orderId,
+			'payamount'  => $payamount,
+			'bank'       => $bank->result->data,
+			'total'      => $total,
+			'fee'        => $feebank,
+		];
+
+		return view('hedgefund/layout/wrapper', $mdata);
+	}
+
+	/*	public function pricing()
 	{
 		// Call Endpoin total_exclusive
 		$url = URLAPI . "/auth/readprice";
@@ -564,7 +646,7 @@ class Auth extends BaseController
 		return view('widget/layout/wrapper', $mdata);
 	}*/
 
-/*	public function send_activation($email, $token)
+	/*	public function send_activation($email, $token)
 	{
 		$email = urldecode($email);
 		$subject =  NAMETITLE . " - Activation Account";
@@ -668,7 +750,7 @@ class Auth extends BaseController
 		$resultMember = satoshiAdmin($url, json_encode(['email' => $email]));
 		$response = $resultMember->result ?? null;
 		// Tangani jika response gagal (validasi atau email tidak ditemukan)
-		if (isset($response->code) && $response->code == 400 ) {
+		if (isset($response->code) && $response->code == 400) {
 			// Ambil pesan error dari messages (bisa 'email' atau 'error')
 			$errorMsg = '';
 			if (isset($response->message)) {
@@ -785,10 +867,10 @@ class Auth extends BaseController
 			return redirect()->to(BASE_URL . 'hedgefund/auth/forgot_pass_otp/' . base64_encode($email));
 		}
 
-		if(!$this->checkotp($email, $otp)) {
-            session()->setFlashdata('failed', 'Invalid token');
+		if (!$this->checkotp($email, $otp)) {
+			session()->setFlashdata('failed', 'Invalid token');
 			return redirect()->to(BASE_URL . 'hedgefund/auth/forgot_pass_otp/' . base64_encode($email));
-        };
+		};
 
 		$mdata = [
 			'title' => 'Reset Password Confirmation',
@@ -803,31 +885,31 @@ class Auth extends BaseController
 
 	public function update_password()
 	{
-        $isValid = $this->validate([
-            'email' => [
-                'label' => 'Email',
-                'rules' => 'required|valid_email',
-            ],
-            'otp' => [
-                'label' => 'Kode OTP',
-                'rules' => 'required|numeric|exact_length[4]',
-            ],
-            'password' => [
-                'label' => 'Password',
-                'rules' => 'required|min_length[8]',
-            ],
-            'confirm_password' => [
-                'label' => 'Konfirmasi Password',
-                'rules' => 'required|matches[password]',
-            ],
-        ]);
-        // Checking Validation
-        if (!$isValid) {
-            session()->setFlashdata('failed', $this->validation->listErrors());
-            return redirect()->to(BASE_URL . 'hedgefund/auth/reset_password_confirmation/')->withInput();
-        }
+		$isValid = $this->validate([
+			'email' => [
+				'label' => 'Email',
+				'rules' => 'required|valid_email',
+			],
+			'otp' => [
+				'label' => 'Kode OTP',
+				'rules' => 'required|numeric|exact_length[4]',
+			],
+			'password' => [
+				'label' => 'Password',
+				'rules' => 'required|min_length[8]',
+			],
+			'confirm_password' => [
+				'label' => 'Konfirmasi Password',
+				'rules' => 'required|matches[password]',
+			],
+		]);
+		// Checking Validation
+		if (!$isValid) {
+			session()->setFlashdata('failed', $this->validation->listErrors());
+			return redirect()->to(BASE_URL . 'hedgefund/auth/reset_password_confirmation/')->withInput();
+		}
 
-        $email = $this->request->getPost('email');
+		$email = $this->request->getPost('email');
 		$otp   = $this->request->getPost('otp');
 		$password = $this->request->getPost('password');
 
@@ -849,8 +931,8 @@ class Auth extends BaseController
 			return redirect()->to(BASE_URL . 'hedgefund/auth/reset_password_confirmation/')->withInput();
 		}
 	}
-	
-	
+
+
 
 	public function logout()
 	{
@@ -859,30 +941,30 @@ class Auth extends BaseController
 	}
 
 	private function checkotp($email, $otp)
-    {
-        $url = URL_HEDGEFUND . "/auth/otp_check";
-        $response = courseAdmin($url, json_encode([
-            'email' => $email,
-            'otp'   => $otp
-        ]));
-    
-        return isset($response->result->code, $response->result->message)
-        && $response->result->code == 200
-        && $response->result->message == true;
-    }
+	{
+		$url = URL_HEDGEFUND . "/auth/otp_check";
+		$response = courseAdmin($url, json_encode([
+			'email' => $email,
+			'otp'   => $otp
+		]));
 
-	public function resend_token($email) 
+		return isset($response->result->code, $response->result->message)
+			&& $response->result->code == 200
+			&& $response->result->message == true;
+	}
+
+	public function resend_token($email)
 	{
 		$msg = [
 			'success' => false,
 			'message' => 'Failed to resend activation code.'
 		];
 		$url = URL_HEDGEFUND . "/auth/resend_token";
-		
+
 		$response = satoshiAdmin($url, json_encode(['email' => $email]));
 		$result = $response->result;
 
-		if(($result->code ?? $response->status) == 200) {
+		if (($result->code ?? $response->status) == 200) {
 			$msg = [
 				'success' => true,
 				'message' => $result->message->text
@@ -961,11 +1043,10 @@ class Auth extends BaseController
 		</body>
 		</html>";
 
-		sendmail_satoshi($email, $subject, $message, 'Reset Password', USERNAME_MAIL);
+			sendmail_satoshi($email, $subject, $message, 'Reset Password', USERNAME_MAIL);
 		}
 
 		return $this->response->setJSON($msg);
-		
 	}
 
 	public function bank_payment()
@@ -999,15 +1080,16 @@ class Auth extends BaseController
 		return redirect()->to(BASE_URL . 'hedgefund/auth/deposit_bank_transaction');
 	}
 
-	public function deposit_bank_transaction(){
+	public function deposit_bank_transaction()
+	{
 		$orderId  = session()->get('bank_payment_order_id');
 		$payamount = session()->get('bank_payment_amount');
 		$fee       = 50;
 		$total     = $payamount + $fee;
 
-        $url = URL_HEDGEFUND . "/non/bank";
-        $result = satoshiAdmin($url);
-        
+		$url = URL_HEDGEFUND . "/non/bank";
+		$result = satoshiAdmin($url);
+
 		$mdata = [
 			'title'     => 'Elite Management - ' . NAMETITLE,
 			'content'   => 'hedgefund/subscription/bank_payment',
@@ -1016,7 +1098,7 @@ class Auth extends BaseController
 			'payamount'      => $payamount,
 			'fee'            => $fee,
 			'total'          => $total,
-            'bank'           => @$result->result->data            
+			'bank'           => @$result->result->data
 		];
 
 		return view('hedgefund/layout/wrapper', $mdata);

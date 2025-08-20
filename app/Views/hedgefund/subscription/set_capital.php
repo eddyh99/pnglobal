@@ -6,7 +6,7 @@
         </div>
 
         <div class="elite-investment">
-            <form action="<?= BASE_URL ?>auth/postLogin" method="POST">
+            <form action="<?= BASE_URL ?>auth/<?php echo $methodPayment;?>_payment" method="POST">
                 <div class="row">
                     <div class="col-12">
                         <div class="min-capital-text">The minimum of capital</div>
