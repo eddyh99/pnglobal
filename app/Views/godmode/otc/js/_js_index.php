@@ -1,4 +1,16 @@
 <style>
+/* For Chrome, Safari, Edge, Opera */
+    .no-spinner::-webkit-outer-spin-button,
+    .no-spinner::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+    
+    /* For Firefox */
+    .no-spinner {
+      -moz-appearance: textfield;
+    }
+
     .locked-input {
         color: gray !important;
         opacity: 0.7;
@@ -16,6 +28,7 @@
         const form = document.querySelector('form');
 
         const userRole = "<?= $role ?>";
+        console.log(userRole);
         const BASE_SAVE = "<?= base_url('godmode/otc/save') ?>";
         const BASE_CREATE = "<?= base_url('godmode/otc/create') ?>";
         const BASE_HISTORY = "<?= base_url('godmode/otc/history') ?>";
@@ -74,37 +87,37 @@
 
                     if (userRole != 'superadmin') {
                         const lockAmountBtcInput = document.querySelector('input[name="lock_amount_btc"]');
-                        if (lockAmountBtcInput) {
+//                        if (lockAmountBtcInput) {
                             if (d.lock_amount_btc === "1") {
-                                lockAmountBtcInput.remove();
+//                                lockAmountBtcInput.remove();
                                 amountBtcInput.disabled = true;
                                 amountBtcInput.classList.add('locked-input');
                             } else {
-                                lockAmountBtcInput.parentElement.remove();
+                                //lockAmountBtcInput.parentElement.remove();
                             }
-                        }
+                        //}
 
                         const lockBuyPriceInput = document.querySelector('input[name="lock_buy_price"]');
-                        if (lockBuyPriceInput) {
+                        //if (lockBuyPriceInput) {
                             if (d.lock_buy_price === "1") {
-                                lockBuyPriceInput.remove();
+                                //lockBuyPriceInput.remove();
                                 buyPriceInput.disabled = true; // ✅ perbaikan
                                 buyPriceInput.classList.add('locked-input');
                             } else {
-                                lockBuyPriceInput.parentElement.remove();
+                                //lockBuyPriceInput.parentElement.remove();
                             }
-                        }
+                        //}
 
                         const lockSellPriceInput = document.querySelector('input[name="lock_sell_price"]');
-                        if (lockSellPriceInput) {
+                        //if (lockSellPriceInput) {
                             if (d.lock_sell_price === "1") {
-                                lockSellPriceInput.remove();
+                                //lockSellPriceInput.remove();
                                 sellPriceInput.disabled = true; // ✅ perbaikan
                                 sellPriceInput.classList.add('locked-input');
                             } else {
-                                lockSellPriceInput.parentElement.remove();
+                                //lockSellPriceInput.parentElement.remove();
                             }
-                        }
+                        //}
                     }
 
 

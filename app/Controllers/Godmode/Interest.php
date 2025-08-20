@@ -31,7 +31,7 @@ class Interest extends BaseController
     {
         $role = $this->session->get('logged_user')->role;
         $mdata = [
-            'title'     => 'OTC - ' . NAMETITLE,
+            'title'     => 'Interest - ' . NAMETITLE,
             'content'   => check_access('interest', 'godmode/interest/index', 'console'),
             'extra'     => 'godmode/interest/js/_js_index',
             'active_interest'    => 'active active-menu',

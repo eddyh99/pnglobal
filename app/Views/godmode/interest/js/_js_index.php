@@ -1,4 +1,16 @@
 <style>
+/* For Chrome, Safari, Edge, Opera */
+    .no-spinner::-webkit-outer-spin-button,
+    .no-spinner::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+    
+    /* For Firefox */
+    .no-spinner {
+      -moz-appearance: textfield;
+    }
+
     .locked-input {
         color: gray !important;
         opacity: 0.7;
@@ -108,21 +120,22 @@
                 amount.value = d.amount ?? '';
 
                 if (userRole != 'superadmin') {
-                    const lockAmountInput = document.querySelector('input[name="lock_amount"]');
+                    console.log(d.lock_amount);
+                    //const lockAmountInput = document.querySelector('input[name="lock_amount"]');
                     const amountInput = document.getElementById('amount');
 
-                    if (lockAmountInput) {
+                    //if (lockAmountInput) {
                         if (d.lock_amount === "1") {
                             // Lock amount → disable input dan tandai
-                            lockAmountInput.remove();
+                            //lockAmountInput.remove();
                             amountInput.disabled = true;
                             amountInput.classList.add('locked-input');
                             calculateBtn.disabled = true;
                         } else {
                             // Jika tidak dikunci → hapus checkbox
-                            lockAmountInput.parentElement.remove();
+                            //lockAmountInput.parentElement.remove();
                         }
-                    }
+                    //}
                 }
 
                 // isi chckbox jika rolenya superadmin

@@ -56,7 +56,7 @@ class Mediation extends BaseController
             $res = $response->result;
 
             if (isset($res->success) && $res->success == 1) {
-                return redirect()->to('/godmode/mediation')
+                return redirect()->to(BASE_URL . '/godmode/mediation')
                     ->with('success', $res->message ?? 'Data has been saved successfully');
             } else {
                 $errorMessages = [];
@@ -66,10 +66,10 @@ class Mediation extends BaseController
                     }
                 }
                 $errorText = !empty($errorMessages) ? implode(' | ', $errorMessages) : 'Failed to save data';
-                return redirect()->to('/godmode/mediation')->with('failed', $errorText);
+                return redirect()->to(BASE_URL . '/godmode/mediation')->with('failed', $errorText);
             }
         } else {
-            return redirect()->to('/godmode/mediation')->with('failed', 'No response from API');
+            return redirect()->to(BASE_URL . '/godmode/mediation')->with('failed', 'No response from API');
         }
     }
 
@@ -89,7 +89,6 @@ class Mediation extends BaseController
         if ($result && !empty($result->success) && $result->success == true) {
             return redirect()->to('/godmode/mediation')->with('success', $result->message);
         } else {
-            print_r($result); exit;
             $msg = $result->message ?? 'Failed to save data';
             return redirect()->to('/godmode/mediation')->with('failed', $msg);
         }

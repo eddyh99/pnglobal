@@ -1,3 +1,17 @@
+<style>
+/* For Chrome, Safari, Edge, Opera */
+    .no-spinner::-webkit-outer-spin-button,
+    .no-spinner::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+    
+    /* For Firefox */
+    .no-spinner {
+      -moz-appearance: textfield;
+    }
+
+</style>
 <script>
     document.addEventListener('DOMContentLoaded', function() {
         const tableBody = document.getElementById('calcTable');
@@ -141,12 +155,12 @@
                 let data = response.result?.data;
 
                 if (!data) {
-                    calcBtn.textContent = "Calculate";
+                    calcBtn.textContent = "Save";
                     calcForm.action = BASE_CREATE;
                     return;
                 }
 
-                calcBtn.textContent = "Update Calculate Data";
+                calcBtn.textContent = "Save";
                 calcForm.action = BASE_SAVE;
 
                 let idInput = document.querySelector('input[name="id"]');
