@@ -17,7 +17,7 @@
         const paymentAmountInput = document.getElementById('payment-amount');
         const minCapitalValue = document.querySelector('.min-capital-value');
         const maxCapitalValue = 100000;
-        
+
         // Elemen tambahan untuk menampilkan nilai dinamis
         const additionalStepDisplay = document.getElementById('additional-step-display');
         const percentageFeeDisplay = document.getElementById('percentage-fee-display');
@@ -68,7 +68,7 @@
 
         // Increase button click
         increaseBtn.addEventListener('click', function() {
-            if (totalCapital+config.minCapital+config.additionalStep > maxCapitalValue) {
+            if (totalCapital + config.minCapital + config.additionalStep > maxCapitalValue) {
                 alert('Maximum capital reached!');
                 return; // Stop further execution
             }
@@ -122,7 +122,8 @@
                 .then(data => {
                     if (data.status === 'success') {
                         // Redirect ke halaman payment option
-                        window.location.href = '/hedgefund/auth/payment_option';
+                        window.location.href = '/hedgefund/auth/<?php echo $methodPayment; ?>_payment';
+                        console.log('Payment method:', '/hedgefund/auth/<?php echo $methodPayment; ?>_payment');
                     } else {
                         alert('An error occurred: ' + data.message);
                         confirmButton.textContent = originalText;
