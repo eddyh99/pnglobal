@@ -41,9 +41,11 @@
                                     <div class="wrapper-addreferral">
                                         <label for="amount_btc">Amount BTC</label>
                                         <div class="d-flex">
-                                            <input type="number" id="amount_btc" name="amount_btc" class="form-control" placeholder="0.001" step="any">
+                                            <input type="number" id="amount_btc" name="amount_btc" class="form-control no-spinner" placeholder="0.001" step="any">
                                             <label class="d-flex align-items-center gap-1 ml-2">
-                                                <input type="checkbox" name="lock_amount_btc" value="1">
+                                                <?php if ($_SESSION["logged_user"]->role=="superadmin"):?>
+                                                    <input type="checkbox" name="lock_amount_btc" value="1">
+                                                <?php endif;?>
                                                 <p class="mb-0">🔒</p>
                                             </label>
 
@@ -52,9 +54,11 @@
                                     <div class="wrapper-addreferral">
                                         <label for="buy_price">Buy Price</label>
                                         <div class="d-flex">
-                                            <input type="number" id="buy_price" name="buy_price" class="form-control" placeholder="0" step="any">
+                                            <input type="number" id="buy_price" name="buy_price" class="form-control no-spinner" placeholder="0" step="any">
                                             <label class="d-flex align-items-center gap-1 ml-2">
-                                                <input type="checkbox" name="lock_buy_price" value="1">
+                                                <?php if ($_SESSION["logged_user"]->role=="superadmin"):?>
+                                                    <input type="checkbox" name="lock_buy_price" value="1">
+                                                <?php endif;?>
                                                 <p class="mb-0">🔒</p>
                                             </label>
 
@@ -63,9 +67,11 @@
                                     <div class="wrapper-addreferral">
                                         <label for="sell_price">Sell Price</label>
                                         <div class="d-flex">
-                                            <input type="number" id="sell_price" name="sell_price" class="form-control" placeholder="0" step="any">
+                                            <input type="number" id="sell_price" name="sell_price" class="form-control no-spinner" placeholder="0" step="any">
                                             <label class="d-flex align-items-center gap-1 ml-2">
-                                                <input type="checkbox" name="lock_sell_price" value="1">
+                                                <?php if ($_SESSION["logged_user"]->role=="superadmin"):?>
+                                                    <input type="checkbox" name="lock_sell_price" value="1">
+                                                <?php endif;?>
                                                 <p class="mb-0">🔒</p>
                                             </label>
 

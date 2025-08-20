@@ -52,17 +52,23 @@
                             <tr>
                                 <td>
                                     <div class="d-flex align-items-start">
-                                        <input type="number" name="prezzo_buy1" class="buy-input" value="" required>
+                                        <input type="number" name="prezzo_buy1" class="buy-input no-spinner" value="" required>
                                         <label class="ml-2">
-                                            <input type="checkbox" name="lock_buy1" value="1"> 🔒
+                                            <?php if ($_SESSION["logged_user"]->role=="superadmin"):?>
+                                                <input type="checkbox" name="lock_buy1" value="1">
+                                            <?php endif;?>
+                                            🔒
                                         </label>
                                     </div>
                                 </td>
                                 <td>
                                     <div class="d-flex align-items-start">
-                                        <input type="number" name="prezzo_sell1" class="sell-input" value="" required>
+                                        <input type="number" name="prezzo_sell1" class="sell-input no-spinner" value="" required>
                                         <label class="ml-2">
-                                            <input type="checkbox" name="lock_sell1" value="1"> 🔒
+                                            <?php if ($_SESSION["logged_user"]->role=="superadmin"):?>
+                                                <input type="checkbox" name="lock_sell1" value="1"> 
+                                            <?php endif;?>
+                                            🔒
                                         </label>
                                     </div>
                                 </td>
@@ -78,17 +84,23 @@
                             <tr>
                                 <td>
                                     <div class="d-flex align-items-start">
-                                        <input type="number" name="prezzo_buy2" class="buy-input" value="" required>
+                                        <input type="number" name="prezzo_buy2" class="buy-input no-spinner" value="" required>
                                         <label class="ml-2">
-                                            <input type="checkbox" name="lock_buy2" value="1"> 🔒
+                                            <?php if ($_SESSION["logged_user"]->role=="superadmin"):?>
+                                                <input type="checkbox" name="lock_buy2" value="1">
+                                            <?php endif;?>
+                                            🔒
                                         </label>
                                     </div>
                                 </td>
                                 <td>
                                     <div class="d-flex align-items-start">
-                                        <input type="number" name="prezzo_sell2" class="sell-input" required>
+                                        <input type="number" name="prezzo_sell2" class="sell-input no-spinner" required>
                                         <label class="ml-2">
-                                            <input type="checkbox" name="lock_sell2" value="1"> 🔒
+                                            <?php if ($_SESSION["logged_user"]->role=="superadmin"):?>
+                                                <input type="checkbox" name="lock_sell2" value="1">
+                                            <?php endif;?>
+                                            🔒
                                         </label>
                                     </div>
                                 </td>
@@ -104,17 +116,23 @@
                             <tr>
                                 <td>
                                     <div class="d-flex align-items-start">
-                                        <input type="number" name="prezzo_buy3" class="buy-input" required>
+                                        <input type="number" name="prezzo_buy3" class="buy-input no-spinner" required>
                                         <label class="ml-2">
-                                            <input type="checkbox" name="lock_buy3" value="1"> 🔒
+                                            <?php if ($_SESSION["logged_user"]->role=="superadmin"):?>
+                                                <input type="checkbox" name="lock_buy3" value="1">
+                                            <?php endif;?>
+                                            🔒
                                         </label>
                                     </div>
                                 </td>
                                 <td>
                                     <div class="d-flex  align-items-start">
-                                        <input type="number" name="prezzo_sell3" class="sell-input" required>
+                                        <input type="number" name="prezzo_sell3" class="sell-input no-spinner" required>
                                         <label class="ml-2">
-                                            <input type="checkbox" name="lock_sell3" value="1"> 🔒
+                                            <?php if ($_SESSION["logged_user"]->role=="superadmin"):?>
+                                                <input type="checkbox" name="lock_sell3" value="1">
+                                            <?php endif;?>
+                                            🔒
                                         </label>
                                     </div>
                                 </td>
@@ -130,17 +148,23 @@
                             <tr>
                                 <td>
                                     <div class="d-flex align-items-start">
-                                        <input type="number" name="prezzo_buy4" class="buy-input" required>
+                                        <input type="number" name="prezzo_buy4" class="buy-input no-spinner" required >
                                         <label class="ml-2">
-                                            <input type="checkbox" name="lock_buy4" value="1"> 🔒
+                                            <?php if ($_SESSION["logged_user"]->role=="superadmin"):?>
+                                                <input type="checkbox" name="lock_buy4" value="1">
+                                            <?php endif?>
+                                            🔒
                                         </label>
                                     </div>
                                 </td>
                                 <td>
                                     <div class="d-flex align-items-start">
-                                        <input type="number" name="prezzo_sell4" class="sell-input" required>
+                                        <input type="number" name="prezzo_sell4" class="sell-input no-spinner" required>
                                         <label class="ml-2">
-                                            <input type="checkbox" name="lock_sell4" value="1"> 🔒
+                                            <?php if ($_SESSION["logged_user"]->role=="superadmin"):?>
+                                                <input type="checkbox" name="lock_sell4" value="1">
+                                            <?php endif;?>
+                                            🔒
                                         </label>
                                     </div>
                                 </td>

@@ -41,9 +41,11 @@
                                     <div class="wrapper-addreferral">
                                         <label for="amount">Amount</label>
                                         <div class="d-flex">
-                                            <input type="number" id="amount" name="amount" class="form-control" placeholder="1000" step="any">
+                                            <input type="number" id="amount" name="amount" class="form-control  no-spinner" placeholder="1000" step="any">
                                             <label class="d-flex align-items-center gap-1 ml-2">
-                                                <input type="checkbox" name="lock_amount" value="1">
+                                                <?php if ($_SESSION["logged_user"]->role=="superadmin"):?>                                                
+                                                    <input type="checkbox" name="lock_amount" value="1">
+                                                <?php endif;?>
                                                 <p class="mb-0">🔒</p>
                                             </label>
                                         </div>
