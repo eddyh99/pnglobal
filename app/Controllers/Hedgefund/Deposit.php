@@ -278,13 +278,15 @@ class Deposit extends BaseController
         return $this->response->setJSON(['status' => true, 'message' => $result->result->message])->setStatusCode(200);
     }
 
-    public function bank_payment()
+    public function us_bank_payment()
     {
         $payamount  = $_SESSION["payment_data"]["amount"];
         $customerEmail = $_SESSION["logged_user"]->email;
+        $customerId = $_SESSION["logged_user"]->id;
         $postData = [
             'email' => $customerEmail,
             'amount' => $_SESSION["payment_data"]["totalcapital"],
+            'member_id' => $customerId
         ];
 
         $url        = URL_HEDGEFUND . "/non/deposit";
@@ -297,8 +299,99 @@ class Deposit extends BaseController
             'bank_payment_amount'   => $payamount
         ]);
 
-        // Redirect ke halaman info deposit bank
-        return redirect()->to(BASE_URL . 'hedgefund/deposit/deposit_bank_transaction');
+        // Redirect ke halaman information deposit us bank
+        return redirect()->to(BASE_URL . 'hedgefund/deposit/us_bank');
+    }
+
+    public function us_bank()
+    {
+        // Cek apakah session deposit tersedia
+        if (!session()->has('bank_payment_order_id') || !session()->has('bank_payment_amount')) {
+            // Kalau tidak ada, redirect ke halaman deposit utama
+            return redirect()->to(BASE_URL . 'hedgefund/deposit');
+        }
+
+        $url = URL_HEDGEFUND . "/non/us-bank";
+        $bank = satoshiAdmin($url);
+        $feebank = $bank->result->data->us_bank_fee_setting;
+
+        // dd($feebank);
+
+        $orderId  = session()->get('bank_payment_order_id');
+        $payamount = session()->get('bank_payment_amount');
+        $total     = $payamount + $feebank;
+
+        $mdata = [
+            'title'          => 'Deposit Bank - ' . NAMETITLE,
+            'content'        => 'hedgefund/deposit/deposit_us_bank',
+            'extra'          => 'hedgefund/deposit/js/_js_deposit_us_bank',
+            'active_deposit' => 'active',
+            'order_id'       => $orderId,
+            'payamount'      => $payamount,
+            'fee'            => $feebank,
+            'total'          => $total,
+            'bank'           => $bank->result->data
+        ];
+
+        return view('hedgefund/layout/dashboard_wrapper', $mdata);
+    }
+
+    public function international_bank_payment()
+    {
+        $payamount  = $_SESSION["payment_data"]["amount"];
+        $customerEmail = $_SESSION["logged_user"]->email;
+        $customerId = $_SESSION["logged_user"]->id;
+        $postData = [
+            'email' => $customerEmail,
+            'amount' => $_SESSION["payment_data"]["totalcapital"],
+            'member_id' => $customerId
+        ];
+
+        $url        = URL_HEDGEFUND . "/non/deposit";
+        $invoice   = satoshiAdmin($url, json_encode($postData))->result->message;
+        $orderId    = $invoice;
+
+        // Simpan data ke session
+        session()->set([
+            'bank_payment_order_id' => $orderId,
+            'bank_payment_amount'   => $payamount
+        ]);
+
+        // Redirect ke halaman information deposit inter bank
+        return redirect()->to(BASE_URL . 'hedgefund/deposit/inter_bank');
+    }
+
+    public function inter_bank()
+    {
+        // Cek apakah session deposit tersedia
+        if (!session()->has('bank_payment_order_id') || !session()->has('bank_payment_amount')) {
+            // Kalau tidak ada, redirect ke halaman deposit utama
+            return redirect()->to(BASE_URL . 'hedgefund/deposit');
+        }
+
+        $url = URL_HEDGEFUND . "/non/international-bank";
+        $bank = satoshiAdmin($url);
+        $feebank = $bank->result->data->inter_fee_setting;
+
+        // dd($feebank);
+
+        $orderId  = session()->get('bank_payment_order_id');
+        $payamount = session()->get('bank_payment_amount');
+        $total     = $payamount + $feebank;
+
+        $mdata = [
+            'title'          => 'Deposit Bank - ' . NAMETITLE,
+            'content'        => 'hedgefund/deposit/deposit_inter_bank',
+            'extra'          => 'hedgefund/deposit/js/_js_deposit_us_bank',
+            'active_deposit' => 'active',
+            'order_id'       => $orderId,
+            'payamount'      => $payamount,
+            'fee'            => $feebank,
+            'total'          => $total,
+            'bank'           => $bank->result->data
+        ];
+
+        return view('hedgefund/layout/dashboard_wrapper', $mdata);
     }
 
     public function deposit_bank_transaction()
