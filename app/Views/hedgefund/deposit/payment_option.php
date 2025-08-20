@@ -6,8 +6,8 @@
             <div class="d-flex flex-column justify-content-center align-items-center" style="height: 350px;">
                 <a href="<?= BASE_URL ?>hedgefund/deposit/index?method=usdt" class="btn btn-primary btn-lg w-75 btn-withdraw">USDT</a>
                 <a href="<?= BASE_URL ?>hedgefund/deposit/index?method=usdc" class="btn btn-primary btn-lg w-75 btn-withdraw mt-3">USDC</a>
-                <a href="<?= BASE_URL ?>hedgefund/deposit/index?method=us_bank" class="btn btn-primary btn-lg w-75 btn-withdraw mt-3">US Bank Transfer</a>
-                <a href="<?= BASE_URL ?>hedgefund/deposit/index?method=international_bank" class="btn btn-primary btn-lg w-75 btn-withdraw mt-3">International Bank Transfer</a>
+                <a href="<?= BASE_URL ?>hedgefund/deposit/index?method=us_bank" class="btn btn-primary btn-lg w-75 btn-withdraw mt-3" disabled>US Bank Transfer</a>
+                <a href="<?= BASE_URL ?>hedgefund/deposit/index?method=international_bank" class="btn btn-primary btn-lg w-75 btn-withdraw mt-3" disabled>International Bank Transfer</a>
             </div>
         </div>
     </div>
