@@ -1,16 +1,15 @@
 <style>
-/* For Chrome, Safari, Edge, Opera */
+    /* For Chrome, Safari, Edge, Opera */
     .no-spinner::-webkit-outer-spin-button,
     .no-spinner::-webkit-inner-spin-button {
-      -webkit-appearance: none;
-      margin: 0;
-    }
-    
-    /* For Firefox */
-    .no-spinner {
-      -moz-appearance: textfield;
+        -webkit-appearance: none;
+        margin: 0;
     }
 
+    /* For Firefox */
+    .no-spinner {
+        -moz-appearance: textfield;
+    }
 </style>
 <script>
     document.addEventListener('DOMContentLoaded', function() {
@@ -77,6 +76,47 @@
             <td>${percentSuCap.toFixed(9)}</td>
         `;
             return tr;
+        }
+
+        // Function to handle lock labels for non-superadmin users
+        function handleLockLabels(data = null) {
+            if (userRole !== "superadmin") {
+                for (let i = 1; i <= 4; i++) {
+                    const buyLabel = document.getElementById(`lockBuyLabel${i}`);
+                    const sellLabel = document.getElementById(`lockSellLabel${i}`);
+
+                    // If no data (new record), remove all lock labels
+                    if (!data) {
+                        buyLabel?.remove();
+                        sellLabel?.remove();
+                        continue;
+                    }
+
+                    // Handle buy lock labels
+                    const lockBuy = data[`lock_buy${i}`];
+                    if (lockBuy === "0" || lockBuy === 0) {
+                        buyLabel?.remove();
+                    } else if (lockBuy === "1" || lockBuy === 1) {
+                        // Show the label (it should already be visible)
+                        if (buyLabel) {
+                            buyLabel.style.display = '';
+                            buyLabel.innerHTML = '🔒';
+                        }
+                    }
+
+                    // Handle sell lock labels
+                    const lockSell = data[`lock_sell${i}`];
+                    if (lockSell === "0" || lockSell === 0) {
+                        sellLabel?.remove();
+                    } else if (lockSell === "1" || lockSell === 1) {
+                        // Show the label (it should already be visible)
+                        if (sellLabel) {
+                            sellLabel.style.display = '';
+                            sellLabel.innerHTML = '🔒';
+                        }
+                    }
+                }
+            }
         }
 
         function buatSpacer() {
@@ -157,7 +197,13 @@
                 if (!data) {
                     calcBtn.textContent = "Save";
                     calcForm.action = BASE_CREATE;
-                    return;
+                    if (userRole !== "superadmin") {
+                        // Hapus semua label gembok jika tidak ada data dan bukan super admin
+                        for (let i = 1; i <= 4; i++) {
+                            document.getElementById(`lockBuyLabel${i}`)?.remove();
+                            document.getElementById(`lockSellLabel${i}`)?.remove();
+                        }
+                    }
                 }
 
                 calcBtn.textContent = "Save";
@@ -206,11 +252,11 @@
                         if (sellLabel) sellLabel.innerHTML = sellLock === "1" ? "🔒" : "";
                     }
                 }
-
+                handleLockLabels(data);
                 updateTable();
             })
             .catch(err => {
-                console.error("Error fetch/parse JSON:", err);
+                console.log(err);
                 calcBtn.textContent = "Calculate";
                 calcForm.action = BASE_CREATE;
             });
