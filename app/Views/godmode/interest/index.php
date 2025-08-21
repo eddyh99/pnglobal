@@ -61,7 +61,7 @@
                         <table id="history-table" class="table table-striped" style="width:65%">
                             <thead class="thead_referralmember">
                                 <tr>
-                                    <th class="text-center">Calculate</th>
+                                    <th class="text-center">Monthly</th>
                                     <th class="text-center">Result</th>
                                     <th class="text-center">Net</th>
                                 </tr>

@@ -118,8 +118,32 @@ input[type=number] {
     //     ]
     // });
 
+    $('#table_comission').DataTable({
+        "pageLength": 20,
+        "dom": '<"d-flex justify-content-between align-items-center flex-wrap"lf>t<"d-flex justify-content-between align-items-center"ip>',
+        "responsive": true,
+        "order": false,
+        "ajax": {
+            "url": `<?= BASE_URL ?>godmode/dashboard/get_downlinedepo/` + $("#id").val(),
+            "type": "POST",
+            "dataSrc":function (data){
+                console.log(data);
+                return data;							
+            },
+        },
+        drawCallback: function () {
+          var api = this.api();
+          var total = api.column(1).data().sum();
+          api.column(1).footer().innerHTML = total.toFixed(2).toLocaleString('en');
+        },
+        "columns": [
+            { data: 'email'},
+            { data: 'komisi', render: $.fn.dataTable.render.number( ',', '.', 2, '' )},
+        ],
+    });
+    
     $('#table_referralmember').DataTable({
-        "pageLength": 50,
+        "pageLength": 20,
         "dom": '<"d-flex justify-content-between align-items-center flex-wrap"lf>t<"d-flex justify-content-between align-items-center"ip>',
         "responsive": true,
         "order": false,
@@ -131,20 +155,14 @@ input[type=number] {
                 return data;							
             },
         },
-        drawCallback: function () {
-          var api = this.api();
-          var total = api.column(2).data().sum();
-          api.column(2).footer().innerHTML = total.toFixed(2).toLocaleString('en');
-        },
         "columns": [
             { data: 'email'},
             { data: 'status'},
-            { data: 'komisi', render: $.fn.dataTable.render.number( ',', '.', 2, '' )},
         ],
     });
 
     $('#table_commission').DataTable({
-        "pageLength": 50,
+        "pageLength": 20,
         "dom": '<"d-flex justify-content-between align-items-center flex-wrap"lf>t<"d-flex justify-content-between align-items-center"ip>',
         "responsive": true,
         "order": false,
@@ -204,7 +222,7 @@ input[type=number] {
     });
     
     $('#table_transaction').DataTable({
-        "pageLength": 50,
+        "pageLength": 20,
         "dom": '<"d-flex justify-content-between align-items-center flex-wrap"lf>t<"d-flex justify-content-between align-items-center"ip>',
         "responsive": true,
         "order": false,

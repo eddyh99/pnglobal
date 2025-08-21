@@ -222,7 +222,7 @@
                 <!-- Referral Tables -->
                 <div class="row content-body">
                     <div class="col-lg-12 dash-table-referralmember">
-                        <h4 class="text-white my-3 text-uppercase fw-bold">Commission</h4>
+                        <h4 class="text-white my-3 text-uppercase fw-bold">Trade Commission</h4>
                         <table id="table_commission" class="table table-striped" style="width:100%">
                             <thead class="thead_referralmember">
                                 <tr>
@@ -251,6 +251,21 @@
                                 <tr>
                                     <th>EMAIL</th>
                                     <th>STATUS</th>
+                                    <!-- <th>SUBSCRIPTION</th> -->
+                                </tr>
+                            </thead>
+                            <tbody>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="row content-body">
+                    <div class="col-lg-12 dash-table-referralmember">
+                        <h4 class="text-white my-3 text-uppercase fw-bold">Deposit Commission</h4>
+                        <table id="table_comission" class="table table-striped" style="width:100%">
+                            <thead class="thead_referralmember">
+                                <tr>
+                                    <th>EMAIL</th>
                                     <th>COMISSION</th>
                                     <!-- <th>SUBSCRIPTION</th> -->
                                 </tr>
@@ -259,7 +274,6 @@
                             </tbody>
                             <tfoot>
                                 <tr>
-                                    <th></th>
                                     <th>Total</th>
                                     <th></th>
                                 </tr>
@@ -267,7 +281,6 @@
                         </table>
                     </div>
                 </div>
-
             </div>
         </div>
     </div>

@@ -89,7 +89,7 @@
             }
 
             const row = `<tr ${highlight}>
-                <td class="text-center">Calculate : ${i}</td>
+                <td class="text-center">Month - ${i}</td>
                 <td class="text-center">${nilai.toFixed(6)}</td>
                 <td class="text-center">${net.toFixed(6)}</td>
             </tr>`;
