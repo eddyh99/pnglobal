@@ -41,7 +41,7 @@
                                     <div class="iq-card-body">
                                         <div class="d-flex flex-column justify-content-center align-items-start">
                                             <div>
-                                                <h5 class="text-black">Total Op Fondo</h5>
+                                                <h5 class="text-black">Total Op Fondo %</h5>
                                             </div>
                                             <div class="mt-3 text-center mx-auto">
                                                 <h2 id="totalOpFondo" class="text-black fw-bold text-center">Loading...</h2>
@@ -57,7 +57,7 @@
                                     <div class="iq-card-body">
                                         <div class="d-flex flex-column justify-content-center align-items-start">
                                             <div>
-                                                <h5 class="text-black">Total Net Stor CLi</h5>
+                                                <h5 class="text-black">Total Net Stor CLi %</h5>
                                             </div>
                                             <div class="mt-3 text-center mx-auto">
                                                 <h2 id="totalNetStorCli" class="text-black fw-bold text-center">Loading...</h2>
@@ -120,8 +120,8 @@
                             <th>Comm Buy</th>
                             <th>Comm Sell</th>
                             <th>Net</th>
-                            <th>Op Fondo</th>
-                            <th>Net Stor Cli</th>
+                            <th>Op Fondo %</th>
+                            <th>Net Stor Cli %</th>
                         </tr>
                     </thead>
                     <tbody>

@@ -83,6 +83,7 @@
             }
 
             let highlight = "";
+            const net = nilai - input;
             if ([12, 48, 96].includes(i)) {
                 highlight = 'style="background:lightgreen; color:black;"';
             }
@@ -90,6 +91,7 @@
             const row = `<tr ${highlight}>
                 <td class="text-center">Calculate : ${i}</td>
                 <td class="text-center">${nilai.toFixed(6)}</td>
+                <td class="text-center">${net.toFixed(6)}</td>
             </tr>`;
             tbody.innerHTML += row;
         }

@@ -63,6 +63,7 @@
                                 <tr>
                                     <th class="text-center">Calculate</th>
                                     <th class="text-center">Result</th>
+                                    <th class="text-center">Net</th>
                                 </tr>
                             </thead>
                             <tbody></tbody>
