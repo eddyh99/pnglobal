@@ -90,6 +90,17 @@ class Homepage extends BaseController
         return view('homepage/layout/wrapper', $mdata);
     }
 
+    public function hedgefund_result()
+    {
+        $mdata = [
+            'title'     => 'History Hedgefund - ' . NAMETITLE,
+            'content'   => 'homepage/hedgefund/index',
+            'extra'     => 'homepage/hedgefund/js/_js_index'
+        ];
+
+        // return view('godmode/layout/hedgefund_wrapper', $mdata);
+        return view('homepage/layout/wrapper', $mdata);
+    }
 
 
     public function service($service=null)

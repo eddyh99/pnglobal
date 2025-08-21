@@ -16,6 +16,7 @@
                         THE FIRST HEDGE FUND OPERATED ON BINANCE IN BTC\USDT
                     </p>
                 </div>
+                <a class="btn-footer-contactform text-white mt-5" style="background-color: #B48B3D; border-radius: 4px; min-width: 150px; font-weight: bold;" href="<?= BASE_URL ?>hedgefund_result">OUR RESULT</a>
             </div>
         </div>
     </div>
@@ -158,7 +159,7 @@
             <div class="referral-card">
                 <!-- <h3 class="mb-4">Share and Grow Your Capital</h3> -->
                 <p class="card-text">
-                On the net profits accrued for each operation, 1% will be deducted as a customer management cost, while the remainder will be divided 50% to the customer and 50% to the company. 
+                    On the net profits accrued for each operation, 1% will be deducted as a customer management cost, while the remainder will be divided 50% to the customer and 50% to the company.
                 </p>
             </div>
             <a href="<?= BASE_URL ?>homepage/satoshi_price#register" class="share-button">
@@ -180,30 +181,30 @@
             </div>
         </div> -->
         <div class="bottom-content">
-        <h2 class="text-center">WITHDRAWAL</h2>
+            <h2 class="text-center">WITHDRAWAL</h2>
             <!-- <div class="container"> -->
-                <div class="content-wrapper">
-                    <div class="text-content">
+            <div class="content-wrapper">
+                <div class="text-content">
                     <ul class="payout-list">
-                    <li>Your commissions will be credited immediately</li>
-                    <li>You can easily track your earnings and referral balance directly from our website dashboard</li>
-                </ul>
-                        <h3 class="text-black">Withdrawal of Funds</h3>
-                        <p class="description">
-                            To ensure maximum security and transparency, you can withdraw your USDC\USDT and your BTC at any time. <br>
-                            For withdrawal of funds 1% management fee plus $5 fixed fee.
-                        </p>
-                        <ul class="withdraw-list">
-                            <li><strong>Cryptocurrency in BTC</strong> (Bitcoin)</li>
-                            <li><strong>Cryptocurrency in USDC (BEP20)</strong> for fast and secure transfers.</li>
-                            <li><strong>Cryptocurrency in USDT (BEP20)</strong> for quick and secure transfers.</li>
-                        </ul>
-                        <!-- <p class="note">⚠️ Transfer fees will be charged to the user withdrawing the balance.</p> -->
-                    </div>
-                    <div class="image-content">
-                        <img src="<?= BASE_URL ?>assets/img/ic_payout.png" alt="Payout">
-                    </div>
+                        <li>Your commissions will be credited immediately</li>
+                        <li>You can easily track your earnings and referral balance directly from our website dashboard</li>
+                    </ul>
+                    <h3 class="text-black">Withdrawal of Funds</h3>
+                    <p class="description">
+                        To ensure maximum security and transparency, you can withdraw your USDC\USDT and your BTC at any time. <br>
+                        For withdrawal of funds 1% management fee plus $5 fixed fee.
+                    </p>
+                    <ul class="withdraw-list">
+                        <li><strong>Cryptocurrency in BTC</strong> (Bitcoin)</li>
+                        <li><strong>Cryptocurrency in USDC (BEP20)</strong> for fast and secure transfers.</li>
+                        <li><strong>Cryptocurrency in USDT (BEP20)</strong> for quick and secure transfers.</li>
+                    </ul>
+                    <!-- <p class="note">⚠️ Transfer fees will be charged to the user withdrawing the balance.</p> -->
                 </div>
+                <div class="image-content">
+                    <img src="<?= BASE_URL ?>assets/img/ic_payout.png" alt="Payout">
+                </div>
+            </div>
             <!-- </div> -->
         </div>
         <!-- <div class="opportunity-content">
