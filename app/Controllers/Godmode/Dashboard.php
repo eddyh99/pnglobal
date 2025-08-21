@@ -487,6 +487,14 @@ class Dashboard extends BaseController
         echo json_encode($result);
     }
     
+    public function get_downlinedepo($id)
+    {
+        
+        $url = URL_HEDGEFUND . "/v1/member/list_downlinedepo?id_member=" . $id;
+        $result = satoshiAdmin($url)->result->message;
+        echo json_encode($result);
+    }
+    
     public function manualtopup(){
         $rules = [
             'amount' => 'required|numeric|greater_than[0]',
