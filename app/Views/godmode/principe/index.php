@@ -105,7 +105,7 @@
             </div>
             <!-- End Card Summary -->
             <div class="col-lg-12 dash-table-totalmember">
-                <h4 class="text-white my-3 text-uppercase fw-bold">Principe</h4>
+                <h4 class="text-white my-3 text-uppercase fw-bold">History Hedgefund</h4>
                 <div class="row">
                     <div class="col-md-3">
                         <label for="bulan_filter" class="form-label text-white">Select Month:</label>
