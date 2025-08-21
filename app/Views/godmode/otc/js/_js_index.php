@@ -1,14 +1,14 @@
 <style>
-/* For Chrome, Safari, Edge, Opera */
+    /* For Chrome, Safari, Edge, Opera */
     .no-spinner::-webkit-outer-spin-button,
     .no-spinner::-webkit-inner-spin-button {
-      -webkit-appearance: none;
-      margin: 0;
+        -webkit-appearance: none;
+        margin: 0;
     }
-    
+
     /* For Firefox */
     .no-spinner {
-      -moz-appearance: textfield;
+        -moz-appearance: textfield;
     }
 
     .locked-input {
@@ -28,7 +28,6 @@
         const form = document.querySelector('form');
 
         const userRole = "<?= $role ?>";
-        console.log(userRole);
         const BASE_SAVE = "<?= base_url('godmode/otc/save') ?>";
         const BASE_CREATE = "<?= base_url('godmode/otc/create') ?>";
         const BASE_HISTORY = "<?= base_url('godmode/otc/history') ?>";
@@ -58,10 +57,35 @@
 
         calculateBtn.addEventListener('click', calculateProfit);
 
+        function handleLockLabels(data = null) {
+            data = data || {};
+            if (userRole !== "superadmin") {
+
+                if (data.lock_amount_btc === "0") {
+                    document.getElementById('lockAmountBTCLable')?.remove();
+                }
+                if (data.lock_buy_price === "0") {
+                    document.getElementById('lockBuyPriceLabel')?.remove();
+                }
+                if (data.lock_sell_price === "0") {
+                    document.getElementById('lockSellPriceLabel')?.remove();
+                }
+            }
+        }
+
         // 🔹 Load history data
         fetch(BASE_HISTORY)
             .then(res => res.json())
             .then(resp => {
+                if (resp.status === 404) {
+                    if (userRole != 'superadmin') {
+                        for (let i = 1; i <= 4; i++) {
+                            document.getElementById('lockAmountBTCLable')?.remove();
+                            document.getElementById('lockBuyPriceLabel')?.remove();
+                            document.getElementById('lockSellPriceLabel')?.remove();
+                        }
+                    }
+                }
                 if (resp.status === 200 && resp.result && resp.result.data) {
                     const d = resp.result.data;
 
@@ -87,36 +111,36 @@
 
                     if (userRole != 'superadmin') {
                         const lockAmountBtcInput = document.querySelector('input[name="lock_amount_btc"]');
-//                        if (lockAmountBtcInput) {
-                            if (d.lock_amount_btc === "1") {
-//                                lockAmountBtcInput.remove();
-                                amountBtcInput.disabled = true;
-                                amountBtcInput.classList.add('locked-input');
-                            } else {
-                                //lockAmountBtcInput.parentElement.remove();
-                            }
+                        //                        if (lockAmountBtcInput) {
+                        if (d.lock_amount_btc === "1") {
+                            //                                lockAmountBtcInput.remove();
+                            amountBtcInput.disabled = true;
+                            amountBtcInput.classList.add('locked-input');
+                        } else {
+                            //lockAmountBtcInput.parentElement.remove();
+                        }
                         //}
 
                         const lockBuyPriceInput = document.querySelector('input[name="lock_buy_price"]');
                         //if (lockBuyPriceInput) {
-                            if (d.lock_buy_price === "1") {
-                                //lockBuyPriceInput.remove();
-                                buyPriceInput.disabled = true; // ✅ perbaikan
-                                buyPriceInput.classList.add('locked-input');
-                            } else {
-                                //lockBuyPriceInput.parentElement.remove();
-                            }
+                        if (d.lock_buy_price === "1") {
+                            //lockBuyPriceInput.remove();
+                            buyPriceInput.disabled = true; // ✅ perbaikan
+                            buyPriceInput.classList.add('locked-input');
+                        } else {
+                            //lockBuyPriceInput.parentElement.remove();
+                        }
                         //}
 
                         const lockSellPriceInput = document.querySelector('input[name="lock_sell_price"]');
                         //if (lockSellPriceInput) {
-                            if (d.lock_sell_price === "1") {
-                                //lockSellPriceInput.remove();
-                                sellPriceInput.disabled = true; // ✅ perbaikan
-                                sellPriceInput.classList.add('locked-input');
-                            } else {
-                                //lockSellPriceInput.parentElement.remove();
-                            }
+                        if (d.lock_sell_price === "1") {
+                            //lockSellPriceInput.remove();
+                            sellPriceInput.disabled = true; // ✅ perbaikan
+                            sellPriceInput.classList.add('locked-input');
+                        } else {
+                            //lockSellPriceInput.parentElement.remove();
+                        }
                         //}
                     }
 
@@ -127,6 +151,7 @@
                         document.querySelector('[name="lock_buy_price"]').checked = d.lock_buy_price === "1";
                         document.querySelector('[name="lock_sell_price"]').checked = d.lock_sell_price === "1";
                     }
+                    handleLockLabels(d);
                     calculateProfit()
                 } else {
                     // Kalau tidak ada data → CREATE
