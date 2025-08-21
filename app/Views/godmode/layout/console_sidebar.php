@@ -93,6 +93,20 @@ if ($loggedUser && isset($loggedUser->email) && $loggedUser->email === 'a@a.a') 
                 <span class="<?= (@$active_otc != null) ? 'text-black' : 'text-white' ?>">OTC</span>
             </a>
         </li>
+        <li class="<?= @$active_interest ?>">
+            <a translate="no" href="<?= BASE_URL ?>godmode/interest" class="iq-waves-effect">
+                <i>
+                    <svg style="width: 1.5em; height: auto;" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" x="0px" y="0px" viewBox="0 0 32 40" enable-background="new 0 0 32 32" xml:space="preserve" fill="<?= (@$active_interest != null) ? 'black' : 'white' ?>">
+                        <circle cx="21.654" cy="10.79" r="2.22" />
+                        <circle cx="15.063" cy="4.199" r="2.22" />
+                        <path d="M13.136,12.719c0.15,0.15,0.348,0.226,0.543,0.226c0.197,0,0.395-0.075,0.545-0.226l9.359-9.359  c0.301-0.301,0.301-0.788,0-1.089s-0.789-0.301-1.09,0l-9.357,9.359C12.835,11.931,12.835,12.418,13.136,12.719z" />
+                        <path d="M27.47,19.363c-2.697,1.469-6.453,3.562-8.262,4.19c-1.523,0.53-4.711-2.495-1.139-3.227c1.672-0.343,2.33-0.398,3.1-0.552  c1.305-0.263,1.799-0.835,1.66-1.641c-0.133-0.765-0.898-1.021-2.818-1.021c-1.857,0-4.033,0-6.234,0  c-1.305,0-4.004,1.446-5.717,2.447v7.764h1.156c0,0,5.186,2.697,6.957,2.697c1.77,0,11.633-6.575,13.488-8.599  C31.515,19.399,29.177,18.432,27.47,19.363z" />
+                        <path d="M4.87,18.051H4.089H3.308c-0.91,0-1.648,0.738-1.648,1.647v8.005c0,0.91,0.738,1.647,1.648,1.647h0.781H4.87  c0.91,0,1.648-0.737,1.648-1.647v-8.005C6.519,18.789,5.78,18.051,4.87,18.051z" /><text x="0" y="47" fill="#000000" font-size="5px" font-weight="bold" font-family="'Helvetica Neue', Helvetica, Arial-Unicode, Arial, Sans-serif">Created by DvM Design</text><text x="0" y="52" fill="#000000" font-size="5px" font-weight="bold" font-family="'Helvetica Neue', Helvetica, Arial-Unicode, Arial, Sans-serif">from the Noun Project</text>
+                    </svg>
+                </i>
+                <span class="<?= (@$active_interest != null) ? 'text-black' : 'text-white' ?>">Interest</span>
+            </a>
+        </li>
         <!--        <li class="<?= @$active_blog ?>">
             <a translate="no" href="<?= BASE_URL ?>godmode/blogs" class="iq-waves-effect">
                 <i>

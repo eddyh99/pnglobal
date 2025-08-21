@@ -31,29 +31,29 @@
         <div class="row content-body">
             <div class="col-lg-12">
                 <!-- balance fund & trade -->
-                    <a>
-                        <div class="custom-card left-card custom-responsive-width w-50 mx-auto">
-                            <div class="d-flex justify-content-center text-black" style="font-weight: bold;">
-                                <p>TRADE BALANCE</p>
-                            </div>
+                <a>
+                    <div class="custom-card left-card custom-responsive-width w-50 mx-auto">
+                        <div class="d-flex justify-content-center text-black" style="font-weight: bold;">
+                            <p>TRADE BALANCE</p>
+                        </div>
 
-                            <div class="d-flex" style="gap: 1rem;">
-                                <div class="card rounded" style="width: 18rem;background-color: #bfa573;">
-                                    <div class="card-body p-2">
-                                        <h5 class="card-title text-black mb-0 fw-bold">USDT </h5>
-                                        <h2 id="usdt_balance" class="text-right text-black">Loading...</h2>
-                                    </div>
+                        <div class="d-flex" style="gap: 1rem;">
+                            <div class="card rounded" style="width: 18rem;background-color: #bfa573;">
+                                <div class="card-body p-2">
+                                    <h5 class="card-title text-black mb-0 fw-bold">USDT </h5>
+                                    <h2 id="usdt_balance" class="text-right text-black">Loading...</h2>
                                 </div>
-                                <div class="card rounded" style="width: 18rem;background-color: #bfa573;">
-                                    <div class="card-body p-2">
-                                        <h5 class="card-title text-black mb-0 fw-bold">BTC </h5>
-                                        <h2 id="btc_balance" class="text-right text-black">Loading...</h2>
-                                    </div>
+                            </div>
+                            <div class="card rounded" style="width: 18rem;background-color: #bfa573;">
+                                <div class="card-body p-2">
+                                    <h5 class="card-title text-black mb-0 fw-bold">BTC </h5>
+                                    <h2 id="btc_balance" class="text-right text-black">Loading...</h2>
                                 </div>
                             </div>
                         </div>
-                    </a>
-                
+                    </div>
+                </a>
+
 
             </div>
         </div>
@@ -318,8 +318,8 @@
                 </div>
             </div>
         </div>
-        <div class="col-lg-12 history-table-message">
-            <div class="d-flex justify-content-between mb-3">
+        <div class="col-lg-12 history-table-message" translate="no">
+            <div class="d-flex justify-content-between mb-3" translate="no">
                 <h3 class="text-white">History</h3>
                 <select class="col-2 form-select" id="filter">
                     <option value="all">--- All ---</option>
@@ -328,7 +328,7 @@
                     <option value="canceled">Cancelled</option>
                 </select>
             </div>
-            <table id="table_message" class="table table-striped" style="width:100%">
+            <table id="table_message" class="table table-striped" style="width:100%" translate="no">
                 <thead>
                     <tr>
                         <th>ORDER</th>

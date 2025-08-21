@@ -1,14 +1,14 @@
 <style>
-/* For Chrome, Safari, Edge, Opera */
+    /* For Chrome, Safari, Edge, Opera */
     .no-spinner::-webkit-outer-spin-button,
     .no-spinner::-webkit-inner-spin-button {
-      -webkit-appearance: none;
-      margin: 0;
+        -webkit-appearance: none;
+        margin: 0;
     }
-    
+
     /* For Firefox */
     .no-spinner {
-      -moz-appearance: textfield;
+        -moz-appearance: textfield;
     }
 
     .locked-input {
@@ -23,6 +23,7 @@
     const amount = document.getElementById("amount");
     const calculateBtn = document.getElementById('calculateBtn');
     const form = document.querySelector('form');
+    const lockLabel = document.getElementById('lock-label');
 
 
     const userRole = "<?= $role ?>";
@@ -46,7 +47,7 @@
     });
 
     // Tampilkan pesan default saat pertama kali load
-    tbody.innerHTML = `<tr><td colspan="2" class="text-center">Belum ada calculation</td></tr>`;
+    tbody.innerHTML = `<tr><td colspan="2" class="text-center">No Calculation</td></tr>`;
 
 
     document.getElementById("amount").addEventListener("input", hitung);
@@ -57,7 +58,7 @@
 
         if (isNaN(input) || input <= 0) {
             // Jika input kosong atau invalid, tampilkan pesan default
-            tbody.innerHTML = `<tr><td colspan="2" class="text-center">Belum ada calculation</td></tr>`;
+            tbody.innerHTML = `<tr><td colspan="2" class="text-center">No Calculation</td></tr>`;
             return;
         }
 
@@ -82,6 +83,7 @@
             }
 
             let highlight = "";
+            const net = nilai - input;
             if ([12, 48, 96].includes(i)) {
                 highlight = 'style="background:lightgreen; color:black;"';
             }
@@ -89,6 +91,7 @@
             const row = `<tr ${highlight}>
                 <td class="text-center">Calculate : ${i}</td>
                 <td class="text-center">${nilai.toFixed(6)}</td>
+                <td class="text-center">${net.toFixed(6)}</td>
             </tr>`;
             tbody.innerHTML += row;
         }
@@ -98,8 +101,16 @@
     fetch(BASE_HISTORY)
         .then(res => res.json())
         .then(resp => {
+            if (resp.status === 404 && userRole != 'superadmin') {
+                lockLabel?.remove();
+            }
+
             if (resp.status === 200 && resp.result && resp.result.data) {
                 const d = resp.result.data;
+
+                if (d.lock_amount === "0" && userRole !== "superadmin") {
+                    lockLabel?.remove();
+                }
 
                 // Kalau ada data → SAVE
                 form.action = BASE_SAVE;
@@ -120,21 +131,21 @@
                 amount.value = d.amount ?? '';
 
                 if (userRole != 'superadmin') {
-                    console.log(d.lock_amount);
+                    // console.log(d.lock_amount);
                     //const lockAmountInput = document.querySelector('input[name="lock_amount"]');
                     const amountInput = document.getElementById('amount');
 
                     //if (lockAmountInput) {
-                        if (d.lock_amount === "1") {
-                            // Lock amount → disable input dan tandai
-                            //lockAmountInput.remove();
-                            amountInput.disabled = true;
-                            amountInput.classList.add('locked-input');
-                            calculateBtn.disabled = true;
-                        } else {
-                            // Jika tidak dikunci → hapus checkbox
-                            //lockAmountInput.parentElement.remove();
-                        }
+                    if (d.lock_amount === "1") {
+                        // Lock amount → disable input dan tandai
+                        //lockAmountInput.remove();
+                        amountInput.disabled = true;
+                        amountInput.classList.add('locked-input');
+                        calculateBtn.disabled = true;
+                    } else {
+                        // Jika tidak dikunci → hapus checkbox
+                        //lockAmountInput.parentElement.remove();
+                    }
                     //}
                 }
 
