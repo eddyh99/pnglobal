@@ -1,8 +1,6 @@
-    <link rel="stylesheet" href="<?= BASE_URL ?>assets/style/css/admin/mandatory/typography.css">
-
     <!-- Page Content  -->
     <div class="page-wrapper">
-        <div class="crypto-consulting">
+        <div class="crypto-consulting my-font-section ">
             <div class="row content-body mt-5 mb-5">
                 <!-- Card Summary -->
                 <div class="col-lg-12">
