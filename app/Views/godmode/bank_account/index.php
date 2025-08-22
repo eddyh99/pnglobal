@@ -41,40 +41,40 @@
                                 <div class="form-addreferral col-8 mx-auto">
                                     <div class="wrapper-addreferral">
                                         <label for="us_bank_account_name">Bank Account Name</label>
-                                        <input type="text" id="us_bank_account_name" name="us_bank_account_name" placeholder="Enter Bank Account Name" class="form-control" 
-                                        value="<?= ($us_bank->code == 200) ? esc($us_bank->data->us_bank_account_name) : '' ?>">
+                                        <input type="text" id="us_bank_account_name" name="us_bank_account_name" placeholder="Enter Bank Account Name" class="form-control"
+                                            value="<?= ($us_bank->code == 200) ? esc($us_bank->data->us_bank_account_name) : '' ?>">
                                     </div>
 
                                     <div class="wrapper-addreferral">
                                         <label>Account Type</label>
                                         <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="radio" name="us_bank_account_type" id="us_account_checking" 
-                                            value="checking" <?= ($us_bank->code == 200 && $us_bank->data->us_bank_account_type == 'checking') ? 'checked' : '' ?>>
+                                            <input class="form-check-input" type="radio" name="us_bank_account_type" id="us_account_checking"
+                                                value="checking" <?= ($us_bank->code == 200 && $us_bank->data->us_bank_account_type == 'checking') ? 'checked' : '' ?>>
                                             <label class="form-check-label" for="us_account_checking">Checking</label>
                                         </div>
                                         <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="radio" name="us_bank_account_type" id="us_account_saving" 
-                                            value="saving" <?= ($us_bank->code == 200 && $us_bank->data->us_bank_account_type == 'saving') ? 'checked' : '' ?>>
+                                            <input class="form-check-input" type="radio" name="us_bank_account_type" id="us_account_saving"
+                                                value="saving" <?= ($us_bank->code == 200 && $us_bank->data->us_bank_account_type == 'saving') ? 'checked' : '' ?>>
                                             <label class="form-check-label" for="us_account_saving">Saving</label>
                                         </div>
                                     </div>
 
                                     <div class="wrapper-addreferral">
                                         <label for="us_bank_routing_number">Routing Number</label>
-                                        <input type="text" id="us_bank_routing_number" name="us_bank_routing_number" placeholder="Enter Routing Number" class="form-control" 
-                                        value="<?= ($us_bank->code == 200) ? esc($us_bank->data->us_bank_routing_number) : '' ?>">
+                                        <input type="text" id="us_bank_routing_number" name="us_bank_routing_number" placeholder="Enter Routing Number" class="form-control"
+                                            value="<?= ($us_bank->code == 200) ? esc($us_bank->data->us_bank_routing_number) : '' ?>">
                                     </div>
 
                                     <div class="wrapper-addreferral">
                                         <label for="us_bank_account_number">Account Number</label>
-                                        <input type="text" id="us_bank_account_number" name="us_bank_account_number" placeholder="Enter Account Number" class="form-control" 
-                                        value="<?= ($us_bank->code == 200) ? esc($us_bank->data->us_bank_account_number) : '' ?>">
+                                        <input type="text" id="us_bank_account_number" name="us_bank_account_number" placeholder="Enter Account Number" class="form-control"
+                                            value="<?= ($us_bank->code == 200) ? esc($us_bank->data->us_bank_account_number) : '' ?>">
                                     </div>
 
                                     <div class="wrapper-addreferral">
                                         <label for="us_bank_fee_setting">US Fee Setting</label>
-                                        <input type="text" id="us_bank_fee_setting" name="us_bank_fee_setting" placeholder="Enter Fee Setting" class="form-control" 
-                                        value="<?= ($us_bank->code == 200) ? esc($us_bank->data->us_bank_fee_setting) : '' ?>">
+                                        <input type="text" id="us_bank_fee_setting" name="us_bank_fee_setting" placeholder="Enter Fee Setting" class="form-control"
+                                            value="<?= ($us_bank->code == 200) ? esc($us_bank->data->us_bank_fee_setting) : '' ?>">
                                     </div>
 
                                     <div class="wrapper-addreferral d-flex justify-content-center">
@@ -119,6 +119,22 @@
                                             name="inter_swift_code"
                                             value="<?= ($international_bank->code == 200) ? esc($international_bank->data->inter_swift_code) : '' ?>"
                                             placeholder="Enter Swift Code" class="form-control">
+                                    </div>
+
+                                    <div class="wrapper-addreferral">
+                                        <label for="inter_bank_routing_number">International Routing Number</label>
+                                        <input type="text" id="inter_bank_routing_number"
+                                            name="inter_bank_routing_number"
+                                            value="<?= ($international_bank->code == 200) ? esc($international_bank->data->inter_bank_routing_number) : '' ?>"
+                                            placeholder="Enter Routing Number" class="form-control">
+                                    </div>
+
+                                    <div class="wrapper-addreferral">
+                                        <label for="inter_bank_company_address">International Company Address</label>
+                                        <input type="text" id="inter_bank_company_address"
+                                            name="inter_bank_company_address"
+                                            value="<?= ($international_bank->code == 200) ? esc($international_bank->data->inter_bank_company_address) : '' ?>"
+                                            placeholder="Enter Company Address" class="form-control">
                                     </div>
 
                                     <div class="wrapper-addreferral">

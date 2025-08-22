@@ -90,7 +90,25 @@ class Homepage extends BaseController
         return view('homepage/layout/wrapper', $mdata);
     }
 
+    public function hedgefund_result()
+    {
+        $mdata = [
+            'title'     => 'History Hedgefund - ' . NAMETITLE,
+            'content'   => 'homepage/hedgefund/index',
+            'extra'     => 'homepage/hedgefund/js/_js_index'
+        ];
 
+        // return view('godmode/layout/hedgefund_wrapper', $mdata);
+        return view('homepage/layout/wrapper', $mdata);
+    }
+
+    public function hedgefund_data()
+    {
+        // Call Endpoin
+        $url = URL_HEDGEFUND . "/price/detail_profit";
+        $result = satoshiAdmin($url)->result->message;
+        echo json_encode(is_array($result) ? $result : []);
+    }
 
     public function service($service=null)
     {
