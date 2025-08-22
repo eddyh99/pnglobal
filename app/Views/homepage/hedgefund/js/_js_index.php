@@ -121,7 +121,7 @@
             responsive: true,
             pageLength: 100,
             ajax: {
-                url: "<?= BASE_URL ?>godmode/principe/get_detailprofit",
+                url: "<?= BASE_URL ?>hedgefund_data",
                 type: "POST",
                 // ⬇️ cek apakah server return array langsung atau dalam key "data"
                 dataSrc: function(json) {
