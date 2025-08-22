@@ -55,11 +55,27 @@
                                             </td>
                                         </tr>
                                         <tr>
+                                            <th class="th-deposit">Routing Number</th>
+                                            <td class="td-input">
+                                                :
+                                                <input id="viewRouting" type="text" value="<?= esc($bank->inter_bank_routing_number ?? '-') ?>" readonly>
+                                                <button type="button" onclick="copyToClipboard('viewRouting')" class="button-copy">Copy</button>
+                                            </td>
+                                        </tr>
+                                        <tr>
                                             <th class="th-deposit">Account Swift Code</th>
                                             <td class="td-input">
                                                 :
-                                                <input id="viewSwiftCode" class="form-control" type="text" value="<?= esc($bank->inter_swift_code ?? '-') ?>" readonly>
+                                                <input id="viewSwiftCode" type="text" value="<?= esc($bank->inter_swift_code ?? '-') ?>" readonly>
                                                 <button type="button" onclick="copyToClipboard('viewSwiftCode')" class="button-copy">Copy</button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th class="th-deposit">Company Address</th>
+                                            <td class="td-input">
+                                                :
+                                                <input id="viewCompanyAddress" type="text" value="<?= esc($bank->inter_bank_company_address ?? '-') ?>" readonly>
+                                                <button type="button" onclick="copyToClipboard('viewCompanyAddress')" class="button-copy">Copy</button>
                                             </td>
                                         </tr>
                                         <tr>

@@ -136,12 +136,16 @@ class Bank_account extends BaseController
         $inter_bank_account_number = $this->request->getVar('inter_bank_account_number');
         $inter_bank_swift_code = $this->request->getVar('inter_swift_code');
         $inter_bank_fee_setting = $this->request->getVar('inter_fee_setting');
+        $inter_bank_routing_number = $this->request->getVar('inter_bank_routing_number');
+        $inter_bank_company_address = $this->request->getVar('inter_bank_company_address');
 
         if (!$this->validate([
             'inter_bank_account_name'   => 'required',
             'inter_bank_account_number' => 'required|numeric',
             'inter_swift_code'          => 'required|alpha_numeric_punct',
             'inter_fee_setting'         => 'required|numeric',
+            'inter_bank_routing_number' => 'required|numeric',
+            'inter_bank_company_address' => 'required'
         ])) {
             session()->setFlashdata('failed', $this->validation->listErrors());
             return redirect()->to(BASE_URL . 'godmode/bank_account');
@@ -152,6 +156,8 @@ class Bank_account extends BaseController
             'inter_bank_account_number' => $inter_bank_account_number,
             'inter_swift_code' => $inter_bank_swift_code,
             'inter_fee_setting' => $inter_bank_fee_setting,
+            'inter_bank_routing_number' => $inter_bank_routing_number,
+            'inter_bank_company_address' => $inter_bank_company_address
         ];
 
         $url = URL_HEDGEFUND . "/non/international-bank";
@@ -175,12 +181,16 @@ class Bank_account extends BaseController
         $inter_bank_account_number = $this->request->getVar('inter_bank_account_number');
         $inter_bank_swift_code = $this->request->getVar('inter_swift_code');
         $inter_bank_fee_setting = $this->request->getVar('inter_fee_setting');
+        $inter_bank_routing_number = $this->request->getVar('inter_bank_routing_number');
+        $inter_bank_company_address = $this->request->getVar('inter_bank_company_address');
 
         if (!$this->validate([
             'inter_bank_account_name'   => 'required',
             'inter_bank_account_number' => 'required|numeric',
             'inter_swift_code'          => 'required|numeric',
             'inter_fee_setting'         => 'required|numeric',
+            'inter_bank_routing_number' => 'required|numeric',
+            'inter_bank_company_address' => 'required'
         ])) {
             session()->setFlashdata('failed', $this->validation->listErrors());
             return redirect()->to(BASE_URL . 'godmode/bank_account');
@@ -191,6 +201,8 @@ class Bank_account extends BaseController
             'inter_bank_account_number' => $inter_bank_account_number,
             'inter_swift_code' => $inter_bank_swift_code,
             'inter_fee_setting' => $inter_bank_fee_setting,
+            'inter_bank_routing_number' => $inter_bank_routing_number,
+            'inter_bank_company_address' => $inter_bank_company_address
         ];
 
         $url = URL_HEDGEFUND . "/non/international-bank-update";

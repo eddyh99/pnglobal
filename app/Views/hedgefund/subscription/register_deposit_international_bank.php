@@ -31,12 +31,32 @@
                                 </td>
                             </tr>
                             <tr>
+                                <th>Routing Number</th>
+                                <td>
+                                    <div class="copy-field">
+                                        <span class="label-colon">:</span>
+                                        <input id="viewRouting" type="text" value="<?= esc($bank->inter_bank_routing_number ?? '-') ?>" readonly>
+                                        <button type="button" onclick="copyToClipboard('viewRouting')" class="button-copy">Copy</button>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
                                 <th>Account Swift Code</th>
                                 <td>
                                     <div class="copy-field">
                                         <span class="label-colon">:</span>
                                         <input id="viewSwiftCode" type="text" value="<?= esc($bank->inter_swift_code ?? '-') ?>" readonly>
                                         <button type="button" onclick="copyToClipboard('viewSwiftCode')" class="button-copy">Copy</button>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Company Address</th>
+                                <td>
+                                    <div class="copy-field">
+                                        <span class="label-colon">:</span>
+                                        <input id="viewCompanyAddress" type="text" value="<?= esc($bank->inter_bank_company_address ?? '-') ?>" readonly>
+                                        <button type="button" onclick="copyToClipboard('viewCompanyAddress')" class="button-copy">Copy</button>
                                     </div>
                                 </td>
                             </tr>
