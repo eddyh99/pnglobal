@@ -106,6 +106,44 @@
         outline: none;
         box-shadow: 0 0 5px #B48B3D;
     }
+
+    .d-block {
+        display: block !important;
+    }
+
+    .iq-card {
+        background: linear-gradient(107deg, #B48B3D 49.78%, #BFA573 100%) !important;
+        -webkit-border-radius: 15px;
+        -moz-border-radius: 15px;
+        border-radius: 15px;
+        margin-bottom: 30px;
+        border: none;
+        -webkit-box-shadow: 0px 4px 20px 0px rgba(44, 101, 144, 0.1);
+        box-shadow: 0px 4px 20px 0px rgba(44, 101, 144, 0.1);
+    }
+
+    .iq-card-body {
+        padding: 20px;
+    }
+
+    .h-100 {
+        height: 100% !important;
+    }
+
+    .page-item.active .page-link {
+        background-color: #B48B3D !important;
+        border-color: #B48B3D !important;
+    }
+
+    page-link {
+        background-color: #B48B3D !important;
+        border-color: #B48B3D !important;
+    }
+
+    .my-font-section {
+        font-family: "Poppins", Arial, sans-serif;
+        /* contoh font */
+    }
 </style>
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
