@@ -20,10 +20,10 @@
     <!-- Custom CSS -->
     <style>
         body {
-            background-color: #f0f2f5;
+            background-color: transparent !important;
             font-family: 'Poppins', sans-serif;
         }
-        
+
         .custom-card {
             background-color: #406852;
             color: white;
