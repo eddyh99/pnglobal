@@ -1830,4 +1830,14 @@ class Homepage extends BaseController
 
         return view('homepage/layout/wrapper', $mdata);
     }
+
+    public function cayman()
+    {
+        $mdata = [
+            'title'     => 'Cayman - ' . NAMETITLE,
+            'content'   => 'homepage/cayman',
+            // 'extra'     => 'homepage/js/_js_cayman',
+        ];
+        return view('homepage/layout/cayman-wrapper', $mdata);
+    }
 }

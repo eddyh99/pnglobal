@@ -18,6 +18,7 @@ $routes->group('', ['namespace' => 'App\Controllers'], function($routes){
     $routes->get('/book-consultation/(:segment)', 'Homepage::bookingconsultation/$1');
     $routes->get('/hedgefund_result', 'Homepage::hedgefund_result');
     $routes->post('/hedgefund_data', 'Homepage::hedgefund_data');
+    $routes->get('/cayman', 'Homepage::cayman');
 });
 
 $routes->group('service', ['namespace' => 'App\Controllers'], function($routes){
