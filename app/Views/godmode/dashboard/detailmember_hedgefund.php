@@ -67,7 +67,7 @@
                     </div>
 
                     <!-- Subscription Status -->
-<!--                    <div class="label">Subscription Status</div>
+                    <!--                    <div class="label">Subscription Status</div>
                     <div class="value">
                         <?php
                         //echo $member->membership_status ?? 'N/A';
@@ -77,23 +77,27 @@
                     <!-- Subscription Plan -->
                     <!--<div class="label">Subscription Plan</div>-->
                     <!--<div class="value">-->
-                        <?php
-                        //echo $member->subscription_plan ?? 'N/A';
-                        ?>
+                    <?php
+                    //echo $member->subscription_plan ?? 'N/A';
+                    ?>
                     <!--</div>-->
                     <!-- Upline Code -->
                     <div class="label">Upline Email</div>
-                    <div class="value">
-                        <?=$member->upline_referral?>
+                    <div class="d-flex align-items-center">
+                        <p class="value  d-flex justify-content-center mb-0">
+                            <?= $member->upline_referral ?>
+                        </p>
+                        <button type="submit" class="mx-2 btn btn-primary" id="btnChangeUpline">change</button>
                     </div>
-                        
+
+
                     <!-- Referral Code -->
                     <div class="label">Referral Code</div>
                     <div class="d-flex align-items-center">
                         <form action="<?= BASE_URL ?>godmode/referral/update_refcode" method="POST" class="d-flex align-items-center">
                             <input type="hidden" name="email" value="<?= $email ?>">
                             <input type="hidden" name="idmember" value="<?= $member->id ?>">
-                            <input class="me-2" type="text" name="refcode" id="refcode" class="form-control" data-refcode="<?= $member->refcode?>" value="<?= $member->refcode?>" style="min-width: 28ch;">
+                            <input class="me-2" type="text" name="refcode" id="refcode" class="form-control" data-refcode="<?= $member->refcode ?>" value="<?= $member->refcode ?>" style="min-width: 28ch;">
                             <button type="submit" class="mx-2 btn btn-primary" id="changereff" disabled>change</button>
                         </form>
                         <a onclick="removeref('<?= $member->id ?>')" class="mx-2 btn btn-primary" id="removeref">Remove</a>
@@ -130,7 +134,7 @@
                         <div class="card rounded" style="width: 18rem;background-color: #bfa573;">
                             <div class="card-body p-2">
                                 <h5 class="card-title text-black mb-0 fw-bold">USDT </h5>
-                                <h2 class="text-right text-black"><?= '$ ' . @number_format($balance["fund"]->usdt?? 0, 2, '.', ',') ?></h2>
+                                <h2 class="text-right text-black"><?= '$ ' . @number_format($balance["fund"]->usdt ?? 0, 2, '.', ',') ?></h2>
                             </div>
                         </div>
                         <div class="card rounded" style="width: 18rem;background-color: #bfa573;">
@@ -290,32 +294,58 @@
 
 <!-- Modal -->
 <div class="modal fade" id="modal_topup" tabindex="-1" role="dialog" aria-labelledby="centerModal" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered" role="document">
-    <div class="modal-content">
-        <form action="<?=BASE_URL?>godmode/dashboard/manualtopup" method="post">
-          <input type="hidden" name="member_id" value="<?= $member->id ?>">
-          <input type="hidden" id="email" name="email" value="<?= $email ?>">
-          <div class="modal-header">
-            <h5 class="modal-title" id="centerModal" style="color:black">Topup</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div class="modal-body text-center">
-            <div class="row justify-content-center">
-                <div class="col-12">
-                    <strong>Amount</strong>
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <form action="<?= BASE_URL ?>godmode/dashboard/manualtopup" method="post">
+                <input type="hidden" name="member_id" value="<?= $member->id ?>">
+                <input type="hidden" id="email" name="email" value="<?= $email ?>">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="centerModal" style="color:black">Topup</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
                 </div>
-                <div class="col-6">
-                  <input type="number" id="amount" name="amount" class="form-control mx-auto">
+                <div class="modal-body text-center">
+                    <div class="row justify-content-center">
+                        <div class="col-12">
+                            <strong>Amount</strong>
+                        </div>
+                        <div class="col-6">
+                            <input type="number" id="amount" name="amount" class="form-control mx-auto">
+                        </div>
+                    </div>
                 </div>
-            </div>
-          </div>
-          <div class="modal-footer">
-            <button type="button" id="btnclose" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            <button type="submit" id="btnsubmit" class="btn btn-primary">Process</button>
-          </div>
-        </form>
+                <div class="modal-footer">
+                    <button type="button" id="btnclose" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="submit" id="btnsubmit" class="btn btn-primary">Process</button>
+                </div>
+            </form>
+        </div>
     </div>
-  </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="changeUplineModal" tabindex="-1" aria-labelledby="changeUplineModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form method="POST" action="<?= base_url('godmode/dashboard/changeupline') ?>">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="changeUplineModalLabel">Change Upline</h5>
+                </div>
+
+                <div class="modal-body">
+                    <label for="newReferral" style="display:block; font-weight:500;">Referral Code</label>
+                    <input type="text" id="newReferral" name="new_referral" required>
+
+                    <!-- tambahkan hidden input untuk ID member -->
+                    <input type="hidden" name="member_email" value="<?= $email ?>">
+                </div>
+
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-success">Simpan</button>
+                    <button id="btnCancelUpline" type="button" class="btn btn-danger" data-bs-dismiss="modal">Batal</button>
+                </div>
+            </form>
+        </div>
+    </div>
 </div>
