@@ -114,11 +114,26 @@
 
     });
 
+    // function deletemember(email) {
+    //     if (confirm("Are you sure you want to delete this user :" + email + "?")) {
+    //         window.location.replace("<?= BASE_URL ?>godmode/dashboard/deletemember/luxbtc/" + encodeURI(btoa(email)));
+    //     }
+    // }
+
     function deletemember(email) {
-        if (confirm("Are you sure you want to delete this user?")) {
-            window.location.replace("<?= BASE_URL ?>godmode/dashboard/deletemember/luxbtc/" + encodeURI(btoa(email)));
+        if (confirm("Are you sure you want to delete this user: " + email + " ?")) {
+            let confirmEmail = prompt("Please type the email of the user to confirm deletion:");
+
+            if (confirmEmail === email) {
+                // lanjut delete kalau email sama persis
+                window.location.replace("<?= BASE_URL ?>godmode/dashboard/deletemember/luxbtc/" + encodeURIComponent(btoa(email)));
+            } else if (confirmEmail !== null) {
+                // kalau salah ketik tapi tidak cancel
+                alert("Email confirmation does not match. Deletion cancelled.");
+            }
         }
     }
+
 
     function disabledmember(email) {
         if (confirm("Are you sure you want to disabled this user?")) {
@@ -131,5 +146,4 @@
             window.location.replace("<?= BASE_URL ?>godmode/dashboard/set_statusmember/luxbtc/" + encodeURI(btoa(email)) + "/active");
         }
     }
-
 </script>
