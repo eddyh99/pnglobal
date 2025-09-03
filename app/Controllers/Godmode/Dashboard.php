@@ -177,7 +177,8 @@ class Dashboard extends BaseController
 
     public function luxbtc()
     {
-        $urlglobal = URLAPI . "/v1/member/get_membership";
+        // $urlglobal = URLAPI . "/v1/member/get_membership";
+        $urlglobal = URL_HEDGEFUND . "/v2/member/get_membership";
         $resultglobal = satoshiAdmin($urlglobal)->result;
 
         // PN Global
@@ -243,11 +244,11 @@ class Dashboard extends BaseController
             case 'hedgefund':
                 $url = URL_HEDGEFUND . "/v1/member/get_detailmember";
                 break;
-            default:
-                $url = URLAPI . "/v1/member/get_detailmember";
+                default:
+                $url = URL_HEDGEFUND . "/v2/member/get_detailmember";
+                // $url = URLAPI . "/v1/member/get_detailmember";
                 break;
         }
-        
         log_message('debug', 'Detail member - Using API URL: ' . $url);
 
         // $resultMember = $tab === 'satoshi-signal'
@@ -265,7 +266,7 @@ class Dashboard extends BaseController
                 $resultMember = satoshiAdmin($url, json_encode(['email' => $finalemail]))->result;
                 break;
         }
-        
+
         $member_id = $resultMember->message->id;
         $url = URL_HEDGEFUND . "/v1/member/balance";
 
@@ -388,7 +389,8 @@ class Dashboard extends BaseController
                 $url = URLAPI2 . "/v1/member/delete_member?email=".$email;
                 break;
             default:
-                $url = URLAPI . "/v1/member/destroy";
+                // $url = URLAPI . "/v1/member/destroy";
+                $url = URL_HEDGEFUND . "/v2/member/destroy";
                 break;
         }
 
@@ -416,7 +418,8 @@ class Dashboard extends BaseController
                 $url = URLAPI2 . "/v1/referral/getDownline?id=".$id;
                 break;
             default:
-                $url = URLAPI . "/v1/member/list_downline?id_member=" . $id;
+                // $url = URLAPI . "/v1/member/list_downline?id_member=" . $id;
+                $url = URL_HEDGEFUND . "/v2/member/list_downline?id_member=" . $id;
                 break;
         }
         
@@ -452,7 +455,8 @@ class Dashboard extends BaseController
                 $url = URLAPI2 . "/v1/member/" .($status == 'disabled' ? 'disable' : 'enable'). "_member?email=".$email;
                 break;
             default:
-                $url = URLAPI . "/v1/member/set_status";
+                // $url = URLAPI . "/v1/member/set_status";
+                $url = URL_HEDGEFUND . "/v2/member/set_status";
                 break;
         }
         // $url = URLAPI . "/v1/member/set_status";

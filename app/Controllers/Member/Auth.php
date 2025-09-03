@@ -70,10 +70,11 @@ class Auth extends BaseController
         // Password Encrypt
         $mdata['password'] = sha1($mdata['password']);
 
-        // Proccess Endpoin API
-        $url = URLAPI . "/auth/signin";
-        $response = satoshiAdmin($url, json_encode($mdata));
-        $result = $response->result;
+		// Proccess Endpoin API
+		// $url = URLAPI . "/auth/signin";
+		$url = URL_HEDGEFUND . "/v2/auth/signin";
+		$response = satoshiAdmin($url, json_encode($mdata));
+		$result = $response->result;
 
 		if ($response->status == 200 || $result->code == 200) {
 			$loggedUser = $result->message;
