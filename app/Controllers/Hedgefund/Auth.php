@@ -457,6 +457,8 @@ class Auth extends BaseController
 		return redirect()->to(base_url() . 'hedgefund/auth/payment_option');
 	}
 
+	/* 
+	Payment Lama
 	public function usdt_payment()
 	{
 		$payamount  = $_SESSION["payment_data"]["amount"];
@@ -503,6 +505,7 @@ class Auth extends BaseController
 
 		return redirect()->to($paymentResponse['result']['checkout_url']);
 	}
+	*/
 
 	public function forgot_password()
 	{
@@ -513,6 +516,109 @@ class Auth extends BaseController
 		];
 
 		return view('member/layout/login_wrapper', $mdata);
+	}
+
+	public function check_wallet_hedgefund()
+	{
+		// Ambil data POST JSON dari request
+		$data = $this->request->getJSON();
+		$email = $data->email ?? null;   // email dikirim dari JS
+		$type  = $data->type  ?? 'hedgefund'; // default type
+
+		// Panggil API internal/remote untuk cek wallet
+		$url = URL_HEDGEFUND . "/auth/check_wallet";
+		$response = satoshiAdmin($url, json_encode(['email' => $email, 'type' => $type]));
+
+		return $this->response->setJSON($response->result);
+	}
+
+	public function create_wallet_hedgefund()
+	{
+		$data = $this->request->getJSON();
+		$email = $data->email ?? null;   // email dikirim dari JS
+		$type  = $data->type  ?? 'hedgefund'; // default type
+
+		$url = URL_HEDGEFUND . "/auth/create_wallet";
+		$response = satoshiAdmin($url, json_encode(['email' => $email, 'type' => $type]))->result;
+		return $this->response->setJSON($response);
+	}
+
+	public function usdt_payment()
+	{
+		$payamount  = $_SESSION["payment_data"]["amount"];
+		$email = session()->get('reg_user')->email ?? null;
+
+		$mdata = [
+			'title'     => 'USDT Network - ' . NAMETITLE,
+			'content'   => 'hedgefund/subscription/crypto_wallet_option',
+			'extra'     => 'hedgefund/subscription/js/_js_crypto_wallet_option',
+			'email'     => $email,
+			'payamount' => $payamount,
+		];
+
+		return view('hedgefund/layout/wrapper', $mdata);
+	}
+
+	public function usdc_payment()
+	{
+		$payamount  = $_SESSION["payment_data"]["amount"];
+		$email = session()->get('reg_user')->email ?? null;
+
+		$mdata = [
+			'title'     => 'USDC Network - ' . NAMETITLE,
+			'content'   => 'hedgefund/subscription/crypto_wallet_option',
+			'extra'     => 'hedgefund/subscription/js/_js_crypto_wallet_option',
+			'email'     => $email,
+			'payamount' => $payamount,
+		];
+
+		return view('hedgefund/layout/wrapper', $mdata);
+	}
+	
+	public function deposit_payment($type, $network = null)
+	{
+		$type = strtoupper($type);
+		$networkType = $network; // enum('erc20','bep20','polygon','trc20','base','solana')
+		$email = session()->get('reg_user')->email ?? null;
+
+		$payamount  = $_SESSION["payment_data"]["amount"];
+		$totalCapital = $_SESSION["payment_data"]["totalcapital"];
+		$fee = $payamount - $totalCapital;
+
+		// Generate Invoice
+		$postData = [
+			'email' => $email,
+			'amount' => $_SESSION["payment_data"]["totalcapital"],
+		];
+		$url_deposit        = URL_HEDGEFUND . "/non/deposit";
+		$invoice   = satoshiAdmin($url_deposit, json_encode($postData))->result->message;
+		$orderId    = $invoice;
+
+		// Cek wallet
+		$url = URL_HEDGEFUND . "/auth/get_crypto_wallet";
+		$wallet = satoshiAdmin($url, json_encode(['type' => "hedgefund", 'network' => $networkType, 'email' => $email]));
+
+
+		if (isset($wallet->result->code) && $wallet->result->code == 200) {
+			// Wallet ditemukan, tampilkan halaman deposit
+			$mdata = [
+				'title'      => 'Payment Crypto - ' . NAMETITLE,
+				'content'    => 'hedgefund/subscription/register_deposit_crypto',
+				'extra'      => 'hedgefund/subscription/js/_js_deposit_crypto',
+				'type'       => $type,
+				'network'    => $networkType,
+				'wallet'     => $wallet->result->message,
+				'payamount'  => $payamount,
+				'total'      => $totalCapital,
+				'fee'        => $fee,
+				'order_id'   => $orderId,
+			];
+
+			return view('hedgefund/layout/wrapper', $mdata);
+		} else {
+			// Wallet tidak ditemukan, redirect ke halaman sebelumnya
+			return redirect()->back()->with('error', 'Wallet tidak ditemukan, silakan buat wallet terlebih dahulu.');
+		}
 	}
 
 	public function us_bank_payment()
