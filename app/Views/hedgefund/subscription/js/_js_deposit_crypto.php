@@ -1,5 +1,36 @@
-
 <style>
+    /* Modal overlay */
+    #walletModal {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        justify-content: center;
+        align-items: center;
+        z-index: 9999;
+    }
+
+    /* Modal content */
+    #walletModal>div {
+        background: #fff;
+        padding: 2rem;
+        border-radius: 0.5rem;
+        width: 90%;
+        /* Jangan gunakan 100% agar ada margin */
+        max-width: 400px;
+        /* Maksimal lebar modal */
+        box-sizing: border-box;
+        /* Pastikan padding tidak menambah width */
+        text-align: center;
+        position: relative;
+        word-break: break-word;
+        /* Agar teks panjang seperti wallet tidak melebar */
+    }
+
+
     .invoice-table {
         width: 100%;
         border-collapse: collapse;
@@ -80,5 +111,76 @@
     `;
         document.body.appendChild(alertBox);
         setTimeout(() => alertBox.remove(), 3000);
+    }
+</script>
+
+<script>
+    function closeModal() {
+        document.getElementById('walletModal').style.display = 'none';
+    }
+
+    function checkWallet() {
+        const address = document.getElementById('addressWallet').value.trim();
+        // const address = "0x98B4be9C7a32A5d3bEFb08bB98d65E6D204f7E98"; // ada usdtnya
+        // const address = "0x11a0c9270D88C99e221360BCA50c2f6Fda44A980"; // ada usdcnya
+        const coint_network = "<?= $coint_network ?>";
+
+        fetch('<?= BASE_URL ?>/hedgefund/auth/check_wallet_bep20', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    wallet_address: address,
+                    token: coint_network
+                })
+            })
+            .then(response => response.json())
+            .then(data => {
+
+                let title = "";
+                let message = "";
+
+                if (data.status === "success") {
+                    if (parseFloat(data.balance) === 0) {
+                        title = "Balance Not Sent Yet";
+                        message = `Wallet: ${data.wallet_address} <br> Token: ${data.token} <br> Balance: ${data.balance}`;
+                    } else {
+                        title = "Transaction Successful";
+                        message = `Wallet: ${data.wallet_address} <br> Token: ${data.token} <br> Balance: ${data.balance}`;
+
+                        // Kirim order_id ke server
+                        fetch('<?= BASE_URL ?>/hedgefund/auth/deposit_payment_crypto_update', {
+                                method: 'POST',
+                                headers: {
+                                    'Content-Type': 'application/json',
+                                    'Accept': 'application/json',
+                                },
+                                body: JSON.stringify({
+                                    invoice: "<?= $order_id ?>" // hanya mengirim order_id
+                                })
+                            })
+                            .then(response => response.json())
+                            .then(result => {
+                                console.log('Update successful:', result);
+                            })
+                            .catch(error => {
+                                console.error('Error updating payment:', error);
+                            });
+                    }
+                } else {
+                    title = "Error";
+                    message = "An error occurred while checking the wallet.";
+                }
+
+
+                document.getElementById('modalTitle').innerHTML = title;
+                document.getElementById('modalMessage').innerHTML = message;
+                document.getElementById('walletModal').style.display = 'flex';
+            })
+            .catch(err => {
+                alert("Gagal memeriksa wallet: " + err);
+                console.error(err);
+            });
     }
 </script>

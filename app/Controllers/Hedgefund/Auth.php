@@ -574,24 +574,55 @@ class Auth extends BaseController
 
 		return view('hedgefund/layout/wrapper', $mdata);
 	}
-	
+
+	public function check_wallet_bep20()
+	{
+		$data = $this->request->getJSON();
+		$wallet_address = $data->wallet_address ?? null;
+		$token = $data->token;
+
+		$url = URL_HEDGEFUND . "/auth/check_wallet_bep20";
+		$response = satoshiAdmin($url, json_encode(['wallet_address' => $wallet_address, 'token' => $token]));
+
+		return $this->response->setJSON($response->result);
+	}
+
+	public function deposit_payment_crypto_update()
+	{
+		$data = $this->request->getJSON();
+		$invoice = $data->invoice ?? null;
+
+		$url = URL_HEDGEFUND . "/non/crypto-deposit-update";
+		$response = satoshiAdmin($url, json_encode(['invoice' => $invoice]))->result;
+		return $this->response->setJSON($response);
+	}
+
 	public function deposit_payment($type, $network = null)
 	{
 		$type = strtoupper($type);
 		$networkType = $network; // enum('erc20','bep20','polygon','trc20','base','solana')
 		$email = session()->get('reg_user')->email ?? null;
 
+		$coint_network = strtolower($type . '_' . $networkType); // contoh: usdt_bep20, usdc_erc20 untuk digunakan di API
+
 		$payamount  = $_SESSION["payment_data"]["amount"];
 		$totalCapital = $_SESSION["payment_data"]["totalcapital"];
 		$fee = $payamount - $totalCapital;
 
-		// Generate Invoice
-		$postData = [
-			'email' => $email,
-			'amount' => $_SESSION["payment_data"]["totalcapital"],
-		];
-		$url_deposit        = URL_HEDGEFUND . "/non/deposit";
-		$invoice   = satoshiAdmin($url_deposit, json_encode($postData))->result->message;
+		if (!isset($_SESSION["payment_data"]["order_id"])) {
+			// Generate Invoice
+			$postData = [
+				'email' => $email,
+				'amount' => $_SESSION["payment_data"]["totalcapital"],
+				'payment_type' => $coint_network,
+			];
+			$url_deposit        = URL_HEDGEFUND . "/non/deposit";
+			$invoice   = satoshiAdmin($url_deposit, json_encode($postData))->result->message;
+			// Simpan di session
+			$_SESSION["payment_data"]["order_id"] = $invoice;
+		} else {
+			$invoice = $_SESSION["payment_data"]["order_id"];
+		}
 		$orderId    = $invoice;
 
 		// Cek wallet
@@ -612,6 +643,7 @@ class Auth extends BaseController
 				'total'      => $totalCapital,
 				'fee'        => $fee,
 				'order_id'   => $orderId,
+				'coint_network' => $coint_network,
 			];
 
 			return view('hedgefund/layout/wrapper', $mdata);
@@ -627,6 +659,7 @@ class Auth extends BaseController
 		$url   = URL_HEDGEFUND . "/non/us-bank";
 		$bank  = satoshiAdmin($url);
 		$feebank = $bank->result->data->us_bank_fee_setting;
+		$payment_type = 'us_bank';
 
 		// Ambil data pembayaran dari session
 		$payamount     = $_SESSION["payment_data"]["amount"];
@@ -636,6 +669,7 @@ class Auth extends BaseController
 		$postData = [
 			'email'  => $customerEmail,
 			'amount' => $_SESSION["payment_data"]["totalcapital"],
+			'payment_type' => $payment_type,
 		];
 
 		// Buat invoice
@@ -667,6 +701,7 @@ class Auth extends BaseController
 		$url   = URL_HEDGEFUND . "/non/international-bank";
 		$bank  = satoshiAdmin($url);
 		$feebank = $bank->result->data->inter_fee_setting;
+		$payment_type = 'international_bank';
 
 		// Ambil data pembayaran dari session
 		$payamount     = $_SESSION["payment_data"]["amount"];
@@ -676,6 +711,7 @@ class Auth extends BaseController
 		$postData = [
 			'email'  => $customerEmail,
 			'amount' => $_SESSION["payment_data"]["totalcapital"],
+			'payment_type' => $payment_type,
 		];
 
 		// Buat invoice
@@ -1037,8 +1073,6 @@ class Auth extends BaseController
 			return redirect()->to(BASE_URL . 'hedgefund/auth/reset_password_confirmation/')->withInput();
 		}
 	}
-
-
 
 	public function logout()
 	{

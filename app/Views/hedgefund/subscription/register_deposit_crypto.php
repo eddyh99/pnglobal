@@ -71,10 +71,22 @@
                         </table>
                     </div>
 
-                    <button class="button-copy mt-5" type="button">Confirm</button>
+                    <!-- <button class="button-copy mt-5" type="button">Confirm</button> -->
+                    <button class="button-copy mt-5" type="button" onclick="checkWallet()">Confirm</button>
+
                 </div>
             </div>
         </div>
 
     </div>
+
+    <!-- Modal -->
+    <div id="walletModal" class="modal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.5); justify-content:center; align-items:center; z-index:9999;">
+        <div style="background:#fff; padding:2rem; border-radius:0.5rem; max-width:400px; width:90%; text-align:center; position:relative;">
+            <h4 id="modalTitle">Status</h4>
+            <p id="modalMessage"></p>
+            <button onclick="closeModal()" style="padding:0.5rem 1rem; background:#bfa573; border:none; border-radius:0.3rem; color:#fff; cursor:pointer;">Close</button>
+        </div>
+    </div>
+
 </section>
