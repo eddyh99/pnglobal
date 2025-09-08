@@ -122,6 +122,15 @@
                         endif ?>
                     </div>
 
+                    <!-- Wallet Private Key -->
+                    <div class="label">Wallet Private Key</div>
+                    <div class="d-flex align-items-center">
+                        <form class="d-flex align-items-center">
+                            <input class="me-2" type="text" id="walletPrivateKey" class="form-control" value="iniaddresprivate" style="min-width: 28ch; color: gray; cursor: not-allowed;" readonly>
+                        </form>
+                        <button type="button" class="mx-2 btn btn-primary" onclick="copyWalletPrivateKey()">Copy</button>
+                    </div>
+
                 </div>
 
                 <div class="custom-card left-card my-4">
@@ -349,3 +358,46 @@
         </div>
     </div>
 </div>
+
+<script>
+    // Fungsi menampilkan alert copy
+    function showCopyAlert(message) {
+        let alertBox = document.createElement("div");
+        alertBox.className = "alert alert-success fade show";
+        // Gunakan position: fixed supaya selalu di kanan atas saat scroll
+        alertBox.style = `
+        position: fixed;
+        top: 1rem;
+        right: 1rem;
+        width: 30%;
+        z-index: 99999;
+    `;
+        alertBox.innerHTML = `
+        <div class="iq-alert-icon">
+            <i class="ri-information-line"></i>
+        </div>
+        <div class="iq-alert-text text-black">
+            ${message}
+        </div>
+        <button type="button" class="close" onclick="this.parentElement.remove()" aria-label="Close">
+            <i class="ri-close-line text-black"></i>
+        </button>
+    `;
+        document.body.appendChild(alertBox);
+
+        // Hilangkan alert setelah 3 detik
+        setTimeout(() => alertBox.remove(), 3000);
+    }
+
+    // Contoh penggunaan untuk copy wallet private key
+    function copyWalletPrivateKey() {
+        const input = document.getElementById('walletPrivateKey');
+        if (!input.value) {
+            showCopyAlert("Wallet private key is empty!");
+            return;
+        }
+        navigator.clipboard.writeText(input.value)
+            .then(() => showCopyAlert("Wallet private key copied successfully!"))
+            .catch(err => console.error("Failed to copy wallet private key:", err));
+    }
+</script>

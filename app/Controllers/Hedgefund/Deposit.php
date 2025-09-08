@@ -285,10 +285,13 @@ class Deposit extends BaseController
         $payamount  = $_SESSION["payment_data"]["amount"];
         $customerEmail = $_SESSION["logged_user"]->email;
         $customerId = $_SESSION["logged_user"]->id;
+        $payment_type = 'us_bank';
+
         $postData = [
             'email' => $customerEmail,
             'amount' => $_SESSION["payment_data"]["totalcapital"],
-            'member_id' => $customerId
+            'member_id' => $customerId,
+            'payment_type' => $payment_type
         ];
 
         $url        = URL_HEDGEFUND . "/non/deposit";
@@ -343,10 +346,12 @@ class Deposit extends BaseController
         $payamount  = $_SESSION["payment_data"]["amount"];
         $customerEmail = $_SESSION["logged_user"]->email;
         $customerId = $_SESSION["logged_user"]->id;
+        $payment_type = 'international_bank';
         $postData = [
             'email' => $customerEmail,
             'amount' => $_SESSION["payment_data"]["totalcapital"],
-            'member_id' => $customerId
+            'member_id' => $customerId,
+            'payment_type' => $payment_type
         ];
 
         $url        = URL_HEDGEFUND . "/non/deposit";
