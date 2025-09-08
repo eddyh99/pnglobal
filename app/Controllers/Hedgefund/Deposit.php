@@ -22,7 +22,7 @@ class Deposit extends BaseController
         $loggedUser = $session->get('logged_user');
 
         // Pengecekan role: hanya admin yang boleh mengakses halaman ini
-        if (!in_array($loggedUser->role, ['member', 'referral','superadmin'])) {
+        if (!in_array($loggedUser->role, ['member', 'referral', 'superadmin'])) {
             header("Location: " . BASE_URL . 'hedgefund/auth/login');
             exit();
         }
@@ -48,7 +48,7 @@ class Deposit extends BaseController
         $role = $_SESSION["logged_user"]->role;
         $mdata = [
             'title'     => 'Deposit - ' . NAMETITLE,
-            'content'   => ($role=="superadmin") ? 'hedgefund/deposit/admin_capital':'hedgefund/deposit/set_capital',
+            'content'   => ($role == "superadmin") ? 'hedgefund/deposit/admin_capital' : 'hedgefund/deposit/set_capital',
             'extra'     => 'hedgefund/deposit/js/_js_capital_investment',
             'active_deposit'    => 'active',
             'methodPayment'  => $methodPayment,
@@ -98,7 +98,7 @@ class Deposit extends BaseController
                 ])->setStatusCode(400);
             }
 
-            if($amount != $payment_amount) {
+            if ($amount != $payment_amount) {
                 return $this->response->setJSON([
                     'status' => 'error',
                     'message' => 'Payment amount does not match the required value'
@@ -139,27 +139,27 @@ class Deposit extends BaseController
             ],
         ]);
 
-        
+
         // Checking Validation
         if (!$rules) {
             session()->setFlashdata('failed', $this->validation->listErrors());
             return redirect()->to(BASE_URL . 'hedgefund/deposit')->withInput();
         }
-        
+
         $amount = $this->request->getVar('amount');
         $url = URL_HEDGEFUND . '/v1/member/admin_deposit';
-        $result = satoshiAdmin($url,json_encode(['amount'=>$amount]))->result;
+        $result = satoshiAdmin($url, json_encode(['amount' => $amount]))->result;
 
-        if (@$result->code!=200){
+        if (@$result->code != 200) {
             session()->setFlashdata('failed', $result->message);
             return redirect()->to(BASE_URL . 'hedgefund/deposit');
         }
-        
+
         session()->setFlashdata('success', 'Deposit is successfully added');
         return redirect()->to(BASE_URL . 'hedgefund/deposit');
     }
-    
-    
+
+
     public function option()
     {
         $mdata = [
@@ -220,6 +220,7 @@ class Deposit extends BaseController
         return redirect()->to(base_url() . 'hedgefund/auth/payment_option');
     }
 
+    /* OLD FUNCTIONS - IGNORE
     public function usdt_payment()
     {
         $payamount  = $_SESSION["payment_data"]["amount"];
@@ -268,6 +269,7 @@ class Deposit extends BaseController
 
         return redirect()->to($paymentResponse['result']['checkout_url']);
     }
+    */
 
     public function get_history()
     {
@@ -400,7 +402,7 @@ class Deposit extends BaseController
         $payamount = session()->get('bank_payment_amount');
         $fee       = 50;
         $total     = $payamount + $fee;
-        
+
         $url = URL_HEDGEFUND . "/non/bank";
         $result = satoshiAdmin($url);
 
@@ -413,9 +415,115 @@ class Deposit extends BaseController
             'payamount'      => $payamount,
             'fee'            => $fee,
             'total'          => $total,
-            'bank'           => @$result->result->data            
+            'bank'           => @$result->result->data
         ];
 
         return view('hedgefund/layout/dashboard_wrapper', $mdata);
+    }
+
+    public function usdt_payment()
+    {
+        $method_payment = 'usdt';
+        $email = $_SESSION['logged_user']->email;
+
+        $mdata = [
+            'title'     => 'Option Network- ' . NAMETITLE,
+            'content'   => 'hedgefund/deposit/crypto_wallet_option',
+            'extra'     => 'hedgefund/deposit/js/_js_crypto_wallet_option',
+            'active_deposit'    => 'active',
+            'method_payment'  => $method_payment,
+            'email' => $email
+        ];
+
+        return view('hedgefund/layout/dashboard_wrapper', $mdata);
+    }
+
+    public function usdc_payment()
+    {
+        $method_payment = 'usdc';
+        $email = $_SESSION['logged_user']->email;
+
+        $mdata = [
+            'title'     => 'Option Network- ' . NAMETITLE,
+            'content'   => 'hedgefund/deposit/crypto_wallet_option',
+            'extra'     => 'hedgefund/deposit/js/_js_crypto_wallet_option',
+            'active_deposit'    => 'active',
+            'method_payment'  => $method_payment,
+            'email' => $email
+        ];
+
+        return view('hedgefund/layout/dashboard_wrapper', $mdata);
+    }
+
+    public function crypto_wallet($method_payment, $network)
+    {
+        // =========================
+        // 1. Pastikan session tersedia
+        // =========================
+        if (!session()->has('payment_data')) {
+            return redirect()->to(BASE_URL . 'hedgefund/deposit');
+        }
+
+        $paymentData = $_SESSION["payment_data"];
+        $payAmount    = $paymentData["amount"];
+        $totalCapital = $paymentData["totalcapital"];
+        $fee          = $payAmount - $totalCapital;
+
+        $type         = strtoupper($method_payment); // usdt / usdc
+        $networkType  = $network;
+        $cointNetwork = strtolower($type . '_' . $networkType); // contoh: usdt_bep20, usdc_erc20
+        $email        = session()->get('logged_user')->email ?? null;
+
+        // =========================
+        // 2. Generate invoice baru jika metode berbeda atau belum ada
+        // =========================
+        $prevInvoice  = $paymentData["order_id"] ?? null;
+        $prevNetwork  = $paymentData["coint_network"] ?? null;
+
+        if (!$prevInvoice || $prevNetwork !== $cointNetwork) {
+            $postData = [
+                'email'        => $email,
+                'amount'       => $totalCapital,
+                'payment_type' => $cointNetwork,
+            ];
+
+            $urlDeposit = URL_HEDGEFUND . "/non/deposit";
+            $invoice    = satoshiAdmin($urlDeposit, json_encode($postData))->result->message;
+            // Simpan invoice dan metode di session
+            $_SESSION["payment_data"]["order_id"]      = $invoice;
+            $_SESSION["payment_data"]["coint_network"] = $cointNetwork;
+        } else {
+            $invoice = $prevInvoice;
+        }
+
+        // =========================
+        // 3. Ambil wallet crypto
+        // =========================
+        $urlWallet = URL_HEDGEFUND . "/auth/get_crypto_wallet";
+        $wallet    = satoshiAdmin($urlWallet, json_encode([
+            'type'    => "hedgefund",
+            'network' => $networkType,
+            'email'   => $email
+        ]));
+
+        // =========================
+        // 4. Siapkan data untuk view
+        // =========================
+        $viewData = [
+            'title'          => 'Payment Option - ' . NAMETITLE,
+            'content'        => 'hedgefund/deposit/deposit_crypto_wallet',
+            'extra'          => 'hedgefund/deposit/js/_js_deposit_crypto_wallet',
+            'active_deposit' => 'active',
+            'method_payment' => $method_payment,
+            'wallet'         => $wallet->result->message,
+            'network'        => $networkType,
+            'coint_network'  => $cointNetwork,
+            'total_payamount'     => $payAmount,
+            'total_capital'  => $totalCapital,
+            'fee'            => $fee,
+            'order_id'       => $invoice
+        ];
+
+        return view('hedgefund/layout/dashboard_wrapper', $viewData);
     }
 }
