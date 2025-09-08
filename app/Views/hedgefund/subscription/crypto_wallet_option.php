@@ -21,7 +21,6 @@
                     <a href="<?= BASE_URL ?>hedgefund/auth/deposit_payment/usdt/polygon" class="btn btn-primary btn-lg w-75 mt-3">Polygon</a>
                 <?php elseif (str_contains($currentUrl, 'usdc_payment')): ?>
                     <a href="<?= BASE_URL ?>hedgefund/auth/deposit_payment/usdc/bep20" class="btn btn-primary btn-lg w-75">BEP 20</a>
-                    <a href="<?= BASE_URL ?>hedgefund/auth/deposit_payment/usdc/trc20" class="btn btn-primary btn-lg w-75 mt-3">TRC 20</a>
                     <a href="<?= BASE_URL ?>hedgefund/auth/deposit_payment/usdc/erc20" class="btn btn-primary btn-lg w-75 mt-3">ERC 20</a>
                     <a href="<?= BASE_URL ?>hedgefund/auth/deposit_payment/usdc/polygon" class="btn btn-primary btn-lg w-75 mt-3">Polygon</a>
                     <a href="<?= BASE_URL ?>hedgefund/auth/deposit_payment/usdc/base" class="btn btn-primary btn-lg w-75 mt-3">Base</a>

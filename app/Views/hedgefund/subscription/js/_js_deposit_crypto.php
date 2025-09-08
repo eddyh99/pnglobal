@@ -121,11 +121,33 @@
 
     function checkWallet() {
         const address = document.getElementById('addressWallet').value.trim();
-        // const address = "0x98B4be9C7a32A5d3bEFb08bB98d65E6D204f7E98"; // ada usdtnya
-        // const address = "0x11a0c9270D88C99e221360BCA50c2f6Fda44A980"; // ada usdcnya
+
+
+        // =========== TESTING =============
+        // BEP20 USDT & USDC
+        // const address = "0x98B4be9C7a32A5d3bEFb08bB98d65E6D204f7E98"; // ada usdtnya bep20
+        // const address = "0x11a0c9270D88C99e221360BCA50c2f6Fda44A980"; // ada usdcnya bep20
+
+        // POLYGON USDT & USDC
+        // const address = "0x8d038098fBA26a55Dd9b4eeBAe642480A52eeED8"; // ada usdt polygon
+        // const address = "0x937Fe3Ff2A9B7C24F4a340E287Ed94957424f735"; // ada usdc polygon
+
+        // ERC20 USDC & USDT
+        // const address = "0xe3D41d19564922C9952f692C5Dd0563030f5f2EF"; // ada usdc & Usdt erc20
+
+        // TRC20 USDT
+        // const address = "TCjVk9L3LJLC5UiUawXfHa3USTUY7syEFL"; // ada usdt trc20
+
+        // BASE USDC
+        // const address = "0x61edFCbdfc36ae06CaCF36e8cC824a2aDEaBffff"; // ada usdc base
+
+        // SOLANA USDC
+        // const address = "53bmyryLj1RGjYWHVXcSz96RK3d8XCGV5bCEpCh5J6u3"; // ada usdc solana
+
+
         const coint_network = "<?= $coint_network ?>";
 
-        fetch('<?= BASE_URL ?>/hedgefund/auth/check_wallet_bep20', {
+        fetch('<?= BASE_URL ?>/hedgefund/auth/check_wallet_balance', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
