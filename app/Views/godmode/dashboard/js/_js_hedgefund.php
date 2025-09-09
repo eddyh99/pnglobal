@@ -8,7 +8,7 @@
     }, 5000);
 
     function deletemember(email) {
-        if (confirm("Are you sure you want to delete this user?")) {
+        if (confirm("Are you sure you want to delete this "+email+" ?")) {
             window.location.replace("<?= BASE_URL ?>godmode/dashboard/deletemember/hedgefund/" + encodeURI(btoa(email)));
         }
     }
@@ -35,18 +35,27 @@
             "url": "<?= BASE_URL ?>godmode/member/get_totalmember_elite",
             "type": "POST",
             "dataSrc": function(data) {
+                console.log(data);
                 return data;
             }
         },
         drawCallback: function () {
           var api = this.api();
-          var fund = api.column(4).data().sum();
-          var trade = api.column(5).data().sum();
-          api.column(4).footer().innerHTML = fund.toFixed(2).toLocaleString('en');
-          api.column(5).footer().innerHTML = trade.toFixed(2).toLocaleString('en');
+          var fund = api.column(5).data().sum();
+          var trade = api.column(6).data().sum();
+          api.column(5).footer().innerHTML = fund.toFixed(2).toLocaleString('en');
+          api.column(6).footer().innerHTML = trade.toFixed(2).toLocaleString('en');
         },        
         "columns": [{
-                data: 'email'
+                data: 'email',
+                render: function (data, type, row) {
+                    if (type === 'display') {
+                        // show shortened email in table
+                        return data.length > 30 ? data.substr(0, 27) + "..." : data;
+                    }
+                    // for filter, sort, export → return full value
+                    return data;
+                }
             },
             {
                 data: 'role',
@@ -78,6 +87,17 @@
                 }
             },
             {
+                data: "has_deposit",
+                className: "text-center",
+                "mRender": function(data, type, full, meta) {
+                    if (data== 1) {
+                        return `<div> Deposit </div>`;
+                    }else{
+                        return '';
+                    }
+                }
+            },            
+            {
                 data: 'referral'
             },
             {
@@ -85,6 +105,9 @@
             },
             {
                 data: 'trade', render: $.fn.dataTable.render.number( ',', '.', 2, '' )
+            },
+            {
+                data: 'trade_btc', render: $.fn.dataTable.render.number( ',', '.', 6, '' )
             },
             {
                 data: null,

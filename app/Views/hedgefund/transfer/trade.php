@@ -70,7 +70,7 @@
                     <input type="hidden" name="from" value="trade">
                     <input type="hidden" name="to" value="fund">
                     <!-- Wallet Info -->
-                    <div class="row text-start mb-5">
+                    <div class="row d-flex justify-content-center text-center mb-5">
                         <!-- Funding Wallet -->
                         <div class="col-md-4">
                             <div class="text-gold mb-2 fw-bold">Funding Wallet</div>
@@ -89,7 +89,7 @@
                         </div>
 
                         <!-- Unified Trading Wallet -->
-                        <div class="col">
+                        <div class="col-md-4">
                             <div class="text-gold mb-2 fw-bold">Unified Trading Wallet</div>
                             <div class="d-flex justify-content-between gap-3">
                                 <div class="px-4 py-2 balance-box text-gold w-50 mr-2">
@@ -106,7 +106,7 @@
                         </div>
 
                         <!-- Commission -->
-                        <div class="col-md-4">
+                        <div class="col-md-2">
                             <div class="text-gold mb-2 fw-bold">Commission</div>
                             <div class="d-flex justify-content-start">
                                 <div class="px-4 py-2 balance-box text-gold">

@@ -16,7 +16,7 @@
                         THE FIRST HEDGE FUND OPERATED ON BINANCE IN BTC\USDT
                     </p>
                 </div>
-                <a class="btn-footer-contactform text-white mt-5" style="background-color: #B48B3D; border-radius: 4px; min-width: 150px; font-weight: bold;" href="<?= BASE_URL ?>hedgefund_result">OUR RESULT</a>
+                <a class="btn-footer-contactform text-white mt-5" style="background-color: #B48B3D; border-radius: 4px; min-width: 150px; font-weight: bold;" href="<?= BASE_URL ?>hedgefund-result">OUR RESULT</a>
             </div>
         </div>
     </div>

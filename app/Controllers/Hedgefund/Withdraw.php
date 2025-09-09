@@ -150,29 +150,6 @@ class Withdraw extends BaseController
         $amount     = $this->request->getVar('amount');
         $type       = $this->request->getVar('type');
         $wallet_address = $this->request->getVar('wallet_address');
-        
-        if ($type === "usdc" || $type === "usdt") {
-        
-            // BEP20 / ERC20 format: starts with 0x + 40 hex chars
-            $isBEP20 = preg_match('/^0x[a-fA-F0-9]{40}$/', $wallet_address);
-        
-            // TRC20 format: starts with T + 33 alphanumeric chars (base58check)
-            $isTRC20 = preg_match('/^T[a-zA-Z0-9]{33}$/', $wallet_address);
-        
-            if (!$isBEP20 && !$isTRC20) {
-                return $this->response->setJSON([
-                    'code' => 400,
-                    'message' => "Invalid wallet address, please use USDT/USDC BEP20 or TRC20"
-                ]);
-            }
-        }
-        
-        if ($type == "btc" && !preg_match('/^(bc1[ac-hj-np-z0-9]{25,39}|[13][a-km-zA-HJ-NP-Z1-9]{25,34})$/', $wallet_address)){
-            return $this->response->setJSON([
-                'code' => 400,
-                'message' => "Invalid wallet address, please use wallet address BTC"
-            ]);
-        }
 
         // protect withdraw balance
         $wdtype=$type;
@@ -204,7 +181,7 @@ class Withdraw extends BaseController
             'account_number' => $this->request->getVar('account_number'),
             'account_type'   => $this->request->getVar('account_type'),
             'swift_code'     => $this->request->getVar('swift_code'),
-            'wallet_address' =>$wallet_address,
+            'wallet_address' => $wallet_address,
             'address'        => $this->request->getVar('address'),
             'city'           => $this->request->getVar('city'),
             'state'          => $this->request->getVar('state'),
@@ -272,13 +249,14 @@ class Withdraw extends BaseController
         }
 
         $balance = $this->get_balance();
-        
+
         $url = URL_HEDGEFUND . "/v1/member/master_trade";
         $result = satoshiAdmin($url)->result;
         $response = $result->message;
         if ($_SESSION["logged_user"]->role=="superadmin"){
             $balance["trade"]->usdt = $response->trade_balance;
         }
+        
         
         $loggedUser = $session->get('logged_user');
         $mdata = [
@@ -358,15 +336,14 @@ class Withdraw extends BaseController
                 'id_member' => 1,
                 'type' => 'fund'
             ]))->result->message;
-    
         $balance = [
             'fund' => (object)[
                 'btc' => $rfund->btc,
                 'usdt' => $rfund->usdt,
             ],
             'trade' => (object)[
-                'btc' => $response->trade_btc,
-                'usdt' => $response->trade_balance,
+                'btc'   => $response->trade_btc,
+                'usdt'  => $response->trade_balance,
             ],
         ];
 

@@ -176,10 +176,11 @@
                                 <th style="font-size: 11px;white-space: nowrap;">REF CODE</th>
                                 <!-- <th>REG. DATE</th> -->
                                 <th>STATUS</th>
-                                <!-- <th>SUBSCRIPTION</th> -->
+                                <th>DEPOSIT?</th> 
                                 <th>REFERRAL</th>
                                 <th>Fund</th>
                                 <th>Trade</th>
+                                <th>BTC</th>
                                 <th>ACTION</th>
                             </tr>
                         </thead>

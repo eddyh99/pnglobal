@@ -73,7 +73,7 @@
                                     <div class="iq-card-body">
                                         <div class="d-flex flex-column justify-content-center align-items-start">
                                             <div>
-                                                <h5 class="text-black">Messe</h5>
+                                                <h5 class="text-black">Mese</h5>
                                             </div>
                                             <div class="mt-3 text-center mx-auto">
                                                 <h2 id="messe" class="text-black fw-bold text-center">Loading...</h2>
@@ -89,7 +89,7 @@
                                     <div class="iq-card-body">
                                         <div class="d-flex flex-column justify-content-center align-items-start">
                                             <div>
-                                                <h5 class="text-black">Media % Messe</h5>
+                                                <h5 class="text-black">Media % Mese</h5>
                                             </div>
                                             <div class="mt-3 text-center mx-auto">
                                                 <h2 id="media%mese" class="text-black fw-bold text-center">Loading...</h2>

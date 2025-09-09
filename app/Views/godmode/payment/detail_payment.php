@@ -93,19 +93,13 @@
 
                     <!-- Subscription Status -->
                     <div class="label">Payment Type</div>
-                    <div class="value"><?= $payment->withdraw_type ?>
+                    <div class="value"><?= $payment->withdraw_type ?> 
                     <?php 
-                        $isTRC20 = preg_match('/^T[a-zA-Z0-9]{33}$/', @$payment->wallet_address);
-                        $isBEP20 = preg_match('/^0x[a-fA-F0-9]{40}$/', @$payment->wallet_address);
-                        if ($isTRC20) : 
-                    ?>
-                            / TRC20
-                    <?php
-                        elseif ($isBEP20) :
-                    ?>
-                            / BEP20
-                    <?php
-                        endif;?>
+                        $details = is_string($payment->payment_details) ? json_decode($payment->payment_details, true) : $payment->payment_details;
+                        if ($payment->withdraw_type!='fiat'){
+                            echo "/".$details->network;
+                        }
+                        ?>
                     </div>
 
                     <!-- Subscription Status -->

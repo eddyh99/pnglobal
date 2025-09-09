@@ -127,7 +127,6 @@ class Payment extends BaseController
         if (empty($resultPayment)) {
             throw PageNotFoundException::forPageNotFound();
         }   
-        // dd($resultPayment);     
 
         return view('godmode/layout/admin_wrapper', $mdata);
     }

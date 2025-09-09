@@ -62,12 +62,12 @@
     .balance-box{
         border: 1px solid #b48b3d; 
         border-radius: 6px; 
-        min-width: 180px;
+        min-width: 185px;
     }
 </style>
 <script>
     const type = <?= json_encode($type); ?>;
-    let balanceUSDT = parseFloat("<?= $balance[$type == 'commission_trade' ? 'commission' : $type]->usdt ?? 0 ?>") || 0;
+    let balanceUSDT = parseFloat("<?= floor($balance[$type == 'commission_trade' ? 'commission' : $type]->usdt* 100) / 100 ?? 0 ?>") || 0;
     let balanceBTC = parseFloat("<?= $balance[$type]->btc ?? 0 ?>") || 0;
     // let balanceCommission = parseFloat("<?= $balance['commission']->usdt ?? 0 ?>") || 0;
     
@@ -87,7 +87,8 @@
         } else if (selectedCoin === 'btc') {
             balance = balanceBTC;
         }
-    
+        
+        console.log(balance);
         if (balance === 0) {
             alert("Your balance is zero.");
             return;

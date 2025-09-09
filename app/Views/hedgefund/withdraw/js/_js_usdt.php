@@ -12,7 +12,7 @@
     }
 </style>
 <script>
-    let balance = parseFloat("<?= $balance['fund']->usdt ?? 0 ?>") || 0;
+    let balance = parseFloat("<?= floor($balance['fund']->usdt * 100) / 100 ?? 0 ?>") || 0;
 
     $("#maxbalance").on("click", function () {
         $("#amount").val(balance);

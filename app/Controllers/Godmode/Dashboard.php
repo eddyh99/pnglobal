@@ -568,4 +568,24 @@ class Dashboard extends BaseController
             exit();
         }
     }
+
+    public function changeupline() {
+        $new_referral = $this->request->getPost('new_referral');
+        $member_email = $this->request->getPost('member_email');
+        $data = [
+            'new_referral' => $new_referral,
+            'member_email' => $member_email,
+        ];
+
+        $url        = URL_HEDGEFUND . "/v1/member/change_upline";
+        $response   = satoshiAdmin($url, json_encode($data));
+
+        if ($response->status === 200) {
+            session()->setFlashdata('success', 'Upline changed successfully.');
+        } else {
+            session()->setFlashdata('failed', 'Failed to change upline.');
+        }
+
+        return redirect()->back();
+    }
 }

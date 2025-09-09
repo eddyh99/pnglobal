@@ -1482,7 +1482,7 @@
                 dataType: 'json',
                 success: function(response) {
                     console.log(response);
-                    let usdt = parseFloat(response.trade_usdt);
+                    let usdt = parseFloat(response.trade_usdt)+parseFloat(response.master_trade);
                     $('#usdt_balance').text(
                         !isNaN(usdt) ? usdt.toFixed(2) : '0.00'
                     );

@@ -71,7 +71,7 @@
                     <input type="hidden" name="to" value="trade">
 
                     <!-- Wallet Info -->
-                    <div class="row text-start mb-5">
+                    <div class="row d-flex justify-content-center text-center mb-5">
                         <!-- Funding Wallet -->
                         <div class="col-md-4">
                             <div class="text-gold mb-2 fw-bold">Funding Wallet</div>
@@ -90,7 +90,7 @@
                         </div>
 
                         <!-- Unified Trading Wallet -->
-                        <div class="col">
+                        <div class="col-md-4">
                             <div class="text-gold mb-2 fw-bold">Unified Trading Wallet</div>
                             <div class="d-flex justify-content-between gap-3">
                                 <div class="px-4 py-2 balance-box text-gold w-50 mr-2">
@@ -107,7 +107,7 @@
                         </div>
 
                         <!-- Commission -->
-                        <div class="col-md-4">
+                        <div class="col-md-2">
                             <div class="text-gold mb-2 fw-bold">Commission</div>
                             <div class="d-flex justify-content-start">
                                 <div class="px-4 py-2 balance-box text-gold">
@@ -146,7 +146,7 @@
                         <!-- Available Balance -->
                         <div id="availablebalance" class="d-flex justify-content-between text-white px-1 mb-4 small" style="min-width: 400px; margin: 0 auto;">
                             <div>Available Balance</div>
-                            <div id="textbalance" class="text-gold"><?= number_format($balance['fund']->usdt ?? 0) ?> USDT</div>
+                            <div id="textbalance" class="text-gold"><?= number_format($balance['fund']->usdt ?? 0, 2) ?> USDT</div>
                         </div>
 
                         <!-- Confirm Button -->

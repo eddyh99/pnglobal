@@ -109,6 +109,9 @@
                                         <select class="form-control" name="network">
                                             <option value="BEP20">BEP20</option>
                                             <option value="TRC20">TRC20</option>
+                                            <option value="Polygon">Polygon</option>
+                                            <option value="ERC20">ERC20</option>
+                                            <option value="Aptos">APTOS</option>
                                         </select>
                                     </div>
                                     <div class="wrapper-addreferral d-flex justify-content-center">

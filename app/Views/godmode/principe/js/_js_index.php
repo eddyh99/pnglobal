@@ -101,10 +101,8 @@
             ],
             drawCallback: function(settings) {
                 var api = this.api();
-
-                // Ambil seluruh data tanpa filter
                 var allData = settings.json;
-
+            
                 if (!allData || allData.length === 0) {
                     $('#totalOpFondo').text('0.00');
                     $('#totalNetStorCli').text('0.00');
@@ -112,14 +110,12 @@
                     $('#media\\%mese').text('0.00');
                     return;
                 }
-
+            
                 var totalOpFondo = 0;
                 var totalNetStorCli = 0;
                 var uniqueMonths = new Set();
-
-                // === Array untuk menampung hasil perhitungan ===
-                var calculationResults = [];
-
+                var allMonths = [];
+            
                 allData.forEach(function(row) {
                     if (row.closed_sell) {
                         var buyPrice = parseFloat(row.buy_price) || 0;
@@ -127,50 +123,44 @@
                         var commBuy = (buyPrice / 100) * 0.1;
                         var commSell = (sellPrice / 100) * 0.1;
                         var net = sellPrice - buyPrice - commBuy - commSell;
-    
+            
                         if (buyPrice !== 0) {
                             var opFondo = (net / buyPrice) * 100;
                             var netStorCli = (opFondo / 2) / 4;
-    
+            
                             totalOpFondo += opFondo;
                             totalNetStorCli += netStorCli;
                         }
-    
-                        if (row.closed_sell) {
-                            uniqueMonths.add(row.closed_sell.substring(0, 7));
-                        }
-    
-                        // === Push hasil perhitungan ke dalam array ===
-                        calculationResults.push({
-                            buyPrice: buyPrice,
-                            sellPrice: sellPrice,
-                            commBuy: commBuy.toFixed(2),
-                            commSell: commSell.toFixed(2),
-                            net: net.toFixed(2),
-                            opFondo: opFondo.toFixed(9),
-                            netStorCli: netStorCli.toFixed(9)
-                        });
+            
+                        let monthStr = row.closed_sell.substring(0, 7); // "YYYY-MM"
+                        uniqueMonths.add(monthStr);
+                        allMonths.push(monthStr);
                     }
                 });
-
-                var messe = uniqueMonths.size;
+            
+                // === Hitung mese dari bulan pertama hingga bulan sekarang ===
+                var messe = 0;
+                if (allMonths.length > 0) {
+                    allMonths.sort(); // urutkan ascending
+                    var minMonth = allMonths[0]; // bulan pertama dari data
+                    var [minYear, minMon] = minMonth.split("-").map(Number);
+            
+                    var now = new Date();
+                    var curYear = now.getFullYear();
+                    var curMon = now.getMonth() + 1; // getMonth 0-based
+            
+                    messe = (curYear - minYear) * 12 + (curMon - minMon) + 1;
+                }
+            
                 var mediaPerMese = (messe > 0) ? (totalNetStorCli / messe) : 0;
-
-                // Memperbarui elemen di dalam card
+            
+                // Update card
                 $('#totalOpFondo').text(totalOpFondo.toFixed(4));
                 $('#totalNetStorCli').text(totalNetStorCli.toFixed(4));
                 $('#messe').text(messe);
-                // Perhatikan penggunaan \\ untuk karakter % pada selector
                 $('#media\\%mese').text(mediaPerMese.toFixed(4));
-
-                // // === Tampilkan tabel di console log ===
-                // console.log("Hasil Perhitungan Untuk Setiap Baris:");
-                // console.table(calculationResults);
-                // console.log("Total Op Fondo: " + totalOpFondo.toFixed(9));
-                // console.log("Total Net Storage Client: " + totalNetStorCli.toFixed(9));
-                // console.log("Total Month: " + messe);
-                // console.log("Media % Month: " + mediaPerMese.toFixed(9));
             }
+
         });
 
         $('#bulan_filter').on('change', function() {
