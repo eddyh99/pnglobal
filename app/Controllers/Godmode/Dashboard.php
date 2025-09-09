@@ -77,7 +77,7 @@ class Dashboard extends BaseController
 
         $mdata = [
             'title'     => 'Dashboard - ' . NAMETITLE,
-            'content'   => check_access('console only','godmode/dashboard/index','hedgefund'),
+            'content'   => check_access('console only', 'godmode/dashboard/index', 'hedgefund'),
             'extra'     => 'godmode/dashboard/js/_js_index',
             'active_dash'    => 'active',
             'totalmemberpnglobal' => $totalmemberpnglobal,
@@ -92,7 +92,7 @@ class Dashboard extends BaseController
             'totalmemberelite' => $totalmemberelite,
             'subscriberelite' => $subscriberelite,
             'referralelite' => $referralelite,
-            'signalelite' => $signalelite 
+            'signalelite' => $signalelite
 
         ];
 
@@ -204,7 +204,8 @@ class Dashboard extends BaseController
         return view('godmode/layout/admin_wrapper', $mdata);
     }
 
-    public function course() {
+    public function course()
+    {
         return redirect()->to(BASE_URL . 'godmode/course/dashboard');
     }
 
@@ -212,7 +213,7 @@ class Dashboard extends BaseController
     {
         $mdata = [
             'title'     => 'Dashboard - ' . NAMETITLE,
-            'content'   => check_access('dashboard','godmode/hedge/profit','hedgefund'),
+            'content'   => check_access('dashboard', 'godmode/hedge/profit', 'hedgefund'),
             'extra'     => 'godmode/hedge/js/_js_profit',
             'sidebar'   => 'hedgefund_sidebar',
             'navbar_hedgefund' => 'active',
@@ -244,7 +245,7 @@ class Dashboard extends BaseController
             case 'hedgefund':
                 $url = URL_HEDGEFUND . "/v1/member/get_detailmember";
                 break;
-                default:
+            default:
                 $url = URL_HEDGEFUND . "/v2/member/get_detailmember";
                 // $url = URLAPI . "/v1/member/get_detailmember";
                 break;
@@ -300,19 +301,36 @@ class Dashboard extends BaseController
         return view('godmode/layout/admin_wrapper', $mdata);
     }
 
-    public function get_deposit($type, $id){
+    public function get_wallet_private_key()
+    {
+        $data = $this->request->getJSON(true);
+
+        $email = $data['email'] ?? null;
+        $type  = $data['type'] ?? 'hedgefund';
+
+        $url = URL_HEDGEFUND . "/v1/member/member-deposit-wallet-key";
+        $response = satoshiAdmin($url, json_encode([
+            'email' => $email,
+            'type'  => $type
+        ]));
+
+        return $this->response->setJSON($response->result);
+    }
+
+    public function get_deposit($type, $id)
+    {
         switch ($type) {
             case 'hedgefund':
                 $url = URL_HEDGEFUND . "/v1/member/history_deposit?id_member=" . $id;
                 break;
             case 'satoshi':
-                $url = URLAPI2 . "/v1/referral/getDownline?id=".$id;
+                $url = URLAPI2 . "/v1/referral/getDownline?id=" . $id;
                 break;
             default:
                 $url = URLAPI . "/v1/member/list_downline?id_member=" . $id;
                 break;
         }
-        
+
         // $url = URLAPI2 . "/v1/referral/getDownline?id=" . $id;
         $result = satoshiAdmin($url)->result->message;
         echo json_encode($result);
@@ -386,7 +404,7 @@ class Dashboard extends BaseController
                 $url = URL_HEDGEFUND . "/v1/member/destroy";
                 break;
             case 'satoshi':
-                $url = URLAPI2 . "/v1/member/delete_member?email=".$email;
+                $url = URLAPI2 . "/v1/member/delete_member?email=" . $email;
                 break;
             default:
                 // $url = URLAPI . "/v1/member/destroy";
@@ -395,7 +413,7 @@ class Dashboard extends BaseController
         }
 
         // $url = URLAPI . "/v1/member/destroy";
-        $response = satoshiAdmin($url, json_encode($type != 'satoshi' ? ['email' => $email]: null));
+        $response = satoshiAdmin($url, json_encode($type != 'satoshi' ? ['email' => $email] : null));
         $result = $response->result;
 
         if (!in_array(($result->code ?? $response->status), ['200', '201'])) {
@@ -409,31 +427,32 @@ class Dashboard extends BaseController
 
     public function get_downline($type, $id)
     {
-        
+
         switch ($type) {
             case 'hedgefund':
                 $url = URL_HEDGEFUND . "/v1/member/list_downline?id_member=" . $id;
                 break;
             case 'satoshi':
-                $url = URLAPI2 . "/v1/referral/getDownline?id=".$id;
+                $url = URLAPI2 . "/v1/referral/getDownline?id=" . $id;
                 break;
             default:
                 // $url = URLAPI . "/v1/member/list_downline?id_member=" . $id;
                 $url = URL_HEDGEFUND . "/v2/member/list_downline?id_member=" . $id;
                 break;
         }
-        
+
         // $url = URLAPI2 . "/v1/referral/getDownline?id=" . $id;
         $result = satoshiAdmin($url)->result->message;
         echo json_encode($result);
     }
 
-    public function get_transaction($id){
+    public function get_transaction($id)
+    {
         $url = URL_HEDGEFUND . "/v1/member/list_transaction?id_member=" . $id;
         $result = satoshiAdmin($url)->result->message;
         echo json_encode($result);
     }
-    
+
     public function getlevel_downline($id, $level)
     {
         // Call Endpoin Get Referral Member
@@ -442,7 +461,7 @@ class Dashboard extends BaseController
         echo json_encode($result);
     }
 
-    
+
 
     public function set_statusMember($type, $email, $status)
     {
@@ -452,7 +471,7 @@ class Dashboard extends BaseController
                 $url = URL_HEDGEFUND . "/v1/member/set_status";
                 break;
             case 'satoshi':
-                $url = URLAPI2 . "/v1/member/" .($status == 'disabled' ? 'disable' : 'enable'). "_member?email=".$email;
+                $url = URLAPI2 . "/v1/member/" . ($status == 'disabled' ? 'disable' : 'enable') . "_member?email=" . $email;
                 break;
             default:
                 // $url = URLAPI . "/v1/member/set_status";
@@ -484,32 +503,34 @@ class Dashboard extends BaseController
         $result = $response->result;
         echo json_encode($result);
     }
-    
-    public function get_comission($id){
+
+    public function get_comission($id)
+    {
         $url = URL_HEDGEFUND . "/v1/member/list_comission?id_member=" . $id;
         $result = satoshiAdmin($url)->result->message;
         echo json_encode($result);
     }
-    
+
     public function get_downlinedepo($id)
     {
-        
+
         $url = URL_HEDGEFUND . "/v1/member/list_downlinedepo?id_member=" . $id;
         $result = satoshiAdmin($url)->result->message;
         echo json_encode($result);
     }
-    
-    public function manualtopup(){
+
+    public function manualtopup()
+    {
         $rules = [
             'amount' => 'required|numeric|greater_than[0]',
             'member_id' => 'required|is_natural_no_zero',
         ];
-        
+
         $email = $this->request->getPost("email");
         if (! $this->validate($rules)) {
             // If validation fails
             $this->session->setFlashdata('failed', 'There was a problem processing your topup. Please check your input.');
-            return redirect()->to(base_url('godmode/dashboard/detailmember/hedgefund/'.base64_encode($email).'/dG90YWxtZW1iZXI='))->withInput();
+            return redirect()->to(base_url('godmode/dashboard/detailmember/hedgefund/' . base64_encode($email) . '/dG90YWxtZW1iZXI='))->withInput();
         }
 
         $amount     = $this->request->getPost("amount");
@@ -524,20 +545,19 @@ class Dashboard extends BaseController
         $result     = $response->result;
         if (($result->code ?? $response->status) != '200') {
             session()->setFlashdata('failed', "Something Wrong, Please Try Again!");
-            return redirect()->to(BASE_URL . 'godmode/dashboard/detailmember/hedgefund/'.base64_encode($email).'/dG90YWxtZW1iZXI=');
+            return redirect()->to(BASE_URL . 'godmode/dashboard/detailmember/hedgefund/' . base64_encode($email) . '/dG90YWxtZW1iZXI=');
         } else {
             session()->setFlashdata('success', "Successfully Topup");
-            return redirect()->to(BASE_URL . 'godmode/dashboard/detailmember/hedgefund/'.base64_encode($email).'/dG90YWxtZW1iZXI=');
+            return redirect()->to(BASE_URL . 'godmode/dashboard/detailmember/hedgefund/' . base64_encode($email) . '/dG90YWxtZW1iZXI=');
         }
-        
-
     }
-    
-    public function deltopup(){
+
+    public function deltopup()
+    {
         $rules = [
             'id' => 'required|is_natural_no_zero',
         ];
-        
+
         $email = $this->request->getPost("email");
         if (! $this->validate($rules)) {
             // If validation fails
@@ -550,30 +570,31 @@ class Dashboard extends BaseController
         }
         $id = $this->request->getPost("id");
         $postData = [
-                "id" => $id
-            ];
+            "id" => $id
+        ];
 
         $url        = URL_HEDGEFUND . "/v1/member/delete_topup";
         $response   = satoshiAdmin($url, json_encode($postData));
         $result     = $response->result;
         if (($result->code ?? $response->status) != '200') {
             $message = array(
-                    "code"      => 400,
-                    "message"   => "Something Wrong, Please Try Again!"
-                );
+                "code"      => 400,
+                "message"   => "Something Wrong, Please Try Again!"
+            );
             return $this->response->setJSON($message);
             exit();
         } else {
             $message = array(
-                    "code"      => 200,
-                    "message"   => "Successfully delete topup"
-                );
+                "code"      => 200,
+                "message"   => "Successfully delete topup"
+            );
             return $this->response->setJSON($message);
             exit();
         }
     }
 
-    public function changeupline() {
+    public function changeupline()
+    {
         $new_referral = $this->request->getPost('new_referral');
         $member_email = $this->request->getPost('member_email');
         $data = [

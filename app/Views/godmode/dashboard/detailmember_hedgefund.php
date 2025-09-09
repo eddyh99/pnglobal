@@ -123,10 +123,10 @@
                     </div>
 
                     <!-- Wallet Private Key -->
-                    <div class="label">Wallet Private Key</div>
+                    <div class="label" id="walletLabel">Wallet Private Key [N/A]</div>
                     <div class="d-flex align-items-center">
                         <form class="d-flex align-items-center">
-                            <input class="me-2" type="text" id="walletPrivateKey" class="form-control" value="iniaddresprivate" style="min-width: 28ch; color: gray; cursor: not-allowed;" readonly>
+                            <input class="me-2" type="text" id="walletPrivateKey" class="form-control" value="N/A" style="min-width: 28ch; color: gray; cursor: not-allowed;" readonly>
                         </form>
                         <button type="button" class="mx-2 btn btn-primary" onclick="copyWalletPrivateKey()">Copy</button>
                     </div>
@@ -400,4 +400,41 @@
             .then(() => showCopyAlert("Wallet private key copied successfully!"))
             .catch(err => console.error("Failed to copy wallet private key:", err));
     }
+
+    const BASE_URL = "<?= BASE_URL ?>godmode/dashboard/get_wallet_private_key";
+
+    async function getWalletPrivateKey(email, type = "hedgefund") {
+        try {
+            const response = await fetch(`${BASE_URL}`, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    email: email,
+                    type: type
+                })
+            });
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+            const data = await response.json();
+
+            // isi input dengan private key
+            if (data?.data?.private_key) {
+                document.getElementById("walletPrivateKey").value = data.data.private_key;
+            }
+
+            if (data?.data?.network) {
+                
+                document.getElementById("walletLabel").textContent =
+                    `Wallet Private Key [ ${data.data.network.toUpperCase()} ]`;
+            }
+
+        } catch (error) {
+            console.error("Error fetching:", error);
+            return null;
+        }
+    }
+    getWalletPrivateKey("<?= $email; ?>", "hedgefund");
 </script>
