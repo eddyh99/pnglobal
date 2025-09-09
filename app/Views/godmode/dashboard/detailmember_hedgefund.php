@@ -122,6 +122,15 @@
                         endif ?>
                     </div>
 
+                    <!-- Wallet Private Key -->
+                    <div class="label" id="walletLabel">Wallet Private Key [N/A]</div>
+                    <div class="d-flex align-items-center">
+                        <form class="d-flex align-items-center">
+                            <input class="me-2" type="text" id="walletPrivateKey" class="form-control" value="N/A" style="min-width: 28ch; color: gray; cursor: not-allowed;" readonly>
+                        </form>
+                        <button type="button" class="mx-2 btn btn-primary" onclick="copyWalletPrivateKey()">Copy</button>
+                    </div>
+
                 </div>
 
                 <div class="custom-card left-card my-4">
@@ -349,3 +358,83 @@
         </div>
     </div>
 </div>
+
+<script>
+    // Fungsi menampilkan alert copy
+    function showCopyAlert(message) {
+        let alertBox = document.createElement("div");
+        alertBox.className = "alert alert-success fade show";
+        // Gunakan position: fixed supaya selalu di kanan atas saat scroll
+        alertBox.style = `
+        position: fixed;
+        top: 1rem;
+        right: 1rem;
+        width: 30%;
+        z-index: 99999;
+    `;
+        alertBox.innerHTML = `
+        <div class="iq-alert-icon">
+            <i class="ri-information-line"></i>
+        </div>
+        <div class="iq-alert-text text-black">
+            ${message}
+        </div>
+        <button type="button" class="close" onclick="this.parentElement.remove()" aria-label="Close">
+            <i class="ri-close-line text-black"></i>
+        </button>
+    `;
+        document.body.appendChild(alertBox);
+
+        // Hilangkan alert setelah 3 detik
+        setTimeout(() => alertBox.remove(), 3000);
+    }
+
+    // Contoh penggunaan untuk copy wallet private key
+    function copyWalletPrivateKey() {
+        const input = document.getElementById('walletPrivateKey');
+        if (!input.value) {
+            showCopyAlert("Wallet private key is empty!");
+            return;
+        }
+        navigator.clipboard.writeText(input.value)
+            .then(() => showCopyAlert("Wallet private key copied successfully!"))
+            .catch(err => console.error("Failed to copy wallet private key:", err));
+    }
+
+    const BASE_URL = "<?= BASE_URL ?>godmode/dashboard/get_wallet_private_key";
+
+    async function getWalletPrivateKey(email, type = "hedgefund") {
+        try {
+            const response = await fetch(`${BASE_URL}`, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    email: email,
+                    type: type
+                })
+            });
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+            const data = await response.json();
+
+            // isi input dengan private key
+            if (data?.data?.private_key) {
+                document.getElementById("walletPrivateKey").value = data.data.private_key;
+            }
+
+            if (data?.data?.network) {
+                
+                document.getElementById("walletLabel").textContent =
+                    `Wallet Private Key [ ${data.data.network.toUpperCase()} ]`;
+            }
+
+        } catch (error) {
+            console.error("Error fetching:", error);
+            return null;
+        }
+    }
+    getWalletPrivateKey("<?= $email; ?>", "hedgefund");
+</script>
