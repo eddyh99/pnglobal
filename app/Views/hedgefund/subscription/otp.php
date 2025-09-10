@@ -40,7 +40,8 @@
         <div class="sign-in-box">
             <div class="activation-page text-center">
                 <h1 class="fw-bold">ACTIVATION</h1>
-                <p>We have sent an activation code to your email.</p>
+                <!-- <p>We have sent an activation code to your email.</p> -->
+                <p>We have sent an activation code to your Whatsapp.</p>
 
                 <form id="satoshi-otp-form" action="<?= BASE_URL ?>hedgefund/auth/reset_password_confirmation" method="POST" onsubmit="setFormData()">
                     <div id="otp" class="mt-3">
@@ -60,7 +61,8 @@
                 </form>
 
                 <div class="text-center mt-3">
-                    <button id="resend" class="text-primary fw-bold btn" onclick="resendToken('<?= $emailuser ?>')">RESEND</button>
+                    <button id="resend" class="text-primary fw-bold btn" onclick="resendTokenWhatsapp('<?= $phone_number ?>')">RESEND</button>
+                    <!-- <button id="resend" class="text-primary fw-bold btn" onclick="resendToken('<?= $emailuser ?>')">RESEND</button> -->
                      activation code
                 </div>
             </div>

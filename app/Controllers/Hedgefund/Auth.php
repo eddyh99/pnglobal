@@ -35,6 +35,10 @@ class Auth extends BaseController
 				'label'     => 'Email',
 				'rules'     => 'valid_email'
 			],
+			'full_phone'   => [
+				'label'     => 'Phone Number',
+				'rules'     => 'required|numeric'
+			],
 			'pass'     => [
 				'label'     => 'Password',
 				'rules'     => 'required|min_length[8]'
@@ -67,6 +71,7 @@ class Auth extends BaseController
 		$referral = htmlspecialchars($this->request->getVar('referral'));
 		$mdata = [
 			'email'         => htmlspecialchars($this->request->getVar('email')),
+			'phone_number'  => htmlspecialchars($this->request->getVar('full_phone')),
 			'password'      => sha1(htmlspecialchars($this->request->getVar('pass'))),
 			'timezone'      => htmlspecialchars($this->request->getVar('timezone')),
 			'referral'      => !empty($referral) ? $referral : null,
@@ -76,7 +81,8 @@ class Auth extends BaseController
 
 		$tempUser = (object)[
 			'email'  => htmlspecialchars($this->request->getVar('email')),
-			'passwd' => sha1($this->request->getVar('pass'))
+			'passwd' => sha1($this->request->getVar('pass')),
+			'phone_number' => htmlspecialchars($this->request->getVar('full_phone'))
 		];
 		session()->set('reg_user', $tempUser);
 
@@ -89,8 +95,45 @@ class Auth extends BaseController
 			session()->setFlashdata('failed', $result->message);
 			return redirect()->to(BASE_URL . 'hedgefund/auth/register')->withInput();
 		} else {
-			$subject = "Activation Account - HEDGE FUND";
-			sendmail_satoshi($mdata['email'], $subject,  emailtemplate_activation_account($result->message->otp, $mdata['email'], "HEDGE FUND", 'hedgefund/auth/forgot_pass_otp/'), "HEDGE FUND", USERNAME_MAIL);
+			// Send OTP Email
+			// $subject = "Activation Account - HEDGE FUND";
+			// sendmail_satoshi($mdata['email'], $subject,  emailtemplate_activation_account($result->message->otp, $mdata['email'], "HEDGE FUND", 'hedgefund/auth/forgot_pass_otp/'), "HEDGE FUND", USERNAME_MAIL);
+			
+			
+			// Send OTP Whatsapp
+			$otp = $result->message->otp;
+			$message = "Your OTP code is: " . $otp . ". Please do not share this code with anyone.";
+			$phoneNumber = $mdata['phone_number'];
+			$chatId = preg_replace('/\D/', '', $phoneNumber) . "@c.us";
+
+			// API WAHA
+			$wahaUrl    = getenv('WAHA_URL') . "api/sendText";
+			$wahaApiKey = getenv('WAHA_API_KEY');
+
+			// Data payload
+			$payload = [
+				"session" => "default",
+				"chatId"  => $chatId,
+				"text"    => $message
+			];
+
+			// Send request to WAHA via cURL
+			$ch = curl_init();
+			curl_setopt($ch, CURLOPT_URL, $wahaUrl);
+			curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+			curl_setopt($ch, CURLOPT_POST, true);
+			curl_setopt($ch, CURLOPT_HTTPHEADER, [
+				"Content-Type: application/json",
+				"X-Api-Key: " . $wahaApiKey
+			]);
+			curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($payload));
+
+			$response = curl_exec($ch);
+			$httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+			log_message('info', "WAHA Request: " . json_encode($payload));
+			log_message('info', "WAHA Response (HTTP {$httpCode}): " . $response);
+			curl_close($ch);
+
 			return redirect()->to(BASE_URL . 'hedgefund/auth/otp/' . base64_encode($mdata['email']));
 		}
 	}
@@ -190,12 +233,14 @@ class Auth extends BaseController
 			return redirect()->to('auth/index');
 		}
 		$email = urldecode($email);
+		$phone_number = $_SESSION["reg_user"]->phone_number;
 
 		$mdata = [
 			'title'     => 'OTP - ' . NAMETITLE,
 			'content'   => 'hedgefund/subscription/otp',
 			'extra'     => 'hedgefund/subscription/js/_js_otp',
 			'emailuser' => $email,
+			'phone_number' => $phone_number
 
 			// 'navoption' => true,
 			// 'darkNav'   => true,
@@ -1257,6 +1302,48 @@ class Auth extends BaseController
 
 		return $this->response->setJSON($msg);
 	}
+
+	public function resend_token_whatsapp()
+	{
+		$data = $this->request->getJSON(true);
+
+		// Validasi
+		$this->validation->setRules([
+			'email' => 'required|valid_email'
+		]);
+		if (!$this->validation->run($data)) {
+			return $this->response
+				->setStatusCode(422) // Unprocessable Entity
+				->setJSON([
+					'success' => false,
+					'message'  => $this->validation->getErrors()
+				]);
+		}
+
+		// Ambil email dari input
+		$email = $data['email'];
+
+		//  Hit API Hedgefund
+		$url      = URL_HEDGEFUND . "/auth/resend_token";
+		$response = satoshiAdmin($url, json_encode(['email' => $email]));
+		$result   = $response->result ?? null;
+
+		// Jika sukses
+		if (($result->code ?? $response->status ?? null) == 200) {
+			return $this->response->setJSON([
+				'success' => true,
+				'otp'     => $result->message->otp
+			]);
+		}
+
+		return $this->response
+			->setStatusCode(400) // Bad Request
+			->setJSON([
+				'success' => false,
+				'message' => 'Failed to resend activation code.'
+			]);
+	}
+
 
 	public function bank_payment()
 	{
