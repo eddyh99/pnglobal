@@ -164,11 +164,37 @@ class Dashboard extends BaseController
             $loggedUser->phone_number = $phone_number;
             $loggedUser->otp = $result->otp;
             session()->set('logged_user', $loggedUser);
+
             // Berhasil menambahkan nomor WhatsApp dan mengirim OTP
-            
+            $wahaUrl   = getenv('WAHA_URL') . 'api/sendText';
+            $apiKey    = getenv('WAHA_API_KEY');
+            $chatId    = $phone_number . '@c.us';
+
+            $payload = [
+                "session" => "default",
+                "chatId"  => $chatId,
+                "text"    => "Your OTP is " . $result->otp
+            ];
+
+            $client = \Config\Services::curlrequest();
+
+            try {
+                $response = $client->post($wahaUrl, [
+                    'headers' => [
+                        'Content-Type' => 'application/json',
+                        'X-Api-Key'    => $apiKey
+                    ],
+                    'json' => $payload
+                ]);
+
+                $sendStatus = json_decode($response->getBody(), true);
+            } catch (\Exception $e) {
+                log_message('error', 'WAHA send OTP error: ' . $e->getMessage());
+            }
+
             return $this->response->setJSON([
                 'success' => true,
-                'otp'     => $result->otp
+                'otp'     => $result->otp 
             ]);
         }
 
