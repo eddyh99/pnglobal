@@ -1194,4 +1194,46 @@ class Auth extends BaseController
 
 		return view('hedgefund/layout/wrapper', $mdata);
 	}
+
+
+	public function resend_token_whatsapp()
+	{
+		$data = $this->request->getJSON(true);
+
+		// Validasi
+		$this->validation->setRules([
+			'email' => 'required|valid_email'
+		]);
+		if (!$this->validation->run($data)) {
+			return $this->response
+				->setStatusCode(422) // Unprocessable Entity
+				->setJSON([
+					'success' => false,
+					'message'  => $this->validation->getErrors()
+				]);
+		}
+
+		// Ambil email dari input
+		$email = $data['email'];
+
+		//  Hit API Hedgefund
+		$url      = URL_HEDGEFUND . "/auth/resend_token";
+		$response = satoshiAdmin($url, json_encode(['email' => $email]));
+		$result   = $response->result ?? null;
+
+		// Jika sukses
+		if (($result->code ?? $response->status ?? null) == 200) {
+			return $this->response->setJSON([
+				'success' => true,
+				'otp'     => $result->message->otp
+			]);
+		}
+
+		return $this->response
+			->setStatusCode(400) // Bad Request
+			->setJSON([
+				'success' => false,
+				'message' => 'Failed to resend activation code.'
+			]);
+	}
 }
