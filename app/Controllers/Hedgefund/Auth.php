@@ -98,8 +98,8 @@ class Auth extends BaseController
 			// Send OTP Email
 			// $subject = "Activation Account - HEDGE FUND";
 			// sendmail_satoshi($mdata['email'], $subject,  emailtemplate_activation_account($result->message->otp, $mdata['email'], "HEDGE FUND", 'hedgefund/auth/forgot_pass_otp/'), "HEDGE FUND", USERNAME_MAIL);
-			
-			
+
+
 			// Send OTP Whatsapp
 			$otp = $result->message->otp;
 			$message = "Your OTP code is: " . $otp . ". Please do not share this code with anyone.";
@@ -215,9 +215,13 @@ class Auth extends BaseController
 			// Jika akun belum diaktivasi
 			if (strpos(strtolower($message), 'your account has not been activated') !== false) {
 				// Redirect ke halaman OTP
+				// $encodedEmail = base64_encode($email);
+				// return redirect()->to(BASE_URL . "hedgefund/auth/otp/" . $encodedEmail . "?r=1")
+				// 	->with('success', 'Your account is not activated. Please enter the OTP sent to your email.');
+
+				// Redirect ke halaman OTP 
 				$encodedEmail = base64_encode($email);
-				return redirect()->to(BASE_URL . "hedgefund/auth/otp/" . $encodedEmail . "?r=1")
-					->with('success', 'Your account is not activated. Please enter the OTP sent to your email.');
+				return redirect()->to(BASE_URL . "hedgefund/auth/otp/" . $encodedEmail . "?r=1");
 			}
 			// Jika error lain
 			return redirect()->to(BASE_URL . 'hedgefund/auth/login')->with('failed', $message);
@@ -232,14 +236,56 @@ class Auth extends BaseController
 		if ($email === null) {
 			return redirect()->to('auth/index');
 		}
-		$email = urldecode($email);
-		$phone_number = $_SESSION["reg_user"]->phone_number;
+
+		$email = base64_decode($email);
+		// GET data phone number dari email
+		$url = URL_HEDGEFUND . "/auth/get_user_number";
+		$response = satoshiAdmin($url, json_encode(['email' => $email]));
+		$phone_number = $response->result->message;
+
+		if ($phone_number) {
+			// dapatkan OTP dari API
+			$url      = URL_HEDGEFUND . "/auth/resend_token";
+			$response = satoshiAdmin($url, json_encode(['email' => $email]));
+			$result   = $response->result ?? null;
+			$otp = $result->message->otp;
+		}
+
+		// Kirim ulang OTP via WA
+		if ($otp && $phone_number) {
+
+			$wahaUrl   = getenv('WAHA_URL') . 'api/sendText';
+			$apiKey    = getenv('WAHA_API_KEY');
+			$chatId    = $phone_number . '@c.us';
+
+			$payload = [
+				"session" => "default",
+				"chatId"  => $chatId,
+				"text"    => "Your Activate Code is " . $otp
+			];
+
+			$client = \Config\Services::curlrequest();
+
+			try {
+				$response = $client->post($wahaUrl, [
+					'headers' => [
+						'Content-Type' => 'application/json',
+						'X-Api-Key'    => $apiKey
+					],
+					'json' => $payload
+				]);
+
+				$sendStatus = json_decode($response->getBody(), true);
+			} catch (\Exception $e) {
+				log_message('error', 'WAHA send OTP error: ' . $e->getMessage());
+			}
+		}
 
 		$mdata = [
 			'title'     => 'OTP - ' . NAMETITLE,
 			'content'   => 'hedgefund/subscription/otp',
 			'extra'     => 'hedgefund/subscription/js/_js_otp',
-			'emailuser' => $email,
+			'emailuser' => base64_encode($email),
 			'phone_number' => $phone_number
 
 			// 'navoption' => true,
@@ -247,7 +293,7 @@ class Auth extends BaseController
 			// 'footer'    => false,
 			// 'nav'       => false,
 		];
-
+		session()->setFlashdata('success', "An OTP has been sent to your phone number. Please enter the OTP to activate your account.");
 		return view('hedgefund/layout/wrapper', $mdata);
 	}
 
