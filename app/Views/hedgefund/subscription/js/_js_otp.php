@@ -125,7 +125,7 @@
                         setTimeout(() => {
                             if (params.get('r') === '1') {
                                 window.location.href = '<?= BASE_URL ?>hedgefund/dashboard ?>';
-                            } else {
+                            }else{
                                 window.location.href = '<?= BASE_URL ?>hedgefund/auth/payment_option/<?= base64_encode($emailuser) ?>';
                             }
                         }, 3000);
@@ -137,9 +137,9 @@
                                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                             </div>
                         `);
-
+                        
                         $(".show-failed").append(alertElement);
-
+                        
                         // Auto-dismiss after 5 seconds
                         setTimeout(() => {
                             alertElement.alert('close'); // Bootstrap way to close the alert
@@ -164,7 +164,6 @@
 
     })
 
-    /*
     function resendToken(encodedEmail) {
         const email = atob(encodedEmail);
         const Base_URL = '<?= BASE_URL ?>hedgefund/auth/resend_token/';
@@ -204,88 +203,5 @@
 
             }
         });
-    }
-    */
-
-    async function resendTokenWhatsapp(phone) {
-        const WAHA_URL = "<?= getenv('WAHA_URL') ?>";
-        const WAHA_API_KEY = "<?= getenv('WAHA_API_KEY') ?>";
-        const email = "<?= base64_decode($emailuser) ?>";
-        const btn = document.getElementById("resend");
-
-        // format chatId WAHA → 62xxxxxxx@c.us
-        const chatId = phone.replace(/\D/g, '') + "@c.us";
-
-        try {
-            // 1 Ambil OTP dari backend
-            const otpRes = await fetch("<?= BASE_URL ?>hedgefund/auth/resend_token_whatsapp/", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify({
-                    email: email
-                })
-            });
-
-            if (!otpRes.ok) {
-                throw new Error(`HTTP error while getting OTP! status: ${otpRes.status}`);
-            }
-
-            const otpData = await otpRes.json();
-
-            if (otpData.success != true || !otpData.otp) {
-                alert("Failed to get OTP from server: " + (otpData.message || "Unknown error"));
-                return;
-            }
-
-            const otp = otpData.otp;
-
-            // 2️⃣ Kirim OTP via WAHA API
-            const res = await fetch(WAHA_URL + "api/sendText", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                    "X-Api-Key": WAHA_API_KEY
-                },
-                body: JSON.stringify({
-                    session: "default",
-                    chatId: chatId,
-                    text: `This you activite code ${otp}`
-                })
-            });
-
-            console.log("HTTP Status:", res.status);
-
-            if (res.status === 201) {
-                alert("OTP WhatsApp sent successfully to " + phone);
-
-                // disable tombol + countdown
-                let countdown = 60;
-                btn.disabled = true;
-                btn.classList.remove("text-primary");
-                const originalText = "RESEND";
-
-                const interval = setInterval(() => {
-                    btn.textContent = `RESEND (${countdown}s)`;
-                    countdown--;
-
-                    if (countdown < 0) {
-                        clearInterval(interval);
-                        btn.disabled = false;
-                        btn.classList.add("text-primary");
-                        btn.textContent = originalText;
-                    }
-                }, 1000);
-
-            } else {
-                alert("Failed to send OTP WhatsApp. Status " + res.status);
-            }
-
-
-        } catch (err) {
-            console.error("Error:", err);
-            alert("An error occurred: " + err.message);
-        }
     }
 </script>

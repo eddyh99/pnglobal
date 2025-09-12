@@ -87,8 +87,7 @@ class Member extends BaseController
     public function get_totalmember()
     {
         // Call Endpoin Get Total Member
-        // $url = URLAPI . "/v1/member/get_all";
-        $url = URL_HEDGEFUND . "/v2/member/get_all";
+        $url = URLAPI . "/v1/member/get_all";
         $result = satoshiAdmin($url)->result;
         echo json_encode($result);
     }

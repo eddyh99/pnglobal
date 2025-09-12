@@ -42,7 +42,7 @@
       <a translate="no" href="<?= BASE_URL ?>godmode/signal" class="tab-item <?= $navbar_console ?? '' ?>">CONSOLE</a>
       <a translate="no" href="<?= BASE_URL ?>godmode/dashboard/hedgefund" class="tab-item <?= $navbar_hedgefund ?? '' ?>">HEDGE FUND</a>
       <!-- <a translate="no" href="<?= BASE_URL ?>godmode/onetoone/dashboard" class="tab-item <?= $navbar_onetoone ?? '' ?>">ONE TO ONE OLD</a> -->
-      <!-- <a translate="no" href="<?= BASE_URL ?>godmode/dashboard/luxbtc" class="tab-item  <?= $navbar_luxbtc ?? '' ?>">ONE TO ONE</a> -->
+      <a translate="no" href="<?= BASE_URL ?>godmode/dashboard/luxbtc" class="tab-item  <?= $navbar_luxbtc ?? '' ?>">ONE TO ONE</a>
       <!-- <a translate="no" href="<?= BASE_URL ?>godmode/dashboard/satoshi" class="tab-item <?= $navbar_satoshi ?? '' ?>">SATOSHI</a> -->
       <!-- <a translate="no" href="<?= BASE_URL ?>godmode/dashboard/course" class="tab-item <?= $navbar_course ?? '' ?>">COURSE</a> -->
     </div>
@@ -58,7 +58,7 @@
     <a href="<?= BASE_URL ?>godmode/signal" class="menu-link <?= $navbar_console ?? '' ?>">CONSOLE</a>
     <a href="<?= BASE_URL ?>godmode/dashboard/hedgefund" class="menu-link <?= $navbar_hedgefund ?? '' ?>">HEDGE FUND</a>
     <!-- <a href="#">ONE TO ONE</a> -->
-    <!-- <a href="<?= BASE_URL ?>godmode/dashboard/luxbtc" class="menu-link <?= $navbar_luxbtc ?? '' ?>">ONE TO ONE</a> -->
+    <a href="<?= BASE_URL ?>godmode/dashboard/luxbtc" class="menu-link <?= $navbar_luxbtc ?? '' ?>">ONE TO ONE</a>
     <!-- <a href="<?= BASE_URL ?>godmode/dashboard/satoshi" class="menu-link <?= $navbar_satoshi ?? '' ?>">SATOSHI</a> -->
     <!-- <a href="<?= BASE_URL ?>godmode/dashboard/course" class="menu-link <?= $navbar_course ?? '' ?>">COURSE</a> -->
   </div>

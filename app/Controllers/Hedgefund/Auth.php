@@ -548,8 +548,6 @@ class Auth extends BaseController
 		return redirect()->to(base_url() . 'hedgefund/auth/payment_option');
 	}
 
-	/* 
-	Payment Lama
 	public function usdt_payment()
 	{
 		$payamount  = $_SESSION["payment_data"]["amount"];
@@ -596,7 +594,6 @@ class Auth extends BaseController
 
 		return redirect()->to($paymentResponse['result']['checkout_url']);
 	}
-	*/
 
 	public function forgot_password()
 	{
@@ -609,217 +606,12 @@ class Auth extends BaseController
 		return view('member/layout/login_wrapper', $mdata);
 	}
 
-	public function check_wallet_hedgefund()
-	{
-		// Ambil data POST JSON dari request
-		$data = $this->request->getJSON();
-		$email = $data->email ?? null;   // email dikirim dari JS
-		$type  = $data->type  ?? 'hedgefund'; // default type
-
-		// Panggil API internal/remote untuk cek wallet
-		$url = URL_HEDGEFUND . "/auth/check_wallet";
-		$response = satoshiAdmin($url, json_encode(['email' => $email, 'type' => $type]));
-
-		return $this->response->setJSON($response->result);
-	}
-
-	public function create_wallet_hedgefund()
-	{
-		$data = $this->request->getJSON();
-		$email = $data->email ?? null;   // email dikirim dari JS
-		$type  = $data->type  ?? 'hedgefund'; // default type
-
-		$url = URL_HEDGEFUND . "/auth/create_wallet";
-		$response = satoshiAdmin($url, json_encode(['email' => $email, 'type' => $type]))->result;
-		return $this->response->setJSON($response);
-	}
-
-	public function usdt_payment()
-	{
-		$payamount  = $_SESSION["payment_data"]["amount"];
-		$email = session()->get('reg_user')->email ?? null;
-
-		$mdata = [
-			'title'     => 'USDT Network - ' . NAMETITLE,
-			'content'   => 'hedgefund/subscription/crypto_wallet_option',
-			'extra'     => 'hedgefund/subscription/js/_js_crypto_wallet_option',
-			'email'     => $email,
-			'payamount' => $payamount,
-		];
-
-		return view('hedgefund/layout/wrapper', $mdata);
-	}
-
-	public function usdc_payment()
-	{
-		$payamount  = $_SESSION["payment_data"]["amount"];
-		$email = session()->get('reg_user')->email ?? null;
-
-		$mdata = [
-			'title'     => 'USDC Network - ' . NAMETITLE,
-			'content'   => 'hedgefund/subscription/crypto_wallet_option',
-			'extra'     => 'hedgefund/subscription/js/_js_crypto_wallet_option',
-			'email'     => $email,
-			'payamount' => $payamount,
-		];
-
-		return view('hedgefund/layout/wrapper', $mdata);
-	}
-
-	public function check_wallet_bep20()
-	{
-		$data = $this->request->getJSON();
-		$wallet_address = $data->wallet_address ?? null;
-		$token = $data->token;
-
-		$url = URL_HEDGEFUND . "/auth/check_wallet_bep20";
-		$response = satoshiAdmin($url, json_encode(['wallet_address' => $wallet_address, 'token' => $token]));
-
-		return $this->response->setJSON($response->result);
-	}
-
-	public function check_wallet_balance()
-	{
-		$data = $this->request->getJSON();
-		$wallet_address = $data->wallet_address ?? null;
-		$token = strtolower($data->token ?? '');
-
-		if (!$wallet_address || !$token) {
-			return $this->response->setJSON([
-				'status' => 'error',
-				'message' => 'wallet_address and token are required'
-			]);
-		}
-
-		// Mapping token ke endpoint
-		$tokenEndpointMap = [
-			// BEP20
-			'usdt_bep20' => '/auth/check_wallet_bep20',
-			'usdc_bep20' => '/auth/check_wallet_bep20',
-
-			// ERC20
-			'usdt_erc20' => '/auth/check_wallet_erc20',
-			'usdc_erc20' => '/auth/check_wallet_erc20',
-
-			// Polygon
-			'usdt_polygon' => '/auth/check_wallet_polygon',
-			'usdc_polygon' => '/auth/check_wallet_polygon',
-
-			// Base
-			'usdc_base' => '/auth/check_wallet_base',
-
-			// Solana
-			'usdc_solana' => '/auth/check_wallet_solana',
-
-			// Tron TRC20
-			'usdt_trc20' => '/auth/check_wallet_trc20',
-		];
-
-		if (!isset($tokenEndpointMap[$token])) {
-			return $this->response->setJSON([
-				'status' => 'error',
-				'message' => 'Unsupported token'
-			]);
-		}
-
-		$url = URL_HEDGEFUND . $tokenEndpointMap[$token];
-
-		// Panggil helper API
-		$response = satoshiAdmin($url, json_encode([
-			'wallet_address' => $wallet_address,
-			'token' => $token
-		]));
-
-		return $this->response->setJSON($response->result ?? [
-			'status' => 'error',
-			'message' => 'No response from server'
-		]);
-	}
-
-	public function deposit_payment_crypto_update()
-	{
-		$data = $this->request->getJSON();
-		$invoice = $data->invoice ?? null;
-
-		$url = URL_HEDGEFUND . "/non/crypto-deposit-update";
-		$response = satoshiAdmin($url, json_encode(['invoice' => $invoice]))->result;
-		return $this->response->setJSON($response);
-	}
-
-	public function deposit_payment($type, $network = null)
-	{
-		$type = strtoupper($type);
-		$networkType = $network; // enum('erc20','bep20','polygon','trc20','base','solana')
-		$email = session()->get('reg_user')->email ?? null;
-
-		$coint_network = strtolower($type . '_' . $networkType); // contoh: usdt_bep20, usdc_erc20
-
-		$payamount  = $_SESSION["payment_data"]["amount"];
-		$totalCapital = $_SESSION["payment_data"]["totalcapital"];
-		$fee = $payamount - $totalCapital;
-
-		// Ambil data sebelumnya dari session
-		$prevInvoice = $_SESSION["payment_data"]["order_id"] ?? null;
-		$prevNetwork = $_SESSION["payment_data"]["coint_network"] ?? null;
-
-		// Generate invoice baru jika belum ada atau metode berbeda
-		if (!$prevInvoice || $prevNetwork !== $coint_network) {
-			$postData = [
-				'email' => $email,
-				'amount' => $totalCapital,
-				'payment_type' => $coint_network,
-			];
-			$url_deposit = URL_HEDGEFUND . "/non/deposit";
-			$invoice = satoshiAdmin($url_deposit, json_encode($postData))->result->message;
-
-			// Simpan di session
-			$_SESSION["payment_data"]["order_id"] = $invoice;
-			$_SESSION["payment_data"]["coint_network"] = $coint_network;
-		} else {
-			$invoice = $prevInvoice;
-		}
-
-		$orderId = $invoice;
-
-		// Cek wallet
-		$url = URL_HEDGEFUND . "/auth/get_crypto_wallet";
-		$wallet = satoshiAdmin($url, json_encode([
-			'type' => "hedgefund",
-			'network' => $networkType,
-			'email' => $email
-		]));
-
-		if (isset($wallet->result->code) && $wallet->result->code == 200) {
-			// Wallet ditemukan, tampilkan halaman deposit
-			$mdata = [
-				'title'         => 'Payment Crypto - ' . NAMETITLE,
-				'content'       => 'hedgefund/subscription/register_deposit_crypto',
-				'extra'         => 'hedgefund/subscription/js/_js_deposit_crypto',
-				'type'          => $type,
-				'network'       => $networkType,
-				'wallet'        => $wallet->result->message,
-				'payamount'     => $payamount,
-				'total'         => $totalCapital,
-				'fee'           => $fee,
-				'order_id'      => $orderId,
-				'coint_network' => $coint_network,
-			];
-
-			return view('hedgefund/layout/wrapper', $mdata);
-		} else {
-			// Wallet tidak ditemukan, redirect ke halaman sebelumnya
-			return redirect()->back()->with('error', 'Wallet tidak ditemukan, silakan buat wallet terlebih dahulu.');
-		}
-	}
-
-
 	public function us_bank_payment()
 	{
 		// Ambil data bank dan fee setting
 		$url   = URL_HEDGEFUND . "/non/us-bank";
 		$bank  = satoshiAdmin($url);
 		$feebank = $bank->result->data->us_bank_fee_setting;
-		$payment_type = 'us_bank';
 
 		// Ambil data pembayaran dari session
 		$payamount     = $_SESSION["payment_data"]["amount"];
@@ -829,7 +621,6 @@ class Auth extends BaseController
 		$postData = [
 			'email'  => $customerEmail,
 			'amount' => $_SESSION["payment_data"]["totalcapital"],
-			'payment_type' => $payment_type,
 		];
 
 		// Buat invoice
@@ -861,7 +652,6 @@ class Auth extends BaseController
 		$url   = URL_HEDGEFUND . "/non/international-bank";
 		$bank  = satoshiAdmin($url);
 		$feebank = $bank->result->data->inter_fee_setting;
-		$payment_type = 'international_bank';
 
 		// Ambil data pembayaran dari session
 		$payamount     = $_SESSION["payment_data"]["amount"];
@@ -871,7 +661,6 @@ class Auth extends BaseController
 		$postData = [
 			'email'  => $customerEmail,
 			'amount' => $_SESSION["payment_data"]["totalcapital"],
-			'payment_type' => $payment_type,
 		];
 
 		// Buat invoice
@@ -1234,6 +1023,8 @@ class Auth extends BaseController
 		}
 	}
 
+
+
 	public function logout()
 	{
 		$this->session->remove('logged_user');
@@ -1348,48 +1139,6 @@ class Auth extends BaseController
 
 		return $this->response->setJSON($msg);
 	}
-
-	public function resend_token_whatsapp()
-	{
-		$data = $this->request->getJSON(true);
-
-		// Validasi
-		$this->validation->setRules([
-			'email' => 'required|valid_email'
-		]);
-		if (!$this->validation->run($data)) {
-			return $this->response
-				->setStatusCode(422) // Unprocessable Entity
-				->setJSON([
-					'success' => false,
-					'message'  => $this->validation->getErrors()
-				]);
-		}
-
-		// Ambil email dari input
-		$email = $data['email'];
-
-		//  Hit API Hedgefund
-		$url      = URL_HEDGEFUND . "/auth/resend_token";
-		$response = satoshiAdmin($url, json_encode(['email' => $email]));
-		$result   = $response->result ?? null;
-
-		// Jika sukses
-		if (($result->code ?? $response->status ?? null) == 200) {
-			return $this->response->setJSON([
-				'success' => true,
-				'otp'     => $result->message->otp
-			]);
-		}
-
-		return $this->response
-			->setStatusCode(400) // Bad Request
-			->setJSON([
-				'success' => false,
-				'message' => 'Failed to resend activation code.'
-			]);
-	}
-
 
 	public function bank_payment()
 	{

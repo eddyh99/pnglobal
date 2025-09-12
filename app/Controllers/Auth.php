@@ -390,8 +390,7 @@ class Auth extends BaseController
 		session()->set('logged_user', $tempUser);
 
 		// Proccess Endpoin API
-		// $url = URLAPI . "/auth/signin";
-		$url = URL_HEDGEFUND . "/v2/auth/signin";
+		$url = URLAPI . "/auth/signin";
 		$response = satoshiAdmin($url, json_encode($mdata));
 		$result = $response->result;
 

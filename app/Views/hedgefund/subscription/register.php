@@ -1,9 +1,9 @@
-<?php if (!empty(session('failed'))) { ?>
+<?php if(!empty(session('failed'))) { ?>
     <div class="alert alert-danger alert-dismissible fade show" role="alert">
-        <?= session('failed') ?>
+        <?= session('failed')?>
         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
     </div>
-<?php } ?>
+<?php }?>
 <section class="elite-page">
     <div class="text-center mb-4">
         <h1 class="site-title"><span>HEDGE</span> FUND</h1>
@@ -17,17 +17,6 @@
                 <label for="email" class="fw-semibold">Email</label>
                 <input type="email" id="email" class="form-control" name="email" value="<?= set_value('email') ?>" required>
             </div>
-            <div class="form-group mb-3 text-start">
-                <label for="phone_number" class="fw-semibold">Phone Number</label>
-                <div class="input-group">
-                    <select class="form-select" id="country_code" name="country_code" required></select>
-                    <input type="text" id="phone_number" class="form-control"
-                        name="phone_number" placeholder=" 8xxxxxxxxxxx" required>
-                </div>
-            </div>
-            <!-- Hidden input to store the full phone number -->
-            <input type="hidden" id="full_phone" name="full_phone">
-
 
             <div class="form-group-pass w-100 position-relative mt-3">
                 <label for="password" class="fw-semibold">Password</label>
@@ -36,7 +25,7 @@
                     <i class="icon-pass-login fa-solid fa-eye position-absolute end-0 top-50 translate-middle-y me-3" id="togglePassword" style="cursor: pointer;"></i>
                 </div>
             </div>
-
+            
             <div class="form-group-pass w-100 position-relative mt-3">
                 <label for="confirmpassword" class="fw-semibold">Confirm Password</label>
                 <div class="wrapper-input position-relative">
@@ -48,7 +37,7 @@
             <div class="form-group mb-3 text-start">
                 <div class="wrapper-input mt-3">
                     <label for="referral" class="fw-semibold">Referral Code</label>
-                    <input type="text" id="referral" class="form-control" name="referral" value="<?= @$_COOKIE["ref_hf"] ?>" <?= (empty($_COOKIE["ref_hf"])) ? "" : "readonly" ?>>
+                    <input type="text" id="referral" class="form-control" name="referral" value="<?=@$_COOKIE["ref_hf"]?>" <?=(empty($_COOKIE["ref_hf"])) ? "":"readonly"?>>
                 </div>
             </div>
 
@@ -67,7 +56,7 @@
 
     <!-- Bottom button is inside container, ensuring it's below sign-in box -->
     <div class="bottom-button">
-        <a href="<?= BASE_URL ?>auth" class="btn btn-dark"><span>MAIN MENU</span></a>
+        <a href="<?=BASE_URL?>auth" class="btn btn-dark"><span>MAIN MENU</span></a>
     </div>
 </section>
 
