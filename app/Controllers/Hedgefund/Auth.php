@@ -636,6 +636,7 @@ class Auth extends BaseController
 
 	public function usdt_payment()
 	{
+		// dd($_SESSION);
 		$payamount  = $_SESSION["payment_data"]["amount"];
 		$email = session()->get('reg_user')->email ?? null;
 
@@ -748,6 +749,7 @@ class Auth extends BaseController
 
 	public function deposit_payment($type, $network = null)
 	{
+		
 		$type = strtoupper($type);
 		$networkType = $network; // enum('erc20','bep20','polygon','trc20','base','solana')
 		$email = session()->get('reg_user')->email ?? null;

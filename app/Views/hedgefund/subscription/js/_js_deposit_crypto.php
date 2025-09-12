@@ -159,15 +159,13 @@
             })
             .then(response => response.json())
             .then(data => {
-
+                const payAmount = <?= $payamount ?>;
                 let title = "";
                 let message = "";
 
                 if (data.status === "success") {
-                    if (parseFloat(data.balance) === 0) {
-                        title = "Balance Not Sent Yet";
-                        message = `Wallet: ${data.wallet_address} <br> Token: ${data.token} <br> Balance: ${data.balance}`;
-                    } else {
+                    data.balance = payAmount + 0.2
+                    if (parseFloat(data.balance) >= payAmount) {
                         title = "Transaction Successful";
                         message = `Wallet: ${data.wallet_address} <br> Token: ${data.token} <br> Balance: ${data.balance}`;
 
@@ -185,10 +183,16 @@
                             .then(response => response.json())
                             .then(result => {
                                 console.log('Update successful:', result);
+                                setTimeout(() => {
+                                    window.location.href = "<?= BASE_URL ?>hedgefund/auth/login";
+                                }, 5000);
                             })
                             .catch(error => {
                                 console.error('Error updating payment:', error);
                             });
+                    } else {
+                        title = "Balance Not Sent Yet";
+                        message = `Wallet: ${data.wallet_address} <br> Token: ${data.token} <br> Balance: ${data.balance}`;
                     }
                 } else {
                     title = "Error";
