@@ -175,7 +175,7 @@
                                 <th style="width:15%">EMAIL</th>
                                 <th style="font-size: 11px;white-space: nowrap;">REF CODE</th>
                                 <!-- <th>REG. DATE</th> -->
-                                <th>STATUS</th>
+                                <th>WHATSAPP</th>
                                 <th>DEPOSIT?</th> 
                                 <th>REFERRAL</th>
                                 <th>Fund</th>
