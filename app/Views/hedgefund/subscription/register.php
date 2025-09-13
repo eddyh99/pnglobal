@@ -19,7 +19,7 @@
             </div>
 
             <div class="form-group mb-3 text-start">
-                <label for="phone_number" class="fw-semibold">Phone Number</label>
+                <label for="phone_number" class="fw-semibold">Whatsapp Number</label>
                 <div class="input-group">
                     <select class="form-select" id="country_code" name="country_code" required></select>
                     <input type="text" id="phone_number" class="form-control"

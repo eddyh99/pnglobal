@@ -19,7 +19,7 @@ class Auth extends BaseController
 	public function register()
 	{
 		$mdata = [
-			'title'     => 'Register Elite Management - ' . NAMETITLE,
+			'title'     => 'Register Hedgefund - ' . NAMETITLE,
 			'content'   => 'hedgefund/subscription/register',
 			'extra'     => 'hedgefund/subscription/js/_js_register',
 		];
@@ -1182,7 +1182,7 @@ class Auth extends BaseController
 		$result = satoshiAdmin($url);
 
 		$mdata = [
-			'title'     => 'Elite Management - ' . NAMETITLE,
+			'title'     => 'Bank Payment - ' . NAMETITLE,
 			'content'   => 'hedgefund/subscription/bank_payment',
 			'extra'     => 'hedgefund/subscription/js/_js_bank_payment',
 			'order_id'       => $orderId,
