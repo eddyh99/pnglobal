@@ -108,7 +108,7 @@ define("SATOSHITITLE", 'Satoshi Signal');
 
 $host = $_SERVER['HTTP_HOST']; // e.g., sandbox.satoshisignal.app
 $parts = explode('.', $host);
-if ($parts[0] === 'sandbox' || preg_match('/^(localhost|127\.0\.0\.1):808[0-5]$/', $host)) {
+if ($parts[0] === 'sandbox' || $parts[0] === 'staging' || preg_match('/^(localhost|127\.0\.0\.1):808[0-5]$/', $host)) {
     if (preg_match('/^(localhost|127\.0\.0\.1):808[0-5]$/', $host)) {
         define("URLAPI", 'http://127.0.0.1:8081');
         define("URL_HEDGEFUND", 'http://localhost:8082');

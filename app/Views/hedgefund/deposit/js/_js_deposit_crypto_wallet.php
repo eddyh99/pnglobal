@@ -111,12 +111,13 @@
             .then(data => {
                 let title = "";
                 let message = "";
-                const payamount = parseFloat("<?= $total_payamount ?>");
+                const payamount = Math.round(parseFloat("<?= $total_payamount ?>") * 100);
+                const balance = Math.round(parseFloat(data.balance) * 100);
                 if (data.status === "success") {
                     console.log("Wallet Data:", data.balance);
-                    if (parseFloat(data.balance) >= payamount) {
+                    if (balance >= payamount) {
                         title = "Transaction Successful";
-                        message = `Wallet: ${data.wallet_address} <br> : ${data.token} <br> Balance: ${data.balance}`;
+                        message = `Wallet: ${data.wallet_address} <br> : ${data.token}`;
 
                         // Kirim order_id ke server untuk update
                         fetch('<?= BASE_URL ?>/hedgefund/auth/deposit_payment_crypto_update', {
@@ -144,7 +145,7 @@
                             .catch(err => console.error('Error updating payment:', err));
                     } else {
                         title = "Balance Not Sent Yet";
-                        message = `Wallet: ${data.wallet_address} <br> Token: ${data.token} <br> Balance: ${data.balance}`;
+                        message = `Wallet: ${data.wallet_address} <br> Token: ${data.token}`;
                     }
                 } else {
                     title = "Error";
