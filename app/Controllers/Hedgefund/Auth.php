@@ -742,8 +742,20 @@ class Auth extends BaseController
 		$data = $this->request->getJSON();
 		$invoice = $data->invoice ?? null;
 
+		$payload = [
+			'invoice' => $invoice,
+			'payamount' => $data->payamount ?? null,
+			'network' => $data->network ?? null,
+			'token'   => $data->token ?? null,
+			'wallet_address' => $data->wallet_address ?? null,
+		];
+
 		$url = URL_HEDGEFUND . "/non/crypto-deposit-update";
-		$response = satoshiAdmin($url, json_encode(['invoice' => $invoice]))->result;
+		$response = satoshiAdmin($url, json_encode($payload))->result;
+		if ($response->code == 201) {
+			// Hapus session payment_data sehingga user tidak bisa kembali ke halaman payment dan membuat logic js error
+			$this->session->remove('payment_data');
+		}
 		return $this->response->setJSON($response);
 	}
 

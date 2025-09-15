@@ -83,18 +83,10 @@
         // Ambil alamat wallet dari input baru
         const address = document.getElementById('addressWallet').value.trim();
         const coint_network = "<?= $coint_network ?>";
+        const token = "<?= $token ?>";
+        const network = "<?= $network ?>";
         const invoice = "<?= $order_id ?>";
-
-        // =========== TESTING EXAMPLES =============
-        // Uncomment untuk testing dengan wallet yang berisi saldo
-        // const address = "0x98B4be9C7a32A5d3bEFb08bB98d65E6D204f7E98"; // BEP20 USDT
-        // const address = "0x11a0c9270D88C99e221360BCA50c2f6Fda44A980"; // BEP20 USDC
-        // const address = "0x8d038098fBA26a55Dd9b4eeBAe642480A52eeED8"; // POLYGON USDT
-        // const address = "0x937Fe3Ff2A9B7C24F4a340E287Ed94957424f735"; // POLYGON USDC
-        // const address = "0xe3D41d19564922C9952f692C5Dd0563030f5f2EF"; // ERC20 USDC & USDT
-        // const address = "TCjVk9L3LJLC5UiUawXfHa3USTUY7syEFL"; // TRC20 USDT
-        // const address = "0x61edFCbdfc36ae06CaCF36e8cC824a2aDEaBffff"; // BASE USDC
-        // const address = "53bmyryLj1RGjYWHVXcSz96RK3d8XCGV5bCEpCh5J6u3"; // SOLANA USDC
+        const balance_db = parseFloat("<?= $wallet_db_balance ?>");
 
         // Panggil API untuk cek saldo wallet
         fetch('<?= BASE_URL ?>/hedgefund/auth/check_wallet_balance', {
@@ -113,9 +105,23 @@
                 let message = "";
                 const payamount = Math.round(parseFloat("<?= $total_payamount ?>") * 100);
                 const balance = Math.round(parseFloat(data.balance) * 100);
+                const expectedBalanceAfterDeposit = balance_db + (payamount / 100);
+
+                // ==========================================
+                // Testing Data
+                // const balance = expectedBalanceAfterDeposit; // Simulasi saldo yang diterima lebih besar dari expected
+                // ==========================================
+
+                console.log("Balance from DB:", balance_db);
+                console.log("Payamount:", payamount / 100);
+                console.log("Expected Balance After Deposit:", expectedBalanceAfterDeposit);
+                console.log("Current Balance Real Wallet:", balance);
                 if (data.status === "success") {
-                    console.log("Wallet Data:", data.balance);
-                    if (balance >= payamount) {
+                    // ==========================================
+                    // Cek apakah saldo sudah sesuai
+                    // Note : Cek Balance Wallet Real >= expectedBalanceAfterDeposit (Ekspektasi saldo setelah deposit)
+                    // ==========================================
+                    if (balance >= expectedBalanceAfterDeposit) {
                         title = "Transaction Successful";
                         message = `Wallet: ${data.wallet_address} <br> : ${data.token}`;
 
@@ -127,11 +133,16 @@
                                     'Accept': 'application/json',
                                 },
                                 body: JSON.stringify({
-                                    invoice: invoice
+                                    invoice: invoice,
+                                    payamount: payamount / 100,
+                                    network: network,
+                                    token: token,
+                                    wallet_address: address
                                 })
                             })
                             .then(resp => resp.json())
                             .then(result => {
+                                console.log("Update Payment Response:", result);
                                 if (result.code === 201) {
                                     console.log("Success Update Payment");
                                     setTimeout(() => {
@@ -140,6 +151,9 @@
                                 }
                                 if (result.code === 400) {
                                     console.log("Payment already confirmed");
+                                    setTimeout(() => {
+                                        window.location.href = "<?= BASE_URL ?>hedgefund/dashboard";
+                                    }, 5000);
                                 }
                             })
                             .catch(err => console.error('Error updating payment:', err));

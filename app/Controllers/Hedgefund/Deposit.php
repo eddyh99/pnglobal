@@ -512,6 +512,18 @@ class Deposit extends BaseController
         ]));
 
         // =========================
+        // 4. Ambil balance wallet crypto di databse
+        // =========================
+        $urlBalanceWalletDb = URL_HEDGEFUND . "/non/crypto-balance-db-check";
+        $balanceDBPayload = [
+            'wallet_address' => $wallet->result->message->address,
+            'token'          => $type, // usdt / usdc
+            'network'        => $networkType // bep20 / erc20 / trc20 / polygon
+        ];
+        $wallet_db_balance    = satoshiAdmin($urlBalanceWalletDb, json_encode($balanceDBPayload));
+
+
+        // =========================
         // 4. Siapkan data untuk view
         // =========================
         $viewData = [
@@ -521,7 +533,9 @@ class Deposit extends BaseController
             'active_deposit' => 'active',
             'method_payment' => $method_payment,
             'wallet'         => $wallet->result->message,
+            'wallet_db_balance' => $wallet_db_balance->result->message->balance_db,
             'network'        => $networkType,
+            'token'          => $type,
             'coint_network'  => $cointNetwork,
             'total_payamount'     => $payAmount,
             'total_capital'  => $totalCapital,
