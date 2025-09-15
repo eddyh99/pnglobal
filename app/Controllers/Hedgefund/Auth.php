@@ -19,7 +19,7 @@ class Auth extends BaseController
 	public function register()
 	{
 		$mdata = [
-			'title'     => 'Register Elite Management - ' . NAMETITLE,
+			'title'     => 'Register Hedgefund - ' . NAMETITLE,
 			'content'   => 'hedgefund/subscription/register',
 			'extra'     => 'hedgefund/subscription/js/_js_register',
 		];

@@ -35,7 +35,7 @@
             "url": "<?= BASE_URL ?>godmode/member/get_totalmember_elite",
             "type": "POST",
             "dataSrc": function(data) {
-                console.log(data);
+                console.table(data);
                 return data;
             }
         },
@@ -63,8 +63,10 @@
                     return data === 'referral' ? row.refcode : '';
                 }
             },
-
             {
+                data: 'phone_number'
+            },
+            /*{
                 data: null,
                 "mRender": function(data, type, full, meta) {
                     if (full.status == 'active') {
@@ -85,7 +87,7 @@
                                 </div>`;
                     }
                 }
-            },
+            },*/
             {
                 data: "has_deposit",
                 className: "text-center",
