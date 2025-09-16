@@ -766,6 +766,11 @@ class Auth extends BaseController
 		$networkType = $network; // enum('erc20','bep20','polygon','trc20','base','solana')
 		$email = session()->get('reg_user')->email ?? null;
 
+		if (!$email) {
+			$this->session->setFlashdata('failed', 'Session expired, please login again.');
+			return redirect()->to(base_url() . 'hedgefund/auth/login');
+		}
+
 		$coint_network = strtolower($type . '_' . $networkType); // contoh: usdt_bep20, usdc_erc20
 
 		$payamount  = $_SESSION["payment_data"]["amount"];
@@ -803,6 +808,16 @@ class Auth extends BaseController
 			'email' => $email
 		]));
 
+		//Ambil balance wallet crypto di databse
+
+		$urlBalanceWalletDb = URL_HEDGEFUND . "/non/crypto-balance-db-check";
+		$balanceDBPayload = [
+			'wallet_address' => $wallet->result->message->address,
+			'token'          => $type, // usdt / usdc
+			'network'        => $networkType // bep20 / erc20 / trc20 / polygon
+		];
+		$wallet_db_balance    = satoshiAdmin($urlBalanceWalletDb, json_encode($balanceDBPayload));
+
 		if (isset($wallet->result->code) && $wallet->result->code == 200) {
 			// Wallet ditemukan, tampilkan halaman deposit
 			$mdata = [
@@ -812,6 +827,8 @@ class Auth extends BaseController
 				'type'          => $type,
 				'network'       => $networkType,
 				'wallet'        => $wallet->result->message,
+				'wallet_db_balance' => $wallet_db_balance->result->message->balance_db,
+				'token'         => $type,
 				'payamount'     => $payamount,
 				'total'         => $totalCapital,
 				'fee'           => $fee,

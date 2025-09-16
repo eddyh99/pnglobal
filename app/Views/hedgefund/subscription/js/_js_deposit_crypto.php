@@ -121,31 +121,10 @@
 
     function checkWallet() {
         const address = document.getElementById('addressWallet').value.trim();
-
-
-        // =========== TESTING =============
-        // BEP20 USDT & USDC
-        // const address = "0x98B4be9C7a32A5d3bEFb08bB98d65E6D204f7E98"; // ada usdtnya bep20
-        // const address = "0x11a0c9270D88C99e221360BCA50c2f6Fda44A980"; // ada usdcnya bep20
-
-        // POLYGON USDT & USDC
-        // const address = "0x8d038098fBA26a55Dd9b4eeBAe642480A52eeED8"; // ada usdt polygon
-        // const address = "0x937Fe3Ff2A9B7C24F4a340E287Ed94957424f735"; // ada usdc polygon
-
-        // ERC20 USDC & USDT
-        // const address = "0xe3D41d19564922C9952f692C5Dd0563030f5f2EF"; // ada usdc & Usdt erc20
-
-        // TRC20 USDT
-        // const address = "TCjVk9L3LJLC5UiUawXfHa3USTUY7syEFL"; // ada usdt trc20
-
-        // BASE USDC
-        // const address = "0x61edFCbdfc36ae06CaCF36e8cC824a2aDEaBffff"; // ada usdc base
-
-        // SOLANA USDC
-        // const address = "53bmyryLj1RGjYWHVXcSz96RK3d8XCGV5bCEpCh5J6u3"; // ada usdc solana
-
-
         const coint_network = "<?= $coint_network ?>";
+        const network = "<?= $network ?>";
+        const token = "<?= $token ?>";
+        const wallet_db_balance = parseFloat("<?= $wallet_db_balance ?>");
 
         fetch('<?= BASE_URL ?>/hedgefund/auth/check_wallet_balance', {
                 method: 'POST',
@@ -159,13 +138,26 @@
             })
             .then(response => response.json())
             .then(data => {
-                const payAmount = <?= $payamount ?>;
+                const payAmount = Math.round(parseFloat("<?= $payamount ?>"));
+                const expectedBalanceAfterDeposit = wallet_db_balance + payAmount;
+                const balance = data.balance;
+                // const balance = expectedBalanceAfterDeposit; // UNTUK TESTING, ANGGAP SALDO SUDAH MASUK
                 let title = "";
                 let message = "";
+                // console.log("Required Amount:", payAmount);
+                // console.log("Wallet DB Balance:", wallet_db_balance);
+                // console.log("Expected Balance After Deposit:", expectedBalanceAfterDeposit);
+                // console.log("Real Wallet Balance:", balance);
+                // console.log("Token:", token);
+                // console.log("Network:", network);
+                // console.log("Coint_Network:", coint_network);
 
                 if (data.status === "success") {
-                    data.balance = payAmount + 0.2
-                    if (parseFloat(data.balance) >= payAmount) {
+                    // ==========================================
+                    // Cek apakah saldo sudah sesuai
+                    // Note : Cek Balance Wallet Real >= expectedBalanceAfterDeposit (Ekspektasi saldo setelah deposit)
+                    // ==========================================
+                    if (balance >= expectedBalanceAfterDeposit) {
                         title = "Transaction Successful";
                         message = `Wallet: ${data.wallet_address} <br> Token: ${data.token} <br> Balance: ${data.balance}`;
 
@@ -177,7 +169,10 @@
                                     'Accept': 'application/json',
                                 },
                                 body: JSON.stringify({
-                                    invoice: "<?= $order_id ?>" // hanya mengirim order_id
+                                    invoice: "<?= $order_id ?>",
+                                    wallet_balance: balance,
+                                    token: token,
+                                    wallet_address: address,
                                 })
                             })
                             .then(response => response.json())
