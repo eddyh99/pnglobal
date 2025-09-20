@@ -117,6 +117,7 @@ class Filters extends BaseFilters
                 'godmode/dashboard',
                 'godmode/dashboard/*',
                 'godmode/payment/*',
+                'godmode/hedge/*',
                 'godmode/referral/*',
                 'godmode/message',
                 'godmode/freemember',
@@ -126,8 +127,10 @@ class Filters extends BaseFilters
                 'godmode/onetoone',
                 'godmode/onetoone/*',
                 'godmode/mediation',
-                'godmode/principe',
-                'godmode/otc'
+                'godmode/history-hedgefund',
+                'godmode/bank_account',
+                'godmode/otc',
+                'godmode/interest',
             ],
         ],
         'isLoggedInLux' => [

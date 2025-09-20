@@ -19,6 +19,7 @@ class Dashboard extends BaseController
 
         // Mendapatkan data user yang tersimpan (sudah login)
         $loggedUser = $session->get('logged_user');
+
         // Pengecekan role: hanya admin yang boleh mengakses halaman ini
         if (!in_array($loggedUser->role, ['member', 'referral','superadmin'])) {
             header("Location: " . BASE_URL . 'hedgefund/auth/login');
@@ -28,13 +29,10 @@ class Dashboard extends BaseController
 
     public function index()
     {
-        $phone_number = session()->get('logged_user')->phone_number;
-        $otp = session()->get('logged_user')->otp;
-        // hapus semau sesi
-        // dd($_SESSION);
-        // session()->remove('logged_user');
+
         $user = session()->get('logged_user');
         $is_superadmin = $user->role == 'superadmin';
+        // dd($user->role);
         $wd = new Withdraw;
         $mdata = [
             'title'     => 'Dashboard - ' . NAMETITLE,
@@ -44,9 +42,7 @@ class Dashboard extends BaseController
             'refcode'   => $_SESSION['logged_user']->refcode,
             'balance'   => $is_superadmin ? $wd->get_totalbalance() : $wd->get_balance(),
             'is_superadmin' => $is_superadmin,
-            'isreferral'   => $user->role == 'referral',
-            'phone_number' => $phone_number,
-            'otp' => $otp
+            'isreferral'   => $user->role == 'referral'
         ];
 
         return view('hedgefund/layout/dashboard_wrapper', $mdata);
@@ -109,7 +105,7 @@ class Dashboard extends BaseController
             'message' => $result
         ])->setStatusCode(200);
     }
-
+    
 
     // public function get_fundwallet_history(){
     //     $id_member  = $_SESSION['logged_user']->id;
@@ -129,142 +125,4 @@ class Dashboard extends BaseController
 
     //     return view('hedgefund/layout/dashboard_wrapper', $mdata);
     // }
-
-    public function add_whatsapp_number()
-    {
-        $data = $this->request->getJSON(true);
-        $loggedUser = session()->get('logged_user');
-
-        // Validasi nomor WhatsApp
-        $this->validation->setRules([
-            'phone_number' => 'required|numeric'
-        ]);
-        if (!$this->validation->run($data)) {
-            return $this->response
-                ->setStatusCode(422) // Unprocessable Entity
-                ->setJSON([
-                    'success' => false,
-                    'message' => $this->validation->getErrors()
-                ]);
-        }
-
-        $phone_number = $data['phone_number'] ?? null;
-        $email        = session()->get('logged_user')->email;
-
-        $url = URL_HEDGEFUND . '/v1/member/add_phone_number';
-        $payload = [
-            'email'        => $email,
-            'phone_number' => $phone_number
-        ];
-        $response = satoshiAdmin($url, json_encode($payload));
-        $result   = $response->result ?? null;
-
-        
-        if ($result->status == 201) {
-            $loggedUser->phone_number = $phone_number;
-            $loggedUser->otp = $result->otp;
-            session()->set('logged_user', $loggedUser);
-
-            // Berhasil menambahkan nomor WhatsApp dan mengirim OTP
-            $wahaUrl   = getenv('WAHA_URL') . 'api/sendText';
-            $apiKey    = getenv('WAHA_API_KEY');
-            $chatId    = $phone_number . '@c.us';
-
-            $payload = [
-                "session" => "default",
-                "chatId"  => $chatId,
-                "text"    => "Your OTP is " . $result->otp
-            ];
-
-            $client = \Config\Services::curlrequest();
-
-            try {
-                $response = $client->post($wahaUrl, [
-                    'headers' => [
-                        'Content-Type' => 'application/json',
-                        'X-Api-Key'    => $apiKey
-                    ],
-                    'json' => $payload
-                ]);
-
-                $sendStatus = json_decode($response->getBody(), true);
-            } catch (\Exception $e) {
-                log_message('error', 'WAHA send OTP error: ' . $e->getMessage());
-            }
-
-            return $this->response->setJSON([
-                'success' => true,
-                'otp'     => $result->otp 
-            ]);
-        }
-
-        return $this->response
-            ->setStatusCode(400) // Bad Request
-            ->setJSON([
-                'success' => false,
-                'message' => 'Failed to resend activation code.'
-            ]);
-    }
-
-    public function verif_otp()
-    {
-        $loggedUser = session()->get('logged_user');
-        // Pastikan method POST
-        if (!$this->request->is('post')) {
-            return $this->response->setJSON([
-                'code' => 400,
-                'success' => false,
-                'message' => 'Invalid request method'
-            ]);
-        }
-
-        try {
-            // Ambil data dari POST (fetch)
-            $email = $this->request->getPost('email');
-            $otp   = $this->request->getPost('otp');
-
-            if (empty($email) || empty($otp)) {
-                return $this->response->setJSON([
-                    'code' => 400,
-                    'success' => false,
-                    'message' => 'Email and OTP are required'
-                ]);
-            }
-
-            // Siapkan data untuk dikirim ke API
-            $mdata = [
-                'email' => $email,
-                'otp'   => $otp
-            ];
-
-            // Panggil endpoint activate member
-            $url = URL_HEDGEFUND . "/auth/activate_member";
-
-            // satoshiAdmin() = helper untuk call API
-            $response = satoshiAdmin($url, json_encode($mdata));
-
-            // Ambil code & message dari response API
-            $code = $response->result->code ?? 400;
-            $message = $response->result->message ?? 'Failed to process request';
-            if ($code == 200) {
-                $loggedUser->otp = null;
-                session()->set('logged_user', $loggedUser);
-            }
-
-            return $this->response->setJSON([
-                'code' => $code,
-                'success' => ($code == 200), // success jika code 200
-                'message' => $message
-            ]);
-        } catch (\Exception $e) {
-            // Log error untuk debug
-            log_message('error', 'OTP Processing Error: ' . $e->getMessage());
-
-            return $this->response->setJSON([
-                'code' => 500,
-                'success' => false,
-                'message' => 'Server Error: ' . $e->getMessage()
-            ]);
-        }
-    }
 }
